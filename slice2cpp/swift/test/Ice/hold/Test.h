@@ -34,7 +34,6 @@ namespace Test
     class HoldPrx : public Ice::Proxy<HoldPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Puts the adapter on hold, and optionally reactivates it.
         /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
         /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
@@ -55,12 +54,12 @@ namespace Test
         /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
         /// milliseconds, puts the adapter on hold and then immediately reactivates it.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        putOnHoldAsync(std::int32_t delay, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> putOnHoldAsync(std::int32_t delay, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_putOnHold(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
@@ -77,12 +76,12 @@ namespace Test
 
         /// Starts a background task that calls waitForHold and activate on the adapter.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        waitForHoldAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> waitForHoldAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_waitForHold(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -99,12 +98,12 @@ namespace Test
 
         /// Shuts down the server.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

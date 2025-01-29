@@ -224,13 +224,12 @@ namespace Test
     class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
     public:
-
         ShortSeq opShortArray(std::pair<const std::int16_t*, const std::int16_t*> inSeq, ShortSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::tuple<ShortSeq, ShortSeq>> opShortArrayAsync(std::pair<const std::int16_t*, const std::int16_t*> inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opShortArrayAsync(std::pair<const std::int16_t*, const std::int16_t*> inSeq, std::function<void(std::pair<const std::int16_t*, const std::int16_t*>, std::pair<const std::int16_t*, const std::int16_t*>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opShortArrayAsync(std::pair<const std::int16_t*, const std::int16_t*> inSeq, std::function<void(std::pair<const std::int16_t*, const std::int16_t*>, std::pair<const std::int16_t*, const std::int16_t*>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opShortArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortSeq, ShortSeq>>>&, std::pair<const std::int16_t*, const std::int16_t*>, const Ice::Context&) const;
@@ -244,8 +243,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(bool padding, std::pair<const double*, const double*> inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opDoubleArrayAsync(bool padding, std::pair<const double*, const double*> inSeq, std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opDoubleArrayAsync(bool padding, std::pair<const double*, const double*> inSeq, std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opDoubleArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DoubleSeq, DoubleSeq>>>&, bool, std::pair<const double*, const double*>, const Ice::Context&) const;
@@ -255,8 +254,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BoolSeq, BoolSeq>> opBoolArrayAsync(std::pair<const bool*, const bool*> inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opBoolArrayAsync(std::pair<const bool*, const bool*> inSeq, std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opBoolArrayAsync(std::pair<const bool*, const bool*> inSeq, std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opBoolArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BoolSeq, BoolSeq>>>&, std::pair<const bool*, const bool*>, const Ice::Context&) const;
@@ -266,8 +265,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ByteList, ByteList>> opByteArrayAsync(std::pair<const std::byte*, const std::byte*> inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opByteArrayAsync(std::pair<const std::byte*, const std::byte*> inSeq, std::function<void(std::pair<const std::byte*, const std::byte*>, std::pair<const std::byte*, const std::byte*>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opByteArrayAsync(std::pair<const std::byte*, const std::byte*> inSeq, std::function<void(std::pair<const std::byte*, const std::byte*>, std::pair<const std::byte*, const std::byte*>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opByteArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteList, ByteList>>>&, std::pair<const std::byte*, const std::byte*>, const Ice::Context&) const;
@@ -281,8 +280,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<VariableList, VariableList>> opVariableArrayAsync(std::pair<const Variable*, const Variable*> inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opVariableArrayAsync(std::pair<const Variable*, const Variable*> inSeq, std::function<void(::Test::VariableList, ::Test::VariableList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opVariableArrayAsync(std::pair<const Variable*, const Variable*> inSeq, std::function<void(::Test::VariableList, ::Test::VariableList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opVariableArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<VariableList, VariableList>>>&, std::pair<const Variable*, const Variable*>, const Ice::Context&) const;
@@ -292,8 +291,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<bool>, std::deque<bool>>> opBoolSeqAsync(const std::deque<bool>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opBoolSeqAsync(const std::deque<bool>& inSeq, std::function<void(std::deque<bool>, std::deque<bool>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opBoolSeqAsync(const std::deque<bool>& inSeq, std::function<void(std::deque<bool>, std::deque<bool>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opBoolSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<bool>, std::deque<bool>>>>&, const std::deque<bool>&, const Ice::Context&) const;
@@ -303,8 +302,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BoolList, BoolList>> opBoolListAsync(const BoolList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opBoolListAsync(const BoolList& inSeq, std::function<void(::Test::BoolList, ::Test::BoolList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opBoolListAsync(const BoolList& inSeq, std::function<void(::Test::BoolList, ::Test::BoolList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opBoolList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BoolList, BoolList>>>&, const BoolList&, const Ice::Context&) const;
@@ -314,8 +313,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<std::byte>, std::deque<std::byte>>> opByteSeqAsync(const std::deque<std::byte>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opByteSeqAsync(const std::deque<std::byte>& inSeq, std::function<void(std::deque<std::byte>, std::deque<std::byte>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opByteSeqAsync(const std::deque<std::byte>& inSeq, std::function<void(std::deque<std::byte>, std::deque<std::byte>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<std::byte>, std::deque<std::byte>>>>&, const std::deque<std::byte>&, const Ice::Context&) const;
@@ -325,8 +324,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ByteList, ByteList>> opByteListAsync(const ByteList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opByteListAsync(const ByteList& inSeq, std::function<void(::Test::ByteList, ::Test::ByteList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opByteListAsync(const ByteList& inSeq, std::function<void(::Test::ByteList, ::Test::ByteList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opByteList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteList, ByteList>>>&, const ByteList&, const Ice::Context&) const;
@@ -336,8 +335,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<MyByteSeq, MyByteSeq>> opMyByteSeqAsync(const MyByteSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opMyByteSeqAsync(const MyByteSeq& inSeq, std::function<void(MyByteSeq, MyByteSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opMyByteSeqAsync(const MyByteSeq& inSeq, std::function<void(MyByteSeq, MyByteSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opMyByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<MyByteSeq, MyByteSeq>>>&, const MyByteSeq&, const Ice::Context&) const;
@@ -347,8 +346,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<std::string>, std::deque<std::string>>> opStringSeqAsync(const std::deque<std::string>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringSeqAsync(const std::deque<std::string>& inSeq, std::function<void(std::deque<std::string>, std::deque<std::string>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringSeqAsync(const std::deque<std::string>& inSeq, std::function<void(std::deque<std::string>, std::deque<std::string>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStringSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<std::string>, std::deque<std::string>>>>&, const std::deque<std::string>&, const Ice::Context&) const;
@@ -358,8 +357,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<StringList, StringList>> opStringListAsync(const StringList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringListAsync(const StringList& inSeq, std::function<void(::Test::StringList, ::Test::StringList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringListAsync(const StringList& inSeq, std::function<void(::Test::StringList, ::Test::StringList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStringList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringList, StringList>>>&, const StringList&, const Ice::Context&) const;
@@ -369,8 +368,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<::Test::Fixed>, std::deque<::Test::Fixed>>> opFixedSeqAsync(const std::deque<::Test::Fixed>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opFixedSeqAsync(const std::deque<::Test::Fixed>& inSeq, std::function<void(std::deque<::Test::Fixed>, std::deque<::Test::Fixed>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opFixedSeqAsync(const std::deque<::Test::Fixed>& inSeq, std::function<void(std::deque<::Test::Fixed>, std::deque<::Test::Fixed>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opFixedSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<::Test::Fixed>, std::deque<::Test::Fixed>>>>&, const std::deque<::Test::Fixed>&, const Ice::Context&) const;
@@ -380,8 +379,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<FixedList, FixedList>> opFixedListAsync(const FixedList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opFixedListAsync(const FixedList& inSeq, std::function<void(::Test::FixedList, ::Test::FixedList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opFixedListAsync(const FixedList& inSeq, std::function<void(::Test::FixedList, ::Test::FixedList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opFixedList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<FixedList, FixedList>>>&, const FixedList&, const Ice::Context&) const;
@@ -391,8 +390,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<::Test::Variable>, std::deque<::Test::Variable>>> opVariableSeqAsync(const std::deque<::Test::Variable>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opVariableSeqAsync(const std::deque<::Test::Variable>& inSeq, std::function<void(std::deque<::Test::Variable>, std::deque<::Test::Variable>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opVariableSeqAsync(const std::deque<::Test::Variable>& inSeq, std::function<void(std::deque<::Test::Variable>, std::deque<::Test::Variable>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opVariableSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<::Test::Variable>, std::deque<::Test::Variable>>>>&, const std::deque<::Test::Variable>&, const Ice::Context&) const;
@@ -402,8 +401,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<VariableList, VariableList>> opVariableListAsync(const VariableList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opVariableListAsync(const VariableList& inSeq, std::function<void(::Test::VariableList, ::Test::VariableList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opVariableListAsync(const VariableList& inSeq, std::function<void(::Test::VariableList, ::Test::VariableList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opVariableList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<VariableList, VariableList>>>&, const VariableList&, const Ice::Context&) const;
@@ -413,8 +412,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>>> opStringStringDictSeqAsync(const std::deque<::Test::StringStringDict>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringStringDictSeqAsync(const std::deque<::Test::StringStringDict>& inSeq, std::function<void(std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringStringDictSeqAsync(const std::deque<::Test::StringStringDict>& inSeq, std::function<void(std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStringStringDictSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>>>>&, const std::deque<::Test::StringStringDict>&, const Ice::Context&) const;
@@ -424,8 +423,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<StringStringDictList, StringStringDictList>> opStringStringDictListAsync(const StringStringDictList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringStringDictListAsync(const StringStringDictList& inSeq, std::function<void(::Test::StringStringDictList, ::Test::StringStringDictList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringStringDictListAsync(const StringStringDictList& inSeq, std::function<void(::Test::StringStringDictList, ::Test::StringStringDictList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStringStringDictList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringStringDictList, StringStringDictList>>>&, const StringStringDictList&, const Ice::Context&) const;
@@ -435,8 +434,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<::Test::E>, std::deque<::Test::E>>> opESeqAsync(const std::deque<::Test::E>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opESeqAsync(const std::deque<::Test::E>& inSeq, std::function<void(std::deque<::Test::E>, std::deque<::Test::E>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opESeqAsync(const std::deque<::Test::E>& inSeq, std::function<void(std::deque<::Test::E>, std::deque<::Test::E>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opESeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<::Test::E>, std::deque<::Test::E>>>>&, const std::deque<::Test::E>&, const Ice::Context&) const;
@@ -446,8 +445,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<EList, EList>> opEListAsync(const EList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opEListAsync(const EList& inSeq, std::function<void(::Test::EList, ::Test::EList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opEListAsync(const EList& inSeq, std::function<void(::Test::EList, ::Test::EList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opEList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<EList, EList>>>&, const EList&, const Ice::Context&) const;
@@ -457,8 +456,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<std::optional<::Test::DPrx>>, std::deque<std::optional<::Test::DPrx>>>> opDPrxSeqAsync(const std::deque<std::optional<::Test::DPrx>>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opDPrxSeqAsync(const std::deque<std::optional<::Test::DPrx>>& inSeq, std::function<void(std::deque<std::optional<::Test::DPrx>>, std::deque<std::optional<::Test::DPrx>>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opDPrxSeqAsync(const std::deque<std::optional<::Test::DPrx>>& inSeq, std::function<void(std::deque<std::optional<::Test::DPrx>>, std::deque<std::optional<::Test::DPrx>>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opDPrxSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<std::optional<::Test::DPrx>>, std::deque<std::optional<::Test::DPrx>>>>>&, const std::deque<std::optional<::Test::DPrx>>&, const Ice::Context&) const;
@@ -468,8 +467,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<DPrxList, DPrxList>> opDPrxListAsync(const DPrxList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opDPrxListAsync(const DPrxList& inSeq, std::function<void(::Test::DPrxList, ::Test::DPrxList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opDPrxListAsync(const DPrxList& inSeq, std::function<void(::Test::DPrxList, ::Test::DPrxList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opDPrxList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DPrxList, DPrxList>>>&, const DPrxList&, const Ice::Context&) const;
@@ -479,8 +478,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>> opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, std::function<void(std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, std::function<void(std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opCSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>>>&, const std::deque<std::shared_ptr<Test::C>>&, const Ice::Context&) const;
@@ -490,8 +489,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opCListAsync(const CList& inSeq, std::function<void(::Test::CList, ::Test::CList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opCListAsync(const CList& inSeq, std::function<void(::Test::CList, ::Test::CList)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opCList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CList, CList>>>&, const CList&, const Ice::Context&) const;
@@ -501,8 +500,8 @@ namespace Test
 
         [[nodiscard]] std::future<ByteSeq> opOutArrayByteSeqAsync(const ByteSeq& org, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opOutArrayByteSeqAsync(const ByteSeq& org, std::function<void(std::pair<const std::byte*, const std::byte*>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opOutArrayByteSeqAsync(const ByteSeq& org, std::function<void(std::pair<const std::byte*, const std::byte*>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opOutArrayByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<ByteSeq>>&, const ByteSeq&, const Ice::Context&) const;
@@ -516,8 +515,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<IntStringDict, IntStringDict>> opIntStringDictAsync(const IntStringDict& idict, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opIntStringDictAsync(const IntStringDict& idict, std::function<void(::Test::IntStringDict, ::Test::IntStringDict)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opIntStringDictAsync(const IntStringDict& idict, std::function<void(::Test::IntStringDict, ::Test::IntStringDict)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opIntStringDict(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntStringDict, IntStringDict>>>&, const IntStringDict&, const Ice::Context&) const;
@@ -527,8 +526,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>> opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opVarDict(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>>&, const ::Test::CustomMap<std::string, std::int32_t>&, const Ice::Context&) const;
@@ -538,8 +537,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ShortBuffer, ShortBuffer>> opShortBufferAsync(const ShortBuffer& inS, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opShortBufferAsync(const ShortBuffer& inS, std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opShortBufferAsync(const ShortBuffer& inS, std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opShortBuffer(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortBuffer, ShortBuffer>>>&, const ShortBuffer&, const Ice::Context&) const;
@@ -549,8 +548,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>> opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, std::function<void(::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, std::function<void(::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opBoolBuffer(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>>>&, const ::Test::CustomBuffer<bool>&, const Ice::Context&) const;
@@ -560,8 +559,8 @@ namespace Test
 
         [[nodiscard]] std::future<BufferStruct> opBufferStructAsync(const BufferStruct& s, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opBufferStructAsync(const BufferStruct& s, std::function<void(::Test::BufferStruct)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opBufferStructAsync(const BufferStruct& s, std::function<void(::Test::BufferStruct)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opBufferStruct(const std::shared_ptr<IceInternal::OutgoingAsyncT<BufferStruct>>&, const BufferStruct&, const Ice::Context&) const;
@@ -571,8 +570,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -1032,7 +1031,7 @@ namespace Ice
     };
 
     template<>
-    struct StreamableTraits< ::Test::E>
+    struct StreamableTraits<::Test::E>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

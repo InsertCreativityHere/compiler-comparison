@@ -48,9 +48,9 @@ Test::PingReplyPrx::replyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::PingReplyPrx::replyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::PingReplyPrx::replyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
 }
 
 void
@@ -84,9 +84,9 @@ Test::TestIntfPrx::pingAsync(const std::optional<PingReplyPrx>& iceP_reply, cons
 }
 
 std::function<void()>
-Test::TestIntfPrx::pingAsync(const std::optional<PingReplyPrx>& iceP_reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::pingAsync(const std::optional<PingReplyPrx>& iceP_reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_ping, iceP_reply, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_ping, iceP_reply, context);
 }
 
 void
@@ -115,9 +115,9 @@ Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const std::optional
 }
 
 std::function<void()>
-Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const std::optional<PingReplyPrx>& iceP_reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const std::optional<PingReplyPrx>& iceP_reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sendByteSeq, iceP_seq, iceP_reply, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_sendByteSeq, iceP_seq, iceP_reply, context);
 }
 
 void
@@ -146,9 +146,9 @@ Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, const Ice::Con
 }
 
 std::function<void()>
-Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_id, context);
 }
 
 void
@@ -177,9 +177,9 @@ Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void

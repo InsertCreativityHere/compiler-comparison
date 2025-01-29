@@ -75,13 +75,12 @@ namespace await
     class casePrx : public Ice::Proxy<casePrx, Ice::ObjectPrx>
     {
     public:
-
         void catch(std::int32_t checked, std::int32_t& continue, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::int32_t> catchAsync(std::int32_t checked, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        catchAsync(std::int32_t checked, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> catchAsync(std::int32_t checked, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_catch(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
@@ -132,13 +131,12 @@ namespace await
     class typeofPrx : public Ice::Proxy<typeofPrx, Ice::ObjectPrx>
     {
     public:
-
         void default(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> defaultAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        defaultAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> defaultAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_default(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -244,13 +242,12 @@ namespace await
     class optionalParamsPrx : public Ice::Proxy<optionalParamsPrx, Ice::ObjectPrx>
     {
     public:
-
         std::optional<break> for(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<std::optional<break>> forAsync(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        forAsync(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, std::function<void(std::optional<::await::break>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> forAsync(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, std::function<void(std::optional<::await::break>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_for(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<break>>>&, std::optional<var>, const std::optional<explicitPrx>&, const std::optional<while>&, std::optional<std::string_view>, const std::optional<explicitPrx>&, const Ice::Context&) const;
@@ -260,8 +257,8 @@ namespace await
 
         [[nodiscard]] std::future<std::optional<break>> continueAsync(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        continueAsync(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, std::function<void(std::optional<::await::break>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> continueAsync(std::optional<var> goto, const std::optional<explicitPrx>& if, const std::optional<while>& internal, std::optional<std::string_view> namespace, const std::optional<explicitPrx>& null, std::function<void(std::optional<::await::break>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_continue(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<break>>>&, std::optional<var>, const std::optional<explicitPrx>&, const std::optional<while>&, std::optional<std::string_view>, const std::optional<explicitPrx>&, const Ice::Context&) const;
@@ -271,8 +268,8 @@ namespace await
 
         [[nodiscard]] std::future<std::tuple<std::optional<break>, std::optional<var>, std::optional<explicitPrx>, std::optional<while>, std::optional<std::string>, std::optional<explicitPrx>>> inAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        inAsync(std::function<void(std::optional<::await::break>, std::optional<::await::var>, std::optional<::await::explicitPrx>, std::optional<::await::while>, std::optional<std::string>, std::optional<::await::explicitPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> inAsync(std::function<void(std::optional<::await::break>, std::optional<::await::var>, std::optional<::await::explicitPrx>, std::optional<::await::while>, std::optional<std::string>, std::optional<::await::explicitPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_in(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<break>, std::optional<var>, std::optional<explicitPrx>, std::optional<while>, std::optional<std::string>, std::optional<explicitPrx>>>>&, const Ice::Context&) const;
@@ -282,8 +279,8 @@ namespace await
 
         [[nodiscard]] std::future<std::tuple<std::optional<break>, std::optional<var>, std::optional<explicitPrx>, std::optional<while>, std::optional<std::string>, std::optional<explicitPrx>>> foreachAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        foreachAsync(std::function<void(std::optional<::await::break>, std::optional<::await::var>, std::optional<::await::explicitPrx>, std::optional<::await::while>, std::optional<std::string>, std::optional<::await::explicitPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> foreachAsync(std::function<void(std::optional<::await::break>, std::optional<::await::var>, std::optional<::await::explicitPrx>, std::optional<::await::while>, std::optional<std::string>, std::optional<::await::explicitPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_foreach(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<break>, std::optional<var>, std::optional<explicitPrx>, std::optional<while>, std::optional<std::string>, std::optional<explicitPrx>>>>&, const Ice::Context&) const;
@@ -334,13 +331,12 @@ namespace await
     class implicitPrx : public Ice::Proxy<implicitPrx, Ice::ObjectPrx>
     {
     public:
-
         var in(const break& internal, const deletePtr& is, const std::optional<explicitPrx>& lock, const std::optional<casePrx>& namespace, const std::optional<typeofPrx>& new, const deletePtr& null, const std::optional<explicitPrx>& operator, std::int32_t override, std::int32_t params, std::int32_t private, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<var> inAsync(const break& internal, const deletePtr& is, const std::optional<explicitPrx>& lock, const std::optional<casePrx>& namespace, const std::optional<typeofPrx>& new, const deletePtr& null, const std::optional<explicitPrx>& operator, std::int32_t override, std::int32_t params, std::int32_t private, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        inAsync(const break& internal, const deletePtr& is, const std::optional<explicitPrx>& lock, const std::optional<casePrx>& namespace, const std::optional<typeofPrx>& new, const deletePtr& null, const std::optional<explicitPrx>& operator, std::int32_t override, std::int32_t params, std::int32_t private, std::function<void(::await::var)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> inAsync(const break& internal, const deletePtr& is, const std::optional<explicitPrx>& lock, const std::optional<casePrx>& namespace, const std::optional<typeofPrx>& new, const deletePtr& null, const std::optional<explicitPrx>& operator, std::int32_t override, std::int32_t params, std::int32_t private, std::function<void(::await::var)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_in(const std::shared_ptr<IceInternal::OutgoingAsyncT<var>>&, const break&, const deletePtr&, const std::optional<explicitPrx>&, const std::optional<casePrx>&, const std::optional<typeofPrx>&, const deletePtr&, const std::optional<explicitPrx>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
@@ -394,13 +390,12 @@ namespace await
         class TestPrx : public Ice::Proxy<TestPrx, Ice::ObjectPrx>
         {
         public:
-
             void op(const Ice::Context& context = Ice::noExplicitContext) const;
 
             [[nodiscard]] std::future<void> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -456,13 +451,12 @@ namespace System
     class TestPrx : public Ice::Proxy<TestPrx, Ice::ObjectPrx>
     {
     public:
-
         void op(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -1036,7 +1030,7 @@ namespace System
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::await::var>
+    struct StreamableTraits<::await::var>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

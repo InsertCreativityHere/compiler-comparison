@@ -99,13 +99,12 @@ namespace Test
     class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
     public:
-
         Ice::ValuePtr SBaseAsObject(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<Ice::ValuePtr> SBaseAsObjectAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SBaseAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SBaseAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SBaseAsObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<Ice::ValuePtr>>&, const Ice::Context&) const;
@@ -115,8 +114,8 @@ namespace Test
 
         [[nodiscard]] std::future<SBasePtr> SBaseAsSBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SBaseAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SBaseAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SBaseAsSBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<SBasePtr>>&, const Ice::Context&) const;
@@ -126,8 +125,8 @@ namespace Test
 
         [[nodiscard]] std::future<SBasePtr> SBSKnownDerivedAsSBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SBSKnownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SBSKnownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SBSKnownDerivedAsSBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<SBasePtr>>&, const Ice::Context&) const;
@@ -137,8 +136,8 @@ namespace Test
 
         [[nodiscard]] std::future<SBSKnownDerivedPtr> SBSKnownDerivedAsSBSKnownDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SBSKnownDerivedAsSBSKnownDerivedAsync(std::function<void(::Test::SBSKnownDerivedPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SBSKnownDerivedAsSBSKnownDerivedAsync(std::function<void(::Test::SBSKnownDerivedPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SBSKnownDerivedAsSBSKnownDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<SBSKnownDerivedPtr>>&, const Ice::Context&) const;
@@ -148,8 +147,8 @@ namespace Test
 
         [[nodiscard]] std::future<SBasePtr> SBSUnknownDerivedAsSBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SBSUnknownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SBSUnknownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SBSUnknownDerivedAsSBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<SBasePtr>>&, const Ice::Context&) const;
@@ -159,8 +158,8 @@ namespace Test
 
         [[nodiscard]] std::future<SBasePtr> SBSUnknownDerivedAsSBaseCompactAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SBSUnknownDerivedAsSBaseCompactAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SBSUnknownDerivedAsSBaseCompactAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SBSUnknownDerivedAsSBaseCompact(const std::shared_ptr<IceInternal::OutgoingAsyncT<SBasePtr>>&, const Ice::Context&) const;
@@ -170,8 +169,8 @@ namespace Test
 
         [[nodiscard]] std::future<Ice::ValuePtr> SUnknownAsObjectAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        SUnknownAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> SUnknownAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_SUnknownAsObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<Ice::ValuePtr>>&, const Ice::Context&) const;
@@ -181,8 +180,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> checkSUnknownAsync(const Ice::ValuePtr& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkSUnknownAsync(const Ice::ValuePtr& o, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkSUnknownAsync(const Ice::ValuePtr& o, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkSUnknown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::ValuePtr&, const Ice::Context&) const;
@@ -192,8 +191,8 @@ namespace Test
 
         [[nodiscard]] std::future<BPtr> oneElementCycleAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        oneElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> oneElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_oneElementCycle(const std::shared_ptr<IceInternal::OutgoingAsyncT<BPtr>>&, const Ice::Context&) const;
@@ -203,8 +202,8 @@ namespace Test
 
         [[nodiscard]] std::future<BPtr> twoElementCycleAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        twoElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> twoElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_twoElementCycle(const std::shared_ptr<IceInternal::OutgoingAsyncT<BPtr>>&, const Ice::Context&) const;
@@ -214,8 +213,8 @@ namespace Test
 
         [[nodiscard]] std::future<BPtr> D1AsBAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        D1AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> D1AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_D1AsB(const std::shared_ptr<IceInternal::OutgoingAsyncT<BPtr>>&, const Ice::Context&) const;
@@ -225,8 +224,8 @@ namespace Test
 
         [[nodiscard]] std::future<D1Ptr> D1AsD1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        D1AsD1Async(std::function<void(::Test::D1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> D1AsD1Async(std::function<void(::Test::D1Ptr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_D1AsD1(const std::shared_ptr<IceInternal::OutgoingAsyncT<D1Ptr>>&, const Ice::Context&) const;
@@ -236,8 +235,8 @@ namespace Test
 
         [[nodiscard]] std::future<BPtr> D2AsBAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        D2AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> D2AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_D2AsB(const std::shared_ptr<IceInternal::OutgoingAsyncT<BPtr>>&, const Ice::Context&) const;
@@ -247,8 +246,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BPtr, BPtr>> paramTest1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        paramTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> paramTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_paramTest1(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BPtr, BPtr>>>&, const Ice::Context&) const;
@@ -258,8 +257,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BPtr, BPtr>> paramTest2Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        paramTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> paramTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_paramTest2(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BPtr, BPtr>>>&, const Ice::Context&) const;
@@ -269,8 +268,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BPtr, BPtr, BPtr>> paramTest3Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        paramTest3Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> paramTest3Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_paramTest3(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BPtr, BPtr, BPtr>>>&, const Ice::Context&) const;
@@ -280,8 +279,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BPtr, BPtr>> paramTest4Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        paramTest4Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> paramTest4Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_paramTest4(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BPtr, BPtr>>>&, const Ice::Context&) const;
@@ -291,8 +290,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BPtr, BPtr, BPtr>> returnTest1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        returnTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> returnTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_returnTest1(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BPtr, BPtr, BPtr>>>&, const Ice::Context&) const;
@@ -302,8 +301,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BPtr, BPtr, BPtr>> returnTest2Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        returnTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> returnTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_returnTest2(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BPtr, BPtr, BPtr>>>&, const Ice::Context&) const;
@@ -313,8 +312,8 @@ namespace Test
 
         [[nodiscard]] std::future<BPtr> returnTest3Async(const BPtr& p1, const BPtr& p2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        returnTest3Async(const BPtr& p1, const BPtr& p2, std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> returnTest3Async(const BPtr& p1, const BPtr& p2, std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_returnTest3(const std::shared_ptr<IceInternal::OutgoingAsyncT<BPtr>>&, const BPtr&, const BPtr&, const Ice::Context&) const;
@@ -324,8 +323,8 @@ namespace Test
 
         [[nodiscard]] std::future<SS3> sequenceTestAsync(const SS1Ptr& p1, const SS2Ptr& p2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        sequenceTestAsync(const SS1Ptr& p1, const SS2Ptr& p2, std::function<void(::Test::SS3)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> sequenceTestAsync(const SS1Ptr& p1, const SS2Ptr& p2, std::function<void(::Test::SS3)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_sequenceTest(const std::shared_ptr<IceInternal::OutgoingAsyncT<SS3>>&, const SS1Ptr&, const SS2Ptr&, const Ice::Context&) const;
@@ -335,8 +334,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<BDict, BDict>> dictionaryTestAsync(const BDict& bin, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        dictionaryTestAsync(const BDict& bin, std::function<void(::Test::BDict, ::Test::BDict)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> dictionaryTestAsync(const BDict& bin, std::function<void(::Test::BDict, ::Test::BDict)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_dictionaryTest(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BDict, BDict>>>&, const BDict&, const Ice::Context&) const;
@@ -346,8 +345,8 @@ namespace Test
 
         [[nodiscard]] std::future<PBasePtr> exchangePBaseAsync(const PBasePtr& pb, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        exchangePBaseAsync(const PBasePtr& pb, std::function<void(::Test::PBasePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> exchangePBaseAsync(const PBasePtr& pb, std::function<void(::Test::PBasePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_exchangePBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<PBasePtr>>&, const PBasePtr&, const Ice::Context&) const;
@@ -357,8 +356,8 @@ namespace Test
 
         [[nodiscard]] std::future<PreservedPtr> PBSUnknownAsPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        PBSUnknownAsPreservedAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> PBSUnknownAsPreservedAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_PBSUnknownAsPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<PreservedPtr>>&, const Ice::Context&) const;
@@ -368,8 +367,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> checkPBSUnknownAsync(const PreservedPtr& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkPBSUnknownAsync(const PreservedPtr& p, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkPBSUnknownAsync(const PreservedPtr& p, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkPBSUnknown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const PreservedPtr&, const Ice::Context&) const;
@@ -379,8 +378,8 @@ namespace Test
 
         [[nodiscard]] std::future<PreservedPtr> PBSUnknownAsPreservedWithGraphAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        PBSUnknownAsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> PBSUnknownAsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_PBSUnknownAsPreservedWithGraph(const std::shared_ptr<IceInternal::OutgoingAsyncT<PreservedPtr>>&, const Ice::Context&) const;
@@ -390,8 +389,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> checkPBSUnknownWithGraphAsync(const PreservedPtr& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkPBSUnknownWithGraphAsync(const PreservedPtr& p, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkPBSUnknownWithGraphAsync(const PreservedPtr& p, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkPBSUnknownWithGraph(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const PreservedPtr&, const Ice::Context&) const;
@@ -401,8 +400,8 @@ namespace Test
 
         [[nodiscard]] std::future<PreservedPtr> PBSUnknown2AsPreservedWithGraphAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        PBSUnknown2AsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> PBSUnknown2AsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_PBSUnknown2AsPreservedWithGraph(const std::shared_ptr<IceInternal::OutgoingAsyncT<PreservedPtr>>&, const Ice::Context&) const;
@@ -412,8 +411,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> checkPBSUnknown2WithGraphAsync(const PreservedPtr& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkPBSUnknown2WithGraphAsync(const PreservedPtr& p, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkPBSUnknown2WithGraphAsync(const PreservedPtr& p, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkPBSUnknown2WithGraph(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const PreservedPtr&, const Ice::Context&) const;
@@ -423,8 +422,8 @@ namespace Test
 
         [[nodiscard]] std::future<PNodePtr> exchangePNodeAsync(const PNodePtr& pn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        exchangePNodeAsync(const PNodePtr& pn, std::function<void(::Test::PNodePtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> exchangePNodeAsync(const PNodePtr& pn, std::function<void(::Test::PNodePtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_exchangePNode(const std::shared_ptr<IceInternal::OutgoingAsyncT<PNodePtr>>&, const PNodePtr&, const Ice::Context&) const;
@@ -434,8 +433,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwBaseAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwBaseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwBaseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwBaseAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -445,8 +444,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -456,8 +455,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwDerivedAsDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwDerivedAsDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwDerivedAsDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwDerivedAsDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -467,8 +466,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwUnknownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwUnknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwUnknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwUnknownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -478,8 +477,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwPreservedExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwPreservedExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwPreservedExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwPreservedException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -489,8 +488,8 @@ namespace Test
 
         [[nodiscard]] std::future<ForwardPtr> useForwardAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        useForwardAsync(std::function<void(::Test::ForwardPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> useForwardAsync(std::function<void(::Test::ForwardPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_useForward(const std::shared_ptr<IceInternal::OutgoingAsyncT<ForwardPtr>>&, const Ice::Context&) const;
@@ -500,8 +499,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

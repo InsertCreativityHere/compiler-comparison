@@ -67,9 +67,9 @@ Test::ThrowerPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_shutdown, context);
 }
 
 void
@@ -95,9 +95,9 @@ Test::ThrowerPrx::supportsUndeclaredExceptionsAsync(const Ice::Context& context)
 }
 
 std::function<void()>
-Test::ThrowerPrx::supportsUndeclaredExceptionsAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::supportsUndeclaredExceptionsAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_supportsUndeclaredExceptions, context);
+    return IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_supportsUndeclaredExceptions, context);
 }
 
 void
@@ -124,9 +124,9 @@ Test::ThrowerPrx::supportsAssertExceptionAsync(const Ice::Context& context) cons
 }
 
 std::function<void()>
-Test::ThrowerPrx::supportsAssertExceptionAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::supportsAssertExceptionAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_supportsAssertException, context);
+    return IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_supportsAssertException, context);
 }
 
 void
@@ -153,9 +153,9 @@ Test::ThrowerPrx::throwAasAAsync(std::int32_t iceP_a, const Ice::Context& contex
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwAasAAsync(std::int32_t iceP_a, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwAasAAsync(std::int32_t iceP_a, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAasA, iceP_a, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAasA, iceP_a, context);
 }
 
 void
@@ -198,9 +198,9 @@ Test::ThrowerPrx::throwAorDasAorDAsync(std::int32_t iceP_a, const Ice::Context& 
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwAorDasAorDAsync(std::int32_t iceP_a, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwAorDasAorDAsync(std::int32_t iceP_a, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAorDasAorD, iceP_a, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAorDasAorD, iceP_a, context);
 }
 
 void
@@ -247,9 +247,9 @@ Test::ThrowerPrx::throwBasAAsync(std::int32_t iceP_a, std::int32_t iceP_b, const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwBasAAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwBasAAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwBasA, iceP_a, iceP_b, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwBasA, iceP_a, iceP_b, context);
 }
 
 void
@@ -292,9 +292,9 @@ Test::ThrowerPrx::throwCasAAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwCasAAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwCasAAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwCasA, iceP_a, iceP_b, iceP_c, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwCasA, iceP_a, iceP_b, iceP_c, context);
 }
 
 void
@@ -337,9 +337,9 @@ Test::ThrowerPrx::throwBasBAsync(std::int32_t iceP_a, std::int32_t iceP_b, const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwBasBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwBasBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwBasB, iceP_a, iceP_b, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwBasB, iceP_a, iceP_b, context);
 }
 
 void
@@ -382,9 +382,9 @@ Test::ThrowerPrx::throwCasBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwCasBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwCasBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwCasB, iceP_a, iceP_b, iceP_c, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwCasB, iceP_a, iceP_b, iceP_c, context);
 }
 
 void
@@ -427,9 +427,9 @@ Test::ThrowerPrx::throwCasCAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwCasCAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwCasCAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwCasC, iceP_a, iceP_b, iceP_c, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwCasC, iceP_a, iceP_b, iceP_c, context);
 }
 
 void
@@ -472,9 +472,9 @@ Test::ThrowerPrx::throwModAAsync(std::int32_t iceP_a, std::int32_t iceP_a2, cons
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwModAAsync(std::int32_t iceP_a, std::int32_t iceP_a2, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwModAAsync(std::int32_t iceP_a, std::int32_t iceP_a2, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwModA, iceP_a, iceP_a2, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwModA, iceP_a, iceP_a2, context);
 }
 
 void
@@ -517,9 +517,9 @@ Test::ThrowerPrx::throwUndeclaredAAsync(std::int32_t iceP_a, const Ice::Context&
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwUndeclaredAAsync(std::int32_t iceP_a, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwUndeclaredAAsync(std::int32_t iceP_a, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwUndeclaredA, iceP_a, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwUndeclaredA, iceP_a, context);
 }
 
 void
@@ -548,9 +548,9 @@ Test::ThrowerPrx::throwUndeclaredBAsync(std::int32_t iceP_a, std::int32_t iceP_b
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwUndeclaredBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwUndeclaredBAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwUndeclaredB, iceP_a, iceP_b, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwUndeclaredB, iceP_a, iceP_b, context);
 }
 
 void
@@ -579,9 +579,9 @@ Test::ThrowerPrx::throwUndeclaredCAsync(std::int32_t iceP_a, std::int32_t iceP_b
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwUndeclaredCAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwUndeclaredCAsync(std::int32_t iceP_a, std::int32_t iceP_b, std::int32_t iceP_c, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwUndeclaredC, iceP_a, iceP_b, iceP_c, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwUndeclaredC, iceP_a, iceP_b, iceP_c, context);
 }
 
 void
@@ -610,9 +610,9 @@ Test::ThrowerPrx::throwLocalExceptionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwLocalExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwLocalExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwLocalException, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwLocalException, context);
 }
 
 void
@@ -638,9 +638,9 @@ Test::ThrowerPrx::throwNonIceExceptionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwNonIceExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwNonIceExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwNonIceException, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwNonIceException, context);
 }
 
 void
@@ -666,9 +666,9 @@ Test::ThrowerPrx::throwAssertExceptionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwAssertExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwAssertExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAssertException, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAssertException, context);
 }
 
 void
@@ -694,9 +694,9 @@ Test::ThrowerPrx::throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& iceP_seq,
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& iceP_seq, std::function<void(::Ice::ByteSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& iceP_seq, std::function<void(::Ice::ByteSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwMemoryLimitException, iceP_seq, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwMemoryLimitException, iceP_seq, context);
 }
 
 void
@@ -726,9 +726,9 @@ Test::ThrowerPrx::throwLocalExceptionIdempotentAsync(const Ice::Context& context
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwLocalExceptionIdempotentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwLocalExceptionIdempotentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent, context);
 }
 
 void
@@ -754,9 +754,9 @@ Test::ThrowerPrx::throwAfterResponseAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwAfterResponseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwAfterResponseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAfterResponse, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAfterResponse, context);
 }
 
 void
@@ -782,9 +782,9 @@ Test::ThrowerPrx::throwAfterExceptionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwAfterExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwAfterExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAfterException, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwAfterException, context);
 }
 
 void
@@ -824,9 +824,9 @@ Test::ThrowerPrx::throwEAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ThrowerPrx::throwEAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ThrowerPrx::throwEAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwE, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ThrowerPrx::_iceI_throwE, context);
 }
 
 void
@@ -874,9 +874,9 @@ Test::WrongOperationPrx::noSuchOperationAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::WrongOperationPrx::noSuchOperationAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::WrongOperationPrx::noSuchOperationAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::WrongOperationPrx::_iceI_noSuchOperation, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::WrongOperationPrx::_iceI_noSuchOperation, context);
 }
 
 void

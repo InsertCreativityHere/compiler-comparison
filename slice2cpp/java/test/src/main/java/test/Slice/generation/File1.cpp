@@ -54,9 +54,9 @@ Test::Interface1Prx::methodAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::Interface1Prx::methodAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Interface1Prx::methodAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Interface1Prx::_iceI_method, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Interface1Prx::_iceI_method, context);
 }
 
 void

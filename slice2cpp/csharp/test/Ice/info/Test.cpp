@@ -48,9 +48,9 @@ Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
@@ -76,9 +76,9 @@ Test::TestIntfPrx::getEndpointInfoAsContextAsync(const Ice::Context& context) co
 }
 
 std::function<void()>
-Test::TestIntfPrx::getEndpointInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::getEndpointInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
 }
 
 void
@@ -105,9 +105,9 @@ Test::TestIntfPrx::getConnectionInfoAsContextAsync(const Ice::Context& context) 
 }
 
 std::function<void()>
-Test::TestIntfPrx::getConnectionInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::getConnectionInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
 }
 
 void

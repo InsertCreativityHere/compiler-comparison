@@ -48,9 +48,9 @@ Test::SinglePrx::eventAsync(std::int32_t iceP_i, const Ice::Context& context) co
 }
 
 std::function<void()>
-Test::SinglePrx::eventAsync(std::int32_t iceP_i, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::SinglePrx::eventAsync(std::int32_t iceP_i, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
 }
 
 void

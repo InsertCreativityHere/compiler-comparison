@@ -38,13 +38,12 @@ namespace Test
     class ServerPrx : public Ice::Proxy<ServerPrx, Ice::ObjectPrx>
     {
     public:
-
         void noCert(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> noCertAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        noCertAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> noCertAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_noCert(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -54,8 +53,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> checkCertAsync(std::string_view subjectDN, std::string_view issuerDN, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkCertAsync(std::string_view subjectDN, std::string_view issuerDN, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkCertAsync(std::string_view subjectDN, std::string_view issuerDN, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkCert(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, const Ice::Context&) const;
@@ -106,13 +105,12 @@ namespace Test
     class ServerFactoryPrx : public Ice::Proxy<ServerFactoryPrx, Ice::ObjectPrx>
     {
     public:
-
         std::optional<ServerPrx> createServer(const Properties& props, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<std::optional<ServerPrx>> createServerAsync(const Properties& props, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createServerAsync(const Properties& props, std::function<void(std::optional<::Test::ServerPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createServerAsync(const Properties& props, std::function<void(std::optional<::Test::ServerPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createServer(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<ServerPrx>>>&, const Properties&, const Ice::Context&) const;
@@ -122,8 +120,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> destroyServerAsync(const std::optional<ServerPrx>& srv, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyServerAsync(const std::optional<ServerPrx>& srv, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyServerAsync(const std::optional<ServerPrx>& srv, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroyServer(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<ServerPrx>&, const Ice::Context&) const;
@@ -133,8 +131,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

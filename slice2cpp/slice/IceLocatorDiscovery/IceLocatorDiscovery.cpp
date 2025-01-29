@@ -52,9 +52,9 @@ IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const std::optional<::Ice
 }
 
 std::function<void()>
-IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const std::optional<::Ice::LocatorPrx>& iceP_prx, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const std::optional<::Ice::LocatorPrx>& iceP_prx, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
 }
 
 void
@@ -91,9 +91,9 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(std::string_view iceP_instanceN
 }
 
 std::function<void()>
-IceLocatorDiscovery::LookupPrx::findLocatorAsync(std::string_view iceP_instanceName, const std::optional<LookupReplyPrx>& iceP_reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceLocatorDiscovery::LookupPrx::findLocatorAsync(std::string_view iceP_instanceName, const std::optional<LookupReplyPrx>& iceP_reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
 }
 
 void

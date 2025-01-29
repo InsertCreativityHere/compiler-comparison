@@ -48,9 +48,9 @@ Test::ControllerPrx::stopAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ControllerPrx::stopAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::stopAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_stop, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_stop, context);
 }
 
 void

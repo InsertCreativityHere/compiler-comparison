@@ -58,9 +58,9 @@ Test::Common::TestCasePrx::startServerSideAsync(const ConfigPtr& iceP_config, co
 }
 
 std::function<void()>
-Test::Common::TestCasePrx::startServerSideAsync(const ConfigPtr& iceP_config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::TestCasePrx::startServerSideAsync(const ConfigPtr& iceP_config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_startServerSide, iceP_config, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_startServerSide, iceP_config, context);
 }
 
 void
@@ -104,9 +104,9 @@ Test::Common::TestCasePrx::stopServerSideAsync(bool iceP_success, const Ice::Con
 }
 
 std::function<void()>
-Test::Common::TestCasePrx::stopServerSideAsync(bool iceP_success, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::TestCasePrx::stopServerSideAsync(bool iceP_success, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_stopServerSide, iceP_success, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_stopServerSide, iceP_success, context);
 }
 
 void
@@ -149,9 +149,9 @@ Test::Common::TestCasePrx::runClientSideAsync(std::string_view iceP_host, const 
 }
 
 std::function<void()>
-Test::Common::TestCasePrx::runClientSideAsync(std::string_view iceP_host, const ConfigPtr& iceP_config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::TestCasePrx::runClientSideAsync(std::string_view iceP_host, const ConfigPtr& iceP_config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context);
 }
 
 void
@@ -195,9 +195,9 @@ Test::Common::TestCasePrx::destroyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::Common::TestCasePrx::destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::TestCasePrx::destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_destroy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_destroy, context);
 }
 
 void
@@ -231,9 +231,9 @@ Test::Common::ControllerPrx::runTestCaseAsync(std::string_view iceP_mapping, std
 }
 
 std::function<void()>
-Test::Common::ControllerPrx::runTestCaseAsync(std::string_view iceP_mapping, std::string_view iceP_testsuite, std::string_view iceP_testcase, std::string_view iceP_cross, std::function<void(std::optional<::Test::Common::TestCasePrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ControllerPrx::runTestCaseAsync(std::string_view iceP_mapping, std::string_view iceP_testsuite, std::string_view iceP_testcase, std::string_view iceP_cross, std::function<void(std::optional<::Test::Common::TestCasePrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<TestCasePrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_runTestCase, iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<TestCasePrx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_runTestCase, iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, context);
 }
 
 void
@@ -276,9 +276,9 @@ Test::Common::ControllerPrx::getOptionOverridesAsync(const Ice::Context& context
 }
 
 std::function<void()>
-Test::Common::ControllerPrx::getOptionOverridesAsync(std::function<void(::Test::Common::OptionOverridesPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ControllerPrx::getOptionOverridesAsync(std::function<void(::Test::Common::OptionOverridesPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<OptionOverridesPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getOptionOverrides, context);
+    return IceInternal::makeLambdaOutgoing<OptionOverridesPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getOptionOverrides, context);
 }
 
 void
@@ -312,9 +312,9 @@ Test::Common::ControllerPrx::getTestSuitesAsync(std::string_view iceP_mapping, c
 }
 
 std::function<void()>
-Test::Common::ControllerPrx::getTestSuitesAsync(std::string_view iceP_mapping, std::function<void(::Test::Common::StringSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ControllerPrx::getTestSuitesAsync(std::string_view iceP_mapping, std::function<void(::Test::Common::StringSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getTestSuites, iceP_mapping, context);
+    return IceInternal::makeLambdaOutgoing<StringSeq>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getTestSuites, iceP_mapping, context);
 }
 
 void
@@ -344,9 +344,9 @@ Test::Common::ControllerPrx::getHostAsync(std::string_view iceP_protocol, bool i
 }
 
 std::function<void()>
-Test::Common::ControllerPrx::getHostAsync(std::string_view iceP_protocol, bool iceP_ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ControllerPrx::getHostAsync(std::string_view iceP_protocol, bool iceP_ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context);
 }
 
 void
@@ -384,9 +384,9 @@ Test::Common::ProcessPrx::waitReadyAsync(std::int32_t iceP_timeout, const Ice::C
 }
 
 std::function<void()>
-Test::Common::ProcessPrx::waitReadyAsync(std::int32_t iceP_timeout, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ProcessPrx::waitReadyAsync(std::int32_t iceP_timeout, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitReady, iceP_timeout, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitReady, iceP_timeout, context);
 }
 
 void
@@ -429,9 +429,9 @@ Test::Common::ProcessPrx::waitSuccessAsync(std::int32_t iceP_timeout, const Ice:
 }
 
 std::function<void()>
-Test::Common::ProcessPrx::waitSuccessAsync(std::int32_t iceP_timeout, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ProcessPrx::waitSuccessAsync(std::int32_t iceP_timeout, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitSuccess, iceP_timeout, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitSuccess, iceP_timeout, context);
 }
 
 void
@@ -474,9 +474,9 @@ Test::Common::ProcessPrx::terminateAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::Common::ProcessPrx::terminateAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ProcessPrx::terminateAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_terminate, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_terminate, context);
 }
 
 void
@@ -511,9 +511,9 @@ Test::Common::ProcessControllerPrx::startAsync(std::string_view iceP_testsuite, 
 }
 
 std::function<void()>
-Test::Common::ProcessControllerPrx::startAsync(std::string_view iceP_testsuite, std::string_view iceP_exe, const StringSeq& iceP_args, std::function<void(std::optional<::Test::Common::ProcessPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ProcessControllerPrx::startAsync(std::string_view iceP_testsuite, std::string_view iceP_exe, const StringSeq& iceP_args, std::function<void(std::optional<::Test::Common::ProcessPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<ProcessPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessControllerPrx::_iceI_start, iceP_testsuite, iceP_exe, iceP_args, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<ProcessPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ProcessControllerPrx::_iceI_start, iceP_testsuite, iceP_exe, iceP_args, context);
 }
 
 void
@@ -556,9 +556,9 @@ Test::Common::ProcessControllerPrx::getHostAsync(std::string_view iceP_protocol,
 }
 
 std::function<void()>
-Test::Common::ProcessControllerPrx::getHostAsync(std::string_view iceP_protocol, bool iceP_ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ProcessControllerPrx::getHostAsync(std::string_view iceP_protocol, bool iceP_ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ProcessControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context);
 }
 
 void
@@ -596,9 +596,9 @@ Test::Common::BrowserProcessControllerPrx::redirectAsync(std::string_view iceP_u
 }
 
 std::function<void()>
-Test::Common::BrowserProcessControllerPrx::redirectAsync(std::string_view iceP_url, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::BrowserProcessControllerPrx::redirectAsync(std::string_view iceP_url, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::BrowserProcessControllerPrx::_iceI_redirect, iceP_url, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::BrowserProcessControllerPrx::_iceI_redirect, iceP_url, context);
 }
 
 void
@@ -635,9 +635,9 @@ Test::Common::ProcessControllerRegistryPrx::setProcessControllerAsync(const std:
 }
 
 std::function<void()>
-Test::Common::ProcessControllerRegistryPrx::setProcessControllerAsync(const std::optional<ProcessControllerPrx>& iceP_controller, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Common::ProcessControllerRegistryPrx::setProcessControllerAsync(const std::optional<ProcessControllerPrx>& iceP_controller, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController, iceP_controller, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController, iceP_controller, context);
 }
 
 void

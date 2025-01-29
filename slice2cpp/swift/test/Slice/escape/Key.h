@@ -73,13 +73,12 @@ namespace and
     class breakPrx : public Ice::Proxy<breakPrx, Ice::ObjectPrx>
     {
     public:
-
         void case(std::int32_t catch, std::int32_t& try, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::int32_t> caseAsync(std::int32_t catch, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        caseAsync(std::int32_t catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> caseAsync(std::int32_t catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_case(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
@@ -130,13 +129,12 @@ namespace and
     class funcPrx : public Ice::Proxy<funcPrx, Ice::ObjectPrx>
     {
     public:
-
         void public(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> publicAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        publicAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> publicAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_public(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -242,13 +240,12 @@ namespace and
     class friendPrx : public Ice::Proxy<friendPrx, Ice::ObjectPrx>
     {
     public:
-
         guard goto(continue if, const guard& d, const defer& inline, const switchPtr& private, const std::optional<doPrx>& mutable, const std::optional<breakPrx>& namespace, const std::optional<funcPrx>& new, const switchPtr& not, const std::optional<doPrx>& operator, std::int32_t or, std::int32_t protected, std::int32_t public, std::int32_t register, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<guard> gotoAsync(continue if, const guard& d, const defer& inline, const switchPtr& private, const std::optional<doPrx>& mutable, const std::optional<breakPrx>& namespace, const std::optional<funcPrx>& new, const switchPtr& not, const std::optional<doPrx>& operator, std::int32_t or, std::int32_t protected, std::int32_t public, std::int32_t register, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        gotoAsync(continue if, const guard& d, const defer& inline, const switchPtr& private, const std::optional<doPrx>& mutable, const std::optional<breakPrx>& namespace, const std::optional<funcPrx>& new, const switchPtr& not, const std::optional<doPrx>& operator, std::int32_t or, std::int32_t protected, std::int32_t public, std::int32_t register, std::function<void(::and::guard)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> gotoAsync(continue if, const guard& d, const defer& inline, const switchPtr& private, const std::optional<doPrx>& mutable, const std::optional<breakPrx>& namespace, const std::optional<funcPrx>& new, const switchPtr& not, const std::optional<doPrx>& operator, std::int32_t or, std::int32_t protected, std::int32_t public, std::int32_t register, std::function<void(::and::guard)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_goto(const std::shared_ptr<IceInternal::OutgoingAsyncT<guard>>&, continue, const guard&, const defer&, const switchPtr&, const std::optional<doPrx>&, const std::optional<breakPrx>&, const std::optional<funcPrx>&, const switchPtr&, const std::optional<doPrx>&, std::int32_t, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
@@ -593,7 +590,7 @@ namespace and
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::and::continue>
+    struct StreamableTraits<::and::continue>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

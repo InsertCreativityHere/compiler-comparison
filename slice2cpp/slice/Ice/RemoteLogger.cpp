@@ -75,9 +75,9 @@ Ice::RemoteLoggerPrx::initAsync(std::string_view iceP_prefix, const LogMessageSe
 }
 
 std::function<void()>
-Ice::RemoteLoggerPrx::initAsync(std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::RemoteLoggerPrx::initAsync(std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context);
 }
 
 void
@@ -106,9 +106,9 @@ Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message, const Ice::Contex
 }
 
 std::function<void()>
-Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_log, iceP_message, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_log, iceP_message, context);
 }
 
 void
@@ -145,9 +145,9 @@ Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx
 }
 
 std::function<void()>
-Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, std::int32_t iceP_messageMax, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, std::int32_t iceP_messageMax, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
 }
 
 void
@@ -190,9 +190,9 @@ Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx
 }
 
 std::function<void()>
-Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& iceP_prx, std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& iceP_prx, std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_detachRemoteLogger, iceP_prx, context);
+    return IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_detachRemoteLogger, iceP_prx, context);
 }
 
 void
@@ -224,13 +224,13 @@ Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, con
 }
 
 std::function<void()>
-Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, std::int32_t iceP_messageMax, std::function<void(::Ice::LogMessageSeq, std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, std::int32_t iceP_messageMax, std::function<void(::Ice::LogMessageSeq, std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<LogMessageSeq, std::string>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<LogMessageSeq, std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<LogMessageSeq, std::string>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
 }
 
 void

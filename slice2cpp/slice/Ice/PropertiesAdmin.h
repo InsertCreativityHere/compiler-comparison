@@ -36,7 +36,6 @@ namespace Ice
     class ICE_API PropertiesAdminPrx : public Ice::Proxy<PropertiesAdminPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Get a property by key. If the property is not set, an empty string is returned.
         /// @param key The property key.
         /// @param context The Context map to send with the invocation.
@@ -52,12 +51,12 @@ namespace Ice
         /// Get a property by key. If the property is not set, an empty string is returned.
         /// @param key The property key.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getPropertyAsync(std::string_view key, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getPropertyAsync(std::string_view key, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getProperty(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, std::string_view, const Ice::Context&) const;
@@ -81,12 +80,12 @@ namespace Ice
         /// properties are returned.
         /// @param prefix The prefix to search for (empty string if none).
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getPropertiesForPrefixAsync(std::string_view prefix, std::function<void(::Ice::PropertyDict)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getPropertiesForPrefixAsync(std::string_view prefix, std::function<void(::Ice::PropertyDict)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getPropertiesForPrefix(const std::shared_ptr<IceInternal::OutgoingAsyncT<PropertyDict>>&, std::string_view, const Ice::Context&) const;
@@ -115,12 +114,12 @@ namespace Ice
         /// by the entries in newProperties are retained with their original values.
         /// @param newProperties Properties to be added, changed, or removed.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setPropertiesAsync(const PropertyDict& newProperties, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setPropertiesAsync(const PropertyDict& newProperties, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setProperties(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const PropertyDict&, const Ice::Context&) const;

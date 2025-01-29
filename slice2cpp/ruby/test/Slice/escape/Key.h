@@ -56,13 +56,12 @@ namespace BEGIN
     class breakPrx : public Ice::Proxy<breakPrx, Ice::ObjectPrx>
     {
     public:
-
         void case(std::int32_t clone, std::int32_t def, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> caseAsync(std::int32_t clone, std::int32_t def, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        caseAsync(std::int32_t clone, std::int32_t def, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> caseAsync(std::int32_t clone, std::int32_t def, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_case(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
@@ -72,8 +71,8 @@ namespace BEGIN
 
         [[nodiscard]] std::future<void> to_aAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        to_aAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> to_aAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_to_a(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -83,8 +82,8 @@ namespace BEGIN
 
         [[nodiscard]] std::future<void> instance_variable_setAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        instance_variable_setAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> instance_variable_setAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_instance_variable_set(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -94,8 +93,8 @@ namespace BEGIN
 
         [[nodiscard]] std::future<void> instance_variablesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        instance_variablesAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> instance_variablesAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_instance_variables(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -201,13 +200,12 @@ namespace BEGIN
     class extendPrx : public Ice::Proxy<extendPrx, Ice::ObjectPrx>
     {
     public:
-
         END for(const displayPtr& freeze, const std::optional<elsifPrx>& hash, const std::optional<breakPrx>& if, const displayPtr& inspect, const std::optional<elsifPrx>& method, std::int32_t methods, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<END> forAsync(const displayPtr& freeze, const std::optional<elsifPrx>& hash, const std::optional<breakPrx>& if, const displayPtr& inspect, const std::optional<elsifPrx>& method, std::int32_t methods, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        forAsync(const displayPtr& freeze, const std::optional<elsifPrx>& hash, const std::optional<breakPrx>& if, const displayPtr& inspect, const std::optional<elsifPrx>& method, std::int32_t methods, std::function<void(::BEGIN::END)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> forAsync(const displayPtr& freeze, const std::optional<elsifPrx>& hash, const std::optional<breakPrx>& if, const displayPtr& inspect, const std::optional<elsifPrx>& method, std::int32_t methods, std::function<void(::BEGIN::END)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_for(const std::shared_ptr<IceInternal::OutgoingAsyncT<END>>&, const displayPtr&, const std::optional<elsifPrx>&, const std::optional<breakPrx>&, const displayPtr&, const std::optional<elsifPrx>&, std::int32_t, const Ice::Context&) const;
@@ -523,7 +521,7 @@ namespace BEGIN
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::BEGIN::END>
+    struct StreamableTraits<::BEGIN::END>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

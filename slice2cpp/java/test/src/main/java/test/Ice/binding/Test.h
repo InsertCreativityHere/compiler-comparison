@@ -38,13 +38,12 @@ namespace Test
     class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
     public:
-
         std::string getAdapterName(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<std::string> getAdapterNameAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getAdapterNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getAdapterNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getAdapterName(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
@@ -95,13 +94,12 @@ namespace Test
     class RemoteObjectAdapterPrx : public Ice::Proxy<RemoteObjectAdapterPrx, Ice::ObjectPrx>
     {
     public:
-
         std::optional<TestIntfPrx> getTestIntf(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<std::optional<TestIntfPrx>> getTestIntfAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getTestIntfAsync(std::function<void(std::optional<::Test::TestIntfPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getTestIntfAsync(std::function<void(std::optional<::Test::TestIntfPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getTestIntf(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TestIntfPrx>>>&, const Ice::Context&) const;
@@ -111,8 +109,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> deactivateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        deactivateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> deactivateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_deactivate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -163,13 +161,12 @@ namespace Test
     class RemoteCommunicatorPrx : public Ice::Proxy<RemoteCommunicatorPrx, Ice::ObjectPrx>
     {
     public:
-
         std::optional<RemoteObjectAdapterPrx> createObjectAdapter(std::string_view name, std::string_view endpoints, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(std::string_view name, std::string_view endpoints, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createObjectAdapterAsync(std::string_view name, std::string_view endpoints, std::function<void(std::optional<::Test::RemoteObjectAdapterPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createObjectAdapterAsync(std::string_view name, std::string_view endpoints, std::function<void(std::optional<::Test::RemoteObjectAdapterPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createObjectAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<RemoteObjectAdapterPrx>>>&, std::string_view, std::string_view, const Ice::Context&) const;
@@ -179,8 +176,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> deactivateObjectAdapterAsync(const std::optional<RemoteObjectAdapterPrx>& adapter, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        deactivateObjectAdapterAsync(const std::optional<RemoteObjectAdapterPrx>& adapter, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> deactivateObjectAdapterAsync(const std::optional<RemoteObjectAdapterPrx>& adapter, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_deactivateObjectAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RemoteObjectAdapterPrx>&, const Ice::Context&) const;
@@ -190,8 +187,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

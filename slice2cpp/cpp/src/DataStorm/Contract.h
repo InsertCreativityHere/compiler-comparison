@@ -112,7 +112,6 @@ namespace DataStormContract
     class SessionPrx : public Ice::Proxy<SessionPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Announces topics to the peer during session establishment or when adding new topics.
         ///
         /// - During session establishment, announces existing topics.
@@ -153,13 +152,13 @@ namespace DataStormContract
         /// @param topics The sequence of topics to announce.
         /// @param initialize Currently unused.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see attachTopic
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_announceTopics(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const TopicInfoSeq&, bool, const Ice::Context&) const;
@@ -188,12 +187,12 @@ namespace DataStormContract
         /// - The session has a writer for a topic that the peer reads.
         /// @param topic The TopicSpec describing the topic to attach.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        attachTopicAsync(const TopicSpec& topic, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> attachTopicAsync(const TopicSpec& topic, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_attachTopic(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const TopicSpec&, const Ice::Context&) const;
@@ -219,12 +218,12 @@ namespace DataStormContract
         /// This operation is invoked by the topic on listener sessions during its destruction.
         /// @param topicId The unique identifier for the topic to detach.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        detachTopicAsync(std::int64_t topicId, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> detachTopicAsync(std::int64_t topicId, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_detachTopic(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const Ice::Context&) const;
@@ -256,12 +255,12 @@ namespace DataStormContract
         /// @param tags The sequence of tags to attach, representing the partial update associations.
         /// @param initialize Indicates whether the tags are being attached during session initialization.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        attachTagsAsync(std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> attachTagsAsync(std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_attachTags(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementInfoSeq&, bool, const Ice::Context&) const;
@@ -284,12 +283,12 @@ namespace DataStormContract
         /// @param topicId The unique identifier for the topic.
         /// @param tags The sequence of tag identifiers to detach.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        detachTagsAsync(std::int64_t topicId, const ::Ice::LongSeq& tags, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> detachTagsAsync(std::int64_t topicId, const ::Ice::LongSeq& tags, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_detachTags(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ::Ice::LongSeq&, const Ice::Context&) const;
@@ -332,13 +331,13 @@ namespace DataStormContract
         /// @param topicId The unique identifier for the topic to which the elements belong.
         /// @param elements The sequence of elements to announce, representing the data readers or data writers.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see attachElements
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        announceElementsAsync(std::int64_t topicId, const ElementInfoSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> announceElementsAsync(std::int64_t topicId, const ElementInfoSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_announceElements(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementInfoSeq&, const Ice::Context&) const;
@@ -373,12 +372,12 @@ namespace DataStormContract
         /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
         /// @param initialize Indicates whether the elements are being attached during session initialization.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        attachElementsAsync(std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> attachElementsAsync(std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_attachElements(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementSpecSeq&, bool, const Ice::Context&) const;
@@ -410,12 +409,12 @@ namespace DataStormContract
         /// @param topicId The unique identifier for the topic to which the elements belong.
         /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        attachElementsAckAsync(std::int64_t topicId, const ElementSpecAckSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> attachElementsAckAsync(std::int64_t topicId, const ElementSpecAckSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_attachElementsAck(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementSpecAckSeq&, const Ice::Context&) const;
@@ -447,12 +446,12 @@ namespace DataStormContract
         /// @param topicId The unique identifier for the topic to which the elements belong.
         /// @param elements A sequence of element identifiers representing the keys or filters to detach.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        detachElementsAsync(std::int64_t topicId, const ::Ice::LongSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> detachElementsAsync(std::int64_t topicId, const ::Ice::LongSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_detachElements(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ::Ice::LongSeq&, const Ice::Context&) const;
@@ -475,12 +474,12 @@ namespace DataStormContract
         /// @param topicId The unique identifier for the topic.
         /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        initSamplesAsync(std::int64_t topicId, const DataSamplesSeq& samples, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> initSamplesAsync(std::int64_t topicId, const DataSamplesSeq& samples, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_initSamples(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const DataSamplesSeq&, const Ice::Context&) const;
@@ -506,12 +505,12 @@ namespace DataStormContract
         /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
         /// between the relay node and the target node is lost.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        disconnectedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> disconnectedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_disconnected(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -619,7 +618,6 @@ namespace DataStormContract
     class SubscriberSessionPrx : public Ice::Proxy<SubscriberSessionPrx, SessionPrx>
     {
     public:
-
         /// Queue a sample with the subscribers of the topic element.
         /// @param topicId The unique identifier for the topic to which the sample belong.
         /// @param elementId The unique identifier for the element to which the sample belong.
@@ -640,12 +638,12 @@ namespace DataStormContract
         /// @param elementId The unique identifier for the element to which the sample belong.
         /// @param sample The sample to queue.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        sAsync(std::int64_t topicId, std::int64_t elementId, const DataSample& sample, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> sAsync(std::int64_t topicId, std::int64_t elementId, const DataSample& sample, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_s(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, std::int64_t, const DataSample&, const Ice::Context&) const;
@@ -714,7 +712,6 @@ namespace DataStormContract
     class NodePrx : public Ice::Proxy<NodePrx, Ice::ObjectPrx>
     {
     public:
-
         /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
         /// reader for which this node has a corresponding topic writer.
         /// @param publisher The publisher node initiating the session. The proxy is never null.
@@ -734,13 +731,13 @@ namespace DataStormContract
         /// reader for which this node has a corresponding topic writer.
         /// @param publisher The publisher node initiating the session. The proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see Lookup::announceTopicReader
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        initiateCreateSessionAsync(const std::optional<NodePrx>& publisher, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> initiateCreateSessionAsync(const std::optional<NodePrx>& publisher, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_initiateCreateSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<NodePrx>&, const Ice::Context&) const;
@@ -793,12 +790,12 @@ namespace DataStormContract
         /// @param session The subscriber session being created. This proxy is never null.
         /// @param fromRelay Indicates whether the session is being created from a relay node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createSessionAsync(const std::optional<NodePrx>& subscriber, const std::optional<SubscriberSessionPrx>& session, bool fromRelay, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createSessionAsync(const std::optional<NodePrx>& subscriber, const std::optional<SubscriberSessionPrx>& session, bool fromRelay, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<NodePrx>&, const std::optional<SubscriberSessionPrx>&, bool, const Ice::Context&) const;
@@ -821,12 +818,12 @@ namespace DataStormContract
         /// @param publisher The publisher node confirming the session. The proxy is never null.
         /// @param session The publisher session being confirmed. The proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        confirmCreateSessionAsync(const std::optional<NodePrx>& publisher, const std::optional<PublisherSessionPrx>& session, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> confirmCreateSessionAsync(const std::optional<NodePrx>& publisher, const std::optional<PublisherSessionPrx>& session, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_confirmCreateSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<NodePrx>&, const std::optional<PublisherSessionPrx>&, const Ice::Context&) const;
@@ -880,7 +877,6 @@ namespace DataStormContract
     class LookupPrx : public Ice::Proxy<LookupPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Announce a topic reader.
         /// @param topic The name of the topic.
         /// @param subscriber The node reading the topic. The subscriber proxy is never null.
@@ -898,12 +894,12 @@ namespace DataStormContract
         /// @param topic The name of the topic.
         /// @param subscriber The node reading the topic. The subscriber proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        announceTopicReaderAsync(std::string_view topic, const std::optional<NodePrx>& subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> announceTopicReaderAsync(std::string_view topic, const std::optional<NodePrx>& subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_announceTopicReader(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const std::optional<NodePrx>&, const Ice::Context&) const;
@@ -926,12 +922,12 @@ namespace DataStormContract
         /// @param topic The name of the topic.
         /// @param node The node writing the topic. The proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        announceTopicWriterAsync(std::string_view topic, const std::optional<NodePrx>& node, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> announceTopicWriterAsync(std::string_view topic, const std::optional<NodePrx>& node, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_announceTopicWriter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const std::optional<NodePrx>&, const Ice::Context&) const;
@@ -957,12 +953,12 @@ namespace DataStormContract
         /// @param writers A sequence of topic names for writers.
         /// @param node The node reading or writing the topics. The proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        announceTopicsAsync(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const std::optional<NodePrx>& node, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> announceTopicsAsync(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const std::optional<NodePrx>& node, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_announceTopics(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const std::optional<NodePrx>&, const Ice::Context&) const;
@@ -983,12 +979,12 @@ namespace DataStormContract
         /// Establish a connection between this node and the caller node.
         /// @param node The node initiating the connection. The proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createSessionAsync(const std::optional<NodePrx>& node, std::function<void(std::optional<::DataStormContract::NodePrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createSessionAsync(const std::optional<NodePrx>& node, std::function<void(std::optional<::DataStormContract::NodePrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<NodePrx>>>&, const std::optional<NodePrx>&, const Ice::Context&) const;
@@ -1782,7 +1778,7 @@ namespace DataStormContract
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::DataStormContract::ClearHistoryPolicy>
+    struct StreamableTraits<::DataStormContract::ClearHistoryPolicy>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

@@ -53,13 +53,13 @@ Ice::RouterPrx::getClientProxyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Ice::RouterPrx::getClientProxyAsync(std::function<void(std::optional<Ice::ObjectPrx>, std::optional<bool>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::RouterPrx::getClientProxyAsync(std::function<void(std::optional<Ice::ObjectPrx>, std::optional<bool>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<Ice::ObjectPrx>, std::optional<bool>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<Ice::ObjectPrx>, std::optional<bool>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<Ice::ObjectPrx>, std::optional<bool>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
 }
 
 void
@@ -93,9 +93,9 @@ Ice::RouterPrx::getServerProxyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Ice::RouterPrx::getServerProxyAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::RouterPrx::getServerProxyAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
 }
 
 void
@@ -122,9 +122,9 @@ Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, const Ice::C
 }
 
 std::function<void()>
-Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, std::function<void(::Ice::ObjectProxySeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, std::function<void(::Ice::ObjectProxySeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
+    return IceInternal::makeLambdaOutgoing<ObjectProxySeq>(std::move(response), std::move(exception), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
 }
 
 void
@@ -162,9 +162,9 @@ Ice::RouterFinderPrx::getRouterAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Ice::RouterFinderPrx::getRouterAsync(std::function<void(std::optional<::Ice::RouterPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::RouterFinderPrx::getRouterAsync(std::function<void(std::optional<::Ice::RouterPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<RouterPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
 }
 
 void

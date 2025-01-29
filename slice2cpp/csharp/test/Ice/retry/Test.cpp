@@ -48,9 +48,9 @@ Test::RetryPrx::opAsync(bool iceP_kill, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::RetryPrx::opAsync(bool iceP_kill, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::RetryPrx::opAsync(bool iceP_kill, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
 }
 
 void
@@ -79,9 +79,9 @@ Test::RetryPrx::opIdempotentAsync(std::int32_t iceP_c, const Ice::Context& conte
 }
 
 std::function<void()>
-Test::RetryPrx::opIdempotentAsync(std::int32_t iceP_c, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::RetryPrx::opIdempotentAsync(std::int32_t iceP_c, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 void
@@ -111,9 +111,9 @@ Test::RetryPrx::opNotIdempotentAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::RetryPrx::opNotIdempotentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::RetryPrx::opNotIdempotentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
 }
 
 void
@@ -139,9 +139,9 @@ Test::RetryPrx::sleepAsync(std::int32_t iceP_delay, const Ice::Context& context)
 }
 
 std::function<void()>
-Test::RetryPrx::sleepAsync(std::int32_t iceP_delay, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::RetryPrx::sleepAsync(std::int32_t iceP_delay, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_sleep, iceP_delay, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::RetryPrx::_iceI_sleep, iceP_delay, context);
 }
 
 void
@@ -170,9 +170,9 @@ Test::RetryPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::RetryPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::RetryPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
 }
 
 void

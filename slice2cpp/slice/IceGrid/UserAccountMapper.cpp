@@ -57,9 +57,9 @@ IceGrid::UserAccountMapperPrx::getUserAccountAsync(std::string_view iceP_user, c
 }
 
 std::function<void()>
-IceGrid::UserAccountMapperPrx::getUserAccountAsync(std::string_view iceP_user, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccountAsync(std::string_view iceP_user, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
 }
 
 void

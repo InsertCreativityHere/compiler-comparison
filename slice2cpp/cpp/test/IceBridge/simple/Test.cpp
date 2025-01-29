@@ -48,9 +48,9 @@ Test::CallbackPrx::pingAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackPrx::pingAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::pingAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
 }
 
 void
@@ -76,9 +76,9 @@ Test::CallbackPrx::getCountAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackPrx::getCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::getCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
 }
 
 void
@@ -105,9 +105,9 @@ Test::CallbackPrx::datagramAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackPrx::datagramAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::datagramAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
 }
 
 void
@@ -133,9 +133,9 @@ Test::CallbackPrx::getDatagramCountAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackPrx::getDatagramCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::getDatagramCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
 }
 
 void
@@ -170,9 +170,9 @@ Test::MyClassPrx::callCallbackAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::callCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::callCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
 }
 
 void
@@ -198,9 +198,9 @@ Test::MyClassPrx::getCallbackCountAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::getCallbackCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::getCallbackCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
 }
 
 void
@@ -227,9 +227,9 @@ Test::MyClassPrx::incCounterAsync(std::int32_t iceP_expected, const Ice::Context
 }
 
 std::function<void()>
-Test::MyClassPrx::incCounterAsync(std::int32_t iceP_expected, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::incCounterAsync(std::int32_t iceP_expected, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
 }
 
 void
@@ -258,9 +258,9 @@ Test::MyClassPrx::waitCounterAsync(std::int32_t iceP_value, const Ice::Context& 
 }
 
 std::function<void()>
-Test::MyClassPrx::waitCounterAsync(std::int32_t iceP_value, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::waitCounterAsync(std::int32_t iceP_value, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
 }
 
 void
@@ -289,9 +289,9 @@ Test::MyClassPrx::getConnectionCountAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::getConnectionCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::getConnectionCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
 }
 
 void
@@ -318,9 +318,9 @@ Test::MyClassPrx::getConnectionInfoAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::getConnectionInfoAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::getConnectionInfoAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
 }
 
 void
@@ -347,9 +347,9 @@ Test::MyClassPrx::closeConnectionAsync(bool iceP_force, const Ice::Context& cont
 }
 
 std::function<void()>
-Test::MyClassPrx::closeConnectionAsync(bool iceP_force, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::closeConnectionAsync(bool iceP_force, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
 }
 
 void
@@ -378,9 +378,9 @@ Test::MyClassPrx::datagramAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::datagramAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::datagramAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
 }
 
 void
@@ -406,9 +406,9 @@ Test::MyClassPrx::getDatagramCountAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::getDatagramCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::getDatagramCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
 }
 
 void
@@ -435,9 +435,9 @@ Test::MyClassPrx::callDatagramCallbackAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::callDatagramCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::callDatagramCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
 }
 
 void
@@ -463,9 +463,9 @@ Test::MyClassPrx::getCallbackDatagramCountAsync(const Ice::Context& context) con
 }
 
 std::function<void()>
-Test::MyClassPrx::getCallbackDatagramCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::getCallbackDatagramCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
 }
 
 void
@@ -492,9 +492,9 @@ Test::MyClassPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 void

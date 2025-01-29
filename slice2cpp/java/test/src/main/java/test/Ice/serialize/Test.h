@@ -67,13 +67,12 @@ namespace Test
     class InitialPrx : public Ice::Proxy<InitialPrx, Ice::ObjectPrx>
     {
     public:
-
         ByteS getStruct1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<ByteS> getStruct1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getStruct1Async(std::function<void(::Test::ByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getStruct1Async(std::function<void(::Test::ByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getStruct1(const std::shared_ptr<IceInternal::OutgoingAsyncT<ByteS>>&, const Ice::Context&) const;
@@ -83,8 +82,8 @@ namespace Test
 
         [[nodiscard]] std::future<ByteS> getBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getBaseAsync(std::function<void(::Test::ByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getBaseAsync(std::function<void(::Test::ByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<ByteS>>&, const Ice::Context&) const;
@@ -94,8 +93,8 @@ namespace Test
 
         [[nodiscard]] std::future<ByteS> getExAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getExAsync(std::function<void(::Test::ByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getExAsync(std::function<void(::Test::ByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getEx(const std::shared_ptr<IceInternal::OutgoingAsyncT<ByteS>>&, const Ice::Context&) const;
@@ -105,8 +104,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -396,7 +395,7 @@ namespace Test
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::Test::MyEnum>
+    struct StreamableTraits<::Test::MyEnum>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

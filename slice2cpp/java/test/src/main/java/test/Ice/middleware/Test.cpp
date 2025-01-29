@@ -48,9 +48,9 @@ Test::MyObjectPrx::getNameAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyObjectPrx::getNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyObjectPrx::getNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
 }
 
 void

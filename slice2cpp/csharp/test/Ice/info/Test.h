@@ -35,13 +35,12 @@ namespace Test
     class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
     public:
-
         void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -51,8 +50,8 @@ namespace Test
 
         [[nodiscard]] std::future<::Ice::Context> getEndpointInfoAsContextAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getEndpointInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getEndpointInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getEndpointInfoAsContext(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::Context>>&, const Ice::Context&) const;
@@ -62,8 +61,8 @@ namespace Test
 
         [[nodiscard]] std::future<::Ice::Context> getConnectionInfoAsContextAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getConnectionInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getConnectionInfoAsContextAsync(std::function<void(::Ice::Context)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getConnectionInfoAsContext(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::Context>>&, const Ice::Context&) const;

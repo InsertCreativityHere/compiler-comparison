@@ -77,9 +77,9 @@ Test::MA::IAPrx::iaopAsync(const std::optional<IAPrx>& iceP_p, const Ice::Contex
 }
 
 std::function<void()>
-Test::MA::IAPrx::iaopAsync(const std::optional<IAPrx>& iceP_p, std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MA::IAPrx::iaopAsync(const std::optional<IAPrx>& iceP_p, std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<IAPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, iceP_p, context);
 }
 
 void
@@ -117,9 +117,9 @@ Test::MB::IB1Prx::ib1opAsync(const std::optional<IB1Prx>& iceP_p, const Ice::Con
 }
 
 std::function<void()>
-Test::MB::IB1Prx::ib1opAsync(const std::optional<IB1Prx>& iceP_p, std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MB::IB1Prx::ib1opAsync(const std::optional<IB1Prx>& iceP_p, std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<IB1Prx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, iceP_p, context);
 }
 
 void
@@ -157,9 +157,9 @@ Test::MB::IB2Prx::ib2opAsync(const std::optional<IB2Prx>& iceP_p, const Ice::Con
 }
 
 std::function<void()>
-Test::MB::IB2Prx::ib2opAsync(const std::optional<IB2Prx>& iceP_p, std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MB::IB2Prx::ib2opAsync(const std::optional<IB2Prx>& iceP_p, std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<IB2Prx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, iceP_p, context);
 }
 
 void
@@ -197,9 +197,9 @@ Test::MA::ICPrx::icopAsync(const std::optional<ICPrx>& iceP_p, const Ice::Contex
 }
 
 std::function<void()>
-Test::MA::ICPrx::icopAsync(const std::optional<ICPrx>& iceP_p, std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MA::ICPrx::icopAsync(const std::optional<ICPrx>& iceP_p, std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<ICPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, iceP_p, context);
 }
 
 void
@@ -237,9 +237,9 @@ Test::InitialPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 void
@@ -265,9 +265,9 @@ Test::InitialPrx::iaopAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::iaopAsync(std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::iaopAsync(std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MA::IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MA::IAPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
 }
 
 void
@@ -294,9 +294,9 @@ Test::InitialPrx::ib1opAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::ib1opAsync(std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::ib1opAsync(std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MB::IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MB::IB1Prx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
 }
 
 void
@@ -323,9 +323,9 @@ Test::InitialPrx::ib2opAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::ib2opAsync(std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::ib2opAsync(std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MB::IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MB::IB2Prx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
 }
 
 void
@@ -352,9 +352,9 @@ Test::InitialPrx::icopAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::icopAsync(std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::icopAsync(std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MA::ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<::Test::MA::ICPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
 }
 
 void
@@ -389,9 +389,9 @@ Test::EchoPrx::setConnectionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::EchoPrx::setConnectionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::EchoPrx::setConnectionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
 }
 
 void
@@ -417,9 +417,9 @@ Test::EchoPrx::startBatchAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::EchoPrx::startBatchAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::EchoPrx::startBatchAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
 }
 
 void
@@ -445,9 +445,9 @@ Test::EchoPrx::flushBatchAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::EchoPrx::flushBatchAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::EchoPrx::flushBatchAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
 }
 
 void
@@ -473,9 +473,9 @@ Test::EchoPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::EchoPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::EchoPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
 }
 
 void

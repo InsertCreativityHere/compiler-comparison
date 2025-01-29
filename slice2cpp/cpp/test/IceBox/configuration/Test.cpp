@@ -48,9 +48,9 @@ Test::TestIntfPrx::getPropertyAsync(std::string_view iceP_name, const Ice::Conte
 }
 
 std::function<void()>
-Test::TestIntfPrx::getPropertyAsync(std::string_view iceP_name, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::getPropertyAsync(std::string_view iceP_name, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getProperty, iceP_name, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_getProperty, iceP_name, context);
 }
 
 void
@@ -80,9 +80,9 @@ Test::TestIntfPrx::getArgsAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::getArgsAsync(std::function<void(::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::getArgsAsync(std::function<void(::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getArgs, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_getArgs, context);
 }
 
 void

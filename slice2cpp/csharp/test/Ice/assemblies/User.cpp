@@ -54,9 +54,9 @@ User::RegistryPrx::getUserInfoAsync(std::string_view iceP_id, const Ice::Context
 }
 
 std::function<void()>
-User::RegistryPrx::getUserInfoAsync(std::string_view iceP_id, std::function<void(::User::UserInfoPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+User::RegistryPrx::getUserInfoAsync(std::string_view iceP_id, std::function<void(::User::UserInfoPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<UserInfoPtr>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<UserInfoPtr>(std::move(response), std::move(exception), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 void

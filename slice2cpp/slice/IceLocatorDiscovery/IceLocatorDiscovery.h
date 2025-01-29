@@ -40,7 +40,6 @@ namespace IceLocatorDiscovery
     class LookupReplyPrx : public Ice::Proxy<LookupReplyPrx, Ice::ObjectPrx>
     {
     public:
-
         /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// @param prx The proxy of the locator.
         /// @param context The Context map to send with the invocation.
@@ -55,12 +54,12 @@ namespace IceLocatorDiscovery
         /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// @param prx The proxy of the locator.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        foundLocatorAsync(const std::optional<::Ice::LocatorPrx>& prx, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> foundLocatorAsync(const std::optional<::Ice::LocatorPrx>& prx, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_foundLocator(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<::Ice::LocatorPrx>&, const Ice::Context&) const;
@@ -116,7 +115,6 @@ namespace IceLocatorDiscovery
     class LookupPrx : public Ice::Proxy<LookupPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Find a locator proxy with the given instance name.
         /// @param instanceName Restrict the search to Ice registries configured with the given instance name. If
         /// empty, all the available registries will reply.
@@ -137,12 +135,12 @@ namespace IceLocatorDiscovery
         /// empty, all the available registries will reply.
         /// @param reply The reply object to use to send the reply.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        findLocatorAsync(std::string_view instanceName, const std::optional<LookupReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> findLocatorAsync(std::string_view instanceName, const std::optional<LookupReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_findLocator(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const std::optional<LookupReplyPrx>&, const Ice::Context&) const;

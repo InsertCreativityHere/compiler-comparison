@@ -65,13 +65,12 @@ namespace and
     class delPrx : public Ice::Proxy<delPrx, Ice::ObjectPrx>
     {
     public:
-
         void elif(std::int32_t else, std::int32_t& except, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::int32_t> elifAsync(std::int32_t else, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        elifAsync(std::int32_t else, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> elifAsync(std::int32_t else, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_elif(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
@@ -122,13 +121,12 @@ namespace and
     class execPrx : public Ice::Proxy<execPrx, Ice::ObjectPrx>
     {
     public:
-
         void finally(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> finallyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        finallyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> finallyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_finally(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -234,13 +232,12 @@ namespace and
     class printPrx : public Ice::Proxy<printPrx, Ice::ObjectPrx>
     {
     public:
-
         assert raise(const continue& else, const forPtr& return, const std::optional<delPrx>& while, const std::optional<execPrx>& yield, const std::optional<ifPrx>& or, std::int32_t global, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<assert> raiseAsync(const continue& else, const forPtr& return, const std::optional<delPrx>& while, const std::optional<execPrx>& yield, const std::optional<ifPrx>& or, std::int32_t global, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        raiseAsync(const continue& else, const forPtr& return, const std::optional<delPrx>& while, const std::optional<execPrx>& yield, const std::optional<ifPrx>& or, std::int32_t global, std::function<void(::and::assert)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> raiseAsync(const continue& else, const forPtr& return, const std::optional<delPrx>& while, const std::optional<execPrx>& yield, const std::optional<ifPrx>& or, std::int32_t global, std::function<void(::and::assert)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_raise(const std::shared_ptr<IceInternal::OutgoingAsyncT<assert>>&, const continue&, const forPtr&, const std::optional<delPrx>&, const std::optional<execPrx>&, const std::optional<ifPrx>&, std::int32_t, const Ice::Context&) const;
@@ -567,7 +564,7 @@ namespace and
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::and::assert>
+    struct StreamableTraits<::and::assert>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;
@@ -594,7 +591,7 @@ namespace Ice
     };
 
     template<>
-    struct StreamableTraits< ::and::EnumNone>
+    struct StreamableTraits<::and::EnumNone>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

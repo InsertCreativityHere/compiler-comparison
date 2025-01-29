@@ -48,7 +48,6 @@ namespace Glacier2
     class GLACIER2_API PermissionsVerifierPrx : public Ice::Proxy<PermissionsVerifierPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Check whether a user has permission to access the router.
         /// @param userId The user id for which to check permission.
         /// @param password The user's password.
@@ -70,12 +69,12 @@ namespace Glacier2
         /// @param userId The user id for which to check permission.
         /// @param password The user's password.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkPermissionsAsync(std::string_view userId, std::string_view password, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkPermissionsAsync(std::string_view userId, std::string_view password, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkPermissions(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<bool, std::string>>>&, std::string_view, std::string_view, const Ice::Context&) const;
@@ -128,7 +127,6 @@ namespace Glacier2
     class GLACIER2_API SSLPermissionsVerifierPrx : public Ice::Proxy<SSLPermissionsVerifierPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Check whether a user has permission to access the router.
         /// @param info The SSL information.
         /// @param reason The reason why access was denied.
@@ -149,13 +147,13 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// @param info The SSL information.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see SSLInfo
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        authorizeAsync(const SSLInfo& info, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> authorizeAsync(const SSLInfo& info, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_authorize(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<bool, std::string>>>&, const SSLInfo&, const Ice::Context&) const;

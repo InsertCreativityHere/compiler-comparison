@@ -38,7 +38,6 @@ namespace Ice
     class ICE_API ProcessPrx : public Ice::Proxy<ProcessPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Initiate a graceful shut-down.
         /// @param context The Context map to send with the invocation.
         /// @see Communicator#shutdown
@@ -52,13 +51,13 @@ namespace Ice
 
         /// Initiate a graceful shut-down.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see Communicator#shutdown
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -81,12 +80,12 @@ namespace Ice
         /// @param message The message.
         /// @param fd 1 for stdout, 2 for stderr.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        writeMessageAsync(std::string_view message, std::int32_t fd, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> writeMessageAsync(std::string_view message, std::int32_t fd, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_writeMessage(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::int32_t, const Ice::Context&) const;

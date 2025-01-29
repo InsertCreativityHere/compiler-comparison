@@ -69,9 +69,9 @@ Test::TestIntfPrx::SBaseAsObjectAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::SBaseAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SBaseAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<Ice::ValuePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsObject, context);
+    return IceInternal::makeLambdaOutgoing<Ice::ValuePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsObject, context);
 }
 
 void
@@ -105,9 +105,9 @@ Test::TestIntfPrx::SBaseAsSBaseAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::SBaseAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SBaseAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsSBase, context);
+    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsSBase, context);
 }
 
 void
@@ -141,9 +141,9 @@ Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(const Ice::Context& context) cons
 }
 
 std::function<void()>
-Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context);
+    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context);
 }
 
 void
@@ -177,9 +177,9 @@ Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(const Ice::Context& con
 }
 
 std::function<void()>
-Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(std::function<void(::Test::SBSKnownDerivedPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(std::function<void(::Test::SBSKnownDerivedPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<SBSKnownDerivedPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context);
+    return IceInternal::makeLambdaOutgoing<SBSKnownDerivedPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context);
 }
 
 void
@@ -213,9 +213,9 @@ Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(const Ice::Context& context) co
 }
 
 std::function<void()>
-Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context);
+    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context);
 }
 
 void
@@ -249,9 +249,9 @@ Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(const Ice::Context& cont
 }
 
 std::function<void()>
-Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(std::function<void(::Test::SBasePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context);
+    return IceInternal::makeLambdaOutgoing<SBasePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context);
 }
 
 void
@@ -285,9 +285,9 @@ Test::TestIntfPrx::SUnknownAsObjectAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::SUnknownAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::SUnknownAsObjectAsync(std::function<void(Ice::ValuePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<Ice::ValuePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_SUnknownAsObject, context);
+    return IceInternal::makeLambdaOutgoing<Ice::ValuePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_SUnknownAsObject, context);
 }
 
 void
@@ -321,9 +321,9 @@ Test::TestIntfPrx::checkSUnknownAsync(const Ice::ValuePtr& iceP_o, const Ice::Co
 }
 
 std::function<void()>
-Test::TestIntfPrx::checkSUnknownAsync(const Ice::ValuePtr& iceP_o, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::checkSUnknownAsync(const Ice::ValuePtr& iceP_o, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkSUnknown, iceP_o, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkSUnknown, iceP_o, context);
 }
 
 void
@@ -353,9 +353,9 @@ Test::TestIntfPrx::oneElementCycleAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::oneElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::oneElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_oneElementCycle, context);
+    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_oneElementCycle, context);
 }
 
 void
@@ -389,9 +389,9 @@ Test::TestIntfPrx::twoElementCycleAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::twoElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::twoElementCycleAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_twoElementCycle, context);
+    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_twoElementCycle, context);
 }
 
 void
@@ -425,9 +425,9 @@ Test::TestIntfPrx::D1AsBAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::D1AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::D1AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsB, context);
+    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsB, context);
 }
 
 void
@@ -461,9 +461,9 @@ Test::TestIntfPrx::D1AsD1Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::D1AsD1Async(std::function<void(::Test::D1Ptr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::D1AsD1Async(std::function<void(::Test::D1Ptr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<D1Ptr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsD1, context);
+    return IceInternal::makeLambdaOutgoing<D1Ptr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsD1, context);
 }
 
 void
@@ -497,9 +497,9 @@ Test::TestIntfPrx::D2AsBAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::D2AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::D2AsBAsync(std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_D2AsB, context);
+    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_D2AsB, context);
 }
 
 void
@@ -535,13 +535,13 @@ Test::TestIntfPrx::paramTest1Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::paramTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::paramTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BPtr, BPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest1, context);
 }
 
 void
@@ -577,13 +577,13 @@ Test::TestIntfPrx::paramTest2Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::paramTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::paramTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BPtr, BPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest2, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest2, context);
 }
 
 void
@@ -620,13 +620,13 @@ Test::TestIntfPrx::paramTest3Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::paramTest3Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::paramTest3Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BPtr, BPtr, BPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr, BPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest3, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr, BPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest3, context);
 }
 
 void
@@ -662,13 +662,13 @@ Test::TestIntfPrx::paramTest4Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::paramTest4Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::paramTest4Async(std::function<void(::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BPtr, BPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest4, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest4, context);
 }
 
 void
@@ -705,13 +705,13 @@ Test::TestIntfPrx::returnTest1Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::returnTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::returnTest1Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BPtr, BPtr, BPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr, BPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr, BPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest1, context);
 }
 
 void
@@ -748,13 +748,13 @@ Test::TestIntfPrx::returnTest2Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::returnTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::returnTest2Async(std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BPtr, BPtr, BPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr, BPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest2, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BPtr, BPtr, BPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest2, context);
 }
 
 void
@@ -788,9 +788,9 @@ Test::TestIntfPrx::returnTest3Async(const BPtr& iceP_p1, const BPtr& iceP_p2, co
 }
 
 std::function<void()>
-Test::TestIntfPrx::returnTest3Async(const BPtr& iceP_p1, const BPtr& iceP_p2, std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::returnTest3Async(const BPtr& iceP_p1, const BPtr& iceP_p2, std::function<void(::Test::BPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context);
+    return IceInternal::makeLambdaOutgoing<BPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context);
 }
 
 void
@@ -828,9 +828,9 @@ Test::TestIntfPrx::sequenceTestAsync(const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p
 }
 
 std::function<void()>
-Test::TestIntfPrx::sequenceTestAsync(const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p2, std::function<void(::Test::SS3)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::sequenceTestAsync(const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p2, std::function<void(::Test::SS3)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<SS3>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sequenceTest, iceP_p1, iceP_p2, context);
+    return IceInternal::makeLambdaOutgoing<SS3>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_sequenceTest, iceP_p1, iceP_p2, context);
 }
 
 void
@@ -870,13 +870,13 @@ Test::TestIntfPrx::dictionaryTestAsync(const BDict& iceP_bin, const Ice::Context
 }
 
 std::function<void()>
-Test::TestIntfPrx::dictionaryTestAsync(const BDict& iceP_bin, std::function<void(::Test::BDict, ::Test::BDict)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::dictionaryTestAsync(const BDict& iceP_bin, std::function<void(::Test::BDict, ::Test::BDict)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BDict, BDict>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BDict, BDict>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_dictionaryTest, iceP_bin, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BDict, BDict>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_dictionaryTest, iceP_bin, context);
 }
 
 void
@@ -914,9 +914,9 @@ Test::TestIntfPrx::exchangePBaseAsync(const PBasePtr& iceP_pb, const Ice::Contex
 }
 
 std::function<void()>
-Test::TestIntfPrx::exchangePBaseAsync(const PBasePtr& iceP_pb, std::function<void(::Test::PBasePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::exchangePBaseAsync(const PBasePtr& iceP_pb, std::function<void(::Test::PBasePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<PBasePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePBase, iceP_pb, context);
+    return IceInternal::makeLambdaOutgoing<PBasePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePBase, iceP_pb, context);
 }
 
 void
@@ -954,9 +954,9 @@ Test::TestIntfPrx::PBSUnknownAsPreservedAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::PBSUnknownAsPreservedAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::PBSUnknownAsPreservedAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<PreservedPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved, context);
+    return IceInternal::makeLambdaOutgoing<PreservedPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved, context);
 }
 
 void
@@ -990,9 +990,9 @@ Test::TestIntfPrx::checkPBSUnknownAsync(const PreservedPtr& iceP_p, const Ice::C
 }
 
 std::function<void()>
-Test::TestIntfPrx::checkPBSUnknownAsync(const PreservedPtr& iceP_p, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownAsync(const PreservedPtr& iceP_p, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknown, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknown, iceP_p, context);
 }
 
 void
@@ -1022,9 +1022,9 @@ Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(const Ice::Context& conte
 }
 
 std::function<void()>
-Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<PreservedPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context);
+    return IceInternal::makeLambdaOutgoing<PreservedPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context);
 }
 
 void
@@ -1058,9 +1058,9 @@ Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const PreservedPtr& iceP_p, con
 }
 
 std::function<void()>
-Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const PreservedPtr& iceP_p, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const PreservedPtr& iceP_p, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph, iceP_p, context);
 }
 
 void
@@ -1090,9 +1090,9 @@ Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(const Ice::Context& cont
 }
 
 std::function<void()>
-Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(std::function<void(::Test::PreservedPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<PreservedPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context);
+    return IceInternal::makeLambdaOutgoing<PreservedPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context);
 }
 
 void
@@ -1126,9 +1126,9 @@ Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const PreservedPtr& iceP_p, co
 }
 
 std::function<void()>
-Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const PreservedPtr& iceP_p, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const PreservedPtr& iceP_p, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph, iceP_p, context);
 }
 
 void
@@ -1158,9 +1158,9 @@ Test::TestIntfPrx::exchangePNodeAsync(const PNodePtr& iceP_pn, const Ice::Contex
 }
 
 std::function<void()>
-Test::TestIntfPrx::exchangePNodeAsync(const PNodePtr& iceP_pn, std::function<void(::Test::PNodePtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::exchangePNodeAsync(const PNodePtr& iceP_pn, std::function<void(::Test::PNodePtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<PNodePtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePNode, iceP_pn, context);
+    return IceInternal::makeLambdaOutgoing<PNodePtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePNode, iceP_pn, context);
 }
 
 void
@@ -1198,9 +1198,9 @@ Test::TestIntfPrx::throwBaseAsBaseAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::throwBaseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::throwBaseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwBaseAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwBaseAsBase, context);
 }
 
 void
@@ -1240,9 +1240,9 @@ Test::TestIntfPrx::throwDerivedAsBaseAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::throwDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::throwDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwDerivedAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwDerivedAsBase, context);
 }
 
 void
@@ -1282,9 +1282,9 @@ Test::TestIntfPrx::throwDerivedAsDerivedAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::throwDerivedAsDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::throwDerivedAsDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwDerivedAsDerived, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwDerivedAsDerived, context);
 }
 
 void
@@ -1324,9 +1324,9 @@ Test::TestIntfPrx::throwUnknownDerivedAsBaseAsync(const Ice::Context& context) c
 }
 
 std::function<void()>
-Test::TestIntfPrx::throwUnknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::throwUnknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwUnknownDerivedAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwUnknownDerivedAsBase, context);
 }
 
 void
@@ -1366,9 +1366,9 @@ Test::TestIntfPrx::useForwardAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::useForwardAsync(std::function<void(::Test::ForwardPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::useForwardAsync(std::function<void(::Test::ForwardPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<ForwardPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_useForward, context);
+    return IceInternal::makeLambdaOutgoing<ForwardPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_useForward, context);
 }
 
 void
@@ -1402,9 +1402,9 @@ Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void

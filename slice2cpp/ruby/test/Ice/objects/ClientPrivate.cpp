@@ -59,9 +59,9 @@ Test::UnexpectedObjectExceptionTestPrx::opAsync(const Ice::Context& context) con
 }
 
 std::function<void()>
-Test::UnexpectedObjectExceptionTestPrx::opAsync(std::function<void(::Test::EmptyPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::opAsync(std::function<void(::Test::EmptyPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<EmptyPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<EmptyPtr>(std::move(response), std::move(exception), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 void

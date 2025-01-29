@@ -52,9 +52,9 @@ Test::Initial2Prx::opClassAndUnknownOptionalAsync(const APtr& iceP_p, const std:
 }
 
 std::function<void()>
-Test::Initial2Prx::opClassAndUnknownOptionalAsync(const APtr& iceP_p, const std::optional<VarStruct>& iceP_ovs, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Initial2Prx::opClassAndUnknownOptionalAsync(const APtr& iceP_p, const std::optional<VarStruct>& iceP_ovs, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_ovs, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_ovs, context);
 }
 
 void
@@ -85,9 +85,9 @@ Test::Initial2Prx::opVoidAsync(std::optional<std::int32_t> iceP_a, std::optional
 }
 
 std::function<void()>
-Test::Initial2Prx::opVoidAsync(std::optional<std::int32_t> iceP_a, std::optional<std::string_view> iceP_v, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Initial2Prx::opVoidAsync(std::optional<std::int32_t> iceP_a, std::optional<std::string_view> iceP_v, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 void

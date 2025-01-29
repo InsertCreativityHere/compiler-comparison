@@ -38,13 +38,12 @@ namespace User
     class RegistryPrx : public Ice::Proxy<RegistryPrx, Ice::ObjectPrx>
     {
     public:
-
         UserInfoPtr getUserInfo(std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<UserInfoPtr> getUserInfoAsync(std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getUserInfoAsync(std::string_view id, std::function<void(::User::UserInfoPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getUserInfoAsync(std::string_view id, std::function<void(::User::UserInfoPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getUserInfo(const std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>&, std::string_view, const Ice::Context&) const;

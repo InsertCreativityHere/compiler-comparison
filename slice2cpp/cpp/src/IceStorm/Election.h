@@ -75,7 +75,6 @@ namespace IceStormElection
     class ReplicaObserverPrx : public Ice::Proxy<ReplicaObserverPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Initialize the observer.
         /// @param llu The last log update seen by the master.
         /// @param content The topic content.
@@ -95,12 +94,12 @@ namespace IceStormElection
         /// @param llu The last log update seen by the master.
         /// @param content The topic content.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        initAsync(const LogUpdate& llu, const TopicContentSeq& content, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> initAsync(const LogUpdate& llu, const TopicContentSeq& content, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_init(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const TopicContentSeq&, const Ice::Context&) const;
@@ -125,12 +124,12 @@ namespace IceStormElection
         /// @param llu The log update token.
         /// @param name The topic name.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createTopicAsync(const LogUpdate& llu, std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createTopicAsync(const LogUpdate& llu, std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createTopic(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, std::string_view, const Ice::Context&) const;
@@ -155,12 +154,12 @@ namespace IceStormElection
         /// @param llu The log update token.
         /// @param name The topic name.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyTopicAsync(const LogUpdate& llu, std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyTopicAsync(const LogUpdate& llu, std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroyTopic(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, std::string_view, const Ice::Context&) const;
@@ -188,12 +187,12 @@ namespace IceStormElection
         /// @param topic The topic name to which to add the subscriber.
         /// @param record The subscriber information.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        addSubscriberAsync(const LogUpdate& llu, std::string_view topic, const ::IceStorm::SubscriberRecord& record, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> addSubscriberAsync(const LogUpdate& llu, std::string_view topic, const ::IceStorm::SubscriberRecord& record, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_addSubscriber(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, std::string_view, const ::IceStorm::SubscriberRecord&, const Ice::Context&) const;
@@ -217,12 +216,12 @@ namespace IceStormElection
         /// @param llu The log update token.
         /// @param subscribers The identities of the subscribers to remove.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        removeSubscriberAsync(const LogUpdate& llu, std::string_view topic, const ::Ice::IdentitySeq& subscribers, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> removeSubscriberAsync(const LogUpdate& llu, std::string_view topic, const ::Ice::IdentitySeq& subscribers, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_removeSubscriber(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, std::string_view, const ::Ice::IdentitySeq&, const Ice::Context&) const;
@@ -274,7 +273,6 @@ namespace IceStormElection
     class TopicManagerSyncPrx : public Ice::Proxy<TopicManagerSyncPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Retrieve the topic content.
         /// @param llu The last log update token.
         /// @param content The topic content.
@@ -288,12 +286,12 @@ namespace IceStormElection
 
         /// Retrieve the topic content.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getContentAsync(std::function<void(::IceStormElection::LogUpdate, ::IceStormElection::TopicContentSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getContentAsync(std::function<void(::IceStormElection::LogUpdate, ::IceStormElection::TopicContentSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getContent(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LogUpdate, TopicContentSeq>>>&, const Ice::Context&) const;
@@ -345,7 +343,6 @@ namespace IceStormElection
     class NodePrx : public Ice::Proxy<NodePrx, Ice::ObjectPrx>
     {
     public:
-
         /// Invite the node into a group with the given coordinator and group name.
         /// @param j The group coordinator.
         /// @param gn The group name.
@@ -363,12 +360,12 @@ namespace IceStormElection
         /// @param j The group coordinator.
         /// @param gn The group name.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        invitationAsync(std::int32_t j, std::string_view gn, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> invitationAsync(std::int32_t j, std::string_view gn, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_invitation(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::string_view, const Ice::Context&) const;
@@ -400,12 +397,12 @@ namespace IceStormElection
         /// @param max The highest priority node seen by this replica group.
         /// @param generation The current generation count.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        readyAsync(std::int32_t j, std::string_view gn, const std::optional<Ice::ObjectPrx>& coordinator, std::int32_t max, std::int64_t generation, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> readyAsync(std::int32_t j, std::string_view gn, const std::optional<Ice::ObjectPrx>& coordinator, std::int32_t max, std::int64_t generation, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_ready(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::string_view, const std::optional<Ice::ObjectPrx>&, std::int32_t, std::int64_t, const Ice::Context&) const;
@@ -440,12 +437,12 @@ namespace IceStormElection
         /// @param llu The last log update for the given node.
         /// @param max The highest priority node seen by this replica group.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        acceptAsync(std::int32_t j, std::string_view gn, const ::Ice::IntSeq& forwardedInvites, const std::optional<Ice::ObjectPrx>& observer, const LogUpdate& llu, std::int32_t max, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> acceptAsync(std::int32_t j, std::string_view gn, const ::Ice::IntSeq& forwardedInvites, const std::optional<Ice::ObjectPrx>& observer, const LogUpdate& llu, std::int32_t max, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_accept(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::string_view, const ::Ice::IntSeq&, const std::optional<Ice::ObjectPrx>&, const LogUpdate&, std::int32_t, const Ice::Context&) const;
@@ -463,12 +460,12 @@ namespace IceStormElection
 
         /// Determine if this node is a coordinator.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        areYouCoordinatorAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> areYouCoordinatorAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_areYouCoordinator(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const Ice::Context&) const;
@@ -492,12 +489,12 @@ namespace IceStormElection
         /// @param gn The group name.
         /// @param j The group coordinator.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        areYouThereAsync(std::string_view gn, std::int32_t j, std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> areYouThereAsync(std::string_view gn, std::int32_t j, std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_areYouThere(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, std::string_view, std::int32_t, const Ice::Context&) const;
@@ -515,12 +512,12 @@ namespace IceStormElection
 
         /// Get the sync object for the replica hosted by this node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        syncAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> syncAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_sync(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
@@ -538,12 +535,12 @@ namespace IceStormElection
 
         /// Get the replication group information.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        nodesAsync(std::function<void(::IceStormElection::NodeInfoSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> nodesAsync(std::function<void(::IceStormElection::NodeInfoSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_nodes(const std::shared_ptr<IceInternal::OutgoingAsyncT<NodeInfoSeq>>&, const Ice::Context&) const;
@@ -561,12 +558,12 @@ namespace IceStormElection
 
         /// Get the query information for the given node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        queryAsync(std::function<void(::IceStormElection::QueryInfo)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> queryAsync(std::function<void(::IceStormElection::QueryInfo)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_query(const std::shared_ptr<IceInternal::OutgoingAsyncT<QueryInfo>>&, const Ice::Context&) const;
@@ -1018,7 +1015,7 @@ namespace Ice
     };
 
     template<>
-    struct StreamableTraits< ::IceStormElection::NodeState>
+    struct StreamableTraits<::IceStormElection::NodeState>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

@@ -54,9 +54,9 @@ Test::MyClassPrx::opOnewayAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::opOnewayAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::opOnewayAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opOneway, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_opOneway, context);
 }
 
 void
@@ -84,13 +84,13 @@ Test::MyClassPrx::opStringAsync(std::string_view iceP_s1, const Ice::Context& co
 }
 
 std::function<void()>
-Test::MyClassPrx::opStringAsync(std::string_view iceP_s1, std::function<void(std::string, std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::opStringAsync(std::string_view iceP_s1, std::function<void(std::string, std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::string, std::string>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::string, std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::string, std::string>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 void
@@ -126,9 +126,9 @@ Test::MyClassPrx::opExceptionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::opExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::opExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opException, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_opException, context);
 }
 
 void
@@ -168,9 +168,9 @@ Test::MyClassPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyClassPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyClassPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 void

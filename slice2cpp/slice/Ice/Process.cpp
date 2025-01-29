@@ -51,9 +51,9 @@ Ice::ProcessPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Ice::ProcessPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::ProcessPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
 }
 
 void
@@ -79,9 +79,9 @@ Ice::ProcessPrx::writeMessageAsync(std::string_view iceP_message, std::int32_t i
 }
 
 std::function<void()>
-Ice::ProcessPrx::writeMessageAsync(std::string_view iceP_message, std::int32_t iceP_fd, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::ProcessPrx::writeMessageAsync(std::string_view iceP_message, std::int32_t iceP_fd, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
 
 void

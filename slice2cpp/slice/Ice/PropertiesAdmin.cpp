@@ -51,9 +51,9 @@ Ice::PropertiesAdminPrx::getPropertyAsync(std::string_view iceP_key, const Ice::
 }
 
 std::function<void()>
-Ice::PropertiesAdminPrx::getPropertyAsync(std::string_view iceP_key, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::PropertiesAdminPrx::getPropertyAsync(std::string_view iceP_key, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
 
 void
@@ -83,9 +83,9 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(std::string_view iceP_prefi
 }
 
 std::function<void()>
-Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(std::string_view iceP_prefix, std::function<void(::Ice::PropertyDict)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(std::string_view iceP_prefix, std::function<void(::Ice::PropertyDict)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
+    return IceInternal::makeLambdaOutgoing<PropertyDict>(std::move(response), std::move(exception), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
 
 void
@@ -115,9 +115,9 @@ Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperti
 }
 
 std::function<void()>
-Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperties, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperties, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
 }
 
 void

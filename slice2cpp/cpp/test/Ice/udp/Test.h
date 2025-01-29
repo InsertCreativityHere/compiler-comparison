@@ -39,13 +39,12 @@ namespace Test
     class PingReplyPrx : public Ice::Proxy<PingReplyPrx, Ice::ObjectPrx>
     {
     public:
-
         void reply(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> replyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        replyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> replyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_reply(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -96,13 +95,12 @@ namespace Test
     class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
     public:
-
         void ping(const std::optional<PingReplyPrx>& reply, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> pingAsync(const std::optional<PingReplyPrx>& reply, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        pingAsync(const std::optional<PingReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> pingAsync(const std::optional<PingReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_ping(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<PingReplyPrx>&, const Ice::Context&) const;
@@ -112,8 +110,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> sendByteSeqAsync(const ByteSeq& seq, const std::optional<PingReplyPrx>& reply, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        sendByteSeqAsync(const ByteSeq& seq, const std::optional<PingReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> sendByteSeqAsync(const ByteSeq& seq, const std::optional<PingReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_sendByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const std::optional<PingReplyPrx>&, const Ice::Context&) const;
@@ -123,8 +121,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        pingBiDirAsync(const ::Ice::Identity& reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> pingBiDirAsync(const ::Ice::Identity& reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_pingBiDir(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const Ice::Context&) const;
@@ -134,8 +132,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

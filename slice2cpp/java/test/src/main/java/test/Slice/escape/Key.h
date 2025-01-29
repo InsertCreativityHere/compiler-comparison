@@ -80,13 +80,12 @@ namespace abstract
     class catchPrx : public Ice::Proxy<catchPrx, Ice::ObjectPrx>
     {
     public:
-
         void checkedCast(std::int32_t clone, std::int32_t& continue, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::int32_t> checkedCastAsync(std::int32_t clone, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
@@ -137,13 +136,12 @@ namespace abstract
     class defaultPrx : public Ice::Proxy<defaultPrx, Ice::ObjectPrx>
     {
     public:
-
         void do(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> doAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_do(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -249,13 +247,12 @@ namespace abstract
     class newPrx : public Ice::Proxy<newPrx, Ice::ObjectPrx>
     {
     public:
-
         assert notify(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<assert> notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_notify(const std::shared_ptr<IceInternal::OutgoingAsyncT<assert>>&, const break&, const elsePtr&, const std::optional<finalizePrx>&, const std::optional<catchPrx>&, const std::optional<defaultPrx>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
@@ -582,7 +579,7 @@ namespace abstract
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::abstract::assert>
+    struct StreamableTraits<::abstract::assert>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

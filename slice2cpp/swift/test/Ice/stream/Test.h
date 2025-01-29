@@ -557,7 +557,7 @@ namespace Test
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::Test::MyEnum>
+    struct StreamableTraits<::Test::MyEnum>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;
@@ -584,7 +584,7 @@ namespace Ice
     };
 
     template<>
-    struct StreamableTraits< ::Test::Sub::NestedEnum>
+    struct StreamableTraits<::Test::Sub::NestedEnum>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;
@@ -617,7 +617,7 @@ namespace Ice
 {
 
     template<>
-    struct StreamableTraits< ::Test2::Sub2::NestedEnum2>
+    struct StreamableTraits<::Test2::Sub2::NestedEnum2>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

@@ -53,7 +53,7 @@ namespace Ice
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::Ice::OperationMode>
+    struct StreamableTraits<::Ice::OperationMode>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

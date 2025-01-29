@@ -77,7 +77,6 @@ namespace IceMX
     class ICE_API MetricsAdminPrx : public Ice::Proxy<MetricsAdminPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Get the names of enabled and disabled metrics.
         /// @param disabledViews The names of the disabled views.
         /// @param context The Context map to send with the invocation.
@@ -91,12 +90,12 @@ namespace IceMX
 
         /// Get the names of enabled and disabled metrics.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getMetricsViewNamesAsync(std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getMetricsViewNamesAsync(std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getMetricsViewNames(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>&, const Ice::Context&) const;
@@ -117,12 +116,12 @@ namespace IceMX
         /// Enables a metrics view.
         /// @param name The metrics view name.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        enableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> enableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_enableMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
@@ -143,12 +142,12 @@ namespace IceMX
         /// Disable a metrics view.
         /// @param name The metrics view name.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        disableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> disableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_disableMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
@@ -177,12 +176,12 @@ namespace IceMX
         /// dependent of the invocation latency for this operation.
         /// @param view The name of the metrics view.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getMetricsViewAsync(std::string_view view, std::function<void(::IceMX::MetricsView, std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getMetricsViewAsync(std::string_view view, std::function<void(::IceMX::MetricsView, std::int64_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<MetricsView, std::int64_t>>>&, std::string_view, const Ice::Context&) const;
@@ -207,12 +206,12 @@ namespace IceMX
         /// @param view The name of the metrics view.
         /// @param map The name of the metrics map.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getMapMetricsFailuresAsync(std::string_view view, std::string_view map, std::function<void(::IceMX::MetricsFailuresSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getMapMetricsFailuresAsync(std::string_view view, std::string_view map, std::function<void(::IceMX::MetricsFailuresSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getMapMetricsFailures(const std::shared_ptr<IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, std::string_view, std::string_view, const Ice::Context&) const;
@@ -240,12 +239,12 @@ namespace IceMX
         /// @param map The name of the metrics map.
         /// @param id The ID of the metrics.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getMetricsFailuresAsync(std::string_view view, std::string_view map, std::string_view id, std::function<void(::IceMX::MetricsFailures)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getMetricsFailuresAsync(std::string_view view, std::string_view map, std::string_view id, std::function<void(::IceMX::MetricsFailures)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getMetricsFailures(const std::shared_ptr<IceInternal::OutgoingAsyncT<MetricsFailures>>&, std::string_view, std::string_view, std::string_view, const Ice::Context&) const;

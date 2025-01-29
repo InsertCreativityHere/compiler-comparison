@@ -70,9 +70,9 @@ and::breakPrx::caseAsync(std::int32_t iceP_catch, const Ice::Context& context) c
 }
 
 std::function<void()>
-and::breakPrx::caseAsync(std::int32_t iceP_catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::breakPrx::caseAsync(std::int32_t iceP_catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &and::breakPrx::_iceI_case, iceP_catch, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
 void
@@ -110,9 +110,9 @@ and::funcPrx::publicAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-and::funcPrx::publicAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::funcPrx::publicAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &and::funcPrx::_iceI_public, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &and::funcPrx::_iceI_public, context);
 }
 
 void
@@ -154,9 +154,9 @@ and::friendPrx::gotoAsync(continue iceP_if, const guard& iceP_d, const defer& ic
 }
 
 std::function<void()>
-and::friendPrx::gotoAsync(continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const std::optional<doPrx>& iceP_mutable, const std::optional<breakPrx>& iceP_namespace, const std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const std::optional<doPrx>& iceP_operator, std::int32_t iceP_or, std::int32_t iceP_protected, std::int32_t iceP_public, std::int32_t iceP_register, std::function<void(::and::guard)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::friendPrx::gotoAsync(continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const std::optional<doPrx>& iceP_mutable, const std::optional<breakPrx>& iceP_namespace, const std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const std::optional<doPrx>& iceP_operator, std::int32_t iceP_or, std::int32_t iceP_protected, std::int32_t iceP_public, std::int32_t iceP_register, std::function<void(::and::guard)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<guard>(std::move(response), std::move(ex), std::move(sent), this, &and::friendPrx::_iceI_goto, iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context);
+    return IceInternal::makeLambdaOutgoing<guard>(std::move(response), std::move(exception), std::move(sent), this, &and::friendPrx::_iceI_goto, iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context);
 }
 
 void

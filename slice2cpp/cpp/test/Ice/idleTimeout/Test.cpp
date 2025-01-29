@@ -48,9 +48,9 @@ Test::DelayedTestIntfPrx::sleepAsync(std::int32_t iceP_ms, const Ice::Context& c
 }
 
 std::function<void()>
-Test::DelayedTestIntfPrx::sleepAsync(std::int32_t iceP_ms, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::DelayedTestIntfPrx::sleepAsync(std::int32_t iceP_ms, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::DelayedTestIntfPrx::_iceI_sleep, iceP_ms, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::DelayedTestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 void
@@ -87,9 +87,9 @@ Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
@@ -123,9 +123,9 @@ Test::TestIntfBidirPrx::makeSleepAsync(bool iceP_aborted, std::int32_t iceP_ms, 
 }
 
 std::function<void()>
-Test::TestIntfBidirPrx::makeSleepAsync(bool iceP_aborted, std::int32_t iceP_ms, const std::optional<DelayedTestIntfPrx>& iceP_target, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfBidirPrx::makeSleepAsync(bool iceP_aborted, std::int32_t iceP_ms, const std::optional<DelayedTestIntfPrx>& iceP_target, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfBidirPrx::_iceI_makeSleep, iceP_aborted, iceP_ms, iceP_target, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfBidirPrx::_iceI_makeSleep, iceP_aborted, iceP_ms, iceP_target, context);
 }
 
 void

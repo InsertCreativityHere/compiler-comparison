@@ -64,13 +64,12 @@ namespace and
     class breakPrx : public Ice::Proxy<breakPrx, Ice::ObjectPrx>
     {
     public:
-
         void case(std::int32_t catch, std::int32_t& try, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::int32_t> caseAsync(std::int32_t catch, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        caseAsync(std::int32_t catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> caseAsync(std::int32_t catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_case(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
@@ -121,13 +120,12 @@ namespace and
     class functionPrx : public Ice::Proxy<functionPrx, Ice::ObjectPrx>
     {
     public:
-
         void continue(std::int32_t declare, std::int32_t default, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> continueAsync(std::int32_t declare, std::int32_t default, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        continueAsync(std::int32_t declare, std::int32_t default, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> continueAsync(std::int32_t declare, std::int32_t default, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_continue(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
@@ -178,13 +176,12 @@ namespace and
     class diePrx : public Ice::Proxy<diePrx, Ice::ObjectPrx>
     {
     public:
-
         void do(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> doAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_do(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -290,13 +287,12 @@ namespace and
     class forPrx : public Ice::Proxy<forPrx, Ice::ObjectPrx>
     {
     public:
-
         array foreach(const std::optional<breakPrx>& if, const echoPtr& global, const std::optional<functionPrx>& include, const std::optional<diePrx>& return, const std::optional<enddeclarePrx>& list, std::int32_t new, std::int32_t static, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<array> foreachAsync(const std::optional<breakPrx>& if, const echoPtr& global, const std::optional<functionPrx>& include, const std::optional<diePrx>& return, const std::optional<enddeclarePrx>& list, std::int32_t new, std::int32_t static, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        foreachAsync(const std::optional<breakPrx>& if, const echoPtr& global, const std::optional<functionPrx>& include, const std::optional<diePrx>& return, const std::optional<enddeclarePrx>& list, std::int32_t new, std::int32_t static, std::function<void(::and::array)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> foreachAsync(const std::optional<breakPrx>& if, const echoPtr& global, const std::optional<functionPrx>& include, const std::optional<diePrx>& return, const std::optional<enddeclarePrx>& list, std::int32_t new, std::int32_t static, std::function<void(::and::array)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_foreach(const std::shared_ptr<IceInternal::OutgoingAsyncT<array>>&, const std::optional<breakPrx>&, const echoPtr&, const std::optional<functionPrx>&, const std::optional<diePrx>&, const std::optional<enddeclarePrx>&, std::int32_t, std::int32_t, const Ice::Context&) const;
@@ -663,7 +659,7 @@ namespace and
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::and::array>
+    struct StreamableTraits<::and::array>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

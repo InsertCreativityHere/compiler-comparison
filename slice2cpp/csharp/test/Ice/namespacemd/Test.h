@@ -36,13 +36,12 @@ namespace Test
     class InitialPrx : public Ice::Proxy<InitialPrx, Ice::ObjectPrx>
     {
     public:
-
         ::NoNamespace::C1Ptr getNoNamespaceC2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<::NoNamespace::C1Ptr> getNoNamespaceC2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getNoNamespaceC2AsC1Async(std::function<void(::NoNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getNoNamespaceC2AsC1Async(std::function<void(::NoNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getNoNamespaceC2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::NoNamespace::C1Ptr>>&, const Ice::Context&) const;
@@ -52,8 +51,8 @@ namespace Test
 
         [[nodiscard]] std::future<::NoNamespace::C2Ptr> getNoNamespaceC2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getNoNamespaceC2AsC2Async(std::function<void(::NoNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getNoNamespaceC2AsC2Async(std::function<void(::NoNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getNoNamespaceC2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::NoNamespace::C2Ptr>>&, const Ice::Context&) const;
@@ -63,8 +62,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwNoNamespaceE2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwNoNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwNoNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwNoNamespaceE2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -74,8 +73,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwNoNamespaceE2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwNoNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwNoNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwNoNamespaceE2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -85,8 +84,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwNoNamespaceNotifyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwNoNamespaceNotifyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwNoNamespaceNotifyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwNoNamespaceNotify(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -96,8 +95,8 @@ namespace Test
 
         [[nodiscard]] std::future<::WithNamespace::C1Ptr> getWithNamespaceC2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getWithNamespaceC2AsC1Async(std::function<void(::WithNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getWithNamespaceC2AsC1Async(std::function<void(::WithNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getWithNamespaceC2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::WithNamespace::C1Ptr>>&, const Ice::Context&) const;
@@ -107,8 +106,8 @@ namespace Test
 
         [[nodiscard]] std::future<::WithNamespace::C2Ptr> getWithNamespaceC2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getWithNamespaceC2AsC2Async(std::function<void(::WithNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getWithNamespaceC2AsC2Async(std::function<void(::WithNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getWithNamespaceC2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::WithNamespace::C2Ptr>>&, const Ice::Context&) const;
@@ -118,8 +117,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwWithNamespaceE2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwWithNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwWithNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwWithNamespaceE2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -129,8 +128,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> throwWithNamespaceE2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwWithNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwWithNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwWithNamespaceE2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -140,8 +139,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

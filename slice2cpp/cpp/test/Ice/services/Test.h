@@ -34,13 +34,12 @@ namespace Test
     class ClockPrx : public Ice::Proxy<ClockPrx, Ice::ObjectPrx>
     {
     public:
-
         void tick(std::string_view time, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> tickAsync(std::string_view time, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        tickAsync(std::string_view time, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> tickAsync(std::string_view time, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_tick(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;

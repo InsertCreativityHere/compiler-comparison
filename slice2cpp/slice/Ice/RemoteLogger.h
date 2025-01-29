@@ -63,7 +63,6 @@ namespace Ice
     class ICE_API RemoteLoggerPrx : public Ice::Proxy<RemoteLoggerPrx, Ice::ObjectPrx>
     {
     public:
-
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// @param prefix The prefix of the associated local Logger.
         /// @param logMessages Old log messages generated before "now".
@@ -81,12 +80,12 @@ namespace Ice
         /// @param prefix The prefix of the associated local Logger.
         /// @param logMessages Old log messages generated before "now".
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        initAsync(std::string_view prefix, const LogMessageSeq& logMessages, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> initAsync(std::string_view prefix, const LogMessageSeq& logMessages, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_init(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const LogMessageSeq&, const Ice::Context&) const;
@@ -106,12 +105,12 @@ namespace Ice
         /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         /// @param message The message to log.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        logAsync(const LogMessage& message, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> logAsync(const LogMessage& message, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_log(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LogMessage&, const Ice::Context&) const;
@@ -164,7 +163,6 @@ namespace Ice
     class ICE_API LoggerAdminPrx : public Ice::Proxy<LoggerAdminPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
         /// RemoteLogger proxy.
         /// @param prx A proxy to the remote logger.
@@ -205,12 +203,12 @@ namespace Ice
         /// @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
         /// value requests all messages available.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        attachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, std::int32_t messageMax, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> attachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, std::int32_t messageMax, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_attachRemoteLogger(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RemoteLoggerPrx>&, const LogMessageTypeSeq&, const StringSeq&, std::int32_t, const Ice::Context&) const;
@@ -231,12 +229,12 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// @param prx A proxy to the remote logger.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        detachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& prx, std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> detachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& prx, std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_detachRemoteLogger(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const std::optional<RemoteLoggerPrx>&, const Ice::Context&) const;
@@ -276,12 +274,12 @@ namespace Ice
         /// @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
         /// requests all messages available.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, std::int32_t messageMax, std::function<void(::Ice::LogMessageSeq, std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, std::int32_t messageMax, std::function<void(::Ice::LogMessageSeq, std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getLog(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LogMessageSeq, std::string>>>&, const LogMessageTypeSeq&, const StringSeq&, std::int32_t, const Ice::Context&) const;
@@ -509,7 +507,7 @@ namespace Ice
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::Ice::LogMessageType>
+    struct StreamableTraits<::Ice::LogMessageType>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

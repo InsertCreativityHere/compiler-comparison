@@ -52,9 +52,9 @@ Test::InitialPrx::getNoNamespaceC2AsC1Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::getNoNamespaceC2AsC1Async(std::function<void(::NoNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC1Async(std::function<void(::NoNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::NoNamespace::C1Ptr>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return IceInternal::makeLambdaOutgoing<::NoNamespace::C1Ptr>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 void
@@ -88,9 +88,9 @@ Test::InitialPrx::getNoNamespaceC2AsC2Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::getNoNamespaceC2AsC2Async(std::function<void(::NoNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC2Async(std::function<void(::NoNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::NoNamespace::C2Ptr>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return IceInternal::makeLambdaOutgoing<::NoNamespace::C2Ptr>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 void
@@ -124,9 +124,9 @@ Test::InitialPrx::throwNoNamespaceE2AsE1Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::throwNoNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
 }
 
 void
@@ -166,9 +166,9 @@ Test::InitialPrx::throwNoNamespaceE2AsE2Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::throwNoNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
 }
 
 void
@@ -208,9 +208,9 @@ Test::InitialPrx::throwNoNamespaceNotifyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::throwNoNamespaceNotifyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceNotifyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceNotify, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceNotify, context);
 }
 
 void
@@ -250,9 +250,9 @@ Test::InitialPrx::getWithNamespaceC2AsC1Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::getWithNamespaceC2AsC1Async(std::function<void(::WithNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC1Async(std::function<void(::WithNamespace::C1Ptr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::WithNamespace::C1Ptr>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return IceInternal::makeLambdaOutgoing<::WithNamespace::C1Ptr>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 void
@@ -286,9 +286,9 @@ Test::InitialPrx::getWithNamespaceC2AsC2Async(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::getWithNamespaceC2AsC2Async(std::function<void(::WithNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC2Async(std::function<void(::WithNamespace::C2Ptr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::WithNamespace::C2Ptr>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return IceInternal::makeLambdaOutgoing<::WithNamespace::C2Ptr>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 void
@@ -322,9 +322,9 @@ Test::InitialPrx::throwWithNamespaceE2AsE1Async(const Ice::Context& context) con
 }
 
 std::function<void()>
-Test::InitialPrx::throwWithNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
 }
 
 void
@@ -364,9 +364,9 @@ Test::InitialPrx::throwWithNamespaceE2AsE2Async(const Ice::Context& context) con
 }
 
 std::function<void()>
-Test::InitialPrx::throwWithNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
 }
 
 void
@@ -406,9 +406,9 @@ Test::InitialPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::InitialPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 void

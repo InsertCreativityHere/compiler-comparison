@@ -44,7 +44,6 @@ namespace IceGrid
     class ICEGRID_API UserAccountMapperPrx : public Ice::Proxy<UserAccountMapperPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.
         /// @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
@@ -70,12 +69,12 @@ namespace IceGrid
         /// defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
         /// is the session identifier.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getUserAccountAsync(std::string_view user, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getUserAccountAsync(std::string_view user, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getUserAccount(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, std::string_view, const Ice::Context&) const;

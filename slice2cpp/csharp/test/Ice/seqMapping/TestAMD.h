@@ -251,13 +251,12 @@ namespace Test
     class MyClassPrx : public Ice::Proxy<MyClassPrx, Ice::ObjectPrx>
     {
     public:
-
         void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -267,8 +266,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AByteS, AByteS>> opAByteSAsync(const AByteS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAByteSAsync(const AByteS& i, std::function<void(::Test::AByteS, ::Test::AByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAByteSAsync(const AByteS& i, std::function<void(::Test::AByteS, ::Test::AByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAByteS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AByteS, AByteS>>>&, const AByteS&, const Ice::Context&) const;
@@ -278,8 +277,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LByteS, LByteS>> opLByteSAsync(const LByteS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLByteSAsync(const LByteS& i, std::function<void(::Test::LByteS, ::Test::LByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLByteSAsync(const LByteS& i, std::function<void(::Test::LByteS, ::Test::LByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLByteS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LByteS, LByteS>>>&, const LByteS&, const Ice::Context&) const;
@@ -289,8 +288,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KByteS, KByteS>> opKByteSAsync(const KByteS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKByteSAsync(const KByteS& i, std::function<void(::Test::KByteS, ::Test::KByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKByteSAsync(const KByteS& i, std::function<void(::Test::KByteS, ::Test::KByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKByteS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KByteS, KByteS>>>&, const KByteS&, const Ice::Context&) const;
@@ -300,8 +299,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QByteS, QByteS>> opQByteSAsync(const QByteS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQByteSAsync(const QByteS& i, std::function<void(::Test::QByteS, ::Test::QByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQByteSAsync(const QByteS& i, std::function<void(::Test::QByteS, ::Test::QByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQByteS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QByteS, QByteS>>>&, const QByteS&, const Ice::Context&) const;
@@ -311,8 +310,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SByteS, SByteS>> opSByteSAsync(const SByteS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSByteSAsync(const SByteS& i, std::function<void(::Test::SByteS, ::Test::SByteS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSByteSAsync(const SByteS& i, std::function<void(::Test::SByteS, ::Test::SByteS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSByteS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SByteS, SByteS>>>&, const SByteS&, const Ice::Context&) const;
@@ -322,8 +321,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ABoolS, ABoolS>> opABoolSAsync(const ABoolS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opABoolSAsync(const ABoolS& i, std::function<void(::Test::ABoolS, ::Test::ABoolS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opABoolSAsync(const ABoolS& i, std::function<void(::Test::ABoolS, ::Test::ABoolS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opABoolS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ABoolS, ABoolS>>>&, const ABoolS&, const Ice::Context&) const;
@@ -333,8 +332,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LBoolS, LBoolS>> opLBoolSAsync(const LBoolS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLBoolSAsync(const LBoolS& i, std::function<void(::Test::LBoolS, ::Test::LBoolS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLBoolSAsync(const LBoolS& i, std::function<void(::Test::LBoolS, ::Test::LBoolS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLBoolS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LBoolS, LBoolS>>>&, const LBoolS&, const Ice::Context&) const;
@@ -344,8 +343,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KBoolS, KBoolS>> opKBoolSAsync(const KBoolS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKBoolSAsync(const KBoolS& i, std::function<void(::Test::KBoolS, ::Test::KBoolS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKBoolSAsync(const KBoolS& i, std::function<void(::Test::KBoolS, ::Test::KBoolS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKBoolS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KBoolS, KBoolS>>>&, const KBoolS&, const Ice::Context&) const;
@@ -355,8 +354,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QBoolS, QBoolS>> opQBoolSAsync(const QBoolS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQBoolSAsync(const QBoolS& i, std::function<void(::Test::QBoolS, ::Test::QBoolS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQBoolSAsync(const QBoolS& i, std::function<void(::Test::QBoolS, ::Test::QBoolS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQBoolS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QBoolS, QBoolS>>>&, const QBoolS&, const Ice::Context&) const;
@@ -366,8 +365,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SBoolS, SBoolS>> opSBoolSAsync(const SBoolS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSBoolSAsync(const SBoolS& i, std::function<void(::Test::SBoolS, ::Test::SBoolS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSBoolSAsync(const SBoolS& i, std::function<void(::Test::SBoolS, ::Test::SBoolS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSBoolS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SBoolS, SBoolS>>>&, const SBoolS&, const Ice::Context&) const;
@@ -377,8 +376,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AShortS, AShortS>> opAShortSAsync(const AShortS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAShortSAsync(const AShortS& i, std::function<void(::Test::AShortS, ::Test::AShortS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAShortSAsync(const AShortS& i, std::function<void(::Test::AShortS, ::Test::AShortS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAShortS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AShortS, AShortS>>>&, const AShortS&, const Ice::Context&) const;
@@ -388,8 +387,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LShortS, LShortS>> opLShortSAsync(const LShortS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLShortSAsync(const LShortS& i, std::function<void(::Test::LShortS, ::Test::LShortS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLShortSAsync(const LShortS& i, std::function<void(::Test::LShortS, ::Test::LShortS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLShortS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LShortS, LShortS>>>&, const LShortS&, const Ice::Context&) const;
@@ -399,8 +398,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KShortS, KShortS>> opKShortSAsync(const KShortS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKShortSAsync(const KShortS& i, std::function<void(::Test::KShortS, ::Test::KShortS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKShortSAsync(const KShortS& i, std::function<void(::Test::KShortS, ::Test::KShortS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKShortS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KShortS, KShortS>>>&, const KShortS&, const Ice::Context&) const;
@@ -410,8 +409,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QShortS, QShortS>> opQShortSAsync(const QShortS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQShortSAsync(const QShortS& i, std::function<void(::Test::QShortS, ::Test::QShortS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQShortSAsync(const QShortS& i, std::function<void(::Test::QShortS, ::Test::QShortS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQShortS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QShortS, QShortS>>>&, const QShortS&, const Ice::Context&) const;
@@ -421,8 +420,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SShortS, SShortS>> opSShortSAsync(const SShortS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSShortSAsync(const SShortS& i, std::function<void(::Test::SShortS, ::Test::SShortS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSShortSAsync(const SShortS& i, std::function<void(::Test::SShortS, ::Test::SShortS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSShortS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SShortS, SShortS>>>&, const SShortS&, const Ice::Context&) const;
@@ -432,8 +431,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AIntS, AIntS>> opAIntSAsync(const AIntS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAIntSAsync(const AIntS& i, std::function<void(::Test::AIntS, ::Test::AIntS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAIntSAsync(const AIntS& i, std::function<void(::Test::AIntS, ::Test::AIntS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAIntS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AIntS, AIntS>>>&, const AIntS&, const Ice::Context&) const;
@@ -443,8 +442,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LIntS, LIntS>> opLIntSAsync(const LIntS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLIntSAsync(const LIntS& i, std::function<void(::Test::LIntS, ::Test::LIntS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLIntSAsync(const LIntS& i, std::function<void(::Test::LIntS, ::Test::LIntS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLIntS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LIntS, LIntS>>>&, const LIntS&, const Ice::Context&) const;
@@ -454,8 +453,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KIntS, KIntS>> opKIntSAsync(const KIntS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKIntSAsync(const KIntS& i, std::function<void(::Test::KIntS, ::Test::KIntS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKIntSAsync(const KIntS& i, std::function<void(::Test::KIntS, ::Test::KIntS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKIntS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KIntS, KIntS>>>&, const KIntS&, const Ice::Context&) const;
@@ -465,8 +464,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QIntS, QIntS>> opQIntSAsync(const QIntS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQIntSAsync(const QIntS& i, std::function<void(::Test::QIntS, ::Test::QIntS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQIntSAsync(const QIntS& i, std::function<void(::Test::QIntS, ::Test::QIntS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQIntS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QIntS, QIntS>>>&, const QIntS&, const Ice::Context&) const;
@@ -476,8 +475,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SIntS, SIntS>> opSIntSAsync(const SIntS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSIntSAsync(const SIntS& i, std::function<void(::Test::SIntS, ::Test::SIntS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSIntSAsync(const SIntS& i, std::function<void(::Test::SIntS, ::Test::SIntS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSIntS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SIntS, SIntS>>>&, const SIntS&, const Ice::Context&) const;
@@ -487,8 +486,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ALongS, ALongS>> opALongSAsync(const ALongS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opALongSAsync(const ALongS& i, std::function<void(::Test::ALongS, ::Test::ALongS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opALongSAsync(const ALongS& i, std::function<void(::Test::ALongS, ::Test::ALongS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opALongS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ALongS, ALongS>>>&, const ALongS&, const Ice::Context&) const;
@@ -498,8 +497,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LLongS, LLongS>> opLLongSAsync(const LLongS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLLongSAsync(const LLongS& i, std::function<void(::Test::LLongS, ::Test::LLongS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLLongSAsync(const LLongS& i, std::function<void(::Test::LLongS, ::Test::LLongS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLLongS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LLongS, LLongS>>>&, const LLongS&, const Ice::Context&) const;
@@ -509,8 +508,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KLongS, KLongS>> opKLongSAsync(const KLongS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKLongSAsync(const KLongS& i, std::function<void(::Test::KLongS, ::Test::KLongS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKLongSAsync(const KLongS& i, std::function<void(::Test::KLongS, ::Test::KLongS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKLongS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KLongS, KLongS>>>&, const KLongS&, const Ice::Context&) const;
@@ -520,8 +519,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QLongS, QLongS>> opQLongSAsync(const QLongS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQLongSAsync(const QLongS& i, std::function<void(::Test::QLongS, ::Test::QLongS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQLongSAsync(const QLongS& i, std::function<void(::Test::QLongS, ::Test::QLongS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQLongS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QLongS, QLongS>>>&, const QLongS&, const Ice::Context&) const;
@@ -531,8 +530,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SLongS, SLongS>> opSLongSAsync(const SLongS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSLongSAsync(const SLongS& i, std::function<void(::Test::SLongS, ::Test::SLongS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSLongSAsync(const SLongS& i, std::function<void(::Test::SLongS, ::Test::SLongS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSLongS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SLongS, SLongS>>>&, const SLongS&, const Ice::Context&) const;
@@ -542,8 +541,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AFloatS, AFloatS>> opAFloatSAsync(const AFloatS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAFloatSAsync(const AFloatS& i, std::function<void(::Test::AFloatS, ::Test::AFloatS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAFloatSAsync(const AFloatS& i, std::function<void(::Test::AFloatS, ::Test::AFloatS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAFloatS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AFloatS, AFloatS>>>&, const AFloatS&, const Ice::Context&) const;
@@ -553,8 +552,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LFloatS, LFloatS>> opLFloatSAsync(const LFloatS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLFloatSAsync(const LFloatS& i, std::function<void(::Test::LFloatS, ::Test::LFloatS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLFloatSAsync(const LFloatS& i, std::function<void(::Test::LFloatS, ::Test::LFloatS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLFloatS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LFloatS, LFloatS>>>&, const LFloatS&, const Ice::Context&) const;
@@ -564,8 +563,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KFloatS, KFloatS>> opKFloatSAsync(const KFloatS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKFloatSAsync(const KFloatS& i, std::function<void(::Test::KFloatS, ::Test::KFloatS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKFloatSAsync(const KFloatS& i, std::function<void(::Test::KFloatS, ::Test::KFloatS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKFloatS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KFloatS, KFloatS>>>&, const KFloatS&, const Ice::Context&) const;
@@ -575,8 +574,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QFloatS, QFloatS>> opQFloatSAsync(const QFloatS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQFloatSAsync(const QFloatS& i, std::function<void(::Test::QFloatS, ::Test::QFloatS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQFloatSAsync(const QFloatS& i, std::function<void(::Test::QFloatS, ::Test::QFloatS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQFloatS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QFloatS, QFloatS>>>&, const QFloatS&, const Ice::Context&) const;
@@ -586,8 +585,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SFloatS, SFloatS>> opSFloatSAsync(const SFloatS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSFloatSAsync(const SFloatS& i, std::function<void(::Test::SFloatS, ::Test::SFloatS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSFloatSAsync(const SFloatS& i, std::function<void(::Test::SFloatS, ::Test::SFloatS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSFloatS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SFloatS, SFloatS>>>&, const SFloatS&, const Ice::Context&) const;
@@ -597,8 +596,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ADoubleS, ADoubleS>> opADoubleSAsync(const ADoubleS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opADoubleSAsync(const ADoubleS& i, std::function<void(::Test::ADoubleS, ::Test::ADoubleS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opADoubleSAsync(const ADoubleS& i, std::function<void(::Test::ADoubleS, ::Test::ADoubleS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opADoubleS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ADoubleS, ADoubleS>>>&, const ADoubleS&, const Ice::Context&) const;
@@ -608,8 +607,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LDoubleS, LDoubleS>> opLDoubleSAsync(const LDoubleS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLDoubleSAsync(const LDoubleS& i, std::function<void(::Test::LDoubleS, ::Test::LDoubleS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLDoubleSAsync(const LDoubleS& i, std::function<void(::Test::LDoubleS, ::Test::LDoubleS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLDoubleS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LDoubleS, LDoubleS>>>&, const LDoubleS&, const Ice::Context&) const;
@@ -619,8 +618,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KDoubleS, KDoubleS>> opKDoubleSAsync(const KDoubleS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKDoubleSAsync(const KDoubleS& i, std::function<void(::Test::KDoubleS, ::Test::KDoubleS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKDoubleSAsync(const KDoubleS& i, std::function<void(::Test::KDoubleS, ::Test::KDoubleS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKDoubleS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KDoubleS, KDoubleS>>>&, const KDoubleS&, const Ice::Context&) const;
@@ -630,8 +629,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QDoubleS, QDoubleS>> opQDoubleSAsync(const QDoubleS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQDoubleSAsync(const QDoubleS& i, std::function<void(::Test::QDoubleS, ::Test::QDoubleS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQDoubleSAsync(const QDoubleS& i, std::function<void(::Test::QDoubleS, ::Test::QDoubleS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQDoubleS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QDoubleS, QDoubleS>>>&, const QDoubleS&, const Ice::Context&) const;
@@ -641,8 +640,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SDoubleS, SDoubleS>> opSDoubleSAsync(const SDoubleS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSDoubleSAsync(const SDoubleS& i, std::function<void(::Test::SDoubleS, ::Test::SDoubleS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSDoubleSAsync(const SDoubleS& i, std::function<void(::Test::SDoubleS, ::Test::SDoubleS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSDoubleS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SDoubleS, SDoubleS>>>&, const SDoubleS&, const Ice::Context&) const;
@@ -652,8 +651,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AStringS, AStringS>> opAStringSAsync(const AStringS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAStringSAsync(const AStringS& i, std::function<void(::Test::AStringS, ::Test::AStringS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAStringSAsync(const AStringS& i, std::function<void(::Test::AStringS, ::Test::AStringS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAStringS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AStringS, AStringS>>>&, const AStringS&, const Ice::Context&) const;
@@ -663,8 +662,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LStringS, LStringS>> opLStringSAsync(const LStringS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLStringSAsync(const LStringS& i, std::function<void(::Test::LStringS, ::Test::LStringS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLStringSAsync(const LStringS& i, std::function<void(::Test::LStringS, ::Test::LStringS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLStringS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LStringS, LStringS>>>&, const LStringS&, const Ice::Context&) const;
@@ -674,8 +673,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KStringS, KStringS>> opKStringSAsync(const KStringS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKStringSAsync(const KStringS& i, std::function<void(::Test::KStringS, ::Test::KStringS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKStringSAsync(const KStringS& i, std::function<void(::Test::KStringS, ::Test::KStringS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKStringS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KStringS, KStringS>>>&, const KStringS&, const Ice::Context&) const;
@@ -685,8 +684,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QStringS, QStringS>> opQStringSAsync(const QStringS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQStringSAsync(const QStringS& i, std::function<void(::Test::QStringS, ::Test::QStringS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQStringSAsync(const QStringS& i, std::function<void(::Test::QStringS, ::Test::QStringS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQStringS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QStringS, QStringS>>>&, const QStringS&, const Ice::Context&) const;
@@ -696,8 +695,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SStringS, SStringS>> opSStringSAsync(const SStringS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSStringSAsync(const SStringS& i, std::function<void(::Test::SStringS, ::Test::SStringS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSStringSAsync(const SStringS& i, std::function<void(::Test::SStringS, ::Test::SStringS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSStringS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SStringS, SStringS>>>&, const SStringS&, const Ice::Context&) const;
@@ -707,8 +706,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AObjectS, AObjectS>> opAObjectSAsync(const AObjectS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAObjectSAsync(const AObjectS& i, std::function<void(::Test::AObjectS, ::Test::AObjectS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAObjectSAsync(const AObjectS& i, std::function<void(::Test::AObjectS, ::Test::AObjectS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAObjectS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AObjectS, AObjectS>>>&, const AObjectS&, const Ice::Context&) const;
@@ -718,8 +717,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LObjectS, LObjectS>> opLObjectSAsync(const LObjectS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLObjectSAsync(const LObjectS& i, std::function<void(::Test::LObjectS, ::Test::LObjectS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLObjectSAsync(const LObjectS& i, std::function<void(::Test::LObjectS, ::Test::LObjectS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLObjectS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LObjectS, LObjectS>>>&, const LObjectS&, const Ice::Context&) const;
@@ -729,8 +728,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AObjectPrxS, AObjectPrxS>> opAObjectPrxSAsync(const AObjectPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAObjectPrxSAsync(const AObjectPrxS& i, std::function<void(::Test::AObjectPrxS, ::Test::AObjectPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAObjectPrxSAsync(const AObjectPrxS& i, std::function<void(::Test::AObjectPrxS, ::Test::AObjectPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAObjectPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AObjectPrxS, AObjectPrxS>>>&, const AObjectPrxS&, const Ice::Context&) const;
@@ -740,8 +739,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LObjectPrxS, LObjectPrxS>> opLObjectPrxSAsync(const LObjectPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLObjectPrxSAsync(const LObjectPrxS& i, std::function<void(::Test::LObjectPrxS, ::Test::LObjectPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLObjectPrxSAsync(const LObjectPrxS& i, std::function<void(::Test::LObjectPrxS, ::Test::LObjectPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLObjectPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LObjectPrxS, LObjectPrxS>>>&, const LObjectPrxS&, const Ice::Context&) const;
@@ -751,8 +750,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KObjectPrxS, KObjectPrxS>> opKObjectPrxSAsync(const KObjectPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKObjectPrxSAsync(const KObjectPrxS& i, std::function<void(::Test::KObjectPrxS, ::Test::KObjectPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKObjectPrxSAsync(const KObjectPrxS& i, std::function<void(::Test::KObjectPrxS, ::Test::KObjectPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKObjectPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KObjectPrxS, KObjectPrxS>>>&, const KObjectPrxS&, const Ice::Context&) const;
@@ -762,8 +761,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QObjectPrxS, QObjectPrxS>> opQObjectPrxSAsync(const QObjectPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQObjectPrxSAsync(const QObjectPrxS& i, std::function<void(::Test::QObjectPrxS, ::Test::QObjectPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQObjectPrxSAsync(const QObjectPrxS& i, std::function<void(::Test::QObjectPrxS, ::Test::QObjectPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQObjectPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QObjectPrxS, QObjectPrxS>>>&, const QObjectPrxS&, const Ice::Context&) const;
@@ -773,8 +772,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SObjectPrxS, SObjectPrxS>> opSObjectPrxSAsync(const SObjectPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSObjectPrxSAsync(const SObjectPrxS& i, std::function<void(::Test::SObjectPrxS, ::Test::SObjectPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSObjectPrxSAsync(const SObjectPrxS& i, std::function<void(::Test::SObjectPrxS, ::Test::SObjectPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSObjectPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SObjectPrxS, SObjectPrxS>>>&, const SObjectPrxS&, const Ice::Context&) const;
@@ -784,8 +783,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AStructS, AStructS>> opAStructSAsync(const AStructS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAStructSAsync(const AStructS& i, std::function<void(::Test::AStructS, ::Test::AStructS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAStructSAsync(const AStructS& i, std::function<void(::Test::AStructS, ::Test::AStructS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAStructS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AStructS, AStructS>>>&, const AStructS&, const Ice::Context&) const;
@@ -795,8 +794,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LStructS, LStructS>> opLStructSAsync(const LStructS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLStructSAsync(const LStructS& i, std::function<void(::Test::LStructS, ::Test::LStructS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLStructSAsync(const LStructS& i, std::function<void(::Test::LStructS, ::Test::LStructS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLStructS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LStructS, LStructS>>>&, const LStructS&, const Ice::Context&) const;
@@ -806,8 +805,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KStructS, KStructS>> opKStructSAsync(const KStructS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKStructSAsync(const KStructS& i, std::function<void(::Test::KStructS, ::Test::KStructS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKStructSAsync(const KStructS& i, std::function<void(::Test::KStructS, ::Test::KStructS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKStructS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KStructS, KStructS>>>&, const KStructS&, const Ice::Context&) const;
@@ -817,8 +816,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QStructS, QStructS>> opQStructSAsync(const QStructS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQStructSAsync(const QStructS& i, std::function<void(::Test::QStructS, ::Test::QStructS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQStructSAsync(const QStructS& i, std::function<void(::Test::QStructS, ::Test::QStructS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQStructS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QStructS, QStructS>>>&, const QStructS&, const Ice::Context&) const;
@@ -828,8 +827,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SStructS, SStructS>> opSStructSAsync(const SStructS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSStructSAsync(const SStructS& i, std::function<void(::Test::SStructS, ::Test::SStructS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSStructSAsync(const SStructS& i, std::function<void(::Test::SStructS, ::Test::SStructS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSStructS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SStructS, SStructS>>>&, const SStructS&, const Ice::Context&) const;
@@ -839,8 +838,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AStructSD, AStructSD>> opAStructSDAsync(const AStructSD& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAStructSDAsync(const AStructSD& i, std::function<void(::Test::AStructSD, ::Test::AStructSD)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAStructSDAsync(const AStructSD& i, std::function<void(::Test::AStructSD, ::Test::AStructSD)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAStructSD(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AStructSD, AStructSD>>>&, const AStructSD&, const Ice::Context&) const;
@@ -850,8 +849,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LStructSD, LStructSD>> opLStructSDAsync(const LStructSD& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLStructSDAsync(const LStructSD& i, std::function<void(::Test::LStructSD, ::Test::LStructSD)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLStructSDAsync(const LStructSD& i, std::function<void(::Test::LStructSD, ::Test::LStructSD)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLStructSD(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LStructSD, LStructSD>>>&, const LStructSD&, const Ice::Context&) const;
@@ -861,8 +860,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KStructSD, KStructSD>> opKStructSDAsync(const KStructSD& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKStructSDAsync(const KStructSD& i, std::function<void(::Test::KStructSD, ::Test::KStructSD)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKStructSDAsync(const KStructSD& i, std::function<void(::Test::KStructSD, ::Test::KStructSD)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKStructSD(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KStructSD, KStructSD>>>&, const KStructSD&, const Ice::Context&) const;
@@ -872,8 +871,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QStructSD, QStructSD>> opQStructSDAsync(const QStructSD& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQStructSDAsync(const QStructSD& i, std::function<void(::Test::QStructSD, ::Test::QStructSD)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQStructSDAsync(const QStructSD& i, std::function<void(::Test::QStructSD, ::Test::QStructSD)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQStructSD(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QStructSD, QStructSD>>>&, const QStructSD&, const Ice::Context&) const;
@@ -883,8 +882,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SStructSD, SStructSD>> opSStructSDAsync(const SStructSD& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSStructSDAsync(const SStructSD& i, std::function<void(::Test::SStructSD, ::Test::SStructSD)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSStructSDAsync(const SStructSD& i, std::function<void(::Test::SStructSD, ::Test::SStructSD)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSStructSD(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SStructSD, SStructSD>>>&, const SStructSD&, const Ice::Context&) const;
@@ -894,8 +893,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ACVS, ACVS>> opACVSAsync(const ACVS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opACVSAsync(const ACVS& i, std::function<void(::Test::ACVS, ::Test::ACVS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opACVSAsync(const ACVS& i, std::function<void(::Test::ACVS, ::Test::ACVS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opACVS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ACVS, ACVS>>>&, const ACVS&, const Ice::Context&) const;
@@ -905,8 +904,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LCVS, LCVS>> opLCVSAsync(const LCVS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLCVSAsync(const LCVS& i, std::function<void(::Test::LCVS, ::Test::LCVS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLCVSAsync(const LCVS& i, std::function<void(::Test::LCVS, ::Test::LCVS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLCVS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LCVS, LCVS>>>&, const LCVS&, const Ice::Context&) const;
@@ -916,8 +915,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ACRS, ACRS>> opACRSAsync(const ACRS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opACRSAsync(const ACRS& i, std::function<void(::Test::ACRS, ::Test::ACRS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opACRSAsync(const ACRS& i, std::function<void(::Test::ACRS, ::Test::ACRS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opACRS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ACRS, ACRS>>>&, const ACRS&, const Ice::Context&) const;
@@ -927,8 +926,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LCRS, LCRS>> opLCRSAsync(const LCRS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLCRSAsync(const LCRS& i, std::function<void(::Test::LCRS, ::Test::LCRS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLCRSAsync(const LCRS& i, std::function<void(::Test::LCRS, ::Test::LCRS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLCRS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LCRS, LCRS>>>&, const LCRS&, const Ice::Context&) const;
@@ -938,8 +937,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AEnS, AEnS>> opAEnSAsync(const AEnS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAEnSAsync(const AEnS& i, std::function<void(::Test::AEnS, ::Test::AEnS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAEnSAsync(const AEnS& i, std::function<void(::Test::AEnS, ::Test::AEnS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAEnS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AEnS, AEnS>>>&, const AEnS&, const Ice::Context&) const;
@@ -949,8 +948,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LEnS, LEnS>> opLEnSAsync(const LEnS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLEnSAsync(const LEnS& i, std::function<void(::Test::LEnS, ::Test::LEnS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLEnSAsync(const LEnS& i, std::function<void(::Test::LEnS, ::Test::LEnS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLEnS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LEnS, LEnS>>>&, const LEnS&, const Ice::Context&) const;
@@ -960,8 +959,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KEnS, KEnS>> opKEnSAsync(const KEnS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKEnSAsync(const KEnS& i, std::function<void(::Test::KEnS, ::Test::KEnS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKEnSAsync(const KEnS& i, std::function<void(::Test::KEnS, ::Test::KEnS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKEnS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KEnS, KEnS>>>&, const KEnS&, const Ice::Context&) const;
@@ -971,8 +970,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QEnS, QEnS>> opQEnSAsync(const QEnS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQEnSAsync(const QEnS& i, std::function<void(::Test::QEnS, ::Test::QEnS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQEnSAsync(const QEnS& i, std::function<void(::Test::QEnS, ::Test::QEnS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQEnS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QEnS, QEnS>>>&, const QEnS&, const Ice::Context&) const;
@@ -982,8 +981,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SEnS, SEnS>> opSEnSAsync(const SEnS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSEnSAsync(const SEnS& i, std::function<void(::Test::SEnS, ::Test::SEnS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSEnSAsync(const SEnS& i, std::function<void(::Test::SEnS, ::Test::SEnS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSEnS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SEnS, SEnS>>>&, const SEnS&, const Ice::Context&) const;
@@ -993,8 +992,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<AIPrxS, AIPrxS>> opAIPrxSAsync(const AIPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAIPrxSAsync(const AIPrxS& i, std::function<void(::Test::AIPrxS, ::Test::AIPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAIPrxSAsync(const AIPrxS& i, std::function<void(::Test::AIPrxS, ::Test::AIPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opAIPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AIPrxS, AIPrxS>>>&, const AIPrxS&, const Ice::Context&) const;
@@ -1004,8 +1003,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<LIPrxS, LIPrxS>> opLIPrxSAsync(const LIPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opLIPrxSAsync(const LIPrxS& i, std::function<void(::Test::LIPrxS, ::Test::LIPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opLIPrxSAsync(const LIPrxS& i, std::function<void(::Test::LIPrxS, ::Test::LIPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opLIPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LIPrxS, LIPrxS>>>&, const LIPrxS&, const Ice::Context&) const;
@@ -1015,8 +1014,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<KIPrxS, KIPrxS>> opKIPrxSAsync(const KIPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opKIPrxSAsync(const KIPrxS& i, std::function<void(::Test::KIPrxS, ::Test::KIPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opKIPrxSAsync(const KIPrxS& i, std::function<void(::Test::KIPrxS, ::Test::KIPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opKIPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<KIPrxS, KIPrxS>>>&, const KIPrxS&, const Ice::Context&) const;
@@ -1026,8 +1025,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<QIPrxS, QIPrxS>> opQIPrxSAsync(const QIPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opQIPrxSAsync(const QIPrxS& i, std::function<void(::Test::QIPrxS, ::Test::QIPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opQIPrxSAsync(const QIPrxS& i, std::function<void(::Test::QIPrxS, ::Test::QIPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opQIPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<QIPrxS, QIPrxS>>>&, const QIPrxS&, const Ice::Context&) const;
@@ -1037,8 +1036,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<SIPrxS, SIPrxS>> opSIPrxSAsync(const SIPrxS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opSIPrxSAsync(const SIPrxS& i, std::function<void(::Test::SIPrxS, ::Test::SIPrxS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opSIPrxSAsync(const SIPrxS& i, std::function<void(::Test::SIPrxS, ::Test::SIPrxS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opSIPrxS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SIPrxS, SIPrxS>>>&, const SIPrxS&, const Ice::Context&) const;
@@ -1048,8 +1047,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<CustomIntS, CustomIntS>> opCustomIntSAsync(const CustomIntS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opCustomIntSAsync(const CustomIntS& i, std::function<void(::Test::CustomIntS, ::Test::CustomIntS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opCustomIntSAsync(const CustomIntS& i, std::function<void(::Test::CustomIntS, ::Test::CustomIntS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opCustomIntS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CustomIntS, CustomIntS>>>&, const CustomIntS&, const Ice::Context&) const;
@@ -1059,8 +1058,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<CustomCVS, CustomCVS>> opCustomCVSAsync(const CustomCVS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opCustomCVSAsync(const CustomCVS& i, std::function<void(::Test::CustomCVS, ::Test::CustomCVS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opCustomCVSAsync(const CustomCVS& i, std::function<void(::Test::CustomCVS, ::Test::CustomCVS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opCustomCVS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CustomCVS, CustomCVS>>>&, const CustomCVS&, const Ice::Context&) const;
@@ -1070,8 +1069,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<CustomIntSS, CustomIntSS>> opCustomIntSSAsync(const CustomIntSS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opCustomIntSSAsync(const CustomIntSS& i, std::function<void(::Test::CustomIntSS, ::Test::CustomIntSS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opCustomIntSSAsync(const CustomIntSS& i, std::function<void(::Test::CustomIntSS, ::Test::CustomIntSS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opCustomIntSS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CustomIntSS, CustomIntSS>>>&, const CustomIntSS&, const Ice::Context&) const;
@@ -1081,8 +1080,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<CustomCVSS, CustomCVSS>> opCustomCVSSAsync(const CustomCVSS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opCustomCVSSAsync(const CustomCVSS& i, std::function<void(::Test::CustomCVSS, ::Test::CustomCVSS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opCustomCVSSAsync(const CustomCVSS& i, std::function<void(::Test::CustomCVSS, ::Test::CustomCVSS)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opCustomCVSS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CustomCVSS, CustomCVSS>>>&, const CustomCVSS&, const Ice::Context&) const;
@@ -1802,7 +1801,7 @@ namespace Ice
     };
 
     template<>
-    struct StreamableTraits< ::Test::En>
+    struct StreamableTraits<::Test::En>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

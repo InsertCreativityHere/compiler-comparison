@@ -55,9 +55,9 @@ Clash::IntfPrx::contextAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::contextAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::contextAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
 }
 
 void
@@ -83,9 +83,9 @@ Clash::IntfPrx::currentAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::currentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::currentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
 }
 
 void
@@ -111,9 +111,9 @@ Clash::IntfPrx::responseAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::responseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::responseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
 }
 
 void
@@ -139,9 +139,9 @@ Clash::IntfPrx::upCastAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::upCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::upCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_upCast, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_upCast, context);
 }
 
 void
@@ -167,9 +167,9 @@ Clash::IntfPrx::typeIdAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::typeIdAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::typeIdAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
 }
 
 void
@@ -195,9 +195,9 @@ Clash::IntfPrx::delAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::delAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::delAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
 }
 
 void
@@ -223,9 +223,9 @@ Clash::IntfPrx::cookieAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::cookieAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::cookieAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
 }
 
 void
@@ -251,9 +251,9 @@ Clash::IntfPrx::syncAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::syncAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::syncAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
 }
 
 void
@@ -279,9 +279,9 @@ Clash::IntfPrx::inSAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::inSAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::inSAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
 }
 
 void
@@ -307,9 +307,9 @@ Clash::IntfPrx::istrAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::istrAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::istrAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
 }
 
 void
@@ -335,9 +335,9 @@ Clash::IntfPrx::opAsync(std::string_view iceP_context, std::string_view iceP_cur
 }
 
 std::function<void()>
-Clash::IntfPrx::opAsync(std::string_view iceP_context, std::string_view iceP_current, std::string_view iceP_response, std::string_view iceP_ex, std::string_view iceP_sent, std::string_view iceP_cookie, std::string_view iceP_sync, std::string_view iceP_result, std::string_view iceP_istr, std::string_view iceP_ostr, std::optional<std::string_view> iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::opAsync(std::string_view iceP_context, std::string_view iceP_current, std::string_view iceP_response, std::string_view iceP_ex, std::string_view iceP_sent, std::string_view iceP_cookie, std::string_view iceP_sync, std::string_view iceP_result, std::string_view iceP_istr, std::string_view iceP_ostr, std::optional<std::string_view> iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context);
 }
 
 void
@@ -378,13 +378,13 @@ Clash::IntfPrx::opOutAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Clash::IntfPrx::opOutAsync(std::function<void(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Clash::IntfPrx::opOutAsync(std::function<void(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
 }
 
 void

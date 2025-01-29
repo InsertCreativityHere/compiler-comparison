@@ -57,9 +57,9 @@ IceGrid::FileParserPrx::parseAsync(std::string_view iceP_xmlFile, const std::opt
 }
 
 std::function<void()>
-IceGrid::FileParserPrx::parseAsync(std::string_view iceP_xmlFile, const std::optional<AdminPrx>& iceP_adminProxy, std::function<void(::IceGrid::ApplicationDescriptor)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::FileParserPrx::parseAsync(std::string_view iceP_xmlFile, const std::optional<AdminPrx>& iceP_adminProxy, std::function<void(::IceGrid::ApplicationDescriptor)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+    return IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 void

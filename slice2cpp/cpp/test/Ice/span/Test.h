@@ -40,13 +40,12 @@ namespace Test
     class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
     public:
-
         ByteSeq opByteSpan(std::span<const std::byte> dataIn, ByteSeq& dataOut, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::tuple<ByteSeq, ByteSeq>> opByteSpanAsync(std::span<const std::byte> dataIn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opByteSpanAsync(std::span<const std::byte> dataIn, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opByteSpanAsync(std::span<const std::byte> dataIn, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opByteSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteSeq, ByteSeq>>>&, std::span<const std::byte>, const Ice::Context&) const;
@@ -56,8 +55,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<ShortSeq, ShortSeq>> opShortSpanAsync(std::span<const std::int16_t> dataIn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opShortSpanAsync(std::span<const std::int16_t> dataIn, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opShortSpanAsync(std::span<const std::int16_t> dataIn, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opShortSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortSeq, ShortSeq>>>&, std::span<const std::int16_t>, const Ice::Context&) const;
@@ -67,8 +66,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<StringSeq, StringSeq>> opStringSpanAsync(std::span<std::string> dataIn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringSpanAsync(std::span<std::string> dataIn, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringSpanAsync(std::span<std::string> dataIn, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStringSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringSeq, StringSeq>>>&, std::span<std::string>, const Ice::Context&) const;
@@ -78,8 +77,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>> opOptionalByteSpanAsync(std::optional<std::span<const std::byte>> dataIn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opOptionalByteSpanAsync(std::optional<std::span<const std::byte>> dataIn, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opOptionalByteSpanAsync(std::optional<std::span<const std::byte>> dataIn, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opOptionalByteSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>>&, std::optional<std::span<const std::byte>>, const Ice::Context&) const;
@@ -89,8 +88,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>> opOptionalShortSpanAsync(std::optional<std::span<const std::int16_t>> dataIn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opOptionalShortSpanAsync(std::optional<std::span<const std::int16_t>> dataIn, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opOptionalShortSpanAsync(std::optional<std::span<const std::int16_t>> dataIn, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opOptionalShortSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>>&, std::optional<std::span<const std::int16_t>>, const Ice::Context&) const;
@@ -100,8 +99,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>> opOptionalStringSpanAsync(std::optional<std::span<std::string>> dataIn, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opOptionalStringSpanAsync(std::optional<std::span<std::string>> dataIn, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opOptionalStringSpanAsync(std::optional<std::span<std::string>> dataIn, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opOptionalStringSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>>&, std::optional<std::span<std::string>>, const Ice::Context&) const;
@@ -111,8 +110,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

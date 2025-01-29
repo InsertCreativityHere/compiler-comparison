@@ -66,13 +66,13 @@ Test::TestIntfPrx::opASeqAsync(const ASeq& iceP_inSeq, const Ice::Context& conte
 }
 
 std::function<void()>
-Test::TestIntfPrx::opASeqAsync(const ASeq& iceP_inSeq, std::function<void(::Test::ASeq, ::Test::ASeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opASeqAsync(const ASeq& iceP_inSeq, std::function<void(::Test::ASeq, ::Test::ASeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<ASeq, ASeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<ASeq, ASeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opASeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ASeq, ASeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opASeq, iceP_inSeq, context);
 }
 
 void
@@ -110,13 +110,13 @@ Test::TestIntfPrx::opAArrayAsync(const AArray& iceP_inSeq, const Ice::Context& c
 }
 
 std::function<void()>
-Test::TestIntfPrx::opAArrayAsync(const AArray& iceP_inSeq, std::function<void(::Test::AArray, ::Test::AArray)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opAArrayAsync(const AArray& iceP_inSeq, std::function<void(::Test::AArray, ::Test::AArray)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<AArray, AArray>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<AArray, AArray>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opAArray, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<AArray, AArray>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opAArray, iceP_inSeq, context);
 }
 
 void
@@ -154,13 +154,13 @@ Test::TestIntfPrx::opAListAsync(const AList& iceP_inSeq, const Ice::Context& con
 }
 
 std::function<void()>
-Test::TestIntfPrx::opAListAsync(const AList& iceP_inSeq, std::function<void(::Test::AList, ::Test::AList)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opAListAsync(const AList& iceP_inSeq, std::function<void(::Test::AList, ::Test::AList)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<AList, AList>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<AList, AList>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opAList, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<AList, AList>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opAList, iceP_inSeq, context);
 }
 
 void
@@ -198,13 +198,13 @@ Test::TestIntfPrx::opBoolSeqAsync(const BoolSeq& iceP_inSeq, const Ice::Context&
 }
 
 std::function<void()>
-Test::TestIntfPrx::opBoolSeqAsync(const BoolSeq& iceP_inSeq, std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opBoolSeqAsync(const BoolSeq& iceP_inSeq, std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<BoolSeq, BoolSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<BoolSeq, BoolSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<BoolSeq, BoolSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
 }
 
 void
@@ -242,13 +242,13 @@ Test::TestIntfPrx::opByteSeqAsync(const ByteSeq& iceP_inSeq, const Ice::Context&
 }
 
 std::function<void()>
-Test::TestIntfPrx::opByteSeqAsync(const ByteSeq& iceP_inSeq, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opByteSeqAsync(const ByteSeq& iceP_inSeq, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<ByteSeq, ByteSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<ByteSeq, ByteSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ByteSeq, ByteSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
 
 void
@@ -286,13 +286,13 @@ Test::TestIntfPrx::opShortSeqAsync(const ShortSeq& iceP_inSeq, const Ice::Contex
 }
 
 std::function<void()>
-Test::TestIntfPrx::opShortSeqAsync(const ShortSeq& iceP_inSeq, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opShortSeqAsync(const ShortSeq& iceP_inSeq, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<ShortSeq, ShortSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<ShortSeq, ShortSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ShortSeq, ShortSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
 }
 
 void
@@ -330,13 +330,13 @@ Test::TestIntfPrx::opIntSeqAsync(const IntSeq& iceP_inSeq, const Ice::Context& c
 }
 
 std::function<void()>
-Test::TestIntfPrx::opIntSeqAsync(const IntSeq& iceP_inSeq, std::function<void(::Test::IntSeq, ::Test::IntSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opIntSeqAsync(const IntSeq& iceP_inSeq, std::function<void(::Test::IntSeq, ::Test::IntSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<IntSeq, IntSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<IntSeq, IntSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<IntSeq, IntSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
 }
 
 void
@@ -374,13 +374,13 @@ Test::TestIntfPrx::opLongSeqAsync(const LongSeq& iceP_inSeq, const Ice::Context&
 }
 
 std::function<void()>
-Test::TestIntfPrx::opLongSeqAsync(const LongSeq& iceP_inSeq, std::function<void(::Test::LongSeq, ::Test::LongSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opLongSeqAsync(const LongSeq& iceP_inSeq, std::function<void(::Test::LongSeq, ::Test::LongSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<LongSeq, LongSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<LongSeq, LongSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<LongSeq, LongSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
 }
 
 void
@@ -418,13 +418,13 @@ Test::TestIntfPrx::opFloatSeqAsync(const FloatSeq& iceP_inSeq, const Ice::Contex
 }
 
 std::function<void()>
-Test::TestIntfPrx::opFloatSeqAsync(const FloatSeq& iceP_inSeq, std::function<void(::Test::FloatSeq, ::Test::FloatSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opFloatSeqAsync(const FloatSeq& iceP_inSeq, std::function<void(::Test::FloatSeq, ::Test::FloatSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<FloatSeq, FloatSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<FloatSeq, FloatSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<FloatSeq, FloatSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
 }
 
 void
@@ -462,13 +462,13 @@ Test::TestIntfPrx::opDoubleSeqAsync(const DoubleSeq& iceP_inSeq, const Ice::Cont
 }
 
 std::function<void()>
-Test::TestIntfPrx::opDoubleSeqAsync(const DoubleSeq& iceP_inSeq, std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opDoubleSeqAsync(const DoubleSeq& iceP_inSeq, std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<DoubleSeq, DoubleSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<DoubleSeq, DoubleSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<DoubleSeq, DoubleSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
 }
 
 void
@@ -506,13 +506,13 @@ Test::TestIntfPrx::opStringSeqAsync(const StringSeq& iceP_inSeq, const Ice::Cont
 }
 
 std::function<void()>
-Test::TestIntfPrx::opStringSeqAsync(const StringSeq& iceP_inSeq, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opStringSeqAsync(const StringSeq& iceP_inSeq, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<StringSeq, StringSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<StringSeq, StringSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<StringSeq, StringSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
 }
 
 void
@@ -550,13 +550,13 @@ Test::TestIntfPrx::opESeqAsync(const ESeq& iceP_inSeq, const Ice::Context& conte
 }
 
 std::function<void()>
-Test::TestIntfPrx::opESeqAsync(const ESeq& iceP_inSeq, std::function<void(::Test::ESeq, ::Test::ESeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opESeqAsync(const ESeq& iceP_inSeq, std::function<void(::Test::ESeq, ::Test::ESeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<ESeq, ESeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<ESeq, ESeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ESeq, ESeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
 }
 
 void
@@ -594,13 +594,13 @@ Test::TestIntfPrx::opSSeqAsync(const SSeq& iceP_inSeq, const Ice::Context& conte
 }
 
 std::function<void()>
-Test::TestIntfPrx::opSSeqAsync(const SSeq& iceP_inSeq, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opSSeqAsync(const SSeq& iceP_inSeq, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<SSeq, SSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
 }
 
 void
@@ -638,13 +638,13 @@ Test::TestIntfPrx::opDSeqAsync(const DSeq& iceP_inSeq, const Ice::Context& conte
 }
 
 std::function<void()>
-Test::TestIntfPrx::opDSeqAsync(const DSeq& iceP_inSeq, std::function<void(::Test::DSeq, ::Test::DSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opDSeqAsync(const DSeq& iceP_inSeq, std::function<void(::Test::DSeq, ::Test::DSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<DSeq, DSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<DSeq, DSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<DSeq, DSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
 }
 
 void
@@ -682,13 +682,13 @@ Test::TestIntfPrx::opStringSeqSeqAsync(const StringSeqSeq& iceP_inSeq, const Ice
 }
 
 std::function<void()>
-Test::TestIntfPrx::opStringSeqSeqAsync(const StringSeqSeq& iceP_inSeq, std::function<void(::Test::StringSeqSeq, ::Test::StringSeqSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opStringSeqSeqAsync(const StringSeqSeq& iceP_inSeq, std::function<void(::Test::StringSeqSeq, ::Test::StringSeqSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<StringSeqSeq, StringSeqSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<StringSeqSeq, StringSeqSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<StringSeqSeq, StringSeqSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
 }
 
 void
@@ -726,13 +726,13 @@ Test::TestIntfPrx::opByteBufferSeqAsync(const ByteBuffer& iceP_inSeq, const Ice:
 }
 
 std::function<void()>
-Test::TestIntfPrx::opByteBufferSeqAsync(const ByteBuffer& iceP_inSeq, std::function<void(::Test::ByteBuffer, ::Test::ByteBuffer)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opByteBufferSeqAsync(const ByteBuffer& iceP_inSeq, std::function<void(::Test::ByteBuffer, ::Test::ByteBuffer)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<ByteBuffer, ByteBuffer>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<ByteBuffer, ByteBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ByteBuffer, ByteBuffer>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -770,13 +770,13 @@ Test::TestIntfPrx::opShortBufferSeqAsync(const ShortBuffer& iceP_inSeq, const Ic
 }
 
 std::function<void()>
-Test::TestIntfPrx::opShortBufferSeqAsync(const ShortBuffer& iceP_inSeq, std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opShortBufferSeqAsync(const ShortBuffer& iceP_inSeq, std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<ShortBuffer, ShortBuffer>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<ShortBuffer, ShortBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ShortBuffer, ShortBuffer>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -814,13 +814,13 @@ Test::TestIntfPrx::opIntBufferSeqAsync(const IntBuffer& iceP_inSeq, const Ice::C
 }
 
 std::function<void()>
-Test::TestIntfPrx::opIntBufferSeqAsync(const IntBuffer& iceP_inSeq, std::function<void(::Test::IntBuffer, ::Test::IntBuffer)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opIntBufferSeqAsync(const IntBuffer& iceP_inSeq, std::function<void(::Test::IntBuffer, ::Test::IntBuffer)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<IntBuffer, IntBuffer>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<IntBuffer, IntBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<IntBuffer, IntBuffer>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -858,13 +858,13 @@ Test::TestIntfPrx::opLongBufferSeqAsync(const LongBuffer& iceP_inSeq, const Ice:
 }
 
 std::function<void()>
-Test::TestIntfPrx::opLongBufferSeqAsync(const LongBuffer& iceP_inSeq, std::function<void(::Test::LongBuffer, ::Test::LongBuffer)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opLongBufferSeqAsync(const LongBuffer& iceP_inSeq, std::function<void(::Test::LongBuffer, ::Test::LongBuffer)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<LongBuffer, LongBuffer>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<LongBuffer, LongBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<LongBuffer, LongBuffer>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -902,13 +902,13 @@ Test::TestIntfPrx::opFloatBufferSeqAsync(const FloatBuffer& iceP_inSeq, const Ic
 }
 
 std::function<void()>
-Test::TestIntfPrx::opFloatBufferSeqAsync(const FloatBuffer& iceP_inSeq, std::function<void(::Test::FloatBuffer, ::Test::FloatBuffer)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opFloatBufferSeqAsync(const FloatBuffer& iceP_inSeq, std::function<void(::Test::FloatBuffer, ::Test::FloatBuffer)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<FloatBuffer, FloatBuffer>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<FloatBuffer, FloatBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<FloatBuffer, FloatBuffer>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -946,13 +946,13 @@ Test::TestIntfPrx::opDoubleBufferSeqAsync(const DoubleBuffer& iceP_inSeq, const 
 }
 
 std::function<void()>
-Test::TestIntfPrx::opDoubleBufferSeqAsync(const DoubleBuffer& iceP_inSeq, std::function<void(::Test::DoubleBuffer, ::Test::DoubleBuffer)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opDoubleBufferSeqAsync(const DoubleBuffer& iceP_inSeq, std::function<void(::Test::DoubleBuffer, ::Test::DoubleBuffer)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<DoubleBuffer, DoubleBuffer>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<DoubleBuffer, DoubleBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<DoubleBuffer, DoubleBuffer>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -990,13 +990,13 @@ Test::TestIntfPrx::opOptASeqAsync(const std::optional<ASeq>& iceP_inSeq, const I
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptASeqAsync(const std::optional<ASeq>& iceP_inSeq, std::function<void(std::optional<::Test::ASeq>, std::optional<::Test::ASeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptASeqAsync(const std::optional<ASeq>& iceP_inSeq, std::function<void(std::optional<::Test::ASeq>, std::optional<::Test::ASeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<ASeq>, std::optional<ASeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ASeq>, std::optional<ASeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptASeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ASeq>, std::optional<ASeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptASeq, iceP_inSeq, context);
 }
 
 void
@@ -1034,13 +1034,13 @@ Test::TestIntfPrx::opOptAArrayAsync(const std::optional<AArray>& iceP_inSeq, con
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptAArrayAsync(const std::optional<AArray>& iceP_inSeq, std::function<void(std::optional<::Test::AArray>, std::optional<::Test::AArray>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptAArrayAsync(const std::optional<AArray>& iceP_inSeq, std::function<void(std::optional<::Test::AArray>, std::optional<::Test::AArray>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<AArray>, std::optional<AArray>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<AArray>, std::optional<AArray>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptAArray, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<AArray>, std::optional<AArray>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptAArray, iceP_inSeq, context);
 }
 
 void
@@ -1078,13 +1078,13 @@ Test::TestIntfPrx::opOptAListAsync(const std::optional<AList>& iceP_inSeq, const
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptAListAsync(const std::optional<AList>& iceP_inSeq, std::function<void(std::optional<::Test::AList>, std::optional<::Test::AList>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptAListAsync(const std::optional<AList>& iceP_inSeq, std::function<void(std::optional<::Test::AList>, std::optional<::Test::AList>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<AList>, std::optional<AList>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<AList>, std::optional<AList>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptAList, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<AList>, std::optional<AList>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptAList, iceP_inSeq, context);
 }
 
 void
@@ -1122,13 +1122,13 @@ Test::TestIntfPrx::opOptBoolSeqAsync(const std::optional<BoolSeq>& iceP_inSeq, c
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptBoolSeqAsync(const std::optional<BoolSeq>& iceP_inSeq, std::function<void(std::optional<::Test::BoolSeq>, std::optional<::Test::BoolSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptBoolSeqAsync(const std::optional<BoolSeq>& iceP_inSeq, std::function<void(std::optional<::Test::BoolSeq>, std::optional<::Test::BoolSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
 }
 
 void
@@ -1166,13 +1166,13 @@ Test::TestIntfPrx::opOptByteSeqAsync(const std::optional<ByteSeq>& iceP_inSeq, c
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptByteSeqAsync(const std::optional<ByteSeq>& iceP_inSeq, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptByteSeqAsync(const std::optional<ByteSeq>& iceP_inSeq, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
 }
 
 void
@@ -1210,13 +1210,13 @@ Test::TestIntfPrx::opOptShortSeqAsync(const std::optional<ShortSeq>& iceP_inSeq,
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptShortSeqAsync(const std::optional<ShortSeq>& iceP_inSeq, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptShortSeqAsync(const std::optional<ShortSeq>& iceP_inSeq, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
 }
 
 void
@@ -1254,13 +1254,13 @@ Test::TestIntfPrx::opOptIntSeqAsync(const std::optional<IntSeq>& iceP_inSeq, con
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptIntSeqAsync(const std::optional<IntSeq>& iceP_inSeq, std::function<void(std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptIntSeqAsync(const std::optional<IntSeq>& iceP_inSeq, std::function<void(std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
 }
 
 void
@@ -1298,13 +1298,13 @@ Test::TestIntfPrx::opOptLongSeqAsync(const std::optional<LongSeq>& iceP_inSeq, c
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptLongSeqAsync(const std::optional<LongSeq>& iceP_inSeq, std::function<void(std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptLongSeqAsync(const std::optional<LongSeq>& iceP_inSeq, std::function<void(std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
 }
 
 void
@@ -1342,13 +1342,13 @@ Test::TestIntfPrx::opOptFloatSeqAsync(const std::optional<FloatSeq>& iceP_inSeq,
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptFloatSeqAsync(const std::optional<FloatSeq>& iceP_inSeq, std::function<void(std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptFloatSeqAsync(const std::optional<FloatSeq>& iceP_inSeq, std::function<void(std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
 }
 
 void
@@ -1386,13 +1386,13 @@ Test::TestIntfPrx::opOptDoubleSeqAsync(const std::optional<DoubleSeq>& iceP_inSe
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptDoubleSeqAsync(const std::optional<DoubleSeq>& iceP_inSeq, std::function<void(std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptDoubleSeqAsync(const std::optional<DoubleSeq>& iceP_inSeq, std::function<void(std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
 }
 
 void
@@ -1430,13 +1430,13 @@ Test::TestIntfPrx::opOptStringSeqAsync(const std::optional<StringSeq>& iceP_inSe
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptStringSeqAsync(const std::optional<StringSeq>& iceP_inSeq, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptStringSeqAsync(const std::optional<StringSeq>& iceP_inSeq, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
 }
 
 void
@@ -1474,13 +1474,13 @@ Test::TestIntfPrx::opOptESeqAsync(const std::optional<ESeq>& iceP_inSeq, const I
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptESeqAsync(const std::optional<ESeq>& iceP_inSeq, std::function<void(std::optional<::Test::ESeq>, std::optional<::Test::ESeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptESeqAsync(const std::optional<ESeq>& iceP_inSeq, std::function<void(std::optional<::Test::ESeq>, std::optional<::Test::ESeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<ESeq>, std::optional<ESeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
 }
 
 void
@@ -1518,13 +1518,13 @@ Test::TestIntfPrx::opOptSSeqAsync(const std::optional<SSeq>& iceP_inSeq, const I
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptSSeqAsync(const std::optional<SSeq>& iceP_inSeq, std::function<void(std::optional<::Test::SSeq>, std::optional<::Test::SSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptSSeqAsync(const std::optional<SSeq>& iceP_inSeq, std::function<void(std::optional<::Test::SSeq>, std::optional<::Test::SSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<SSeq>, std::optional<SSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
 }
 
 void
@@ -1562,13 +1562,13 @@ Test::TestIntfPrx::opOptDSeqAsync(const std::optional<DSeq>& iceP_inSeq, const I
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptDSeqAsync(const std::optional<DSeq>& iceP_inSeq, std::function<void(std::optional<::Test::DSeq>, std::optional<::Test::DSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptDSeqAsync(const std::optional<DSeq>& iceP_inSeq, std::function<void(std::optional<::Test::DSeq>, std::optional<::Test::DSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<DSeq>, std::optional<DSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
 }
 
 void
@@ -1606,13 +1606,13 @@ Test::TestIntfPrx::opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& ice
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& iceP_inSeq, std::function<void(std::optional<::Test::StringSeqSeq>, std::optional<::Test::StringSeqSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& iceP_inSeq, std::function<void(std::optional<::Test::StringSeqSeq>, std::optional<::Test::StringSeqSeq>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
 }
 
 void
@@ -1650,13 +1650,13 @@ Test::TestIntfPrx::opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& iceP
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::ByteBuffer>, std::optional<::Test::ByteBuffer>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::ByteBuffer>, std::optional<::Test::ByteBuffer>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1694,13 +1694,13 @@ Test::TestIntfPrx::opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& ic
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::ShortBuffer>, std::optional<::Test::ShortBuffer>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::ShortBuffer>, std::optional<::Test::ShortBuffer>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1738,13 +1738,13 @@ Test::TestIntfPrx::opOptIntBufferSeqAsync(const std::optional<IntBuffer>& iceP_i
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptIntBufferSeqAsync(const std::optional<IntBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::IntBuffer>, std::optional<::Test::IntBuffer>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptIntBufferSeqAsync(const std::optional<IntBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::IntBuffer>, std::optional<::Test::IntBuffer>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1782,13 +1782,13 @@ Test::TestIntfPrx::opOptLongBufferSeqAsync(const std::optional<LongBuffer>& iceP
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptLongBufferSeqAsync(const std::optional<LongBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::LongBuffer>, std::optional<::Test::LongBuffer>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptLongBufferSeqAsync(const std::optional<LongBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::LongBuffer>, std::optional<::Test::LongBuffer>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1826,13 +1826,13 @@ Test::TestIntfPrx::opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& ic
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::FloatBuffer>, std::optional<::Test::FloatBuffer>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::FloatBuffer>, std::optional<::Test::FloatBuffer>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1870,13 +1870,13 @@ Test::TestIntfPrx::opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& 
 }
 
 std::function<void()>
-Test::TestIntfPrx::opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::DoubleBuffer>, std::optional<::Test::DoubleBuffer>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& iceP_inSeq, std::function<void(std::optional<::Test::DoubleBuffer>, std::optional<::Test::DoubleBuffer>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1912,9 +1912,9 @@ Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void

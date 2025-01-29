@@ -48,9 +48,9 @@ Test::EventPrx::pubAsync(std::string_view iceP_data, const Ice::Context& context
 }
 
 std::function<void()>
-Test::EventPrx::pubAsync(std::string_view iceP_data, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::EventPrx::pubAsync(std::string_view iceP_data, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_data, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_data, context);
 }
 
 void

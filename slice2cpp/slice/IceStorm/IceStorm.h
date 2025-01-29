@@ -63,7 +63,6 @@ namespace IceStorm
     class ICESTORM_API TopicPrx : public Ice::Proxy<TopicPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Get the name of this topic.
         /// @param context The Context map to send with the invocation.
         /// @return The name of the topic.
@@ -78,13 +77,13 @@ namespace IceStorm
 
         /// Get the name of this topic.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see TopicManager#create
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getName(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
@@ -108,12 +107,12 @@ namespace IceStorm
         /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
         /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getPublisherAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getPublisherAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getPublisher(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
@@ -137,12 +136,12 @@ namespace IceStorm
         /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
         /// never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getNonReplicatedPublisherAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getNonReplicatedPublisherAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getNonReplicatedPublisher(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
@@ -171,13 +170,13 @@ namespace IceStorm
         /// @param theQoS The quality of service parameters for this subscription.
         /// @param subscriber The subscriber's proxy. This proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see #unsubscribe
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        subscribeAndGetPublisherAsync(const QoS& theQoS, const std::optional<Ice::ObjectPrx>& subscriber, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> subscribeAndGetPublisherAsync(const QoS& theQoS, const std::optional<Ice::ObjectPrx>& subscriber, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_subscribeAndGetPublisher(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const QoS&, const std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
@@ -199,13 +198,13 @@ namespace IceStorm
         /// Unsubscribe the given <code>subscriber</code>.
         /// @param subscriber The proxy of an existing subscriber. This proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see #subscribeAndGetPublisher
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        unsubscribeAsync(const std::optional<Ice::ObjectPrx>& subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> unsubscribeAsync(const std::optional<Ice::ObjectPrx>& subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_unsubscribe(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
@@ -232,12 +231,12 @@ namespace IceStorm
         /// @param linkTo The topic to link to. This proxy is never null.
         /// @param cost The cost to the linked topic.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        linkAsync(const std::optional<TopicPrx>& linkTo, std::int32_t cost, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> linkAsync(const std::optional<TopicPrx>& linkTo, std::int32_t cost, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_link(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<TopicPrx>&, std::int32_t, const Ice::Context&) const;
@@ -258,12 +257,12 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic <code>linkTo</code>.
         /// @param linkTo The topic to destroy the link to. This proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        unlinkAsync(const std::optional<TopicPrx>& linkTo, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> unlinkAsync(const std::optional<TopicPrx>& linkTo, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_unlink(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<TopicPrx>&, const Ice::Context&) const;
@@ -281,12 +280,12 @@ namespace IceStorm
 
         /// Retrieve information on the current links.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getLinkInfoSeqAsync(std::function<void(::IceStorm::LinkInfoSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getLinkInfoSeqAsync(std::function<void(::IceStorm::LinkInfoSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getLinkInfoSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<LinkInfoSeq>>&, const Ice::Context&) const;
@@ -304,12 +303,12 @@ namespace IceStorm
 
         /// Retrieve the list of subscribers for this topic.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getSubscribersAsync(std::function<void(::Ice::IdentitySeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getSubscribersAsync(std::function<void(::Ice::IdentitySeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getSubscribers(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const Ice::Context&) const;
@@ -326,12 +325,12 @@ namespace IceStorm
 
         /// Destroy the topic.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -384,7 +383,6 @@ namespace IceStorm
     class ICESTORM_API TopicManagerPrx : public Ice::Proxy<TopicManagerPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Create a new topic. The topic name must be unique.
         /// @param name The name of the topic.
         /// @param context The Context map to send with the invocation.
@@ -401,12 +399,12 @@ namespace IceStorm
         /// Create a new topic. The topic name must be unique.
         /// @param name The name of the topic.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createAsync(std::string_view name, std::function<void(std::optional<::IceStorm::TopicPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createAsync(std::string_view name, std::function<void(std::optional<::IceStorm::TopicPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_create(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TopicPrx>>>&, std::string_view, const Ice::Context&) const;
@@ -428,12 +426,12 @@ namespace IceStorm
         /// Retrieve a topic by name.
         /// @param name The name of the topic.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        retrieveAsync(std::string_view name, std::function<void(std::optional<::IceStorm::TopicPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> retrieveAsync(std::string_view name, std::function<void(std::optional<::IceStorm::TopicPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_retrieve(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TopicPrx>>>&, std::string_view, const Ice::Context&) const;
@@ -451,12 +449,12 @@ namespace IceStorm
 
         /// Retrieve all topics managed by this topic manager.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        retrieveAllAsync(std::function<void(::IceStorm::TopicDict)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> retrieveAllAsync(std::function<void(::IceStorm::TopicDict)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_retrieveAll(const std::shared_ptr<IceInternal::OutgoingAsyncT<TopicDict>>&, const Ice::Context&) const;
@@ -509,7 +507,6 @@ namespace IceStorm
     class ICESTORM_API FinderPrx : public Ice::Proxy<FinderPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Get the topic manager proxy. The proxy might point to several replicas.
         /// @param context The Context map to send with the invocation.
         /// @return The topic manager proxy. The returned proxy is never null.
@@ -522,12 +519,12 @@ namespace IceStorm
 
         /// Get the topic manager proxy. The proxy might point to several replicas.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getTopicManagerAsync(std::function<void(std::optional<::IceStorm::TopicManagerPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getTopicManagerAsync(std::function<void(std::optional<::IceStorm::TopicManagerPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getTopicManager(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TopicManagerPrx>>>&, const Ice::Context&) const;

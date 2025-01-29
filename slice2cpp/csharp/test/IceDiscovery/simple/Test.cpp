@@ -48,9 +48,9 @@ Test::TestIntfPrx::getAdapterIdAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestIntfPrx::getAdapterIdAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestIntfPrx::getAdapterIdAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterId, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterId, context);
 }
 
 void
@@ -85,9 +85,9 @@ Test::ControllerPrx::activateObjectAdapterAsync(std::string_view iceP_name, std:
 }
 
 std::function<void()>
-Test::ControllerPrx::activateObjectAdapterAsync(std::string_view iceP_name, std::string_view iceP_adapterId, std::string_view iceP_replicaGroupId, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::activateObjectAdapterAsync(std::string_view iceP_name, std::string_view iceP_adapterId, std::string_view iceP_replicaGroupId, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_activateObjectAdapter, iceP_name, iceP_adapterId, iceP_replicaGroupId, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_activateObjectAdapter, iceP_name, iceP_adapterId, iceP_replicaGroupId, context);
 }
 
 void
@@ -116,9 +116,9 @@ Test::ControllerPrx::deactivateObjectAdapterAsync(std::string_view iceP_name, co
 }
 
 std::function<void()>
-Test::ControllerPrx::deactivateObjectAdapterAsync(std::string_view iceP_name, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::deactivateObjectAdapterAsync(std::string_view iceP_name, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_deactivateObjectAdapter, iceP_name, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_deactivateObjectAdapter, iceP_name, context);
 }
 
 void
@@ -147,9 +147,9 @@ Test::ControllerPrx::addObjectAsync(std::string_view iceP_oaName, std::string_vi
 }
 
 std::function<void()>
-Test::ControllerPrx::addObjectAsync(std::string_view iceP_oaName, std::string_view iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::addObjectAsync(std::string_view iceP_oaName, std::string_view iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_addObject, iceP_oaName, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_addObject, iceP_oaName, iceP_id, context);
 }
 
 void
@@ -178,9 +178,9 @@ Test::ControllerPrx::removeObjectAsync(std::string_view iceP_oaName, std::string
 }
 
 std::function<void()>
-Test::ControllerPrx::removeObjectAsync(std::string_view iceP_oaName, std::string_view iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::removeObjectAsync(std::string_view iceP_oaName, std::string_view iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_removeObject, iceP_oaName, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_removeObject, iceP_oaName, iceP_id, context);
 }
 
 void
@@ -209,9 +209,9 @@ Test::ControllerPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ControllerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
 }
 
 void

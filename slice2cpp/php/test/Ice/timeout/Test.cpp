@@ -48,9 +48,9 @@ Test::TimeoutPrx::opAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TimeoutPrx::opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TimeoutPrx::opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TimeoutPrx::_iceI_op, context);
 }
 
 void
@@ -76,9 +76,9 @@ Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq, const Ice::Context& con
 }
 
 std::function<void()>
-Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_sendData, iceP_seq, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TimeoutPrx::_iceI_sendData, iceP_seq, context);
 }
 
 void
@@ -107,9 +107,9 @@ Test::TimeoutPrx::sleepAsync(std::int32_t iceP_to, const Ice::Context& context) 
 }
 
 std::function<void()>
-Test::TimeoutPrx::sleepAsync(std::int32_t iceP_to, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TimeoutPrx::sleepAsync(std::int32_t iceP_to, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_sleep, iceP_to, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TimeoutPrx::_iceI_sleep, iceP_to, context);
 }
 
 void
@@ -146,9 +146,9 @@ Test::ControllerPrx::holdAdapterAsync(std::int32_t iceP_to, const Ice::Context& 
 }
 
 std::function<void()>
-Test::ControllerPrx::holdAdapterAsync(std::int32_t iceP_to, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::holdAdapterAsync(std::int32_t iceP_to, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_holdAdapter, iceP_to, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_holdAdapter, iceP_to, context);
 }
 
 void
@@ -177,9 +177,9 @@ Test::ControllerPrx::resumeAdapterAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ControllerPrx::resumeAdapterAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::resumeAdapterAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_resumeAdapter, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_resumeAdapter, context);
 }
 
 void
@@ -205,9 +205,9 @@ Test::ControllerPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::ControllerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::ControllerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
 }
 
 void

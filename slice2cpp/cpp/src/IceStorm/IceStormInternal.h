@@ -50,7 +50,6 @@ namespace IceStorm
     class TopicLinkPrx : public Ice::Proxy<TopicLinkPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Forward a sequence of events.
         /// @param events The events to forward.
         /// @param context The Context map to send with the invocation.
@@ -65,12 +64,12 @@ namespace IceStorm
         /// Forward a sequence of events.
         /// @param events The events to forward.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        forwardAsync(const EventDataSeq& events, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> forwardAsync(const EventDataSeq& events, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_forward(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const EventDataSeq&, const Ice::Context&) const;
@@ -123,7 +122,6 @@ namespace IceStorm
     class TopicInternalPrx : public Ice::Proxy<TopicInternalPrx, TopicPrx>
     {
     public:
-
         /// Retrieve a proxy to the TopicLink interface.
         /// @param context The Context map to send with the invocation.
         /// @return The TopicLink for the Topic.
@@ -136,12 +134,12 @@ namespace IceStorm
 
         /// Retrieve a proxy to the TopicLink interface.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getLinkProxyAsync(std::function<void(std::optional<::IceStorm::TopicLinkPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getLinkProxyAsync(std::function<void(std::optional<::IceStorm::TopicLinkPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getLinkProxy(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TopicLinkPrx>>>&, const Ice::Context&) const;
@@ -162,12 +160,12 @@ namespace IceStorm
         /// Reap the given identities.
         /// @param id The sequence of identities.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        reapAsync(const ::Ice::IdentitySeq& id, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> reapAsync(const ::Ice::IdentitySeq& id, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_reap(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const Ice::Context&) const;
@@ -229,7 +227,6 @@ namespace IceStorm
     class TopicManagerInternalPrx : public Ice::Proxy<TopicManagerInternalPrx, TopicManagerPrx>
     {
     public:
-
         /// Return the replica node proxy for this topic manager.
         /// @param context The Context map to send with the invocation.
         /// @return The replica proxy, or null if this instance is not replicated.
@@ -242,12 +239,12 @@ namespace IceStorm
 
         /// Return the replica node proxy for this topic manager.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getReplicaNodeAsync(std::function<void(std::optional<::IceStormElection::NodePrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getReplicaNodeAsync(std::function<void(std::optional<::IceStormElection::NodePrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getReplicaNode(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<::IceStormElection::NodePrx>>>&, const Ice::Context&) const;

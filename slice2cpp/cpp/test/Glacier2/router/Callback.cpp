@@ -54,9 +54,9 @@ Test::CallbackReceiverPrx::callbackAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackReceiverPrx::callbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackReceiverPrx::callbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
 }
 
 void
@@ -82,9 +82,9 @@ Test::CallbackReceiverPrx::callbackExAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackReceiverPrx::callbackExAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackReceiverPrx::callbackExAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackEx, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackEx, context);
 }
 
 void
@@ -124,9 +124,9 @@ Test::CallbackReceiverPrx::concurrentCallbackAsync(std::int32_t iceP_number, con
 }
 
 std::function<void()>
-Test::CallbackReceiverPrx::concurrentCallbackAsync(std::int32_t iceP_number, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackReceiverPrx::concurrentCallbackAsync(std::int32_t iceP_number, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
 }
 
 void
@@ -156,9 +156,9 @@ Test::CallbackReceiverPrx::waitCallbackAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackReceiverPrx::waitCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackReceiverPrx::waitCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_waitCallback, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_waitCallback, context);
 }
 
 void
@@ -184,9 +184,9 @@ Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_p
 }
 
 std::function<void()>
-Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_payload, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_payload, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
 }
 
 void
@@ -223,9 +223,9 @@ Test::CallbackPrx::initiateCallbackAsync(const std::optional<CallbackReceiverPrx
 }
 
 std::function<void()>
-Test::CallbackPrx::initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
 }
 
 void
@@ -254,9 +254,9 @@ Test::CallbackPrx::initiateCallbackExAsync(const std::optional<CallbackReceiverP
 }
 
 std::function<void()>
-Test::CallbackPrx::initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
 }
 
 void
@@ -299,9 +299,9 @@ Test::CallbackPrx::initiateConcurrentCallbackAsync(std::int32_t iceP_number, con
 }
 
 std::function<void()>
-Test::CallbackPrx::initiateConcurrentCallbackAsync(std::int32_t iceP_number, const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::initiateConcurrentCallbackAsync(std::int32_t iceP_number, const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
 }
 
 void
@@ -331,9 +331,9 @@ Test::CallbackPrx::initiateWaitCallbackAsync(const std::optional<CallbackReceive
 }
 
 std::function<void()>
-Test::CallbackPrx::initiateWaitCallbackAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::initiateWaitCallbackAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context);
 }
 
 void
@@ -362,9 +362,9 @@ Test::CallbackPrx::initiateCallbackWithPayloadAsync(const std::optional<Callback
 }
 
 std::function<void()>
-Test::CallbackPrx::initiateCallbackWithPayloadAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::initiateCallbackWithPayloadAsync(const std::optional<CallbackReceiverPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
 }
 
 void
@@ -393,9 +393,9 @@ Test::CallbackPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::CallbackPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::CallbackPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
 }
 
 void

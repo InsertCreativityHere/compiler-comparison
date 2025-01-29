@@ -57,13 +57,13 @@ Test1::WstringClassPrx::opStringAsync(std::wstring_view iceP_s1, const Ice::Cont
 }
 
 std::function<void()>
-Test1::WstringClassPrx::opStringAsync(std::wstring_view iceP_s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test1::WstringClassPrx::opStringAsync(std::wstring_view iceP_s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::wstring, std::wstring>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::wstring, std::wstring>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::wstring, std::wstring>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 void
@@ -101,13 +101,13 @@ Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const Ice::C
 }
 
 std::function<void()>
-Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<WstringStruct, WstringStruct>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<WstringStruct, WstringStruct>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<WstringStruct, WstringStruct>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 void
@@ -143,9 +143,9 @@ Test1::WstringClassPrx::throwExceptAsync(std::wstring_view iceP_reason, const Ic
 }
 
 std::function<void()>
-Test1::WstringClassPrx::throwExceptAsync(std::wstring_view iceP_reason, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test1::WstringClassPrx::throwExceptAsync(std::wstring_view iceP_reason, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 void
@@ -198,13 +198,13 @@ Test2::WstringClassPrx::opStringAsync(std::wstring_view iceP_s1, const Ice::Cont
 }
 
 std::function<void()>
-Test2::WstringClassPrx::opStringAsync(std::wstring_view iceP_s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test2::WstringClassPrx::opStringAsync(std::wstring_view iceP_s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<std::wstring, std::wstring>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<std::wstring, std::wstring>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::wstring, std::wstring>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 void
@@ -242,13 +242,13 @@ Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const Ice::C
 }
 
 std::function<void()>
-Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<WstringStruct, WstringStruct>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<WstringStruct, WstringStruct>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<WstringStruct, WstringStruct>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 void
@@ -284,9 +284,9 @@ Test2::WstringClassPrx::throwExceptAsync(std::wstring_view iceP_reason, const Ic
 }
 
 std::function<void()>
-Test2::WstringClassPrx::throwExceptAsync(std::wstring_view iceP_reason, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test2::WstringClassPrx::throwExceptAsync(std::wstring_view iceP_reason, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 void

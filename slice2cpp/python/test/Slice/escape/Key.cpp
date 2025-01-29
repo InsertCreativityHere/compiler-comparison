@@ -80,9 +80,9 @@ and::delPrx::elifAsync(std::int32_t iceP_else, const Ice::Context& context) cons
 }
 
 std::function<void()>
-and::delPrx::elifAsync(std::int32_t iceP_else, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::delPrx::elifAsync(std::int32_t iceP_else, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &and::delPrx::_iceI_elif, iceP_else, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &and::delPrx::_iceI_elif, iceP_else, context);
 }
 
 void
@@ -120,9 +120,9 @@ and::execPrx::finallyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-and::execPrx::finallyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::execPrx::finallyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &and::execPrx::_iceI_finally, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &and::execPrx::_iceI_finally, context);
 }
 
 void
@@ -164,9 +164,9 @@ and::printPrx::raiseAsync(const continue& iceP_else, const forPtr& iceP_return, 
 }
 
 std::function<void()>
-and::printPrx::raiseAsync(const continue& iceP_else, const forPtr& iceP_return, const std::optional<delPrx>& iceP_while, const std::optional<execPrx>& iceP_yield, const std::optional<ifPrx>& iceP_or, std::int32_t iceP_global, std::function<void(::and::assert)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::printPrx::raiseAsync(const continue& iceP_else, const forPtr& iceP_return, const std::optional<delPrx>& iceP_while, const std::optional<execPrx>& iceP_yield, const std::optional<ifPrx>& iceP_or, std::int32_t iceP_global, std::function<void(::and::assert)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &and::printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
+    return IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(exception), std::move(sent), this, &and::printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
 }
 
 void

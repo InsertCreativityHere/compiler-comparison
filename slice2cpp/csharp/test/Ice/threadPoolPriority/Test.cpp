@@ -48,9 +48,9 @@ Test::PriorityPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::PriorityPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::PriorityPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
 }
 
 void
@@ -76,9 +76,9 @@ Test::PriorityPrx::getPriorityAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::PriorityPrx::getPriorityAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::PriorityPrx::getPriorityAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
 }
 
 void

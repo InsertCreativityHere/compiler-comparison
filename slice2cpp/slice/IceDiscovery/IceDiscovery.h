@@ -38,7 +38,6 @@ namespace IceDiscovery
     class LookupReplyPrx : public Ice::Proxy<LookupReplyPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Reply to the findObjectById request.
         /// @param id The identity of the object.
         /// @param prx The proxy of the object. This proxy is never null.
@@ -56,12 +55,12 @@ namespace IceDiscovery
         /// @param id The identity of the object.
         /// @param prx The proxy of the object. This proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        foundObjectByIdAsync(const ::Ice::Identity& id, const std::optional<Ice::ObjectPrx>& prx, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> foundObjectByIdAsync(const ::Ice::Identity& id, const std::optional<Ice::ObjectPrx>& prx, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_foundObjectById(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
@@ -90,12 +89,12 @@ namespace IceDiscovery
         /// endpoints. This proxy is never null.
         /// @param isReplicaGroup True if the adapter is also a member of a replica group.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        foundAdapterByIdAsync(std::string_view id, const std::optional<Ice::ObjectPrx>& prx, bool isReplicaGroup, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> foundAdapterByIdAsync(std::string_view id, const std::optional<Ice::ObjectPrx>& prx, bool isReplicaGroup, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_foundAdapterById(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const std::optional<Ice::ObjectPrx>&, bool, const Ice::Context&) const;
@@ -147,7 +146,6 @@ namespace IceDiscovery
     class LookupPrx : public Ice::Proxy<LookupPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Request to find an Ice object
         /// @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
         /// matching domain identifier.
@@ -174,12 +172,12 @@ namespace IceDiscovery
         /// @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
         /// object is found. The reply proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        findObjectByIdAsync(std::string_view domainId, const ::Ice::Identity& id, const std::optional<LookupReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> findObjectByIdAsync(std::string_view domainId, const ::Ice::Identity& id, const std::optional<LookupReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_findObjectById(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const ::Ice::Identity&, const std::optional<LookupReplyPrx>&, const Ice::Context&) const;
@@ -211,12 +209,12 @@ namespace IceDiscovery
         /// @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
         /// adapter is found. The reply proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        findAdapterByIdAsync(std::string_view domainId, std::string_view id, const std::optional<LookupReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> findAdapterByIdAsync(std::string_view domainId, std::string_view id, const std::optional<LookupReplyPrx>& reply, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_findAdapterById(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, const std::optional<LookupReplyPrx>&, const Ice::Context&) const;

@@ -54,9 +54,9 @@ Test::MyObjectPrx::widenAsync(std::string_view iceP_msg, const Ice::Context& con
 }
 
 std::function<void()>
-Test::MyObjectPrx::widenAsync(std::string_view iceP_msg, std::function<void(std::wstring)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyObjectPrx::widenAsync(std::string_view iceP_msg, std::function<void(std::wstring)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::wstring>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_widen, iceP_msg, context);
+    return IceInternal::makeLambdaOutgoing<std::wstring>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyObjectPrx::_iceI_widen, iceP_msg, context);
 }
 
 void
@@ -99,9 +99,9 @@ Test::MyObjectPrx::narrowAsync(std::wstring_view iceP_wmsg, const Ice::Context& 
 }
 
 std::function<void()>
-Test::MyObjectPrx::narrowAsync(std::wstring_view iceP_wmsg, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyObjectPrx::narrowAsync(std::wstring_view iceP_wmsg, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
 }
 
 void
@@ -131,9 +131,9 @@ Test::MyObjectPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::MyObjectPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::MyObjectPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::MyObjectPrx::_iceI_shutdown, context);
 }
 
 void

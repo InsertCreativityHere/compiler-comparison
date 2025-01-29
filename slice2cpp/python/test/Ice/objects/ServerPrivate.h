@@ -54,13 +54,12 @@ namespace Test
     class UnexpectedObjectExceptionTestPrx : public Ice::Proxy<UnexpectedObjectExceptionTestPrx, Ice::ObjectPrx>
     {
     public:
-
         AlsoEmptyPtr op(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         [[nodiscard]] std::future<AlsoEmptyPtr> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opAsync(std::function<void(::Test::AlsoEmptyPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opAsync(std::function<void(::Test::AlsoEmptyPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<AlsoEmptyPtr>>&, const Ice::Context&) const;

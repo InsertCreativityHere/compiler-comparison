@@ -47,7 +47,6 @@ namespace Glacier2
     class GLACIER2_API RouterPrx : public Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
     {
     public:
-
         /// This category must be used in the identities of all of the client's callback objects. This is necessary in
         /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
         /// are not set, the returned category is an empty string.
@@ -66,12 +65,12 @@ namespace Glacier2
         /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
         /// are not set, the returned category is an empty string.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getCategoryForClientAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getCategoryForClientAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getCategoryForClient(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
@@ -119,15 +118,15 @@ namespace Glacier2
         /// @param userId The user id for which to check the password.
         /// @param password The password for the given user id.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see Session
         /// @see SessionManager
         /// @see PermissionsVerifier
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createSessionAsync(std::string_view userId, std::string_view password, std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createSessionAsync(std::string_view userId, std::string_view password, std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<SessionPrx>>>&, std::string_view, std::string_view, const Ice::Context&) const;
@@ -172,15 +171,15 @@ namespace Glacier2
         /// happen automatically if the router is configured as the client's default router at the time the session
         /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see Session
         /// @see SessionManager
         /// @see PermissionsVerifier
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        createSessionFromSecureConnectionAsync(std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> createSessionFromSecureConnectionAsync(std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_createSessionFromSecureConnection(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<SessionPrx>>>&, const Ice::Context&) const;
@@ -201,12 +200,12 @@ namespace Glacier2
         /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
         /// and earlier and does nothing in newer versions of Glacier2.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        refreshSessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> refreshSessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_refreshSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -224,12 +223,12 @@ namespace Glacier2
 
         /// Destroy the calling client's session with this router.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroySessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroySessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroySession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -247,12 +246,12 @@ namespace Glacier2
 
         /// Get the idle timeout used by the server-side of the connection.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getSessionTimeoutAsync(std::function<void(std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getSessionTimeoutAsync(std::function<void(std::int64_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getSessionTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int64_t>>&, const Ice::Context&) const;
@@ -270,12 +269,12 @@ namespace Glacier2
 
         /// Get the idle timeout used by the server-side of the connection.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getACMTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getACMTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getACMTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;

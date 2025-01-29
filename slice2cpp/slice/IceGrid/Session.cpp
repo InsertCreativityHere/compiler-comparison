@@ -55,9 +55,9 @@ IceGrid::SessionPrx::keepAliveAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-IceGrid::SessionPrx::keepAliveAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::SessionPrx::keepAliveAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_keepAlive, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::SessionPrx::_iceI_keepAlive, context);
 }
 
 void
@@ -83,9 +83,9 @@ IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id, con
 }
 
 std::function<void()>
-IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectById, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectById, iceP_id, context);
 }
 
 void
@@ -132,9 +132,9 @@ IceGrid::SessionPrx::allocateObjectByTypeAsync(std::string_view iceP_type, const
 }
 
 std::function<void()>
-IceGrid::SessionPrx::allocateObjectByTypeAsync(std::string_view iceP_type, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::SessionPrx::allocateObjectByTypeAsync(std::string_view iceP_type, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectByType, iceP_type, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectByType, iceP_type, context);
 }
 
 void
@@ -177,9 +177,9 @@ IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id, const Ic
 }
 
 std::function<void()>
-IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_releaseObject, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::SessionPrx::_iceI_releaseObject, iceP_id, context);
 }
 
 void
@@ -226,9 +226,9 @@ IceGrid::SessionPrx::setAllocationTimeoutAsync(std::int32_t iceP_timeout, const 
 }
 
 std::function<void()>
-IceGrid::SessionPrx::setAllocationTimeoutAsync(std::int32_t iceP_timeout, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceGrid::SessionPrx::setAllocationTimeoutAsync(std::int32_t iceP_timeout, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_setAllocationTimeout, iceP_timeout, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceGrid::SessionPrx::_iceI_setAllocationTimeout, iceP_timeout, context);
 }
 
 void

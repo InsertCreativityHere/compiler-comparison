@@ -57,9 +57,9 @@ Glacier2::RouterPrx::getCategoryForClientAsync(const Ice::Context& context) cons
 }
 
 std::function<void()>
-Glacier2::RouterPrx::getCategoryForClientAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::getCategoryForClientAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getCategoryForClient, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getCategoryForClient, context);
 }
 
 void
@@ -86,9 +86,9 @@ Glacier2::RouterPrx::createSessionAsync(std::string_view iceP_userId, std::strin
 }
 
 std::function<void()>
-Glacier2::RouterPrx::createSessionAsync(std::string_view iceP_userId, std::string_view iceP_password, std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::createSessionAsync(std::string_view iceP_userId, std::string_view iceP_password, std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<SessionPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
 }
 
 void
@@ -135,9 +135,9 @@ Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(const Ice::Context& 
 }
 
 std::function<void()>
-Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<SessionPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
 }
 
 void
@@ -181,9 +181,9 @@ Glacier2::RouterPrx::refreshSessionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Glacier2::RouterPrx::refreshSessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::refreshSessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_refreshSession, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_refreshSession, context);
 }
 
 void
@@ -223,9 +223,9 @@ Glacier2::RouterPrx::destroySessionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Glacier2::RouterPrx::destroySessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::destroySessionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_destroySession, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_destroySession, context);
 }
 
 void
@@ -265,9 +265,9 @@ Glacier2::RouterPrx::getSessionTimeoutAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Glacier2::RouterPrx::getSessionTimeoutAsync(std::function<void(std::int64_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::getSessionTimeoutAsync(std::function<void(std::int64_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int64_t>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getSessionTimeout, context);
+    return IceInternal::makeLambdaOutgoing<std::int64_t>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getSessionTimeout, context);
 }
 
 void
@@ -294,9 +294,9 @@ Glacier2::RouterPrx::getACMTimeoutAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Glacier2::RouterPrx::getACMTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::RouterPrx::getACMTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getACMTimeout, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getACMTimeout, context);
 }
 
 void

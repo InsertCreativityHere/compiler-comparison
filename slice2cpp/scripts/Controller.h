@@ -61,13 +61,12 @@ namespace Test
         class TestCasePrx : public Ice::Proxy<TestCasePrx, Ice::ObjectPrx>
         {
         public:
-
             std::string startServerSide(const ConfigPtr& config, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::string> startServerSideAsync(const ConfigPtr& config, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            startServerSideAsync(const ConfigPtr& config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> startServerSideAsync(const ConfigPtr& config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_startServerSide(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const ConfigPtr&, const Ice::Context&) const;
@@ -77,8 +76,8 @@ namespace Test
 
             [[nodiscard]] std::future<std::string> stopServerSideAsync(bool success, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            stopServerSideAsync(bool success, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> stopServerSideAsync(bool success, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_stopServerSide(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, bool, const Ice::Context&) const;
@@ -88,8 +87,8 @@ namespace Test
 
             [[nodiscard]] std::future<std::string> runClientSideAsync(std::string_view host, const ConfigPtr& config, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            runClientSideAsync(std::string_view host, const ConfigPtr& config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> runClientSideAsync(std::string_view host, const ConfigPtr& config, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_runClientSide(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, std::string_view, const ConfigPtr&, const Ice::Context&) const;
@@ -99,8 +98,8 @@ namespace Test
 
             [[nodiscard]] std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -151,13 +150,12 @@ namespace Test
         class ControllerPrx : public Ice::Proxy<ControllerPrx, Ice::ObjectPrx>
         {
         public:
-
             std::optional<TestCasePrx> runTestCase(std::string_view mapping, std::string_view testsuite, std::string_view testcase, std::string_view cross, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::optional<TestCasePrx>> runTestCaseAsync(std::string_view mapping, std::string_view testsuite, std::string_view testcase, std::string_view cross, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            runTestCaseAsync(std::string_view mapping, std::string_view testsuite, std::string_view testcase, std::string_view cross, std::function<void(std::optional<::Test::Common::TestCasePrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> runTestCaseAsync(std::string_view mapping, std::string_view testsuite, std::string_view testcase, std::string_view cross, std::function<void(std::optional<::Test::Common::TestCasePrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_runTestCase(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TestCasePrx>>>&, std::string_view, std::string_view, std::string_view, std::string_view, const Ice::Context&) const;
@@ -167,8 +165,8 @@ namespace Test
 
             [[nodiscard]] std::future<OptionOverridesPtr> getOptionOverridesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            getOptionOverridesAsync(std::function<void(::Test::Common::OptionOverridesPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> getOptionOverridesAsync(std::function<void(::Test::Common::OptionOverridesPtr)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_getOptionOverrides(const std::shared_ptr<IceInternal::OutgoingAsyncT<OptionOverridesPtr>>&, const Ice::Context&) const;
@@ -178,8 +176,8 @@ namespace Test
 
             [[nodiscard]] std::future<StringSeq> getTestSuitesAsync(std::string_view mapping, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            getTestSuitesAsync(std::string_view mapping, std::function<void(::Test::Common::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> getTestSuitesAsync(std::string_view mapping, std::function<void(::Test::Common::StringSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_getTestSuites(const std::shared_ptr<IceInternal::OutgoingAsyncT<StringSeq>>&, std::string_view, const Ice::Context&) const;
@@ -189,8 +187,8 @@ namespace Test
 
             [[nodiscard]] std::future<std::string> getHostAsync(std::string_view protocol, bool ipv6, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            getHostAsync(std::string_view protocol, bool ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> getHostAsync(std::string_view protocol, bool ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_getHost(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, std::string_view, bool, const Ice::Context&) const;
@@ -241,13 +239,12 @@ namespace Test
         class ProcessPrx : public Ice::Proxy<ProcessPrx, Ice::ObjectPrx>
         {
         public:
-
             void waitReady(std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
 
             [[nodiscard]] std::future<void> waitReadyAsync(std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            waitReadyAsync(std::int32_t timeout, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> waitReadyAsync(std::int32_t timeout, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_waitReady(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
@@ -257,8 +254,8 @@ namespace Test
 
             [[nodiscard]] std::future<std::int32_t> waitSuccessAsync(std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            waitSuccessAsync(std::int32_t timeout, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> waitSuccessAsync(std::int32_t timeout, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_waitSuccess(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
@@ -268,8 +265,8 @@ namespace Test
 
             [[nodiscard]] std::future<std::string> terminateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            terminateAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> terminateAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_terminate(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
@@ -320,13 +317,12 @@ namespace Test
         class ProcessControllerPrx : public Ice::Proxy<ProcessControllerPrx, Ice::ObjectPrx>
         {
         public:
-
             std::optional<ProcessPrx> start(std::string_view testsuite, std::string_view exe, const StringSeq& args, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::optional<ProcessPrx>> startAsync(std::string_view testsuite, std::string_view exe, const StringSeq& args, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            startAsync(std::string_view testsuite, std::string_view exe, const StringSeq& args, std::function<void(std::optional<::Test::Common::ProcessPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> startAsync(std::string_view testsuite, std::string_view exe, const StringSeq& args, std::function<void(std::optional<::Test::Common::ProcessPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_start(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<ProcessPrx>>>&, std::string_view, std::string_view, const StringSeq&, const Ice::Context&) const;
@@ -336,8 +332,8 @@ namespace Test
 
             [[nodiscard]] std::future<std::string> getHostAsync(std::string_view protocol, bool ipv6, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            getHostAsync(std::string_view protocol, bool ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> getHostAsync(std::string_view protocol, bool ipv6, std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_getHost(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, std::string_view, bool, const Ice::Context&) const;
@@ -388,13 +384,12 @@ namespace Test
         class BrowserProcessControllerPrx : public Ice::Proxy<BrowserProcessControllerPrx, ProcessControllerPrx>
         {
         public:
-
             void redirect(std::string_view url, const Ice::Context& context = Ice::noExplicitContext) const;
 
             [[nodiscard]] std::future<void> redirectAsync(std::string_view url, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            redirectAsync(std::string_view url, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> redirectAsync(std::string_view url, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_redirect(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
@@ -454,13 +449,12 @@ namespace Test
         class ProcessControllerRegistryPrx : public Ice::Proxy<ProcessControllerRegistryPrx, Ice::ObjectPrx>
         {
         public:
-
             void setProcessController(const std::optional<ProcessControllerPrx>& controller, const Ice::Context& context = Ice::noExplicitContext) const;
 
             [[nodiscard]] std::future<void> setProcessControllerAsync(const std::optional<ProcessControllerPrx>& controller, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            setProcessControllerAsync(const std::optional<ProcessControllerPrx>& controller, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> setProcessControllerAsync(const std::optional<ProcessControllerPrx>& controller, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_setProcessController(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<ProcessControllerPrx>&, const Ice::Context&) const;

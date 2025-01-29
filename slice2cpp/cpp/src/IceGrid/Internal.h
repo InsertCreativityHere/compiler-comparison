@@ -96,7 +96,6 @@ namespace IceGrid
     class AdapterPrx : public Ice::Proxy<AdapterPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
         /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
         /// adapter is inactive or the adapter direct proxy it's active.
@@ -114,12 +113,12 @@ namespace IceGrid
         /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
         /// adapter is inactive or the adapter direct proxy it's active.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        activateAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> activateAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_activate(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
@@ -140,12 +139,12 @@ namespace IceGrid
         /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
         /// contains the last known adapter endpoints.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getDirectProxyAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getDirectProxyAsync(std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getDirectProxy(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
@@ -164,12 +163,12 @@ namespace IceGrid
 
         /// Set the direct proxy for this adapter.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setDirectProxyAsync(const std::optional<Ice::ObjectPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setDirectProxyAsync(const std::optional<Ice::ObjectPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setDirectProxy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
@@ -220,7 +219,6 @@ namespace IceGrid
     class FileReaderPrx : public Ice::Proxy<FileReaderPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Count the number of given lines from the end of the file and return the file offset.
         /// @param context The Context map to send with the invocation.
         std::int64_t getOffsetFromEnd(std::string_view filename, std::int32_t lines, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
@@ -232,12 +230,12 @@ namespace IceGrid
 
         /// Count the number of given lines from the end of the file and return the file offset.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getOffsetFromEndAsync(std::string_view filename, std::int32_t lines, std::function<void(std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getOffsetFromEndAsync(std::string_view filename, std::int32_t lines, std::function<void(std::int64_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getOffsetFromEnd(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int64_t>>&, std::string_view, std::int32_t, const Ice::Context&) const;
@@ -254,12 +252,12 @@ namespace IceGrid
 
         /// Read lines (or size bytes) at the specified position from the given file.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        readAsync(std::string_view filename, std::int64_t pos, std::int32_t size, std::function<void(bool, std::int64_t, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> readAsync(std::string_view filename, std::int64_t pos, std::int32_t size, std::function<void(bool, std::int64_t, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_read(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<bool, std::int64_t, ::Ice::StringSeq>>>&, std::string_view, std::int64_t, std::int32_t, const Ice::Context&) const;
@@ -310,7 +308,6 @@ namespace IceGrid
     class ServerPrx : public Ice::Proxy<ServerPrx, FileReaderPrx>
     {
     public:
-
         /// Start the server.
         /// @param context The Context map to send with the invocation.
         void start(const Ice::Context& context = Ice::noExplicitContext) const;
@@ -322,12 +319,12 @@ namespace IceGrid
 
         /// Start the server.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        startAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> startAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_start(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -347,12 +344,12 @@ namespace IceGrid
         /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
         /// configurable amount of time, it will be killed.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        stopAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> stopAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_stop(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -371,12 +368,12 @@ namespace IceGrid
 
         /// Check if the given server can be loaded on this node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_checkUpdate(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const InternalServerDescriptorPtr&, bool, const Ice::Context&) const;
@@ -393,12 +390,12 @@ namespace IceGrid
 
         /// Enable or disable the server.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setEnabledAsync(bool enable, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setEnabledAsync(bool enable, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setEnabled(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, bool, const Ice::Context&) const;
@@ -415,12 +412,12 @@ namespace IceGrid
 
         /// Check if the server is enabled.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        isEnabledAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> isEnabledAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_isEnabled(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const Ice::Context&) const;
@@ -437,12 +434,12 @@ namespace IceGrid
 
         /// Send signal to the server
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        sendSignalAsync(std::string_view signal, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> sendSignalAsync(std::string_view signal, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_sendSignal(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
@@ -459,12 +456,12 @@ namespace IceGrid
 
         /// Write message on servers' stdout or stderr.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        writeMessageAsync(std::string_view message, std::int32_t fd, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> writeMessageAsync(std::string_view message, std::int32_t fd, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_writeMessage(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::int32_t, const Ice::Context&) const;
@@ -484,13 +481,13 @@ namespace IceGrid
 
         /// Return the server state.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
         /// @see ServerState
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getStateAsync(std::function<void(::IceGrid::ServerState)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getStateAsync(std::function<void(::IceGrid::ServerState)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getState(const std::shared_ptr<IceInternal::OutgoingAsyncT<ServerState>>&, const Ice::Context&) const;
@@ -510,12 +507,12 @@ namespace IceGrid
         /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
         /// it's the pid value returned by the fork() system call and converted to an integer.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getPidAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getPidAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getPid(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
@@ -532,12 +529,12 @@ namespace IceGrid
 
         /// Set the process proxy.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setProcessAsync(const std::optional<::Ice::ProcessPrx>& proc, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setProcessAsync(const std::optional<::Ice::ProcessPrx>& proc, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setProcess(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<::Ice::ProcessPrx>&, const Ice::Context&) const;
@@ -597,7 +594,6 @@ namespace IceGrid
     class ReplicaObserverPrx : public Ice::Proxy<ReplicaObserverPrx, Ice::ObjectPrx>
     {
     public:
-
         /// Initialization of the replica observer.
         /// @param context The Context map to send with the invocation.
         void replicaInit(const InternalRegistryPrxSeq& replicas, const Ice::Context& context = Ice::noExplicitContext) const;
@@ -609,12 +605,12 @@ namespace IceGrid
 
         /// Initialization of the replica observer.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        replicaInitAsync(const InternalRegistryPrxSeq& replicas, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> replicaInitAsync(const InternalRegistryPrxSeq& replicas, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_replicaInit(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const InternalRegistryPrxSeq&, const Ice::Context&) const;
@@ -631,12 +627,12 @@ namespace IceGrid
 
         /// Notification that a replica has been added. The node should establish a session with this new replica.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        replicaAddedAsync(const std::optional<InternalRegistryPrx>& replica, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> replicaAddedAsync(const std::optional<InternalRegistryPrx>& replica, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_replicaAdded(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<InternalRegistryPrx>&, const Ice::Context&) const;
@@ -653,12 +649,12 @@ namespace IceGrid
 
         /// Notification that a replica has been removed. The node should destroy the session to this replica.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        replicaRemovedAsync(const std::optional<InternalRegistryPrx>& replica, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> replicaRemovedAsync(const std::optional<InternalRegistryPrx>& replica, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_replicaRemoved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<InternalRegistryPrx>&, const Ice::Context&) const;
@@ -709,7 +705,6 @@ namespace IceGrid
     class NodePrx : public Ice::Proxy<NodePrx, FileReaderPrx, ReplicaObserverPrx>
     {
     public:
-
         /// Load the given server. If the server resources weren't already created (database environment directories,
         /// property files, etc), they will be created. The returned proxy is never null.
         /// @param context The Context map to send with the invocation.
@@ -724,12 +719,12 @@ namespace IceGrid
         /// Load the given server. If the server resources weren't already created (database environment directories,
         /// property files, etc), they will be created. The returned proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        loadServerAsync(const InternalServerDescriptorPtr& svr, std::string_view replicaName, std::function<void(std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, std::int32_t, std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> loadServerAsync(const InternalServerDescriptorPtr& svr, std::string_view replicaName, std::function<void(std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, std::int32_t, std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_loadServer(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ServerPrx>, AdapterPrxDict, std::int32_t, std::int32_t>>>&, const InternalServerDescriptorPtr&, std::string_view, const Ice::Context&) const;
@@ -752,12 +747,12 @@ namespace IceGrid
         /// (database environment directories, property files, etc), they will be created. If the server can't be updated
         /// without a restart, a DeploymentException is raised. The returned proxy is never null.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& svr, std::string_view replicaName, std::function<void(std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, std::int32_t, std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& svr, std::string_view replicaName, std::function<void(std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, std::int32_t, std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_loadServerWithoutRestart(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ServerPrx>, AdapterPrxDict, std::int32_t, std::int32_t>>>&, const InternalServerDescriptorPtr&, std::string_view, const Ice::Context&) const;
@@ -774,12 +769,12 @@ namespace IceGrid
 
         /// Destroy the given server.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyServerAsync(std::string_view name, std::string_view uuid, std::int32_t revision, std::string_view replicaName, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyServerAsync(std::string_view name, std::string_view uuid, std::int32_t revision, std::string_view replicaName, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroyServer(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, std::int32_t, std::string_view, const Ice::Context&) const;
@@ -796,12 +791,12 @@ namespace IceGrid
 
         /// Destroy the server if it's not active.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyServerWithoutRestartAsync(std::string_view name, std::string_view uuid, std::int32_t revision, std::string_view replicaName, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyServerWithoutRestartAsync(std::string_view name, std::string_view uuid, std::int32_t revision, std::string_view replicaName, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroyServerWithoutRestart(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, std::int32_t, std::string_view, const Ice::Context&) const;
@@ -821,12 +816,12 @@ namespace IceGrid
         /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
         /// replicaAdded below).
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        registerWithReplicaAsync(const std::optional<InternalRegistryPrx>& replica, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> registerWithReplicaAsync(const std::optional<InternalRegistryPrx>& replica, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_registerWithReplica(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<InternalRegistryPrx>&, const Ice::Context&) const;
@@ -843,12 +838,12 @@ namespace IceGrid
 
         /// Get the node name.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getName(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
@@ -865,12 +860,12 @@ namespace IceGrid
 
         /// Get the node hostname.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getHostnameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getHostnameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getHostname(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
@@ -887,12 +882,12 @@ namespace IceGrid
 
         /// Get the node load.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getLoadAsync(std::function<void(::IceGrid::LoadInfo)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getLoadAsync(std::function<void(::IceGrid::LoadInfo)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getLoad(const std::shared_ptr<IceInternal::OutgoingAsyncT<LoadInfo>>&, const Ice::Context&) const;
@@ -909,12 +904,12 @@ namespace IceGrid
 
         /// Get the number of processor sockets for the machine where this node is running.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getProcessorSocketCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getProcessorSocketCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getProcessorSocketCount(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
@@ -931,12 +926,12 @@ namespace IceGrid
 
         /// Shutdown the node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -996,7 +991,6 @@ namespace IceGrid
     class NodeSessionPrx : public Ice::Proxy<NodeSessionPrx, Ice::ObjectPrx>
     {
     public:
-
         /// The node call this method to keep the session alive.
         /// @param context The Context map to send with the invocation.
         void keepAlive(const LoadInfo& load, const Ice::Context& context = Ice::noExplicitContext) const;
@@ -1008,12 +1002,12 @@ namespace IceGrid
 
         /// The node call this method to keep the session alive.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        keepAliveAsync(const LoadInfo& load, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> keepAliveAsync(const LoadInfo& load, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_keepAlive(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const LoadInfo&, const Ice::Context&) const;
@@ -1033,12 +1027,12 @@ namespace IceGrid
         /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
         /// It only calls this for the session with the master.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setReplicaObserverAsync(const std::optional<ReplicaObserverPrx>& observer, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setReplicaObserverAsync(const std::optional<ReplicaObserverPrx>& observer, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setReplicaObserver(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<ReplicaObserverPrx>&, const Ice::Context&) const;
@@ -1055,12 +1049,12 @@ namespace IceGrid
 
         /// Return the node session timeout.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
@@ -1077,12 +1071,12 @@ namespace IceGrid
 
         /// Return the node observer.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getObserverAsync(std::function<void(std::optional<::IceGrid::NodeObserverPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getObserverAsync(std::function<void(std::optional<::IceGrid::NodeObserverPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getObserver(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<NodeObserverPrx>>>&, const Ice::Context&) const;
@@ -1099,12 +1093,12 @@ namespace IceGrid
 
         /// Ask the registry to load the servers on the node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        loadServersAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> loadServersAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_loadServers(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -1121,12 +1115,12 @@ namespace IceGrid
 
         /// Get the name of the servers deployed on the node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getServersAsync(std::function<void(::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getServersAsync(std::function<void(::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getServers(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const Ice::Context&) const;
@@ -1149,12 +1143,12 @@ namespace IceGrid
         /// replicas have been updated). This is used by the node to ensure that before to start a server all the
         /// replicas have the up-to-date descriptor of the server.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        waitForApplicationUpdateAsync(std::string_view application, std::int32_t revision, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> waitForApplicationUpdateAsync(std::string_view application, std::int32_t revision, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_waitForApplicationUpdate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::int32_t, const Ice::Context&) const;
@@ -1171,12 +1165,12 @@ namespace IceGrid
 
         /// Destroy the session.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -1282,7 +1276,6 @@ namespace IceGrid
     class ReplicaSessionPrx : public Ice::Proxy<ReplicaSessionPrx, Ice::ObjectPrx>
     {
     public:
-
         /// The replica call this method to keep the session alive.
         /// @param context The Context map to send with the invocation.
         void keepAlive(const Ice::Context& context = Ice::noExplicitContext) const;
@@ -1294,12 +1287,12 @@ namespace IceGrid
 
         /// The replica call this method to keep the session alive.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        keepAliveAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> keepAliveAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_keepAlive(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -1316,12 +1309,12 @@ namespace IceGrid
 
         /// Return the replica session timeout.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
@@ -1338,12 +1331,12 @@ namespace IceGrid
 
         /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setDatabaseObserverAsync(const std::optional<DatabaseObserverPrx>& dbObs, const std::optional<StringLongDict>& serials, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setDatabaseObserverAsync(const std::optional<DatabaseObserverPrx>& dbObs, const std::optional<StringLongDict>& serials, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setDatabaseObserver(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<DatabaseObserverPrx>&, const std::optional<StringLongDict>&, const Ice::Context&) const;
@@ -1363,12 +1356,12 @@ namespace IceGrid
         /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
         /// for replicated objects (e.g.: IceGrid::Query object).
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setEndpointsAsync(const StringObjectProxyDict& endpoints, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setEndpointsAsync(const StringObjectProxyDict& endpoints, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setEndpoints(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const StringObjectProxyDict&, const Ice::Context&) const;
@@ -1385,12 +1378,12 @@ namespace IceGrid
 
         /// Registers the replica well-known objects with the master.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        registerWellKnownObjectsAsync(const ObjectInfoSeq& objects, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> registerWellKnownObjectsAsync(const ObjectInfoSeq& objects, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_registerWellKnownObjects(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ObjectInfoSeq&, const Ice::Context&) const;
@@ -1410,12 +1403,12 @@ namespace IceGrid
         /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
         /// with the locator registry interface.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        setAdapterDirectProxyAsync(std::string_view adapterId, std::string_view replicaGroupId, const std::optional<Ice::ObjectPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> setAdapterDirectProxyAsync(std::string_view adapterId, std::string_view replicaGroupId, const std::optional<Ice::ObjectPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_setAdapterDirectProxy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, const std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
@@ -1435,12 +1428,12 @@ namespace IceGrid
         /// Notify the master that an update was received. The master might wait for replication updates to be received by
         /// all the replicas before to continue.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        receivedUpdateAsync(TopicName name, std::int32_t serial, std::string_view failure, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> receivedUpdateAsync(TopicName name, std::int32_t serial, std::string_view failure, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_receivedUpdate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, TopicName, std::int32_t, std::string_view, const Ice::Context&) const;
@@ -1457,12 +1450,12 @@ namespace IceGrid
 
         /// Destroy the session.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -1513,7 +1506,6 @@ namespace IceGrid
     class InternalRegistryPrx : public Ice::Proxy<InternalRegistryPrx, FileReaderPrx>
     {
     public:
-
         /// Register a node with the registry. If a node with the same name is already registered,
         /// <code>registerNode</code> overrides the existing registration only when the previously
         /// registered node is not active.
@@ -1542,12 +1534,12 @@ namespace IceGrid
         /// @param prx The proxy of the node.
         /// @param loadInf The load information of the node.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        registerNodeAsync(const InternalNodeInfoPtr& info, const std::optional<NodePrx>& prx, const LoadInfo& loadInf, std::function<void(std::optional<::IceGrid::NodeSessionPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> registerNodeAsync(const InternalNodeInfoPtr& info, const std::optional<NodePrx>& prx, const LoadInfo& loadInf, std::function<void(std::optional<::IceGrid::NodeSessionPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_registerNode(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<NodeSessionPrx>>>&, const InternalNodeInfoPtr&, const std::optional<NodePrx>&, const LoadInfo&, const Ice::Context&) const;
@@ -1578,12 +1570,12 @@ namespace IceGrid
         /// @param info Some information on the replica.
         /// @param prx The proxy of the replica.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        registerReplicaAsync(const InternalReplicaInfoPtr& info, const std::optional<InternalRegistryPrx>& prx, std::function<void(std::optional<::IceGrid::ReplicaSessionPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> registerReplicaAsync(const InternalReplicaInfoPtr& info, const std::optional<InternalRegistryPrx>& prx, std::function<void(std::optional<::IceGrid::ReplicaSessionPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_registerReplica(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<ReplicaSessionPrx>>>&, const InternalReplicaInfoPtr&, const std::optional<InternalRegistryPrx>&, const Ice::Context&) const;
@@ -1603,12 +1595,12 @@ namespace IceGrid
         /// Create a session with the given registry replica. This method returns only once the session creation has been
         /// attempted.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        registerWithReplicaAsync(const std::optional<InternalRegistryPrx>& prx, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> registerWithReplicaAsync(const std::optional<InternalRegistryPrx>& prx, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_registerWithReplica(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<InternalRegistryPrx>&, const Ice::Context&) const;
@@ -1625,12 +1617,12 @@ namespace IceGrid
 
         /// Return the proxies of all the nodes known by this registry.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getNodesAsync(std::function<void(::IceGrid::NodePrxSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getNodesAsync(std::function<void(::IceGrid::NodePrxSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getNodes(const std::shared_ptr<IceInternal::OutgoingAsyncT<NodePrxSeq>>&, const Ice::Context&) const;
@@ -1647,12 +1639,12 @@ namespace IceGrid
 
         /// Return the proxies of all the registry replicas known by this registry.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getReplicasAsync(std::function<void(::IceGrid::InternalRegistryPrxSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getReplicasAsync(std::function<void(::IceGrid::InternalRegistryPrxSeq)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getReplicas(const std::shared_ptr<IceInternal::OutgoingAsyncT<InternalRegistryPrxSeq>>&, const Ice::Context&) const;
@@ -1669,12 +1661,12 @@ namespace IceGrid
 
         /// Return applications, adapters, objects from this replica.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getApplicationsAsync(std::function<void(::IceGrid::ApplicationInfoSeq, std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getApplicationsAsync(std::function<void(::IceGrid::ApplicationInfoSeq, std::int64_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getApplications(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ApplicationInfoSeq, std::int64_t>>>&, const Ice::Context&) const;
@@ -1684,8 +1676,8 @@ namespace IceGrid
 
         [[nodiscard]] std::future<std::tuple<AdapterInfoSeq, std::int64_t>> getAdaptersAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getAdaptersAsync(std::function<void(::IceGrid::AdapterInfoSeq, std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getAdaptersAsync(std::function<void(::IceGrid::AdapterInfoSeq, std::int64_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getAdapters(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AdapterInfoSeq, std::int64_t>>>&, const Ice::Context&) const;
@@ -1695,8 +1687,8 @@ namespace IceGrid
 
         [[nodiscard]] std::future<std::tuple<ObjectInfoSeq, std::int64_t>> getObjectsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        getObjectsAsync(std::function<void(::IceGrid::ObjectInfoSeq, std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> getObjectsAsync(std::function<void(::IceGrid::ObjectInfoSeq, std::int64_t)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_getObjects(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ObjectInfoSeq, std::int64_t>>>&, const Ice::Context&) const;
@@ -1713,12 +1705,12 @@ namespace IceGrid
 
         /// Shutdown this registry.
         /// @param response The response callback.
-        /// @param ex The exception callback.
+        /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The Context map to send with the invocation.
         /// @return A function that can be called to cancel the invocation locally.
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -2950,7 +2942,7 @@ namespace IceGrid
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::IceGrid::TopicName>
+    struct StreamableTraits<::IceGrid::TopicName>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

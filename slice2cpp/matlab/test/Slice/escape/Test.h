@@ -99,13 +99,12 @@ namespace classdef
         class elseifPrx : public Ice::Proxy<elseifPrx, Ice::ObjectPrx>
         {
         public:
-
             void events(const Ice::Context& context = Ice::noExplicitContext) const;
 
             [[nodiscard]] std::future<void> eventsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            eventsAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> eventsAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_events(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -115,8 +114,8 @@ namespace classdef
 
             [[nodiscard]] std::future<void> functionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            functionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> functionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_function(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -126,8 +125,8 @@ namespace classdef
 
             [[nodiscard]] std::future<void> deleteAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            deleteAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> deleteAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_delete(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -137,8 +136,8 @@ namespace classdef
 
             [[nodiscard]] std::future<void> checkedCastAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            checkedCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> checkedCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -562,7 +561,7 @@ namespace classdef
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::classdef::break::bitand>
+    struct StreamableTraits<::classdef::break::bitand>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

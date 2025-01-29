@@ -76,13 +76,13 @@ Test::IPrx::opSAsync(const S& iceP_s1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opSAsync(const S& iceP_s1, std::function<void(::Test::S, ::Test::S)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opSAsync(const S& iceP_s1, std::function<void(::Test::S, ::Test::S)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<S, S>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<S, S>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opS, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<S, S>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opS, iceP_s1, context);
 }
 
 void
@@ -120,13 +120,13 @@ Test::IPrx::opSSeqAsync(const SSeq& iceP_s1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opSSeqAsync(const SSeq& iceP_s1, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opSSeqAsync(const SSeq& iceP_s1, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<SSeq, SSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opSSeq, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opSSeq, iceP_s1, context);
 }
 
 void
@@ -164,13 +164,13 @@ Test::IPrx::opSMapAsync(const SMap& iceP_s1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opSMapAsync(const SMap& iceP_s1, std::function<void(::Test::SMap, ::Test::SMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opSMapAsync(const SMap& iceP_s1, std::function<void(::Test::SMap, ::Test::SMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<SMap, SMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<SMap, SMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opSMap, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<SMap, SMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opSMap, iceP_s1, context);
 }
 
 void
@@ -208,13 +208,13 @@ Test::IPrx::opCAsync(const CPtr& iceP_c1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opCAsync(const CPtr& iceP_c1, std::function<void(::Test::CPtr, ::Test::CPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opCAsync(const CPtr& iceP_c1, std::function<void(::Test::CPtr, ::Test::CPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<CPtr, CPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<CPtr, CPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opC, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<CPtr, CPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
@@ -254,13 +254,13 @@ Test::IPrx::opCSeqAsync(const CSeq& iceP_c1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opCSeqAsync(const CSeq& iceP_c1, std::function<void(::Test::CSeq, ::Test::CSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opCSeqAsync(const CSeq& iceP_c1, std::function<void(::Test::CSeq, ::Test::CSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<CSeq, CSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<CSeq, CSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opCSeq, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<CSeq, CSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opCSeq, iceP_c1, context);
 }
 
 void
@@ -300,13 +300,13 @@ Test::IPrx::opCMapAsync(const CMap& iceP_c1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opCMapAsync(const CMap& iceP_c1, std::function<void(::Test::CMap, ::Test::CMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opCMapAsync(const CMap& iceP_c1, std::function<void(::Test::CMap, ::Test::CMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<CMap, CMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<CMap, CMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opCMap, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<CMap, CMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opCMap, iceP_c1, context);
 }
 
 void
@@ -344,9 +344,9 @@ Test::IPrx::opE1Async(E1 iceP_E1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opE1Async(E1 iceP_E1, std::function<void(::Test::E1)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opE1Async(E1 iceP_E1, std::function<void(::Test::E1)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<E1>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opE1, iceP_E1, context);
+    return IceInternal::makeLambdaOutgoing<E1>(std::move(response), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opE1, iceP_E1, context);
 }
 
 void
@@ -376,9 +376,9 @@ Test::IPrx::opS1Async(const S1& iceP_S1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opS1Async(const S1& iceP_S1, std::function<void(::Test::S1)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opS1Async(const S1& iceP_S1, std::function<void(::Test::S1)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<S1>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opS1, iceP_S1, context);
+    return IceInternal::makeLambdaOutgoing<S1>(std::move(response), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opS1, iceP_S1, context);
 }
 
 void
@@ -408,9 +408,9 @@ Test::IPrx::opC1Async(const C1Ptr& iceP_C1, const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::opC1Async(const C1Ptr& iceP_C1, std::function<void(::Test::C1Ptr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::opC1Async(const C1Ptr& iceP_C1, std::function<void(::Test::C1Ptr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<C1Ptr>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opC1, iceP_C1, context);
+    return IceInternal::makeLambdaOutgoing<C1Ptr>(std::move(response), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_opC1, iceP_C1, context);
 }
 
 void
@@ -448,9 +448,9 @@ Test::IPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::IPrx::_iceI_shutdown, context);
 }
 
 void
@@ -486,13 +486,13 @@ Test::Inner::Inner2::IPrx::opSAsync(const S& iceP_s1, const Ice::Context& contex
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::opSAsync(const S& iceP_s1, std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opSAsync(const S& iceP_s1, std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<S, S>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<S, S>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opS, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<S, S>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opS, iceP_s1, context);
 }
 
 void
@@ -530,13 +530,13 @@ Test::Inner::Inner2::IPrx::opSSeqAsync(const SSeq& iceP_s1, const Ice::Context& 
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::opSSeqAsync(const SSeq& iceP_s1, std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opSSeqAsync(const SSeq& iceP_s1, std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<SSeq, SSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opSSeq, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opSSeq, iceP_s1, context);
 }
 
 void
@@ -574,13 +574,13 @@ Test::Inner::Inner2::IPrx::opSMapAsync(const SMap& iceP_s1, const Ice::Context& 
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::opSMapAsync(const SMap& iceP_s1, std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opSMapAsync(const SMap& iceP_s1, std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<SMap, SMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<SMap, SMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opSMap, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<SMap, SMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opSMap, iceP_s1, context);
 }
 
 void
@@ -618,13 +618,13 @@ Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, const Ice::Context& con
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<CPtr, CPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<CPtr, CPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opC, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<CPtr, CPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
@@ -664,13 +664,13 @@ Test::Inner::Inner2::IPrx::opCSeqAsync(const CSeq& iceP_c1, const Ice::Context& 
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::opCSeqAsync(const CSeq& iceP_c1, std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opCSeqAsync(const CSeq& iceP_c1, std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<CSeq, CSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<CSeq, CSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opCSeq, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<CSeq, CSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opCSeq, iceP_c1, context);
 }
 
 void
@@ -710,13 +710,13 @@ Test::Inner::Inner2::IPrx::opCMapAsync(const CMap& iceP_c1, const Ice::Context& 
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::opCMapAsync(const CMap& iceP_c1, std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opCMapAsync(const CMap& iceP_c1, std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<CMap, CMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<CMap, CMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opCMap, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<CMap, CMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opCMap, iceP_c1, context);
 }
 
 void
@@ -754,9 +754,9 @@ Test::Inner::Inner2::IPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::Inner::Inner2::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::Inner2::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_shutdown, context);
 }
 
 void
@@ -792,13 +792,13 @@ Test::Inner::IPrx::opSAsync(const ::Test::Inner::Inner2::S& iceP_s1, const Ice::
 }
 
 std::function<void()>
-Test::Inner::IPrx::opSAsync(const ::Test::Inner::Inner2::S& iceP_s1, std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::opSAsync(const ::Test::Inner::Inner2::S& iceP_s1, std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opS, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_opS, iceP_s1, context);
 }
 
 void
@@ -836,13 +836,13 @@ Test::Inner::IPrx::opSSeqAsync(const ::Test::Inner::Inner2::SSeq& iceP_s1, const
 }
 
 std::function<void()>
-Test::Inner::IPrx::opSSeqAsync(const ::Test::Inner::Inner2::SSeq& iceP_s1, std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::opSSeqAsync(const ::Test::Inner::Inner2::SSeq& iceP_s1, std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opSSeq, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_opSSeq, iceP_s1, context);
 }
 
 void
@@ -880,13 +880,13 @@ Test::Inner::IPrx::opSMapAsync(const ::Test::Inner::Inner2::SMap& iceP_s1, const
 }
 
 std::function<void()>
-Test::Inner::IPrx::opSMapAsync(const ::Test::Inner::Inner2::SMap& iceP_s1, std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::opSMapAsync(const ::Test::Inner::Inner2::SMap& iceP_s1, std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opSMap, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_opSMap, iceP_s1, context);
 }
 
 void
@@ -924,13 +924,13 @@ Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, const Ic
 }
 
 std::function<void()>
-Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opC, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
@@ -970,13 +970,13 @@ Test::Inner::IPrx::opCSeqAsync(const ::Test::Inner::Inner2::CSeq& iceP_c1, const
 }
 
 std::function<void()>
-Test::Inner::IPrx::opCSeqAsync(const ::Test::Inner::Inner2::CSeq& iceP_c1, std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::opCSeqAsync(const ::Test::Inner::Inner2::CSeq& iceP_c1, std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opCSeq, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_opCSeq, iceP_c1, context);
 }
 
 void
@@ -1016,13 +1016,13 @@ Test::Inner::IPrx::opCMapAsync(const ::Test::Inner::Inner2::CMap& iceP_c1, const
 }
 
 std::function<void()>
-Test::Inner::IPrx::opCMapAsync(const ::Test::Inner::Inner2::CMap& iceP_c1, std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::opCMapAsync(const ::Test::Inner::Inner2::CMap& iceP_c1, std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opCMap, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_opCMap, iceP_c1, context);
 }
 
 void
@@ -1060,9 +1060,9 @@ Test::Inner::IPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::Inner::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::Inner::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::Inner::IPrx::_iceI_shutdown, context);
 }
 
 void
@@ -1098,13 +1098,13 @@ Inner::Test::Inner2::IPrx::opSAsync(const ::Test::S& iceP_s1, const Ice::Context
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::opSAsync(const ::Test::S& iceP_s1, std::function<void(::Test::S, ::Test::S)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opSAsync(const ::Test::S& iceP_s1, std::function<void(::Test::S, ::Test::S)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::S, ::Test::S>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::S, ::Test::S>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opS, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::S, ::Test::S>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opS, iceP_s1, context);
 }
 
 void
@@ -1142,13 +1142,13 @@ Inner::Test::Inner2::IPrx::opSSeqAsync(const ::Test::SSeq& iceP_s1, const Ice::C
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::opSSeqAsync(const ::Test::SSeq& iceP_s1, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opSSeqAsync(const ::Test::SSeq& iceP_s1, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::SSeq, ::Test::SSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::SSeq, ::Test::SSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opSSeq, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::SSeq, ::Test::SSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opSSeq, iceP_s1, context);
 }
 
 void
@@ -1186,13 +1186,13 @@ Inner::Test::Inner2::IPrx::opSMapAsync(const ::Test::SMap& iceP_s1, const Ice::C
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::opSMapAsync(const ::Test::SMap& iceP_s1, std::function<void(::Test::SMap, ::Test::SMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opSMapAsync(const ::Test::SMap& iceP_s1, std::function<void(::Test::SMap, ::Test::SMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::SMap, ::Test::SMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::SMap, ::Test::SMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opSMap, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::SMap, ::Test::SMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opSMap, iceP_s1, context);
 }
 
 void
@@ -1230,13 +1230,13 @@ Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, const Ice::Cont
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, std::function<void(::Test::CPtr, ::Test::CPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, std::function<void(::Test::CPtr, ::Test::CPtr)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::CPtr, ::Test::CPtr>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::CPtr, ::Test::CPtr>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opC, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::CPtr, ::Test::CPtr>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
@@ -1276,13 +1276,13 @@ Inner::Test::Inner2::IPrx::opCSeqAsync(const ::Test::CSeq& iceP_c1, const Ice::C
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::opCSeqAsync(const ::Test::CSeq& iceP_c1, std::function<void(::Test::CSeq, ::Test::CSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opCSeqAsync(const ::Test::CSeq& iceP_c1, std::function<void(::Test::CSeq, ::Test::CSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::CSeq, ::Test::CSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::CSeq, ::Test::CSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opCSeq, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::CSeq, ::Test::CSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opCSeq, iceP_c1, context);
 }
 
 void
@@ -1322,13 +1322,13 @@ Inner::Test::Inner2::IPrx::opCMapAsync(const ::Test::CMap& iceP_c1, const Ice::C
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::opCMapAsync(const ::Test::CMap& iceP_c1, std::function<void(::Test::CMap, ::Test::CMap)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opCMapAsync(const ::Test::CMap& iceP_c1, std::function<void(::Test::CMap, ::Test::CMap)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Test::CMap, ::Test::CMap>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::CMap, ::Test::CMap>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opCMap, iceP_c1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Test::CMap, ::Test::CMap>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opCMap, iceP_c1, context);
 }
 
 void
@@ -1366,9 +1366,9 @@ Inner::Test::Inner2::IPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Inner::Test::Inner2::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Inner::Test::Inner2::IPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_shutdown, context);
 }
 
 void

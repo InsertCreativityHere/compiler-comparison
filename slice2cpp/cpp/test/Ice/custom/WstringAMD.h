@@ -52,13 +52,12 @@ namespace Test1
     class WstringClassPrx : public Ice::Proxy<WstringClassPrx, Ice::ObjectPrx>
     {
     public:
-
         std::wstring opString(std::wstring_view s1, std::wstring& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::tuple<std::wstring, std::wstring>> opStringAsync(std::wstring_view s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringAsync(std::wstring_view s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringAsync(std::wstring_view s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opString(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::wstring, std::wstring>>>&, std::wstring_view, const Ice::Context&) const;
@@ -68,8 +67,8 @@ namespace Test1
 
         [[nodiscard]] std::future<std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStructAsync(const WstringStruct& s1, std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStructAsync(const WstringStruct& s1, std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStruct(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const Ice::Context&) const;
@@ -79,8 +78,8 @@ namespace Test1
 
         [[nodiscard]] std::future<void> throwExceptAsync(std::wstring_view reason, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwExceptAsync(std::wstring_view reason, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwExceptAsync(std::wstring_view reason, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwExcept(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::wstring_view, const Ice::Context&) const;
@@ -135,13 +134,12 @@ namespace Test2
     class WstringClassPrx : public Ice::Proxy<WstringClassPrx, Ice::ObjectPrx>
     {
     public:
-
         std::wstring opString(std::wstring_view s1, std::wstring& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<std::tuple<std::wstring, std::wstring>> opStringAsync(std::wstring_view s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStringAsync(std::wstring_view s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStringAsync(std::wstring_view s1, std::function<void(std::wstring, std::wstring)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opString(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::wstring, std::wstring>>>&, std::wstring_view, const Ice::Context&) const;
@@ -151,8 +149,8 @@ namespace Test2
 
         [[nodiscard]] std::future<std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        opStructAsync(const WstringStruct& s1, std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> opStructAsync(const WstringStruct& s1, std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_opStruct(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const Ice::Context&) const;
@@ -162,8 +160,8 @@ namespace Test2
 
         [[nodiscard]] std::future<void> throwExceptAsync(std::wstring_view reason, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        throwExceptAsync(std::wstring_view reason, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> throwExceptAsync(std::wstring_view reason, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_throwExcept(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::wstring_view, const Ice::Context&) const;

@@ -67,13 +67,13 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(const Ice::Context& context) co
 }
 
 std::function<void()>
-IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<::Ice::StringSeq, ::Ice::StringSeq>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>(std::move(responseCb), std::move(exception), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
 }
 
 void
@@ -106,9 +106,9 @@ IceMX::MetricsAdminPrx::enableMetricsViewAsync(std::string_view iceP_name, const
 }
 
 std::function<void()>
-IceMX::MetricsAdminPrx::enableMetricsViewAsync(std::string_view iceP_name, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceMX::MetricsAdminPrx::enableMetricsViewAsync(std::string_view iceP_name, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context);
 }
 
 void
@@ -151,9 +151,9 @@ IceMX::MetricsAdminPrx::disableMetricsViewAsync(std::string_view iceP_name, cons
 }
 
 std::function<void()>
-IceMX::MetricsAdminPrx::disableMetricsViewAsync(std::string_view iceP_name, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceMX::MetricsAdminPrx::disableMetricsViewAsync(std::string_view iceP_name, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context);
 }
 
 void
@@ -198,13 +198,13 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(std::string_view iceP_view, const Ic
 }
 
 std::function<void()>
-IceMX::MetricsAdminPrx::getMetricsViewAsync(std::string_view iceP_view, std::function<void(::IceMX::MetricsView, std::int64_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceMX::MetricsAdminPrx::getMetricsViewAsync(std::string_view iceP_view, std::function<void(::IceMX::MetricsView, std::int64_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<MetricsView, std::int64_t>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<MetricsView, std::int64_t>>(std::move(responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<MetricsView, std::int64_t>>(std::move(responseCb), std::move(exception), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
 }
 
 void
@@ -254,9 +254,9 @@ IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(std::string_view iceP_view, s
 }
 
 std::function<void()>
-IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(std::string_view iceP_view, std::string_view iceP_map, std::function<void(::IceMX::MetricsFailuresSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(std::string_view iceP_view, std::string_view iceP_map, std::function<void(::IceMX::MetricsFailuresSeq)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<MetricsFailuresSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context);
+    return IceInternal::makeLambdaOutgoing<MetricsFailuresSeq>(std::move(response), std::move(exception), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context);
 }
 
 void
@@ -299,9 +299,9 @@ IceMX::MetricsAdminPrx::getMetricsFailuresAsync(std::string_view iceP_view, std:
 }
 
 std::function<void()>
-IceMX::MetricsAdminPrx::getMetricsFailuresAsync(std::string_view iceP_view, std::string_view iceP_map, std::string_view iceP_id, std::function<void(::IceMX::MetricsFailures)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceMX::MetricsAdminPrx::getMetricsFailuresAsync(std::string_view iceP_view, std::string_view iceP_map, std::string_view iceP_id, std::function<void(::IceMX::MetricsFailures)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<MetricsFailures>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<MetricsFailures>(std::move(response), std::move(exception), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context);
 }
 
 void

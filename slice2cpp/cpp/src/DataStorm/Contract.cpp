@@ -75,9 +75,9 @@ DataStormContract::SessionPrx::announceTopicsAsync(const TopicInfoSeq& iceP_topi
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::announceTopicsAsync(const TopicInfoSeq& iceP_topics, bool iceP_initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::announceTopicsAsync(const TopicInfoSeq& iceP_topics, bool iceP_initialize, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_announceTopics, iceP_topics, iceP_initialize, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_announceTopics, iceP_topics, iceP_initialize, context);
 }
 
 void
@@ -106,9 +106,9 @@ DataStormContract::SessionPrx::attachTopicAsync(const TopicSpec& iceP_topic, con
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::attachTopicAsync(const TopicSpec& iceP_topic, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::attachTopicAsync(const TopicSpec& iceP_topic, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachTopic, iceP_topic, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachTopic, iceP_topic, context);
 }
 
 void
@@ -137,9 +137,9 @@ DataStormContract::SessionPrx::detachTopicAsync(std::int64_t iceP_topicId, const
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::detachTopicAsync(std::int64_t iceP_topicId, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::detachTopicAsync(std::int64_t iceP_topicId, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachTopic, iceP_topicId, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachTopic, iceP_topicId, context);
 }
 
 void
@@ -168,9 +168,9 @@ DataStormContract::SessionPrx::attachTagsAsync(std::int64_t iceP_topicId, const 
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::attachTagsAsync(std::int64_t iceP_topicId, const ElementInfoSeq& iceP_tags, bool iceP_initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::attachTagsAsync(std::int64_t iceP_topicId, const ElementInfoSeq& iceP_tags, bool iceP_initialize, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachTags, iceP_topicId, iceP_tags, iceP_initialize, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachTags, iceP_topicId, iceP_tags, iceP_initialize, context);
 }
 
 void
@@ -199,9 +199,9 @@ DataStormContract::SessionPrx::detachTagsAsync(std::int64_t iceP_topicId, const 
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::detachTagsAsync(std::int64_t iceP_topicId, const ::Ice::LongSeq& iceP_tags, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::detachTagsAsync(std::int64_t iceP_topicId, const ::Ice::LongSeq& iceP_tags, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachTags, iceP_topicId, iceP_tags, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachTags, iceP_topicId, iceP_tags, context);
 }
 
 void
@@ -230,9 +230,9 @@ DataStormContract::SessionPrx::announceElementsAsync(std::int64_t iceP_topicId, 
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::announceElementsAsync(std::int64_t iceP_topicId, const ElementInfoSeq& iceP_elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::announceElementsAsync(std::int64_t iceP_topicId, const ElementInfoSeq& iceP_elements, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_announceElements, iceP_topicId, iceP_elements, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_announceElements, iceP_topicId, iceP_elements, context);
 }
 
 void
@@ -261,9 +261,9 @@ DataStormContract::SessionPrx::attachElementsAsync(std::int64_t iceP_topicId, co
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::attachElementsAsync(std::int64_t iceP_topicId, const ElementSpecSeq& iceP_elements, bool iceP_initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::attachElementsAsync(std::int64_t iceP_topicId, const ElementSpecSeq& iceP_elements, bool iceP_initialize, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachElements, iceP_topicId, iceP_elements, iceP_initialize, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachElements, iceP_topicId, iceP_elements, iceP_initialize, context);
 }
 
 void
@@ -293,9 +293,9 @@ DataStormContract::SessionPrx::attachElementsAckAsync(std::int64_t iceP_topicId,
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::attachElementsAckAsync(std::int64_t iceP_topicId, const ElementSpecAckSeq& iceP_elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::attachElementsAckAsync(std::int64_t iceP_topicId, const ElementSpecAckSeq& iceP_elements, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachElementsAck, iceP_topicId, iceP_elements, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachElementsAck, iceP_topicId, iceP_elements, context);
 }
 
 void
@@ -325,9 +325,9 @@ DataStormContract::SessionPrx::detachElementsAsync(std::int64_t iceP_topicId, co
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::detachElementsAsync(std::int64_t iceP_topicId, const ::Ice::LongSeq& iceP_elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::detachElementsAsync(std::int64_t iceP_topicId, const ::Ice::LongSeq& iceP_elements, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachElements, iceP_topicId, iceP_elements, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachElements, iceP_topicId, iceP_elements, context);
 }
 
 void
@@ -356,9 +356,9 @@ DataStormContract::SessionPrx::initSamplesAsync(std::int64_t iceP_topicId, const
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::initSamplesAsync(std::int64_t iceP_topicId, const DataSamplesSeq& iceP_samples, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::initSamplesAsync(std::int64_t iceP_topicId, const DataSamplesSeq& iceP_samples, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_initSamples, iceP_topicId, iceP_samples, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_initSamples, iceP_topicId, iceP_samples, context);
 }
 
 void
@@ -387,9 +387,9 @@ DataStormContract::SessionPrx::disconnectedAsync(const Ice::Context& context) co
 }
 
 std::function<void()>
-DataStormContract::SessionPrx::disconnectedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SessionPrx::disconnectedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_disconnected, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SessionPrx::_iceI_disconnected, context);
 }
 
 void
@@ -431,9 +431,9 @@ DataStormContract::SubscriberSessionPrx::sAsync(std::int64_t iceP_topicId, std::
 }
 
 std::function<void()>
-DataStormContract::SubscriberSessionPrx::sAsync(std::int64_t iceP_topicId, std::int64_t iceP_elementId, const DataSample& iceP_sample, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::SubscriberSessionPrx::sAsync(std::int64_t iceP_topicId, std::int64_t iceP_elementId, const DataSample& iceP_sample, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::SubscriberSessionPrx::_iceI_s, iceP_topicId, iceP_elementId, iceP_sample, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::SubscriberSessionPrx::_iceI_s, iceP_topicId, iceP_elementId, iceP_sample, context);
 }
 
 void
@@ -470,9 +470,9 @@ DataStormContract::NodePrx::initiateCreateSessionAsync(const std::optional<NodeP
 }
 
 std::function<void()>
-DataStormContract::NodePrx::initiateCreateSessionAsync(const std::optional<NodePrx>& iceP_publisher, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::NodePrx::initiateCreateSessionAsync(const std::optional<NodePrx>& iceP_publisher, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::NodePrx::_iceI_initiateCreateSession, iceP_publisher, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::NodePrx::_iceI_initiateCreateSession, iceP_publisher, context);
 }
 
 void
@@ -501,9 +501,9 @@ DataStormContract::NodePrx::createSessionAsync(const std::optional<NodePrx>& ice
 }
 
 std::function<void()>
-DataStormContract::NodePrx::createSessionAsync(const std::optional<NodePrx>& iceP_subscriber, const std::optional<SubscriberSessionPrx>& iceP_session, bool iceP_fromRelay, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::NodePrx::createSessionAsync(const std::optional<NodePrx>& iceP_subscriber, const std::optional<SubscriberSessionPrx>& iceP_session, bool iceP_fromRelay, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::NodePrx::_iceI_createSession, iceP_subscriber, iceP_session, iceP_fromRelay, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::NodePrx::_iceI_createSession, iceP_subscriber, iceP_session, iceP_fromRelay, context);
 }
 
 void
@@ -532,9 +532,9 @@ DataStormContract::NodePrx::confirmCreateSessionAsync(const std::optional<NodePr
 }
 
 std::function<void()>
-DataStormContract::NodePrx::confirmCreateSessionAsync(const std::optional<NodePrx>& iceP_publisher, const std::optional<PublisherSessionPrx>& iceP_session, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::NodePrx::confirmCreateSessionAsync(const std::optional<NodePrx>& iceP_publisher, const std::optional<PublisherSessionPrx>& iceP_session, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::NodePrx::_iceI_confirmCreateSession, iceP_publisher, iceP_session, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::NodePrx::_iceI_confirmCreateSession, iceP_publisher, iceP_session, context);
 }
 
 void
@@ -571,9 +571,9 @@ DataStormContract::LookupPrx::announceTopicReaderAsync(std::string_view iceP_top
 }
 
 std::function<void()>
-DataStormContract::LookupPrx::announceTopicReaderAsync(std::string_view iceP_topic, const std::optional<NodePrx>& iceP_subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::LookupPrx::announceTopicReaderAsync(std::string_view iceP_topic, const std::optional<NodePrx>& iceP_subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopicReader, iceP_topic, iceP_subscriber, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopicReader, iceP_topic, iceP_subscriber, context);
 }
 
 void
@@ -602,9 +602,9 @@ DataStormContract::LookupPrx::announceTopicWriterAsync(std::string_view iceP_top
 }
 
 std::function<void()>
-DataStormContract::LookupPrx::announceTopicWriterAsync(std::string_view iceP_topic, const std::optional<NodePrx>& iceP_node, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::LookupPrx::announceTopicWriterAsync(std::string_view iceP_topic, const std::optional<NodePrx>& iceP_node, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopicWriter, iceP_topic, iceP_node, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopicWriter, iceP_topic, iceP_node, context);
 }
 
 void
@@ -633,9 +633,9 @@ DataStormContract::LookupPrx::announceTopicsAsync(const ::Ice::StringSeq& iceP_r
 }
 
 std::function<void()>
-DataStormContract::LookupPrx::announceTopicsAsync(const ::Ice::StringSeq& iceP_readers, const ::Ice::StringSeq& iceP_writers, const std::optional<NodePrx>& iceP_node, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::LookupPrx::announceTopicsAsync(const ::Ice::StringSeq& iceP_readers, const ::Ice::StringSeq& iceP_writers, const std::optional<NodePrx>& iceP_node, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopics, iceP_readers, iceP_writers, iceP_node, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopics, iceP_readers, iceP_writers, iceP_node, context);
 }
 
 void
@@ -664,9 +664,9 @@ DataStormContract::LookupPrx::createSessionAsync(const std::optional<NodePrx>& i
 }
 
 std::function<void()>
-DataStormContract::LookupPrx::createSessionAsync(const std::optional<NodePrx>& iceP_node, std::function<void(std::optional<::DataStormContract::NodePrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+DataStormContract::LookupPrx::createSessionAsync(const std::optional<NodePrx>& iceP_node, std::function<void(std::optional<::DataStormContract::NodePrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<NodePrx>>(std::move(response), std::move(ex), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_createSession, iceP_node, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<NodePrx>>(std::move(response), std::move(exception), std::move(sent), this, &DataStormContract::LookupPrx::_iceI_createSession, iceP_node, context);
 }
 
 void

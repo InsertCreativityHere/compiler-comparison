@@ -59,13 +59,13 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(std::string_view iceP_us
 }
 
 std::function<void()>
-Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(std::string_view iceP_userId, std::string_view iceP_password, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(std::string_view iceP_userId, std::string_view iceP_password, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<bool, std::string>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<bool, std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<bool, std::string>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
 
 void
@@ -124,13 +124,13 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, co
 }
 
 std::function<void()>
-Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, std::function<void(bool, std::string)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = std::move(response)](std::tuple<bool, std::string>&& result) mutable
     {
         std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<std::tuple<bool, std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<bool, std::string>>(std::move(responseCb), std::move(exception), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
 }
 
 void

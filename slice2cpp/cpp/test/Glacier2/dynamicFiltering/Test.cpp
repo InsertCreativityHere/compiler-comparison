@@ -68,9 +68,9 @@ Test::BackendPrx::checkAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::BackendPrx::checkAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::BackendPrx::checkAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_check, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::BackendPrx::_iceI_check, context);
 }
 
 void
@@ -96,9 +96,9 @@ Test::BackendPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::BackendPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::BackendPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::BackendPrx::_iceI_shutdown, context);
 }
 
 void
@@ -132,9 +132,9 @@ Test::TestControllerPrx::stepAsync(const std::optional<::Glacier2::SessionPrx>& 
 }
 
 std::function<void()>
-Test::TestControllerPrx::stepAsync(const std::optional<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, std::function<void(::Test::TestToken)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestControllerPrx::stepAsync(const std::optional<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, std::function<void(::Test::TestToken)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<TestToken>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_step, iceP_currentSession, iceP_currentState, context);
+    return IceInternal::makeLambdaOutgoing<TestToken>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestControllerPrx::_iceI_step, iceP_currentSession, iceP_currentState, context);
 }
 
 void
@@ -164,9 +164,9 @@ Test::TestControllerPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestControllerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestControllerPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestControllerPrx::_iceI_shutdown, context);
 }
 
 void
@@ -200,9 +200,9 @@ Test::TestSessionPrx::shutdownAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Test::TestSessionPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Test::TestSessionPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestSessionPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Test::TestSessionPrx::_iceI_shutdown, context);
 }
 
 void

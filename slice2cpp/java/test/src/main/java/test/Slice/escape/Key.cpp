@@ -68,9 +68,9 @@ abstract::catchPrx::checkedCastAsync(std::int32_t iceP_clone, const Ice::Context
 }
 
 std::function<void()>
-abstract::catchPrx::checkedCastAsync(std::int32_t iceP_clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+abstract::catchPrx::checkedCastAsync(std::int32_t iceP_clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
 void
@@ -108,9 +108,9 @@ abstract::defaultPrx::doAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-abstract::defaultPrx::doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+abstract::defaultPrx::doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::defaultPrx::_iceI_do, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &abstract::defaultPrx::_iceI_do, context);
 }
 
 void
@@ -152,9 +152,9 @@ abstract::newPrx::notifyAsync(const break& iceP_notifyAll, const elsePtr& iceP_n
 }
 
 std::function<void()>
-abstract::newPrx::notifyAsync(const break& iceP_notifyAll, const elsePtr& iceP_null, const std::optional<finalizePrx>& iceP_package, const std::optional<catchPrx>& iceP_public, const std::optional<defaultPrx>& iceP_return, std::int32_t iceP_static, std::int32_t iceP_strictfp, std::int32_t iceP_super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+abstract::newPrx::notifyAsync(const break& iceP_notifyAll, const elsePtr& iceP_null, const std::optional<finalizePrx>& iceP_package, const std::optional<catchPrx>& iceP_public, const std::optional<defaultPrx>& iceP_return, std::int32_t iceP_static, std::int32_t iceP_strictfp, std::int32_t iceP_super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
+    return IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(exception), std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 void

@@ -69,13 +69,12 @@ namespace Test
         class IAPrx : public Ice::Proxy<IAPrx, Ice::ObjectPrx>
         {
         public:
-
             std::optional<IAPrx> iaop(const std::optional<IAPrx>& p, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::optional<IAPrx>> iaopAsync(const std::optional<IAPrx>& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            iaopAsync(const std::optional<IAPrx>& p, std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> iaopAsync(const std::optional<IAPrx>& p, std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_iaop(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<IAPrx>>>&, const std::optional<IAPrx>&, const Ice::Context&) const;
@@ -134,13 +133,12 @@ namespace Test
         class IB1Prx : public Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
         {
         public:
-
             std::optional<IB1Prx> ib1op(const std::optional<IB1Prx>& p, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::optional<IB1Prx>> ib1opAsync(const std::optional<IB1Prx>& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            ib1opAsync(const std::optional<IB1Prx>& p, std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> ib1opAsync(const std::optional<IB1Prx>& p, std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_ib1op(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<IB1Prx>>>&, const std::optional<IB1Prx>&, const Ice::Context&) const;
@@ -200,13 +198,12 @@ namespace Test
         class IB2Prx : public Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
         {
         public:
-
             std::optional<IB2Prx> ib2op(const std::optional<IB2Prx>& p, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::optional<IB2Prx>> ib2opAsync(const std::optional<IB2Prx>& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            ib2opAsync(const std::optional<IB2Prx>& p, std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> ib2opAsync(const std::optional<IB2Prx>& p, std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_ib2op(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<IB2Prx>>>&, const std::optional<IB2Prx>&, const Ice::Context&) const;
@@ -274,13 +271,12 @@ namespace Test
         class ICPrx : public Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
         {
         public:
-
             std::optional<ICPrx> icop(const std::optional<ICPrx>& p, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
             [[nodiscard]] std::future<std::optional<ICPrx>> icopAsync(const std::optional<ICPrx>& p, const Ice::Context& context = Ice::noExplicitContext) const;
 
-            std::function<void()> // NOLINT(modernize-use-nodiscard)
-            icopAsync(const std::optional<ICPrx>& p, std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+            // NOLINTNEXTLINE(modernize-use-nodiscard)
+            std::function<void()> icopAsync(const std::optional<ICPrx>& p, std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
             /// \cond INTERNAL
             void _iceI_icop(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<ICPrx>>>&, const std::optional<ICPrx>&, const Ice::Context&) const;
@@ -345,13 +341,12 @@ namespace Test
     class InitialPrx : public Ice::Proxy<InitialPrx, Ice::ObjectPrx>
     {
     public:
-
         void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -361,8 +356,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::optional<::Test::MA::IAPrx>> iaopAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        iaopAsync(std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> iaopAsync(std::function<void(std::optional<::Test::MA::IAPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_iaop(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<::Test::MA::IAPrx>>>&, const Ice::Context&) const;
@@ -372,8 +367,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::optional<::Test::MB::IB1Prx>> ib1opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        ib1opAsync(std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> ib1opAsync(std::function<void(std::optional<::Test::MB::IB1Prx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_ib1op(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<::Test::MB::IB1Prx>>>&, const Ice::Context&) const;
@@ -383,8 +378,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::optional<::Test::MB::IB2Prx>> ib2opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        ib2opAsync(std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> ib2opAsync(std::function<void(std::optional<::Test::MB::IB2Prx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_ib2op(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<::Test::MB::IB2Prx>>>&, const Ice::Context&) const;
@@ -394,8 +389,8 @@ namespace Test
 
         [[nodiscard]] std::future<std::optional<::Test::MA::ICPrx>> icopAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        icopAsync(std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> icopAsync(std::function<void(std::optional<::Test::MA::ICPrx>)> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_icop(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<::Test::MA::ICPrx>>>&, const Ice::Context&) const;

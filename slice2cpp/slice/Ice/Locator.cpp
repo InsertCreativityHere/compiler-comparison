@@ -62,9 +62,9 @@ Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id, const Ice::Context
 }
 
 std::function<void()>
-Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, iceP_id, context);
 }
 
 void
@@ -107,9 +107,9 @@ Ice::LocatorPrx::findAdapterByIdAsync(std::string_view iceP_id, const Ice::Conte
 }
 
 std::function<void()>
-Ice::LocatorPrx::findAdapterByIdAsync(std::string_view iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorPrx::findAdapterByIdAsync(std::string_view iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, iceP_id, context);
 }
 
 void
@@ -152,9 +152,9 @@ Ice::LocatorPrx::getRegistryAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Ice::LocatorPrx::getRegistryAsync(std::function<void(std::optional<::Ice::LocatorRegistryPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorPrx::getRegistryAsync(std::function<void(std::optional<::Ice::LocatorRegistryPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<LocatorRegistryPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
 }
 
 void
@@ -189,9 +189,9 @@ Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(std::string_view iceP_id, co
 }
 
 std::function<void()>
-Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(std::string_view iceP_id, const std::optional<Ice::ObjectPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(std::string_view iceP_id, const std::optional<Ice::ObjectPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
 }
 
 void
@@ -238,9 +238,9 @@ Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(std::string_view i
 }
 
 std::function<void()>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(std::string_view iceP_adapterId, std::string_view iceP_replicaGroupId, const std::optional<Ice::ObjectPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(std::string_view iceP_adapterId, std::string_view iceP_replicaGroupId, const std::optional<Ice::ObjectPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context);
 }
 
 void
@@ -291,9 +291,9 @@ Ice::LocatorRegistryPrx::setServerProcessProxyAsync(std::string_view iceP_id, co
 }
 
 std::function<void()>
-Ice::LocatorRegistryPrx::setServerProcessProxyAsync(std::string_view iceP_id, const std::optional<ProcessPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorRegistryPrx::setServerProcessProxyAsync(std::string_view iceP_id, const std::optional<ProcessPrx>& iceP_proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
 }
 
 void
@@ -344,9 +344,9 @@ Ice::LocatorFinderPrx::getLocatorAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-Ice::LocatorFinderPrx::getLocatorAsync(std::function<void(std::optional<::Ice::LocatorPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+Ice::LocatorFinderPrx::getLocatorAsync(std::function<void(std::optional<::Ice::LocatorPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<LocatorPrx>>(std::move(response), std::move(exception), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
 }
 
 void

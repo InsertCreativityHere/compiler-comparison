@@ -59,7 +59,7 @@ namespace DataStorm
 namespace Ice
 {
     template<>
-    struct StreamableTraits< ::DataStorm::SampleEvent>
+    struct StreamableTraits<::DataStorm::SampleEvent>
     {
         static const StreamHelperCategory helper = StreamHelperCategoryEnum;
         static const int minValue = 0;

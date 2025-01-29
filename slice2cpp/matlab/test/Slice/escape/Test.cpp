@@ -133,9 +133,9 @@ classdef::break::elseifPrx::eventsAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-classdef::break::elseifPrx::eventsAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+classdef::break::elseifPrx::eventsAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::break::elseifPrx::_iceI_events, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &classdef::break::elseifPrx::_iceI_events, context);
 }
 
 void
@@ -161,9 +161,9 @@ classdef::break::elseifPrx::functionAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-classdef::break::elseifPrx::functionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+classdef::break::elseifPrx::functionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::break::elseifPrx::_iceI_function, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &classdef::break::elseifPrx::_iceI_function, context);
 }
 
 void
@@ -189,9 +189,9 @@ classdef::break::elseifPrx::deleteAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-classdef::break::elseifPrx::deleteAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+classdef::break::elseifPrx::deleteAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::break::elseifPrx::_iceI_delete, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &classdef::break::elseifPrx::_iceI_delete, context);
 }
 
 void
@@ -217,9 +217,9 @@ classdef::break::elseifPrx::checkedCastAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-classdef::break::elseifPrx::checkedCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+classdef::break::elseifPrx::checkedCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::break::elseifPrx::_iceI_checkedCast, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &classdef::break::elseifPrx::_iceI_checkedCast, context);
 }
 
 void

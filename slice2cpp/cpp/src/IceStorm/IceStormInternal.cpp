@@ -54,9 +54,9 @@ IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events, const Ice:
 }
 
 std::function<void()>
-IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicLinkPrx::_iceI_forward, iceP_events, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceStorm::TopicLinkPrx::_iceI_forward, iceP_events, context);
 }
 
 void
@@ -93,9 +93,9 @@ IceStorm::TopicInternalPrx::getLinkProxyAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-IceStorm::TopicInternalPrx::getLinkProxyAsync(std::function<void(std::optional<::IceStorm::TopicLinkPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceStorm::TopicInternalPrx::getLinkProxyAsync(std::function<void(std::optional<::IceStorm::TopicLinkPrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<TopicLinkPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_getLinkProxy, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<TopicLinkPrx>>(std::move(response), std::move(exception), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_getLinkProxy, context);
 }
 
 void
@@ -122,9 +122,9 @@ IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id, const I
 }
 
 std::function<void()>
-IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_reap, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_reap, iceP_id, context);
 }
 
 void
@@ -175,9 +175,9 @@ IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(const Ice::Context& conte
 }
 
 std::function<void()>
-IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(std::function<void(std::optional<::IceStormElection::NodePrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(std::function<void(std::optional<::IceStormElection::NodePrx>)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::optional<::IceStormElection::NodePrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<::IceStormElection::NodePrx>>(std::move(response), std::move(exception), std::move(sent), this, &IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode, context);
 }
 
 void

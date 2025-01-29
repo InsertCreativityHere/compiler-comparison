@@ -68,9 +68,9 @@ and::breakPrx::caseAsync(std::int32_t iceP_catch, const Ice::Context& context) c
 }
 
 std::function<void()>
-and::breakPrx::caseAsync(std::int32_t iceP_catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::breakPrx::caseAsync(std::int32_t iceP_catch, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &and::breakPrx::_iceI_case, iceP_catch, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(exception), std::move(sent), this, &and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
 void
@@ -108,9 +108,9 @@ and::functionPrx::continueAsync(std::int32_t iceP_declare, std::int32_t iceP_def
 }
 
 std::function<void()>
-and::functionPrx::continueAsync(std::int32_t iceP_declare, std::int32_t iceP_default, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::functionPrx::continueAsync(std::int32_t iceP_declare, std::int32_t iceP_default, std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &and::functionPrx::_iceI_continue, iceP_declare, iceP_default, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &and::functionPrx::_iceI_continue, iceP_declare, iceP_default, context);
 }
 
 void
@@ -147,9 +147,9 @@ and::diePrx::doAsync(const Ice::Context& context) const
 }
 
 std::function<void()>
-and::diePrx::doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::diePrx::doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &and::diePrx::_iceI_do, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(exception), std::move(sent), this, &and::diePrx::_iceI_do, context);
 }
 
 void
@@ -191,9 +191,9 @@ and::forPrx::foreachAsync(const std::optional<breakPrx>& iceP_if, const echoPtr&
 }
 
 std::function<void()>
-and::forPrx::foreachAsync(const std::optional<breakPrx>& iceP_if, const echoPtr& iceP_global, const std::optional<functionPrx>& iceP_include, const std::optional<diePrx>& iceP_return, const std::optional<enddeclarePrx>& iceP_list, std::int32_t iceP_new, std::int32_t iceP_static, std::function<void(::and::array)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
+and::forPrx::foreachAsync(const std::optional<breakPrx>& iceP_if, const echoPtr& iceP_global, const std::optional<functionPrx>& iceP_include, const std::optional<diePrx>& iceP_return, const std::optional<enddeclarePrx>& iceP_list, std::int32_t iceP_new, std::int32_t iceP_static, std::function<void(::and::array)> response, std::function<void(std::exception_ptr)> exception, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<array>(std::move(response), std::move(ex), std::move(sent), this, &and::forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context);
+    return IceInternal::makeLambdaOutgoing<array>(std::move(response), std::move(exception), std::move(sent), this, &and::forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context);
 }
 
 void

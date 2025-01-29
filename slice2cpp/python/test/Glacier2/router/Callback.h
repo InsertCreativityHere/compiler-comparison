@@ -36,13 +36,12 @@ namespace Test
     class CallbackReceiverPrx : public Ice::Proxy<CallbackReceiverPrx, Ice::ObjectPrx>
     {
     public:
-
         void callback(const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> callbackAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        callbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> callbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_callback(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -52,8 +51,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> callbackExAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        callbackExAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> callbackExAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_callbackEx(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
@@ -104,13 +103,12 @@ namespace Test
     class CallbackPrx : public Ice::Proxy<CallbackPrx, Ice::ObjectPrx>
     {
     public:
-
         void initiateCallback(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_initiateCallback(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
@@ -120,8 +118,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_initiateCallbackEx(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
@@ -131,8 +129,8 @@ namespace Test
 
         [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;

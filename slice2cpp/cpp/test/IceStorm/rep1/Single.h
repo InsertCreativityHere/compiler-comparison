@@ -34,13 +34,12 @@ namespace Test
     class SinglePrx : public Ice::Proxy<SinglePrx, Ice::ObjectPrx>
     {
     public:
-
         void event(std::int32_t i, const Ice::Context& context = Ice::noExplicitContext) const;
 
         [[nodiscard]] std::future<void> eventAsync(std::int32_t i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        std::function<void()> // NOLINT(modernize-use-nodiscard)
-        eventAsync(std::int32_t i, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        // NOLINTNEXTLINE(modernize-use-nodiscard)
+        std::function<void()> eventAsync(std::int32_t i, std::function<void()> response, std::function<void(std::exception_ptr)> exception = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// \cond INTERNAL
         void _iceI_event(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
