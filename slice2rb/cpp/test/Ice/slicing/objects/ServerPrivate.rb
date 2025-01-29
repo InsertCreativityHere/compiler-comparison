@@ -38,7 +38,7 @@ module ::Test
     end
 
     if not defined?(::Test::SUnknown)
-        class SUnknown < ::Ice::Value
+        class SUnknown < Ice::Value
 
             def initialize(su='', cycle=nil)
                 @su = su
@@ -118,7 +118,7 @@ module ::Test
     end
 
     if not defined?(::Test::MyClass)
-        class MyClass < ::Ice::Value
+        class MyClass < Ice::Value
 
             def initialize(i=0)
                 @i = i

@@ -82,13 +82,13 @@ Test::C::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-Test::S1::ice_printFields(::std::ostream& os) const
+Test::S1::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::S1& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::S1& value)
 {
     os << "Test::S1{";
     value.ice_printFields(os);
@@ -97,7 +97,7 @@ Test::operator<<(::std::ostream& os, const ::Test::S1& value)
 }
 
 void
-Test::S2::ice_printFields(::std::ostream& os) const
+Test::S2::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "bo = ", this->bo);
     Ice::print(os << ", by = ", this->by);
@@ -114,8 +114,8 @@ Test::S2::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", prx = ", this->prx);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::S2& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::S2& value)
 {
     os << "Test::S2{";
     value.ice_printFields(os);

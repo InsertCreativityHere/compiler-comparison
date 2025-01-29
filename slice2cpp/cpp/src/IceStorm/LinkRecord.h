@@ -39,25 +39,25 @@ namespace IceStorm
 struct LinkRecord
 {
     /// The topic link object.
-    ::std::optional<::IceStorm::TopicLinkPrx> obj;
+    std::optional<::IceStorm::TopicLinkPrx> obj;
     /// The cost.
-    ::std::int32_t cost;
+    std::int32_t cost;
     /// The linked topic for getLinkInfoSeq
-    ::std::optional<::IceStorm::TopicPrx> theTopic;
+    std::optional<::IceStorm::TopicPrx> theTopic;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::optional<::IceStorm::TopicLinkPrx>&, const std::int32_t&, const std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(obj, cost, theTopic);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const LinkRecord&);
+std::ostream& operator<<(std::ostream&, const LinkRecord&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

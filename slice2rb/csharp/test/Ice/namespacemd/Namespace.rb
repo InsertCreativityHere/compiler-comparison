@@ -19,7 +19,7 @@ module ::WithNamespace
     end
 
     if not defined?(::WithNamespace::C1)
-        class C1 < ::Ice::Value
+        class C1 < Ice::Value
 
             def initialize(i=0)
                 @i = i

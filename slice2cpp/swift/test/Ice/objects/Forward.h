@@ -27,7 +27,7 @@
 namespace Test
 {
     class F1;
-    using F1Ptr = ::std::shared_ptr<F1>;
+    using F1Ptr = std::shared_ptr<F1>;
 
     class F2Prx;
 
@@ -42,13 +42,13 @@ public:
 
     void op(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -106,8 +106,8 @@ public:
     F1() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit F1(::std::string name) noexcept :
-        name(::std::move(name))
+    explicit F1(std::string name) noexcept :
+        name(std::move(name))
     {
     }
 
@@ -119,16 +119,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] F1Ptr ice_clone() const { return ::std::static_pointer_cast<F1>(_iceCloneImpl()); }
+    [[nodiscard]] F1Ptr ice_clone() const { return std::static_pointer_cast<F1>(_iceCloneImpl()); }
 
-    ::std::string name;
+    std::string name;
 
     void ice_printFields(std::ostream& os) const override;
     F1(const F1&) = default;
@@ -154,12 +154,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -167,15 +167,15 @@ public:
 
     virtual void op(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using F2Ptr = ::std::shared_ptr<F2>;
+using F2Ptr = std::shared_ptr<F2>;
 
 }
 

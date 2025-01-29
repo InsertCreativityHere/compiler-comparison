@@ -102,15 +102,15 @@ class APrx : public Ice::Proxy<APrx, Ice::ObjectPrx>
 {
 public:
 
-    ::std::string callA(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callA(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callAAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callAAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callAAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callAAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callA(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callA(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -160,15 +160,15 @@ class BPrx : public Ice::Proxy<BPrx, APrx>
 {
 public:
 
-    ::std::string callB(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callB(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callBAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callBAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callBAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callBAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callB(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callB(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -227,15 +227,15 @@ class CPrx : public Ice::Proxy<CPrx, APrx>
 {
 public:
 
-    ::std::string callC(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callC(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callCAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callCAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callCAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callCAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callC(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callC(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -294,15 +294,15 @@ class DPrx : public Ice::Proxy<DPrx, BPrx, CPrx>
 {
 public:
 
-    ::std::string callD(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callD(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callDAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callDAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callDAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callDAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callD(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callD(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -361,15 +361,15 @@ class EPrx : public Ice::Proxy<EPrx, Ice::ObjectPrx>
 {
 public:
 
-    ::std::string callE(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callE(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callEAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callEAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callEAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callEAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callE(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callE(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -419,15 +419,15 @@ class FPrx : public Ice::Proxy<FPrx, EPrx>
 {
 public:
 
-    ::std::string callF(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callF(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callFAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callFAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callFAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callFAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callF(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callF(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -488,24 +488,24 @@ public:
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
-    ::std::string callG(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callG(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callGAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callGAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callGAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callGAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callG(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callG(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -555,15 +555,15 @@ class HPrx : public Ice::Proxy<HPrx, GPrx>
 {
 public:
 
-    ::std::string callH(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string callH(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> callHAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> callHAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callHAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callHAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callH(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_callH(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -624,46 +624,46 @@ public:
 
     void setConnection(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> setConnectionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> setConnectionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    setConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    setConnectionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setConnection(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_setConnection(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void startBatch(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> startBatchAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> startBatchAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    startBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    startBatchAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startBatch(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_startBatch(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void flushBatch(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> flushBatchAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> flushBatchAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    flushBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    flushBatchAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_flushBatch(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_flushBatch(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -723,19 +723,19 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 };
 
-using EmptyPtr = ::std::shared_ptr<Empty>;
+using EmptyPtr = std::shared_ptr<Empty>;
 
 class A : public virtual Ice::Object
 {
@@ -746,28 +746,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callA(const Ice::Current& current) = 0;
+    virtual std::string callA(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callA(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using APtr = ::std::shared_ptr<A>;
+using APtr = std::shared_ptr<A>;
 
 class B : public virtual A
 {
@@ -778,28 +778,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callB(const Ice::Current& current) = 0;
+    virtual std::string callB(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callB(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using BPtr = ::std::shared_ptr<B>;
+using BPtr = std::shared_ptr<B>;
 
 class C : public virtual A
 {
@@ -810,28 +810,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callC(const Ice::Current& current) = 0;
+    virtual std::string callC(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callC(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using CPtr = ::std::shared_ptr<C>;
+using CPtr = std::shared_ptr<C>;
 
 class D : public virtual B,
           public virtual C
@@ -843,28 +843,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callD(const Ice::Current& current) = 0;
+    virtual std::string callD(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callD(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callD(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using DPtr = ::std::shared_ptr<D>;
+using DPtr = std::shared_ptr<D>;
 
 class E : public virtual Ice::Object
 {
@@ -875,28 +875,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callE(const Ice::Current& current) = 0;
+    virtual std::string callE(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callE(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callE(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using EPtr = ::std::shared_ptr<E>;
+using EPtr = std::shared_ptr<E>;
 
 class F : public virtual E
 {
@@ -907,28 +907,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callF(const Ice::Current& current) = 0;
+    virtual std::string callF(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callF(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callF(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using FPtr = ::std::shared_ptr<F>;
+using FPtr = std::shared_ptr<F>;
 
 class G : public virtual Ice::Object
 {
@@ -939,12 +939,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -952,20 +952,20 @@ public:
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::string callG(const Ice::Current& current) = 0;
+    virtual std::string callG(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callG(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callG(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using GPtr = ::std::shared_ptr<G>;
+using GPtr = std::shared_ptr<G>;
 
 class H : public virtual G
 {
@@ -976,28 +976,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string callH(const Ice::Current& current) = 0;
+    virtual std::string callH(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callH(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callH(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using HPtr = ::std::shared_ptr<H>;
+using HPtr = std::shared_ptr<H>;
 
 class Echo : public virtual Ice::Object
 {
@@ -1008,12 +1008,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1021,30 +1021,30 @@ public:
 
     virtual void setConnection(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_setConnection(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_setConnection(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void startBatch(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_startBatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_startBatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void flushBatch(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_flushBatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_flushBatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using EchoPtr = ::std::shared_ptr<Echo>;
+using EchoPtr = std::shared_ptr<Echo>;
 
 }
 

@@ -42,46 +42,46 @@ public:
 
     void op(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
-    void sleep(::std::int32_t to, const Ice::Context& context = Ice::noExplicitContext) const;
+    void sleep(std::int32_t to, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> sleepAsync(::std::int32_t to, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> sleepAsync(std::int32_t to, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    sleepAsync(::std::int32_t to, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    sleepAsync(std::int32_t to, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const Ice::Context&) const;
+    void _iceI_sleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     void opWithPayload(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opWithPayloadAsync(const ::Ice::ByteSeq& seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opWithPayloadAsync(const ::Ice::ByteSeq& seq, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opWithPayload(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const Ice::Context&) const;
+    void _iceI_opWithPayload(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -133,24 +133,24 @@ public:
 
     void holdAdapter(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> holdAdapterAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> holdAdapterAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    holdAdapterAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_holdAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_holdAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void resumeAdapter(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> resumeAdapterAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> resumeAdapterAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    resumeAdapterAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_resumeAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_resumeAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -210,12 +210,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -223,30 +223,30 @@ public:
 
     virtual void op(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void sleep(::std::int32_t to, const Ice::Current& current) = 0;
+    virtual void sleep(std::int32_t to, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_sleep(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_sleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWithPayload(::Ice::ByteSeq seq, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opWithPayload(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opWithPayload(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+using TestIntfPtr = std::shared_ptr<TestIntf>;
 
 class TestIntfController : public virtual Ice::Object
 {
@@ -257,12 +257,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -270,20 +270,20 @@ public:
 
     virtual void holdAdapter(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_holdAdapter(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_holdAdapter(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void resumeAdapter(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_resumeAdapter(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_resumeAdapter(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using TestIntfControllerPtr = ::std::shared_ptr<TestIntfController>;
+using TestIntfControllerPtr = std::shared_ptr<TestIntfController>;
 
 }
 

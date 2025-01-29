@@ -94,19 +94,19 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 };
 
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+using TestIntfPtr = std::shared_ptr<TestIntf>;
 
 }
 

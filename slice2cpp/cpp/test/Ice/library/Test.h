@@ -47,13 +47,13 @@ public:
 
     void op(bool throwIt, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opAsync(bool throwIt, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opAsync(bool throwIt, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(bool throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opAsync(bool throwIt, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, bool, const Ice::Context&) const;
+    void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, bool, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -111,8 +111,8 @@ public:
     UserError() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UserError(::std::string message) noexcept :
-        message(::std::move(message))
+    UserError(std::string message) noexcept :
+        message(std::move(message))
     {
     }
 
@@ -121,7 +121,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(message);
     }
@@ -136,7 +136,7 @@ public:
 
     ICE_MEMBER(LIBRARY_TEST_API) void ice_throw() const override;
 
-    ::std::string message;
+    std::string message;
 
 protected:
     ICE_MEMBER(LIBRARY_TEST_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -158,12 +158,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -171,15 +171,15 @@ public:
 
     virtual void op(bool throwIt, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
+using MyInterfacePtr = std::shared_ptr<MyInterface>;
 
 }
 

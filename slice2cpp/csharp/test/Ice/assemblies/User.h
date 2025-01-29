@@ -28,7 +28,7 @@
 namespace User
 {
     class UserInfo;
-    using UserInfoPtr = ::std::shared_ptr<UserInfo>;
+    using UserInfoPtr = std::shared_ptr<UserInfo>;
 
     class RegistryPrx;
 
@@ -41,15 +41,15 @@ class RegistryPrx : public Ice::Proxy<RegistryPrx, Ice::ObjectPrx>
 {
 public:
 
-    UserInfoPtr getUserInfo(::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    UserInfoPtr getUserInfo(std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<UserInfoPtr> getUserInfoAsync(::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<UserInfoPtr> getUserInfoAsync(std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getUserInfoAsync(::std::string_view id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    getUserInfoAsync(std::string_view id, std::function<void(::User::UserInfoPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getUserInfo(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>&, ::std::string_view, const Ice::Context&) const;
+    void _iceI_getUserInfo(const std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>&, std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -114,7 +114,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] UserInfoPtr ice_clone() const { return ::std::static_pointer_cast<UserInfo>(_iceCloneImpl()); }
+    [[nodiscard]] UserInfoPtr ice_clone() const { return std::static_pointer_cast<UserInfo>(_iceCloneImpl()); }
 
     UserInfo(const UserInfo&) = default;
 
@@ -139,28 +139,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual UserInfoPtr getUserInfo(::std::string id, const Ice::Current& current) = 0;
+    virtual UserInfoPtr getUserInfo(std::string id, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getUserInfo(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_getUserInfo(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using RegistryPtr = ::std::shared_ptr<Registry>;
+using RegistryPtr = std::shared_ptr<Registry>;
 
 }
 

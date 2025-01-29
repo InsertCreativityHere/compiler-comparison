@@ -140,7 +140,7 @@ module ::Abstract
     end
 
     if not defined?(::Abstract::Delegate)
-        class Delegate < ::Ice::Value
+        class Delegate < Ice::Value
 
             def initialize(_if=0, _else=nil, event=0)
                 @_if = _if
@@ -185,7 +185,7 @@ module ::Abstract
     end
 
     if not defined?(::Abstract::OptionalMembers)
-        class OptionalMembers < ::Ice::Value
+        class OptionalMembers < Ice::Value
 
             def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, namespace=::Ice::Unset)
                 @_for = _for

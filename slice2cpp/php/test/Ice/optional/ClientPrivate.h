@@ -38,26 +38,26 @@ class Initial2Prx : public Ice::Proxy<Initial2Prx, Ice::ObjectPrx>
 {
 public:
 
-    void opClassAndUnknownOptional(const APtr& p, const ::std::optional<VarStruct>& ovs, const Ice::Context& context = Ice::noExplicitContext) const;
+    void opClassAndUnknownOptional(const APtr& p, const std::optional<VarStruct>& ovs, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const ::std::optional<VarStruct>& ovs, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const std::optional<VarStruct>& ovs, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opClassAndUnknownOptionalAsync(const APtr& p, const ::std::optional<VarStruct>& ovs, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opClassAndUnknownOptionalAsync(const APtr& p, const std::optional<VarStruct>& ovs, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const APtr&, const ::std::optional<VarStruct>&, const Ice::Context&) const;
+    void _iceI_opClassAndUnknownOptional(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const APtr&, const std::optional<VarStruct>&, const Ice::Context&) const;
     /// \endcond
 
-    void opVoid(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, const Ice::Context& context = Ice::noExplicitContext) const;
+    void opVoid(std::optional<std::int32_t> a, std::optional<std::string_view> v, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opVoidAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opVoidAsync(std::optional<std::int32_t> a, std::optional<std::string_view> v, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opVoidAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opVoidAsync(std::optional<std::int32_t> a, std::optional<std::string_view> v, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVoid(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const Ice::Context&) const;
+    void _iceI_opVoid(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::optional<std::int32_t>, std::optional<std::string_view>, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -117,33 +117,33 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void opClassAndUnknownOptional(APtr p, ::std::optional<VarStruct> ovs, const Ice::Current& current) = 0;
+    virtual void opClassAndUnknownOptional(APtr p, std::optional<VarStruct> ovs, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opClassAndUnknownOptional(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opClassAndUnknownOptional(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opVoid(::std::optional<::std::int32_t> a, ::std::optional<::std::string> v, const Ice::Current& current) = 0;
+    virtual void opVoid(std::optional<std::int32_t> a, std::optional<std::string> v, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opVoid(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opVoid(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using Initial2Ptr = ::std::shared_ptr<Initial2>;
+using Initial2Ptr = std::shared_ptr<Initial2>;
 
 }
 

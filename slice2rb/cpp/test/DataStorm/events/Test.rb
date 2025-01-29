@@ -58,7 +58,7 @@ module ::Test
     end
 
     if not defined?(::Test::Base)
-        class Base < ::Ice::Value
+        class Base < Ice::Value
 
             def initialize(b='')
                 @b = b

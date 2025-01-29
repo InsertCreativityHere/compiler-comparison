@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::Stock)
-        class Stock < ::Ice::Value
+        class Stock < Ice::Value
 
             def initialize(price=0.0, lastBid=0.0, lastAsk=0.0)
                 @price = price

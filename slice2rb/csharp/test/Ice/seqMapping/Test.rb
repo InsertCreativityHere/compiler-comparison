@@ -353,7 +353,7 @@ module ::Test
     end
 
     if not defined?(::Test::CV)
-        class CV < ::Ice::Value
+        class CV < Ice::Value
 
             def initialize(i=0)
                 @i = i
@@ -418,7 +418,7 @@ module ::Test
     end
 
     if not defined?(::Test::CR)
-        class CR < ::Ice::Value
+        class CR < Ice::Value
 
             def initialize(v=nil)
                 @v = v

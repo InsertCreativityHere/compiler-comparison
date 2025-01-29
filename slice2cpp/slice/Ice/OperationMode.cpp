@@ -39,8 +39,8 @@
 #   endif
 #endif
 
-::std::ostream&
-Ice::operator<<(::std::ostream& os, OperationMode value)
+std::ostream&
+Ice::operator<<(std::ostream& os, OperationMode value)
 {
     switch (value)
     {
@@ -51,6 +51,6 @@ Ice::operator<<(::std::ostream& os, OperationMode value)
         case OperationMode::Idempotent:
             return os << "Idempotent";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }

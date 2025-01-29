@@ -336,7 +336,7 @@ module ::DataStormContract
     end
 
     if not defined?(::DataStormContract::ElementConfig)
-        class ElementConfig < ::Ice::Value
+        class ElementConfig < Ice::Value
 
             def initialize(facet=::Ice::Unset, sampleFilter=::Ice::Unset, name=::Ice::Unset, priority=::Ice::Unset, sampleCount=::Ice::Unset, sampleLifetime=::Ice::Unset, clearHistory=::Ice::Unset)
                 @facet = facet

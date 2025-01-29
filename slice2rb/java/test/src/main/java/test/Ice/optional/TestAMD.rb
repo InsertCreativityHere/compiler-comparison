@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::OneOptional)
-        class OneOptional < ::Ice::Value
+        class OneOptional < Ice::Value
 
             def initialize(a=::Ice::Unset)
                 @a = a
@@ -281,7 +281,7 @@ module ::Test
     end
 
     if not defined?(::Test::MultiOptional)
-        class MultiOptional < ::Ice::Value
+        class MultiOptional < Ice::Value
 
             def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset, ser=::Ice::Unset)
                 @a = a
@@ -352,7 +352,7 @@ module ::Test
     end
 
     if not defined?(::Test::A)
-        class A < ::Ice::Value
+        class A < Ice::Value
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset)
                 @requiredA = requiredA
@@ -421,7 +421,7 @@ module ::Test
     end
 
     if not defined?(::Test::WD)
-        class WD < ::Ice::Value
+        class WD < Ice::Value
 
             def initialize(a=5, s="test")
                 @a = a
@@ -486,7 +486,7 @@ module ::Test
     end
 
     if not defined?(::Test::OptionalWithCustom)
-        class OptionalWithCustom < ::Ice::Value
+        class OptionalWithCustom < Ice::Value
 
             def initialize(l=::Ice::Unset)
                 @l = l
@@ -503,7 +503,7 @@ module ::Test
     end
 
     if not defined?(::Test::E)
-        class E < ::Ice::Value
+        class E < Ice::Value
 
             def initialize(fse=::Test::FixedStruct.new)
                 @fse = fse
@@ -596,7 +596,7 @@ module ::Test
     end
 
     if not defined?(::Test::G)
-        class G < ::Ice::Value
+        class G < Ice::Value
 
             def initialize(gg1Opt=::Ice::Unset, gg2=::Test::G2.new, gg2Opt=::Ice::Unset, gg1=::Test::G1.new)
                 @gg1Opt = gg1Opt

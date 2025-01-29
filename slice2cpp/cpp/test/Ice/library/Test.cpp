@@ -50,25 +50,25 @@ Test::MyInterfacePrx::op(bool iceP_throwIt, const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::MyInterfacePrx::opAsync(bool iceP_throwIt, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
-::std::function<void()>
-Test::MyInterfacePrx::opAsync(bool iceP_throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::MyInterfacePrx::opAsync(bool iceP_throwIt, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
 void
-Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_throwIt, const Ice::Context& context) const
+Test::MyInterfacePrx::_iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_throwIt, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "op";
+    static constexpr std::string_view operationName = "op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_throwIt);
@@ -137,17 +137,17 @@ Test::UserError::_readImpl(Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::MyInterface::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::MyInterface::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -160,7 +160,7 @@ Test::MyInterface::ice_staticId() noexcept
 void
 Test::MyInterface::_iceD_op(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -175,15 +175,15 @@ Test::MyInterface::_iceD_op(
 
 /// \cond INTERNAL
 void
-Test::MyInterface::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::MyInterface::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
+    static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -191,33 +191,33 @@ Test::MyInterface::dispatch(Ice::IncomingRequest& request, ::std::function<void(
     {
         case 0:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_op(request, ::std::move(sendResponse));
+            _iceD_op(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -196,7 +196,7 @@ module ::And
     end
 
     if not defined?(::And::Echo)
-        class Echo < ::Ice::Value
+        class Echo < Ice::Value
 
             def initialize(_if=0, _else=0, elseif=nil, empty=0)
                 @_if = _if

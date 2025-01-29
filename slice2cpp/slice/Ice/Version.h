@@ -41,42 +41,42 @@ namespace Ice
 /// A version structure for the protocol version.
 struct ProtocolVersion
 {
-    ::std::uint8_t major;
-    ::std::uint8_t minor;
+    std::uint8_t major;
+    std::uint8_t minor;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::uint8_t&, const std::uint8_t&> ice_tuple() const
     {
         return std::tie(major, minor);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    ICE_API void ice_printFields(::std::ostream& os) const;
+    ICE_API void ice_printFields(std::ostream& os) const;
 };
 
-ICE_API ::std::ostream& operator<<(::std::ostream&, const ProtocolVersion&);
+ICE_API std::ostream& operator<<(std::ostream&, const ProtocolVersion&);
 
 /// A version structure for the encoding version.
 struct EncodingVersion
 {
-    ::std::uint8_t major;
-    ::std::uint8_t minor;
+    std::uint8_t major;
+    std::uint8_t minor;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::uint8_t&, const std::uint8_t&> ice_tuple() const
     {
         return std::tie(major, minor);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    ICE_API void ice_printFields(::std::ostream& os) const;
+    ICE_API void ice_printFields(std::ostream& os) const;
 };
 
-ICE_API ::std::ostream& operator<<(::std::ostream&, const EncodingVersion&);
+ICE_API std::ostream& operator<<(std::ostream&, const EncodingVersion&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

@@ -19,7 +19,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::C1)
-        class C1 < ::Ice::Value
+        class C1 < Ice::Value
 
             def initialize(i=0)
                 @i = i
@@ -292,7 +292,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB1)
-        class CB1 < ::Ice::Value
+        class CB1 < Ice::Value
 
             def initialize(s1=::LocalTest::S1.new)
                 @s1 = s1
@@ -309,7 +309,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB2)
-        class CB2 < ::Ice::Value
+        class CB2 < Ice::Value
 
             def initialize(c1seq=nil)
                 @c1seq = c1seq
@@ -326,7 +326,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB3)
-        class CB3 < ::Ice::Value
+        class CB3 < Ice::Value
 
             def initialize(s1seq=nil)
                 @s1seq = s1seq
@@ -343,7 +343,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB4)
-        class CB4 < ::Ice::Value
+        class CB4 < Ice::Value
 
             def initialize(c1dict=nil)
                 @c1dict = c1dict
@@ -360,7 +360,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB5)
-        class CB5 < ::Ice::Value
+        class CB5 < Ice::Value
 
             def initialize(s1dict=nil)
                 @s1dict = s1dict
@@ -377,7 +377,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB6)
-        class CB6 < ::Ice::Value
+        class CB6 < Ice::Value
 
             def initialize(c1seqseq=nil)
                 @c1seqseq = c1seqseq
@@ -394,7 +394,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB7)
-        class CB7 < ::Ice::Value
+        class CB7 < Ice::Value
 
             def initialize(s1seqseq=nil)
                 @s1seqseq = s1seqseq
@@ -411,7 +411,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::CB8)
-        class CB8 < ::Ice::Value
+        class CB8 < Ice::Value
 
             def initialize(s1=::LocalTest::S1.new, c1seq=nil, s1dict=nil)
                 @s1 = s1

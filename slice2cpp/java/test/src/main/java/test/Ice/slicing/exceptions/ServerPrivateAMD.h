@@ -39,156 +39,156 @@ public:
 
     void baseAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> baseAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> baseAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    baseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    baseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_baseAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_baseAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void unknownDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> unknownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> unknownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    unknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownDerivedAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_unknownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownDerivedAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownDerivedAsKnownDerived(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownDerivedAsKnownDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownDerivedAsKnownDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownDerivedAsKnownDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownDerivedAsKnownDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownDerivedAsKnownDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void unknownIntermediateAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> unknownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> unknownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    unknownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownIntermediateAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_unknownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownIntermediateAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownIntermediateAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownMostDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownMostDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownMostDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownMostDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownMostDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownMostDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownIntermediateAsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownIntermediateAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownIntermediateAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownIntermediateAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownMostDerivedAsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownMostDerivedAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownMostDerivedAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownMostDerivedAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void knownMostDerivedAsKnownMostDerived(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    knownMostDerivedAsKnownMostDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_knownMostDerivedAsKnownMostDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void unknownMostDerived1AsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> unknownMostDerived1AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> unknownMostDerived1AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived1AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    unknownMostDerived1AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_unknownMostDerived1AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void unknownMostDerived1AsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    unknownMostDerived1AsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_unknownMostDerived1AsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void unknownMostDerived2AsBase(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> unknownMostDerived2AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> unknownMostDerived2AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived2AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    unknownMostDerived2AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_unknownMostDerived2AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -246,8 +246,8 @@ public:
     Base() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Base(::std::string b) noexcept :
-        b(::std::move(b))
+    Base(std::string b) noexcept :
+        b(std::move(b))
     {
     }
 
@@ -256,7 +256,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(b);
     }
@@ -271,7 +271,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string b;
+    std::string b;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -286,9 +286,9 @@ public:
     KnownDerived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    KnownDerived(::std::string b, ::std::string kd) noexcept :
-        Base(::std::move(b)),
-        kd(::std::move(kd))
+    KnownDerived(std::string b, std::string kd) noexcept :
+        Base(std::move(b)),
+        kd(std::move(kd))
     {
     }
 
@@ -297,7 +297,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, kd);
     }
@@ -312,7 +312,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string kd;
+    std::string kd;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -327,9 +327,9 @@ public:
     KnownIntermediate() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    KnownIntermediate(::std::string b, ::std::string ki) noexcept :
-        Base(::std::move(b)),
-        ki(::std::move(ki))
+    KnownIntermediate(std::string b, std::string ki) noexcept :
+        Base(std::move(b)),
+        ki(std::move(ki))
     {
     }
 
@@ -338,7 +338,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ki);
     }
@@ -353,7 +353,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string ki;
+    std::string ki;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -368,9 +368,9 @@ public:
     KnownMostDerived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    KnownMostDerived(::std::string b, ::std::string ki, ::std::string kmd) noexcept :
-        KnownIntermediate(::std::move(b), ::std::move(ki)),
-        kmd(::std::move(kmd))
+    KnownMostDerived(std::string b, std::string ki, std::string kmd) noexcept :
+        KnownIntermediate(std::move(b), std::move(ki)),
+        kmd(std::move(kmd))
     {
     }
 
@@ -379,7 +379,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ki, kmd);
     }
@@ -394,7 +394,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string kmd;
+    std::string kmd;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -409,9 +409,9 @@ public:
     UnknownDerived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownDerived(::std::string b, ::std::string ud) noexcept :
-        Base(::std::move(b)),
-        ud(::std::move(ud))
+    UnknownDerived(std::string b, std::string ud) noexcept :
+        Base(std::move(b)),
+        ud(std::move(ud))
     {
     }
 
@@ -420,7 +420,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ud);
     }
@@ -435,7 +435,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string ud;
+    std::string ud;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -450,9 +450,9 @@ public:
     UnknownIntermediate() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownIntermediate(::std::string b, ::std::string ui) noexcept :
-        Base(::std::move(b)),
-        ui(::std::move(ui))
+    UnknownIntermediate(std::string b, std::string ui) noexcept :
+        Base(std::move(b)),
+        ui(std::move(ui))
     {
     }
 
@@ -461,7 +461,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ui);
     }
@@ -476,7 +476,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string ui;
+    std::string ui;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -491,9 +491,9 @@ public:
     UnknownMostDerived1() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownMostDerived1(::std::string b, ::std::string ki, ::std::string umd1) noexcept :
-        KnownIntermediate(::std::move(b), ::std::move(ki)),
-        umd1(::std::move(umd1))
+    UnknownMostDerived1(std::string b, std::string ki, std::string umd1) noexcept :
+        KnownIntermediate(std::move(b), std::move(ki)),
+        umd1(std::move(umd1))
     {
     }
 
@@ -502,7 +502,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ki, umd1);
     }
@@ -517,7 +517,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string umd1;
+    std::string umd1;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -532,9 +532,9 @@ public:
     UnknownMostDerived2() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownMostDerived2(::std::string b, ::std::string ui, ::std::string umd2) noexcept :
-        UnknownIntermediate(::std::move(b), ::std::move(ui)),
-        umd2(::std::move(umd2))
+    UnknownMostDerived2(std::string b, std::string ui, std::string umd2) noexcept :
+        UnknownIntermediate(std::move(b), std::move(ui)),
+        umd2(std::move(umd2))
     {
     }
 
@@ -543,7 +543,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ui, umd2);
     }
@@ -558,7 +558,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string umd2;
+    std::string umd2;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -580,93 +580,93 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void baseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void baseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_baseAsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_baseAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void unknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void unknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unknownDerivedAsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_unknownDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownDerivedAsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownDerivedAsKnownDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownDerivedAsKnownDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownDerivedAsKnownDerived(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownDerivedAsKnownDerived(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void unknownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void unknownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unknownIntermediateAsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_unknownIntermediateAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownIntermediateAsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownIntermediateAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownMostDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownMostDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownMostDerivedAsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownMostDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownIntermediateAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownIntermediateAsKnownIntermediate(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownIntermediateAsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownMostDerivedAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownMostDerivedAsKnownIntermediate(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownMostDerivedAsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void knownMostDerivedAsKnownMostDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_knownMostDerivedAsKnownMostDerived(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_knownMostDerivedAsKnownMostDerived(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void unknownMostDerived1AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void unknownMostDerived1AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unknownMostDerived1AsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_unknownMostDerived1AsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void unknownMostDerived1AsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unknownMostDerived1AsKnownIntermediate(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_unknownMostDerived1AsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void unknownMostDerived2AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void unknownMostDerived2AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unknownMostDerived2AsBase(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_unknownMostDerived2AsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+using TestIntfPtr = std::shared_ptr<TestIntf>;
 
 }
 

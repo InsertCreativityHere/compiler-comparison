@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::Default)
-        class Default < ::Ice::Value
+        class Default < Ice::Value
 
             def initialize(x=0, y=0)
                 @x = x
@@ -40,7 +40,7 @@ module ::Test
     end
 
     if not defined?(::Test::NoDefault)
-        class NoDefault < ::Ice::Value
+        class NoDefault < Ice::Value
 
             def initialize(x=10, y=10)
                 @x = x

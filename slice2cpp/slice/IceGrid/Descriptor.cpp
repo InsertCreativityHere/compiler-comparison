@@ -55,14 +55,14 @@ namespace
 }
 
 void
-IceGrid::PropertyDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::PropertyDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
     Ice::print(os << ", value = ", this->value);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::PropertyDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::PropertyDescriptor& value)
 {
     os << "IceGrid::PropertyDescriptor{";
     value.ice_printFields(os);
@@ -71,14 +71,14 @@ IceGrid::operator<<(::std::ostream& os, const ::IceGrid::PropertyDescriptor& val
 }
 
 void
-IceGrid::PropertySetDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::PropertySetDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "references = ", this->references);
     Ice::print(os << ", properties = ", this->properties);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::PropertySetDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::PropertySetDescriptor& value)
 {
     os << "IceGrid::PropertySetDescriptor{";
     value.ice_printFields(os);
@@ -87,15 +87,15 @@ IceGrid::operator<<(::std::ostream& os, const ::IceGrid::PropertySetDescriptor& 
 }
 
 void
-IceGrid::ObjectDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::ObjectDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "id = ", this->id);
     Ice::print(os << ", type = ", this->type);
     Ice::print(os << ", proxyOptions = ", this->proxyOptions);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ObjectDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::ObjectDescriptor& value)
 {
     os << "IceGrid::ObjectDescriptor{";
     value.ice_printFields(os);
@@ -104,7 +104,7 @@ IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ObjectDescriptor& value
 }
 
 void
-IceGrid::AdapterDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::AdapterDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
     Ice::print(os << ", description = ", this->description);
@@ -117,8 +117,8 @@ IceGrid::AdapterDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", allocatables = ", this->allocatables);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::AdapterDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::AdapterDescriptor& value)
 {
     os << "IceGrid::AdapterDescriptor{";
     value.ice_printFields(os);
@@ -170,14 +170,14 @@ IceGrid::CommunicatorDescriptor::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-IceGrid::DistributionDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::DistributionDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "icepatch = ", this->icepatch);
     Ice::print(os << ", directories = ", this->directories);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::DistributionDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::DistributionDescriptor& value)
 {
     os << "IceGrid::DistributionDescriptor{";
     value.ice_printFields(os);
@@ -285,7 +285,7 @@ IceGrid::ServiceDescriptor::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-IceGrid::ServerInstanceDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::ServerInstanceDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "templateName = ", this->templateName);
     Ice::print(os << ", parameterValues = ", this->parameterValues);
@@ -293,8 +293,8 @@ IceGrid::ServerInstanceDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", servicePropertySets = ", this->servicePropertySets);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ServerInstanceDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::ServerInstanceDescriptor& value)
 {
     os << "IceGrid::ServerInstanceDescriptor{";
     value.ice_printFields(os);
@@ -303,15 +303,15 @@ IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ServerInstanceDescripto
 }
 
 void
-IceGrid::TemplateDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::TemplateDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "descriptor = ", this->descriptor);
     Ice::print(os << ", parameters = ", this->parameters);
     Ice::print(os << ", parameterDefaults = ", this->parameterDefaults);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::TemplateDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::TemplateDescriptor& value)
 {
     os << "IceGrid::TemplateDescriptor{";
     value.ice_printFields(os);
@@ -320,7 +320,7 @@ IceGrid::operator<<(::std::ostream& os, const ::IceGrid::TemplateDescriptor& val
 }
 
 void
-IceGrid::ServiceInstanceDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::ServiceInstanceDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "templateName = ", this->templateName);
     Ice::print(os << ", parameterValues = ", this->parameterValues);
@@ -328,8 +328,8 @@ IceGrid::ServiceInstanceDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", propertySet = ", this->propertySet);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ServiceInstanceDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::ServiceInstanceDescriptor& value)
 {
     os << "IceGrid::ServiceInstanceDescriptor{";
     value.ice_printFields(os);
@@ -381,7 +381,7 @@ IceGrid::IceBoxDescriptor::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-IceGrid::NodeDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::NodeDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "variables = ", this->variables);
     Ice::print(os << ", serverInstances = ", this->serverInstances);
@@ -391,8 +391,8 @@ IceGrid::NodeDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", propertySets = ", this->propertySets);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::NodeDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::NodeDescriptor& value)
 {
     os << "IceGrid::NodeDescriptor{";
     value.ice_printFields(os);
@@ -586,7 +586,7 @@ IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-IceGrid::ReplicaGroupDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::ReplicaGroupDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "id = ", this->id);
     Ice::print(os << ", loadBalancing = ", this->loadBalancing);
@@ -596,8 +596,8 @@ IceGrid::ReplicaGroupDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", filter = ", this->filter);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ReplicaGroupDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::ReplicaGroupDescriptor& value)
 {
     os << "IceGrid::ReplicaGroupDescriptor{";
     value.ice_printFields(os);
@@ -606,7 +606,7 @@ IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ReplicaGroupDescriptor&
 }
 
 void
-IceGrid::ApplicationDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::ApplicationDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
     Ice::print(os << ", variables = ", this->variables);
@@ -619,8 +619,8 @@ IceGrid::ApplicationDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", propertySets = ", this->propertySets);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ApplicationDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::ApplicationDescriptor& value)
 {
     os << "IceGrid::ApplicationDescriptor{";
     value.ice_printFields(os);
@@ -669,7 +669,7 @@ IceGrid::BoxedString::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-IceGrid::NodeUpdateDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::NodeUpdateDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
     Ice::print(os << ", description = ", this->description);
@@ -683,8 +683,8 @@ IceGrid::NodeUpdateDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", loadFactor = ", this->loadFactor);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::NodeUpdateDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::NodeUpdateDescriptor& value)
 {
     os << "IceGrid::NodeUpdateDescriptor{";
     value.ice_printFields(os);
@@ -733,7 +733,7 @@ IceGrid::BoxedDistributionDescriptor::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-IceGrid::ApplicationUpdateDescriptor::ice_printFields(::std::ostream& os) const
+IceGrid::ApplicationUpdateDescriptor::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
     Ice::print(os << ", description = ", this->description);
@@ -752,8 +752,8 @@ IceGrid::ApplicationUpdateDescriptor::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", removeNodes = ", this->removeNodes);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::ApplicationUpdateDescriptor& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::ApplicationUpdateDescriptor& value)
 {
     os << "IceGrid::ApplicationUpdateDescriptor{";
     value.ice_printFields(os);

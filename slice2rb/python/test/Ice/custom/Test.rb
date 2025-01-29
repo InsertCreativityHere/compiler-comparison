@@ -150,7 +150,7 @@ module ::Test
     end
 
     if not defined?(::Test::C)
-        class C < ::Ice::Value
+        class C < Ice::Value
 
             def initialize(b1=nil, b2=nil, b3=nil, b4=nil, s1=nil, s2=nil, s3=nil, s4=nil)
                 @b1 = b1
@@ -183,7 +183,7 @@ module ::Test
     end
 
     if not defined?(::Test::D)
-        class D < ::Ice::Value
+        class D < Ice::Value
 
             def initialize(boolSeq=::Ice::Unset, byteSeq=::Ice::Unset, shortSeq=::Ice::Unset, intSeq=::Ice::Unset, longSeq=::Ice::Unset, floatSeq=::Ice::Unset, doubleSeq=::Ice::Unset)
                 @boolSeq = boolSeq

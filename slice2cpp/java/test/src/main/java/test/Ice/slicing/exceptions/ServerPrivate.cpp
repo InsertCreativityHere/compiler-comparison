@@ -54,25 +54,25 @@ Test::TestIntfPrx::baseAsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_baseAsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::baseAsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_baseAsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::baseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::baseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_baseAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "baseAsBase";
+    static constexpr std::string_view operationName = "baseAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -96,22 +96,22 @@ Test::TestIntfPrx::unknownDerivedAsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::unknownDerivedAsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::unknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "unknownDerivedAsBase";
+    static constexpr std::string_view operationName = "unknownDerivedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, Ice::OperationMode::Normal, Ice::FormatType::CompactFormat, context,
@@ -138,25 +138,25 @@ Test::TestIntfPrx::knownDerivedAsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownDerivedAsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownDerivedAsBase";
+    static constexpr std::string_view operationName = "knownDerivedAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -180,25 +180,25 @@ Test::TestIntfPrx::knownDerivedAsKnownDerived(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownDerivedAsKnownDerived";
+    static constexpr std::string_view operationName = "knownDerivedAsKnownDerived";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -222,25 +222,25 @@ Test::TestIntfPrx::unknownIntermediateAsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::unknownIntermediateAsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::unknownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "unknownIntermediateAsBase";
+    static constexpr std::string_view operationName = "unknownIntermediateAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -264,25 +264,25 @@ Test::TestIntfPrx::knownIntermediateAsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownIntermediateAsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownIntermediateAsBase";
+    static constexpr std::string_view operationName = "knownIntermediateAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -306,25 +306,25 @@ Test::TestIntfPrx::knownMostDerivedAsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownMostDerivedAsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownMostDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownMostDerivedAsBase";
+    static constexpr std::string_view operationName = "knownMostDerivedAsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -348,25 +348,25 @@ Test::TestIntfPrx::knownIntermediateAsKnownIntermediate(const Ice::Context& cont
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownIntermediateAsKnownIntermediate";
+    static constexpr std::string_view operationName = "knownIntermediateAsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -390,25 +390,25 @@ Test::TestIntfPrx::knownMostDerivedAsKnownIntermediate(const Ice::Context& conte
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownMostDerivedAsKnownIntermediate";
+    static constexpr std::string_view operationName = "knownMostDerivedAsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -432,25 +432,25 @@ Test::TestIntfPrx::knownMostDerivedAsKnownMostDerived(const Ice::Context& contex
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "knownMostDerivedAsKnownMostDerived";
+    static constexpr std::string_view operationName = "knownMostDerivedAsKnownMostDerived";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -474,25 +474,25 @@ Test::TestIntfPrx::unknownMostDerived1AsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "unknownMostDerived1AsBase";
+    static constexpr std::string_view operationName = "unknownMostDerived1AsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -516,25 +516,25 @@ Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediate(const Ice::Context& co
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "unknownMostDerived1AsKnownIntermediate";
+    static constexpr std::string_view operationName = "unknownMostDerived1AsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -558,25 +558,25 @@ Test::TestIntfPrx::unknownMostDerived2AsBase(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "unknownMostDerived2AsBase";
+    static constexpr std::string_view operationName = "unknownMostDerived2AsBase";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -600,24 +600,24 @@ Test::TestIntfPrx::shutdown(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "shutdown";
+    static constexpr std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -971,17 +971,17 @@ Test::UnknownMostDerived2::_readImpl(Ice::InputStream* istr)
     UnknownIntermediate::_readImpl(istr);
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::TestIntf::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -994,7 +994,7 @@ Test::TestIntf::ice_staticId() noexcept
 void
 Test::TestIntf::_iceD_baseAsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1007,7 +1007,7 @@ Test::TestIntf::_iceD_baseAsBase(
 void
 Test::TestIntf::_iceD_unknownDerivedAsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1020,7 +1020,7 @@ Test::TestIntf::_iceD_unknownDerivedAsBase(
 void
 Test::TestIntf::_iceD_knownDerivedAsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1033,7 +1033,7 @@ Test::TestIntf::_iceD_knownDerivedAsBase(
 void
 Test::TestIntf::_iceD_knownDerivedAsKnownDerived(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1046,7 +1046,7 @@ Test::TestIntf::_iceD_knownDerivedAsKnownDerived(
 void
 Test::TestIntf::_iceD_unknownIntermediateAsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1059,7 +1059,7 @@ Test::TestIntf::_iceD_unknownIntermediateAsBase(
 void
 Test::TestIntf::_iceD_knownIntermediateAsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1072,7 +1072,7 @@ Test::TestIntf::_iceD_knownIntermediateAsBase(
 void
 Test::TestIntf::_iceD_knownMostDerivedAsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1085,7 +1085,7 @@ Test::TestIntf::_iceD_knownMostDerivedAsBase(
 void
 Test::TestIntf::_iceD_knownIntermediateAsKnownIntermediate(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1098,7 +1098,7 @@ Test::TestIntf::_iceD_knownIntermediateAsKnownIntermediate(
 void
 Test::TestIntf::_iceD_knownMostDerivedAsKnownIntermediate(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1111,7 +1111,7 @@ Test::TestIntf::_iceD_knownMostDerivedAsKnownIntermediate(
 void
 Test::TestIntf::_iceD_knownMostDerivedAsKnownMostDerived(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1124,7 +1124,7 @@ Test::TestIntf::_iceD_knownMostDerivedAsKnownMostDerived(
 void
 Test::TestIntf::_iceD_unknownMostDerived1AsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1137,7 +1137,7 @@ Test::TestIntf::_iceD_unknownMostDerived1AsBase(
 void
 Test::TestIntf::_iceD_unknownMostDerived1AsKnownIntermediate(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1150,7 +1150,7 @@ Test::TestIntf::_iceD_unknownMostDerived1AsKnownIntermediate(
 void
 Test::TestIntf::_iceD_unknownMostDerived2AsBase(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1163,7 +1163,7 @@ Test::TestIntf::_iceD_unknownMostDerived2AsBase(
 void
 Test::TestIntf::_iceD_shutdown(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1174,15 +1174,15 @@ Test::TestIntf::_iceD_shutdown(
 
 /// \cond INTERNAL
 void
-Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 18> allOperations{"baseAsBase", "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownDerivedAsBase", "knownDerivedAsKnownDerived", "knownIntermediateAsBase", "knownIntermediateAsKnownIntermediate", "knownMostDerivedAsBase", "knownMostDerivedAsKnownIntermediate", "knownMostDerivedAsKnownMostDerived", "shutdown", "unknownDerivedAsBase", "unknownIntermediateAsBase", "unknownMostDerived1AsBase", "unknownMostDerived1AsKnownIntermediate", "unknownMostDerived2AsBase"};
+    static constexpr std::array<std::string_view, 18> allOperations{"baseAsBase", "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownDerivedAsBase", "knownDerivedAsKnownDerived", "knownIntermediateAsBase", "knownIntermediateAsKnownIntermediate", "knownMostDerivedAsBase", "knownMostDerivedAsKnownIntermediate", "knownMostDerivedAsKnownMostDerived", "shutdown", "unknownDerivedAsBase", "unknownIntermediateAsBase", "unknownMostDerived1AsBase", "unknownMostDerived1AsKnownIntermediate", "unknownMostDerived2AsBase"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -1190,98 +1190,98 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_baseAsBase(request, ::std::move(sendResponse));
+            _iceD_baseAsBase(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_knownDerivedAsBase(request, ::std::move(sendResponse));
+            _iceD_knownDerivedAsBase(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_knownDerivedAsKnownDerived(request, ::std::move(sendResponse));
+            _iceD_knownDerivedAsKnownDerived(request, std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_knownIntermediateAsBase(request, ::std::move(sendResponse));
+            _iceD_knownIntermediateAsBase(request, std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_knownIntermediateAsKnownIntermediate(request, ::std::move(sendResponse));
+            _iceD_knownIntermediateAsKnownIntermediate(request, std::move(sendResponse));
             break;
         }
         case 9:
         {
-            _iceD_knownMostDerivedAsBase(request, ::std::move(sendResponse));
+            _iceD_knownMostDerivedAsBase(request, std::move(sendResponse));
             break;
         }
         case 10:
         {
-            _iceD_knownMostDerivedAsKnownIntermediate(request, ::std::move(sendResponse));
+            _iceD_knownMostDerivedAsKnownIntermediate(request, std::move(sendResponse));
             break;
         }
         case 11:
         {
-            _iceD_knownMostDerivedAsKnownMostDerived(request, ::std::move(sendResponse));
+            _iceD_knownMostDerivedAsKnownMostDerived(request, std::move(sendResponse));
             break;
         }
         case 12:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, std::move(sendResponse));
             break;
         }
         case 13:
         {
-            _iceD_unknownDerivedAsBase(request, ::std::move(sendResponse));
+            _iceD_unknownDerivedAsBase(request, std::move(sendResponse));
             break;
         }
         case 14:
         {
-            _iceD_unknownIntermediateAsBase(request, ::std::move(sendResponse));
+            _iceD_unknownIntermediateAsBase(request, std::move(sendResponse));
             break;
         }
         case 15:
         {
-            _iceD_unknownMostDerived1AsBase(request, ::std::move(sendResponse));
+            _iceD_unknownMostDerived1AsBase(request, std::move(sendResponse));
             break;
         }
         case 16:
         {
-            _iceD_unknownMostDerived1AsKnownIntermediate(request, ::std::move(sendResponse));
+            _iceD_unknownMostDerived1AsKnownIntermediate(request, std::move(sendResponse));
             break;
         }
         case 17:
         {
-            _iceD_unknownMostDerived2AsBase(request, ::std::move(sendResponse));
+            _iceD_unknownMostDerived2AsBase(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

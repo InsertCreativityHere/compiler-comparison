@@ -42,57 +42,57 @@ public:
 
     void callback(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> callbackAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> callbackAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callback(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_callback(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void callbackEx(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> callbackExAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> callbackExAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callbackExAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callbackExAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callbackEx(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_callbackEx(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t concurrentCallback(::std::int32_t number, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::int32_t concurrentCallback(std::int32_t number, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::int32_t> concurrentCallbackAsync(::std::int32_t number, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::int32_t> concurrentCallbackAsync(std::int32_t number, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    concurrentCallbackAsync(::std::int32_t number, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    concurrentCallbackAsync(std::int32_t number, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_concurrentCallback(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const Ice::Context&) const;
+    void _iceI_concurrentCallback(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     void waitCallback(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> waitCallbackAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> waitCallbackAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    waitCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    waitCallbackAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitCallback(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_waitCallback(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void callbackWithPayload(const ::Ice::ByteSeq& payload, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callbackWithPayload(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const Ice::Context&) const;
+    void _iceI_callbackWithPayload(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -142,70 +142,70 @@ class CallbackPrx : public Ice::Proxy<CallbackPrx, Ice::ObjectPrx>
 {
 public:
 
-    void initiateCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    void initiateCallback(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initiateCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateCallback(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
+    void _iceI_initiateCallback(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
     /// \endcond
 
-    void initiateCallbackEx(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    void initiateCallbackEx(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initiateCallbackExAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateCallbackEx(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
+    void _iceI_initiateCallbackEx(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t initiateConcurrentCallback(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::int32_t initiateConcurrentCallback(std::int32_t number, const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::int32_t> initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::int32_t> initiateConcurrentCallbackAsync(std::int32_t number, const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initiateConcurrentCallbackAsync(std::int32_t number, const std::optional<CallbackReceiverPrx>& proxy, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateConcurrentCallback(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
+    void _iceI_initiateConcurrentCallback(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
     /// \endcond
 
-    void initiateWaitCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    void initiateWaitCallback(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> initiateWaitCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> initiateWaitCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initiateWaitCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initiateWaitCallbackAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateWaitCallback(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
+    void _iceI_initiateWaitCallback(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
     /// \endcond
 
-    void initiateCallbackWithPayload(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    void initiateCallbackWithPayload(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> initiateCallbackWithPayloadAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> initiateCallbackWithPayloadAsync(const std::optional<CallbackReceiverPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initiateCallbackWithPayloadAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initiateCallbackWithPayloadAsync(const std::optional<CallbackReceiverPrx>& proxy, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateCallbackWithPayload(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
+    void _iceI_initiateCallbackWithPayload(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<CallbackReceiverPrx>&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -263,9 +263,9 @@ public:
     CallbackException() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    CallbackException(double someValue, ::std::string someString) noexcept :
+    CallbackException(double someValue, std::string someString) noexcept :
         someValue(someValue),
-        someString(::std::move(someString))
+        someString(std::move(someString))
     {
     }
 
@@ -274,7 +274,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const double&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const double&, const std::string&> ice_tuple() const
     {
         return std::tie(someValue, someString);
     }
@@ -290,7 +290,7 @@ public:
     void ice_throw() const override;
 
     double someValue;
-    ::std::string someString;
+    std::string someString;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -312,12 +312,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -325,35 +325,35 @@ public:
 
     virtual void callback(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callback(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callback(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void callbackEx(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callbackEx(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callbackEx(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void concurrentCallbackAsync(::std::int32_t number, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void concurrentCallbackAsync(std::int32_t number, std::function<void(std::int32_t returnValue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_concurrentCallback(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_concurrentCallback(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void waitCallback(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_waitCallback(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_waitCallback(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void callbackWithPayload(::Ice::ByteSeq payload, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_callbackWithPayload(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_callbackWithPayload(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using CallbackReceiverPtr = ::std::shared_ptr<CallbackReceiver>;
+using CallbackReceiverPtr = std::shared_ptr<CallbackReceiver>;
 
 class Callback : public virtual Ice::Object
 {
@@ -364,53 +364,53 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void initiateCallbackAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void initiateCallbackAsync(std::optional<CallbackReceiverPrx> proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initiateCallback(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initiateCallback(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void initiateCallbackExAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void initiateCallbackExAsync(std::optional<CallbackReceiverPrx> proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initiateCallbackEx(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initiateCallbackEx(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void initiateConcurrentCallbackAsync(::std::int32_t number, ::std::optional<CallbackReceiverPrx> proxy, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void initiateConcurrentCallbackAsync(std::int32_t number, std::optional<CallbackReceiverPrx> proxy, std::function<void(std::int32_t returnValue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initiateConcurrentCallback(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initiateConcurrentCallback(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void initiateWaitCallbackAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void initiateWaitCallbackAsync(std::optional<CallbackReceiverPrx> proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initiateWaitCallback(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initiateWaitCallback(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void initiateCallbackWithPayloadAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void initiateCallbackWithPayloadAsync(std::optional<CallbackReceiverPrx> proxy, std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initiateCallbackWithPayload(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initiateCallbackWithPayload(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using CallbackPtr = ::std::shared_ptr<Callback>;
+using CallbackPtr = std::shared_ptr<Callback>;
 
 }
 

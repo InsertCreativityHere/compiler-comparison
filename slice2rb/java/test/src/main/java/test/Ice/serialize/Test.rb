@@ -172,7 +172,7 @@ module ::Test
     end
 
     if not defined?(::Test::Base)
-        class Base < ::Ice::Value
+        class Base < Ice::Value
 
             def initialize(b=nil, o=nil, s=::Test::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil)
                 @b = b

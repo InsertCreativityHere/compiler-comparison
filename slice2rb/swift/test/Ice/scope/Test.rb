@@ -56,7 +56,7 @@ module ::Test
     end
 
     if not defined?(::Test::C)
-        class C < ::Ice::Value
+        class C < Ice::Value
 
             def initialize(s=::Test::S.new)
                 @s = s
@@ -168,7 +168,7 @@ module ::Test
     end
 
     if not defined?(::Test::C1)
-        class C1 < ::Ice::Value
+        class C1 < Ice::Value
 
             def initialize(s='')
                 @s = s
@@ -232,7 +232,7 @@ module ::Test
     end
 
     if not defined?(::Test::C2)
-        class C2 < ::Ice::Value
+        class C2 < Ice::Value
 
             def initialize(e1=::Test::E1::V1, s1=::Test::S1.new, c1=nil, s1Seq=nil, s1Map=nil)
                 @E1 = e1
@@ -414,7 +414,7 @@ module ::Test
             end
 
             if not defined?(::Test::Inner::Inner2::C)
-                class C < ::Ice::Value
+                class C < Ice::Value
 
                     def initialize(s=::Test::Inner::Inner2::S.new)
                         @s = s
@@ -500,7 +500,7 @@ module ::Test
         end
 
         if not defined?(::Test::Inner::C)
-            class C < ::Ice::Value
+            class C < Ice::Value
 
                 def initialize(s=::Test::Inner::S.new)
                     @s = s

@@ -35,8 +35,8 @@
 #   endif
 #endif
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, MyEnum value)
+std::ostream&
+Test::operator<<(std::ostream& os, MyEnum value)
 {
     switch (value)
     {
@@ -47,7 +47,7 @@ Test::operator<<(::std::ostream& os, MyEnum value)
         case MyEnum::enum3:
             return os << "enum3";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
@@ -68,7 +68,7 @@ Test::MyInterfacePrx::ice_staticId() noexcept
 }
 
 void
-Test::LargeStruct::ice_printFields(::std::ostream& os) const
+Test::LargeStruct::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "bo = ", this->bo);
     Ice::print(os << ", by = ", this->by);
@@ -83,8 +83,8 @@ Test::LargeStruct::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", ss = ", this->ss);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::LargeStruct& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::LargeStruct& value)
 {
     os << "Test::LargeStruct{";
     value.ice_printFields(os);
@@ -93,14 +93,14 @@ Test::operator<<(::std::ostream& os, const ::Test::LargeStruct& value)
 }
 
 void
-Test::Point::ice_printFields(::std::ostream& os) const
+Test::Point::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "x = ", this->x);
     Ice::print(os << ", y = ", this->y);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Point& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Point& value)
 {
     os << "Test::Point{";
     value.ice_printFields(os);
@@ -264,17 +264,17 @@ Test::MyException::_readImpl(Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::MyInterface::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::MyInterface::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*

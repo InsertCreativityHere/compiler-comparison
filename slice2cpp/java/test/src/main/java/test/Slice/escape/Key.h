@@ -26,11 +26,11 @@
 
 namespace abstract
 {
-    enum class assert : ::std::uint8_t
+    enum class assert : std::uint8_t
     {
         boolean
     };
-    ::std::ostream& operator<<(::std::ostream&, assert);
+    std::ostream& operator<<(std::ostream&, assert);
 
     struct break;
 
@@ -39,39 +39,39 @@ namespace abstract
     class defaultPrx;
 
     class else;
-    using elsePtr = ::std::shared_ptr<else>;
+    using elsePtr = std::shared_ptr<else>;
 
     class finalizePrx;
 
-    using for = ::std::vector<assert>;
+    using for = std::vector<assert>;
 
-    using goto = ::std::map<::std::string, assert>;
+    using goto = std::map<std::string, assert>;
 
     class newPrx;
 
-    constexpr ::std::int32_t switch = 0;
+    constexpr std::int32_t switch = 0;
 
-    constexpr ::std::int32_t synchronized = 0;
+    constexpr std::int32_t synchronized = 0;
 
-    constexpr ::std::int32_t this = 0;
+    constexpr std::int32_t this = 0;
 
-    constexpr ::std::int32_t throw = 0;
+    constexpr std::int32_t throw = 0;
 
-    constexpr ::std::int32_t toString = 0;
+    constexpr std::int32_t toString = 0;
 
-    constexpr ::std::int32_t try = 0;
+    constexpr std::int32_t try = 0;
 
-    constexpr ::std::int32_t uncheckedCast = 0;
+    constexpr std::int32_t uncheckedCast = 0;
 
-    constexpr ::std::int32_t volatile = 0;
+    constexpr std::int32_t volatile = 0;
 
-    constexpr ::std::int32_t wait = 0;
+    constexpr std::int32_t wait = 0;
 
-    constexpr ::std::int32_t while = 0;
+    constexpr std::int32_t while = 0;
 
-    constexpr ::std::int32_t finally = 0;
+    constexpr std::int32_t finally = 0;
 
-    constexpr ::std::int32_t getClass = 0;
+    constexpr std::int32_t getClass = 0;
 
 }
 
@@ -82,15 +82,15 @@ class catchPrx : public Ice::Proxy<catchPrx, Ice::ObjectPrx>
 {
 public:
 
-    void checkedCast(::std::int32_t clone, ::std::int32_t& continue, const Ice::Context& context = Ice::noExplicitContext) const;
+    void checkedCast(std::int32_t clone, std::int32_t& continue, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::int32_t> checkedCastAsync(::std::int32_t clone, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::int32_t> checkedCastAsync(std::int32_t clone, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    checkedCastAsync(::std::int32_t clone, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkedCast(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const Ice::Context&) const;
+    void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -142,13 +142,13 @@ public:
 
     void do(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> doAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> doAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    doAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_do(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_do(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -254,15 +254,15 @@ class newPrx : public Ice::Proxy<newPrx, Ice::ObjectPrx>
 {
 public:
 
-    assert notify(const break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& public, const ::std::optional<defaultPrx>& return, ::std::int32_t static, ::std::int32_t strictfp, ::std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    assert notify(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<assert> notifyAsync(const break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& public, const ::std::optional<defaultPrx>& return, ::std::int32_t static, ::std::int32_t strictfp, ::std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<assert> notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    notifyAsync(const break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& public, const ::std::optional<defaultPrx>& return, ::std::int32_t static, ::std::int32_t strictfp, ::std::int32_t super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_notify(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<assert>>&, const break&, const elsePtr&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const Ice::Context&) const;
+    void _iceI_notify(const std::shared_ptr<IceInternal::OutgoingAsyncT<assert>>&, const break&, const elsePtr&, const std::optional<finalizePrx>&, const std::optional<catchPrx>&, const std::optional<defaultPrx>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -315,21 +315,21 @@ namespace abstract
 
 struct break
 {
-    ::std::int32_t case;
+    std::int32_t case;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(case);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const break&);
+std::ostream& operator<<(std::ostream&, const break&);
 
 class else : public Ice::Value
 {
@@ -338,9 +338,9 @@ public:
     else() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    else(::std::int32_t if, ::std::optional<::abstract::defaultPrx> equals, ::std::int32_t final) noexcept :
+    else(std::int32_t if, std::optional<::abstract::defaultPrx> equals, std::int32_t final) noexcept :
         if(if),
-        equals(::std::move(equals)),
+        equals(std::move(equals)),
         final(final)
     {
     }
@@ -353,18 +353,18 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::abstract::defaultPrx>&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::optional<::abstract::defaultPrx>&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(if, equals, final);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] elsePtr ice_clone() const { return ::std::static_pointer_cast<else>(_iceCloneImpl()); }
+    [[nodiscard]] elsePtr ice_clone() const { return std::static_pointer_cast<else>(_iceCloneImpl()); }
 
-    ::std::int32_t if;
-    ::std::optional<::abstract::defaultPrx> equals;
-    ::std::int32_t final;
+    std::int32_t if;
+    std::optional<::abstract::defaultPrx> equals;
+    std::int32_t final;
 
     void ice_printFields(std::ostream& os) const override;
     else(const else&) = default;
@@ -383,7 +383,7 @@ public:
     hashCode() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    hashCode(::std::int32_t if) noexcept :
+    hashCode(std::int32_t if) noexcept :
         if(if)
     {
     }
@@ -393,7 +393,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(if);
     }
@@ -408,7 +408,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int32_t if;
+    std::int32_t if;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -423,7 +423,7 @@ public:
     import() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    import(::std::int32_t if, ::std::int32_t instanceof, ::std::int32_t native) noexcept :
+    import(std::int32_t if, std::int32_t instanceof, std::int32_t native) noexcept :
         hashCode(if),
         instanceof(instanceof),
         native(native)
@@ -435,7 +435,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(if, instanceof, native);
     }
@@ -450,8 +450,8 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int32_t instanceof;
-    ::std::int32_t native;
+    std::int32_t instanceof;
+    std::int32_t native;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -480,28 +480,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void checkedCastAsync(::std::int32_t clone, ::std::function<void(::std::int32_t continue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t continue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_checkedCast(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_checkedCast(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using catchPtr = ::std::shared_ptr<catch>;
+using catchPtr = std::shared_ptr<catch>;
 
 class default : public virtual Ice::Object
 {
@@ -512,12 +512,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -525,15 +525,15 @@ public:
 
     virtual void do(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_do(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_do(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using defaultPtr = ::std::shared_ptr<default>;
+using defaultPtr = std::shared_ptr<default>;
 
 class finalize : public virtual default,
                  public virtual catch
@@ -545,23 +545,23 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using finalizePtr = ::std::shared_ptr<finalize>;
+using finalizePtr = std::shared_ptr<finalize>;
 
 class new : public virtual Ice::Object
 {
@@ -572,28 +572,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual assert notify(break notifyAll, elsePtr null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> public, ::std::optional<defaultPrx> return, ::std::int32_t static, ::std::int32_t strictfp, ::std::int32_t super, const Ice::Current& current) = 0;
+    virtual assert notify(break notifyAll, elsePtr null, std::optional<finalizePrx> package, std::optional<catchPrx> public, std::optional<defaultPrx> return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_notify(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_notify(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using newPtr = ::std::shared_ptr<new>;
+using newPtr = std::shared_ptr<new>;
 
 }
 

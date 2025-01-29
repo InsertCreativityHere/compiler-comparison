@@ -140,7 +140,7 @@ module ::Abstract
     end
 
     if not defined?(::Abstract::Else)
-        class Else < ::Ice::Value
+        class Else < Ice::Value
 
             def initialize(_if=0, equals=nil, final=0)
                 @_if = _if

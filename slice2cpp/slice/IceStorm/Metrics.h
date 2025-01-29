@@ -37,10 +37,10 @@
 namespace IceMX
 {
     class TopicMetrics;
-    using TopicMetricsPtr = ::std::shared_ptr<TopicMetrics>;
+    using TopicMetricsPtr = std::shared_ptr<TopicMetrics>;
 
     class SubscriberMetrics;
-    using SubscriberMetricsPtr = ::std::shared_ptr<SubscriberMetrics>;
+    using SubscriberMetricsPtr = std::shared_ptr<SubscriberMetrics>;
 
 }
 
@@ -62,8 +62,8 @@ public:
     /// @param failures The number of failures observed.
     /// @param published Number of events published on the topic by publishers.
     /// @param forwarded Number of events forwarded on the topic by IceStorm topic links.
-    TopicMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) noexcept :
-        Metrics(::std::move(id), total, current, totalLifetime, failures),
+    TopicMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t published, std::int64_t forwarded) noexcept :
+        Metrics(std::move(id), total, current, totalLifetime, failures),
         published(published),
         forwarded(forwarded)
     {
@@ -77,19 +77,19 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, published, forwarded);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] TopicMetricsPtr ice_clone() const { return ::std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] TopicMetricsPtr ice_clone() const { return std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
 
     /// Number of events published on the topic by publishers.
-    ::std::int64_t published = INT64_C(0);
+    std::int64_t published = INT64_C(0);
     /// Number of events forwarded on the topic by IceStorm topic links.
-    ::std::int64_t forwarded = INT64_C(0);
+    std::int64_t forwarded = INT64_C(0);
 
     ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     TopicMetrics(const TopicMetrics&) = default;
@@ -117,8 +117,8 @@ public:
     /// @param queued Number of queued events.
     /// @param outstanding Number of outstanding events.
     /// @param delivered Number of forwarded events.
-    SubscriberMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) noexcept :
-        Metrics(::std::move(id), total, current, totalLifetime, failures),
+    SubscriberMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t queued, std::int32_t outstanding, std::int64_t delivered) noexcept :
+        Metrics(std::move(id), total, current, totalLifetime, failures),
         queued(queued),
         outstanding(outstanding),
         delivered(delivered)
@@ -133,21 +133,21 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, queued, outstanding, delivered);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] SubscriberMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] SubscriberMetricsPtr ice_clone() const { return std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
 
     /// Number of queued events.
-    ::std::int32_t queued = 0;
+    std::int32_t queued = 0;
     /// Number of outstanding events.
-    ::std::int32_t outstanding = 0;
+    std::int32_t outstanding = 0;
     /// Number of forwarded events.
-    ::std::int64_t delivered = INT64_C(0);
+    std::int64_t delivered = INT64_C(0);
 
     ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     SubscriberMetrics(const SubscriberMetrics&) = default;

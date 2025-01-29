@@ -48,31 +48,31 @@ namespace Glacier2
 struct SSLInfo
 {
     /// The remote host.
-    ::std::string remoteHost;
+    std::string remoteHost;
     /// The remote port.
-    ::std::int32_t remotePort;
+    std::int32_t remotePort;
     /// The router's host.
-    ::std::string localHost;
+    std::string localHost;
     /// The router's port.
-    ::std::int32_t localPort;
+    std::int32_t localPort;
     /// The negotiated cipher suite.
-    ::std::string cipher;
+    std::string cipher;
     /// The certificate chain.
     ::Ice::StringSeq certs;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::int32_t&, const std::string&, const std::int32_t&, const std::string&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    GLACIER2_API void ice_printFields(::std::ostream& os) const;
+    GLACIER2_API void ice_printFields(std::ostream& os) const;
 };
 
-GLACIER2_API ::std::ostream& operator<<(::std::ostream&, const SSLInfo&);
+GLACIER2_API std::ostream& operator<<(std::ostream&, const SSLInfo&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

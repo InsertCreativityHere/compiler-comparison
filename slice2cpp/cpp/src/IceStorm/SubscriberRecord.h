@@ -32,7 +32,7 @@ namespace IceStorm
 
     struct SubscriberRecord;
 
-    using SubscriberRecordSeq = ::std::vector<SubscriberRecord>;
+    using SubscriberRecordSeq = std::vector<SubscriberRecord>;
 
 }
 
@@ -58,42 +58,42 @@ struct SubscriberRecordKey
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const SubscriberRecordKey&);
+std::ostream& operator<<(std::ostream&, const SubscriberRecordKey&);
 
 /// Used to store persistent information for persistent subscribers.
 struct SubscriberRecord
 {
     /// The name of the topic.
-    ::std::string topicName;
+    std::string topicName;
     /// The subscriber identity.
     ::Ice::Identity id;
     /// Is this a link record, or a subscriber record?
     bool link;
     /// The subscriber object.
-    ::std::optional<Ice::ObjectPrx> obj;
+    std::optional<Ice::ObjectPrx> obj;
     /// The QoS.
     ::IceStorm::QoS theQoS;
     /// The cost.
-    ::std::int32_t cost;
+    std::int32_t cost;
     /// The linked topic.
-    ::std::optional<::IceStorm::TopicPrx> theTopic;
+    std::optional<::IceStorm::TopicPrx> theTopic;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<Ice::ObjectPrx>&, const ::IceStorm::QoS&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Ice::Identity&, const bool&, const std::optional<Ice::ObjectPrx>&, const ::IceStorm::QoS&, const std::int32_t&, const std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const SubscriberRecord&);
+std::ostream& operator<<(std::ostream&, const SubscriberRecord&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

@@ -35,31 +35,31 @@
 #   endif
 #endif
 
-::std::string
+std::string
 Test::TestIntfPrx::getAdapterName(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getAdapterName, context).get();
+    return IceInternal::makePromiseOutgoing<std::string>(true, this, &TestIntfPrx::_iceI_getAdapterName, context).get();
 }
 
-::std::future<::std::string>
+std::future<std::string>
 Test::TestIntfPrx::getAdapterNameAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getAdapterName, context);
+    return IceInternal::makePromiseOutgoing<std::string>(false, this, &TestIntfPrx::_iceI_getAdapterName, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::getAdapterNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::getAdapterNameAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getAdapterName(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getAdapterName";
+    static constexpr std::string_view operationName = "getAdapterName";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -72,31 +72,31 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
-::std::optional<::Test::TestIntfPrx>
+std::optional<::Test::TestIntfPrx>
 Test::RemoteObjectAdapterPrx::getTestIntf(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<TestIntfPrx>>(true, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context).get();
 }
 
-::std::future<::std::optional<::Test::TestIntfPrx>>
+std::future<std::optional<::Test::TestIntfPrx>>
 Test::RemoteObjectAdapterPrx::getTestIntfAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(false, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return IceInternal::makePromiseOutgoing<std::optional<TestIntfPrx>>(false, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
-::std::function<void()>
-Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::RemoteObjectAdapterPrx::getTestIntfAsync(std::function<void(std::optional<::Test::TestIntfPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
 void
-Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>& outAsync, const Ice::Context& context) const
+Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TestIntfPrx>>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getTestIntf";
+    static constexpr std::string_view operationName = "getTestIntf";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -107,24 +107,24 @@ Test::RemoteObjectAdapterPrx::deactivate(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::RemoteObjectAdapterPrx::deactivateAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
-::std::function<void()>
-Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::RemoteObjectAdapterPrx::deactivateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
 void
-Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::RemoteObjectAdapterPrx::_iceI_deactivate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "deactivate";
+    static constexpr std::string_view operationName = "deactivate";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -137,31 +137,31 @@ Test::RemoteObjectAdapterPrx::ice_staticId() noexcept
     return "::Test::RemoteObjectAdapter";
 }
 
-::std::optional<::Test::RemoteObjectAdapterPrx>
-Test::RemoteCommunicatorPrx::createObjectAdapter(::std::string_view iceP_name, ::std::string_view iceP_endpoints, const Ice::Context& context) const
+std::optional<::Test::RemoteObjectAdapterPrx>
+Test::RemoteCommunicatorPrx::createObjectAdapter(std::string_view iceP_name, std::string_view iceP_endpoints, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context).get();
 }
 
-::std::future<::std::optional<::Test::RemoteObjectAdapterPrx>>
-Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::string_view iceP_name, ::std::string_view iceP_endpoints, const Ice::Context& context) const
+std::future<std::optional<::Test::RemoteObjectAdapterPrx>>
+Test::RemoteCommunicatorPrx::createObjectAdapterAsync(std::string_view iceP_name, std::string_view iceP_endpoints, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
+    return IceInternal::makePromiseOutgoing<std::optional<RemoteObjectAdapterPrx>>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
 }
 
-::std::function<void()>
-Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::string_view iceP_name, ::std::string_view iceP_endpoints, ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::RemoteCommunicatorPrx::createObjectAdapterAsync(std::string_view iceP_name, std::string_view iceP_endpoints, std::function<void(std::optional<::Test::RemoteObjectAdapterPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
 }
 
 void
-Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, ::std::string_view iceP_name, ::std::string_view iceP_endpoints, const Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<RemoteObjectAdapterPrx>>>& outAsync, std::string_view iceP_name, std::string_view iceP_endpoints, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "createObjectAdapter";
+    static constexpr std::string_view operationName = "createObjectAdapter";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_endpoints);
@@ -170,29 +170,29 @@ Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<I
 }
 
 void
-Test::RemoteCommunicatorPrx::deactivateObjectAdapter(const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const Ice::Context& context) const
+Test::RemoteCommunicatorPrx::deactivateObjectAdapter(const std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const Ice::Context& context) const
 {
     IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context).get();
 }
 
-::std::future<void>
-Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const Ice::Context& context) const
+std::future<void>
+Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
 }
 
-::std::function<void()>
-Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const std::optional<RemoteObjectAdapterPrx>& iceP_adapter, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
 }
 
 void
-Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "deactivateObjectAdapter";
+    static constexpr std::string_view operationName = "deactivateObjectAdapter";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_adapter);
@@ -206,24 +206,24 @@ Test::RemoteCommunicatorPrx::shutdown(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_shutdown, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::RemoteCommunicatorPrx::shutdownAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
-::std::function<void()>
-Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::RemoteCommunicatorPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
 void
-Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "shutdown";
+    static constexpr std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -236,17 +236,17 @@ Test::RemoteCommunicatorPrx::ice_staticId() noexcept
     return "::Test::RemoteCommunicator";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::TestIntf::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -259,11 +259,11 @@ Test::TestIntf::ice_staticId() noexcept
 void
 Test::TestIntf::_iceD_getAdapterName(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::string ret = this->getAdapterName(request.current());
+    const std::string ret = this->getAdapterName(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -274,15 +274,15 @@ Test::TestIntf::_iceD_getAdapterName(
 
 /// \cond INTERNAL
 void
-Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"getAdapterName", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 5> allOperations{"getAdapterName", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -290,49 +290,49 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_getAdapterName(request, ::std::move(sendResponse));
+            _iceD_getAdapterName(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::RemoteObjectAdapter::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::RemoteObjectAdapter"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::RemoteObjectAdapter"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::RemoteObjectAdapter::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -345,11 +345,11 @@ Test::RemoteObjectAdapter::ice_staticId() noexcept
 void
 Test::RemoteObjectAdapter::_iceD_getTestIntf(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::optional<TestIntfPrx> ret = this->getTestIntf(request.current());
+    const std::optional<TestIntfPrx> ret = this->getTestIntf(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -362,7 +362,7 @@ Test::RemoteObjectAdapter::_iceD_getTestIntf(
 void
 Test::RemoteObjectAdapter::_iceD_deactivate(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -373,15 +373,15 @@ Test::RemoteObjectAdapter::_iceD_deactivate(
 
 /// \cond INTERNAL
 void
-Test::RemoteObjectAdapter::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::RemoteObjectAdapter::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 6> allOperations{"deactivate", "getTestIntf", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 6> allOperations{"deactivate", "getTestIntf", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -389,54 +389,54 @@ Test::RemoteObjectAdapter::dispatch(Ice::IncomingRequest& request, ::std::functi
     {
         case 0:
         {
-            _iceD_deactivate(request, ::std::move(sendResponse));
+            _iceD_deactivate(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_getTestIntf(request, ::std::move(sendResponse));
+            _iceD_getTestIntf(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::RemoteCommunicator::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::RemoteCommunicator"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::RemoteCommunicator"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::RemoteCommunicator::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -449,16 +449,16 @@ Test::RemoteCommunicator::ice_staticId() noexcept
 void
 Test::RemoteCommunicator::_iceD_createObjectAdapter(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_name;
-    ::std::string iceP_endpoints;
+    std::string iceP_name;
+    std::string iceP_endpoints;
     istr->readAll(iceP_name, iceP_endpoints);
     istr->endEncapsulation();
-    const ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(::std::move(iceP_name), ::std::move(iceP_endpoints), request.current());
+    const std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(std::move(iceP_name), std::move(iceP_endpoints), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -471,15 +471,15 @@ Test::RemoteCommunicator::_iceD_createObjectAdapter(
 void
 Test::RemoteCommunicator::_iceD_deactivateObjectAdapter(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<RemoteObjectAdapterPrx> iceP_adapter;
+    std::optional<RemoteObjectAdapterPrx> iceP_adapter;
     istr->readAll(iceP_adapter);
     istr->endEncapsulation();
-    this->deactivateObjectAdapter(::std::move(iceP_adapter), request.current());
+    this->deactivateObjectAdapter(std::move(iceP_adapter), request.current());
     sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -488,7 +488,7 @@ Test::RemoteCommunicator::_iceD_deactivateObjectAdapter(
 void
 Test::RemoteCommunicator::_iceD_shutdown(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -499,15 +499,15 @@ Test::RemoteCommunicator::_iceD_shutdown(
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 7> allOperations{"createObjectAdapter", "deactivateObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
+    static constexpr std::array<std::string_view, 7> allOperations{"createObjectAdapter", "deactivateObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -515,43 +515,43 @@ Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, ::std::functio
     {
         case 0:
         {
-            _iceD_createObjectAdapter(request, ::std::move(sendResponse));
+            _iceD_createObjectAdapter(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_deactivateObjectAdapter(request, ::std::move(sendResponse));
+            _iceD_deactivateObjectAdapter(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

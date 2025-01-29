@@ -27,26 +27,26 @@
 namespace Test
 {
     class Empty;
-    using EmptyPtr = ::std::shared_ptr<Empty>;
+    using EmptyPtr = std::shared_ptr<Empty>;
 
     class AlsoEmpty;
-    using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
+    using AlsoEmptyPtr = std::shared_ptr<AlsoEmpty>;
 
     class UnexpectedObjectExceptionTestPrx;
 
     class COneMember;
-    using COneMemberPtr = ::std::shared_ptr<COneMember>;
+    using COneMemberPtr = std::shared_ptr<COneMember>;
 
     class CTwoMembers;
-    using CTwoMembersPtr = ::std::shared_ptr<CTwoMembers>;
+    using CTwoMembersPtr = std::shared_ptr<CTwoMembers>;
 
     struct SOneMember;
 
     struct STwoMembers;
 
-    using DOneMember = ::std::map<::std::int32_t, COneMemberPtr>;
+    using DOneMember = std::map<std::int32_t, COneMemberPtr>;
 
-    using DTwoMembers = ::std::map<::std::int32_t, CTwoMembersPtr>;
+    using DTwoMembers = std::map<std::int32_t, CTwoMembersPtr>;
 
 }
 
@@ -59,13 +59,13 @@ public:
 
     EmptyPtr op(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<EmptyPtr> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<EmptyPtr> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(::std::function<void(::Test::EmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opAsync(std::function<void(::Test::EmptyPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<EmptyPtr>>&, const Ice::Context&) const;
+    void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<EmptyPtr>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -130,7 +130,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
+    [[nodiscard]] EmptyPtr ice_clone() const { return std::static_pointer_cast<Empty>(_iceCloneImpl()); }
 
     Empty(const Empty&) = default;
 
@@ -155,7 +155,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
+    [[nodiscard]] AlsoEmptyPtr ice_clone() const { return std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
     AlsoEmpty(const AlsoEmpty&) = default;
 
@@ -174,7 +174,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit COneMember(::Test::EmptyPtr e) noexcept :
-        e(::std::move(e))
+        e(std::move(e))
     {
     }
 
@@ -193,7 +193,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] COneMemberPtr ice_clone() const { return ::std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
+    [[nodiscard]] COneMemberPtr ice_clone() const { return std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e;
 
@@ -215,8 +215,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     CTwoMembers(::Test::EmptyPtr e1, ::Test::EmptyPtr e2) noexcept :
-        e1(::std::move(e1)),
-        e2(::std::move(e2))
+        e1(std::move(e1)),
+        e2(std::move(e2))
     {
     }
 
@@ -235,7 +235,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CTwoMembersPtr ice_clone() const { return ::std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
+    [[nodiscard]] CTwoMembersPtr ice_clone() const { return std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e1;
     ::Test::EmptyPtr e2;
@@ -258,7 +258,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     EOneMember(EmptyPtr e) noexcept :
-        e(::std::move(e))
+        e(std::move(e))
     {
     }
 
@@ -302,8 +302,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     ETwoMembers(EmptyPtr e1, EmptyPtr e2) noexcept :
-        e1(::std::move(e1)),
-        e2(::std::move(e2))
+        e1(std::move(e1)),
+        e2(std::move(e2))
     {
     }
 
@@ -353,10 +353,10 @@ struct SOneMember
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const SOneMember&);
+std::ostream& operator<<(std::ostream&, const SOneMember&);
 
 struct STwoMembers
 {
@@ -372,10 +372,10 @@ struct STwoMembers
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const STwoMembers&);
+std::ostream& operator<<(std::ostream&, const STwoMembers&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;
@@ -398,12 +398,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -411,15 +411,15 @@ public:
 
     virtual EmptyPtr op(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
+using UnexpectedObjectExceptionTestPtr = std::shared_ptr<UnexpectedObjectExceptionTest>;
 
 }
 

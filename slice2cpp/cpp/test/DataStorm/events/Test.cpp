@@ -43,15 +43,15 @@ namespace
 }
 
 void
-Test::StructValue::ice_printFields(::std::ostream& os) const
+Test::StructValue::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "firstName = ", this->firstName);
     Ice::print(os << ", lastName = ", this->lastName);
     Ice::print(os << ", age = ", this->age);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::StructValue& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::StructValue& value)
 {
     os << "Test::StructValue{";
     value.ice_printFields(os);

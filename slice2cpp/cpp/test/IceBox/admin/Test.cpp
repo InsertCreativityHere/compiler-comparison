@@ -41,25 +41,25 @@ Test::TestFacetPrx::getChanges(const Ice::Context& context) const
     return IceInternal::makePromiseOutgoing<::Ice::PropertyDict>(true, this, &TestFacetPrx::_iceI_getChanges, context).get();
 }
 
-::std::future<::Ice::PropertyDict>
+std::future<::Ice::PropertyDict>
 Test::TestFacetPrx::getChangesAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<::Ice::PropertyDict>(false, this, &TestFacetPrx::_iceI_getChanges, context);
 }
 
-::std::function<void()>
-Test::TestFacetPrx::getChangesAsync(::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestFacetPrx::getChangesAsync(std::function<void(::Ice::PropertyDict)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::PropertyDict>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
 }
 
 void
-Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const Ice::Context& context) const
+Test::TestFacetPrx::_iceI_getChanges(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getChanges";
+    static constexpr std::string_view operationName = "getChanges";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -72,17 +72,17 @@ Test::TestFacetPrx::ice_staticId() noexcept
     return "::Test::TestFacet";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::TestFacet::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestFacet"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::TestFacet"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::TestFacet::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -95,7 +95,7 @@ Test::TestFacet::ice_staticId() noexcept
 void
 Test::TestFacet::_iceD_getChanges(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -110,15 +110,15 @@ Test::TestFacet::_iceD_getChanges(
 
 /// \cond INTERNAL
 void
-Test::TestFacet::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::TestFacet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 5> allOperations{"getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -126,33 +126,33 @@ Test::TestFacet::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ic
     {
         case 0:
         {
-            _iceD_getChanges(request, ::std::move(sendResponse));
+            _iceD_getChanges(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

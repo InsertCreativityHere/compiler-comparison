@@ -38,8 +38,8 @@
 #   endif
 #endif
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, LoadSample value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, LoadSample value)
 {
     switch (value)
     {
@@ -50,7 +50,7 @@ IceGrid::operator<<(::std::ostream& os, LoadSample value)
         case LoadSample::LoadSample15:
             return os << "LoadSample15";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
@@ -58,31 +58,31 @@ namespace
 {
 }
 
-::std::optional<Ice::ObjectPrx>
+std::optional<Ice::ObjectPrx>
 IceGrid::QueryPrx::findObjectById(const ::Ice::Identity& iceP_id, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(true, this, &QueryPrx::_iceI_findObjectById, iceP_id, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<Ice::ObjectPrx>>(true, this, &QueryPrx::_iceI_findObjectById, iceP_id, context).get();
 }
 
-::std::future<::std::optional<Ice::ObjectPrx>>
+std::future<std::optional<Ice::ObjectPrx>>
 IceGrid::QueryPrx::findObjectByIdAsync(const ::Ice::Identity& iceP_id, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(false, this, &QueryPrx::_iceI_findObjectById, iceP_id, context);
+    return IceInternal::makePromiseOutgoing<std::optional<Ice::ObjectPrx>>(false, this, &QueryPrx::_iceI_findObjectById, iceP_id, context);
 }
 
-::std::function<void()>
-IceGrid::QueryPrx::findObjectByIdAsync(const ::Ice::Identity& iceP_id, ::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::QueryPrx::findObjectByIdAsync(const ::Ice::Identity& iceP_id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::QueryPrx::_iceI_findObjectById, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::QueryPrx::_iceI_findObjectById, iceP_id, context);
 }
 
 void
-IceGrid::QueryPrx::_iceI_findObjectById(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>& outAsync, const ::Ice::Identity& iceP_id, const Ice::Context& context) const
+IceGrid::QueryPrx::_iceI_findObjectById(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>& outAsync, const ::Ice::Identity& iceP_id, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "findObjectById";
+    static constexpr std::string_view operationName = "findObjectById";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -90,31 +90,31 @@ IceGrid::QueryPrx::_iceI_findObjectById(const ::std::shared_ptr<IceInternal::Out
         nullptr);
 }
 
-::std::optional<Ice::ObjectPrx>
-IceGrid::QueryPrx::findObjectByType(::std::string_view iceP_type, const Ice::Context& context) const
+std::optional<Ice::ObjectPrx>
+IceGrid::QueryPrx::findObjectByType(std::string_view iceP_type, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(true, this, &QueryPrx::_iceI_findObjectByType, iceP_type, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<Ice::ObjectPrx>>(true, this, &QueryPrx::_iceI_findObjectByType, iceP_type, context).get();
 }
 
-::std::future<::std::optional<Ice::ObjectPrx>>
-IceGrid::QueryPrx::findObjectByTypeAsync(::std::string_view iceP_type, const Ice::Context& context) const
+std::future<std::optional<Ice::ObjectPrx>>
+IceGrid::QueryPrx::findObjectByTypeAsync(std::string_view iceP_type, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(false, this, &QueryPrx::_iceI_findObjectByType, iceP_type, context);
+    return IceInternal::makePromiseOutgoing<std::optional<Ice::ObjectPrx>>(false, this, &QueryPrx::_iceI_findObjectByType, iceP_type, context);
 }
 
-::std::function<void()>
-IceGrid::QueryPrx::findObjectByTypeAsync(::std::string_view iceP_type, ::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::QueryPrx::findObjectByTypeAsync(std::string_view iceP_type, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::QueryPrx::_iceI_findObjectByType, iceP_type, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::QueryPrx::_iceI_findObjectByType, iceP_type, context);
 }
 
 void
-IceGrid::QueryPrx::_iceI_findObjectByType(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_type, const Ice::Context& context) const
+IceGrid::QueryPrx::_iceI_findObjectByType(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>& outAsync, std::string_view iceP_type, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "findObjectByType";
+    static constexpr std::string_view operationName = "findObjectByType";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -122,31 +122,31 @@ IceGrid::QueryPrx::_iceI_findObjectByType(const ::std::shared_ptr<IceInternal::O
         nullptr);
 }
 
-::std::optional<Ice::ObjectPrx>
-IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNode(::std::string_view iceP_type, LoadSample iceP_sample, const Ice::Context& context) const
+std::optional<Ice::ObjectPrx>
+IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNode(std::string_view iceP_type, LoadSample iceP_sample, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(true, this, &QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode, iceP_type, iceP_sample, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<Ice::ObjectPrx>>(true, this, &QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode, iceP_type, iceP_sample, context).get();
 }
 
-::std::future<::std::optional<Ice::ObjectPrx>>
-IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view iceP_type, LoadSample iceP_sample, const Ice::Context& context) const
+std::future<std::optional<Ice::ObjectPrx>>
+IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNodeAsync(std::string_view iceP_type, LoadSample iceP_sample, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(false, this, &QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode, iceP_type, iceP_sample, context);
+    return IceInternal::makePromiseOutgoing<std::optional<Ice::ObjectPrx>>(false, this, &QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode, iceP_type, iceP_sample, context);
 }
 
-::std::function<void()>
-IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view iceP_type, LoadSample iceP_sample, ::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNodeAsync(std::string_view iceP_type, LoadSample iceP_sample, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode, iceP_type, iceP_sample, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode, iceP_type, iceP_sample, context);
 }
 
 void
-IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_type, LoadSample iceP_sample, const Ice::Context& context) const
+IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>& outAsync, std::string_view iceP_type, LoadSample iceP_sample, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "findObjectByTypeOnLeastLoadedNode";
+    static constexpr std::string_view operationName = "findObjectByTypeOnLeastLoadedNode";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type, iceP_sample);
@@ -155,30 +155,30 @@ IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_p
 }
 
 ::Ice::ObjectProxySeq
-IceGrid::QueryPrx::findAllObjectsByType(::std::string_view iceP_type, const Ice::Context& context) const
+IceGrid::QueryPrx::findAllObjectsByType(std::string_view iceP_type, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<::Ice::ObjectProxySeq>(true, this, &QueryPrx::_iceI_findAllObjectsByType, iceP_type, context).get();
 }
 
-::std::future<::Ice::ObjectProxySeq>
-IceGrid::QueryPrx::findAllObjectsByTypeAsync(::std::string_view iceP_type, const Ice::Context& context) const
+std::future<::Ice::ObjectProxySeq>
+IceGrid::QueryPrx::findAllObjectsByTypeAsync(std::string_view iceP_type, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<::Ice::ObjectProxySeq>(false, this, &QueryPrx::_iceI_findAllObjectsByType, iceP_type, context);
 }
 
-::std::function<void()>
-IceGrid::QueryPrx::findAllObjectsByTypeAsync(::std::string_view iceP_type, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::QueryPrx::findAllObjectsByTypeAsync(std::string_view iceP_type, std::function<void(::Ice::ObjectProxySeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::ObjectProxySeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::QueryPrx::_iceI_findAllObjectsByType, iceP_type, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::QueryPrx::_iceI_findAllObjectsByType, iceP_type, context);
 }
 
 void
-IceGrid::QueryPrx::_iceI_findAllObjectsByType(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, ::std::string_view iceP_type, const Ice::Context& context) const
+IceGrid::QueryPrx::_iceI_findAllObjectsByType(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, std::string_view iceP_type, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "findAllObjectsByType";
+    static constexpr std::string_view operationName = "findAllObjectsByType";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -187,30 +187,30 @@ IceGrid::QueryPrx::_iceI_findAllObjectsByType(const ::std::shared_ptr<IceInterna
 }
 
 ::Ice::ObjectProxySeq
-IceGrid::QueryPrx::findAllReplicas(const ::std::optional<Ice::ObjectPrx>& iceP_proxy, const Ice::Context& context) const
+IceGrid::QueryPrx::findAllReplicas(const std::optional<Ice::ObjectPrx>& iceP_proxy, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<::Ice::ObjectProxySeq>(true, this, &QueryPrx::_iceI_findAllReplicas, iceP_proxy, context).get();
 }
 
-::std::future<::Ice::ObjectProxySeq>
-IceGrid::QueryPrx::findAllReplicasAsync(const ::std::optional<Ice::ObjectPrx>& iceP_proxy, const Ice::Context& context) const
+std::future<::Ice::ObjectProxySeq>
+IceGrid::QueryPrx::findAllReplicasAsync(const std::optional<Ice::ObjectPrx>& iceP_proxy, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<::Ice::ObjectProxySeq>(false, this, &QueryPrx::_iceI_findAllReplicas, iceP_proxy, context);
 }
 
-::std::function<void()>
-IceGrid::QueryPrx::findAllReplicasAsync(const ::std::optional<Ice::ObjectPrx>& iceP_proxy, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::QueryPrx::findAllReplicasAsync(const std::optional<Ice::ObjectPrx>& iceP_proxy, std::function<void(::Ice::ObjectProxySeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::Ice::ObjectProxySeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::QueryPrx::_iceI_findAllReplicas, iceP_proxy, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::QueryPrx::_iceI_findAllReplicas, iceP_proxy, context);
 }
 
 void
-IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, const ::std::optional<Ice::ObjectPrx>& iceP_proxy, const Ice::Context& context) const
+IceGrid::QueryPrx::_iceI_findAllReplicas(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, const std::optional<Ice::ObjectPrx>& iceP_proxy, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "findAllReplicas";
+    static constexpr std::string_view operationName = "findAllReplicas";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -226,31 +226,31 @@ IceGrid::QueryPrx::ice_staticId() noexcept
     return "::IceGrid::Query";
 }
 
-::std::optional<::IceGrid::SessionPrx>
-IceGrid::RegistryPrx::createSession(::std::string_view iceP_userId, ::std::string_view iceP_password, const Ice::Context& context) const
+std::optional<::IceGrid::SessionPrx>
+IceGrid::RegistryPrx::createSession(std::string_view iceP_userId, std::string_view iceP_password, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(true, this, &RegistryPrx::_iceI_createSession, iceP_userId, iceP_password, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<SessionPrx>>(true, this, &RegistryPrx::_iceI_createSession, iceP_userId, iceP_password, context).get();
 }
 
-::std::future<::std::optional<::IceGrid::SessionPrx>>
-IceGrid::RegistryPrx::createSessionAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, const Ice::Context& context) const
+std::future<std::optional<::IceGrid::SessionPrx>>
+IceGrid::RegistryPrx::createSessionAsync(std::string_view iceP_userId, std::string_view iceP_password, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(false, this, &RegistryPrx::_iceI_createSession, iceP_userId, iceP_password, context);
+    return IceInternal::makePromiseOutgoing<std::optional<SessionPrx>>(false, this, &RegistryPrx::_iceI_createSession, iceP_userId, iceP_password, context);
 }
 
-::std::function<void()>
-IceGrid::RegistryPrx::createSessionAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, ::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::RegistryPrx::createSessionAsync(std::string_view iceP_userId, std::string_view iceP_password, std::function<void(std::optional<::IceGrid::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<SessionPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createSession, iceP_userId, iceP_password, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createSession, iceP_userId, iceP_password, context);
 }
 
 void
-IceGrid::RegistryPrx::_iceI_createSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_createSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<SessionPrx>>>& outAsync, std::string_view iceP_userId, std::string_view iceP_password, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "createSession";
+    static constexpr std::string_view operationName = "createSession";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -271,31 +271,31 @@ IceGrid::RegistryPrx::_iceI_createSession(const ::std::shared_ptr<IceInternal::O
         });
 }
 
-::std::optional<::IceGrid::AdminSessionPrx>
-IceGrid::RegistryPrx::createAdminSession(::std::string_view iceP_userId, ::std::string_view iceP_password, const Ice::Context& context) const
+std::optional<::IceGrid::AdminSessionPrx>
+IceGrid::RegistryPrx::createAdminSession(std::string_view iceP_userId, std::string_view iceP_password, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<AdminSessionPrx>>(true, this, &RegistryPrx::_iceI_createAdminSession, iceP_userId, iceP_password, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<AdminSessionPrx>>(true, this, &RegistryPrx::_iceI_createAdminSession, iceP_userId, iceP_password, context).get();
 }
 
-::std::future<::std::optional<::IceGrid::AdminSessionPrx>>
-IceGrid::RegistryPrx::createAdminSessionAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, const Ice::Context& context) const
+std::future<std::optional<::IceGrid::AdminSessionPrx>>
+IceGrid::RegistryPrx::createAdminSessionAsync(std::string_view iceP_userId, std::string_view iceP_password, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<AdminSessionPrx>>(false, this, &RegistryPrx::_iceI_createAdminSession, iceP_userId, iceP_password, context);
+    return IceInternal::makePromiseOutgoing<std::optional<AdminSessionPrx>>(false, this, &RegistryPrx::_iceI_createAdminSession, iceP_userId, iceP_password, context);
 }
 
-::std::function<void()>
-IceGrid::RegistryPrx::createAdminSessionAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, ::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::RegistryPrx::createAdminSessionAsync(std::string_view iceP_userId, std::string_view iceP_password, std::function<void(std::optional<::IceGrid::AdminSessionPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<AdminSessionPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createAdminSession, iceP_userId, iceP_password, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<AdminSessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createAdminSession, iceP_userId, iceP_password, context);
 }
 
 void
-IceGrid::RegistryPrx::_iceI_createAdminSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_createAdminSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<AdminSessionPrx>>>& outAsync, std::string_view iceP_userId, std::string_view iceP_password, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "createAdminSession";
+    static constexpr std::string_view operationName = "createAdminSession";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -316,31 +316,31 @@ IceGrid::RegistryPrx::_iceI_createAdminSession(const ::std::shared_ptr<IceIntern
         });
 }
 
-::std::optional<::IceGrid::SessionPrx>
+std::optional<::IceGrid::SessionPrx>
 IceGrid::RegistryPrx::createSessionFromSecureConnection(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(true, this, &RegistryPrx::_iceI_createSessionFromSecureConnection, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<SessionPrx>>(true, this, &RegistryPrx::_iceI_createSessionFromSecureConnection, context).get();
 }
 
-::std::future<::std::optional<::IceGrid::SessionPrx>>
+std::future<std::optional<::IceGrid::SessionPrx>>
 IceGrid::RegistryPrx::createSessionFromSecureConnectionAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(false, this, &RegistryPrx::_iceI_createSessionFromSecureConnection, context);
+    return IceInternal::makePromiseOutgoing<std::optional<SessionPrx>>(false, this, &RegistryPrx::_iceI_createSessionFromSecureConnection, context);
 }
 
-::std::function<void()>
-IceGrid::RegistryPrx::createSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::RegistryPrx::createSessionFromSecureConnectionAsync(std::function<void(std::optional<::IceGrid::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<SessionPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection, context);
 }
 
 void
-IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<SessionPrx>>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "createSessionFromSecureConnection";
+    static constexpr std::string_view operationName = "createSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -358,31 +358,31 @@ IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection(const ::std::share
         });
 }
 
-::std::optional<::IceGrid::AdminSessionPrx>
+std::optional<::IceGrid::AdminSessionPrx>
 IceGrid::RegistryPrx::createAdminSessionFromSecureConnection(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<AdminSessionPrx>>(true, this, &RegistryPrx::_iceI_createAdminSessionFromSecureConnection, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<AdminSessionPrx>>(true, this, &RegistryPrx::_iceI_createAdminSessionFromSecureConnection, context).get();
 }
 
-::std::future<::std::optional<::IceGrid::AdminSessionPrx>>
+std::future<std::optional<::IceGrid::AdminSessionPrx>>
 IceGrid::RegistryPrx::createAdminSessionFromSecureConnectionAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<AdminSessionPrx>>(false, this, &RegistryPrx::_iceI_createAdminSessionFromSecureConnection, context);
+    return IceInternal::makePromiseOutgoing<std::optional<AdminSessionPrx>>(false, this, &RegistryPrx::_iceI_createAdminSessionFromSecureConnection, context);
 }
 
-::std::function<void()>
-IceGrid::RegistryPrx::createAdminSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::RegistryPrx::createAdminSessionFromSecureConnectionAsync(std::function<void(std::optional<::IceGrid::AdminSessionPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<AdminSessionPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<AdminSessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection, context);
 }
 
 void
-IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>& outAsync, const Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<AdminSessionPrx>>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "createAdminSessionFromSecureConnection";
+    static constexpr std::string_view operationName = "createAdminSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -400,31 +400,31 @@ IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection(const ::std::
         });
 }
 
-::std::int32_t
+std::int32_t
 IceGrid::RegistryPrx::getSessionTimeout(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RegistryPrx::_iceI_getSessionTimeout, context).get();
+    return IceInternal::makePromiseOutgoing<std::int32_t>(true, this, &RegistryPrx::_iceI_getSessionTimeout, context).get();
 }
 
-::std::future<::std::int32_t>
+std::future<std::int32_t>
 IceGrid::RegistryPrx::getSessionTimeoutAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RegistryPrx::_iceI_getSessionTimeout, context);
+    return IceInternal::makePromiseOutgoing<std::int32_t>(false, this, &RegistryPrx::_iceI_getSessionTimeout, context);
 }
 
-::std::function<void()>
-IceGrid::RegistryPrx::getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::RegistryPrx::getSessionTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getSessionTimeout, context);
+    return IceInternal::makeLambdaOutgoing<std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getSessionTimeout, context);
 }
 
 void
-IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_getSessionTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getSessionTimeout";
+    static constexpr std::string_view operationName = "getSessionTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -437,60 +437,60 @@ IceGrid::RegistryPrx::ice_staticId() noexcept
     return "::IceGrid::Registry";
 }
 
-::std::optional<::IceGrid::RegistryPrx>
+std::optional<::IceGrid::RegistryPrx>
 IceGrid::LocatorPrx::getLocalRegistry(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<RegistryPrx>>(true, this, &LocatorPrx::_iceI_getLocalRegistry, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<RegistryPrx>>(true, this, &LocatorPrx::_iceI_getLocalRegistry, context).get();
 }
 
-::std::future<::std::optional<::IceGrid::RegistryPrx>>
+std::future<std::optional<::IceGrid::RegistryPrx>>
 IceGrid::LocatorPrx::getLocalRegistryAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<RegistryPrx>>(false, this, &LocatorPrx::_iceI_getLocalRegistry, context);
+    return IceInternal::makePromiseOutgoing<std::optional<RegistryPrx>>(false, this, &LocatorPrx::_iceI_getLocalRegistry, context);
 }
 
-::std::function<void()>
-IceGrid::LocatorPrx::getLocalRegistryAsync(::std::function<void(::std::optional<::IceGrid::RegistryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::LocatorPrx::getLocalRegistryAsync(std::function<void(std::optional<::IceGrid::RegistryPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<RegistryPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::LocatorPrx::_iceI_getLocalRegistry, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<RegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::LocatorPrx::_iceI_getLocalRegistry, context);
 }
 
 void
-IceGrid::LocatorPrx::_iceI_getLocalRegistry(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<RegistryPrx>>>& outAsync, const Ice::Context& context) const
+IceGrid::LocatorPrx::_iceI_getLocalRegistry(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<RegistryPrx>>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getLocalRegistry";
+    static constexpr std::string_view operationName = "getLocalRegistry";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         nullptr,
         nullptr);
 }
 
-::std::optional<::IceGrid::QueryPrx>
+std::optional<::IceGrid::QueryPrx>
 IceGrid::LocatorPrx::getLocalQuery(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<QueryPrx>>(true, this, &LocatorPrx::_iceI_getLocalQuery, context).get();
+    return IceInternal::makePromiseOutgoing<std::optional<QueryPrx>>(true, this, &LocatorPrx::_iceI_getLocalQuery, context).get();
 }
 
-::std::future<::std::optional<::IceGrid::QueryPrx>>
+std::future<std::optional<::IceGrid::QueryPrx>>
 IceGrid::LocatorPrx::getLocalQueryAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::optional<QueryPrx>>(false, this, &LocatorPrx::_iceI_getLocalQuery, context);
+    return IceInternal::makePromiseOutgoing<std::optional<QueryPrx>>(false, this, &LocatorPrx::_iceI_getLocalQuery, context);
 }
 
-::std::function<void()>
-IceGrid::LocatorPrx::getLocalQueryAsync(::std::function<void(::std::optional<::IceGrid::QueryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::LocatorPrx::getLocalQueryAsync(std::function<void(std::optional<::IceGrid::QueryPrx>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::optional<QueryPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::LocatorPrx::_iceI_getLocalQuery, context);
+    return IceInternal::makeLambdaOutgoing<std::optional<QueryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::LocatorPrx::_iceI_getLocalQuery, context);
 }
 
 void
-IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<QueryPrx>>>& outAsync, const Ice::Context& context) const
+IceGrid::LocatorPrx::_iceI_getLocalQuery(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<QueryPrx>>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getLocalQuery";
+    static constexpr std::string_view operationName = "getLocalQuery";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -503,17 +503,17 @@ IceGrid::LocatorPrx::ice_staticId() noexcept
     return "::IceGrid::Locator";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 IceGrid::Query::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Query"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Query"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 IceGrid::Query::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -526,7 +526,7 @@ IceGrid::Query::ice_staticId() noexcept
 void
 IceGrid::Query::_iceD_findObjectById(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -534,7 +534,7 @@ IceGrid::Query::_iceD_findObjectById(
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    const ::std::optional<Ice::ObjectPrx> ret = this->findObjectById(::std::move(iceP_id), request.current());
+    const std::optional<Ice::ObjectPrx> ret = this->findObjectById(std::move(iceP_id), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -547,15 +547,15 @@ IceGrid::Query::_iceD_findObjectById(
 void
 IceGrid::Query::_iceD_findObjectByType(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_type;
+    std::string iceP_type;
     istr->readAll(iceP_type);
     istr->endEncapsulation();
-    const ::std::optional<Ice::ObjectPrx> ret = this->findObjectByType(::std::move(iceP_type), request.current());
+    const std::optional<Ice::ObjectPrx> ret = this->findObjectByType(std::move(iceP_type), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -568,16 +568,16 @@ IceGrid::Query::_iceD_findObjectByType(
 void
 IceGrid::Query::_iceD_findObjectByTypeOnLeastLoadedNode(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_type;
+    std::string iceP_type;
     LoadSample iceP_sample;
     istr->readAll(iceP_type, iceP_sample);
     istr->endEncapsulation();
-    const ::std::optional<Ice::ObjectPrx> ret = this->findObjectByTypeOnLeastLoadedNode(::std::move(iceP_type), iceP_sample, request.current());
+    const std::optional<Ice::ObjectPrx> ret = this->findObjectByTypeOnLeastLoadedNode(std::move(iceP_type), iceP_sample, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -590,15 +590,15 @@ IceGrid::Query::_iceD_findObjectByTypeOnLeastLoadedNode(
 void
 IceGrid::Query::_iceD_findAllObjectsByType(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_type;
+    std::string iceP_type;
     istr->readAll(iceP_type);
     istr->endEncapsulation();
-    const ::Ice::ObjectProxySeq ret = this->findAllObjectsByType(::std::move(iceP_type), request.current());
+    const ::Ice::ObjectProxySeq ret = this->findAllObjectsByType(std::move(iceP_type), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -611,15 +611,15 @@ IceGrid::Query::_iceD_findAllObjectsByType(
 void
 IceGrid::Query::_iceD_findAllReplicas(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<Ice::ObjectPrx> iceP_proxy;
+    std::optional<Ice::ObjectPrx> iceP_proxy;
     istr->readAll(iceP_proxy);
     istr->endEncapsulation();
-    const ::Ice::ObjectProxySeq ret = this->findAllReplicas(::std::move(iceP_proxy), request.current());
+    const ::Ice::ObjectProxySeq ret = this->findAllReplicas(std::move(iceP_proxy), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -630,15 +630,15 @@ IceGrid::Query::_iceD_findAllReplicas(
 
 /// \cond INTERNAL
 void
-IceGrid::Query::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+IceGrid::Query::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 9> allOperations{"findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 9> allOperations{"findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -646,69 +646,69 @@ IceGrid::Query::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_findAllObjectsByType(request, ::std::move(sendResponse));
+            _iceD_findAllObjectsByType(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_findAllReplicas(request, ::std::move(sendResponse));
+            _iceD_findAllReplicas(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_findObjectById(request, ::std::move(sendResponse));
+            _iceD_findObjectById(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_findObjectByType(request, ::std::move(sendResponse));
+            _iceD_findObjectByType(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_findObjectByTypeOnLeastLoadedNode(request, ::std::move(sendResponse));
+            _iceD_findObjectByTypeOnLeastLoadedNode(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
-::std::vector<::std::string>
+std::vector<std::string>
 IceGrid::Registry::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Registry"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Registry"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 IceGrid::Registry::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -721,16 +721,16 @@ IceGrid::Registry::ice_staticId() noexcept
 void
 IceGrid::Registry::_iceD_createSession(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_userId;
-    ::std::string iceP_password;
+    std::string iceP_userId;
+    std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
     istr->endEncapsulation();
-    const ::std::optional<SessionPrx> ret = this->createSession(::std::move(iceP_userId), ::std::move(iceP_password), request.current());
+    const std::optional<SessionPrx> ret = this->createSession(std::move(iceP_userId), std::move(iceP_password), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -743,16 +743,16 @@ IceGrid::Registry::_iceD_createSession(
 void
 IceGrid::Registry::_iceD_createAdminSession(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_userId;
-    ::std::string iceP_password;
+    std::string iceP_userId;
+    std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
     istr->endEncapsulation();
-    const ::std::optional<AdminSessionPrx> ret = this->createAdminSession(::std::move(iceP_userId), ::std::move(iceP_password), request.current());
+    const std::optional<AdminSessionPrx> ret = this->createAdminSession(std::move(iceP_userId), std::move(iceP_password), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -765,11 +765,11 @@ IceGrid::Registry::_iceD_createAdminSession(
 void
 IceGrid::Registry::_iceD_createSessionFromSecureConnection(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::optional<SessionPrx> ret = this->createSessionFromSecureConnection(request.current());
+    const std::optional<SessionPrx> ret = this->createSessionFromSecureConnection(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -782,11 +782,11 @@ IceGrid::Registry::_iceD_createSessionFromSecureConnection(
 void
 IceGrid::Registry::_iceD_createAdminSessionFromSecureConnection(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::optional<AdminSessionPrx> ret = this->createAdminSessionFromSecureConnection(request.current());
+    const std::optional<AdminSessionPrx> ret = this->createAdminSessionFromSecureConnection(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -799,11 +799,11 @@ IceGrid::Registry::_iceD_createAdminSessionFromSecureConnection(
 void
 IceGrid::Registry::_iceD_getSessionTimeout(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::int32_t ret = this->getSessionTimeout(request.current());
+    const std::int32_t ret = this->getSessionTimeout(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -814,15 +814,15 @@ IceGrid::Registry::_iceD_getSessionTimeout(
 
 /// \cond INTERNAL
 void
-IceGrid::Registry::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+IceGrid::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 9> allOperations{"createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 9> allOperations{"createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -830,69 +830,69 @@ IceGrid::Registry::dispatch(Ice::IncomingRequest& request, ::std::function<void(
     {
         case 0:
         {
-            _iceD_createAdminSession(request, ::std::move(sendResponse));
+            _iceD_createAdminSession(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_createAdminSessionFromSecureConnection(request, ::std::move(sendResponse));
+            _iceD_createAdminSessionFromSecureConnection(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_createSession(request, ::std::move(sendResponse));
+            _iceD_createSession(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_createSessionFromSecureConnection(request, ::std::move(sendResponse));
+            _iceD_createSessionFromSecureConnection(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_getSessionTimeout(request, ::std::move(sendResponse));
+            _iceD_getSessionTimeout(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
-::std::vector<::std::string>
+std::vector<std::string>
 IceGrid::Locator::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Locator", "::Ice::Object", "::IceGrid::Locator"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Locator", "::Ice::Object", "::IceGrid::Locator"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 IceGrid::Locator::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -905,11 +905,11 @@ IceGrid::Locator::ice_staticId() noexcept
 void
 IceGrid::Locator::_iceD_getLocalRegistry(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::optional<RegistryPrx> ret = this->getLocalRegistry(request.current());
+    const std::optional<RegistryPrx> ret = this->getLocalRegistry(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -922,11 +922,11 @@ IceGrid::Locator::_iceD_getLocalRegistry(
 void
 IceGrid::Locator::_iceD_getLocalQuery(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::optional<QueryPrx> ret = this->getLocalQuery(request.current());
+    const std::optional<QueryPrx> ret = this->getLocalQuery(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -937,15 +937,15 @@ IceGrid::Locator::_iceD_getLocalQuery(
 
 /// \cond INTERNAL
 void
-IceGrid::Locator::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+IceGrid::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 9> allOperations{"findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 9> allOperations{"findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -953,53 +953,53 @@ IceGrid::Locator::dispatch(Ice::IncomingRequest& request, ::std::function<void(I
     {
         case 0:
         {
-            _iceD_findAdapterById(request, ::std::move(sendResponse));
+            _iceD_findAdapterById(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_findObjectById(request, ::std::move(sendResponse));
+            _iceD_findObjectById(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_getLocalQuery(request, ::std::move(sendResponse));
+            _iceD_getLocalQuery(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_getLocalRegistry(request, ::std::move(sendResponse));
+            _iceD_getLocalRegistry(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_getRegistry(request, ::std::move(sendResponse));
+            _iceD_getRegistry(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

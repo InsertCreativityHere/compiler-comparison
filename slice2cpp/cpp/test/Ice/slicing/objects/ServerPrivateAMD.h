@@ -28,25 +28,25 @@
 namespace Test
 {
     class SBSUnknownDerived;
-    using SBSUnknownDerivedPtr = ::std::shared_ptr<SBSUnknownDerived>;
+    using SBSUnknownDerivedPtr = std::shared_ptr<SBSUnknownDerived>;
 
     class SUnknown;
-    using SUnknownPtr = ::std::shared_ptr<SUnknown>;
+    using SUnknownPtr = std::shared_ptr<SUnknown>;
 
     class D2;
-    using D2Ptr = ::std::shared_ptr<D2>;
+    using D2Ptr = std::shared_ptr<D2>;
 
     class D4;
-    using D4Ptr = ::std::shared_ptr<D4>;
+    using D4Ptr = std::shared_ptr<D4>;
 
     class MyClass;
-    using MyClassPtr = ::std::shared_ptr<MyClass>;
+    using MyClassPtr = std::shared_ptr<MyClass>;
 
     class PSUnknown;
-    using PSUnknownPtr = ::std::shared_ptr<PSUnknown>;
+    using PSUnknownPtr = std::shared_ptr<PSUnknown>;
 
     class PSUnknown2;
-    using PSUnknown2Ptr = ::std::shared_ptr<PSUnknown2>;
+    using PSUnknown2Ptr = std::shared_ptr<PSUnknown2>;
 
 }
 
@@ -60,9 +60,9 @@ public:
     SBSUnknownDerived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    SBSUnknownDerived(::std::string sb, ::std::string sbsud) noexcept :
-        SBase(::std::move(sb)),
-        sbsud(::std::move(sbsud))
+    SBSUnknownDerived(std::string sb, std::string sbsud) noexcept :
+        SBase(std::move(sb)),
+        sbsud(std::move(sbsud))
     {
     }
 
@@ -74,16 +74,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(sb, sbsud);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] SBSUnknownDerivedPtr ice_clone() const { return ::std::static_pointer_cast<SBSUnknownDerived>(_iceCloneImpl()); }
+    [[nodiscard]] SBSUnknownDerivedPtr ice_clone() const { return std::static_pointer_cast<SBSUnknownDerived>(_iceCloneImpl()); }
 
-    ::std::string sbsud;
+    std::string sbsud;
 
     void ice_printFields(std::ostream& os) const override;
     SBSUnknownDerived(const SBSUnknownDerived&) = default;
@@ -102,9 +102,9 @@ public:
     SUnknown() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    SUnknown(::std::string su, ::Test::SUnknownPtr cycle) noexcept :
-        su(::std::move(su)),
-        cycle(::std::move(cycle))
+    SUnknown(std::string su, ::Test::SUnknownPtr cycle) noexcept :
+        su(std::move(su)),
+        cycle(std::move(cycle))
     {
     }
 
@@ -116,16 +116,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::SUnknownPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::SUnknownPtr&> ice_tuple() const
     {
         return std::tie(su, cycle);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] SUnknownPtr ice_clone() const { return ::std::static_pointer_cast<SUnknown>(_iceCloneImpl()); }
+    [[nodiscard]] SUnknownPtr ice_clone() const { return std::static_pointer_cast<SUnknown>(_iceCloneImpl()); }
 
-    ::std::string su;
+    std::string su;
     ::Test::SUnknownPtr cycle;
 
     void ice_printFields(std::ostream& os) const override;
@@ -145,10 +145,10 @@ public:
     D2() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    D2(::std::string sb, ::Test::BPtr pb, ::std::string sd2, ::Test::BPtr pd2) noexcept :
-        B(::std::move(sb), ::std::move(pb)),
-        sd2(::std::move(sd2)),
-        pd2(::std::move(pd2))
+    D2(std::string sb, ::Test::BPtr pb, std::string sd2, ::Test::BPtr pd2) noexcept :
+        B(std::move(sb), std::move(pb)),
+        sd2(std::move(sd2)),
+        pd2(std::move(pd2))
     {
     }
 
@@ -160,16 +160,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::BPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const std::string&, const ::Test::BPtr&> ice_tuple() const
     {
         return std::tie(sb, pb, sd2, pd2);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] D2Ptr ice_clone() const { return ::std::static_pointer_cast<D2>(_iceCloneImpl()); }
+    [[nodiscard]] D2Ptr ice_clone() const { return std::static_pointer_cast<D2>(_iceCloneImpl()); }
 
-    ::std::string sd2;
+    std::string sd2;
     ::Test::BPtr pd2;
 
     void ice_printFields(std::ostream& os) const override;
@@ -189,10 +189,10 @@ public:
     D4() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    D4(::std::string sb, ::Test::BPtr pb, ::Test::BPtr p1, ::Test::BPtr p2) noexcept :
-        B(::std::move(sb), ::std::move(pb)),
-        p1(::std::move(p1)),
-        p2(::std::move(p2))
+    D4(std::string sb, ::Test::BPtr pb, ::Test::BPtr p1, ::Test::BPtr p2) noexcept :
+        B(std::move(sb), std::move(pb)),
+        p1(std::move(p1)),
+        p2(std::move(p2))
     {
     }
 
@@ -204,14 +204,14 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::BPtr&, const ::Test::BPtr&, const ::Test::BPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const ::Test::BPtr&, const ::Test::BPtr&> ice_tuple() const
     {
         return std::tie(sb, pb, p1, p2);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] D4Ptr ice_clone() const { return ::std::static_pointer_cast<D4>(_iceCloneImpl()); }
+    [[nodiscard]] D4Ptr ice_clone() const { return std::static_pointer_cast<D4>(_iceCloneImpl()); }
 
     ::Test::BPtr p1;
     ::Test::BPtr p2;
@@ -233,10 +233,10 @@ public:
     UnknownDerivedException() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownDerivedException(::std::string sbe, BPtr pb, ::std::string sude, D2Ptr pd2) noexcept :
-        BaseException(::std::move(sbe), ::std::move(pb)),
-        sude(::std::move(sude)),
-        pd2(::std::move(pd2))
+    UnknownDerivedException(std::string sbe, BPtr pb, std::string sude, D2Ptr pd2) noexcept :
+        BaseException(std::move(sbe), std::move(pb)),
+        sude(std::move(sude)),
+        pd2(std::move(pd2))
     {
     }
 
@@ -245,7 +245,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::D2Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const std::string&, const ::Test::D2Ptr&> ice_tuple() const
     {
         return std::tie(sbe, pb, sude, pd2);
     }
@@ -260,7 +260,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string sude;
+    std::string sude;
     ::Test::D2Ptr pd2;
 
 protected:
@@ -276,7 +276,7 @@ public:
     MyClass() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit MyClass(::std::int32_t i) noexcept :
+    explicit MyClass(std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -289,16 +289,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] MyClassPtr ice_clone() const { return ::std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
+    [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
 
-    ::std::int32_t i;
+    std::int32_t i;
 
     void ice_printFields(std::ostream& os) const override;
     MyClass(const MyClass&) = default;
@@ -317,11 +317,11 @@ public:
     PSUnknown() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    PSUnknown(::std::int32_t pi, ::std::string ps, ::std::string psu, ::Test::PNodePtr graph, ::Test::MyClassPtr cl) noexcept :
-        Preserved(pi, ::std::move(ps)),
-        psu(::std::move(psu)),
-        graph(::std::move(graph)),
-        cl(::std::move(cl))
+    PSUnknown(std::int32_t pi, std::string ps, std::string psu, ::Test::PNodePtr graph, ::Test::MyClassPtr cl) noexcept :
+        Preserved(pi, std::move(ps)),
+        psu(std::move(psu)),
+        graph(std::move(graph)),
+        cl(std::move(cl))
     {
     }
 
@@ -333,16 +333,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::Test::PNodePtr&, const ::Test::MyClassPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::string&, const std::string&, const ::Test::PNodePtr&, const ::Test::MyClassPtr&> ice_tuple() const
     {
         return std::tie(pi, ps, psu, graph, cl);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] PSUnknownPtr ice_clone() const { return ::std::static_pointer_cast<PSUnknown>(_iceCloneImpl()); }
+    [[nodiscard]] PSUnknownPtr ice_clone() const { return std::static_pointer_cast<PSUnknown>(_iceCloneImpl()); }
 
-    ::std::string psu;
+    std::string psu;
     ::Test::PNodePtr graph;
     ::Test::MyClassPtr cl;
 
@@ -363,9 +363,9 @@ public:
     PSUnknown2() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    PSUnknown2(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb) noexcept :
-        Preserved(pi, ::std::move(ps)),
-        pb(::std::move(pb))
+    PSUnknown2(std::int32_t pi, std::string ps, ::Test::PBasePtr pb) noexcept :
+        Preserved(pi, std::move(ps)),
+        pb(std::move(pb))
     {
     }
 
@@ -377,14 +377,14 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::string&, const ::Test::PBasePtr&> ice_tuple() const
     {
         return std::tie(pi, ps, pb);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] PSUnknown2Ptr ice_clone() const { return ::std::static_pointer_cast<PSUnknown2>(_iceCloneImpl()); }
+    [[nodiscard]] PSUnknown2Ptr ice_clone() const { return std::static_pointer_cast<PSUnknown2>(_iceCloneImpl()); }
 
     ::Test::PBasePtr pb;
 

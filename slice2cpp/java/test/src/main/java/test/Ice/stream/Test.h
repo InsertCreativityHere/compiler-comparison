@@ -27,61 +27,61 @@
 
 namespace Test
 {
-    enum class MyEnum : ::std::uint8_t
+    enum class MyEnum : std::uint8_t
     {
         enum1,
         enum2,
         enum3
     };
-    ::std::ostream& operator<<(::std::ostream&, MyEnum);
+    std::ostream& operator<<(std::ostream&, MyEnum);
 
     class MyClass;
-    using MyClassPtr = ::std::shared_ptr<MyClass>;
+    using MyClassPtr = std::shared_ptr<MyClass>;
 
     class MyInterfacePrx;
 
-    using SerialSmall = ::std::vector<std::byte>;
+    using SerialSmall = std::vector<std::byte>;
 
     struct LargeStruct;
 
     struct Point;
 
-    using MyEnumS = ::std::vector<MyEnum>;
+    using MyEnumS = std::vector<MyEnum>;
 
-    using MyClassS = ::std::vector<MyClassPtr>;
+    using MyClassS = std::vector<MyClassPtr>;
 
-    using ByteBoolD = ::std::map<::std::uint8_t, bool>;
+    using ByteBoolD = std::map<std::uint8_t, bool>;
 
-    using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
+    using ShortIntD = std::map<std::int16_t, std::int32_t>;
 
-    using StringMyClassD = ::std::map<::std::string, MyClassPtr>;
+    using StringMyClassD = std::map<std::string, MyClassPtr>;
 
     class OptionalClass;
-    using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
+    using OptionalClassPtr = std::shared_ptr<OptionalClass>;
 
-    using BoolSS = ::std::vector<::Ice::BoolSeq>;
+    using BoolSS = std::vector<::Ice::BoolSeq>;
 
-    using ByteSS = ::std::vector<::Ice::ByteSeq>;
+    using ByteSS = std::vector<::Ice::ByteSeq>;
 
-    using ShortSS = ::std::vector<::Ice::ShortSeq>;
+    using ShortSS = std::vector<::Ice::ShortSeq>;
 
-    using IntSS = ::std::vector<::Ice::IntSeq>;
+    using IntSS = std::vector<::Ice::IntSeq>;
 
-    using LongSS = ::std::vector<::Ice::LongSeq>;
+    using LongSS = std::vector<::Ice::LongSeq>;
 
-    using FloatSS = ::std::vector<::Ice::FloatSeq>;
+    using FloatSS = std::vector<::Ice::FloatSeq>;
 
-    using DoubleSS = ::std::vector<::Ice::DoubleSeq>;
+    using DoubleSS = std::vector<::Ice::DoubleSeq>;
 
-    using StringSS = ::std::vector<::Ice::StringSeq>;
+    using StringSS = std::vector<::Ice::StringSeq>;
 
-    using MyEnumSS = ::std::vector<MyEnumS>;
+    using MyEnumSS = std::vector<MyEnumS>;
 
-    using MyClassSS = ::std::vector<MyClassS>;
+    using MyClassSS = std::vector<MyClassS>;
 
-    using LongFloatD = ::std::map<::std::int64_t, float>;
+    using LongFloatD = std::map<std::int64_t, float>;
 
-    using StringStringD = ::std::map<::std::string, ::std::string>;
+    using StringStringD = std::map<std::string, std::string>;
 
 }
 
@@ -143,49 +143,49 @@ namespace Test
 struct LargeStruct
 {
     bool bo;
-    ::std::uint8_t by;
-    ::std::int16_t sh;
-    ::std::int32_t i;
-    ::std::int64_t l;
+    std::uint8_t by;
+    std::int16_t sh;
+    std::int32_t i;
+    std::int64_t l;
     float f;
     double d;
-    ::std::string str;
+    std::string str;
     ::Test::MyEnum e;
-    ::std::optional<::Test::MyInterfacePrx> p;
+    std::optional<::Test::MyInterfacePrx> p;
     ::Test::SerialSmall ss;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::MyEnum&, const std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p, ss);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const LargeStruct&);
+std::ostream& operator<<(std::ostream&, const LargeStruct&);
 
 struct Point
 {
-    ::std::int32_t x;
-    ::std::int32_t y;
+    std::int32_t x;
+    std::int32_t y;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Point&);
+std::ostream& operator<<(std::ostream&, const Point&);
 
 class OptionalClass : public Ice::Value
 {
@@ -194,19 +194,19 @@ public:
     OptionalClass() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::LargeStruct> s, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) noexcept :
+    OptionalClass(bool bo, std::uint8_t by, std::optional<std::int16_t> sh, std::optional<std::int32_t> i, std::optional<::Test::LargeStruct> s, std::optional<::Test::MyEnumS> enumS4, std::optional<::Test::ByteBoolD> byteBoolD6, std::optional<::Test::ShortIntD> shortIntD7, std::optional<::Test::MyEnum> enum8, std::optional<::Ice::IntSeq> intSeq12, std::optional<::Ice::ByteSeq> byteSeq13, std::optional<::Ice::StringSeq> stringSeq14, std::optional<::Test::Point> p15) noexcept :
         bo(bo),
         by(by),
         sh(sh),
         i(i),
-        s(::std::move(s)),
-        enumS4(::std::move(enumS4)),
-        byteBoolD6(::std::move(byteBoolD6)),
-        shortIntD7(::std::move(shortIntD7)),
+        s(std::move(s)),
+        enumS4(std::move(enumS4)),
+        byteBoolD6(std::move(byteBoolD6)),
+        shortIntD7(std::move(shortIntD7)),
         enum8(enum8),
-        intSeq12(::std::move(intSeq12)),
-        byteSeq13(::std::move(byteSeq13)),
-        stringSeq14(::std::move(stringSeq14)),
+        intSeq12(std::move(intSeq12)),
+        byteSeq13(std::move(byteSeq13)),
+        stringSeq14(std::move(stringSeq14)),
         p15(p15)
     {
     }
@@ -219,28 +219,28 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::LargeStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::optional<std::int16_t>&, const std::optional<std::int32_t>&, const std::optional<::Test::LargeStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, s, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] OptionalClassPtr ice_clone() const { return ::std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
+    [[nodiscard]] OptionalClassPtr ice_clone() const { return std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
 
     bool bo;
-    ::std::uint8_t by;
-    ::std::optional<::std::int16_t> sh;
-    ::std::optional<::std::int32_t> i;
-    ::std::optional<::Test::LargeStruct> s;
-    ::std::optional<::Test::MyEnumS> enumS4;
-    ::std::optional<::Test::ByteBoolD> byteBoolD6;
-    ::std::optional<::Test::ShortIntD> shortIntD7;
-    ::std::optional<::Test::MyEnum> enum8;
-    ::std::optional<::Ice::IntSeq> intSeq12;
-    ::std::optional<::Ice::ByteSeq> byteSeq13;
-    ::std::optional<::Ice::StringSeq> stringSeq14;
-    ::std::optional<::Test::Point> p15;
+    std::uint8_t by;
+    std::optional<std::int16_t> sh;
+    std::optional<std::int32_t> i;
+    std::optional<::Test::LargeStruct> s;
+    std::optional<::Test::MyEnumS> enumS4;
+    std::optional<::Test::ByteBoolD> byteBoolD6;
+    std::optional<::Test::ShortIntD> shortIntD7;
+    std::optional<::Test::MyEnum> enum8;
+    std::optional<::Ice::IntSeq> intSeq12;
+    std::optional<::Ice::ByteSeq> byteSeq13;
+    std::optional<::Ice::StringSeq> stringSeq14;
+    std::optional<::Test::Point> p15;
 
     void ice_printFields(std::ostream& os) const override;
     OptionalClass(const OptionalClass&) = default;
@@ -259,22 +259,22 @@ public:
     MyClass() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    MyClass(::Test::MyClassPtr c, ::std::optional<::Test::MyInterfacePrx> prx, Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) noexcept :
-        c(::std::move(c)),
-        prx(::std::move(prx)),
-        o(::std::move(o)),
-        s(::std::move(s)),
-        seq1(::std::move(seq1)),
-        seq2(::std::move(seq2)),
-        seq3(::std::move(seq3)),
-        seq4(::std::move(seq4)),
-        seq5(::std::move(seq5)),
-        seq6(::std::move(seq6)),
-        seq7(::std::move(seq7)),
-        seq8(::std::move(seq8)),
-        seq9(::std::move(seq9)),
-        seq10(::std::move(seq10)),
-        d(::std::move(d))
+    MyClass(::Test::MyClassPtr c, std::optional<::Test::MyInterfacePrx> prx, Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) noexcept :
+        c(std::move(c)),
+        prx(std::move(prx)),
+        o(std::move(o)),
+        s(std::move(s)),
+        seq1(std::move(seq1)),
+        seq2(std::move(seq2)),
+        seq3(std::move(seq3)),
+        seq4(std::move(seq4)),
+        seq5(std::move(seq5)),
+        seq6(std::move(seq6)),
+        seq7(std::move(seq7)),
+        seq8(std::move(seq8)),
+        seq9(std::move(seq9)),
+        seq10(std::move(seq10)),
+        d(std::move(d))
     {
     }
 
@@ -286,17 +286,17 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::MyClassPtr&, const ::std::optional<::Test::MyInterfacePrx>&, const Ice::ValuePtr&, const ::Test::LargeStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::MyClassPtr&, const std::optional<::Test::MyInterfacePrx>&, const Ice::ValuePtr&, const ::Test::LargeStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
         return std::tie(c, prx, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] MyClassPtr ice_clone() const { return ::std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
+    [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
 
     ::Test::MyClassPtr c;
-    ::std::optional<::Test::MyInterfacePrx> prx;
+    std::optional<::Test::MyInterfacePrx> prx;
     Ice::ValuePtr o;
     ::Test::LargeStruct s;
     ::Ice::BoolSeq seq1;
@@ -329,7 +329,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     MyException(MyClassPtr c) noexcept :
-        c(::std::move(c))
+        c(std::move(c))
     {
     }
 
@@ -386,19 +386,19 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 };
 
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
+using MyInterfacePtr = std::shared_ptr<MyInterface>;
 
 }
 

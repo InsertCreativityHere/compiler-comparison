@@ -42,30 +42,30 @@ namespace
 }
 
 ::User::UserInfoPtr
-User::RegistryPrx::getUserInfo(::std::string_view iceP_id, const Ice::Context& context) const
+User::RegistryPrx::getUserInfo(std::string_view iceP_id, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<UserInfoPtr>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
 }
 
-::std::future<::User::UserInfoPtr>
-User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, const Ice::Context& context) const
+std::future<::User::UserInfoPtr>
+User::RegistryPrx::getUserInfoAsync(std::string_view iceP_id, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<UserInfoPtr>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
-::std::function<void()>
-User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+User::RegistryPrx::getUserInfoAsync(std::string_view iceP_id, std::function<void(::User::UserInfoPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<UserInfoPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<UserInfoPtr>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 void
-User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>& outAsync, ::std::string_view iceP_id, const Ice::Context& context) const
+User::RegistryPrx::_iceI_getUserInfo(const std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>& outAsync, std::string_view iceP_id, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getUserInfo";
+    static constexpr std::string_view operationName = "getUserInfo";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -133,17 +133,17 @@ User::UserInfo::_iceReadImpl(Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 User::Registry::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::User::Registry"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::User::Registry"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 User::Registry::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -156,15 +156,15 @@ User::Registry::ice_staticId() noexcept
 void
 User::Registry::_iceD_getUserInfo(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_id;
+    std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    const UserInfoPtr ret = this->getUserInfo(::std::move(iceP_id), request.current());
+    const UserInfoPtr ret = this->getUserInfo(std::move(iceP_id), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -176,15 +176,15 @@ User::Registry::_iceD_getUserInfo(
 
 /// \cond INTERNAL
 void
-User::Registry::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+User::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr std::array<std::string_view, 5> allOperations{"getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -192,33 +192,33 @@ User::Registry::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_getUserInfo(request, ::std::move(sendResponse));
+            _iceD_getUserInfo(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

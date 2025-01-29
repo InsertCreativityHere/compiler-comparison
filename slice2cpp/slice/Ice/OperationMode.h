@@ -28,7 +28,7 @@
 namespace Ice
 {
     /// Determines the retry behavior an invocation in case of a (potentially) recoverable error.
-    enum class OperationMode : ::std::uint8_t
+    enum class OperationMode : std::uint8_t
     {
         /// Ordinary operations have <code>Normal</code> mode. These operations modify object state; invoking such an
         /// operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
@@ -45,7 +45,7 @@ namespace Ice
         /// and propagate the failure to the application only if the second attempt fails.
         Idempotent
     };
-    ICE_API ::std::ostream& operator<<(::std::ostream&, OperationMode);
+    ICE_API std::ostream& operator<<(std::ostream&, OperationMode);
 
 }
 

@@ -29,7 +29,7 @@ namespace Test
     struct StructKey;
 
     class ClassKey;
-    using ClassKeyPtr = ::std::shared_ptr<ClassKey>;
+    using ClassKeyPtr = std::shared_ptr<ClassKey>;
 
 }
 
@@ -38,21 +38,21 @@ namespace Test
 
 struct StructKey
 {
-    ::std::int32_t value;
+    std::int32_t value;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(value);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const StructKey&);
+std::ostream& operator<<(std::ostream&, const StructKey&);
 
 class ClassKey : public Ice::Value
 {
@@ -61,7 +61,7 @@ public:
     ClassKey() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit ClassKey(::std::int32_t value) noexcept :
+    explicit ClassKey(std::int32_t value) noexcept :
         value(value)
     {
     }
@@ -74,16 +74,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(value);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] ClassKeyPtr ice_clone() const { return ::std::static_pointer_cast<ClassKey>(_iceCloneImpl()); }
+    [[nodiscard]] ClassKeyPtr ice_clone() const { return std::static_pointer_cast<ClassKey>(_iceCloneImpl()); }
 
-    ::std::int32_t value;
+    std::int32_t value;
 
     void ice_printFields(std::ostream& os) const override;
     ClassKey(const ClassKey&) = default;

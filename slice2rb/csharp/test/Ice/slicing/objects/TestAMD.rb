@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::SBase)
-        class SBase < ::Ice::Value
+        class SBase < Ice::Value
 
             def initialize(sb='')
                 @sb = sb
@@ -54,7 +54,7 @@ module ::Test
     end
 
     if not defined?(::Test::B)
-        class B < ::Ice::Value
+        class B < Ice::Value
 
             def initialize(sb='', pb=nil)
                 @sb = sb
@@ -101,7 +101,7 @@ module ::Test
     end
 
     if not defined?(::Test::SS1)
-        class SS1 < ::Ice::Value
+        class SS1 < Ice::Value
 
             def initialize(s=nil)
                 @s = s
@@ -118,7 +118,7 @@ module ::Test
     end
 
     if not defined?(::Test::SS2)
-        class SS2 < ::Ice::Value
+        class SS2 < Ice::Value
 
             def initialize(s=nil)
                 @s = s
@@ -208,7 +208,7 @@ module ::Test
     end
 
     if not defined?(::Test::PBase)
-        class PBase < ::Ice::Value
+        class PBase < Ice::Value
 
             def initialize(pi=0)
                 @pi = pi
@@ -265,7 +265,7 @@ module ::Test
     end
 
     if not defined?(::Test::PNode)
-        class PNode < ::Ice::Value
+        class PNode < Ice::Value
 
             def initialize(_next=nil)
                 @_next = _next
@@ -494,7 +494,7 @@ module ::Test
     end
 
     if not defined?(::Test::Hidden)
-        class Hidden < ::Ice::Value
+        class Hidden < Ice::Value
 
             def initialize(f=nil)
                 @f = f
@@ -507,7 +507,7 @@ module ::Test
     end
 
     if not defined?(::Test::Forward)
-        class Forward < ::Ice::Value
+        class Forward < Ice::Value
 
             def initialize(h=nil)
                 @h = h

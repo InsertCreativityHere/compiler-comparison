@@ -26,26 +26,26 @@
 
 namespace Test
 {
-    using SerialSmall = ::std::vector<std::byte>;
+    using SerialSmall = std::vector<std::byte>;
 
-    using SerialLarge = ::std::vector<std::byte>;
+    using SerialLarge = std::vector<std::byte>;
 
-    using SerialStruct = ::std::vector<std::byte>;
+    using SerialStruct = std::vector<std::byte>;
 
     class MyClassPrx;
 
-    using SLS = ::std::vector<SerialLarge>;
+    using SLS = std::vector<SerialLarge>;
 
-    using SLSS = ::std::vector<SLS>;
+    using SLSS = std::vector<SLS>;
 
-    using SLD = ::std::map<::std::int32_t, SerialLarge>;
+    using SLD = std::map<std::int32_t, SerialLarge>;
 
-    using SLSD = ::std::map<::std::int32_t, SLS>;
+    using SLSD = std::map<std::int32_t, SLS>;
 
     struct Foo;
 
     class Baz;
-    using BazPtr = ::std::shared_ptr<Baz>;
+    using BazPtr = std::shared_ptr<Baz>;
 
 }
 
@@ -58,46 +58,46 @@ public:
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSerialSmallJavaAsync(const SerialSmall& i, ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSerialSmallJavaAsync(const SerialSmall& i, std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSerialSmallJava(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const Ice::Context&) const;
+    void _iceI_opSerialSmallJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const Ice::Context&) const;
     /// \endcond
 
     SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSerialLargeJavaAsync(const SerialLarge& i, ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSerialLargeJavaAsync(const SerialLarge& i, std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSerialLargeJava(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const Ice::Context&) const;
+    void _iceI_opSerialLargeJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const Ice::Context&) const;
     /// \endcond
 
     SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSerialStructJavaAsync(const SerialStruct& i, ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSerialStructJavaAsync(const SerialStruct& i, std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSerialStructJava(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const Ice::Context&) const;
+    void _iceI_opSerialStructJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -162,10 +162,10 @@ struct Foo
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Foo&);
+std::ostream& operator<<(std::ostream&, const Foo&);
 
 class Bar : public Ice::UserException
 {
@@ -175,8 +175,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     Bar(SerialLarge SLmem, SLS SLSmem) noexcept :
-        SLmem(::std::move(SLmem)),
-        SLSmem(::std::move(SLSmem))
+        SLmem(std::move(SLmem)),
+        SLSmem(std::move(SLSmem))
     {
     }
 
@@ -217,8 +217,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     Baz(::Test::SerialLarge SLmem, ::Test::SLS SLSmem) noexcept :
-        SLmem(::std::move(SLmem)),
-        SLSmem(::std::move(SLSmem))
+        SLmem(std::move(SLmem)),
+        SLSmem(std::move(SLSmem))
     {
     }
 
@@ -237,7 +237,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] BazPtr ice_clone() const { return ::std::static_pointer_cast<Baz>(_iceCloneImpl()); }
+    [[nodiscard]] BazPtr ice_clone() const { return std::static_pointer_cast<Baz>(_iceCloneImpl()); }
 
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
@@ -273,12 +273,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -286,30 +286,30 @@ public:
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SerialSmall opSerialSmallJava(SerialSmall i, SerialSmall& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSerialSmallJava(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSerialSmallJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SerialLarge opSerialLargeJava(SerialLarge i, SerialLarge& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSerialLargeJava(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSerialLargeJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SerialStruct opSerialStructJava(SerialStruct i, SerialStruct& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSerialStructJava(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSerialStructJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using MyClassPtr = ::std::shared_ptr<MyClass>;
+using MyClassPtr = std::shared_ptr<MyClass>;
 
 }
 

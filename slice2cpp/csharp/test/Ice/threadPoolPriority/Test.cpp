@@ -41,53 +41,53 @@ Test::PriorityPrx::shutdown(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &PriorityPrx::_iceI_shutdown, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::PriorityPrx::shutdownAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &PriorityPrx::_iceI_shutdown, context);
 }
 
-::std::function<void()>
-Test::PriorityPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::PriorityPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
 }
 
 void
-Test::PriorityPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::PriorityPrx::_iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "shutdown";
+    static constexpr std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
 
-::std::string
+std::string
 Test::PriorityPrx::getPriority(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &PriorityPrx::_iceI_getPriority, context).get();
+    return IceInternal::makePromiseOutgoing<std::string>(true, this, &PriorityPrx::_iceI_getPriority, context).get();
 }
 
-::std::future<::std::string>
+std::future<std::string>
 Test::PriorityPrx::getPriorityAsync(const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &PriorityPrx::_iceI_getPriority, context);
+    return IceInternal::makePromiseOutgoing<std::string>(false, this, &PriorityPrx::_iceI_getPriority, context);
 }
 
-::std::function<void()>
-Test::PriorityPrx::getPriorityAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::PriorityPrx::getPriorityAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
+    return IceInternal::makeLambdaOutgoing<std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
 }
 
 void
-Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
+Test::PriorityPrx::_iceI_getPriority(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getPriority";
+    static constexpr std::string_view operationName = "getPriority";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -100,17 +100,17 @@ Test::PriorityPrx::ice_staticId() noexcept
     return "::Test::Priority";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::Priority::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Priority"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::Priority"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::Priority::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -123,7 +123,7 @@ Test::Priority::ice_staticId() noexcept
 void
 Test::Priority::_iceD_shutdown(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -136,11 +136,11 @@ Test::Priority::_iceD_shutdown(
 void
 Test::Priority::_iceD_getPriority(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::string ret = this->getPriority(request.current());
+    const std::string ret = this->getPriority(request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -151,15 +151,15 @@ Test::Priority::_iceD_getPriority(
 
 /// \cond INTERNAL
 void
-Test::Priority::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::Priority::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 6> allOperations{"getPriority", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
+    static constexpr std::array<std::string_view, 6> allOperations{"getPriority", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -167,38 +167,38 @@ Test::Priority::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_getPriority(request, ::std::move(sendResponse));
+            _iceD_getPriority(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

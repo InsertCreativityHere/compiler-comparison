@@ -37,23 +37,23 @@ namespace IceStormElection
 struct LogUpdate
 {
     /// The generation.
-    ::std::int64_t generation;
+    std::int64_t generation;
     /// The iteration within this generation.
-    ::std::int64_t iteration;
+    std::int64_t iteration;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const std::int64_t&> ice_tuple() const
     {
         return std::tie(generation, iteration);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const LogUpdate&);
+std::ostream& operator<<(std::ostream&, const LogUpdate&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

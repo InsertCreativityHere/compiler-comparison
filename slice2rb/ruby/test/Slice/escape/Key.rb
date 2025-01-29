@@ -133,7 +133,7 @@ module ::BEGIN_
     end
 
     if not defined?(::BEGIN_::Display)
-        class Display < ::Ice::Value
+        class Display < Ice::Value
 
             def initialize(_when=0, _do=0, _dup=nil, _else=0)
                 @_when = _when

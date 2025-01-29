@@ -28,13 +28,13 @@
 
 namespace IceStormElection
 {
-    using StringLogUpdateDict = ::std::map<::std::string, LogUpdate>;
+    using StringLogUpdateDict = std::map<std::string, LogUpdate>;
 
 }
 
 namespace IceStorm
 {
-    using SubscriberRecordDict = ::std::map<SubscriberRecordKey, SubscriberRecord>;
+    using SubscriberRecordDict = std::map<SubscriberRecordKey, SubscriberRecord>;
 
     struct AllData;
 
@@ -57,10 +57,10 @@ struct AllData
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const AllData&);
+std::ostream& operator<<(std::ostream&, const AllData&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

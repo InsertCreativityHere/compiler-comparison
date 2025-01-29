@@ -29,7 +29,7 @@ namespace Clash
     class IntfPrx;
 
     class Cls;
-    using ClsPtr = ::std::shared_ptr<Cls>;
+    using ClsPtr = std::shared_ptr<Cls>;
 
     struct St;
 
@@ -44,134 +44,134 @@ public:
 
     void context(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> contextAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> contextAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    contextAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    contextAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_context(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_context(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void current(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> currentAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> currentAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    currentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    currentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_current(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_current(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void response(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> responseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> responseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    responseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    responseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_response(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_response(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void upCast(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> upCastAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> upCastAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    upCastAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    upCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_upCast(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_upCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void typeId(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> typeIdAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> typeIdAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    typeIdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    typeIdAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_typeId(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_typeId(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void del(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> delAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> delAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    delAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    delAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_del(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_del(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void cookie(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> cookieAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> cookieAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    cookieAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    cookieAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_cookie(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_cookie(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void sync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> syncAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> syncAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    syncAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    syncAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sync(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_sync(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void inS(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> inSAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> inSAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    inSAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    inSAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_inS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_inS(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     void istr(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> istrAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> istrAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    istrAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    istrAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_istr(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_istr(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
-    void op(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, const Ice::Context& context_ = Ice::noExplicitContext) const;
+    void op(std::string_view context, std::string_view current, std::string_view response, std::string_view ex, std::string_view sent, std::string_view cookie, std::string_view sync, std::string_view result, std::string_view istr, std::string_view ostr, std::optional<std::string_view> proxy, const Ice::Context& context_ = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, const Ice::Context& context_ = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> opAsync(std::string_view context, std::string_view current, std::string_view response, std::string_view ex, std::string_view sent, std::string_view cookie, std::string_view sync, std::string_view result, std::string_view istr, std::string_view ostr, std::optional<std::string_view> proxy, const Ice::Context& context_ = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::function<void()> response_, ::std::function<void(::std::exception_ptr)> ex_ = nullptr, ::std::function<void(bool)> sent_ = nullptr, const Ice::Context& context_ = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opAsync(std::string_view context, std::string_view current, std::string_view response, std::string_view ex, std::string_view sent, std::string_view cookie, std::string_view sync, std::string_view result, std::string_view istr, std::string_view ostr, std::optional<std::string_view> proxy, std::function<void()> response_, std::function<void(std::exception_ptr)> ex_ = nullptr, std::function<void(bool)> sent_ = nullptr, const Ice::Context& context_ = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::optional<::std::string_view>, const Ice::Context&) const;
+    void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, std::string_view, std::string_view, std::string_view, std::string_view, std::string_view, std::string_view, std::string_view, std::string_view, std::optional<std::string_view>, const Ice::Context&) const;
     /// \endcond
 
-    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::optional<::std::string>& proxy, const Ice::Context& context_ = Ice::noExplicitContext) const;
+    void opOut(std::string& context, std::string& current, std::string& response, std::string& ex, std::string& sent, std::string& cookie, std::string& sync, std::string& result, std::string& istr, std::string& ostr, std::optional<std::string>& proxy, const Ice::Context& context_ = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>> opOutAsync(const Ice::Context& context_ = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>>> opOutAsync(const Ice::Context& context_ = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context_ = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opOutAsync(std::function<void(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context_ = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOut(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>>&, const Ice::Context&) const;
+    void _iceI_opOut(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::optional<std::string>>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -229,22 +229,22 @@ public:
     Cls() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Cls(::std::optional<::Clash::IntfPrx> s, ::std::string context, ::std::int32_t current, ::std::int16_t response, ::std::string upCast, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string ex, ::std::int32_t result, ::std::string istr, ::std::string ostr, ::std::string inS, ::std::string in, ::std::string proxy) noexcept :
-        s(::std::move(s)),
-        context(::std::move(context)),
+    Cls(std::optional<::Clash::IntfPrx> s, std::string context, std::int32_t current, std::int16_t response, std::string upCast, std::int32_t typeId, std::int16_t del, std::optional<std::int16_t> cookie, std::string ex, std::int32_t result, std::string istr, std::string ostr, std::string inS, std::string in, std::string proxy) noexcept :
+        s(std::move(s)),
+        context(std::move(context)),
         current(current),
         response(response),
-        upCast(::std::move(upCast)),
+        upCast(std::move(upCast)),
         typeId(typeId),
         del(del),
         cookie(cookie),
-        ex(::std::move(ex)),
+        ex(std::move(ex)),
         result(result),
-        istr(::std::move(istr)),
-        ostr(::std::move(ostr)),
-        inS(::std::move(inS)),
-        in(::std::move(in)),
-        proxy(::std::move(proxy))
+        istr(std::move(istr)),
+        ostr(std::move(ostr)),
+        inS(std::move(inS)),
+        in(std::move(in)),
+        proxy(std::move(proxy))
     {
     }
 
@@ -256,30 +256,30 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::optional<::std::int16_t>&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::optional<::Clash::IntfPrx>&, const std::string&, const std::int32_t&, const std::int16_t&, const std::string&, const std::int32_t&, const std::int16_t&, const std::optional<std::int16_t>&, const std::string&, const std::int32_t&, const std::string&, const std::string&, const std::string&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(s, context, current, response, upCast, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] ClsPtr ice_clone() const { return ::std::static_pointer_cast<Cls>(_iceCloneImpl()); }
+    [[nodiscard]] ClsPtr ice_clone() const { return std::static_pointer_cast<Cls>(_iceCloneImpl()); }
 
-    ::std::optional<::Clash::IntfPrx> s;
-    ::std::string context;
-    ::std::int32_t current;
-    ::std::int16_t response;
-    ::std::string upCast;
-    ::std::int32_t typeId;
-    ::std::int16_t del;
-    ::std::optional<::std::int16_t> cookie;
-    ::std::string ex;
-    ::std::int32_t result;
-    ::std::string istr;
-    ::std::string ostr;
-    ::std::string inS;
-    ::std::string in;
-    ::std::string proxy;
+    std::optional<::Clash::IntfPrx> s;
+    std::string context;
+    std::int32_t current;
+    std::int16_t response;
+    std::string upCast;
+    std::int32_t typeId;
+    std::int16_t del;
+    std::optional<std::int16_t> cookie;
+    std::string ex;
+    std::int32_t result;
+    std::string istr;
+    std::string ostr;
+    std::string inS;
+    std::string in;
+    std::string proxy;
 
     void ice_printFields(std::ostream& os) const override;
     Cls(const Cls&) = default;
@@ -293,24 +293,24 @@ public:
 
 struct St
 {
-    ::std::string v;
-    ::std::int16_t istr;
-    ::std::int32_t ostr;
-    ::std::int32_t rhs;
+    std::string v;
+    std::int16_t istr;
+    std::int32_t ostr;
+    std::int32_t rhs;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::int16_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(v, istr, ostr, rhs);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const St&);
+std::ostream& operator<<(std::ostream&, const St&);
 
 class Ex : public Ice::UserException
 {
@@ -319,7 +319,7 @@ public:
     Ex() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Ex(::std::int16_t istr, ::std::int32_t ostr) noexcept :
+    Ex(std::int16_t istr, std::int32_t ostr) noexcept :
         istr(istr),
         ostr(ostr)
     {
@@ -330,7 +330,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int16_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int16_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(istr, ostr);
     }
@@ -345,8 +345,8 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int16_t istr;
-    ::std::int32_t ostr;
+    std::int16_t istr;
+    std::int32_t ostr;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -375,12 +375,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -388,70 +388,70 @@ public:
 
     virtual void context(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_context(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_context(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void current(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_current(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_current(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void response(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_response(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_response(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void upCast(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_upCast(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_upCast(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void typeId(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_typeId(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_typeId(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void del(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_del(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_del(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void cookie(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_cookie(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_cookie(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sync(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_sync(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_sync(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void inS(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_inS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_inS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void istr(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_istr(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_istr(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void op(::std::string context, ::std::string current, ::std::string response, ::std::string ex, ::std::string sent, ::std::string cookie, ::std::string sync, ::std::string result, ::std::string istr, ::std::string ostr, ::std::optional<::std::string> proxy, const Ice::Current& current_) = 0;
+    virtual void op(std::string context, std::string current, std::string response, std::string ex, std::string sent, std::string cookie, std::string sync, std::string result, std::string istr, std::string ostr, std::optional<std::string> proxy, const Ice::Current& current_) = 0;
     /// \cond INTERNAL
-    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::optional<::std::string>& proxy, const Ice::Current& current_) = 0;
+    virtual void opOut(std::string& context, std::string& current, std::string& response, std::string& ex, std::string& sent, std::string& cookie, std::string& sync, std::string& result, std::string& istr, std::string& ostr, std::optional<std::string>& proxy, const Ice::Current& current_) = 0;
     /// \cond INTERNAL
-    void _iceD_opOut(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opOut(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using IntfPtr = ::std::shared_ptr<Intf>;
+using IntfPtr = std::shared_ptr<Intf>;
 
 }
 

@@ -48,25 +48,25 @@ Test::InitialPrx::getConcreteClass(const Ice::Context& context) const
     return IceInternal::makePromiseOutgoing<ConcreteClassPtr>(true, this, &InitialPrx::_iceI_getConcreteClass, context).get();
 }
 
-::std::future<::Test::ConcreteClassPtr>
+std::future<::Test::ConcreteClassPtr>
 Test::InitialPrx::getConcreteClassAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<ConcreteClassPtr>(false, this, &InitialPrx::_iceI_getConcreteClass, context);
 }
 
-::std::function<void()>
-Test::InitialPrx::getConcreteClassAsync(::std::function<void(::Test::ConcreteClassPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::InitialPrx::getConcreteClassAsync(std::function<void(::Test::ConcreteClassPtr)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<ConcreteClassPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
+    return IceInternal::makeLambdaOutgoing<ConcreteClassPtr>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
 }
 
 void
-Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<ConcreteClassPtr>>& outAsync, const Ice::Context& context) const
+Test::InitialPrx::_iceI_getConcreteClass(const std::shared_ptr<IceInternal::OutgoingAsyncT<ConcreteClassPtr>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "getConcreteClass";
+    static constexpr std::string_view operationName = "getConcreteClass";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr,
         [](Ice::InputStream* istr)
@@ -84,25 +84,25 @@ Test::InitialPrx::throwException(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwException, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::InitialPrx::throwExceptionAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwException, context);
 }
 
-::std::function<void()>
-Test::InitialPrx::throwExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::InitialPrx::throwExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwException, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwException, context);
 }
 
 void
-Test::InitialPrx::_iceI_throwException(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::InitialPrx::_iceI_throwException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "throwException";
+    static constexpr std::string_view operationName = "throwException";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         [](const Ice::UserException& ex)
         {
@@ -126,24 +126,24 @@ Test::InitialPrx::shutdown(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::InitialPrx::shutdownAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
 
-::std::function<void()>
-Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::InitialPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 void
-Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::InitialPrx::_iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "shutdown";
+    static constexpr std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -228,17 +228,17 @@ Test::E::_readImpl(Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::Initial::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::Initial::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -251,7 +251,7 @@ Test::Initial::ice_staticId() noexcept
 void
 Test::Initial::_iceD_getConcreteClass(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -269,7 +269,7 @@ Test::Initial::_iceD_getConcreteClass(
 void
 Test::Initial::_iceD_throwException(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -282,7 +282,7 @@ Test::Initial::_iceD_throwException(
 void
 Test::Initial::_iceD_shutdown(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -293,15 +293,15 @@ Test::Initial::_iceD_shutdown(
 
 /// \cond INTERNAL
 void
-Test::Initial::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 7> allOperations{"getConcreteClass", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwException"};
+    static constexpr std::array<std::string_view, 7> allOperations{"getConcreteClass", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwException"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -309,43 +309,43 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice:
     {
         case 0:
         {
-            _iceD_getConcreteClass(request, ::std::move(sendResponse));
+            _iceD_getConcreteClass(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_throwException(request, ::std::move(sendResponse));
+            _iceD_throwException(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

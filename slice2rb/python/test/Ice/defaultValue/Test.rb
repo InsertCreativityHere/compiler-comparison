@@ -384,7 +384,7 @@ module ::Test
     end
 
     if not defined?(::Test::Base)
-        class Base < ::Ice::Value
+        class Base < Ice::Value
 
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
                 @boolFalse = boolFalse
@@ -662,7 +662,7 @@ module ::Test
     end
 
     if not defined?(::Test::ClassNoDefaultsBase)
-        class ClassNoDefaultsBase < ::Ice::Value
+        class ClassNoDefaultsBase < Ice::Value
 
             def initialize(str='', c1=::Test::Color::Red, bs=nil)
                 @str = str

@@ -164,7 +164,7 @@ module ::Test
         end
 
         if not defined?(::Test::MC::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(aA=0)
                     @aA = aA
@@ -238,7 +238,7 @@ module ::Test
         end
 
         if not defined?(::Test::MD::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(aA=0)
                     @aA = aA
@@ -312,7 +312,7 @@ module ::Test
         end
 
         if not defined?(::Test::ME::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(aA=0)
                     @aA = aA
@@ -386,7 +386,7 @@ module ::Test
         end
 
         if not defined?(::Test::MF::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(aA=0)
                     @aA = aA
@@ -460,7 +460,7 @@ module ::Test
         end
 
         if not defined?(::Test::MG::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(aA=0)
                     @aA = aA
@@ -534,7 +534,7 @@ module ::Test
         end
 
         if not defined?(::Test::MH::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(aA=0)
                     @aA = aA

@@ -281,7 +281,7 @@ module ::Test
     end
 
     if not defined?(::Test::C)
-        class C < ::Ice::Value
+        class C < Ice::Value
         end
 
         T_C.defineClass(C, -1, false, nil, [])
@@ -368,7 +368,7 @@ module ::Test
     end
 
     if not defined?(::Test::DictClass)
-        class DictClass < ::Ice::Value
+        class DictClass < Ice::Value
 
             def initialize(isdict=nil)
                 @isdict = isdict

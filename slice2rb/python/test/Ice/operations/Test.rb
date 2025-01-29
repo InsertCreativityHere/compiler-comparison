@@ -751,7 +751,7 @@ module ::Test
     end
 
     if not defined?(::Test::MyClass1)
-        class MyClass1 < ::Ice::Value
+        class MyClass1 < Ice::Value
 
             def initialize(tesT='', myClass=nil, myClass1='')
                 @tesT = tesT

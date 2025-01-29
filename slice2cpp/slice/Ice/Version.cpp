@@ -40,14 +40,14 @@
 #endif
 
 void
-Ice::ProtocolVersion::ice_printFields(::std::ostream& os) const
+Ice::ProtocolVersion::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "major = ", this->major);
     Ice::print(os << ", minor = ", this->minor);
 }
 
 void
-Ice::EncodingVersion::ice_printFields(::std::ostream& os) const
+Ice::EncodingVersion::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "major = ", this->major);
     Ice::print(os << ", minor = ", this->minor);

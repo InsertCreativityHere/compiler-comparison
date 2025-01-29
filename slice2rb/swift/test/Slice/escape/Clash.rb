@@ -96,7 +96,7 @@ module ::Clash
     end
 
     if not defined?(::Clash::Cls)
-        class Cls < ::Ice::Value
+        class Cls < Ice::Value
 
             def initialize(s=nil, context='', current=0, response=0, upCast='', typeId=0, del=0, cookie=::Ice::Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy='')
                 @s = s

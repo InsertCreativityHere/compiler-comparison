@@ -26,14 +26,14 @@
 
 namespace Test
 {
-    using StringSeq = ::std::vector<::std::string>;
+    using StringSeq = std::vector<std::string>;
 
-    using IntList = ::std::vector<::std::int32_t>;
+    using IntList = std::vector<std::int32_t>;
 
-    using StringDict = ::std::map<::std::string, ::std::string>;
+    using StringDict = std::map<std::string, std::string>;
 
     class C;
-    using CPtr = ::std::shared_ptr<C>;
+    using CPtr = std::shared_ptr<C>;
 
     struct S1;
 
@@ -51,7 +51,7 @@ public:
     C() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit C(::std::int32_t i) noexcept :
+    explicit C(std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -64,16 +64,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
+    [[nodiscard]] CPtr ice_clone() const { return std::static_pointer_cast<C>(_iceCloneImpl()); }
 
-    ::std::int32_t i;
+    std::int32_t i;
 
     void ice_printFields(std::ostream& os) const override;
     C(const C&) = default;
@@ -87,52 +87,52 @@ public:
 
 struct S1
 {
-    ::std::string name;
+    std::string name;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S1&);
+std::ostream& operator<<(std::ostream&, const S1&);
 
 struct S2
 {
     bool bo;
-    ::std::uint8_t by;
-    ::std::int16_t sh;
-    ::std::int32_t i;
-    ::std::int64_t l;
+    std::uint8_t by;
+    std::int16_t sh;
+    std::int32_t i;
+    std::int64_t l;
     float f;
     double d;
-    ::std::string str;
+    std::string str;
     ::Test::StringSeq ss;
     ::Test::IntList il;
     ::Test::StringDict sd;
     ::Test::S1 s;
     ::Test::CPtr cls;
-    ::std::optional<Ice::ObjectPrx> prx;
+    std::optional<Ice::ObjectPrx> prx;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::IntList&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const ::std::optional<Ice::ObjectPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::StringSeq&, const ::Test::IntList&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const std::optional<Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, ss, il, sd, s, cls, prx);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S2&);
+std::ostream& operator<<(std::ostream&, const S2&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

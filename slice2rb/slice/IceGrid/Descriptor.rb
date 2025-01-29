@@ -213,7 +213,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::CommunicatorDescriptor)
-        class CommunicatorDescriptor < ::Ice::Value
+        class CommunicatorDescriptor < Ice::Value
 
             def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='')
                 @adapters = adapters
@@ -557,7 +557,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::LoadBalancingPolicy)
-        class LoadBalancingPolicy < ::Ice::Value
+        class LoadBalancingPolicy < Ice::Value
 
             def initialize(nReplicas='')
                 @nReplicas = nReplicas
@@ -759,7 +759,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::BoxedString)
-        class BoxedString < ::Ice::Value
+        class BoxedString < Ice::Value
 
             def initialize(value='')
                 @value = value
@@ -847,7 +847,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::BoxedDistributionDescriptor)
-        class BoxedDistributionDescriptor < ::Ice::Value
+        class BoxedDistributionDescriptor < Ice::Value
 
             def initialize(value=::IceGrid::DistributionDescriptor.new)
                 @value = value

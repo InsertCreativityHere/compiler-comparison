@@ -25,7 +25,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::InternalDbEnvDescriptor)
-        class InternalDbEnvDescriptor < ::Ice::Value
+        class InternalDbEnvDescriptor < Ice::Value
 
             def initialize(name='', properties=nil)
                 @name = name
@@ -50,7 +50,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::InternalAdapterDescriptor)
-        class InternalAdapterDescriptor < ::Ice::Value
+        class InternalAdapterDescriptor < Ice::Value
 
             def initialize(id='', serverLifetime=false)
                 @id = id
@@ -79,7 +79,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::InternalServerDescriptor)
-        class InternalServerDescriptor < ::Ice::Value
+        class InternalServerDescriptor < Ice::Value
 
             def initialize(id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=false, options=nil, envs=nil, logs=nil, adapters=nil, dbEnvs=nil, properties=nil, services=::Ice::Unset)
                 @id = id
@@ -621,7 +621,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::InternalNodeInfo)
-        class InternalNodeInfo < ::Ice::Value
+        class InternalNodeInfo < Ice::Value
 
             def initialize(name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir='', iceSoVersion=::Ice::Unset)
                 @name = name
@@ -656,7 +656,7 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::InternalReplicaInfo)
-        class InternalReplicaInfo < ::Ice::Value
+        class InternalReplicaInfo < Ice::Value
 
             def initialize(name='', hostname='')
                 @name = name

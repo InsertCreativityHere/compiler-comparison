@@ -42,15 +42,15 @@ namespace
 }
 
 void
-Test::PointF::ice_printFields(::std::ostream& os) const
+Test::PointF::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "x = ", this->x);
     Ice::print(os << ", y = ", this->y);
     Ice::print(os << ", z = ", this->z);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::PointF& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::PointF& value)
 {
     os << "Test::PointF{";
     value.ice_printFields(os);
@@ -59,15 +59,15 @@ Test::operator<<(::std::ostream& os, const ::Test::PointF& value)
 }
 
 void
-Test::PointD::ice_printFields(::std::ostream& os) const
+Test::PointD::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "x = ", this->x);
     Ice::print(os << ", y = ", this->y);
     Ice::print(os << ", z = ", this->z);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::PointD& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::PointD& value)
 {
     os << "Test::PointD{";
     value.ice_printFields(os);
@@ -76,14 +76,14 @@ Test::operator<<(::std::ostream& os, const ::Test::PointD& value)
 }
 
 void
-Test::Point::ice_printFields(::std::ostream& os) const
+Test::Point::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "x = ", this->x);
     Ice::print(os << ", y = ", this->y);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Point& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Point& value)
 {
     os << "Test::Point{";
     value.ice_printFields(os);
@@ -92,13 +92,13 @@ Test::operator<<(::std::ostream& os, const ::Test::Point& value)
 }
 
 void
-Test::Polyline::ice_printFields(::std::ostream& os) const
+Test::Polyline::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "vertices = ", this->vertices);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Polyline& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Polyline& value)
 {
     os << "Test::Polyline{";
     value.ice_printFields(os);
@@ -107,7 +107,7 @@ Test::operator<<(::std::ostream& os, const ::Test::Polyline& value)
 }
 
 void
-Test::Color::ice_printFields(::std::ostream& os) const
+Test::Color::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "r = ", this->r);
     Ice::print(os << ", g = ", this->g);
@@ -115,8 +115,8 @@ Test::Color::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", a = ", this->a);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Color& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Color& value)
 {
     os << "Test::Color{";
     value.ice_printFields(os);
@@ -125,13 +125,13 @@ Test::operator<<(::std::ostream& os, const ::Test::Color& value)
 }
 
 void
-Test::ColorPalette::ice_printFields(::std::ostream& os) const
+Test::ColorPalette::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "colors = ", this->colors);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::ColorPalette& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::ColorPalette& value)
 {
     os << "Test::ColorPalette{";
     value.ice_printFields(os);
@@ -181,15 +181,15 @@ Test::Pen::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-Test::Draw::ice_printFields(::std::ostream& os) const
+Test::Draw::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "backgroundColor = ", this->backgroundColor);
     Ice::print(os << ", pen = ", this->pen);
     Ice::print(os << ", shared = ", this->shared);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Draw& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Draw& value)
 {
     os << "Test::Draw{";
     value.ice_printFields(os);

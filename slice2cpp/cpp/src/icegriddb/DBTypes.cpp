@@ -40,7 +40,7 @@ namespace
 }
 
 void
-IceGrid::AllData::ice_printFields(::std::ostream& os) const
+IceGrid::AllData::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "applications = ", this->applications);
     Ice::print(os << ", adapters = ", this->adapters);
@@ -49,8 +49,8 @@ IceGrid::AllData::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", serials = ", this->serials);
 }
 
-::std::ostream&
-IceGrid::operator<<(::std::ostream& os, const ::IceGrid::AllData& value)
+std::ostream&
+IceGrid::operator<<(std::ostream& os, const ::IceGrid::AllData& value)
 {
     os << "IceGrid::AllData{";
     value.ice_printFields(os);

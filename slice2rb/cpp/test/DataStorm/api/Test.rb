@@ -48,7 +48,7 @@ module ::Test
     end
 
     if not defined?(::Test::ClassKey)
-        class ClassKey < ::Ice::Value
+        class ClassKey < Ice::Value
 
             def initialize(value=0)
                 @value = value

@@ -38,34 +38,34 @@
 ::Test::ByteSeq
 Test::TestIntfPrx::opByteSpan(std::span<const std::byte> iceP_dataIn, ByteSeq& iceP_dataOut, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<ByteSeq, ByteSeq>>(true, this, &TestIntfPrx::_iceI_opByteSpan, iceP_dataIn, context).get();
-    iceP_dataOut = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<ByteSeq, ByteSeq>>(true, this, &TestIntfPrx::_iceI_opByteSpan, iceP_dataIn, context).get();
+    iceP_dataOut = std::move(std::get<1>(result));
+    return std::move(std::get<0>(result));
 }
 
-::std::future<::std::tuple<::Test::ByteSeq, ::Test::ByteSeq>>
+std::future<std::tuple<::Test::ByteSeq, ::Test::ByteSeq>>
 Test::TestIntfPrx::opByteSpanAsync(std::span<const std::byte> iceP_dataIn, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<ByteSeq, ByteSeq>>(false, this, &TestIntfPrx::_iceI_opByteSpan, iceP_dataIn, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<ByteSeq, ByteSeq>>(false, this, &TestIntfPrx::_iceI_opByteSpan, iceP_dataIn, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opByteSpanAsync(std::span<const std::byte> iceP_dataIn, ::std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opByteSpanAsync(std::span<const std::byte> iceP_dataIn, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteSeq, ByteSeq>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<ByteSeq, ByteSeq>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq, ByteSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSpan, iceP_dataIn, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ByteSeq, ByteSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSpan, iceP_dataIn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opByteSpan(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ByteSeq, ByteSeq>>>& outAsync, std::span<const std::byte> iceP_dataIn, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opByteSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteSeq, ByteSeq>>>& outAsync, std::span<const std::byte> iceP_dataIn, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opByteSpan";
+    static constexpr std::string_view operationName = "opByteSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataIn);
@@ -73,8 +73,8 @@ Test::TestIntfPrx::_iceI_opByteSpan(const ::std::shared_ptr<IceInternal::Outgoin
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<ByteSeq, ByteSeq> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<ByteSeq, ByteSeq> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
@@ -82,34 +82,34 @@ Test::TestIntfPrx::_iceI_opByteSpan(const ::std::shared_ptr<IceInternal::Outgoin
 ::Test::ShortSeq
 Test::TestIntfPrx::opShortSpan(std::span<const std::int16_t> iceP_dataIn, ShortSeq& iceP_dataOut, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<ShortSeq, ShortSeq>>(true, this, &TestIntfPrx::_iceI_opShortSpan, iceP_dataIn, context).get();
-    iceP_dataOut = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<ShortSeq, ShortSeq>>(true, this, &TestIntfPrx::_iceI_opShortSpan, iceP_dataIn, context).get();
+    iceP_dataOut = std::move(std::get<1>(result));
+    return std::move(std::get<0>(result));
 }
 
-::std::future<::std::tuple<::Test::ShortSeq, ::Test::ShortSeq>>
+std::future<std::tuple<::Test::ShortSeq, ::Test::ShortSeq>>
 Test::TestIntfPrx::opShortSpanAsync(std::span<const std::int16_t> iceP_dataIn, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<ShortSeq, ShortSeq>>(false, this, &TestIntfPrx::_iceI_opShortSpan, iceP_dataIn, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<ShortSeq, ShortSeq>>(false, this, &TestIntfPrx::_iceI_opShortSpan, iceP_dataIn, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opShortSpanAsync(std::span<const std::int16_t> iceP_dataIn, ::std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opShortSpanAsync(std::span<const std::int16_t> iceP_dataIn, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortSeq, ShortSeq>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<ShortSeq, ShortSeq>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq, ShortSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSpan, iceP_dataIn, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ShortSeq, ShortSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSpan, iceP_dataIn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opShortSpan(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq, ShortSeq>>>& outAsync, std::span<const std::int16_t> iceP_dataIn, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opShortSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortSeq, ShortSeq>>>& outAsync, std::span<const std::int16_t> iceP_dataIn, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opShortSpan";
+    static constexpr std::string_view operationName = "opShortSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataIn);
@@ -117,8 +117,8 @@ Test::TestIntfPrx::_iceI_opShortSpan(const ::std::shared_ptr<IceInternal::Outgoi
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<ShortSeq, ShortSeq> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<ShortSeq, ShortSeq> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
@@ -126,34 +126,34 @@ Test::TestIntfPrx::_iceI_opShortSpan(const ::std::shared_ptr<IceInternal::Outgoi
 ::Test::StringSeq
 Test::TestIntfPrx::opStringSpan(std::span<std::string> iceP_dataIn, StringSeq& iceP_dataOut, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<StringSeq, StringSeq>>(true, this, &TestIntfPrx::_iceI_opStringSpan, iceP_dataIn, context).get();
-    iceP_dataOut = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<StringSeq, StringSeq>>(true, this, &TestIntfPrx::_iceI_opStringSpan, iceP_dataIn, context).get();
+    iceP_dataOut = std::move(std::get<1>(result));
+    return std::move(std::get<0>(result));
 }
 
-::std::future<::std::tuple<::Test::StringSeq, ::Test::StringSeq>>
+std::future<std::tuple<::Test::StringSeq, ::Test::StringSeq>>
 Test::TestIntfPrx::opStringSpanAsync(std::span<std::string> iceP_dataIn, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<StringSeq, StringSeq>>(false, this, &TestIntfPrx::_iceI_opStringSpan, iceP_dataIn, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<StringSeq, StringSeq>>(false, this, &TestIntfPrx::_iceI_opStringSpan, iceP_dataIn, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opStringSpanAsync(std::span<std::string> iceP_dataIn, ::std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opStringSpanAsync(std::span<std::string> iceP_dataIn, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<StringSeq, StringSeq>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<StringSeq, StringSeq>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<StringSeq, StringSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSpan, iceP_dataIn, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<StringSeq, StringSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSpan, iceP_dataIn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opStringSpan(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<StringSeq, StringSeq>>>& outAsync, std::span<std::string> iceP_dataIn, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opStringSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringSeq, StringSeq>>>& outAsync, std::span<std::string> iceP_dataIn, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opStringSpan";
+    static constexpr std::string_view operationName = "opStringSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataIn);
@@ -161,43 +161,43 @@ Test::TestIntfPrx::_iceI_opStringSpan(const ::std::shared_ptr<IceInternal::Outgo
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<StringSeq, StringSeq> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<StringSeq, StringSeq> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
 
-::std::optional<::Test::ByteSeq>
-Test::TestIntfPrx::opOptionalByteSpan(::std::optional<std::span<const std::byte>> iceP_dataIn, ::std::optional<ByteSeq>& iceP_dataOut, const Ice::Context& context) const
+std::optional<::Test::ByteSeq>
+Test::TestIntfPrx::opOptionalByteSpan(std::optional<std::span<const std::byte>> iceP_dataIn, std::optional<ByteSeq>& iceP_dataOut, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(true, this, &TestIntfPrx::_iceI_opOptionalByteSpan, iceP_dataIn, context).get();
-    iceP_dataOut = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(true, this, &TestIntfPrx::_iceI_opOptionalByteSpan, iceP_dataIn, context).get();
+    iceP_dataOut = std::move(std::get<1>(result));
+    return std::move(std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>>>
-Test::TestIntfPrx::opOptionalByteSpanAsync(::std::optional<std::span<const std::byte>> iceP_dataIn, const Ice::Context& context) const
+std::future<std::tuple<std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>>>
+Test::TestIntfPrx::opOptionalByteSpanAsync(std::optional<std::span<const std::byte>> iceP_dataIn, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(false, this, &TestIntfPrx::_iceI_opOptionalByteSpan, iceP_dataIn, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(false, this, &TestIntfPrx::_iceI_opOptionalByteSpan, iceP_dataIn, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opOptionalByteSpanAsync(::std::optional<std::span<const std::byte>> iceP_dataIn, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opOptionalByteSpanAsync(std::optional<std::span<const std::byte>> iceP_dataIn, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptionalByteSpan, iceP_dataIn, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptionalByteSpan, iceP_dataIn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opOptionalByteSpan(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, ::std::optional<std::span<const std::byte>> iceP_dataIn, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opOptionalByteSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>>& outAsync, std::optional<std::span<const std::byte>> iceP_dataIn, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opOptionalByteSpan";
+    static constexpr std::string_view operationName = "opOptionalByteSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, iceP_dataIn);
@@ -205,43 +205,43 @@ Test::TestIntfPrx::_iceI_opOptionalByteSpan(const ::std::shared_ptr<IceInternal:
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>> v;
-            istr->readAll({10, 11}, ::std::get<0>(v), ::std::get<1>(v));
+            std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>> v;
+            istr->readAll({10, 11}, std::get<0>(v), std::get<1>(v));
             return v;
         });
 }
 
-::std::optional<::Test::ShortSeq>
-Test::TestIntfPrx::opOptionalShortSpan(::std::optional<std::span<const std::int16_t>> iceP_dataIn, ::std::optional<ShortSeq>& iceP_dataOut, const Ice::Context& context) const
+std::optional<::Test::ShortSeq>
+Test::TestIntfPrx::opOptionalShortSpan(std::optional<std::span<const std::int16_t>> iceP_dataIn, std::optional<ShortSeq>& iceP_dataOut, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(true, this, &TestIntfPrx::_iceI_opOptionalShortSpan, iceP_dataIn, context).get();
-    iceP_dataOut = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(true, this, &TestIntfPrx::_iceI_opOptionalShortSpan, iceP_dataIn, context).get();
+    iceP_dataOut = std::move(std::get<1>(result));
+    return std::move(std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>>>
-Test::TestIntfPrx::opOptionalShortSpanAsync(::std::optional<std::span<const std::int16_t>> iceP_dataIn, const Ice::Context& context) const
+std::future<std::tuple<std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>>>
+Test::TestIntfPrx::opOptionalShortSpanAsync(std::optional<std::span<const std::int16_t>> iceP_dataIn, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(false, this, &TestIntfPrx::_iceI_opOptionalShortSpan, iceP_dataIn, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(false, this, &TestIntfPrx::_iceI_opOptionalShortSpan, iceP_dataIn, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opOptionalShortSpanAsync(::std::optional<std::span<const std::int16_t>> iceP_dataIn, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opOptionalShortSpanAsync(std::optional<std::span<const std::int16_t>> iceP_dataIn, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptionalShortSpan, iceP_dataIn, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptionalShortSpan, iceP_dataIn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opOptionalShortSpan(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>& outAsync, ::std::optional<std::span<const std::int16_t>> iceP_dataIn, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opOptionalShortSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>>& outAsync, std::optional<std::span<const std::int16_t>> iceP_dataIn, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opOptionalShortSpan";
+    static constexpr std::string_view operationName = "opOptionalShortSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, iceP_dataIn);
@@ -249,43 +249,43 @@ Test::TestIntfPrx::_iceI_opOptionalShortSpan(const ::std::shared_ptr<IceInternal
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>> v;
-            istr->readAll({10, 11}, ::std::get<0>(v), ::std::get<1>(v));
+            std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>> v;
+            istr->readAll({10, 11}, std::get<0>(v), std::get<1>(v));
             return v;
         });
 }
 
-::std::optional<::Test::StringSeq>
-Test::TestIntfPrx::opOptionalStringSpan(::std::optional<std::span<std::string>> iceP_dataIn, ::std::optional<StringSeq>& iceP_dataOut, const Ice::Context& context) const
+std::optional<::Test::StringSeq>
+Test::TestIntfPrx::opOptionalStringSpan(std::optional<std::span<std::string>> iceP_dataIn, std::optional<StringSeq>& iceP_dataOut, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>(true, this, &TestIntfPrx::_iceI_opOptionalStringSpan, iceP_dataIn, context).get();
-    iceP_dataOut = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(true, this, &TestIntfPrx::_iceI_opOptionalStringSpan, iceP_dataIn, context).get();
+    iceP_dataOut = std::move(std::get<1>(result));
+    return std::move(std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>>>
-Test::TestIntfPrx::opOptionalStringSpanAsync(::std::optional<std::span<std::string>> iceP_dataIn, const Ice::Context& context) const
+std::future<std::tuple<std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>>>
+Test::TestIntfPrx::opOptionalStringSpanAsync(std::optional<std::span<std::string>> iceP_dataIn, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>(false, this, &TestIntfPrx::_iceI_opOptionalStringSpan, iceP_dataIn, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(false, this, &TestIntfPrx::_iceI_opOptionalStringSpan, iceP_dataIn, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opOptionalStringSpanAsync(::std::optional<std::span<std::string>> iceP_dataIn, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opOptionalStringSpanAsync(std::optional<std::span<std::string>> iceP_dataIn, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptionalStringSpan, iceP_dataIn, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptionalStringSpan, iceP_dataIn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opOptionalStringSpan(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>>& outAsync, ::std::optional<std::span<std::string>> iceP_dataIn, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opOptionalStringSpan(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>>& outAsync, std::optional<std::span<std::string>> iceP_dataIn, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opOptionalStringSpan";
+    static constexpr std::string_view operationName = "opOptionalStringSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, iceP_dataIn);
@@ -293,8 +293,8 @@ Test::TestIntfPrx::_iceI_opOptionalStringSpan(const ::std::shared_ptr<IceInterna
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>> v;
-            istr->readAll({10, 11}, ::std::get<0>(v), ::std::get<1>(v));
+            std::tuple<std::optional<StringSeq>, std::optional<StringSeq>> v;
+            istr->readAll({10, 11}, std::get<0>(v), std::get<1>(v));
             return v;
         });
 }
@@ -305,24 +305,24 @@ Test::TestIntfPrx::shutdown(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "shutdown";
+    static constexpr std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -335,17 +335,17 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::TestIntf::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -358,7 +358,7 @@ Test::TestIntf::ice_staticId() noexcept
 void
 Test::TestIntf::_iceD_opByteSpan(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -367,7 +367,7 @@ Test::TestIntf::_iceD_opByteSpan(
     istr->readAll(iceP_dataIn);
     istr->endEncapsulation();
     ByteSeq iceP_dataOut;
-    const ByteSeq ret = this->opByteSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ByteSeq ret = this->opByteSpan(std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataOut, ret);
@@ -380,7 +380,7 @@ Test::TestIntf::_iceD_opByteSpan(
 void
 Test::TestIntf::_iceD_opShortSpan(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -389,7 +389,7 @@ Test::TestIntf::_iceD_opShortSpan(
     istr->readAll(iceP_dataIn);
     istr->endEncapsulation();
     ShortSeq iceP_dataOut;
-    const ShortSeq ret = this->opShortSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ShortSeq ret = this->opShortSpan(std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataOut, ret);
@@ -402,7 +402,7 @@ Test::TestIntf::_iceD_opShortSpan(
 void
 Test::TestIntf::_iceD_opStringSpan(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -411,7 +411,7 @@ Test::TestIntf::_iceD_opStringSpan(
     istr->readAll(iceP_dataIn);
     istr->endEncapsulation();
     StringSeq iceP_dataOut;
-    const StringSeq ret = this->opStringSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const StringSeq ret = this->opStringSpan(std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataOut, ret);
@@ -424,16 +424,16 @@ Test::TestIntf::_iceD_opStringSpan(
 void
 Test::TestIntf::_iceD_opOptionalByteSpan(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<ByteSeq> iceP_dataIn;
+    std::optional<ByteSeq> iceP_dataIn;
     istr->readAll({1}, iceP_dataIn);
     istr->endEncapsulation();
-    ::std::optional<ByteSeq> iceP_dataOut;
-    const ::std::optional<ByteSeq> ret = this->opOptionalByteSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    std::optional<ByteSeq> iceP_dataOut;
+    const std::optional<ByteSeq> ret = this->opOptionalByteSpan(std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({10, 11}, ret, iceP_dataOut);
@@ -446,16 +446,16 @@ Test::TestIntf::_iceD_opOptionalByteSpan(
 void
 Test::TestIntf::_iceD_opOptionalShortSpan(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<ShortSeq> iceP_dataIn;
+    std::optional<ShortSeq> iceP_dataIn;
     istr->readAll({1}, iceP_dataIn);
     istr->endEncapsulation();
-    ::std::optional<ShortSeq> iceP_dataOut;
-    const ::std::optional<ShortSeq> ret = this->opOptionalShortSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    std::optional<ShortSeq> iceP_dataOut;
+    const std::optional<ShortSeq> ret = this->opOptionalShortSpan(std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({10, 11}, ret, iceP_dataOut);
@@ -468,16 +468,16 @@ Test::TestIntf::_iceD_opOptionalShortSpan(
 void
 Test::TestIntf::_iceD_opOptionalStringSpan(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<StringSeq> iceP_dataIn;
+    std::optional<StringSeq> iceP_dataIn;
     istr->readAll({1}, iceP_dataIn);
     istr->endEncapsulation();
-    ::std::optional<StringSeq> iceP_dataOut;
-    const ::std::optional<StringSeq> ret = this->opOptionalStringSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    std::optional<StringSeq> iceP_dataOut;
+    const std::optional<StringSeq> ret = this->opOptionalStringSpan(std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({10, 11}, ret, iceP_dataOut);
@@ -490,7 +490,7 @@ Test::TestIntf::_iceD_opOptionalStringSpan(
 void
 Test::TestIntf::_iceD_shutdown(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -501,15 +501,15 @@ Test::TestIntf::_iceD_shutdown(
 
 /// \cond INTERNAL
 void
-Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 11> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opByteSpan", "opOptionalByteSpan", "opOptionalShortSpan", "opOptionalStringSpan", "opShortSpan", "opStringSpan", "shutdown"};
+    static constexpr std::array<std::string_view, 11> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opByteSpan", "opOptionalByteSpan", "opOptionalShortSpan", "opOptionalStringSpan", "opShortSpan", "opStringSpan", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -517,63 +517,63 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_opByteSpan(request, ::std::move(sendResponse));
+            _iceD_opByteSpan(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_opOptionalByteSpan(request, ::std::move(sendResponse));
+            _iceD_opOptionalByteSpan(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_opOptionalShortSpan(request, ::std::move(sendResponse));
+            _iceD_opOptionalShortSpan(request, std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_opOptionalStringSpan(request, ::std::move(sendResponse));
+            _iceD_opOptionalStringSpan(request, std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_opShortSpan(request, ::std::move(sendResponse));
+            _iceD_opShortSpan(request, std::move(sendResponse));
             break;
         }
         case 9:
         {
-            _iceD_opStringSpan(request, ::std::move(sendResponse));
+            _iceD_opStringSpan(request, std::move(sendResponse));
             break;
         }
         case 10:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

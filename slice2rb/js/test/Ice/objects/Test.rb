@@ -48,7 +48,7 @@ module ::Test
     end
 
     if not defined?(::Test::Base)
-        class Base < ::Ice::Value
+        class Base < Ice::Value
 
             def initialize(theS=::Test::S.new, str='')
                 @theS = theS
@@ -77,7 +77,7 @@ module ::Test
     end
 
     if not defined?(::Test::A)
-        class A < ::Ice::Value
+        class A < Ice::Value
 
             def initialize(theB=nil, theC=nil, preMarshalInvoked=false, postUnmarshalInvoked=false)
                 @theB = theB
@@ -112,7 +112,7 @@ module ::Test
     end
 
     if not defined?(::Test::C)
-        class C < ::Ice::Value
+        class C < Ice::Value
 
             def initialize(theB=nil, preMarshalInvoked=false, postUnmarshalInvoked=false)
                 @theB = theB
@@ -135,7 +135,7 @@ module ::Test
     end
 
     if not defined?(::Test::D)
-        class D < ::Ice::Value
+        class D < Ice::Value
 
             def initialize(theA=nil, theB=nil, theC=nil, preMarshalInvoked=false, postUnmarshalInvoked=false)
                 @theA = theA
@@ -162,7 +162,7 @@ module ::Test
     end
 
     if not defined?(::Test::E)
-        class E < ::Ice::Value
+        class E < Ice::Value
 
             def initialize(i=0, s='')
                 @i = i
@@ -183,7 +183,7 @@ module ::Test
     end
 
     if not defined?(::Test::F)
-        class F < ::Ice::Value
+        class F < Ice::Value
 
             def initialize(e1=nil, e2=nil)
                 @e1 = e1
@@ -227,7 +227,7 @@ module ::Test
     end
 
     if not defined?(::Test::Compact)
-        class Compact < ::Ice::Value
+        class Compact < Ice::Value
         end
 
         T_Compact.defineClass(Compact, 1, false, nil, [])
@@ -247,7 +247,7 @@ module ::Test
     end
 
     if not defined?(::Test::A1)
-        class A1 < ::Ice::Value
+        class A1 < Ice::Value
 
             def initialize(name='')
                 @name = name
@@ -264,7 +264,7 @@ module ::Test
     end
 
     if not defined?(::Test::B1)
-        class B1 < ::Ice::Value
+        class B1 < Ice::Value
 
             def initialize(a1=nil, a2=nil)
                 @a1 = a1
@@ -339,7 +339,7 @@ module ::Test
         end
 
         if not defined?(::Test::Inner::A)
-            class A < ::Ice::Value
+            class A < Ice::Value
 
                 def initialize(theA=nil)
                     @theA = theA
@@ -370,7 +370,7 @@ module ::Test
             end
 
             if not defined?(::Test::Inner::Sub::A)
-                class A < ::Ice::Value
+                class A < Ice::Value
 
                     def initialize(theA=nil)
                         @theA = theA
@@ -401,7 +401,7 @@ module ::Test
     end
 
     if not defined?(::Test::Recursive)
-        class Recursive < ::Ice::Value
+        class Recursive < Ice::Value
 
             def initialize(v=nil)
                 @v = v
@@ -418,7 +418,7 @@ module ::Test
     end
 
     if not defined?(::Test::K)
-        class K < ::Ice::Value
+        class K < Ice::Value
 
             def initialize(value=nil)
                 @value = value
@@ -435,7 +435,7 @@ module ::Test
     end
 
     if not defined?(::Test::L)
-        class L < ::Ice::Value
+        class L < Ice::Value
 
             def initialize(data='')
                 @data = data
@@ -499,7 +499,7 @@ module ::Test
     end
 
     if not defined?(::Test::M)
-        class M < ::Ice::Value
+        class M < Ice::Value
 
             def initialize(v=nil)
                 @v = v
@@ -524,7 +524,7 @@ module ::Test
     end
 
     if not defined?(::Test::F3)
-        class F3 < ::Ice::Value
+        class F3 < Ice::Value
 
             def initialize(f1=nil, f2=nil)
                 @f1 = f1
@@ -707,7 +707,7 @@ module ::Test
     end
 
     if not defined?(::Test::Empty)
-        class Empty < ::Ice::Value
+        class Empty < Ice::Value
         end
 
         T_Empty.defineClass(Empty, -1, false, nil, [])
@@ -718,7 +718,7 @@ module ::Test
     end
 
     if not defined?(::Test::AlsoEmpty)
-        class AlsoEmpty < ::Ice::Value
+        class AlsoEmpty < Ice::Value
         end
 
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
@@ -751,7 +751,7 @@ module ::Test
     end
 
     if not defined?(::Test::COneMember)
-        class COneMember < ::Ice::Value
+        class COneMember < Ice::Value
 
             def initialize(e=nil)
                 @e = e
@@ -768,7 +768,7 @@ module ::Test
     end
 
     if not defined?(::Test::CTwoMembers)
-        class CTwoMembers < ::Ice::Value
+        class CTwoMembers < Ice::Value
 
             def initialize(e1=nil, e2=nil)
                 @e1 = e1

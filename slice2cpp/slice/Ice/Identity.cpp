@@ -40,7 +40,7 @@
 #endif
 
 void
-Ice::Identity::ice_printFields(::std::ostream& os) const
+Ice::Identity::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "name = ", this->name);
     Ice::print(os << ", category = ", this->category);

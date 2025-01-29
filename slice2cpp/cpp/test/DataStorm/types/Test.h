@@ -29,10 +29,10 @@ namespace Test
     struct StructValue;
 
     class Base;
-    using BasePtr = ::std::shared_ptr<Base>;
+    using BasePtr = std::shared_ptr<Base>;
 
     class Extended;
-    using ExtendedPtr = ::std::shared_ptr<Extended>;
+    using ExtendedPtr = std::shared_ptr<Extended>;
 
 }
 
@@ -41,23 +41,23 @@ namespace Test
 
 struct StructValue
 {
-    ::std::string firstName;
-    ::std::string lastName;
-    ::std::int32_t age;
+    std::string firstName;
+    std::string lastName;
+    std::int32_t age;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(firstName, lastName, age);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const StructValue&);
+std::ostream& operator<<(std::ostream&, const StructValue&);
 
 class Base : public Ice::Value
 {
@@ -66,8 +66,8 @@ public:
     Base() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit Base(::std::string b) noexcept :
-        b(::std::move(b))
+    explicit Base(std::string b) noexcept :
+        b(std::move(b))
     {
     }
 
@@ -79,16 +79,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(b);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
+    [[nodiscard]] BasePtr ice_clone() const { return std::static_pointer_cast<Base>(_iceCloneImpl()); }
 
-    ::std::string b;
+    std::string b;
 
     void ice_printFields(std::ostream& os) const override;
     Base(const Base&) = default;
@@ -107,8 +107,8 @@ public:
     Extended() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Extended(::std::string b, ::std::int32_t e) noexcept :
-        Base(::std::move(b)),
+    Extended(std::string b, std::int32_t e) noexcept :
+        Base(std::move(b)),
         e(e)
     {
     }
@@ -121,16 +121,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(b, e);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] ExtendedPtr ice_clone() const { return ::std::static_pointer_cast<Extended>(_iceCloneImpl()); }
+    [[nodiscard]] ExtendedPtr ice_clone() const { return std::static_pointer_cast<Extended>(_iceCloneImpl()); }
 
-    ::std::int32_t e;
+    std::int32_t e;
 
     void ice_printFields(std::ostream& os) const override;
     Extended(const Extended&) = default;

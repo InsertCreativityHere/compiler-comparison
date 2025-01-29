@@ -39,7 +39,7 @@
 #endif
 
 void
-Glacier2::SSLInfo::ice_printFields(::std::ostream& os) const
+Glacier2::SSLInfo::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "remoteHost = ", this->remoteHost);
     Ice::print(os << ", remotePort = ", this->remotePort);
@@ -49,8 +49,8 @@ Glacier2::SSLInfo::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", certs = ", this->certs);
 }
 
-::std::ostream&
-Glacier2::operator<<(::std::ostream& os, const ::Glacier2::SSLInfo& value)
+std::ostream&
+Glacier2::operator<<(std::ostream& os, const ::Glacier2::SSLInfo& value)
 {
     os << "Glacier2::SSLInfo{";
     value.ice_printFields(os);

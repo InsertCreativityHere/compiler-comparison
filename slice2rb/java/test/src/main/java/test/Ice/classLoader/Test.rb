@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::ConcreteClass)
-        class ConcreteClass < ::Ice::Value
+        class ConcreteClass < Ice::Value
 
             def initialize(i=0)
                 @i = i

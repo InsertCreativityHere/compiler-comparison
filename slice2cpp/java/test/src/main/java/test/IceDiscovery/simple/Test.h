@@ -39,15 +39,15 @@ class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getAdapterId(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::string getAdapterId(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> getAdapterIdAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::string> getAdapterIdAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getAdapterIdAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    getAdapterIdAsync(std::function<void(std::string)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdapterId(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
+    void _iceI_getAdapterId(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -97,59 +97,59 @@ class ControllerPrx : public Ice::Proxy<ControllerPrx, Ice::ObjectPrx>
 {
 public:
 
-    void activateObjectAdapter(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const Ice::Context& context = Ice::noExplicitContext) const;
+    void activateObjectAdapter(std::string_view name, std::string_view adapterId, std::string_view replicaGroupId, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> activateObjectAdapterAsync(std::string_view name, std::string_view adapterId, std::string_view replicaGroupId, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    activateObjectAdapterAsync(std::string_view name, std::string_view adapterId, std::string_view replicaGroupId, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_activateObjectAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, ::std::string_view, const Ice::Context&) const;
+    void _iceI_activateObjectAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, std::string_view, const Ice::Context&) const;
     /// \endcond
 
-    void deactivateObjectAdapter(::std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
+    void deactivateObjectAdapter(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> deactivateObjectAdapterAsync(::std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> deactivateObjectAdapterAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    deactivateObjectAdapterAsync(::std::string_view name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    deactivateObjectAdapterAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_deactivateObjectAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const Ice::Context&) const;
+    void _iceI_deactivateObjectAdapter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
     /// \endcond
 
-    void addObject(::std::string_view oaName, ::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
+    void addObject(std::string_view oaName, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> addObjectAsync(::std::string_view oaName, ::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> addObjectAsync(std::string_view oaName, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    addObjectAsync(::std::string_view oaName, ::std::string_view id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    addObjectAsync(std::string_view oaName, std::string_view id, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addObject(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const Ice::Context&) const;
+    void _iceI_addObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, const Ice::Context&) const;
     /// \endcond
 
-    void removeObject(::std::string_view oaName, ::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
+    void removeObject(std::string_view oaName, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> removeObjectAsync(::std::string_view oaName, ::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> removeObjectAsync(std::string_view oaName, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    removeObjectAsync(::std::string_view oaName, ::std::string_view id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    removeObjectAsync(std::string_view oaName, std::string_view id, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeObject(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const Ice::Context&) const;
+    void _iceI_removeObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::string_view, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -209,28 +209,28 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual ::std::string getAdapterId(const Ice::Current& current) = 0;
+    virtual std::string getAdapterId(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getAdapterId(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_getAdapterId(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+using TestIntfPtr = std::shared_ptr<TestIntf>;
 
 class Controller : public virtual Ice::Object
 {
@@ -241,48 +241,48 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void activateObjectAdapter(::std::string name, ::std::string adapterId, ::std::string replicaGroupId, const Ice::Current& current) = 0;
+    virtual void activateObjectAdapter(std::string name, std::string adapterId, std::string replicaGroupId, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_activateObjectAdapter(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_activateObjectAdapter(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void deactivateObjectAdapter(::std::string name, const Ice::Current& current) = 0;
+    virtual void deactivateObjectAdapter(std::string name, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_deactivateObjectAdapter(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_deactivateObjectAdapter(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void addObject(::std::string oaName, ::std::string id, const Ice::Current& current) = 0;
+    virtual void addObject(std::string oaName, std::string id, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_addObject(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_addObject(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void removeObject(::std::string oaName, ::std::string id, const Ice::Current& current) = 0;
+    virtual void removeObject(std::string oaName, std::string id, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_removeObject(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_removeObject(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using ControllerPtr = ::std::shared_ptr<Controller>;
+using ControllerPtr = std::shared_ptr<Controller>;
 
 }
 

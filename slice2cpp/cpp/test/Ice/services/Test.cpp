@@ -36,29 +36,29 @@
 #endif
 
 void
-Test::ClockPrx::tick(::std::string_view iceP_time, const Ice::Context& context) const
+Test::ClockPrx::tick(std::string_view iceP_time, const Ice::Context& context) const
 {
     IceInternal::makePromiseOutgoing<void>(true, this, &ClockPrx::_iceI_tick, iceP_time, context).get();
 }
 
-::std::future<void>
-Test::ClockPrx::tickAsync(::std::string_view iceP_time, const Ice::Context& context) const
+std::future<void>
+Test::ClockPrx::tickAsync(std::string_view iceP_time, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &ClockPrx::_iceI_tick, iceP_time, context);
 }
 
-::std::function<void()>
-Test::ClockPrx::tickAsync(::std::string_view iceP_time, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::ClockPrx::tickAsync(std::string_view iceP_time, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ClockPrx::_iceI_tick, iceP_time, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ClockPrx::_iceI_tick, iceP_time, context);
 }
 
 void
-Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_time, const Ice::Context& context) const
+Test::ClockPrx::_iceI_tick(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, std::string_view iceP_time, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "tick";
+    static constexpr std::string_view operationName = "tick";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_time);
@@ -74,17 +74,17 @@ Test::ClockPrx::ice_staticId() noexcept
     return "::Test::Clock";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::Clock::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Clock"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::Clock"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::Clock::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -97,30 +97,30 @@ Test::Clock::ice_staticId() noexcept
 void
 Test::Clock::_iceD_tick(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_time;
+    std::string iceP_time;
     istr->readAll(iceP_time);
     istr->endEncapsulation();
-    this->tick(::std::move(iceP_time), request.current());
+    this->tick(std::move(iceP_time), request.current());
     sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::Clock::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::Clock::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "tick"};
+    static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "tick"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -128,33 +128,33 @@ Test::Clock::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::O
     {
         case 0:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_tick(request, ::std::move(sendResponse));
+            _iceD_tick(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -69,7 +69,7 @@ public:
     /// Destroy the session. This is called automatically when the router is destroyed.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the session. This is called automatically when the router is destroyed.
     /// @param response The response callback.
@@ -77,11 +77,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -146,7 +146,7 @@ public:
     /// @param additions The sequence of strings to be added.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> addAsync(const ::Ice::StringSeq& additions, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> addAsync(const ::Ice::StringSeq& additions, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
     /// removed.
@@ -156,11 +156,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    addAsync(const ::Ice::StringSeq& additions, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    addAsync(const ::Ice::StringSeq& additions, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const Ice::Context&) const;
+    void _iceI_add(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -172,7 +172,7 @@ public:
     /// @param deletions The sequence of strings to be removed.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     /// @param deletions The sequence of strings to be removed.
@@ -181,11 +181,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    removeAsync(const ::Ice::StringSeq& deletions, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    removeAsync(const ::Ice::StringSeq& deletions, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_remove(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const Ice::Context&) const;
+    void _iceI_remove(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Returns a sequence of strings describing the constraints in this set.
@@ -196,7 +196,7 @@ public:
     /// Returns a sequence of strings describing the constraints in this set.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::Ice::StringSeq> getAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<::Ice::StringSeq> getAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Returns a sequence of strings describing the constraints in this set.
     /// @param response The response callback.
@@ -204,11 +204,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    getAsync(std::function<void(::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_get(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const Ice::Context&) const;
+    void _iceI_get(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -272,7 +272,7 @@ public:
     /// @param additions The sequence of Ice identities to be added.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
     /// implicitly removed.
@@ -282,11 +282,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    addAsync(const ::Ice::IdentitySeq& additions, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    addAsync(const ::Ice::IdentitySeq& additions, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const Ice::Context&) const;
+    void _iceI_add(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -300,7 +300,7 @@ public:
     /// @param deletions The sequence of Ice identities to be removed.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
     /// found.
@@ -310,11 +310,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    removeAsync(const ::Ice::IdentitySeq& deletions, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    removeAsync(const ::Ice::IdentitySeq& deletions, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_remove(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const Ice::Context&) const;
+    void _iceI_remove(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Returns a sequence of identities describing the constraints in this set.
@@ -325,7 +325,7 @@ public:
     /// Returns a sequence of identities describing the constraints in this set.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::Ice::IdentitySeq> getAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<::Ice::IdentitySeq> getAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Returns a sequence of identities describing the constraints in this set.
     /// @param response The response callback.
@@ -333,11 +333,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getAsync(::std::function<void(::Ice::IdentitySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    getAsync(std::function<void(::Ice::IdentitySeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_get(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const Ice::Context&) const;
+    void _iceI_get(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -392,12 +392,12 @@ public:
     /// Access the object that manages the allowable categories for object identities for this session.
     /// @param context The Context map to send with the invocation.
     /// @return A StringSet object. The returned proxy is never null.
-    ::std::optional<StringSetPrx> categories(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<StringSetPrx> categories(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Access the object that manages the allowable categories for object identities for this session.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<StringSetPrx>> categoriesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<StringSetPrx>> categoriesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Access the object that manages the allowable categories for object identities for this session.
     /// @param response The response callback.
@@ -405,22 +405,22 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    categoriesAsync(::std::function<void(::std::optional<::Glacier2::StringSetPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    categoriesAsync(std::function<void(std::optional<::Glacier2::StringSetPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_categories(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>&, const Ice::Context&) const;
+    void _iceI_categories(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<StringSetPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     /// @param context The Context map to send with the invocation.
     /// @return A StringSet object. The returned proxy is never null.
-    ::std::optional<StringSetPrx> adapterIds(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<StringSetPrx> adapterIds(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<StringSetPrx>> adapterIdsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<StringSetPrx>> adapterIdsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     /// @param response The response callback.
@@ -428,22 +428,22 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    adapterIdsAsync(::std::function<void(::std::optional<::Glacier2::StringSetPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    adapterIdsAsync(std::function<void(std::optional<::Glacier2::StringSetPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterIds(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>&, const Ice::Context&) const;
+    void _iceI_adapterIds(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<StringSetPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Access the object that manages the allowable object identities for this session.
     /// @param context The Context map to send with the invocation.
     /// @return An IdentitySet object. The returned proxy is never null.
-    ::std::optional<IdentitySetPrx> identities(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<IdentitySetPrx> identities(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Access the object that manages the allowable object identities for this session.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<IdentitySetPrx>> identitiesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<IdentitySetPrx>> identitiesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Access the object that manages the allowable object identities for this session.
     /// @param response The response callback.
@@ -451,22 +451,22 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    identitiesAsync(::std::function<void(::std::optional<::Glacier2::IdentitySetPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    identitiesAsync(std::function<void(std::optional<::Glacier2::IdentitySetPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_identities(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<IdentitySetPrx>>>&, const Ice::Context&) const;
+    void _iceI_identities(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<IdentitySetPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Get the session timeout.
     /// @param context The Context map to send with the invocation.
     /// @return The timeout.
-    ::std::int32_t getSessionTimeout(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::int32_t getSessionTimeout(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the session timeout.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::int32_t> getSessionTimeoutAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the session timeout.
     /// @param response The response callback.
@@ -474,11 +474,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    getSessionTimeoutAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getSessionTimeout(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>&, const Ice::Context&) const;
+    void _iceI_getSessionTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Destroy the associated session.
@@ -488,7 +488,7 @@ public:
     /// Destroy the associated session.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the associated session.
     /// @param response The response callback.
@@ -496,11 +496,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -564,7 +564,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the newly created session.
     /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-    ::std::optional<SessionPrx> create(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<SessionPrx> create(std::string_view userId, const std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a new session. The implementation must return a non-null proxy or raise
     /// {@link CannotCreateSessionException} if the session cannot be created.
@@ -573,7 +573,7 @@ public:
     /// are not configured.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<SessionPrx>> createAsync(std::string_view userId, const std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a new session. The implementation must return a non-null proxy or raise
     /// {@link CannotCreateSessionException} if the session cannot be created.
@@ -585,11 +585,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    createAsync(std::string_view userId, const std::optional<SessionControlPrx>& control, std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, const ::std::optional<SessionControlPrx>&, const Ice::Context&) const;
+    void _iceI_create(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<SessionPrx>>>&, std::string_view, const std::optional<SessionControlPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -650,14 +650,14 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the newly created session.
     /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-    ::std::optional<SessionPrx> create(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<SessionPrx> create(const SSLInfo& info, const std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a new session.
     /// @param info The SSL info.
     /// @param control A proxy to the session control object.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createAsync(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<SessionPrx>> createAsync(const SSLInfo& info, const std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a new session.
     /// @param info The SSL info.
@@ -667,11 +667,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createAsync(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    createAsync(const SSLInfo& info, const std::optional<SessionControlPrx>& control, std::function<void(std::optional<::Glacier2::SessionPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const SSLInfo&, const ::std::optional<SessionControlPrx>&, const Ice::Context&) const;
+    void _iceI_create(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<SessionPrx>>>&, const SSLInfo&, const std::optional<SessionControlPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -731,8 +731,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param reason The reason why session creation has failed.
-    CannotCreateSessionException(::std::string reason) noexcept :
-        reason(::std::move(reason))
+    CannotCreateSessionException(std::string reason) noexcept :
+        reason(std::move(reason))
     {
     }
 
@@ -741,7 +741,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -757,7 +757,7 @@ public:
     ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
 
     /// The reason why session creation has failed.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(GLACIER2_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -782,12 +782,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -797,15 +797,15 @@ public:
     /// @param current The Current object for the invocation.
     virtual void destroy(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_destroy(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_destroy(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SessionPtr = ::std::shared_ptr<Session>;
+using SessionPtr = std::shared_ptr<Session>;
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
 /// {@link Session}.
@@ -820,12 +820,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -837,7 +837,7 @@ public:
     /// @param current The Current object for the invocation.
     virtual void add(::Ice::StringSeq additions, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_add(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_add(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -845,7 +845,7 @@ public:
     /// @param current The Current object for the invocation.
     virtual void remove(::Ice::StringSeq deletions, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_remove(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_remove(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Returns a sequence of strings describing the constraints in this set.
@@ -853,15 +853,15 @@ public:
     /// @return The sequence of strings for this set.
     virtual ::Ice::StringSeq get(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_get(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_get(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using StringSetPtr = ::std::shared_ptr<StringSet>;
+using StringSetPtr = std::shared_ptr<StringSet>;
 
 /// An object for managing the set of object identity constraints on a {@link Session}.
 /// @see Session
@@ -875,12 +875,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -892,7 +892,7 @@ public:
     /// @param current The Current object for the invocation.
     virtual void add(::Ice::IdentitySeq additions, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_add(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_add(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -901,7 +901,7 @@ public:
     /// @param current The Current object for the invocation.
     virtual void remove(::Ice::IdentitySeq deletions, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_remove(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_remove(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Returns a sequence of identities describing the constraints in this set.
@@ -909,15 +909,15 @@ public:
     /// @return The sequence of Ice identities for this set.
     virtual ::Ice::IdentitySeq get(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_get(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_get(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using IdentitySetPtr = ::std::shared_ptr<IdentitySet>;
+using IdentitySetPtr = std::shared_ptr<IdentitySet>;
 
 /// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
 /// @see Session
@@ -930,12 +930,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -944,48 +944,48 @@ public:
     /// Access the object that manages the allowable categories for object identities for this session.
     /// @param current The Current object for the invocation.
     /// @return A StringSet object. The returned proxy is never null.
-    virtual ::std::optional<StringSetPrx> categories(const Ice::Current& current) = 0;
+    virtual std::optional<StringSetPrx> categories(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_categories(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_categories(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     /// @param current The Current object for the invocation.
     /// @return A StringSet object. The returned proxy is never null.
-    virtual ::std::optional<StringSetPrx> adapterIds(const Ice::Current& current) = 0;
+    virtual std::optional<StringSetPrx> adapterIds(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_adapterIds(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_adapterIds(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Access the object that manages the allowable object identities for this session.
     /// @param current The Current object for the invocation.
     /// @return An IdentitySet object. The returned proxy is never null.
-    virtual ::std::optional<IdentitySetPrx> identities(const Ice::Current& current) = 0;
+    virtual std::optional<IdentitySetPrx> identities(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_identities(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_identities(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Get the session timeout.
     /// @param current The Current object for the invocation.
     /// @return The timeout.
-    virtual ::std::int32_t getSessionTimeout(const Ice::Current& current) = 0;
+    virtual std::int32_t getSessionTimeout(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getSessionTimeout(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_getSessionTimeout(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Destroy the associated session.
     /// @param current The Current object for the invocation.
     virtual void destroy(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_destroy(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_destroy(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SessionControlPtr = ::std::shared_ptr<SessionControl>;
+using SessionControlPtr = std::shared_ptr<SessionControl>;
 
 /// The session manager for username/password authenticated users that is responsible for managing {@link Session}
 /// objects. New session objects are created by the {@link Router} object calling on an application-provided
@@ -1002,12 +1002,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1021,17 +1021,17 @@ public:
     /// @param current The Current object for the invocation.
     /// @return A proxy to the newly created session.
     /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-    virtual ::std::optional<SessionPrx> create(::std::string userId, ::std::optional<SessionControlPrx> control, const Ice::Current& current) = 0;
+    virtual std::optional<SessionPrx> create(std::string userId, std::optional<SessionControlPrx> control, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_create(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_create(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SessionManagerPtr = ::std::shared_ptr<SessionManager>;
+using SessionManagerPtr = std::shared_ptr<SessionManager>;
 
 /// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
 /// session objects are created by the {@link Router} object calling on an application-provided session manager. If
@@ -1047,12 +1047,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1064,17 +1064,17 @@ public:
     /// @param current The Current object for the invocation.
     /// @return A proxy to the newly created session.
     /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-    virtual ::std::optional<SessionPrx> create(SSLInfo info, ::std::optional<SessionControlPrx> control, const Ice::Current& current) = 0;
+    virtual std::optional<SessionPrx> create(SSLInfo info, std::optional<SessionControlPrx> control, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_create(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_create(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
+using SSLSessionManagerPtr = std::shared_ptr<SSLSessionManager>;
 
 }
 

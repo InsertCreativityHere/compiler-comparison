@@ -51,8 +51,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param name The name of the application.
-    ApplicationNotExistException(::std::string name) noexcept :
-        name(::std::move(name))
+    ApplicationNotExistException(std::string name) noexcept :
+        name(std::move(name))
     {
     }
 
@@ -61,7 +61,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
@@ -77,7 +77,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The name of the application.
-    ::std::string name;
+    std::string name;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -94,8 +94,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param id The identifier of the server.
-    ServerNotExistException(::std::string id) noexcept :
-        id(::std::move(id))
+    ServerNotExistException(std::string id) noexcept :
+        id(std::move(id))
     {
     }
 
@@ -104,7 +104,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(id);
     }
@@ -120,7 +120,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The identifier of the server.
-    ::std::string id;
+    std::string id;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -138,9 +138,9 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param id The identifier of the server.
     /// @param reason The reason for the failure.
-    ServerStartException(::std::string id, ::std::string reason) noexcept :
-        id(::std::move(id)),
-        reason(::std::move(reason))
+    ServerStartException(std::string id, std::string reason) noexcept :
+        id(std::move(id)),
+        reason(std::move(reason))
     {
     }
 
@@ -149,7 +149,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(id, reason);
     }
@@ -165,9 +165,9 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The identifier of the server.
-    ::std::string id;
+    std::string id;
     /// The reason for the failure.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -185,9 +185,9 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param id The identifier of the server.
     /// @param reason The reason for the failure.
-    ServerStopException(::std::string id, ::std::string reason) noexcept :
-        id(::std::move(id)),
-        reason(::std::move(reason))
+    ServerStopException(std::string id, std::string reason) noexcept :
+        id(std::move(id)),
+        reason(std::move(reason))
     {
     }
 
@@ -196,7 +196,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(id, reason);
     }
@@ -212,9 +212,9 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The identifier of the server.
-    ::std::string id;
+    std::string id;
     /// The reason for the failure.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -231,8 +231,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param id The id of the object adapter.
-    AdapterNotExistException(::std::string id) noexcept :
-        id(::std::move(id))
+    AdapterNotExistException(std::string id) noexcept :
+        id(std::move(id))
     {
     }
 
@@ -241,7 +241,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(id);
     }
@@ -257,7 +257,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The id of the object adapter.
-    ::std::string id;
+    std::string id;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -275,7 +275,7 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param id The identity of the object.
     ObjectExistsException(::Ice::Identity id) noexcept :
-        id(::std::move(id))
+        id(std::move(id))
     {
     }
 
@@ -318,7 +318,7 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param id The identity of the object.
     ObjectNotRegisteredException(::Ice::Identity id) noexcept :
-        id(::std::move(id))
+        id(std::move(id))
     {
     }
 
@@ -360,8 +360,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param name The node name.
-    NodeNotExistException(::std::string name) noexcept :
-        name(::std::move(name))
+    NodeNotExistException(std::string name) noexcept :
+        name(std::move(name))
     {
     }
 
@@ -370,7 +370,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
@@ -386,7 +386,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The node name.
-    ::std::string name;
+    std::string name;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -403,8 +403,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param name The registry name.
-    RegistryNotExistException(::std::string name) noexcept :
-        name(::std::move(name))
+    RegistryNotExistException(std::string name) noexcept :
+        name(std::move(name))
     {
     }
 
@@ -413,7 +413,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
@@ -429,7 +429,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The registry name.
-    ::std::string name;
+    std::string name;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -446,8 +446,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param reason The reason for the failure.
-    DeploymentException(::std::string reason) noexcept :
-        reason(::std::move(reason))
+    DeploymentException(std::string reason) noexcept :
+        reason(std::move(reason))
     {
     }
 
@@ -456,7 +456,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -472,7 +472,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The reason for the failure.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -490,9 +490,9 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param name The name of the node that is not reachable.
     /// @param reason The reason why the node couldn't be reached.
-    NodeUnreachableException(::std::string name, ::std::string reason) noexcept :
-        name(::std::move(name)),
-        reason(::std::move(reason))
+    NodeUnreachableException(std::string name, std::string reason) noexcept :
+        name(std::move(name)),
+        reason(std::move(reason))
     {
     }
 
@@ -501,7 +501,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(name, reason);
     }
@@ -517,9 +517,9 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The name of the node that is not reachable.
-    ::std::string name;
+    std::string name;
     /// The reason why the node couldn't be reached.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -537,9 +537,9 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param name The id of the server that is not reachable.
     /// @param reason The reason why the server couldn't be reached.
-    ServerUnreachableException(::std::string name, ::std::string reason) noexcept :
-        name(::std::move(name)),
-        reason(::std::move(reason))
+    ServerUnreachableException(std::string name, std::string reason) noexcept :
+        name(std::move(name)),
+        reason(std::move(reason))
     {
     }
 
@@ -548,7 +548,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(name, reason);
     }
@@ -564,9 +564,9 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The id of the server that is not reachable.
-    ::std::string name;
+    std::string name;
     /// The reason why the server couldn't be reached.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -584,9 +584,9 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param name The name of the registry that is not reachable.
     /// @param reason The reason why the registry couldn't be reached.
-    RegistryUnreachableException(::std::string name, ::std::string reason) noexcept :
-        name(::std::move(name)),
-        reason(::std::move(reason))
+    RegistryUnreachableException(std::string name, std::string reason) noexcept :
+        name(std::move(name)),
+        reason(std::move(reason))
     {
     }
 
@@ -595,7 +595,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(name, reason);
     }
@@ -611,9 +611,9 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The name of the registry that is not reachable.
-    ::std::string name;
+    std::string name;
     /// The reason why the registry couldn't be reached.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -630,8 +630,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param reason The details of the unknown signal.
-    BadSignalException(::std::string reason) noexcept :
-        reason(::std::move(reason))
+    BadSignalException(std::string reason) noexcept :
+        reason(std::move(reason))
     {
     }
 
@@ -640,7 +640,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -656,7 +656,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The details of the unknown signal.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -673,8 +673,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param lockUserId The id of the user holding the lock (if any).
-    AccessDeniedException(::std::string lockUserId) noexcept :
-        lockUserId(::std::move(lockUserId))
+    AccessDeniedException(std::string lockUserId) noexcept :
+        lockUserId(std::move(lockUserId))
     {
     }
 
@@ -683,7 +683,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(lockUserId);
     }
@@ -699,7 +699,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The id of the user holding the lock (if any).
-    ::std::string lockUserId;
+    std::string lockUserId;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -716,8 +716,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param reason The reason why the object couldn't be allocated.
-    AllocationException(::std::string reason) noexcept :
-        reason(::std::move(reason))
+    AllocationException(std::string reason) noexcept :
+        reason(std::move(reason))
     {
     }
 
@@ -726,7 +726,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -742,7 +742,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The reason why the object couldn't be allocated.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -779,8 +779,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param reason The reason why permission was denied.
-    PermissionDeniedException(::std::string reason) noexcept :
-        reason(::std::move(reason))
+    PermissionDeniedException(std::string reason) noexcept :
+        reason(std::move(reason))
     {
     }
 
@@ -789,7 +789,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -805,7 +805,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The reason why permission was denied.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
@@ -825,7 +825,7 @@ public:
     /// One-shot constructor to initialize all data members.
     /// @param id The identity of the observer.
     ObserverAlreadyRegisteredException(::Ice::Identity id) noexcept :
-        id(::std::move(id))
+        id(std::move(id))
     {
     }
 
@@ -873,8 +873,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     /// @param reason The reason for the failure.
-    FileNotAvailableException(::std::string reason) noexcept :
-        reason(::std::move(reason))
+    FileNotAvailableException(std::string reason) noexcept :
+        reason(std::move(reason))
     {
     }
 
@@ -883,7 +883,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -899,7 +899,7 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
     /// The reason for the failure.
-    ::std::string reason;
+    std::string reason;
 
 protected:
     ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;

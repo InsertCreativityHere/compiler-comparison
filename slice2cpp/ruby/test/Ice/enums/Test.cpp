@@ -35,8 +35,8 @@
 #   endif
 #endif
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, ByteEnum value)
+std::ostream&
+Test::operator<<(std::ostream& os, ByteEnum value)
 {
     switch (value)
     {
@@ -63,12 +63,12 @@ Test::operator<<(::std::ostream& os, ByteEnum value)
         case ByteEnum::benum11:
             return os << "benum11";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, ShortEnum value)
+std::ostream&
+Test::operator<<(std::ostream& os, ShortEnum value)
 {
     switch (value)
     {
@@ -95,12 +95,12 @@ Test::operator<<(::std::ostream& os, ShortEnum value)
         case ShortEnum::senum11:
             return os << "senum11";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, IntEnum value)
+std::ostream&
+Test::operator<<(std::ostream& os, IntEnum value)
 {
     switch (value)
     {
@@ -129,12 +129,12 @@ Test::operator<<(::std::ostream& os, IntEnum value)
         case IntEnum::ienum12:
             return os << "ienum12";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, SimpleEnum value)
+std::ostream&
+Test::operator<<(std::ostream& os, SimpleEnum value)
 {
     switch (value)
     {
@@ -145,41 +145,41 @@ Test::operator<<(::std::ostream& os, SimpleEnum value)
         case SimpleEnum::blue:
             return os << "blue";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
 ::Test::ByteEnum
 Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context).get();
-    iceP_b2 = ::std::get<1>(result);
-    return ::std::get<0>(result);
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<ByteEnum, ByteEnum>>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context).get();
+    iceP_b2 = std::get<1>(result);
+    return std::get<0>(result);
 }
 
-::std::future<::std::tuple<::Test::ByteEnum, ::Test::ByteEnum>>
+std::future<std::tuple<::Test::ByteEnum, ::Test::ByteEnum>>
 Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<ByteEnum, ByteEnum>>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteEnum, ByteEnum>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<ByteEnum, ByteEnum>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<ByteEnum, ByteEnum>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ByteEnum, ByteEnum>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>& outAsync, ByteEnum iceP_b1, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opByte(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteEnum, ByteEnum>>>& outAsync, ByteEnum iceP_b1, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opByte";
+    static constexpr std::string_view operationName = "opByte";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -187,8 +187,8 @@ Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<IceInternal::OutgoingAsy
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<ByteEnum, ByteEnum> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<ByteEnum, ByteEnum> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
@@ -196,34 +196,34 @@ Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<IceInternal::OutgoingAsy
 ::Test::ShortEnum
 Test::TestIntfPrx::opShort(ShortEnum iceP_s1, ShortEnum& iceP_s2, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context).get();
-    iceP_s2 = ::std::get<1>(result);
-    return ::std::get<0>(result);
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<ShortEnum, ShortEnum>>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context).get();
+    iceP_s2 = std::get<1>(result);
+    return std::get<0>(result);
 }
 
-::std::future<::std::tuple<::Test::ShortEnum, ::Test::ShortEnum>>
+std::future<std::tuple<::Test::ShortEnum, ::Test::ShortEnum>>
 Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<ShortEnum, ShortEnum>>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortEnum, ShortEnum>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<ShortEnum, ShortEnum>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<ShortEnum, ShortEnum>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<ShortEnum, ShortEnum>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>& outAsync, ShortEnum iceP_s1, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opShort(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortEnum, ShortEnum>>>& outAsync, ShortEnum iceP_s1, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opShort";
+    static constexpr std::string_view operationName = "opShort";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -231,8 +231,8 @@ Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<IceInternal::OutgoingAs
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<ShortEnum, ShortEnum> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<ShortEnum, ShortEnum> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
@@ -240,34 +240,34 @@ Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<IceInternal::OutgoingAs
 ::Test::IntEnum
 Test::TestIntfPrx::opInt(IntEnum iceP_i1, IntEnum& iceP_i2, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context).get();
-    iceP_i2 = ::std::get<1>(result);
-    return ::std::get<0>(result);
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<IntEnum, IntEnum>>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context).get();
+    iceP_i2 = std::get<1>(result);
+    return std::get<0>(result);
 }
 
-::std::future<::std::tuple<::Test::IntEnum, ::Test::IntEnum>>
+std::future<std::tuple<::Test::IntEnum, ::Test::IntEnum>>
 Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<IntEnum, IntEnum>>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<IntEnum, IntEnum>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<IntEnum, IntEnum>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<IntEnum, IntEnum>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<IntEnum, IntEnum>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>& outAsync, IntEnum iceP_i1, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opInt(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntEnum, IntEnum>>>& outAsync, IntEnum iceP_i1, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opInt";
+    static constexpr std::string_view operationName = "opInt";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i1);
@@ -275,8 +275,8 @@ Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<IceInternal::OutgoingAsyn
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<IntEnum, IntEnum> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<IntEnum, IntEnum> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
@@ -284,34 +284,34 @@ Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<IceInternal::OutgoingAsyn
 ::Test::SimpleEnum
 Test::TestIntfPrx::opSimple(SimpleEnum iceP_s1, SimpleEnum& iceP_s2, const Ice::Context& context) const
 {
-    auto result = IceInternal::makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(true, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context).get();
-    iceP_s2 = ::std::get<1>(result);
-    return ::std::get<0>(result);
+    auto result = IceInternal::makePromiseOutgoing<std::tuple<SimpleEnum, SimpleEnum>>(true, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context).get();
+    iceP_s2 = std::get<1>(result);
+    return std::get<0>(result);
 }
 
-::std::future<::std::tuple<::Test::SimpleEnum, ::Test::SimpleEnum>>
+std::future<std::tuple<::Test::SimpleEnum, ::Test::SimpleEnum>>
 Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, const Ice::Context& context) const
 {
-    return IceInternal::makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(false, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context);
+    return IceInternal::makePromiseOutgoing<std::tuple<SimpleEnum, SimpleEnum>>(false, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SimpleEnum, SimpleEnum>&& result) mutable
+    auto responseCb = [response = std::move(response)](std::tuple<SimpleEnum, SimpleEnum>&& result) mutable
     {
-        ::std::apply(::std::move(response), ::std::move(result));
+        std::apply(std::move(response), std::move(result));
     };
-    return IceInternal::makeLambdaOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opSimple, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<std::tuple<SimpleEnum, SimpleEnum>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSimple, iceP_s1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>& outAsync, SimpleEnum iceP_s1, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opSimple(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SimpleEnum, SimpleEnum>>>& outAsync, SimpleEnum iceP_s1, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "opSimple";
+    static constexpr std::string_view operationName = "opSimple";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -319,8 +319,8 @@ Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<IceInternal::OutgoingA
         nullptr,
         [](Ice::InputStream* istr)
         {
-            ::std::tuple<SimpleEnum, SimpleEnum> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            std::tuple<SimpleEnum, SimpleEnum> v;
+            istr->readAll(std::get<1>(v), std::get<0>(v));
             return v;
         });
 }
@@ -331,24 +331,24 @@ Test::TestIntfPrx::shutdown(const Ice::Context& context) const
     IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
-::std::future<void>
+std::future<void>
 Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
-::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::TestIntfPrx::shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
+Test::TestIntfPrx::_iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "shutdown";
+    static constexpr std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -361,17 +361,17 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::TestIntf::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -384,7 +384,7 @@ Test::TestIntf::ice_staticId() noexcept
 void
 Test::TestIntf::_iceD_opByte(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -406,7 +406,7 @@ Test::TestIntf::_iceD_opByte(
 void
 Test::TestIntf::_iceD_opShort(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -428,7 +428,7 @@ Test::TestIntf::_iceD_opShort(
 void
 Test::TestIntf::_iceD_opInt(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -450,7 +450,7 @@ Test::TestIntf::_iceD_opInt(
 void
 Test::TestIntf::_iceD_opSimple(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -472,7 +472,7 @@ Test::TestIntf::_iceD_opSimple(
 void
 Test::TestIntf::_iceD_shutdown(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -483,15 +483,15 @@ Test::TestIntf::_iceD_shutdown(
 
 /// \cond INTERNAL
 void
-Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 9> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opByte", "opInt", "opShort", "opSimple", "shutdown"};
+    static constexpr std::array<std::string_view, 9> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opByte", "opInt", "opShort", "opSimple", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -499,53 +499,53 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice
     {
         case 0:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_opByte(request, ::std::move(sendResponse));
+            _iceD_opByte(request, std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_opInt(request, ::std::move(sendResponse));
+            _iceD_opInt(request, std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_opShort(request, ::std::move(sendResponse));
+            _iceD_opShort(request, std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_opSimple(request, ::std::move(sendResponse));
+            _iceD_opSimple(request, std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

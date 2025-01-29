@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::F1)
-        class F1 < ::Ice::Value
+        class F1 < Ice::Value
 
             def initialize(name='')
                 @name = name

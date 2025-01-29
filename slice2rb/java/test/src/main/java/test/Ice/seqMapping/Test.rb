@@ -134,7 +134,7 @@ module ::Test
     end
 
     if not defined?(::Test::Baz)
-        class Baz < ::Ice::Value
+        class Baz < Ice::Value
 
             def initialize(sLmem=nil, sLSmem=nil)
                 @SLmem = sLmem

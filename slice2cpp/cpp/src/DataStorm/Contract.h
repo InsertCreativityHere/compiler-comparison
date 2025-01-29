@@ -31,7 +31,7 @@
 namespace DataStormContract
 {
     /// Defines policies for clearing the data sample history of a reader in response to sample events.
-    enum class ClearHistoryPolicy : ::std::uint8_t
+    enum class ClearHistoryPolicy : std::uint8_t
     {
         /// The reader clears its history when a new data sample is added.
         OnAdd,
@@ -44,9 +44,9 @@ namespace DataStormContract
         /// The reader never clears its history.
         Never
     };
-    ::std::ostream& operator<<(::std::ostream&, ClearHistoryPolicy);
+    std::ostream& operator<<(std::ostream&, ClearHistoryPolicy);
 
-    using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
+    using LongLongDict = std::map<std::int64_t, std::int64_t>;
 
     struct DataSample;
 
@@ -54,41 +54,41 @@ namespace DataStormContract
 
     struct DataSamples;
 
-    using DataSamplesSeq = ::std::vector<DataSamples>;
+    using DataSamplesSeq = std::vector<DataSamples>;
 
     struct ElementInfo;
 
-    using ElementInfoSeq = ::std::vector<ElementInfo>;
+    using ElementInfoSeq = std::vector<ElementInfo>;
 
     struct TopicInfo;
 
     /// Represents a sequence of active topics used for transmitting topic information between publisher and subscriber
     /// sessions.
     /// @see Session#announceTopics
-    using TopicInfoSeq = ::std::vector<TopicInfo>;
+    using TopicInfoSeq = std::vector<TopicInfo>;
 
     struct TopicSpec;
 
     struct FilterInfo;
 
     class ElementConfig;
-    using ElementConfigPtr = ::std::shared_ptr<ElementConfig>;
+    using ElementConfigPtr = std::shared_ptr<ElementConfig>;
 
     struct ElementData;
 
-    using ElementDataSeq = ::std::vector<ElementData>;
+    using ElementDataSeq = std::vector<ElementData>;
 
     struct ElementSpec;
 
-    using ElementSpecSeq = ::std::vector<ElementSpec>;
+    using ElementSpecSeq = std::vector<ElementSpec>;
 
     struct ElementDataAck;
 
-    using ElementDataAckSeq = ::std::vector<ElementDataAck>;
+    using ElementDataAckSeq = std::vector<ElementDataAck>;
 
     struct ElementSpecAck;
 
-    using ElementSpecAckSeq = ::std::vector<ElementSpecAck>;
+    using ElementSpecAckSeq = std::vector<ElementSpecAck>;
 
     class SessionPrx;
 
@@ -141,7 +141,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see attachTopic
-    [[nodiscard]] ::std::future<void> announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announces topics to the peer during session establishment or when adding new topics.
     ///
@@ -159,11 +159,11 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see attachTopic
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_announceTopics(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const TopicInfoSeq&, bool, const Ice::Context&) const;
+    void _iceI_announceTopics(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const TopicInfoSeq&, bool, const Ice::Context&) const;
     /// \endcond
 
     /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
@@ -181,7 +181,7 @@ public:
     /// @param topic The TopicSpec describing the topic to attach.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> attachTopicAsync(const TopicSpec& topic, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> attachTopicAsync(const TopicSpec& topic, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
@@ -193,11 +193,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    attachTopicAsync(const TopicSpec& topic, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    attachTopicAsync(const TopicSpec& topic, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_attachTopic(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const TopicSpec&, const Ice::Context&) const;
+    void _iceI_attachTopic(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const TopicSpec&, const Ice::Context&) const;
     /// \endcond
 
     /// Detaches a topic from the session, typically called when the topic is destroyed.
@@ -205,7 +205,7 @@ public:
     /// This operation is invoked by the topic on listener sessions during its destruction.
     /// @param topicId The unique identifier for the topic to detach.
     /// @param context The Context map to send with the invocation.
-    void detachTopic(::std::int64_t topicId, const Ice::Context& context = Ice::noExplicitContext) const;
+    void detachTopic(std::int64_t topicId, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
@@ -213,7 +213,7 @@ public:
     /// @param topicId The unique identifier for the topic to detach.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> detachTopicAsync(::std::int64_t topicId, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> detachTopicAsync(std::int64_t topicId, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
@@ -224,11 +224,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    detachTopicAsync(::std::int64_t topicId, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    detachTopicAsync(std::int64_t topicId, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_detachTopic(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const Ice::Context&) const;
+    void _iceI_detachTopic(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const Ice::Context&) const;
     /// \endcond
 
     /// Attaches the specified tags to the subscriber of a topic.
@@ -238,7 +238,7 @@ public:
     /// @param tags The sequence of tags to attach, representing the partial update associations.
     /// @param initialize Indicates whether the tags are being attached during session initialization.
     /// @param context The Context map to send with the invocation.
-    void attachTags(::std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
+    void attachTags(std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Attaches the specified tags to the subscriber of a topic.
     ///
@@ -248,7 +248,7 @@ public:
     /// @param initialize Indicates whether the tags are being attached during session initialization.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> attachTagsAsync(::std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> attachTagsAsync(std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Attaches the specified tags to the subscriber of a topic.
     ///
@@ -261,25 +261,25 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    attachTagsAsync(::std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    attachTagsAsync(std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_attachTags(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementInfoSeq&, bool, const Ice::Context&) const;
+    void _iceI_attachTags(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementInfoSeq&, bool, const Ice::Context&) const;
     /// \endcond
 
     /// Detaches tags from the session.
     /// @param topicId The unique identifier for the topic.
     /// @param tags The sequence of tag identifiers to detach.
     /// @param context The Context map to send with the invocation.
-    void detachTags(::std::int64_t topicId, const ::Ice::LongSeq& tags, const Ice::Context& context = Ice::noExplicitContext) const;
+    void detachTags(std::int64_t topicId, const ::Ice::LongSeq& tags, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Detaches tags from the session.
     /// @param topicId The unique identifier for the topic.
     /// @param tags The sequence of tag identifiers to detach.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> detachTagsAsync(::std::int64_t topicId, const ::Ice::LongSeq& tags, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> detachTagsAsync(std::int64_t topicId, const ::Ice::LongSeq& tags, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Detaches tags from the session.
     /// @param topicId The unique identifier for the topic.
@@ -289,11 +289,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    detachTagsAsync(::std::int64_t topicId, const ::Ice::LongSeq& tags, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    detachTagsAsync(std::int64_t topicId, const ::Ice::LongSeq& tags, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_detachTags(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ::Ice::LongSeq&, const Ice::Context&) const;
+    void _iceI_detachTags(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ::Ice::LongSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Announces elements associated with a topic to the peer.
@@ -307,7 +307,7 @@ public:
     /// @param elements The sequence of elements to announce, representing the data readers or data writers.
     /// @param context The Context map to send with the invocation.
     /// @see attachElements
-    void announceElements(::std::int64_t topicId, const ElementInfoSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
+    void announceElements(std::int64_t topicId, const ElementInfoSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announces elements associated with a topic to the peer.
     ///
@@ -321,7 +321,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see attachElements
-    [[nodiscard]] ::std::future<void> announceElementsAsync(::std::int64_t topicId, const ElementInfoSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> announceElementsAsync(std::int64_t topicId, const ElementInfoSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announces elements associated with a topic to the peer.
     ///
@@ -338,11 +338,11 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see attachElements
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    announceElementsAsync(::std::int64_t topicId, const ElementInfoSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    announceElementsAsync(std::int64_t topicId, const ElementInfoSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_announceElements(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementInfoSeq&, const Ice::Context&) const;
+    void _iceI_announceElements(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementInfoSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Attaches the specified elements to the subscribers of a topic.
@@ -353,7 +353,7 @@ public:
     /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
     /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param context The Context map to send with the invocation.
-    void attachElements(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
+    void attachElements(std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Attaches the specified elements to the subscribers of a topic.
     ///
@@ -364,7 +364,7 @@ public:
     /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> attachElementsAsync(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> attachElementsAsync(std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Attaches the specified elements to the subscribers of a topic.
     ///
@@ -378,11 +378,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    attachElementsAsync(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    attachElementsAsync(std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_attachElements(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementSpecSeq&, bool, const Ice::Context&) const;
+    void _iceI_attachElements(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementSpecSeq&, bool, const Ice::Context&) const;
     /// \endcond
 
     /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
@@ -392,7 +392,7 @@ public:
     /// @param topicId The unique identifier for the topic to which the elements belong.
     /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
     /// @param context The Context map to send with the invocation.
-    void attachElementsAck(::std::int64_t topicId, const ElementSpecAckSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
+    void attachElementsAck(std::int64_t topicId, const ElementSpecAckSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
     ///
@@ -402,7 +402,7 @@ public:
     /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> attachElementsAckAsync(::std::int64_t topicId, const ElementSpecAckSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> attachElementsAckAsync(std::int64_t topicId, const ElementSpecAckSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
     ///
@@ -415,11 +415,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    attachElementsAckAsync(::std::int64_t topicId, const ElementSpecAckSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    attachElementsAckAsync(std::int64_t topicId, const ElementSpecAckSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_attachElementsAck(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementSpecAckSeq&, const Ice::Context&) const;
+    void _iceI_attachElementsAck(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ElementSpecAckSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Instructs the peer to detach specific elements associated with a topic.
@@ -429,7 +429,7 @@ public:
     /// @param topicId The unique identifier for the topic to which the elements belong.
     /// @param elements A sequence of element identifiers representing the keys or filters to detach.
     /// @param context The Context map to send with the invocation.
-    void detachElements(::std::int64_t topicId, const ::Ice::LongSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
+    void detachElements(std::int64_t topicId, const ::Ice::LongSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Instructs the peer to detach specific elements associated with a topic.
     ///
@@ -439,7 +439,7 @@ public:
     /// @param elements A sequence of element identifiers representing the keys or filters to detach.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> detachElementsAsync(::std::int64_t topicId, const ::Ice::LongSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> detachElementsAsync(std::int64_t topicId, const ::Ice::LongSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Instructs the peer to detach specific elements associated with a topic.
     ///
@@ -452,25 +452,25 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    detachElementsAsync(::std::int64_t topicId, const ::Ice::LongSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    detachElementsAsync(std::int64_t topicId, const ::Ice::LongSeq& elements, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_detachElements(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ::Ice::LongSeq&, const Ice::Context&) const;
+    void _iceI_detachElements(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const ::Ice::LongSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
     /// @param topicId The unique identifier for the topic.
     /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
     /// @param context The Context map to send with the invocation.
-    void initSamples(::std::int64_t topicId, const DataSamplesSeq& samples, const Ice::Context& context = Ice::noExplicitContext) const;
+    void initSamples(std::int64_t topicId, const DataSamplesSeq& samples, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
     /// @param topicId The unique identifier for the topic.
     /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> initSamplesAsync(::std::int64_t topicId, const DataSamplesSeq& samples, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> initSamplesAsync(std::int64_t topicId, const DataSamplesSeq& samples, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
     /// @param topicId The unique identifier for the topic.
@@ -480,11 +480,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initSamplesAsync(::std::int64_t topicId, const DataSamplesSeq& samples, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initSamplesAsync(std::int64_t topicId, const DataSamplesSeq& samples, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initSamples(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const DataSamplesSeq&, const Ice::Context&) const;
+    void _iceI_initSamples(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, const DataSamplesSeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Notifies the peer that the session is being disconnected.
@@ -500,7 +500,7 @@ public:
     /// between the relay node and the target node is lost.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> disconnectedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> disconnectedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Notifies the peer that the session is being disconnected.
     ///
@@ -511,11 +511,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    disconnectedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    disconnectedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_disconnected(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_disconnected(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -628,7 +628,7 @@ public:
     /// @param elementId The unique identifier for the element to which the sample belong.
     /// @param sample The sample to queue.
     /// @param context The Context map to send with the invocation.
-    void s(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, const Ice::Context& context = Ice::noExplicitContext) const;
+    void s(std::int64_t topicId, std::int64_t elementId, const DataSample& sample, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Queue a sample with the subscribers of the topic element.
     /// @param topicId The unique identifier for the topic to which the sample belong.
@@ -636,7 +636,7 @@ public:
     /// @param sample The sample to queue.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> sAsync(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> sAsync(std::int64_t topicId, std::int64_t elementId, const DataSample& sample, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Queue a sample with the subscribers of the topic element.
     /// @param topicId The unique identifier for the topic to which the sample belong.
@@ -647,11 +647,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    sAsync(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    sAsync(std::int64_t topicId, std::int64_t elementId, const DataSample& sample, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_s(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, ::std::int64_t, const DataSample&, const Ice::Context&) const;
+    void _iceI_s(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int64_t, std::int64_t, const DataSample&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -724,7 +724,7 @@ public:
     /// @param publisher The publisher node initiating the session. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @see Lookup::announceTopicReader
-    void initiateCreateSession(const ::std::optional<NodePrx>& publisher, const Ice::Context& context = Ice::noExplicitContext) const;
+    void initiateCreateSession(const std::optional<NodePrx>& publisher, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
     /// reader for which this node has a corresponding topic writer.
@@ -732,7 +732,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see Lookup::announceTopicReader
-    [[nodiscard]] ::std::future<void> initiateCreateSessionAsync(const ::std::optional<NodePrx>& publisher, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> initiateCreateSessionAsync(const std::optional<NodePrx>& publisher, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
     /// reader for which this node has a corresponding topic writer.
@@ -743,11 +743,11 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see Lookup::announceTopicReader
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    initiateCreateSessionAsync(const ::std::optional<NodePrx>& publisher, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    initiateCreateSessionAsync(const std::optional<NodePrx>& publisher, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateCreateSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<NodePrx>&, const Ice::Context&) const;
+    void _iceI_initiateCreateSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<NodePrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
@@ -764,7 +764,7 @@ public:
     /// @param session The subscriber session being created. This proxy is never null.
     /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param context The Context map to send with the invocation.
-    void createSession(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, const Ice::Context& context = Ice::noExplicitContext) const;
+    void createSession(const std::optional<NodePrx>& subscriber, const std::optional<SubscriberSessionPrx>& session, bool fromRelay, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
     /// publisher node in one of the following scenarios:
@@ -781,7 +781,7 @@ public:
     /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> createSessionAsync(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> createSessionAsync(const std::optional<NodePrx>& subscriber, const std::optional<SubscriberSessionPrx>& session, bool fromRelay, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
     /// publisher node in one of the following scenarios:
@@ -801,25 +801,25 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createSessionAsync(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    createSessionAsync(const std::optional<NodePrx>& subscriber, const std::optional<SubscriberSessionPrx>& session, bool fromRelay, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<NodePrx>&, const ::std::optional<SubscriberSessionPrx>&, bool, const Ice::Context&) const;
+    void _iceI_createSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<NodePrx>&, const std::optional<SubscriberSessionPrx>&, bool, const Ice::Context&) const;
     /// \endcond
 
     /// Confirm the creation of a publisher session with a node.
     /// @param publisher The publisher node confirming the session. The proxy is never null.
     /// @param session The publisher session being confirmed. The proxy is never null.
     /// @param context The Context map to send with the invocation.
-    void confirmCreateSession(const ::std::optional<NodePrx>& publisher, const ::std::optional<PublisherSessionPrx>& session, const Ice::Context& context = Ice::noExplicitContext) const;
+    void confirmCreateSession(const std::optional<NodePrx>& publisher, const std::optional<PublisherSessionPrx>& session, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Confirm the creation of a publisher session with a node.
     /// @param publisher The publisher node confirming the session. The proxy is never null.
     /// @param session The publisher session being confirmed. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> confirmCreateSessionAsync(const ::std::optional<NodePrx>& publisher, const ::std::optional<PublisherSessionPrx>& session, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> confirmCreateSessionAsync(const std::optional<NodePrx>& publisher, const std::optional<PublisherSessionPrx>& session, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Confirm the creation of a publisher session with a node.
     /// @param publisher The publisher node confirming the session. The proxy is never null.
@@ -829,11 +829,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    confirmCreateSessionAsync(const ::std::optional<NodePrx>& publisher, const ::std::optional<PublisherSessionPrx>& session, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    confirmCreateSessionAsync(const std::optional<NodePrx>& publisher, const std::optional<PublisherSessionPrx>& session, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_confirmCreateSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<NodePrx>&, const ::std::optional<PublisherSessionPrx>&, const Ice::Context&) const;
+    void _iceI_confirmCreateSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<NodePrx>&, const std::optional<PublisherSessionPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -890,14 +890,14 @@ public:
     /// @param topic The name of the topic.
     /// @param subscriber The node reading the topic. The subscriber proxy is never null.
     /// @param context The Context map to send with the invocation.
-    void announceTopicReader(::std::string_view topic, const ::std::optional<NodePrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
+    void announceTopicReader(std::string_view topic, const std::optional<NodePrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announce a topic reader.
     /// @param topic The name of the topic.
     /// @param subscriber The node reading the topic. The subscriber proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> announceTopicReaderAsync(::std::string_view topic, const ::std::optional<NodePrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> announceTopicReaderAsync(std::string_view topic, const std::optional<NodePrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announce a topic reader.
     /// @param topic The name of the topic.
@@ -907,25 +907,25 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    announceTopicReaderAsync(::std::string_view topic, const ::std::optional<NodePrx>& subscriber, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    announceTopicReaderAsync(std::string_view topic, const std::optional<NodePrx>& subscriber, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_announceTopicReader(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<NodePrx>&, const Ice::Context&) const;
+    void _iceI_announceTopicReader(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const std::optional<NodePrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Announce a topic writer.
     /// @param topic The name of the topic.
     /// @param node The node writing the topic. The proxy is never null.
     /// @param context The Context map to send with the invocation.
-    void announceTopicWriter(::std::string_view topic, const ::std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
+    void announceTopicWriter(std::string_view topic, const std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announce a topic writer.
     /// @param topic The name of the topic.
     /// @param node The node writing the topic. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> announceTopicWriterAsync(::std::string_view topic, const ::std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> announceTopicWriterAsync(std::string_view topic, const std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announce a topic writer.
     /// @param topic The name of the topic.
@@ -935,11 +935,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    announceTopicWriterAsync(::std::string_view topic, const ::std::optional<NodePrx>& node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    announceTopicWriterAsync(std::string_view topic, const std::optional<NodePrx>& node, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_announceTopicWriter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<NodePrx>&, const Ice::Context&) const;
+    void _iceI_announceTopicWriter(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const std::optional<NodePrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Announce a set of topic readers and writers.
@@ -947,7 +947,7 @@ public:
     /// @param writers A sequence of topic names for writers.
     /// @param node The node reading or writing the topics. The proxy is never null.
     /// @param context The Context map to send with the invocation.
-    void announceTopics(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const ::std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
+    void announceTopics(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announce a set of topic readers and writers.
     /// @param readers A sequence of topic names for readers.
@@ -955,7 +955,7 @@ public:
     /// @param node The node reading or writing the topics. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> announceTopicsAsync(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const ::std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> announceTopicsAsync(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Announce a set of topic readers and writers.
     /// @param readers A sequence of topic names for readers.
@@ -966,24 +966,24 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    announceTopicsAsync(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const ::std::optional<NodePrx>& node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    announceTopicsAsync(const ::Ice::StringSeq& readers, const ::Ice::StringSeq& writers, const std::optional<NodePrx>& node, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_announceTopics(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::optional<NodePrx>&, const Ice::Context&) const;
+    void _iceI_announceTopics(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const std::optional<NodePrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to this node. The proxy is never null.
-    ::std::optional<NodePrx> createSession(const ::std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<NodePrx> createSession(const std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<NodePrx>> createSessionAsync(const ::std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<NodePrx>> createSessionAsync(const std::optional<NodePrx>& node, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
@@ -992,11 +992,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createSessionAsync(const ::std::optional<NodePrx>& node, ::std::function<void(::std::optional<::DataStormContract::NodePrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    createSessionAsync(const std::optional<NodePrx>& node, std::function<void(std::optional<::DataStormContract::NodePrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<NodePrx>>>&, const ::std::optional<NodePrx>&, const Ice::Context&) const;
+    void _iceI_createSession(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<NodePrx>>>&, const std::optional<NodePrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -1051,16 +1051,16 @@ namespace DataStormContract
 struct DataSample
 {
     /// The unique identifier for the sample.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The unique identifier for the associated key.
     /// A negative value (< 0) indicates a key filter.
-    ::std::int64_t keyId;
+    std::int64_t keyId;
     /// The encoded key value, used when keyId < 0 (key filter).
     ::Ice::ByteSeq keyValue;
     /// The timestamp when the sample was written, in milliseconds since the epoch.
-    ::std::int64_t timestamp;
+    std::int64_t timestamp;
     /// An update tag, used for PartialUpdate sample events.
-    ::std::int64_t tag;
+    std::int64_t tag;
     /// The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
     ::DataStorm::SampleEvent event;
     /// The payload data of the sample.
@@ -1068,71 +1068,71 @@ struct DataSample
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::int64_t&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::int64_t&, const ::DataStorm::SampleEvent&, const ::Ice::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const std::int64_t&, const ::Ice::ByteSeq&, const std::int64_t&, const std::int64_t&, const ::DataStorm::SampleEvent&, const ::Ice::ByteSeq&> ice_tuple() const
     {
         return std::tie(id, keyId, keyValue, timestamp, tag, event, value);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const DataSample&);
+std::ostream& operator<<(std::ostream&, const DataSample&);
 
 /// Represents a collection of data samples produced by a specific writer.
 struct DataSamples
 {
     /// The unique identifier for the writer.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The sequence of samples produced by the writer.
     ::DataStormContract::DataSampleSeq samples;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::DataStormContract::DataSampleSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const ::DataStormContract::DataSampleSeq&> ice_tuple() const
     {
         return std::tie(id, samples);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const DataSamples&);
+std::ostream& operator<<(std::ostream&, const DataSamples&);
 
 /// Provides metadata about an element, such as a key, filter, or tag.
 struct ElementInfo
 {
     /// The unique identifier for the element.
     /// Negative values indicate filter IDs; positive values indicate key or tag IDs.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The name of the element. Empty for key and tag elements.
-    ::std::string name;
+    std::string name;
     /// The encoded value of the element.
     ::Ice::ByteSeq value;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const std::string&, const ::Ice::ByteSeq&> ice_tuple() const
     {
         return std::tie(id, name, value);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const ElementInfo&);
+std::ostream& operator<<(std::ostream&, const ElementInfo&);
 
 /// Contains metadata about a topic, including its name and associated reader/writer IDs.
 /// @see Session#announceTopics
 struct TopicInfo
 {
     /// The name of the topic.
-    ::std::string name;
+    std::string name;
     /// The list of active topic reader or writer IDs.
     ///
     /// - In a publisher session,  the `ids` field contains the active topic writer IDs.
@@ -1141,17 +1141,17 @@ struct TopicInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::LongSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Ice::LongSeq&> ice_tuple() const
     {
         return std::tie(name, ids);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const TopicInfo&);
+std::ostream& operator<<(std::ostream&, const TopicInfo&);
 
 /// Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
 /// and tags.
@@ -1160,9 +1160,9 @@ struct TopicSpec
 {
     /// The unique identifier for the topic.
     /// The ID uniquely identifies a topic reader or topic writer within a node.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The name of the topic.
-    ::std::string name;
+    std::string name;
     /// The topic's keys and filters.
     ::DataStormContract::ElementInfoSeq elements;
     /// The topic update tags.
@@ -1170,39 +1170,39 @@ struct TopicSpec
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::string&, const ::DataStormContract::ElementInfoSeq&, const ::DataStormContract::ElementInfoSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const std::string&, const ::DataStormContract::ElementInfoSeq&, const ::DataStormContract::ElementInfoSeq&> ice_tuple() const
     {
         return std::tie(id, name, elements, tags);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const TopicSpec&);
+std::ostream& operator<<(std::ostream&, const TopicSpec&);
 
 /// Represents a sample filter that specifies which samples should be sent to a data reader.
 struct FilterInfo
 {
     /// The unique name of the filter, used for identification.
-    ::std::string name;
+    std::string name;
     /// The encoded criteria for instantiating the filter.
     ::Ice::ByteSeq criteria;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Ice::ByteSeq&> ice_tuple() const
     {
         return std::tie(name, criteria);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const FilterInfo&);
+std::ostream& operator<<(std::ostream&, const FilterInfo&);
 
 /// Represents the configuration of a data reader or data writer, including optional filters and priorities.
 class ElementConfig : public Ice::Value
@@ -1219,10 +1219,10 @@ public:
     /// @param sampleCount An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
     /// @param sampleLifetime An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the writer or reader sample queue.
     /// @param clearHistory An optional clear history policy that determines when the reader or writer sample history is cleared.
-    ElementConfig(::std::optional<::std::string> facet, ::std::optional<::DataStormContract::FilterInfo> sampleFilter, ::std::optional<::std::string> name, ::std::optional<::std::int32_t> priority, ::std::optional<::std::int32_t> sampleCount, ::std::optional<::std::int32_t> sampleLifetime, ::std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory) noexcept :
-        facet(::std::move(facet)),
-        sampleFilter(::std::move(sampleFilter)),
-        name(::std::move(name)),
+    ElementConfig(std::optional<std::string> facet, std::optional<::DataStormContract::FilterInfo> sampleFilter, std::optional<std::string> name, std::optional<std::int32_t> priority, std::optional<std::int32_t> sampleCount, std::optional<std::int32_t> sampleLifetime, std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory) noexcept :
+        facet(std::move(facet)),
+        sampleFilter(std::move(sampleFilter)),
+        name(std::move(name)),
         priority(priority),
         sampleCount(sampleCount),
         sampleLifetime(sampleLifetime),
@@ -1238,33 +1238,33 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::optional<::std::string>&, const ::std::optional<::DataStormContract::FilterInfo>&, const ::std::optional<::std::string>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::DataStormContract::ClearHistoryPolicy>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::optional<std::string>&, const std::optional<::DataStormContract::FilterInfo>&, const std::optional<std::string>&, const std::optional<std::int32_t>&, const std::optional<std::int32_t>&, const std::optional<std::int32_t>&, const std::optional<::DataStormContract::ClearHistoryPolicy>&> ice_tuple() const
     {
         return std::tie(facet, sampleFilter, name, priority, sampleCount, sampleLifetime, clearHistory);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] ElementConfigPtr ice_clone() const { return ::std::static_pointer_cast<ElementConfig>(_iceCloneImpl()); }
+    [[nodiscard]] ElementConfigPtr ice_clone() const { return std::static_pointer_cast<ElementConfig>(_iceCloneImpl()); }
 
     /// A facet that is used to process the samples when sample filtering is enabled.
-    ::std::optional<::std::string> facet;
+    std::optional<std::string> facet;
     /// An optional sample filter associated with the reader. Sample filters are specified on the reader side.
-    ::std::optional<::DataStormContract::FilterInfo> sampleFilter;
+    std::optional<::DataStormContract::FilterInfo> sampleFilter;
     /// An optional name for the reader or writer.
-    ::std::optional<::std::string> name;
+    std::optional<std::string> name;
     /// An optional priority for the writer.
     /// See also the `DataStorm.Topic.Priority` property.
-    ::std::optional<::std::int32_t> priority;
+    std::optional<std::int32_t> priority;
     /// An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
     /// See also the `DataStorm.Topic.SampleCount` property.
-    ::std::optional<::std::int32_t> sampleCount;
+    std::optional<std::int32_t> sampleCount;
     /// An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
     /// writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
-    ::std::optional<::std::int32_t> sampleLifetime;
+    std::optional<std::int32_t> sampleLifetime;
     /// An optional clear history policy that determines when the reader or writer sample history is cleared.
     /// See also the `DataStorm.Topic.ClearHistory` property.
-    ::std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory;
+    std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory;
 
     void ice_printFields(std::ostream& os) const override;
     ElementConfig(const ElementConfig&) = default;
@@ -1280,7 +1280,7 @@ public:
 struct ElementData
 {
     /// The unique identifier for the data reader or data writer.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The configuration settings for the data reader or data writer.
     ::DataStormContract::ElementConfigPtr config;
     /// A mapping of data writer IDs to the last sample IDs received by the data reader.
@@ -1291,17 +1291,17 @@ struct ElementData
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&> ice_tuple() const
     {
         return std::tie(id, config, lastIds);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const ElementData&);
+std::ostream& operator<<(std::ostream&, const ElementData&);
 
 /// Represents detailed information about topic elements, which can be a key or a filter.
 struct ElementSpec
@@ -1309,37 +1309,37 @@ struct ElementSpec
     /// A sequence of data readers and writers associated with the key or filter.
     ::DataStormContract::ElementDataSeq elements;
     /// The unique identifier for the key or filter.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The name of the filter.
     /// This field is empty if the element is a key.
-    ::std::string name;
+    std::string name;
     /// The encoded value of the key or filter.
     ::Ice::ByteSeq value;
     /// The unique identifier for the key or filter on the peer.
-    ::std::int64_t peerId;
+    std::int64_t peerId;
     /// The name of the filter on the peer.
     /// This field is empty if the element is a key.
-    ::std::string peerName;
+    std::string peerName;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::DataStormContract::ElementDataSeq&, const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::DataStormContract::ElementDataSeq&, const std::int64_t&, const std::string&, const ::Ice::ByteSeq&, const std::int64_t&, const std::string&> ice_tuple() const
     {
         return std::tie(elements, id, name, value, peerId, peerName);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const ElementSpec&);
+std::ostream& operator<<(std::ostream&, const ElementSpec&);
 
 /// Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
 struct ElementDataAck
 {
     /// The unique identifier for the data reader or data writer.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The configuration settings for the data reader or data writer.
     ::DataStormContract::ElementConfigPtr config;
     /// A mapping of data writer IDs to the last sample IDs received by the data reader.
@@ -1353,21 +1353,21 @@ struct ElementDataAck
     /// - When sent from a publisher to a subscriber, this field contains the queued samples.
     ::DataStormContract::DataSampleSeq samples;
     /// The unique identifier for the peer's data reader or data writer.
-    ::std::int64_t peerId;
+    std::int64_t peerId;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&, const ::DataStormContract::DataSampleSeq&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&, const ::DataStormContract::DataSampleSeq&, const std::int64_t&> ice_tuple() const
     {
         return std::tie(id, config, lastIds, samples, peerId);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const ElementDataAck&);
+std::ostream& operator<<(std::ostream&, const ElementDataAck&);
 
 /// Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
 struct ElementSpecAck
@@ -1375,31 +1375,31 @@ struct ElementSpecAck
     /// A sequence of acknowledgments for the readers or writers associated with the key or filter.
     ::DataStormContract::ElementDataAckSeq elements;
     /// The unique identifier for the key or filter.
-    ::std::int64_t id;
+    std::int64_t id;
     /// The name of the filter.
     /// This field is empty if the element is a key.
-    ::std::string name;
+    std::string name;
     /// The encoded value of the key or filter.
     ::Ice::ByteSeq value;
     /// The unique identifier for the key or filter on the peer.
-    ::std::int64_t peerId;
+    std::int64_t peerId;
     /// The name of the filter on the peer.
     /// This field is empty if the element is a key.
-    ::std::string peerName;
+    std::string peerName;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::DataStormContract::ElementDataAckSeq&, const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::DataStormContract::ElementDataAckSeq&, const std::int64_t&, const std::string&, const ::Ice::ByteSeq&, const std::int64_t&, const std::string&> ice_tuple() const
     {
         return std::tie(elements, id, name, value, peerId, peerName);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const ElementSpecAck&);
+std::ostream& operator<<(std::ostream&, const ElementSpecAck&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;
@@ -1427,12 +1427,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1452,7 +1452,7 @@ public:
     /// @see attachTopic
     virtual void announceTopics(TopicInfoSeq topics, bool initialize, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_announceTopics(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_announceTopics(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
@@ -1463,7 +1463,7 @@ public:
     /// @param current The Current object for the invocation.
     virtual void attachTopic(TopicSpec topic, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_attachTopic(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_attachTopic(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Detaches a topic from the session, typically called when the topic is destroyed.
@@ -1471,9 +1471,9 @@ public:
     /// This operation is invoked by the topic on listener sessions during its destruction.
     /// @param topicId The unique identifier for the topic to detach.
     /// @param current The Current object for the invocation.
-    virtual void detachTopic(::std::int64_t topicId, const Ice::Current& current) = 0;
+    virtual void detachTopic(std::int64_t topicId, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_detachTopic(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_detachTopic(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Attaches the specified tags to the subscriber of a topic.
@@ -1483,18 +1483,18 @@ public:
     /// @param tags The sequence of tags to attach, representing the partial update associations.
     /// @param initialize Indicates whether the tags are being attached during session initialization.
     /// @param current The Current object for the invocation.
-    virtual void attachTags(::std::int64_t topicId, ElementInfoSeq tags, bool initialize, const Ice::Current& current) = 0;
+    virtual void attachTags(std::int64_t topicId, ElementInfoSeq tags, bool initialize, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_attachTags(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_attachTags(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Detaches tags from the session.
     /// @param topicId The unique identifier for the topic.
     /// @param tags The sequence of tag identifiers to detach.
     /// @param current The Current object for the invocation.
-    virtual void detachTags(::std::int64_t topicId, ::Ice::LongSeq tags, const Ice::Current& current) = 0;
+    virtual void detachTags(std::int64_t topicId, ::Ice::LongSeq tags, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_detachTags(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_detachTags(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Announces elements associated with a topic to the peer.
@@ -1508,9 +1508,9 @@ public:
     /// @param elements The sequence of elements to announce, representing the data readers or data writers.
     /// @param current The Current object for the invocation.
     /// @see attachElements
-    virtual void announceElements(::std::int64_t topicId, ElementInfoSeq elements, const Ice::Current& current) = 0;
+    virtual void announceElements(std::int64_t topicId, ElementInfoSeq elements, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_announceElements(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_announceElements(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Attaches the specified elements to the subscribers of a topic.
@@ -1521,9 +1521,9 @@ public:
     /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
     /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param current The Current object for the invocation.
-    virtual void attachElements(::std::int64_t topicId, ElementSpecSeq elements, bool initialize, const Ice::Current& current) = 0;
+    virtual void attachElements(std::int64_t topicId, ElementSpecSeq elements, bool initialize, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_attachElements(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_attachElements(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
@@ -1533,9 +1533,9 @@ public:
     /// @param topicId The unique identifier for the topic to which the elements belong.
     /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
     /// @param current The Current object for the invocation.
-    virtual void attachElementsAck(::std::int64_t topicId, ElementSpecAckSeq elements, const Ice::Current& current) = 0;
+    virtual void attachElementsAck(std::int64_t topicId, ElementSpecAckSeq elements, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_attachElementsAck(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_attachElementsAck(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Instructs the peer to detach specific elements associated with a topic.
@@ -1545,18 +1545,18 @@ public:
     /// @param topicId The unique identifier for the topic to which the elements belong.
     /// @param elements A sequence of element identifiers representing the keys or filters to detach.
     /// @param current The Current object for the invocation.
-    virtual void detachElements(::std::int64_t topicId, ::Ice::LongSeq elements, const Ice::Current& current) = 0;
+    virtual void detachElements(std::int64_t topicId, ::Ice::LongSeq elements, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_detachElements(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_detachElements(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
     /// @param topicId The unique identifier for the topic.
     /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
     /// @param current The Current object for the invocation.
-    virtual void initSamples(::std::int64_t topicId, DataSamplesSeq samples, const Ice::Current& current) = 0;
+    virtual void initSamples(std::int64_t topicId, DataSamplesSeq samples, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initSamples(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initSamples(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Notifies the peer that the session is being disconnected.
@@ -1566,15 +1566,15 @@ public:
     /// @param current The Current object for the invocation.
     virtual void disconnected(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_disconnected(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_disconnected(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SessionPtr = ::std::shared_ptr<Session>;
+using SessionPtr = std::shared_ptr<Session>;
 
 /// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 class PublisherSession : public virtual Session
@@ -1586,23 +1586,23 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using PublisherSessionPtr = ::std::shared_ptr<PublisherSession>;
+using PublisherSessionPtr = std::shared_ptr<PublisherSession>;
 
 /// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
 class SubscriberSession : public virtual Session
@@ -1614,12 +1614,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1630,17 +1630,17 @@ public:
     /// @param elementId The unique identifier for the element to which the sample belong.
     /// @param sample The sample to queue.
     /// @param current The Current object for the invocation.
-    virtual void s(::std::int64_t topicId, ::std::int64_t elementId, DataSample sample, const Ice::Current& current) = 0;
+    virtual void s(std::int64_t topicId, std::int64_t elementId, DataSample sample, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_s(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_s(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SubscriberSessionPtr = ::std::shared_ptr<SubscriberSession>;
+using SubscriberSessionPtr = std::shared_ptr<SubscriberSession>;
 
 /// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
 ///
@@ -1660,12 +1660,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1676,9 +1676,9 @@ public:
     /// @param publisher The publisher node initiating the session. The proxy is never null.
     /// @param current The Current object for the invocation.
     /// @see Lookup::announceTopicReader
-    virtual void initiateCreateSession(::std::optional<NodePrx> publisher, const Ice::Current& current) = 0;
+    virtual void initiateCreateSession(std::optional<NodePrx> publisher, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_initiateCreateSession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_initiateCreateSession(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
@@ -1695,26 +1695,26 @@ public:
     /// @param session The subscriber session being created. This proxy is never null.
     /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param current The Current object for the invocation.
-    virtual void createSession(::std::optional<NodePrx> subscriber, ::std::optional<SubscriberSessionPrx> session, bool fromRelay, const Ice::Current& current) = 0;
+    virtual void createSession(std::optional<NodePrx> subscriber, std::optional<SubscriberSessionPrx> session, bool fromRelay, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_createSession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_createSession(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Confirm the creation of a publisher session with a node.
     /// @param publisher The publisher node confirming the session. The proxy is never null.
     /// @param session The publisher session being confirmed. The proxy is never null.
     /// @param current The Current object for the invocation.
-    virtual void confirmCreateSession(::std::optional<NodePrx> publisher, ::std::optional<PublisherSessionPrx> session, const Ice::Current& current) = 0;
+    virtual void confirmCreateSession(std::optional<NodePrx> publisher, std::optional<PublisherSessionPrx> session, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_confirmCreateSession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_confirmCreateSession(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using NodePtr = ::std::shared_ptr<Node>;
+using NodePtr = std::shared_ptr<Node>;
 
 /// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
 /// nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
@@ -1728,12 +1728,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1743,18 +1743,18 @@ public:
     /// @param topic The name of the topic.
     /// @param subscriber The node reading the topic. The subscriber proxy is never null.
     /// @param current The Current object for the invocation.
-    virtual void announceTopicReader(::std::string topic, ::std::optional<NodePrx> subscriber, const Ice::Current& current) = 0;
+    virtual void announceTopicReader(std::string topic, std::optional<NodePrx> subscriber, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_announceTopicReader(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_announceTopicReader(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Announce a topic writer.
     /// @param topic The name of the topic.
     /// @param node The node writing the topic. The proxy is never null.
     /// @param current The Current object for the invocation.
-    virtual void announceTopicWriter(::std::string topic, ::std::optional<NodePrx> node, const Ice::Current& current) = 0;
+    virtual void announceTopicWriter(std::string topic, std::optional<NodePrx> node, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_announceTopicWriter(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_announceTopicWriter(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Announce a set of topic readers and writers.
@@ -1762,26 +1762,26 @@ public:
     /// @param writers A sequence of topic names for writers.
     /// @param node The node reading or writing the topics. The proxy is never null.
     /// @param current The Current object for the invocation.
-    virtual void announceTopics(::Ice::StringSeq readers, ::Ice::StringSeq writers, ::std::optional<NodePrx> node, const Ice::Current& current) = 0;
+    virtual void announceTopics(::Ice::StringSeq readers, ::Ice::StringSeq writers, std::optional<NodePrx> node, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_announceTopics(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_announceTopics(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param current The Current object for the invocation.
     /// @return A proxy to this node. The proxy is never null.
-    virtual ::std::optional<NodePrx> createSession(::std::optional<NodePrx> node, const Ice::Current& current) = 0;
+    virtual std::optional<NodePrx> createSession(std::optional<NodePrx> node, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_createSession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_createSession(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using LookupPtr = ::std::shared_ptr<Lookup>;
+using LookupPtr = std::shared_ptr<Lookup>;
 
 }
 

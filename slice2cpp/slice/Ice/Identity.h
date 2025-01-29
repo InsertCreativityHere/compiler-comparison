@@ -33,7 +33,7 @@ namespace Ice
     struct Identity;
 
     /// A sequence of identities.
-    using IdentitySeq = ::std::vector<Identity>;
+    using IdentitySeq = std::vector<Identity>;
 
 }
 
@@ -48,23 +48,23 @@ namespace Ice
 struct Identity
 {
     /// The name of the Ice object.
-    ::std::string name;
+    std::string name;
     /// The Ice object category.
-    ::std::string category;
+    std::string category;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(name, category);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    ICE_API void ice_printFields(::std::ostream& os) const;
+    ICE_API void ice_printFields(std::ostream& os) const;
 };
 
-ICE_API ::std::ostream& operator<<(::std::ostream&, const Identity&);
+ICE_API std::ostream& operator<<(std::ostream&, const Identity&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

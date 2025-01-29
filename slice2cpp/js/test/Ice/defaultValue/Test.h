@@ -26,43 +26,43 @@
 
 namespace Test
 {
-    enum class Color : ::std::uint8_t
+    enum class Color : std::uint8_t
     {
         red,
         green,
         blue
     };
-    ::std::ostream& operator<<(::std::ostream&, Color);
+    std::ostream& operator<<(std::ostream&, Color);
 
 
     namespace Nested
     {
-        enum class Color : ::std::uint8_t
+        enum class Color : std::uint8_t
         {
             red,
             green,
             blue
         };
-        ::std::ostream& operator<<(::std::ostream&, Color);
+        std::ostream& operator<<(std::ostream&, Color);
 
     }
     struct Struct1;
 
     constexpr bool ConstBool = true;
 
-    constexpr ::std::uint8_t ConstByte = 254;
+    constexpr std::uint8_t ConstByte = 254;
 
-    constexpr ::std::int16_t ConstShort = 16000;
+    constexpr std::int16_t ConstShort = 16000;
 
-    constexpr ::std::int32_t ConstInt = 3;
+    constexpr std::int32_t ConstInt = 3;
 
-    constexpr ::std::int64_t ConstLong = INT64_C(4);
+    constexpr std::int64_t ConstLong = INT64_C(4);
 
     constexpr float ConstFloat = 5.1F;
 
     constexpr double ConstDouble = 6.2;
 
-    const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\?"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
+    const std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\?"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
     constexpr Color ConstColor1 = ::Test::Color::red;
 
@@ -76,9 +76,9 @@ namespace Test
 
     constexpr ::Test::Nested::Color ConstNestedColor3 = ::Test::Nested::Color::blue;
 
-    constexpr ::std::int32_t ConstZeroI = 0;
+    constexpr std::int32_t ConstZeroI = 0;
 
-    constexpr ::std::int64_t ConstZeroL = INT64_C(0);
+    constexpr std::int64_t ConstZeroL = INT64_C(0);
 
     constexpr float ConstZeroF = 0.0F;
 
@@ -93,26 +93,26 @@ namespace Test
     struct Struct3;
 
     class Base;
-    using BasePtr = ::std::shared_ptr<Base>;
+    using BasePtr = std::shared_ptr<Base>;
 
     class Derived;
-    using DerivedPtr = ::std::shared_ptr<Derived>;
+    using DerivedPtr = std::shared_ptr<Derived>;
 
-    using ByteSeq = ::std::vector<std::byte>;
+    using ByteSeq = std::vector<std::byte>;
 
-    using IntSeq = ::std::vector<::std::int32_t>;
+    using IntSeq = std::vector<std::int32_t>;
 
-    using IntStringDict = ::std::map<::std::int32_t, ::std::string>;
+    using IntStringDict = std::map<std::int32_t, std::string>;
 
     struct InnerStruct;
 
     struct StructNoDefaults;
 
     class ClassNoDefaultsBase;
-    using ClassNoDefaultsBasePtr = ::std::shared_ptr<ClassNoDefaultsBase>;
+    using ClassNoDefaultsBasePtr = std::shared_ptr<ClassNoDefaultsBase>;
 
     class ClassNoDefaults;
-    using ClassNoDefaultsPtr = ::std::shared_ptr<ClassNoDefaults>;
+    using ClassNoDefaultsPtr = std::shared_ptr<ClassNoDefaults>;
 
 }
 
@@ -123,22 +123,22 @@ struct Struct1
 {
     bool boolFalse = false;
     bool boolTrue = true;
-    ::std::uint8_t b = 254;
-    ::std::int16_t s = 16000;
-    ::std::int32_t i = 3;
-    ::std::int64_t l = INT64_C(4);
+    std::uint8_t b = 254;
+    std::int16_t s = 16000;
+    std::int32_t i = 3;
+    std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
-    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
+    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
     ::Test::Color c3 = ::Test::Color::blue;
     ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
-    ::std::string noDefault;
-    ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = INT64_C(0);
+    std::string noDefault;
+    std::int32_t zeroI = 0;
+    std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -146,36 +146,36 @@ struct Struct1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Struct1&);
+std::ostream& operator<<(std::ostream&, const Struct1&);
 
 struct Struct2
 {
     bool boolTrue = ::Test::ConstBool;
-    ::std::uint8_t b = ::Test::ConstByte;
-    ::std::int16_t s = ::Test::ConstShort;
-    ::std::int32_t i = ::Test::ConstInt;
-    ::std::int64_t l = ::Test::ConstLong;
+    std::uint8_t b = ::Test::ConstByte;
+    std::int16_t s = ::Test::ConstShort;
+    std::int32_t i = ::Test::ConstInt;
+    std::int64_t l = ::Test::ConstLong;
     float f = ::Test::ConstFloat;
     double d = ::Test::ConstDouble;
-    ::std::string str = ::Test::ConstString;
+    std::string str = ::Test::ConstString;
     ::Test::Color c1 = ::Test::ConstColor1;
     ::Test::Color c2 = ::Test::ConstColor2;
     ::Test::Color c3 = ::Test::ConstColor3;
     ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
     ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
     ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
-    ::std::int32_t zeroI = ::Test::ConstZeroI;
-    ::std::int64_t zeroL = ::Test::ConstZeroL;
+    std::int32_t zeroI = ::Test::ConstZeroI;
+    std::int64_t zeroL = ::Test::ConstZeroL;
     float zeroF = ::Test::ConstZeroF;
     float zeroDotF = ::Test::ConstZeroDotF;
     double zeroD = ::Test::ConstZeroD;
@@ -183,38 +183,38 @@ struct Struct2
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Struct2&);
+std::ostream& operator<<(std::ostream&, const Struct2&);
 
 struct Struct3
 {
     bool boolFalse = false;
     bool boolTrue = true;
-    ::std::uint8_t b = 1;
-    ::std::int16_t s = 2;
-    ::std::int32_t i = 3;
-    ::std::int64_t l = INT64_C(4);
+    std::uint8_t b = 1;
+    std::int16_t s = 2;
+    std::int32_t i = 3;
+    std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
-    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
+    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
     ::Test::Color c3 = ::Test::Color::blue;
     ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
-    ::std::string noDefault;
-    ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = INT64_C(0);
+    std::string noDefault;
+    std::int32_t zeroI = 0;
+    std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -222,17 +222,17 @@ struct Struct3
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Struct3&);
+std::ostream& operator<<(std::ostream&, const Struct3&);
 
 class Base : public Ice::Value
 {
@@ -241,7 +241,7 @@ public:
     Base() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
+    Base(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -250,8 +250,8 @@ public:
         l(l),
         f(f),
         d(d),
-        str(::std::move(str)),
-        noDefault(::std::move(noDefault)),
+        str(std::move(str)),
+        noDefault(std::move(noDefault)),
         zeroI(zeroI),
         zeroL(zeroL),
         zeroF(zeroF),
@@ -269,27 +269,27 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
+    [[nodiscard]] BasePtr ice_clone() const { return std::static_pointer_cast<Base>(_iceCloneImpl()); }
 
     bool boolFalse = false;
     bool boolTrue = true;
-    ::std::uint8_t b = 1;
-    ::std::int16_t s = 2;
-    ::std::int32_t i = 3;
-    ::std::int64_t l = INT64_C(4);
+    std::uint8_t b = 1;
+    std::int16_t s = 2;
+    std::int32_t i = 3;
+    std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
-    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
-    ::std::string noDefault;
-    ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = INT64_C(0);
+    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
+    std::string noDefault;
+    std::int32_t zeroI = 0;
+    std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -312,8 +312,8 @@ public:
     Derived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
-        Base(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+    Derived(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
+        Base(boolFalse, boolTrue, b, s, i, l, f, d, std::move(str), std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
         c3(c3),
@@ -331,14 +331,14 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
+    [[nodiscard]] DerivedPtr ice_clone() const { return std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
@@ -364,7 +364,7 @@ public:
     BaseEx() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
+    BaseEx(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -373,8 +373,8 @@ public:
         l(l),
         f(f),
         d(d),
-        str(::std::move(str)),
-        noDefault(::std::move(noDefault)),
+        str(std::move(str)),
+        noDefault(std::move(noDefault)),
         zeroI(zeroI),
         zeroL(zeroL),
         zeroF(zeroF),
@@ -389,7 +389,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -406,16 +406,16 @@ public:
 
     bool boolFalse = false;
     bool boolTrue = true;
-    ::std::uint8_t b = 1;
-    ::std::int16_t s = 2;
-    ::std::int32_t i = 3;
-    ::std::int64_t l = INT64_C(4);
+    std::uint8_t b = 1;
+    std::int16_t s = 2;
+    std::int32_t i = 3;
+    std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
-    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
-    ::std::string noDefault;
-    ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = INT64_C(0);
+    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\?";
+    std::string noDefault;
+    std::int32_t zeroI = 0;
+    std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -434,8 +434,8 @@ public:
     DerivedEx() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
-        BaseEx(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+    DerivedEx(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
+        BaseEx(boolFalse, boolTrue, b, s, i, l, f, d, std::move(str), std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
         c3(c3),
@@ -450,7 +450,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
@@ -480,32 +480,32 @@ protected:
 
 struct InnerStruct
 {
-    ::std::int32_t a;
+    std::int32_t a;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(a);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const InnerStruct&);
+std::ostream& operator<<(std::ostream&, const InnerStruct&);
 
 struct StructNoDefaults
 {
     bool bo;
-    ::std::uint8_t b;
-    ::std::int16_t s;
-    ::std::int32_t i;
-    ::std::int64_t l;
+    std::uint8_t b;
+    std::int16_t s;
+    std::int32_t i;
+    std::int64_t l;
     float f;
     double d;
-    ::std::string str;
+    std::string str;
     ::Test::Color c1;
     ::Test::ByteSeq bs;
     ::Test::IntSeq is;
@@ -514,17 +514,17 @@ struct StructNoDefaults
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(bo, b, s, i, l, f, d, str, c1, bs, is, st, dict);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const StructNoDefaults&);
+std::ostream& operator<<(std::ostream&, const StructNoDefaults&);
 
 class ExceptionNoDefaultsBase : public Ice::UserException
 {
@@ -533,10 +533,10 @@ public:
     ExceptionNoDefaultsBase() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    ExceptionNoDefaultsBase(::std::string str, Color c1, ByteSeq bs) noexcept :
-        str(::std::move(str)),
+    ExceptionNoDefaultsBase(std::string str, Color c1, ByteSeq bs) noexcept :
+        str(std::move(str)),
         c1(c1),
-        bs(::std::move(bs))
+        bs(std::move(bs))
     {
     }
 
@@ -545,7 +545,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
     {
         return std::tie(str, c1, bs);
     }
@@ -560,7 +560,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string str;
+    std::string str;
     ::Test::Color c1;
     ::Test::ByteSeq bs;
 
@@ -577,10 +577,10 @@ public:
     ExceptionNoDefaults() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    ExceptionNoDefaults(::std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
-        ExceptionNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
+    ExceptionNoDefaults(std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
+        ExceptionNoDefaultsBase(std::move(str), c1, std::move(bs)),
         st(st),
-        dict(::std::move(dict))
+        dict(std::move(dict))
     {
     }
 
@@ -589,7 +589,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(str, c1, bs, st, dict);
     }
@@ -620,10 +620,10 @@ public:
     ClassNoDefaultsBase() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    ClassNoDefaultsBase(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs) noexcept :
-        str(::std::move(str)),
+    ClassNoDefaultsBase(std::string str, ::Test::Color c1, ::Test::ByteSeq bs) noexcept :
+        str(std::move(str)),
         c1(c1),
-        bs(::std::move(bs))
+        bs(std::move(bs))
     {
     }
 
@@ -635,16 +635,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
     {
         return std::tie(str, c1, bs);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
+    [[nodiscard]] ClassNoDefaultsBasePtr ice_clone() const { return std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
 
-    ::std::string str;
+    std::string str;
     ::Test::Color c1;
     ::Test::ByteSeq bs;
 
@@ -665,10 +665,10 @@ public:
     ClassNoDefaults() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    ClassNoDefaults(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
-        ClassNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
+    ClassNoDefaults(std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
+        ClassNoDefaultsBase(std::move(str), c1, std::move(bs)),
         st(st),
-        dict(::std::move(dict))
+        dict(std::move(dict))
     {
     }
 
@@ -680,14 +680,14 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(str, c1, bs, st, dict);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
+    [[nodiscard]] ClassNoDefaultsPtr ice_clone() const { return std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
 
     ::Test::InnerStruct st;
     ::Test::IntStringDict dict;

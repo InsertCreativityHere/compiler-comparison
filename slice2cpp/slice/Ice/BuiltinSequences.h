@@ -34,34 +34,34 @@
 namespace Ice
 {
     /// A sequence of bools.
-    using BoolSeq = ::std::vector<bool>;
+    using BoolSeq = std::vector<bool>;
 
     /// A sequence of bytes.
-    using ByteSeq = ::std::vector<std::byte>;
+    using ByteSeq = std::vector<std::byte>;
 
     /// A sequence of shorts.
-    using ShortSeq = ::std::vector<::std::int16_t>;
+    using ShortSeq = std::vector<std::int16_t>;
 
     /// A sequence of ints.
-    using IntSeq = ::std::vector<::std::int32_t>;
+    using IntSeq = std::vector<std::int32_t>;
 
     /// A sequence of longs.
-    using LongSeq = ::std::vector<::std::int64_t>;
+    using LongSeq = std::vector<std::int64_t>;
 
     /// A sequence of floats.
-    using FloatSeq = ::std::vector<float>;
+    using FloatSeq = std::vector<float>;
 
     /// A sequence of doubles.
-    using DoubleSeq = ::std::vector<double>;
+    using DoubleSeq = std::vector<double>;
 
     /// A sequence of strings.
-    using StringSeq = ::std::vector<::std::string>;
+    using StringSeq = std::vector<std::string>;
 
     /// A sequence of objects.
-    using ObjectSeq = ::std::vector<Ice::ValuePtr>;
+    using ObjectSeq = std::vector<Ice::ValuePtr>;
 
     /// A sequence of object proxies.
-    using ObjectProxySeq = ::std::vector<::std::optional<Ice::ObjectPrx>>;
+    using ObjectProxySeq = std::vector<std::optional<Ice::ObjectPrx>>;
 
 }
 

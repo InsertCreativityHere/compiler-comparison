@@ -35,8 +35,8 @@
 #   endif
 #endif
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, Color value)
+std::ostream&
+Test::operator<<(std::ostream& os, Color value)
 {
     switch (value)
     {
@@ -47,12 +47,12 @@ Test::operator<<(::std::ostream& os, Color value)
         case Color::blue:
             return os << "blue";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
-::std::ostream&
-Test::Nested::operator<<(::std::ostream& os, Color value)
+std::ostream&
+Test::Nested::operator<<(std::ostream& os, Color value)
 {
     switch (value)
     {
@@ -63,7 +63,7 @@ Test::Nested::operator<<(::std::ostream& os, Color value)
         case Color::blue:
             return os << "blue";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
@@ -83,7 +83,7 @@ namespace
 }
 
 void
-Test::Struct1::ice_printFields(::std::ostream& os) const
+Test::Struct1::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "boolFalse = ", this->boolFalse);
     Ice::print(os << ", boolTrue = ", this->boolTrue);
@@ -109,8 +109,8 @@ Test::Struct1::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Struct1& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Struct1& value)
 {
     os << "Test::Struct1{";
     value.ice_printFields(os);
@@ -119,7 +119,7 @@ Test::operator<<(::std::ostream& os, const ::Test::Struct1& value)
 }
 
 void
-Test::Struct2::ice_printFields(::std::ostream& os) const
+Test::Struct2::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "boolTrue = ", this->boolTrue);
     Ice::print(os << ", b = ", this->b);
@@ -143,8 +143,8 @@ Test::Struct2::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Struct2& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Struct2& value)
 {
     os << "Test::Struct2{";
     value.ice_printFields(os);
@@ -153,7 +153,7 @@ Test::operator<<(::std::ostream& os, const ::Test::Struct2& value)
 }
 
 void
-Test::Struct3::ice_printFields(::std::ostream& os) const
+Test::Struct3::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "boolFalse = ", this->boolFalse);
     Ice::print(os << ", boolTrue = ", this->boolTrue);
@@ -177,8 +177,8 @@ Test::Struct3::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Struct3& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Struct3& value)
 {
     os << "Test::Struct3{";
     value.ice_printFields(os);
@@ -187,7 +187,7 @@ Test::operator<<(::std::ostream& os, const ::Test::Struct3& value)
 }
 
 void
-Test::Struct4::ice_printFields(::std::ostream& os) const
+Test::Struct4::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "boolFalse = ", this->boolFalse);
     Ice::print(os << ", boolTrue = ", this->boolTrue);
@@ -211,8 +211,8 @@ Test::Struct4::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::Struct4& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::Struct4& value)
 {
     os << "Test::Struct4{";
     value.ice_printFields(os);
@@ -482,7 +482,7 @@ Test::ClassProperty::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-Test::StructProperty::ice_printFields(::std::ostream& os) const
+Test::StructProperty::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "boolFalse = ", this->boolFalse);
     Ice::print(os << ", boolTrue = ", this->boolTrue);
@@ -502,8 +502,8 @@ Test::StructProperty::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::StructProperty& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::StructProperty& value)
 {
     os << "Test::StructProperty{";
     value.ice_printFields(os);
@@ -567,13 +567,13 @@ Test::ExceptionProperty::_readImpl(Ice::InputStream* istr)
 }
 
 void
-Test::InnerStruct::ice_printFields(::std::ostream& os) const
+Test::InnerStruct::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "a = ", this->a);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::InnerStruct& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::InnerStruct& value)
 {
     os << "Test::InnerStruct{";
     value.ice_printFields(os);
@@ -582,13 +582,13 @@ Test::operator<<(::std::ostream& os, const ::Test::InnerStruct& value)
 }
 
 void
-Test::InnerStruct2::ice_printFields(::std::ostream& os) const
+Test::InnerStruct2::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "a = ", this->a);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::InnerStruct2& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::InnerStruct2& value)
 {
     os << "Test::InnerStruct2{";
     value.ice_printFields(os);
@@ -597,7 +597,7 @@ Test::operator<<(::std::ostream& os, const ::Test::InnerStruct2& value)
 }
 
 void
-Test::StructNoDefaults::ice_printFields(::std::ostream& os) const
+Test::StructNoDefaults::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "bo = ", this->bo);
     Ice::print(os << ", b = ", this->b);
@@ -615,8 +615,8 @@ Test::StructNoDefaults::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", dict = ", this->dict);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::StructNoDefaults& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::StructNoDefaults& value)
 {
     os << "Test::StructNoDefaults{";
     value.ice_printFields(os);

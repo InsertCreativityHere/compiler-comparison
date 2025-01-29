@@ -37,7 +37,7 @@
 namespace IceMX
 {
     class SessionMetrics;
-    using SessionMetricsPtr = ::std::shared_ptr<SessionMetrics>;
+    using SessionMetricsPtr = std::shared_ptr<SessionMetrics>;
 
 }
 
@@ -64,8 +64,8 @@ public:
     /// @param queuedServer Number of server requests queued.
     /// @param overriddenClient Number of client requests overridden.
     /// @param overriddenServer Number of server requests overridden.
-    SessionMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t forwardedClient, ::std::int32_t forwardedServer, ::std::int32_t routingTableSize, ::std::int32_t queuedClient, ::std::int32_t queuedServer, ::std::int32_t overriddenClient, ::std::int32_t overriddenServer) noexcept :
-        Metrics(::std::move(id), total, current, totalLifetime, failures),
+    SessionMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t forwardedClient, std::int32_t forwardedServer, std::int32_t routingTableSize, std::int32_t queuedClient, std::int32_t queuedServer, std::int32_t overriddenClient, std::int32_t overriddenServer) noexcept :
+        Metrics(std::move(id), total, current, totalLifetime, failures),
         forwardedClient(forwardedClient),
         forwardedServer(forwardedServer),
         routingTableSize(routingTableSize),
@@ -84,29 +84,29 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, forwardedClient, forwardedServer, routingTableSize, queuedClient, queuedServer, overriddenClient, overriddenServer);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] SessionMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SessionMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] SessionMetricsPtr ice_clone() const { return std::static_pointer_cast<SessionMetrics>(_iceCloneImpl()); }
 
     /// Number of client requests forwarded.
-    ::std::int32_t forwardedClient = 0;
+    std::int32_t forwardedClient = 0;
     /// Number of server requests forwarded.
-    ::std::int32_t forwardedServer = 0;
+    std::int32_t forwardedServer = 0;
     /// The size of the routing table.
-    ::std::int32_t routingTableSize = 0;
+    std::int32_t routingTableSize = 0;
     /// Number of client requests queued.
-    ::std::int32_t queuedClient = 0;
+    std::int32_t queuedClient = 0;
     /// Number of server requests queued.
-    ::std::int32_t queuedServer = 0;
+    std::int32_t queuedServer = 0;
     /// Number of client requests overridden.
-    ::std::int32_t overriddenClient = 0;
+    std::int32_t overriddenClient = 0;
     /// Number of server requests overridden.
-    ::std::int32_t overriddenServer = 0;
+    std::int32_t overriddenServer = 0;
 
     ICE_MEMBER(GLACIER2_API) void ice_printFields(std::ostream& os) const override;
     SessionMetrics(const SessionMetrics&) = default;

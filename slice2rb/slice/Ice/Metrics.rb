@@ -24,7 +24,7 @@ module ::IceMX
     end
 
     if not defined?(::IceMX::Metrics)
-        class Metrics < ::Ice::Value
+        class Metrics < Ice::Value
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0)
                 @id = id

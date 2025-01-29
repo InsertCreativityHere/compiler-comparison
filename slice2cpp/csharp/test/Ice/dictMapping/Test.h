@@ -26,33 +26,33 @@
 
 namespace Test
 {
-    using NV = ::std::map<::std::int32_t, ::std::int32_t>;
+    using NV = std::map<std::int32_t, std::int32_t>;
 
-    using NR = ::std::map<::std::string, ::std::string>;
+    using NR = std::map<std::string, std::string>;
 
-    using NDV = ::std::map<::std::string, NV>;
+    using NDV = std::map<std::string, NV>;
 
-    using NDR = ::std::map<::std::string, NR>;
+    using NDR = std::map<std::string, NR>;
 
-    using IntSeq = ::std::vector<::std::int32_t>;
+    using IntSeq = std::vector<std::int32_t>;
 
     struct TEstNv;
 
-    using AIS = ::std::vector<::std::int32_t>;
+    using AIS = std::vector<std::int32_t>;
 
-    using GIS = ::std::vector<::std::int32_t>;
+    using GIS = std::vector<std::int32_t>;
 
-    using ASS = ::std::vector<::std::string>;
+    using ASS = std::vector<std::string>;
 
-    using GSS = ::std::vector<::std::string>;
+    using GSS = std::vector<std::string>;
 
-    using NDAIS = ::std::map<::std::string, AIS>;
+    using NDAIS = std::map<std::string, AIS>;
 
-    using NDGIS = ::std::map<::std::string, GIS>;
+    using NDGIS = std::map<std::string, GIS>;
 
-    using NDASS = ::std::map<::std::string, ASS>;
+    using NDASS = std::map<std::string, ASS>;
 
-    using NDGSS = ::std::map<::std::string, GSS>;
+    using NDGSS = std::map<std::string, GSS>;
 
     class MyClassPrx;
 
@@ -67,101 +67,101 @@ public:
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     NV opNV(const NV& i, NV& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NV, NV>> opNVAsync(const NV& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNVAsync(const NV& i, ::std::function<void(::Test::NV, ::Test::NV)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNVAsync(const NV& i, std::function<void(::Test::NV, ::Test::NV)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNV(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NV, NV>>>&, const NV&, const Ice::Context&) const;
+    void _iceI_opNV(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NV, NV>>>&, const NV&, const Ice::Context&) const;
     /// \endcond
 
     NR opNR(const NR& i, NR& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NR, NR>> opNRAsync(const NR& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNRAsync(const NR& i, ::std::function<void(::Test::NR, ::Test::NR)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNRAsync(const NR& i, std::function<void(::Test::NR, ::Test::NR)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNR(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NR, NR>>>&, const NR&, const Ice::Context&) const;
+    void _iceI_opNR(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NR, NR>>>&, const NR&, const Ice::Context&) const;
     /// \endcond
 
     NDV opNDV(const NDV& i, NDV& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNDVAsync(const NDV& i, ::std::function<void(::Test::NDV, ::Test::NDV)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNDVAsync(const NDV& i, std::function<void(::Test::NDV, ::Test::NDV)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDV(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NDV, NDV>>>&, const NDV&, const Ice::Context&) const;
+    void _iceI_opNDV(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NDV, NDV>>>&, const NDV&, const Ice::Context&) const;
     /// \endcond
 
     NDR opNDR(const NDR& i, NDR& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNDRAsync(const NDR& i, ::std::function<void(::Test::NDR, ::Test::NDR)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNDRAsync(const NDR& i, std::function<void(::Test::NDR, ::Test::NDR)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDR(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NDR, NDR>>>&, const NDR&, const Ice::Context&) const;
+    void _iceI_opNDR(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NDR, NDR>>>&, const NDR&, const Ice::Context&) const;
     /// \endcond
 
     NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNDAISAsync(const NDAIS& i, ::std::function<void(::Test::NDAIS, ::Test::NDAIS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNDAISAsync(const NDAIS& i, std::function<void(::Test::NDAIS, ::Test::NDAIS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDAIS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NDAIS, NDAIS>>>&, const NDAIS&, const Ice::Context&) const;
+    void _iceI_opNDAIS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NDAIS, NDAIS>>>&, const NDAIS&, const Ice::Context&) const;
     /// \endcond
 
     NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNDGISAsync(const NDGIS& i, ::std::function<void(::Test::NDGIS, ::Test::NDGIS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNDGISAsync(const NDGIS& i, std::function<void(::Test::NDGIS, ::Test::NDGIS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDGIS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NDGIS, NDGIS>>>&, const NDGIS&, const Ice::Context&) const;
+    void _iceI_opNDGIS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NDGIS, NDGIS>>>&, const NDGIS&, const Ice::Context&) const;
     /// \endcond
 
     NDASS opNDASS(const NDASS& i, NDASS& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNDASSAsync(const NDASS& i, ::std::function<void(::Test::NDASS, ::Test::NDASS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNDASSAsync(const NDASS& i, std::function<void(::Test::NDASS, ::Test::NDASS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDASS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NDASS, NDASS>>>&, const NDASS&, const Ice::Context&) const;
+    void _iceI_opNDASS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NDASS, NDASS>>>&, const NDASS&, const Ice::Context&) const;
     /// \endcond
 
     NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opNDGSSAsync(const NDGSS& i, ::std::function<void(::Test::NDGSS, ::Test::NDGSS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opNDGSSAsync(const NDGSS& i, std::function<void(::Test::NDGSS, ::Test::NDGSS)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDGSS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<NDGSS, NDGSS>>>&, const NDGSS&, const Ice::Context&) const;
+    void _iceI_opNDGSS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<NDGSS, NDGSS>>>&, const NDGSS&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -226,10 +226,10 @@ struct TEstNv
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const TEstNv&);
+std::ostream& operator<<(std::ostream&, const TEstNv&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;
@@ -252,12 +252,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -265,55 +265,55 @@ public:
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NV opNV(NV i, NV& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNV(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNV(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NR opNR(NR i, NR& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNR(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNR(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDV opNDV(NDV i, NDV& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNDV(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNDV(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDR opNDR(NDR i, NDR& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNDR(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNDR(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDAIS opNDAIS(NDAIS i, NDAIS& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNDAIS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNDAIS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDGIS opNDGIS(NDGIS i, NDGIS& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNDGIS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNDGIS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDASS opNDASS(NDASS i, NDASS& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNDASS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNDASS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDGSS opNDGSS(NDGSS i, NDGSS& o, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opNDGSS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opNDGSS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using MyClassPtr = ::std::shared_ptr<MyClass>;
+using MyClassPtr = std::shared_ptr<MyClass>;
 
 }
 

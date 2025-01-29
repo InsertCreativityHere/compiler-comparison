@@ -39,9 +39,9 @@ public:
     UnknownDerived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownDerived(::std::string b, ::std::string ud) noexcept :
-        Base(::std::move(b)),
-        ud(::std::move(ud))
+    UnknownDerived(std::string b, std::string ud) noexcept :
+        Base(std::move(b)),
+        ud(std::move(ud))
     {
     }
 
@@ -50,7 +50,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ud);
     }
@@ -65,7 +65,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string ud;
+    std::string ud;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -80,9 +80,9 @@ public:
     UnknownIntermediate() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownIntermediate(::std::string b, ::std::string ui) noexcept :
-        Base(::std::move(b)),
-        ui(::std::move(ui))
+    UnknownIntermediate(std::string b, std::string ui) noexcept :
+        Base(std::move(b)),
+        ui(std::move(ui))
     {
     }
 
@@ -91,7 +91,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ui);
     }
@@ -106,7 +106,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string ui;
+    std::string ui;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -121,9 +121,9 @@ public:
     UnknownMostDerived1() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownMostDerived1(::std::string b, ::std::string ki, ::std::string umd1) noexcept :
-        KnownIntermediate(::std::move(b), ::std::move(ki)),
-        umd1(::std::move(umd1))
+    UnknownMostDerived1(std::string b, std::string ki, std::string umd1) noexcept :
+        KnownIntermediate(std::move(b), std::move(ki)),
+        umd1(std::move(umd1))
     {
     }
 
@@ -132,7 +132,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ki, umd1);
     }
@@ -147,7 +147,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string umd1;
+    std::string umd1;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;
@@ -162,9 +162,9 @@ public:
     UnknownMostDerived2() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    UnknownMostDerived2(::std::string b, ::std::string ui, ::std::string umd2) noexcept :
-        UnknownIntermediate(::std::move(b), ::std::move(ui)),
-        umd2(::std::move(umd2))
+    UnknownMostDerived2(std::string b, std::string ui, std::string umd2) noexcept :
+        UnknownIntermediate(std::move(b), std::move(ui)),
+        umd2(std::move(umd2))
     {
     }
 
@@ -173,7 +173,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(b, ui, umd2);
     }
@@ -188,7 +188,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::string umd2;
+    std::string umd2;
 
 protected:
     void _writeImpl(Ice::OutputStream*) const override;

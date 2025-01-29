@@ -143,7 +143,7 @@ module ::Classdef
         end
 
         if not defined?(::Classdef::Break::Logical)
-            class Logical < ::Ice::Value
+            class Logical < Ice::Value
 
                 def initialize(_else=::Classdef::Break::Bitand::Enumeration, _for=::Classdef::Break::Bitor.new, int64=true)
                     @_else = _else
@@ -192,7 +192,7 @@ module ::Classdef
         end
 
         if not defined?(::Classdef::Break::Try)
-            class Try < ::Ice::Value
+            class Try < Ice::Value
 
                 def initialize(_while=1, delete=2)
                     @_while = _while

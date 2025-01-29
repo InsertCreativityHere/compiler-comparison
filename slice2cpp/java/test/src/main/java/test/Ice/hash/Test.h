@@ -32,18 +32,18 @@ namespace Test
 
     struct Point;
 
-    using Points = ::std::vector<Point>;
+    using Points = std::vector<Point>;
 
     struct Polyline;
 
     struct Color;
 
-    using StringColorMap = ::std::map<::std::int32_t, Color>;
+    using StringColorMap = std::map<std::int32_t, Color>;
 
     struct ColorPalette;
 
     class Pen;
-    using PenPtr = ::std::shared_ptr<Pen>;
+    using PenPtr = std::shared_ptr<Pen>;
 
     struct Draw;
 
@@ -67,10 +67,10 @@ struct PointF
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const PointF&);
+std::ostream& operator<<(std::ostream&, const PointF&);
 
 struct PointD
 {
@@ -87,29 +87,29 @@ struct PointD
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const PointD&);
+std::ostream& operator<<(std::ostream&, const PointD&);
 
 struct Point
 {
-    ::std::int32_t x;
-    ::std::int32_t y;
+    std::int32_t x;
+    std::int32_t y;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Point&);
+std::ostream& operator<<(std::ostream&, const Point&);
 
 struct Polyline
 {
@@ -124,31 +124,31 @@ struct Polyline
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Polyline&);
+std::ostream& operator<<(std::ostream&, const Polyline&);
 
 struct Color
 {
-    ::std::int32_t r;
-    ::std::int32_t g;
-    ::std::int32_t b;
-    ::std::int32_t a;
+    std::int32_t r;
+    std::int32_t g;
+    std::int32_t b;
+    std::int32_t a;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(r, g, b, a);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Color&);
+std::ostream& operator<<(std::ostream&, const Color&);
 
 struct ColorPalette
 {
@@ -163,10 +163,10 @@ struct ColorPalette
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const ColorPalette&);
+std::ostream& operator<<(std::ostream&, const ColorPalette&);
 
 class Pen : public Ice::Value
 {
@@ -175,7 +175,7 @@ public:
     Pen() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Pen(::std::int32_t thickness, ::Test::Color color) noexcept :
+    Pen(std::int32_t thickness, ::Test::Color color) noexcept :
         thickness(thickness),
         color(color)
     {
@@ -189,16 +189,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::Test::Color&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const ::Test::Color&> ice_tuple() const
     {
         return std::tie(thickness, color);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] PenPtr ice_clone() const { return ::std::static_pointer_cast<Pen>(_iceCloneImpl()); }
+    [[nodiscard]] PenPtr ice_clone() const { return std::static_pointer_cast<Pen>(_iceCloneImpl()); }
 
-    ::std::int32_t thickness;
+    std::int32_t thickness;
     ::Test::Color color;
 
     void ice_printFields(std::ostream& os) const override;
@@ -226,10 +226,10 @@ struct Draw
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const Draw&);
+std::ostream& operator<<(std::ostream&, const Draw&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

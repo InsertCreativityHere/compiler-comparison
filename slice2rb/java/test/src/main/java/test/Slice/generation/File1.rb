@@ -44,7 +44,7 @@ module ::Test2
     end
 
     if not defined?(::Test2::Class1)
-        class Class1 < ::Ice::Value
+        class Class1 < Ice::Value
         end
 
         T_Class1.defineClass(Class1, -1, false, nil, [])

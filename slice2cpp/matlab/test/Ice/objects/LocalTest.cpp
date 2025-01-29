@@ -90,13 +90,13 @@ LocalTest::C1::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-LocalTest::S1::ice_printFields(::std::ostream& os) const
+LocalTest::S1::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "c1 = ", this->c1);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S1& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S1& value)
 {
     os << "LocalTest::S1{";
     value.ice_printFields(os);
@@ -105,13 +105,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S1& value)
 }
 
 void
-LocalTest::S2::ice_printFields(::std::ostream& os) const
+LocalTest::S2::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "s1 = ", this->s1);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S2& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S2& value)
 {
     os << "LocalTest::S2{";
     value.ice_printFields(os);
@@ -120,13 +120,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S2& value)
 }
 
 void
-LocalTest::S3::ice_printFields(::std::ostream& os) const
+LocalTest::S3::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "c1seq = ", this->c1seq);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S3& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S3& value)
 {
     os << "LocalTest::S3{";
     value.ice_printFields(os);
@@ -135,13 +135,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S3& value)
 }
 
 void
-LocalTest::S4::ice_printFields(::std::ostream& os) const
+LocalTest::S4::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "s1seq = ", this->s1seq);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S4& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S4& value)
 {
     os << "LocalTest::S4{";
     value.ice_printFields(os);
@@ -150,13 +150,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S4& value)
 }
 
 void
-LocalTest::S5::ice_printFields(::std::ostream& os) const
+LocalTest::S5::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "c1dict = ", this->c1dict);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S5& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S5& value)
 {
     os << "LocalTest::S5{";
     value.ice_printFields(os);
@@ -165,13 +165,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S5& value)
 }
 
 void
-LocalTest::S6::ice_printFields(::std::ostream& os) const
+LocalTest::S6::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "s1dict = ", this->s1dict);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S6& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S6& value)
 {
     os << "LocalTest::S6{";
     value.ice_printFields(os);
@@ -180,13 +180,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S6& value)
 }
 
 void
-LocalTest::S7::ice_printFields(::std::ostream& os) const
+LocalTest::S7::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "c1seqseq = ", this->c1seqseq);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S7& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S7& value)
 {
     os << "LocalTest::S7{";
     value.ice_printFields(os);
@@ -195,13 +195,13 @@ LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S7& value)
 }
 
 void
-LocalTest::S8::ice_printFields(::std::ostream& os) const
+LocalTest::S8::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "s1seqseq = ", this->s1seqseq);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::S8& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::S8& value)
 {
     os << "LocalTest::S8{";
     value.ice_printFields(os);
@@ -532,14 +532,14 @@ LocalTest::CB8::_iceReadImpl(Ice::InputStream* istr)
 }
 
 void
-LocalTest::StructKey::ice_printFields(::std::ostream& os) const
+LocalTest::StructKey::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "i = ", this->i);
     Ice::print(os << ", j = ", this->j);
 }
 
-::std::ostream&
-LocalTest::operator<<(::std::ostream& os, const ::LocalTest::StructKey& value)
+std::ostream&
+LocalTest::operator<<(std::ostream& os, const ::LocalTest::StructKey& value)
 {
     os << "LocalTest::StructKey{";
     value.ice_printFields(os);

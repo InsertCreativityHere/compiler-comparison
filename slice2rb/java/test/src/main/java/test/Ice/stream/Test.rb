@@ -208,7 +208,7 @@ module ::Test
     end
 
     if not defined?(::Test::OptionalClass)
-        class OptionalClass < ::Ice::Value
+        class OptionalClass < Ice::Value
 
             def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset, s=::Ice::Unset, enumS4=::Ice::Unset, byteBoolD6=::Ice::Unset, shortIntD7=::Ice::Unset, enum8=::Ice::Unset, intSeq12=::Ice::Unset, byteSeq13=::Ice::Unset, stringSeq14=::Ice::Unset, p15=::Ice::Unset)
                 @bo = bo
@@ -295,7 +295,7 @@ module ::Test
     end
 
     if not defined?(::Test::MyClass)
-        class MyClass < ::Ice::Value
+        class MyClass < Ice::Value
 
             def initialize(c=nil, prx=nil, o=nil, s=::Test::LargeStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
                 @c = c

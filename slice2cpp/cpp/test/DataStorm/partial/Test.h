@@ -27,7 +27,7 @@
 namespace Test
 {
     class Stock;
-    using StockPtr = ::std::shared_ptr<Stock>;
+    using StockPtr = std::shared_ptr<Stock>;
 
 }
 
@@ -63,7 +63,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] StockPtr ice_clone() const { return ::std::static_pointer_cast<Stock>(_iceCloneImpl()); }
+    [[nodiscard]] StockPtr ice_clone() const { return std::static_pointer_cast<Stock>(_iceCloneImpl()); }
 
     float price;
     float lastBid;

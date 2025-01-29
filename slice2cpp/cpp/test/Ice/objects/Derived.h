@@ -29,7 +29,7 @@
 namespace Test
 {
     class Derived;
-    using DerivedPtr = ::std::shared_ptr<Derived>;
+    using DerivedPtr = std::shared_ptr<Derived>;
 
 }
 
@@ -43,9 +43,9 @@ public:
     Derived() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Derived(::Test::S theS, ::std::string str, ::std::string b) noexcept :
-        Base(::std::move(theS), ::std::move(str)),
-        b(::std::move(b))
+    Derived(::Test::S theS, std::string str, std::string b) noexcept :
+        Base(std::move(theS), std::move(str)),
+        b(std::move(b))
     {
     }
 
@@ -57,16 +57,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::S&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::S&, const std::string&, const std::string&> ice_tuple() const
     {
         return std::tie(theS, str, b);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
+    [[nodiscard]] DerivedPtr ice_clone() const { return std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
-    ::std::string b;
+    std::string b;
 
     void ice_printFields(std::ostream& os) const override;
     Derived(const Derived&) = default;

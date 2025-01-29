@@ -35,8 +35,8 @@
 #   endif
 #endif
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, MyEnum value)
+std::ostream&
+Test::operator<<(std::ostream& os, MyEnum value)
 {
     switch (value)
     {
@@ -47,12 +47,12 @@ Test::operator<<(::std::ostream& os, MyEnum value)
         case MyEnum::enum3:
             return os << "enum3";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
-::std::ostream&
-Test::Sub::operator<<(::std::ostream& os, NestedEnum value)
+std::ostream&
+Test::Sub::operator<<(std::ostream& os, NestedEnum value)
 {
     switch (value)
     {
@@ -63,12 +63,12 @@ Test::Sub::operator<<(::std::ostream& os, NestedEnum value)
         case NestedEnum::nestedEnum3:
             return os << "nestedEnum3";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
-::std::ostream&
-Test2::Sub2::operator<<(::std::ostream& os, NestedEnum2 value)
+std::ostream&
+Test2::Sub2::operator<<(std::ostream& os, NestedEnum2 value)
 {
     switch (value)
     {
@@ -79,7 +79,7 @@ Test2::Sub2::operator<<(::std::ostream& os, NestedEnum2 value)
         case NestedEnum2::nestedEnum6:
             return os << "nestedEnum6";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }
 
@@ -102,7 +102,7 @@ Test::MyInterfacePrx::ice_staticId() noexcept
 }
 
 void
-Test::LargeStruct::ice_printFields(::std::ostream& os) const
+Test::LargeStruct::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "bo = ", this->bo);
     Ice::print(os << ", by = ", this->by);
@@ -116,8 +116,8 @@ Test::LargeStruct::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", p = ", this->p);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::LargeStruct& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::LargeStruct& value)
 {
     os << "Test::LargeStruct{";
     value.ice_printFields(os);
@@ -126,13 +126,13 @@ Test::operator<<(::std::ostream& os, const ::Test::LargeStruct& value)
 }
 
 void
-Test::ClassStruct::ice_printFields(::std::ostream& os) const
+Test::ClassStruct::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "i = ", this->i);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::ClassStruct& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::ClassStruct& value)
 {
     os << "Test::ClassStruct{";
     value.ice_printFields(os);
@@ -287,7 +287,7 @@ Test::MyException::_readImpl(Ice::InputStream* istr)
 }
 
 void
-Test::Sub::NestedStruct::ice_printFields(::std::ostream& os) const
+Test::Sub::NestedStruct::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "bo = ", this->bo);
     Ice::print(os << ", by = ", this->by);
@@ -300,8 +300,8 @@ Test::Sub::NestedStruct::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", e = ", this->e);
 }
 
-::std::ostream&
-Test::Sub::operator<<(::std::ostream& os, const ::Test::Sub::NestedStruct& value)
+std::ostream&
+Test::Sub::operator<<(std::ostream& os, const ::Test::Sub::NestedStruct& value)
 {
     os << "Test::Sub::NestedStruct{";
     value.ice_printFields(os);
@@ -350,7 +350,7 @@ Test::Sub::NestedException::_readImpl(Ice::InputStream* istr)
 }
 
 void
-Test2::Sub2::NestedStruct2::ice_printFields(::std::ostream& os) const
+Test2::Sub2::NestedStruct2::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "bo = ", this->bo);
     Ice::print(os << ", by = ", this->by);
@@ -363,8 +363,8 @@ Test2::Sub2::NestedStruct2::ice_printFields(::std::ostream& os) const
     Ice::print(os << ", e = ", this->e);
 }
 
-::std::ostream&
-Test2::Sub2::operator<<(::std::ostream& os, const ::Test2::Sub2::NestedStruct2& value)
+std::ostream&
+Test2::Sub2::operator<<(std::ostream& os, const ::Test2::Sub2::NestedStruct2& value)
 {
     os << "Test2::Sub2::NestedStruct2{";
     value.ice_printFields(os);
@@ -412,17 +412,17 @@ Test2::Sub2::NestedException2::_readImpl(Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::MyInterface::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::MyInterface::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*

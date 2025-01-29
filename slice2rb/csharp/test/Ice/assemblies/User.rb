@@ -20,7 +20,7 @@ module ::User
     end
 
     if not defined?(::User::UserInfo)
-        class UserInfo < ::Ice::Value
+        class UserInfo < Ice::Value
         end
 
         T_UserInfo.defineClass(UserInfo, -1, false, nil, [])

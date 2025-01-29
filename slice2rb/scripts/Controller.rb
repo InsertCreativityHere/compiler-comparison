@@ -29,7 +29,7 @@ module ::Test
         end
 
         if not defined?(::Test::Common::Config)
-            class Config < ::Ice::Value
+            class Config < Ice::Value
 
                 def initialize(protocol=::Ice::Unset, mx=::Ice::Unset, serialize=::Ice::Unset, compress=::Ice::Unset, ipv6=::Ice::Unset, cprops=::Ice::Unset, sprops=::Ice::Unset)
                     @protocol = protocol
@@ -60,7 +60,7 @@ module ::Test
         end
 
         if not defined?(::Test::Common::OptionOverrides)
-            class OptionOverrides < ::Ice::Value
+            class OptionOverrides < Ice::Value
 
                 def initialize(protocol=::Ice::Unset, mx=::Ice::Unset, serialize=::Ice::Unset, compress=::Ice::Unset, ipv6=::Ice::Unset)
                     @protocol = protocol

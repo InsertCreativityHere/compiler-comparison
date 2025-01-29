@@ -27,101 +27,101 @@
 
 namespace Test
 {
-    enum class MyEnum : ::std::uint8_t
+    enum class MyEnum : std::uint8_t
     {
         enum1,
         enum2,
         enum3
     };
-    ::std::ostream& operator<<(::std::ostream&, MyEnum);
+    std::ostream& operator<<(std::ostream&, MyEnum);
 
     class MyClass;
-    using MyClassPtr = ::std::shared_ptr<MyClass>;
+    using MyClassPtr = std::shared_ptr<MyClass>;
 
     class MyInterfacePrx;
 
     struct LargeStruct;
 
     class OptionalClass;
-    using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
+    using OptionalClassPtr = std::shared_ptr<OptionalClass>;
 
-    using MyEnumS = ::std::vector<MyEnum>;
+    using MyEnumS = std::vector<MyEnum>;
 
-    using MyClassS = ::std::vector<MyClassPtr>;
+    using MyClassS = std::vector<MyClassPtr>;
 
-    using BoolSS = ::std::vector<::Ice::BoolSeq>;
+    using BoolSS = std::vector<::Ice::BoolSeq>;
 
-    using ByteSS = ::std::vector<::Ice::ByteSeq>;
+    using ByteSS = std::vector<::Ice::ByteSeq>;
 
-    using ShortSS = ::std::vector<::Ice::ShortSeq>;
+    using ShortSS = std::vector<::Ice::ShortSeq>;
 
-    using IntSS = ::std::vector<::Ice::IntSeq>;
+    using IntSS = std::vector<::Ice::IntSeq>;
 
-    using LongSS = ::std::vector<::Ice::LongSeq>;
+    using LongSS = std::vector<::Ice::LongSeq>;
 
-    using FloatSS = ::std::vector<::Ice::FloatSeq>;
+    using FloatSS = std::vector<::Ice::FloatSeq>;
 
-    using DoubleSS = ::std::vector<::Ice::DoubleSeq>;
+    using DoubleSS = std::vector<::Ice::DoubleSeq>;
 
-    using StringSS = ::std::vector<::Ice::StringSeq>;
+    using StringSS = std::vector<::Ice::StringSeq>;
 
-    using MyEnumSS = ::std::vector<MyEnumS>;
+    using MyEnumSS = std::vector<MyEnumS>;
 
-    using MyClassSS = ::std::vector<MyClassS>;
+    using MyClassSS = std::vector<MyClassS>;
 
-    using ByteBoolD = ::std::map<::std::uint8_t, bool>;
+    using ByteBoolD = std::map<std::uint8_t, bool>;
 
-    using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
+    using ShortIntD = std::map<std::int16_t, std::int32_t>;
 
-    using LongFloatD = ::std::map<::std::int64_t, float>;
+    using LongFloatD = std::map<std::int64_t, float>;
 
-    using StringStringD = ::std::map<::std::string, ::std::string>;
+    using StringStringD = std::map<std::string, std::string>;
 
-    using StringMyClassD = ::std::map<::std::string, MyClassPtr>;
+    using StringMyClassD = std::map<std::string, MyClassPtr>;
 
-    using BoolList = ::std::vector<bool>;
+    using BoolList = std::vector<bool>;
 
-    using ByteList = ::std::vector<std::byte>;
+    using ByteList = std::vector<std::byte>;
 
-    using MyEnumList = ::std::vector<MyEnum>;
+    using MyEnumList = std::vector<MyEnum>;
 
-    using LargeStructList = ::std::vector<LargeStruct>;
+    using LargeStructList = std::vector<LargeStruct>;
 
-    using MyClassList = ::std::vector<MyClassPtr>;
+    using MyClassList = std::vector<MyClassPtr>;
 
-    using MyInterfaceProxyList = ::std::vector<::std::optional<MyInterfacePrx>>;
+    using MyInterfaceProxyList = std::vector<std::optional<MyInterfacePrx>>;
 
-    using ShortLinkedList = ::std::vector<::std::int16_t>;
+    using ShortLinkedList = std::vector<std::int16_t>;
 
-    using IntLinkedList = ::std::vector<::std::int32_t>;
+    using IntLinkedList = std::vector<std::int32_t>;
 
-    using MyEnumLinkedList = ::std::vector<MyEnum>;
+    using MyEnumLinkedList = std::vector<MyEnum>;
 
-    using LargeStructLinkedList = ::std::vector<LargeStruct>;
+    using LargeStructLinkedList = std::vector<LargeStruct>;
 
-    using LongStack = ::std::vector<::std::int64_t>;
+    using LongStack = std::vector<std::int64_t>;
 
-    using FloatStack = ::std::vector<float>;
+    using FloatStack = std::vector<float>;
 
-    using LargeStructStack = ::std::vector<LargeStruct>;
+    using LargeStructStack = std::vector<LargeStruct>;
 
-    using MyInterfaceProxyStack = ::std::vector<::std::optional<MyInterfacePrx>>;
+    using MyInterfaceProxyStack = std::vector<std::optional<MyInterfacePrx>>;
 
-    using ObjectStack = ::std::vector<Ice::ValuePtr>;
+    using ObjectStack = std::vector<Ice::ValuePtr>;
 
-    using MyClassStack = ::std::vector<MyClassPtr>;
+    using MyClassStack = std::vector<MyClassPtr>;
 
-    using DoubleQueue = ::std::vector<double>;
+    using DoubleQueue = std::vector<double>;
 
-    using StringQueue = ::std::vector<::std::string>;
+    using StringQueue = std::vector<std::string>;
 
-    using LargeStructQueue = ::std::vector<LargeStruct>;
+    using LargeStructQueue = std::vector<LargeStruct>;
 
-    using StringSList = ::std::vector<::Ice::StringSeq>;
+    using StringSList = std::vector<::Ice::StringSeq>;
 
-    using StringSStack = ::std::vector<::Ice::StringSeq>;
+    using StringSStack = std::vector<::Ice::StringSeq>;
 
-    using SortedStringStringD = ::std::map<::std::string, ::std::string>;
+    using SortedStringStringD = std::map<std::string, std::string>;
 
 }
 
@@ -183,29 +183,29 @@ namespace Test
 struct LargeStruct
 {
     bool bo;
-    ::std::uint8_t by;
-    ::std::int16_t sh;
-    ::std::int32_t i;
-    ::std::int64_t l;
+    std::uint8_t by;
+    std::int16_t sh;
+    std::int32_t i;
+    std::int64_t l;
     float f;
     double d;
-    ::std::string str;
+    std::string str;
     ::Test::MyEnum e;
-    ::std::optional<::Test::MyInterfacePrx> p;
+    std::optional<::Test::MyInterfacePrx> p;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::MyEnum&, const std::optional<::Test::MyInterfacePrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const LargeStruct&);
+std::ostream& operator<<(std::ostream&, const LargeStruct&);
 
 class OptionalClass : public Ice::Value
 {
@@ -214,7 +214,7 @@ public:
     OptionalClass() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i) noexcept :
+    OptionalClass(bool bo, std::uint8_t by, std::optional<std::int16_t> sh, std::optional<std::int32_t> i) noexcept :
         bo(bo),
         by(by),
         sh(sh),
@@ -230,19 +230,19 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::optional<std::int16_t>&, const std::optional<std::int32_t>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] OptionalClassPtr ice_clone() const { return ::std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
+    [[nodiscard]] OptionalClassPtr ice_clone() const { return std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
 
     bool bo;
-    ::std::uint8_t by;
-    ::std::optional<::std::int16_t> sh;
-    ::std::optional<::std::int32_t> i;
+    std::uint8_t by;
+    std::optional<std::int16_t> sh;
+    std::optional<std::int32_t> i;
 
     void ice_printFields(std::ostream& os) const override;
     OptionalClass(const OptionalClass&) = default;
@@ -262,20 +262,20 @@ public:
 
     /// One-shot constructor to initialize all data members.
     MyClass(::Test::MyClassPtr c, Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) noexcept :
-        c(::std::move(c)),
-        o(::std::move(o)),
-        s(::std::move(s)),
-        seq1(::std::move(seq1)),
-        seq2(::std::move(seq2)),
-        seq3(::std::move(seq3)),
-        seq4(::std::move(seq4)),
-        seq5(::std::move(seq5)),
-        seq6(::std::move(seq6)),
-        seq7(::std::move(seq7)),
-        seq8(::std::move(seq8)),
-        seq9(::std::move(seq9)),
-        seq10(::std::move(seq10)),
-        d(::std::move(d))
+        c(std::move(c)),
+        o(std::move(o)),
+        s(std::move(s)),
+        seq1(std::move(seq1)),
+        seq2(std::move(seq2)),
+        seq3(std::move(seq3)),
+        seq4(std::move(seq4)),
+        seq5(std::move(seq5)),
+        seq6(std::move(seq6)),
+        seq7(std::move(seq7)),
+        seq8(std::move(seq8)),
+        seq9(std::move(seq9)),
+        seq10(std::move(seq10)),
+        d(std::move(d))
     {
     }
 
@@ -294,7 +294,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] MyClassPtr ice_clone() const { return ::std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
+    [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
 
     ::Test::MyClassPtr c;
     Ice::ValuePtr o;
@@ -329,7 +329,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     MyException(MyClassPtr c) noexcept :
-        c(::std::move(c))
+        c(std::move(c))
     {
     }
 
@@ -386,19 +386,19 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 };
 
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
+using MyInterfacePtr = std::shared_ptr<MyInterface>;
 
 }
 

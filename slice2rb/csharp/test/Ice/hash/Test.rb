@@ -292,7 +292,7 @@ module ::Test
     end
 
     if not defined?(::Test::Pen)
-        class Pen < ::Ice::Value
+        class Pen < Ice::Value
 
             def initialize(thickness=0, color=::Test::Color.new)
                 @thickness = thickness

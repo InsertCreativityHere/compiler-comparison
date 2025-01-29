@@ -170,7 +170,7 @@ module ::And
     end
 
     if not defined?(::And::Switch)
-        class Switch < ::Ice::Value
+        class Switch < Ice::Value
 
             def initialize(_if=0, export=nil, volatile=0)
                 @_if = _if

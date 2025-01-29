@@ -19,7 +19,7 @@ module ::Test
     end
 
     if not defined?(::Test::Empty)
-        class Empty < ::Ice::Value
+        class Empty < Ice::Value
         end
 
         T_Empty.defineClass(Empty, -1, false, nil, [])
@@ -30,7 +30,7 @@ module ::Test
     end
 
     if not defined?(::Test::AlsoEmpty)
-        class AlsoEmpty < ::Ice::Value
+        class AlsoEmpty < Ice::Value
         end
 
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
@@ -63,7 +63,7 @@ module ::Test
     end
 
     if not defined?(::Test::COneMember)
-        class COneMember < ::Ice::Value
+        class COneMember < Ice::Value
 
             def initialize(e=nil)
                 @e = e
@@ -80,7 +80,7 @@ module ::Test
     end
 
     if not defined?(::Test::CTwoMembers)
-        class CTwoMembers < ::Ice::Value
+        class CTwoMembers < Ice::Value
 
             def initialize(e1=nil, e2=nil)
                 @e1 = e1

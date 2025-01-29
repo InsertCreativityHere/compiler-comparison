@@ -45,30 +45,30 @@ namespace
 }
 
 ::IceGrid::ApplicationDescriptor
-IceGrid::FileParserPrx::parse(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const Ice::Context& context) const
+IceGrid::FileParserPrx::parse(std::string_view iceP_xmlFile, const std::optional<AdminPrx>& iceP_adminProxy, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<ApplicationDescriptor>(true, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context).get();
 }
 
-::std::future<::IceGrid::ApplicationDescriptor>
-IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const Ice::Context& context) const
+std::future<::IceGrid::ApplicationDescriptor>
+IceGrid::FileParserPrx::parseAsync(std::string_view iceP_xmlFile, const std::optional<AdminPrx>& iceP_adminProxy, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<ApplicationDescriptor>(false, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
-::std::function<void()>
-IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, ::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+IceGrid::FileParserPrx::parseAsync(std::string_view iceP_xmlFile, const std::optional<AdminPrx>& iceP_adminProxy, std::function<void(::IceGrid::ApplicationDescriptor)> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+    return IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 void
-IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, ::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const Ice::Context& context) const
+IceGrid::FileParserPrx::_iceI_parse(const std::shared_ptr<IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, std::string_view iceP_xmlFile, const std::optional<AdminPrx>& iceP_adminProxy, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "parse";
+    static constexpr std::string_view operationName = "parse";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_xmlFile, iceP_adminProxy);
@@ -144,17 +144,17 @@ IceGrid::ParseException::_readImpl(Ice::InputStream* istr)
     istr->endSlice();
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 IceGrid::FileParser::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::FileParser"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::IceGrid::FileParser"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 IceGrid::FileParser::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -167,16 +167,16 @@ IceGrid::FileParser::ice_staticId() noexcept
 void
 IceGrid::FileParser::_iceD_parse(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::string iceP_xmlFile;
-    ::std::optional<AdminPrx> iceP_adminProxy;
+    std::string iceP_xmlFile;
+    std::optional<AdminPrx> iceP_adminProxy;
     istr->readAll(iceP_xmlFile, iceP_adminProxy);
     istr->endEncapsulation();
-    const ApplicationDescriptor ret = this->parse(::std::move(iceP_xmlFile), ::std::move(iceP_adminProxy), request.current());
+    const ApplicationDescriptor ret = this->parse(std::move(iceP_xmlFile), std::move(iceP_adminProxy), request.current());
     sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -188,15 +188,15 @@ IceGrid::FileParser::_iceD_parse(
 
 /// \cond INTERNAL
 void
-IceGrid::FileParser::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+IceGrid::FileParser::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "parse"};
+    static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "parse"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -204,33 +204,33 @@ IceGrid::FileParser::dispatch(Ice::IncomingRequest& request, ::std::function<voi
     {
         case 0:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_parse(request, ::std::move(sendResponse));
+            _iceD_parse(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

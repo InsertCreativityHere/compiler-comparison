@@ -60,7 +60,7 @@ public:
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[deprecated]] [[nodiscard]] ::std::future<void> keepAliveAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[deprecated]] [[nodiscard]] std::future<void> keepAliveAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
@@ -69,11 +69,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    [[deprecated]] ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[deprecated]] std::function<void()> // NOLINT(modernize-use-nodiscard)
+    keepAliveAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_keepAlive(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_keepAlive(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -86,7 +86,7 @@ public:
     /// the registry.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::optional<Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
@@ -95,7 +95,7 @@ public:
     /// @return The future object for the invocation.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    [[nodiscard]] ::std::future<::std::optional<Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
@@ -107,11 +107,11 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    allocateObjectByIdAsync(const ::Ice::Identity& id, ::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    allocateObjectByIdAsync(const ::Ice::Identity& id, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_allocateObjectById(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>&, const ::Ice::Identity&, const Ice::Context&) const;
+    void _iceI_allocateObjectById(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, const ::Ice::Identity&, const Ice::Context&) const;
     /// \endcond
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -122,7 +122,7 @@ public:
     /// @throws IceGrid::AllocationException Raised if the object could not be allocated.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::optional<Ice::ObjectPrx> allocateObjectByType(::std::string_view type, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    std::optional<Ice::ObjectPrx> allocateObjectByType(std::string_view type, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
@@ -131,7 +131,7 @@ public:
     /// @return The future object for the invocation.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    [[nodiscard]] ::std::future<::std::optional<Ice::ObjectPrx>> allocateObjectByTypeAsync(::std::string_view type, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::optional<Ice::ObjectPrx>> allocateObjectByTypeAsync(std::string_view type, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
@@ -143,11 +143,11 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    allocateObjectByTypeAsync(::std::string_view type, ::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    allocateObjectByTypeAsync(std::string_view type, std::function<void(std::optional<Ice::ObjectPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_allocateObjectByType(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>&, ::std::string_view, const Ice::Context&) const;
+    void _iceI_allocateObjectByType(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<Ice::ObjectPrx>>>&, std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Release an object that was allocated using <code>allocateObjectById</code> or
@@ -165,7 +165,7 @@ public:
     /// @param id The identity of the object to release.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Release an object that was allocated using <code>allocateObjectById</code> or
     /// <code>allocateObjectByType</code>.
@@ -175,11 +175,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    releaseObjectAsync(const ::Ice::Identity& id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    releaseObjectAsync(const ::Ice::Identity& id, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_releaseObject(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const Ice::Context&) const;
+    void _iceI_releaseObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const Ice::Context&) const;
     /// \endcond
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -187,7 +187,7 @@ public:
     /// timeout.
     /// @param timeout The timeout in milliseconds.
     /// @param context The Context map to send with the invocation.
-    void setAllocationTimeout(::std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
+    void setAllocationTimeout(std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
     /// <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
@@ -195,7 +195,7 @@ public:
     /// @param timeout The timeout in milliseconds.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> setAllocationTimeoutAsync(::std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> setAllocationTimeoutAsync(std::int32_t timeout, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
     /// <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
@@ -206,11 +206,11 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    setAllocationTimeoutAsync(::std::int32_t timeout, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    setAllocationTimeoutAsync(std::int32_t timeout, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setAllocationTimeout(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const Ice::Context&) const;
+    void _iceI_setAllocationTimeout(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -282,12 +282,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -298,7 +298,7 @@ public:
     /// @param current The Current object for the invocation.
     virtual void keepAlive(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_keepAlive(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_keepAlive(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -312,9 +312,9 @@ public:
     /// the registry.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    virtual void allocateObjectByIdAsync(::Ice::Identity id, ::std::function<void(const ::std::optional<Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void allocateObjectByIdAsync(::Ice::Identity id, std::function<void(const std::optional<Ice::ObjectPrx>& returnValue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_allocateObjectById(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_allocateObjectById(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -326,9 +326,9 @@ public:
     /// @throws IceGrid::AllocationException Raised if the object could not be allocated.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    virtual void allocateObjectByTypeAsync(::std::string type, ::std::function<void(const ::std::optional<Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
+    virtual void allocateObjectByTypeAsync(std::string type, std::function<void(const std::optional<Ice::ObjectPrx>& returnValue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_allocateObjectByType(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_allocateObjectByType(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Release an object that was allocated using <code>allocateObjectById</code> or
@@ -341,7 +341,7 @@ public:
     /// the registry.
     virtual void releaseObject(::Ice::Identity id, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_releaseObject(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_releaseObject(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -349,17 +349,17 @@ public:
     /// timeout.
     /// @param timeout The timeout in milliseconds.
     /// @param current The Current object for the invocation.
-    virtual void setAllocationTimeout(::std::int32_t timeout, const Ice::Current& current) = 0;
+    virtual void setAllocationTimeout(std::int32_t timeout, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_setAllocationTimeout(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_setAllocationTimeout(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using SessionPtr = ::std::shared_ptr<Session>;
+using SessionPtr = std::shared_ptr<Session>;
 
 }
 

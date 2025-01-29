@@ -27,21 +27,21 @@
 namespace LocalTest
 {
     class C1;
-    using C1Ptr = ::std::shared_ptr<C1>;
+    using C1Ptr = std::shared_ptr<C1>;
 
     struct S1;
 
-    using C1Seq = ::std::vector<C1Ptr>;
+    using C1Seq = std::vector<C1Ptr>;
 
-    using S1Seq = ::std::vector<S1>;
+    using S1Seq = std::vector<S1>;
 
-    using C1Dict = ::std::map<::std::int32_t, C1Ptr>;
+    using C1Dict = std::map<std::int32_t, C1Ptr>;
 
-    using S1Dict = ::std::map<::std::int32_t, S1>;
+    using S1Dict = std::map<std::int32_t, S1>;
 
-    using C1SeqSeq = ::std::vector<C1Seq>;
+    using C1SeqSeq = std::vector<C1Seq>;
 
-    using S1SeqSeq = ::std::vector<S1Seq>;
+    using S1SeqSeq = std::vector<S1Seq>;
 
     struct S2;
 
@@ -58,38 +58,38 @@ namespace LocalTest
     struct S8;
 
     class CB1;
-    using CB1Ptr = ::std::shared_ptr<CB1>;
+    using CB1Ptr = std::shared_ptr<CB1>;
 
     class CB2;
-    using CB2Ptr = ::std::shared_ptr<CB2>;
+    using CB2Ptr = std::shared_ptr<CB2>;
 
     class CB3;
-    using CB3Ptr = ::std::shared_ptr<CB3>;
+    using CB3Ptr = std::shared_ptr<CB3>;
 
     class CB4;
-    using CB4Ptr = ::std::shared_ptr<CB4>;
+    using CB4Ptr = std::shared_ptr<CB4>;
 
     class CB5;
-    using CB5Ptr = ::std::shared_ptr<CB5>;
+    using CB5Ptr = std::shared_ptr<CB5>;
 
     class CB6;
-    using CB6Ptr = ::std::shared_ptr<CB6>;
+    using CB6Ptr = std::shared_ptr<CB6>;
 
     class CB7;
-    using CB7Ptr = ::std::shared_ptr<CB7>;
+    using CB7Ptr = std::shared_ptr<CB7>;
 
     class CB8;
-    using CB8Ptr = ::std::shared_ptr<CB8>;
+    using CB8Ptr = std::shared_ptr<CB8>;
 
     struct StructKey;
 
-    using StructDict1 = ::std::map<StructKey, C1Ptr>;
+    using StructDict1 = std::map<StructKey, C1Ptr>;
 
-    using StructDict2 = ::std::map<StructKey, S1>;
+    using StructDict2 = std::map<StructKey, S1>;
 
-    using C1DictDict = ::std::map<::std::int32_t, C1Dict>;
+    using C1DictDict = std::map<std::int32_t, C1Dict>;
 
-    using S1DictDict = ::std::map<::std::int32_t, S1Dict>;
+    using S1DictDict = std::map<std::int32_t, S1Dict>;
 
 }
 
@@ -103,7 +103,7 @@ public:
     C1() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit C1(::std::int32_t i) noexcept :
+    explicit C1(std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -116,16 +116,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] C1Ptr ice_clone() const { return ::std::static_pointer_cast<C1>(_iceCloneImpl()); }
+    [[nodiscard]] C1Ptr ice_clone() const { return std::static_pointer_cast<C1>(_iceCloneImpl()); }
 
-    ::std::int32_t i;
+    std::int32_t i;
 
     void ice_printFields(std::ostream& os) const override;
     C1(const C1&) = default;
@@ -150,10 +150,10 @@ struct S1
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S1&);
+std::ostream& operator<<(std::ostream&, const S1&);
 
 struct S2
 {
@@ -168,10 +168,10 @@ struct S2
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S2&);
+std::ostream& operator<<(std::ostream&, const S2&);
 
 struct S3
 {
@@ -186,10 +186,10 @@ struct S3
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S3&);
+std::ostream& operator<<(std::ostream&, const S3&);
 
 struct S4
 {
@@ -204,10 +204,10 @@ struct S4
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S4&);
+std::ostream& operator<<(std::ostream&, const S4&);
 
 struct S5
 {
@@ -222,10 +222,10 @@ struct S5
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S5&);
+std::ostream& operator<<(std::ostream&, const S5&);
 
 struct S6
 {
@@ -240,10 +240,10 @@ struct S6
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S6&);
+std::ostream& operator<<(std::ostream&, const S6&);
 
 struct S7
 {
@@ -258,10 +258,10 @@ struct S7
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S7&);
+std::ostream& operator<<(std::ostream&, const S7&);
 
 struct S8
 {
@@ -276,10 +276,10 @@ struct S8
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S8&);
+std::ostream& operator<<(std::ostream&, const S8&);
 
 class CB1 : public Ice::Value
 {
@@ -289,7 +289,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB1(::LocalTest::S1 s1) noexcept :
-        s1(::std::move(s1))
+        s1(std::move(s1))
     {
     }
 
@@ -308,7 +308,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB1Ptr ice_clone() const { return ::std::static_pointer_cast<CB1>(_iceCloneImpl()); }
+    [[nodiscard]] CB1Ptr ice_clone() const { return std::static_pointer_cast<CB1>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
 
@@ -330,7 +330,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB2(::LocalTest::C1Seq c1seq) noexcept :
-        c1seq(::std::move(c1seq))
+        c1seq(std::move(c1seq))
     {
     }
 
@@ -349,7 +349,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB2Ptr ice_clone() const { return ::std::static_pointer_cast<CB2>(_iceCloneImpl()); }
+    [[nodiscard]] CB2Ptr ice_clone() const { return std::static_pointer_cast<CB2>(_iceCloneImpl()); }
 
     ::LocalTest::C1Seq c1seq;
 
@@ -371,7 +371,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB3(::LocalTest::S1Seq s1seq) noexcept :
-        s1seq(::std::move(s1seq))
+        s1seq(std::move(s1seq))
     {
     }
 
@@ -390,7 +390,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB3Ptr ice_clone() const { return ::std::static_pointer_cast<CB3>(_iceCloneImpl()); }
+    [[nodiscard]] CB3Ptr ice_clone() const { return std::static_pointer_cast<CB3>(_iceCloneImpl()); }
 
     ::LocalTest::S1Seq s1seq;
 
@@ -412,7 +412,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB4(::LocalTest::C1Dict c1dict) noexcept :
-        c1dict(::std::move(c1dict))
+        c1dict(std::move(c1dict))
     {
     }
 
@@ -431,7 +431,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB4Ptr ice_clone() const { return ::std::static_pointer_cast<CB4>(_iceCloneImpl()); }
+    [[nodiscard]] CB4Ptr ice_clone() const { return std::static_pointer_cast<CB4>(_iceCloneImpl()); }
 
     ::LocalTest::C1Dict c1dict;
 
@@ -453,7 +453,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB5(::LocalTest::S1Dict s1dict) noexcept :
-        s1dict(::std::move(s1dict))
+        s1dict(std::move(s1dict))
     {
     }
 
@@ -472,7 +472,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB5Ptr ice_clone() const { return ::std::static_pointer_cast<CB5>(_iceCloneImpl()); }
+    [[nodiscard]] CB5Ptr ice_clone() const { return std::static_pointer_cast<CB5>(_iceCloneImpl()); }
 
     ::LocalTest::S1Dict s1dict;
 
@@ -494,7 +494,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB6(::LocalTest::C1SeqSeq c1seqseq) noexcept :
-        c1seqseq(::std::move(c1seqseq))
+        c1seqseq(std::move(c1seqseq))
     {
     }
 
@@ -513,7 +513,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB6Ptr ice_clone() const { return ::std::static_pointer_cast<CB6>(_iceCloneImpl()); }
+    [[nodiscard]] CB6Ptr ice_clone() const { return std::static_pointer_cast<CB6>(_iceCloneImpl()); }
 
     ::LocalTest::C1SeqSeq c1seqseq;
 
@@ -535,7 +535,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit CB7(::LocalTest::S1SeqSeq s1seqseq) noexcept :
-        s1seqseq(::std::move(s1seqseq))
+        s1seqseq(std::move(s1seqseq))
     {
     }
 
@@ -554,7 +554,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB7Ptr ice_clone() const { return ::std::static_pointer_cast<CB7>(_iceCloneImpl()); }
+    [[nodiscard]] CB7Ptr ice_clone() const { return std::static_pointer_cast<CB7>(_iceCloneImpl()); }
 
     ::LocalTest::S1SeqSeq s1seqseq;
 
@@ -576,9 +576,9 @@ public:
 
     /// One-shot constructor to initialize all data members.
     CB8(::LocalTest::S1 s1, ::LocalTest::C1Seq c1seq, ::LocalTest::S1Dict s1dict) noexcept :
-        s1(::std::move(s1)),
-        c1seq(::std::move(c1seq)),
-        s1dict(::std::move(s1dict))
+        s1(std::move(s1)),
+        c1seq(std::move(c1seq)),
+        s1dict(std::move(s1dict))
     {
     }
 
@@ -597,7 +597,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CB8Ptr ice_clone() const { return ::std::static_pointer_cast<CB8>(_iceCloneImpl()); }
+    [[nodiscard]] CB8Ptr ice_clone() const { return std::static_pointer_cast<CB8>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
     ::LocalTest::C1Seq c1seq;
@@ -615,22 +615,22 @@ public:
 
 struct StructKey
 {
-    ::std::int32_t i;
-    ::std::int32_t j;
+    std::int32_t i;
+    std::int32_t j;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const StructKey&);
+std::ostream& operator<<(std::ostream&, const StructKey&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

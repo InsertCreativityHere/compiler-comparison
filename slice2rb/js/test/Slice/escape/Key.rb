@@ -158,7 +158,7 @@ module ::Await
     end
 
     if not defined?(::Await::Delete)
-        class Delete < ::Ice::Value
+        class Delete < Ice::Value
 
             def initialize(_if=0, _else=nil, export=0, _clone='', equals='', hashCode='', constructor='')
                 @_if = _if
@@ -211,7 +211,7 @@ module ::Await
     end
 
     if not defined?(::Await::Package)
-        class Package < ::Ice::Value
+        class Package < Ice::Value
 
             def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, debugger=::Ice::Unset, null=::Ice::Unset)
                 @_for = _for

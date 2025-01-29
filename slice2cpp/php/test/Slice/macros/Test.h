@@ -27,10 +27,10 @@
 namespace Test
 {
     class Default;
-    using DefaultPtr = ::std::shared_ptr<Default>;
+    using DefaultPtr = std::shared_ptr<Default>;
 
     class NoDefault;
-    using NoDefaultPtr = ::std::shared_ptr<NoDefault>;
+    using NoDefaultPtr = std::shared_ptr<NoDefault>;
 
 }
 
@@ -44,7 +44,7 @@ public:
     Default() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    Default(::std::int32_t x, ::std::int32_t y) noexcept :
+    Default(std::int32_t x, std::int32_t y) noexcept :
         x(x),
         y(y)
     {
@@ -58,17 +58,17 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] DefaultPtr ice_clone() const { return ::std::static_pointer_cast<Default>(_iceCloneImpl()); }
+    [[nodiscard]] DefaultPtr ice_clone() const { return std::static_pointer_cast<Default>(_iceCloneImpl()); }
 
-    ::std::int32_t x;
-    ::std::int32_t y;
+    std::int32_t x;
+    std::int32_t y;
 
     void ice_printFields(std::ostream& os) const override;
     Default(const Default&) = default;
@@ -87,7 +87,7 @@ public:
     NoDefault() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    NoDefault(::std::int32_t x, ::std::int32_t y) noexcept :
+    NoDefault(std::int32_t x, std::int32_t y) noexcept :
         x(x),
         y(y)
     {
@@ -101,17 +101,17 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] NoDefaultPtr ice_clone() const { return ::std::static_pointer_cast<NoDefault>(_iceCloneImpl()); }
+    [[nodiscard]] NoDefaultPtr ice_clone() const { return std::static_pointer_cast<NoDefault>(_iceCloneImpl()); }
 
-    ::std::int32_t x = 10;
-    ::std::int32_t y = 10;
+    std::int32_t x = 10;
+    std::int32_t y = 10;
 
     void ice_printFields(std::ostream& os) const override;
     NoDefault(const NoDefault&) = default;

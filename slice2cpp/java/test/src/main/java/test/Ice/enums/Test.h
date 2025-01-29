@@ -26,23 +26,23 @@
 
 namespace Test
 {
-    constexpr ::std::uint8_t ByteConst1 = 10;
+    constexpr std::uint8_t ByteConst1 = 10;
 
-    constexpr ::std::int16_t ShortConst1 = 20;
+    constexpr std::int16_t ShortConst1 = 20;
 
-    constexpr ::std::int32_t IntConst1 = 30;
+    constexpr std::int32_t IntConst1 = 30;
 
-    constexpr ::std::int64_t LongConst1 = INT64_C(40);
+    constexpr std::int64_t LongConst1 = INT64_C(40);
 
-    constexpr ::std::uint8_t ByteConst2 = 126;
+    constexpr std::uint8_t ByteConst2 = 126;
 
-    constexpr ::std::int16_t ShortConst2 = 32766;
+    constexpr std::int16_t ShortConst2 = 32766;
 
-    constexpr ::std::int32_t IntConst2 = 2147483647;
+    constexpr std::int32_t IntConst2 = 2147483647;
 
-    constexpr ::std::int64_t LongConst2 = INT64_C(2147483646);
+    constexpr std::int64_t LongConst2 = INT64_C(2147483646);
 
-    enum class ByteEnum : ::std::uint8_t
+    enum class ByteEnum : std::uint8_t
     {
         benum1 = 0,
         benum2 = 1,
@@ -56,11 +56,11 @@ namespace Test
         benum10 = 41,
         benum11 = 126
     };
-    ::std::ostream& operator<<(::std::ostream&, ByteEnum);
+    std::ostream& operator<<(std::ostream&, ByteEnum);
 
-    using ByteEnumSeq = ::std::vector<ByteEnum>;
+    using ByteEnumSeq = std::vector<ByteEnum>;
 
-    enum class ShortEnum : ::std::int32_t // NOLINT(performance-enum-size)
+    enum class ShortEnum : std::int32_t // NOLINT(performance-enum-size)
     {
         senum1 = 3,
         senum2 = 4,
@@ -74,11 +74,11 @@ namespace Test
         senum10 = 41,
         senum11 = 32766
     };
-    ::std::ostream& operator<<(::std::ostream&, ShortEnum);
+    std::ostream& operator<<(std::ostream&, ShortEnum);
 
-    using ShortEnumSeq = ::std::vector<ShortEnum>;
+    using ShortEnumSeq = std::vector<ShortEnum>;
 
-    enum class IntEnum : ::std::int32_t
+    enum class IntEnum : std::int32_t
     {
         ienum1 = 0,
         ienum2 = 1,
@@ -93,19 +93,19 @@ namespace Test
         ienum11 = 2147483647,
         ienum12 = 2147483646
     };
-    ::std::ostream& operator<<(::std::ostream&, IntEnum);
+    std::ostream& operator<<(std::ostream&, IntEnum);
 
-    using IntEnumSeq = ::std::vector<IntEnum>;
+    using IntEnumSeq = std::vector<IntEnum>;
 
-    enum class SimpleEnum : ::std::uint8_t
+    enum class SimpleEnum : std::uint8_t
     {
         red,
         green,
         blue
     };
-    ::std::ostream& operator<<(::std::ostream&, SimpleEnum);
+    std::ostream& operator<<(std::ostream&, SimpleEnum);
 
-    using SimpleEnumSeq = ::std::vector<SimpleEnum>;
+    using SimpleEnumSeq = std::vector<SimpleEnum>;
 
     class TestIntfPrx;
 
@@ -120,101 +120,101 @@ public:
 
     ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opByteAsync(ByteEnum b1, ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opByteAsync(ByteEnum b1, std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>&, ByteEnum, const Ice::Context&) const;
+    void _iceI_opByte(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteEnum, ByteEnum>>>&, ByteEnum, const Ice::Context&) const;
     /// \endcond
 
     ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opShortAsync(ShortEnum s1, ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opShortAsync(ShortEnum s1, std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShort(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>&, ShortEnum, const Ice::Context&) const;
+    void _iceI_opShort(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortEnum, ShortEnum>>>&, ShortEnum, const Ice::Context&) const;
     /// \endcond
 
     IntEnum opInt(IntEnum i1, IntEnum& i2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opIntAsync(IntEnum i1, ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opIntAsync(IntEnum i1, std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opInt(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>&, IntEnum, const Ice::Context&) const;
+    void _iceI_opInt(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntEnum, IntEnum>>>&, IntEnum, const Ice::Context&) const;
     /// \endcond
 
     SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSimpleAsync(SimpleEnum s1, ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSimpleAsync(SimpleEnum s1, std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSimple(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>&, SimpleEnum, const Ice::Context&) const;
+    void _iceI_opSimple(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SimpleEnum, SimpleEnum>>>&, SimpleEnum, const Ice::Context&) const;
     /// \endcond
 
     ByteEnumSeq opByteSeq(const ByteEnumSeq& b1, ByteEnumSeq& b2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<ByteEnumSeq, ByteEnumSeq>> opByteSeqAsync(const ByteEnumSeq& b1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<ByteEnumSeq, ByteEnumSeq>> opByteSeqAsync(const ByteEnumSeq& b1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opByteSeqAsync(const ByteEnumSeq& b1, ::std::function<void(::Test::ByteEnumSeq, ::Test::ByteEnumSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opByteSeqAsync(const ByteEnumSeq& b1, std::function<void(::Test::ByteEnumSeq, ::Test::ByteEnumSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ByteEnumSeq, ByteEnumSeq>>>&, const ByteEnumSeq&, const Ice::Context&) const;
+    void _iceI_opByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteEnumSeq, ByteEnumSeq>>>&, const ByteEnumSeq&, const Ice::Context&) const;
     /// \endcond
 
     ShortEnumSeq opShortSeq(const ShortEnumSeq& s1, ShortEnumSeq& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<ShortEnumSeq, ShortEnumSeq>> opShortSeqAsync(const ShortEnumSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<ShortEnumSeq, ShortEnumSeq>> opShortSeqAsync(const ShortEnumSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opShortSeqAsync(const ShortEnumSeq& s1, ::std::function<void(::Test::ShortEnumSeq, ::Test::ShortEnumSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opShortSeqAsync(const ShortEnumSeq& s1, std::function<void(::Test::ShortEnumSeq, ::Test::ShortEnumSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShortSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<ShortEnumSeq, ShortEnumSeq>>>&, const ShortEnumSeq&, const Ice::Context&) const;
+    void _iceI_opShortSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortEnumSeq, ShortEnumSeq>>>&, const ShortEnumSeq&, const Ice::Context&) const;
     /// \endcond
 
     IntEnumSeq opIntSeq(const IntEnumSeq& i1, IntEnumSeq& i2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<IntEnumSeq, IntEnumSeq>> opIntSeqAsync(const IntEnumSeq& i1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<IntEnumSeq, IntEnumSeq>> opIntSeqAsync(const IntEnumSeq& i1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opIntSeqAsync(const IntEnumSeq& i1, ::std::function<void(::Test::IntEnumSeq, ::Test::IntEnumSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opIntSeqAsync(const IntEnumSeq& i1, std::function<void(::Test::IntEnumSeq, ::Test::IntEnumSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opIntSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<IntEnumSeq, IntEnumSeq>>>&, const IntEnumSeq&, const Ice::Context&) const;
+    void _iceI_opIntSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntEnumSeq, IntEnumSeq>>>&, const IntEnumSeq&, const Ice::Context&) const;
     /// \endcond
 
     SimpleEnumSeq opSimpleSeq(const SimpleEnumSeq& s1, SimpleEnumSeq& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SimpleEnumSeq, SimpleEnumSeq>> opSimpleSeqAsync(const SimpleEnumSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SimpleEnumSeq, SimpleEnumSeq>> opSimpleSeqAsync(const SimpleEnumSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSimpleSeqAsync(const SimpleEnumSeq& s1, ::std::function<void(::Test::SimpleEnumSeq, ::Test::SimpleEnumSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSimpleSeqAsync(const SimpleEnumSeq& s1, std::function<void(::Test::SimpleEnumSeq, ::Test::SimpleEnumSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSimpleSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnumSeq, SimpleEnumSeq>>>&, const SimpleEnumSeq&, const Ice::Context&) const;
+    void _iceI_opSimpleSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SimpleEnumSeq, SimpleEnumSeq>>>&, const SimpleEnumSeq&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -274,12 +274,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -287,55 +287,55 @@ public:
 
     virtual ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opByte(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opByte(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opShort(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opShort(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntEnum opInt(IntEnum i1, IntEnum& i2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opInt(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opInt(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSimple(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSimple(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteEnumSeq opByteSeq(ByteEnumSeq b1, ByteEnumSeq& b2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opByteSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opByteSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortEnumSeq opShortSeq(ShortEnumSeq s1, ShortEnumSeq& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opShortSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opShortSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntEnumSeq opIntSeq(IntEnumSeq i1, IntEnumSeq& i2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opIntSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opIntSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SimpleEnumSeq opSimpleSeq(SimpleEnumSeq s1, SimpleEnumSeq& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSimpleSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSimpleSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+using TestIntfPtr = std::shared_ptr<TestIntf>;
 
 }
 

@@ -27,7 +27,7 @@ module ::Test
     end
 
     if not defined?(::Test::C)
-        class C < ::Ice::Value
+        class C < Ice::Value
 
             def initialize(i=0)
                 @i = i

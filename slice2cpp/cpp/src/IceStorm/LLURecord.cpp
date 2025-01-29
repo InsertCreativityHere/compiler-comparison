@@ -36,14 +36,14 @@
 #endif
 
 void
-IceStormElection::LogUpdate::ice_printFields(::std::ostream& os) const
+IceStormElection::LogUpdate::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "generation = ", this->generation);
     Ice::print(os << ", iteration = ", this->iteration);
 }
 
-::std::ostream&
-IceStormElection::operator<<(::std::ostream& os, const ::IceStormElection::LogUpdate& value)
+std::ostream&
+IceStormElection::operator<<(std::ostream& os, const ::IceStormElection::LogUpdate& value)
 {
     os << "IceStormElection::LogUpdate{";
     value.ice_printFields(os);

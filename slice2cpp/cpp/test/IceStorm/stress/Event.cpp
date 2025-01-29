@@ -36,29 +36,29 @@
 #endif
 
 void
-Test::EventPrx::pub(::std::int32_t iceP_counter, const Ice::Context& context) const
+Test::EventPrx::pub(std::int32_t iceP_counter, const Ice::Context& context) const
 {
     IceInternal::makePromiseOutgoing<void>(true, this, &EventPrx::_iceI_pub, iceP_counter, context).get();
 }
 
-::std::future<void>
-Test::EventPrx::pubAsync(::std::int32_t iceP_counter, const Ice::Context& context) const
+std::future<void>
+Test::EventPrx::pubAsync(std::int32_t iceP_counter, const Ice::Context& context) const
 {
     return IceInternal::makePromiseOutgoing<void>(false, this, &EventPrx::_iceI_pub, iceP_counter, context);
 }
 
-::std::function<void()>
-Test::EventPrx::pubAsync(::std::int32_t iceP_counter, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
+std::function<void()>
+Test::EventPrx::pubAsync(std::int32_t iceP_counter, std::function<void()> response, std::function<void(std::exception_ptr)> ex, std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_counter, context);
+    return IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_counter, context);
 }
 
 void
-Test::EventPrx::_iceI_pub(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_counter, const Ice::Context& context) const
+Test::EventPrx::_iceI_pub(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, std::int32_t iceP_counter, const Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "pub";
+    static constexpr std::string_view operationName = "pub";
 
-    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, std::nullopt, context,
         [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_counter);
@@ -74,17 +74,17 @@ Test::EventPrx::ice_staticId() noexcept
     return "::Test::Event";
 }
 
-::std::vector<::std::string>
+std::vector<std::string>
 Test::Event::ice_ids(const Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Event"};
+    static const std::vector<std::string> allTypeIds = {"::Ice::Object", "::Test::Event"};
     return allTypeIds;
 }
 
-::std::string
+std::string
 Test::Event::ice_id(const Ice::Current&) const
 {
-    return ::std::string{ice_staticId()};
+    return std::string{ice_staticId()};
 }
 
 const char*
@@ -97,12 +97,12 @@ Test::Event::ice_staticId() noexcept
 void
 Test::Event::_iceD_pub(
     Ice::IncomingRequest& request,
-    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::int32_t iceP_counter;
+    std::int32_t iceP_counter;
     istr->readAll(iceP_counter);
     istr->endEncapsulation();
     this->pub(iceP_counter, request.current());
@@ -112,15 +112,15 @@ Test::Event::_iceD_pub(
 
 /// \cond INTERNAL
 void
-Test::Event::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
+Test::Event::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "pub"};
+    static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "pub"};
 
     const Ice::Current& current = request.current();
-    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
     if (r.first == r.second)
     {
-        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -128,33 +128,33 @@ Test::Event::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::O
     {
         case 0:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_pub(request, ::std::move(sendResponse));
+            _iceD_pub(request, std::move(sendResponse));
             break;
         }
         default:
         {
             assert(false);
-            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

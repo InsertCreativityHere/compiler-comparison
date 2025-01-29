@@ -140,7 +140,7 @@ module ::And
     end
 
     if not defined?(::And::For)
-        class For < ::Ice::Value
+        class For < Ice::Value
 
             def initialize(lambda=0, from=nil, global=0)
                 @lambda = lambda

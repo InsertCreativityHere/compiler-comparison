@@ -42,13 +42,13 @@ namespace
 }
 
 void
-Test::StructKey::ice_printFields(::std::ostream& os) const
+Test::StructKey::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "value = ", this->value);
 }
 
-::std::ostream&
-Test::operator<<(::std::ostream& os, const ::Test::StructKey& value)
+std::ostream&
+Test::operator<<(std::ostream& os, const ::Test::StructKey& value)
 {
     os << "Test::StructKey{";
     value.ice_printFields(os);

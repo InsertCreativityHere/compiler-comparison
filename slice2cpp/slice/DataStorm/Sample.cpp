@@ -38,8 +38,8 @@
 #   endif
 #endif
 
-::std::ostream&
-DataStorm::operator<<(::std::ostream& os, SampleEvent value)
+std::ostream&
+DataStorm::operator<<(std::ostream& os, SampleEvent value)
 {
     switch (value)
     {
@@ -52,6 +52,6 @@ DataStorm::operator<<(::std::ostream& os, SampleEvent value)
         case SampleEvent::Remove:
             return os << "Remove";
         default:
-            return os << static_cast<::std::int32_t>(value);
+            return os << static_cast<std::int32_t>(value);
     }
 }

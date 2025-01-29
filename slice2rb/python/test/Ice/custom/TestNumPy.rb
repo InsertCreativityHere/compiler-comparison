@@ -81,7 +81,7 @@ module ::Test
         end
 
         if not defined?(::Test::NumPy::D)
-            class D < ::Ice::Value
+            class D < Ice::Value
 
                 def initialize(boolSeq=::Ice::Unset, byteSeq=::Ice::Unset, shortSeq=::Ice::Unset, intSeq=::Ice::Unset, longSeq=::Ice::Unset, floatSeq=::Ice::Unset, doubleSeq=::Ice::Unset)
                     @boolSeq = boolSeq

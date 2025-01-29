@@ -28,40 +28,40 @@ namespace Test
 {
     struct S;
 
-    using SMap = ::std::map<::std::string, S>;
+    using SMap = std::map<std::string, S>;
 
-    using SSeq = ::std::vector<S>;
+    using SSeq = std::vector<S>;
 
     class C;
-    using CPtr = ::std::shared_ptr<C>;
+    using CPtr = std::shared_ptr<C>;
 
-    using CMap = ::std::map<::std::string, CPtr>;
+    using CMap = std::map<std::string, CPtr>;
 
-    using CSeq = ::std::vector<CPtr>;
+    using CSeq = std::vector<CPtr>;
 
-    enum class E1 : ::std::uint8_t
+    enum class E1 : std::uint8_t
     {
         v1,
         v2,
         v3
     };
-    ::std::ostream& operator<<(::std::ostream&, E1);
+    std::ostream& operator<<(std::ostream&, E1);
 
     struct S1;
 
     class C1;
-    using C1Ptr = ::std::shared_ptr<C1>;
+    using C1Ptr = std::shared_ptr<C1>;
 
     struct S2;
 
     class C2;
-    using C2Ptr = ::std::shared_ptr<C2>;
+    using C2Ptr = std::shared_ptr<C2>;
 
     class IPrx;
 
-    using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+    using IMap = std::map<std::string, std::optional<IPrx>>;
 
-    using ISeq = ::std::vector<::std::optional<IPrx>>;
+    using ISeq = std::vector<std::optional<IPrx>>;
 
 
     namespace Inner
@@ -73,40 +73,40 @@ namespace Test
         {
             struct S;
 
-            using SMap = ::std::map<::std::string, S>;
+            using SMap = std::map<std::string, S>;
 
-            using SSeq = ::std::vector<S>;
+            using SSeq = std::vector<S>;
 
             class C;
-            using CPtr = ::std::shared_ptr<C>;
+            using CPtr = std::shared_ptr<C>;
 
-            using CMap = ::std::map<::std::string, CPtr>;
+            using CMap = std::map<std::string, CPtr>;
 
-            using CSeq = ::std::vector<CPtr>;
+            using CSeq = std::vector<CPtr>;
 
             class IPrx;
 
-            using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+            using IMap = std::map<std::string, std::optional<IPrx>>;
 
-            using ISeq = ::std::vector<::std::optional<IPrx>>;
+            using ISeq = std::vector<std::optional<IPrx>>;
 
         }
         class C;
-        using CPtr = ::std::shared_ptr<C>;
+        using CPtr = std::shared_ptr<C>;
 
-        using SSeq = ::std::vector<::Test::Inner::Inner2::S>;
+        using SSeq = std::vector<::Test::Inner::Inner2::S>;
 
-        using SMap = ::std::map<::std::string, ::Test::Inner::Inner2::S>;
+        using SMap = std::map<std::string, ::Test::Inner::Inner2::S>;
 
-        using CMap = ::std::map<::std::string, ::Test::Inner::Inner2::CPtr>;
+        using CMap = std::map<std::string, ::Test::Inner::Inner2::CPtr>;
 
-        using CSeq = ::std::vector<::Test::Inner::Inner2::CPtr>;
+        using CSeq = std::vector<::Test::Inner::Inner2::CPtr>;
 
         class IPrx;
 
-        using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+        using IMap = std::map<std::string, std::optional<IPrx>>;
 
-        using ISeq = ::std::vector<::std::optional<IPrx>>;
+        using ISeq = std::vector<std::optional<IPrx>>;
 
     }
 }
@@ -134,112 +134,112 @@ public:
 
     S opS(const S& s1, S& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<S, S>> opSAsync(const S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSAsync(const S& s1, ::std::function<void(::Test::S, ::Test::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSAsync(const S& s1, std::function<void(::Test::S, ::Test::S)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<S, S>>>&, const S&, const Ice::Context&) const;
+    void _iceI_opS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<S, S>>>&, const S&, const Ice::Context&) const;
     /// \endcond
 
     SSeq opSSeq(const SSeq& s1, SSeq& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSSeqAsync(const SSeq& s1, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSSeqAsync(const SSeq& s1, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SSeq, SSeq>>>&, const SSeq&, const Ice::Context&) const;
+    void _iceI_opSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SSeq, SSeq>>>&, const SSeq&, const Ice::Context&) const;
     /// \endcond
 
     SMap opSMap(const SMap& s1, SMap& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSMapAsync(const SMap& s1, ::std::function<void(::Test::SMap, ::Test::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSMapAsync(const SMap& s1, std::function<void(::Test::SMap, ::Test::SMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>&, const SMap&, const Ice::Context&) const;
+    void _iceI_opSMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SMap, SMap>>>&, const SMap&, const Ice::Context&) const;
     /// \endcond
 
     CPtr opC(const CPtr& c1, CPtr& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCAsync(const CPtr& c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCAsync(const CPtr& c1, std::function<void(::Test::CPtr, ::Test::CPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<CPtr, CPtr>>>&, const CPtr&, const Ice::Context&) const;
+    void _iceI_opC(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CPtr, CPtr>>>&, const CPtr&, const Ice::Context&) const;
     /// \endcond
 
     CSeq opCSeq(const CSeq& c1, CSeq& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCSeqAsync(const CSeq& c1, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCSeqAsync(const CSeq& c1, std::function<void(::Test::CSeq, ::Test::CSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>&, const CSeq&, const Ice::Context&) const;
+    void _iceI_opCSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CSeq, CSeq>>>&, const CSeq&, const Ice::Context&) const;
     /// \endcond
 
     CMap opCMap(const CMap& c1, CMap& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCMapAsync(const CMap& c1, ::std::function<void(::Test::CMap, ::Test::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCMapAsync(const CMap& c1, std::function<void(::Test::CMap, ::Test::CMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<CMap, CMap>>>&, const CMap&, const Ice::Context&) const;
+    void _iceI_opCMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CMap, CMap>>>&, const CMap&, const Ice::Context&) const;
     /// \endcond
 
     E1 opE1(E1 E1, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<E1> opE1Async(E1 E1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<E1> opE1Async(E1 E1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opE1Async(E1 E1, ::std::function<void(::Test::E1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opE1Async(E1 E1, std::function<void(::Test::E1)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opE1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<E1>>&, E1, const Ice::Context&) const;
+    void _iceI_opE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<E1>>&, E1, const Ice::Context&) const;
     /// \endcond
 
     S1 opS1(const S1& S1, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<S1> opS1Async(const S1& S1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<S1> opS1Async(const S1& S1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opS1Async(const S1& S1, ::std::function<void(::Test::S1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opS1Async(const S1& S1, std::function<void(::Test::S1)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opS1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<S1>>&, const S1&, const Ice::Context&) const;
+    void _iceI_opS1(const std::shared_ptr<IceInternal::OutgoingAsyncT<S1>>&, const S1&, const Ice::Context&) const;
     /// \endcond
 
     C1Ptr opC1(const C1Ptr& C1, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<C1Ptr> opC1Async(const C1Ptr& C1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<C1Ptr> opC1Async(const C1Ptr& C1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opC1Async(const C1Ptr& C1, ::std::function<void(::Test::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opC1Async(const C1Ptr& C1, std::function<void(::Test::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<C1Ptr>>&, const C1Ptr&, const Ice::Context&) const;
+    void _iceI_opC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<C1Ptr>>&, const C1Ptr&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -297,79 +297,79 @@ public:
 
     S opS(const S& s1, S& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<S, S>> opSAsync(const S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSAsync(const S& s1, ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSAsync(const S& s1, std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<S, S>>>&, const S&, const Ice::Context&) const;
+    void _iceI_opS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<S, S>>>&, const S&, const Ice::Context&) const;
     /// \endcond
 
     SSeq opSSeq(const SSeq& s1, SSeq& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSSeqAsync(const SSeq& s1, ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSSeqAsync(const SSeq& s1, std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SSeq, SSeq>>>&, const SSeq&, const Ice::Context&) const;
+    void _iceI_opSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SSeq, SSeq>>>&, const SSeq&, const Ice::Context&) const;
     /// \endcond
 
     SMap opSMap(const SMap& s1, SMap& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSMapAsync(const SMap& s1, ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSMapAsync(const SMap& s1, std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>&, const SMap&, const Ice::Context&) const;
+    void _iceI_opSMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SMap, SMap>>>&, const SMap&, const Ice::Context&) const;
     /// \endcond
 
     CPtr opC(const CPtr& c1, CPtr& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCAsync(const CPtr& c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCAsync(const CPtr& c1, std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<CPtr, CPtr>>>&, const CPtr&, const Ice::Context&) const;
+    void _iceI_opC(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CPtr, CPtr>>>&, const CPtr&, const Ice::Context&) const;
     /// \endcond
 
     CSeq opCSeq(const CSeq& c1, CSeq& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCSeqAsync(const CSeq& c1, ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCSeqAsync(const CSeq& c1, std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>&, const CSeq&, const Ice::Context&) const;
+    void _iceI_opCSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CSeq, CSeq>>>&, const CSeq&, const Ice::Context&) const;
     /// \endcond
 
     CMap opCMap(const CMap& c1, CMap& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCMapAsync(const CMap& c1, ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCMapAsync(const CMap& c1, std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<CMap, CMap>>>&, const CMap&, const Ice::Context&) const;
+    void _iceI_opCMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<CMap, CMap>>>&, const CMap&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -423,79 +423,79 @@ public:
 
     ::Test::Inner::Inner2::S opS(const ::Test::Inner::Inner2::S& s1, ::Test::Inner::Inner2::S& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSAsync(const ::Test::Inner::Inner2::S& s1, ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSAsync(const ::Test::Inner::Inner2::S& s1, std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>>&, const ::Test::Inner::Inner2::S&, const Ice::Context&) const;
+    void _iceI_opS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>>&, const ::Test::Inner::Inner2::S&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::Inner::Inner2::SSeq opSSeq(const ::Test::Inner::Inner2::SSeq& s1, ::Test::Inner::Inner2::SSeq& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>>>&, const ::Test::Inner::Inner2::SSeq&, const Ice::Context&) const;
+    void _iceI_opSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>>>&, const ::Test::Inner::Inner2::SSeq&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::Inner::Inner2::SMap opSMap(const ::Test::Inner::Inner2::SMap& s1, ::Test::Inner::Inner2::SMap& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>>&, const ::Test::Inner::Inner2::SMap&, const Ice::Context&) const;
+    void _iceI_opSMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>>&, const ::Test::Inner::Inner2::SMap&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::Inner::Inner2::CPtr opC(const ::Test::Inner::Inner2::CPtr& c1, ::Test::Inner::Inner2::CPtr& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>> opCAsync(const ::Test::Inner::Inner2::CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>> opCAsync(const ::Test::Inner::Inner2::CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCAsync(const ::Test::Inner::Inner2::CPtr& c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCAsync(const ::Test::Inner::Inner2::CPtr& c1, std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>>&, const ::Test::Inner::Inner2::CPtr&, const Ice::Context&) const;
+    void _iceI_opC(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>>&, const ::Test::Inner::Inner2::CPtr&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::Inner::Inner2::CSeq opCSeq(const ::Test::Inner::Inner2::CSeq& c1, ::Test::Inner::Inner2::CSeq& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>>>&, const ::Test::Inner::Inner2::CSeq&, const Ice::Context&) const;
+    void _iceI_opCSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>>>&, const ::Test::Inner::Inner2::CSeq&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::Inner::Inner2::CMap opCMap(const ::Test::Inner::Inner2::CMap& c1, ::Test::Inner::Inner2::CMap& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>>>&, const ::Test::Inner::Inner2::CMap&, const Ice::Context&) const;
+    void _iceI_opCMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>>>&, const ::Test::Inner::Inner2::CMap&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -560,79 +560,79 @@ public:
 
     ::Test::S opS(const ::Test::S& s1, ::Test::S& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSAsync(const ::Test::S& s1, ::std::function<void(::Test::S, ::Test::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSAsync(const ::Test::S& s1, std::function<void(::Test::S, ::Test::S)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::S, ::Test::S>>>&, const ::Test::S&, const Ice::Context&) const;
+    void _iceI_opS(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::S, ::Test::S>>>&, const ::Test::S&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::SSeq opSSeq(const ::Test::SSeq& s1, ::Test::SSeq& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSSeqAsync(const ::Test::SSeq& s1, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSSeqAsync(const ::Test::SSeq& s1, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::SSeq, ::Test::SSeq>>>&, const ::Test::SSeq&, const Ice::Context&) const;
+    void _iceI_opSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::SSeq, ::Test::SSeq>>>&, const ::Test::SSeq&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::SMap opSMap(const ::Test::SMap& s1, ::Test::SMap& s2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSMapAsync(const ::Test::SMap& s1, ::std::function<void(::Test::SMap, ::Test::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opSMapAsync(const ::Test::SMap& s1, std::function<void(::Test::SMap, ::Test::SMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::SMap, ::Test::SMap>>>&, const ::Test::SMap&, const Ice::Context&) const;
+    void _iceI_opSMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::SMap, ::Test::SMap>>>&, const ::Test::SMap&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::CPtr opC(const ::Test::CPtr& c1, ::Test::CPtr& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::CPtr, ::Test::CPtr>> opCAsync(const ::Test::CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::CPtr, ::Test::CPtr>> opCAsync(const ::Test::CPtr& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCAsync(const ::Test::CPtr& c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCAsync(const ::Test::CPtr& c1, std::function<void(::Test::CPtr, ::Test::CPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::CPtr, ::Test::CPtr>>>&, const ::Test::CPtr&, const Ice::Context&) const;
+    void _iceI_opC(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::CPtr, ::Test::CPtr>>>&, const ::Test::CPtr&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::CSeq opCSeq(const ::Test::CSeq& c1, ::Test::CSeq& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCSeqAsync(const ::Test::CSeq& c1, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCSeqAsync(const ::Test::CSeq& c1, std::function<void(::Test::CSeq, ::Test::CSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::CSeq, ::Test::CSeq>>>&, const ::Test::CSeq&, const Ice::Context&) const;
+    void _iceI_opCSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::CSeq, ::Test::CSeq>>>&, const ::Test::CSeq&, const Ice::Context&) const;
     /// \endcond
 
     ::Test::CMap opCMap(const ::Test::CMap& c1, ::Test::CMap& c2, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opCMapAsync(const ::Test::CMap& c1, ::std::function<void(::Test::CMap, ::Test::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    opCMapAsync(const ::Test::CMap& c1, std::function<void(::Test::CMap, ::Test::CMap)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::Test::CMap, ::Test::CMap>>>&, const ::Test::CMap&, const Ice::Context&) const;
+    void _iceI_opCMap(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Test::CMap, ::Test::CMap>>>&, const ::Test::CMap&, const Ice::Context&) const;
     /// \endcond
 
     void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+    std::function<void()> // NOLINT(modernize-use-nodiscard)
+    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -689,21 +689,21 @@ namespace Test
 
 struct S
 {
-    ::std::int32_t v;
+    std::int32_t v;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S&);
+std::ostream& operator<<(std::ostream&, const S&);
 
 class C : public Ice::Value
 {
@@ -732,7 +732,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
+    [[nodiscard]] CPtr ice_clone() const { return std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::S s;
 
@@ -748,21 +748,21 @@ public:
 
 struct S1
 {
-    ::std::string s;
+    std::string s;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(s);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S1&);
+std::ostream& operator<<(std::ostream&, const S1&);
 
 class C1 : public Ice::Value
 {
@@ -771,8 +771,8 @@ public:
     C1() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    explicit C1(::std::string s) noexcept :
-        s(::std::move(s))
+    explicit C1(std::string s) noexcept :
+        s(std::move(s))
     {
     }
 
@@ -784,16 +784,16 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
     {
         return std::tie(s);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] C1Ptr ice_clone() const { return ::std::static_pointer_cast<C1>(_iceCloneImpl()); }
+    [[nodiscard]] C1Ptr ice_clone() const { return std::static_pointer_cast<C1>(_iceCloneImpl()); }
 
-    ::std::string s;
+    std::string s;
 
     void ice_printFields(std::ostream& os) const override;
     C1(const C1&) = default;
@@ -820,10 +820,10 @@ struct S2
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S2&);
+std::ostream& operator<<(std::ostream&, const S2&);
 
 class C2 : public Ice::Value
 {
@@ -834,8 +834,8 @@ public:
     /// One-shot constructor to initialize all data members.
     C2(::Test::E1 E1, ::Test::S1 S1, ::Test::C1Ptr C1) noexcept :
         E1(E1),
-        S1(::std::move(S1)),
-        C1(::std::move(C1))
+        S1(std::move(S1)),
+        C1(std::move(C1))
     {
     }
 
@@ -854,7 +854,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] C2Ptr ice_clone() const { return ::std::static_pointer_cast<C2>(_iceCloneImpl()); }
+    [[nodiscard]] C2Ptr ice_clone() const { return std::static_pointer_cast<C2>(_iceCloneImpl()); }
 
     ::Test::E1 E1;
     ::Test::S1 S1;
@@ -875,42 +875,42 @@ namespace Inner
 
 struct S
 {
-    ::std::int32_t v;
+    std::int32_t v;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S&);
+std::ostream& operator<<(std::ostream&, const S&);
 
 namespace Inner2
 {
 
 struct S
 {
-    ::std::int32_t v;
+    std::int32_t v;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
 
     /// Outputs the name and value of each field of this instance to the stream.
     /// @param os The output stream.
-    void ice_printFields(::std::ostream& os) const;
+    void ice_printFields(std::ostream& os) const;
 };
 
-::std::ostream& operator<<(::std::ostream&, const S&);
+std::ostream& operator<<(std::ostream&, const S&);
 
 class C : public Ice::Value
 {
@@ -939,7 +939,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
+    [[nodiscard]] CPtr ice_clone() const { return std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::Inner::Inner2::S s;
 
@@ -989,7 +989,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
+    [[nodiscard]] CPtr ice_clone() const { return std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::Inner::S s;
 
@@ -1033,12 +1033,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1046,60 +1046,60 @@ public:
 
     virtual S opS(S s1, S& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SSeq opSSeq(SSeq s1, SSeq& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SMap opSMap(SMap s1, SMap& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CPtr opC(CPtr c1, CPtr& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opC(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CSeq opCSeq(CSeq c1, CSeq& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CMap opCMap(CMap c1, CMap& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual E1 opE1(E1 E1, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opE1(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual S1 opS1(S1 S1, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opS1(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opS1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual C1Ptr opC1(C1Ptr C1, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opC1(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using IPtr = ::std::shared_ptr<I>;
+using IPtr = std::shared_ptr<I>;
 
 namespace Inner
 {
@@ -1116,12 +1116,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1129,45 +1129,45 @@ public:
 
     virtual S opS(S s1, S& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SSeq opSSeq(SSeq s1, SSeq& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SMap opSMap(SMap s1, SMap& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CPtr opC(CPtr c1, CPtr& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opC(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CSeq opCSeq(CSeq c1, CSeq& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CMap opCMap(CMap c1, CMap& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using IPtr = ::std::shared_ptr<I>;
+using IPtr = std::shared_ptr<I>;
 
 }
 
@@ -1180,12 +1180,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1193,45 +1193,45 @@ public:
 
     virtual ::Test::Inner::Inner2::S opS(::Test::Inner::Inner2::S s1, ::Test::Inner::Inner2::S& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::SSeq opSSeq(::Test::Inner::Inner2::SSeq s1, ::Test::Inner::Inner2::SSeq& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::SMap opSMap(::Test::Inner::Inner2::SMap s1, ::Test::Inner::Inner2::SMap& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::CPtr opC(::Test::Inner::Inner2::CPtr c1, ::Test::Inner::Inner2::CPtr& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opC(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::CSeq opCSeq(::Test::Inner::Inner2::CSeq c1, ::Test::Inner::Inner2::CSeq& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::CMap opCMap(::Test::Inner::Inner2::CMap c1, ::Test::Inner::Inner2::CMap& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using IPtr = ::std::shared_ptr<I>;
+using IPtr = std::shared_ptr<I>;
 
 }
 
@@ -1255,12 +1255,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
+    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
+    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1268,45 +1268,45 @@ public:
 
     virtual ::Test::S opS(::Test::S s1, ::Test::S& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opS(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opS(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::SSeq opSSeq(::Test::SSeq s1, ::Test::SSeq& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::SMap opSMap(::Test::SMap s1, ::Test::SMap& s2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opSMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opSMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::CPtr opC(::Test::CPtr c1, ::Test::CPtr& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opC(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::CSeq opCSeq(::Test::CSeq c1, ::Test::CSeq& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::CMap opCMap(::Test::CMap c1, ::Test::CMap& c2, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_opCMap(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_opCMap(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
-using IPtr = ::std::shared_ptr<I>;
+using IPtr = std::shared_ptr<I>;
 
 }
 
