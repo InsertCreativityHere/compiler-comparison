@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class TestIntfPrx;
@@ -588,6 +590,8 @@ namespace Test
 
     using EchoPtr = std::shared_ptr<Echo>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

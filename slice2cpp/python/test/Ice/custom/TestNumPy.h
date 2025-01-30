@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
 
@@ -514,6 +516,8 @@ namespace Test
         using CustomPtr = std::shared_ptr<Custom>;
     }
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

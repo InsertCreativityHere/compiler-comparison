@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     using ByteSeq = std::vector<std::byte>;
@@ -383,6 +385,8 @@ namespace Test
 
     using ControllerPtr = std::shared_ptr<Controller>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

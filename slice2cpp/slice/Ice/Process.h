@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     class ProcessPrx;
@@ -183,6 +185,8 @@ namespace Ice
 
     using ProcessPtr = std::shared_ptr<Process>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

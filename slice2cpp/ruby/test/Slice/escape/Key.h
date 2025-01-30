@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace BEGIN
 {
     enum class END : std::uint8_t
@@ -548,6 +550,8 @@ namespace Ice
     };
 }
 /// \endcond
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

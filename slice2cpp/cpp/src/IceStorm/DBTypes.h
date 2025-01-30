@@ -26,6 +26,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceStormElection
 {
     using StringLogUpdateDict = std::map<std::string, LogUpdate>;
@@ -89,6 +91,8 @@ namespace Ice
     };
 }
 /// \endcond
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

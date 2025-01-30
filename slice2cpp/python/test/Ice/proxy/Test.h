@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class MyClassPrx;
@@ -235,6 +237,8 @@ namespace Test
 
     using MyDerivedClassPtr = std::shared_ptr<MyDerivedClass>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

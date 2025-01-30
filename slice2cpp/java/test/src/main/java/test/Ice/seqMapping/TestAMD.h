@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     using SerialSmall = std::vector<std::byte>;
@@ -326,6 +328,8 @@ namespace Ice
     };
 }
 /// \endcond
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     /// Uniquely identifies TCP endpoints.
@@ -54,6 +56,8 @@ namespace Ice
     /// Uniquely identifies SSL iAP-based endpoints.
     constexpr std::int16_t iAPSEndpointType = 9;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

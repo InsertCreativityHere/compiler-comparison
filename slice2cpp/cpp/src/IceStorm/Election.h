@@ -28,6 +28,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceStormElection
 {
     struct TopicContent;
@@ -1076,6 +1078,8 @@ namespace Ice
     };
 }
 /// \endcond
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

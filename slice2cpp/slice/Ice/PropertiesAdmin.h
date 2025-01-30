@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     class PropertiesAdminPrx;
@@ -228,6 +230,8 @@ namespace Ice
 
     using PropertiesAdminPtr = std::shared_ptr<PropertiesAdmin>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

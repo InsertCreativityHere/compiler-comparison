@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class SessionPrx;
@@ -147,6 +149,8 @@ namespace Test
 
     using SessionPtr = std::shared_ptr<Session>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

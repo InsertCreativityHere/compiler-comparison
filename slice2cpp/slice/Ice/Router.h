@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     class RouterPrx;
@@ -333,6 +335,8 @@ namespace Ice
 
     using RouterFinderPtr = std::shared_ptr<RouterFinder>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

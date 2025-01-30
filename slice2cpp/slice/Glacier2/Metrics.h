@@ -34,6 +34,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceMX
 {
     class SessionMetrics;
@@ -116,6 +118,8 @@ namespace IceMX
         ICE_MEMBER(GLACIER2_API) void _iceReadImpl(Ice::InputStream*) override;
     };
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

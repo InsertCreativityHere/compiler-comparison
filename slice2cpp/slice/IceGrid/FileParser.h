@@ -34,6 +34,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceGrid
 {
     class FileParserPrx;
@@ -205,6 +207,8 @@ namespace IceGrid
 
     using FileParserPtr = std::shared_ptr<FileParser>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

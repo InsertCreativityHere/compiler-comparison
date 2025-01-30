@@ -28,6 +28,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace DataStormContract
 {
     /// Defines policies for clearing the data sample history of a reader in response to sample events.
@@ -1958,6 +1960,8 @@ namespace Ice
     };
 }
 /// \endcond
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class DelayedTestIntfPrx;
@@ -305,6 +307,8 @@ namespace Test
 
     using TestIntfBidirPtr = std::shared_ptr<TestIntfBidir>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

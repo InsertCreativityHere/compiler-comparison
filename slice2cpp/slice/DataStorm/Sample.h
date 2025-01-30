@@ -32,6 +32,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace DataStorm
 {
     /// The sample event matches the operation used by the DataWriter to update the data element. It also provides
@@ -69,6 +71,8 @@ namespace Ice
     };
 }
 /// \endcond
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

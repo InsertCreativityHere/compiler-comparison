@@ -27,6 +27,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     struct ProtocolVersion;
@@ -83,6 +85,8 @@ namespace Ice
     using Ice::Tuple::operator==;
     using Ice::Tuple::operator!=;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

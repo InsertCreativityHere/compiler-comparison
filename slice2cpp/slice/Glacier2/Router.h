@@ -36,6 +36,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Glacier2
 {
     class RouterPrx;
@@ -475,6 +477,8 @@ namespace Glacier2
 
     using RouterPtr = std::shared_ptr<Router>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class CallbackReceiverPrx;
@@ -304,6 +306,8 @@ namespace Test
 
     using CallbackPtr = std::shared_ptr<Callback>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

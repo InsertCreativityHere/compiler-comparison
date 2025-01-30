@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace NoNamespace
 {
     class C1;
@@ -239,6 +241,8 @@ namespace NoNamespace
         void _readImpl(Ice::InputStream*) override;
     };
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

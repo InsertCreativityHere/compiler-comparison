@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class BackgroundPrx;
@@ -396,6 +398,8 @@ namespace Test
 
     using BackgroundControllerPtr = std::shared_ptr<BackgroundController>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -26,12 +26,16 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     /// A string-string dictionary, used to transmit additional information with an Ice request. This context is only
     /// transmitted with requests, from clients to servers; the Ice protocol does not provide response contexts.
     using Context = std::map<std::string, std::string, std::less<>>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

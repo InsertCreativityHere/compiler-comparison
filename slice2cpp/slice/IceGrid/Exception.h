@@ -35,6 +35,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceGrid
 {
 }
@@ -906,6 +908,8 @@ namespace IceGrid
         ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
     };
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

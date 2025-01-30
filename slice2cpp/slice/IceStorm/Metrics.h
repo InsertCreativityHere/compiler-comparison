@@ -34,6 +34,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceMX
 {
     class TopicMetrics;
@@ -157,6 +159,8 @@ namespace IceMX
         ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
     };
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

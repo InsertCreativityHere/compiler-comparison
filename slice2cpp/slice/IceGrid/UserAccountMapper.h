@@ -33,6 +33,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceGrid
 {
     class UserAccountMapperPrx;
@@ -185,6 +187,8 @@ namespace IceGrid
 
     using UserAccountMapperPtr = std::shared_ptr<UserAccountMapper>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

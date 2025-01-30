@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class RemoteCommunicatorPrx;
@@ -484,6 +486,8 @@ namespace Test
 
     using TestFacetPtr = std::shared_ptr<TestFacet>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

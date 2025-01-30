@@ -26,6 +26,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class PingReplyPrx;
@@ -573,6 +575,8 @@ namespace Test
 
     using TestIntfControllerPtr = std::shared_ptr<TestIntfController>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

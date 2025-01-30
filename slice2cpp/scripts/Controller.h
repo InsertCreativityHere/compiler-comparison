@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
 
@@ -973,6 +975,8 @@ namespace Test
         using ProcessControllerRegistryPtr = std::shared_ptr<ProcessControllerRegistry>;
     }
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

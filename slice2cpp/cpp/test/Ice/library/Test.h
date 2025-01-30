@@ -32,6 +32,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class MyInterfacePrx;
@@ -171,6 +173,8 @@ namespace Test
 
     using MyInterfacePtr = std::shared_ptr<MyInterface>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

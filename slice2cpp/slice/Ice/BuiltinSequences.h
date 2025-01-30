@@ -31,6 +31,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     /// A sequence of bools.
@@ -63,6 +65,8 @@ namespace Ice
     /// A sequence of object proxies.
     using ObjectProxySeq = std::vector<std::optional<Ice::ObjectPrx>>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

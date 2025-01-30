@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class TestIntfPrx;
@@ -155,6 +157,8 @@ namespace Test
 
     using TestIntfPtr = std::shared_ptr<TestIntf>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     class MyClassPrx;
@@ -398,6 +400,8 @@ namespace Test
 
     using DiamondClassPtr = std::shared_ptr<DiamondClass>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

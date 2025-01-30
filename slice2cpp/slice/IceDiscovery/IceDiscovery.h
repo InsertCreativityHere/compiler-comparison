@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceDiscovery
 {
     class LookupReplyPrx;
@@ -363,6 +365,8 @@ namespace IceDiscovery
 
     using LookupPtr = std::shared_ptr<Lookup>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

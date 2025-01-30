@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Test
 {
     using Context = std::map<std::string, std::string>;
@@ -236,6 +238,8 @@ namespace Test
 
     using MyDerivedClassPtr = std::shared_ptr<MyDerivedClass>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

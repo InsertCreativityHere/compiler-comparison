@@ -35,6 +35,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceGrid
 {
     class RegistryPrx;
@@ -359,6 +361,8 @@ namespace IceGrid
 
     using SessionPtr = std::shared_ptr<Session>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

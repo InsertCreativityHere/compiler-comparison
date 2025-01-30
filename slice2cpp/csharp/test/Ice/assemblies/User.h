@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace User
 {
     class UserInfo;
@@ -152,6 +154,8 @@ namespace User
 
     using RegistryPtr = std::shared_ptr<Registry>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

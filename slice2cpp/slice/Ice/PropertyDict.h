@@ -26,6 +26,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     /// A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
@@ -33,6 +35,8 @@ namespace Ice
     /// @see PropertiesAdmin#getPropertiesForPrefix
     using PropertyDict = std::map<std::string, std::string>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

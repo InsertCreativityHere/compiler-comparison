@@ -25,6 +25,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     class ProcessPrx;
@@ -663,6 +665,8 @@ namespace Ice
 
     using LocatorFinderPtr = std::shared_ptr<LocatorFinder>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

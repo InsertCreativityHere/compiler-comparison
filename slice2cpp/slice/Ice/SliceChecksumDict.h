@@ -24,6 +24,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace Ice
 {
     /// Mapping from type IDs to Slice checksums. The dictionary allows verification at run time that client and server
@@ -31,6 +33,8 @@ namespace Ice
     /// for backward compatibility.
     using SliceChecksumDict = std::map<std::string, std::string>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif

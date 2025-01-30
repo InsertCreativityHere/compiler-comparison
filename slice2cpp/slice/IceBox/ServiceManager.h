@@ -34,6 +34,8 @@
 #   endif
 #endif
 
+// NOLINTBEGIN(modernize-concat-nested-namespaces)
+
 namespace IceBox
 {
     class ServiceObserverPrx;
@@ -457,6 +459,8 @@ namespace IceBox
 
     using ServiceManagerPtr = std::shared_ptr<ServiceManager>;
 }
+
+// NOLINTEND(modernize-concat-nested-namespaces)
 
 #include <Ice/PopDisableWarnings.h>
 #endif
