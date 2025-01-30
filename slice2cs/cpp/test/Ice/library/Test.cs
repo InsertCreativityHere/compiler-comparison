@@ -25,12 +25,12 @@ namespace Test
     [Ice.SliceTypeId("::Test::UserError")]
     public partial class UserError : Ice.UserException
     {
-        public string ice_message_ = "";
+        public string message = "";
 
-        public UserError(string ice_message_)
+        public UserError(string message)
         {
-            global::System.ArgumentNullException.ThrowIfNull(ice_message_);
-            this.ice_message_ = ice_message_;
+            global::System.ArgumentNullException.ThrowIfNull(message);
+            this.message = message;
         }
 
         public UserError()
@@ -42,14 +42,14 @@ namespace Test
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Test::UserError", -1, true);
-            ostr_.writeString(ice_message_);
+            ostr_.writeString(message);
             ostr_.endSlice();
         }
 
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            ice_message_ = istr_.readString();
+            message = istr_.readString();
             istr_.endSlice();
         }
     }

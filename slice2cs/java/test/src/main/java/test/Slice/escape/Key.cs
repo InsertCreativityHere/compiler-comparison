@@ -20,7 +20,7 @@
 #pragma warning disable CS0618 // Type or member is obsolete
 #pragma warning disable CS0619 // Type or member is obsolete
 
-namespace @abstract
+namespace abstract
 {
     public enum assert
     {
@@ -42,69 +42,69 @@ namespace @abstract
         }
     }
 
-    public partial record struct @break
+    public partial record struct break
     {
-        public int @case;
+        public int case;
 
         partial void ice_initialize();
 
-        public @break(int @case)
+        public break(int case)
         {
-            this.@case = @case;
+            this.case = case;
             ice_initialize();
         }
 
-        public @break(Ice.InputStream istr)
+        public break(Ice.InputStream istr)
         {
-            this.@case = istr.readInt();
+            this.case = istr.readInt();
             ice_initialize();
         }
 
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
-            ostr.writeInt(this.@case);
+            ostr.writeInt(this.case);
         }
 
-        public static void ice_write(Ice.OutputStream ostr, @break v)
+        public static void ice_write(Ice.OutputStream ostr, break v)
         {
             v.ice_writeMembers(ostr);
         }
 
-        public static @break ice_read(Ice.InputStream istr) => new(istr);
+        public static break ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [Ice.SliceTypeId("::abstract::catch")]
-    public partial interface @catch : Ice.Object
+    public partial interface catch : Ice.Object
     {
         global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::abstract::default")]
-    public partial interface @default : Ice.Object
+    public partial interface default : Ice.Object
     {
-        void @do(Ice.Current current);
+        void do(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::abstract::else")]
-    public partial class @else : Ice.Value
+    public partial class else : Ice.Value
     {
-        public int @if;
+        public int if;
 
-        public defaultPrx? ice_equals_;
+        public defaultPrx? equals;
 
         public int final;
 
         partial void ice_initialize();
 
-        public @else(int @if, defaultPrx? ice_equals_, int final)
+        public else(int if, defaultPrx? equals, int final)
         {
-            this.@if = @if;
-            this.ice_equals_ = ice_equals_;
+            this.if = if;
+            this.equals = equals;
             this.final = final;
             ice_initialize();
         }
 
-        public @else()
+        public else()
         {
             ice_initialize();
         }
@@ -115,8 +115,8 @@ namespace @abstract
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(@if);
-            defaultPrxHelper.write(ostr_, ice_equals_);
+            ostr_.writeInt(if);
+            defaultPrxHelper.write(ostr_, equals);
             ostr_.writeInt(final);
             ostr_.endSlice();
         }
@@ -124,26 +124,26 @@ namespace @abstract
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @if = istr_.readInt();
-            ice_equals_ = defaultPrxHelper.read(istr_);
+            if = istr_.readInt();
+            equals = defaultPrxHelper.read(istr_);
             final = istr_.readInt();
             istr_.endSlice();
         }
     }
 
     [Ice.SliceTypeId("::abstract::finalize")]
-    public partial interface finalize : @default, @catch
+    public partial interface finalize : default, catch
     {
     }
 
     [Ice.SliceTypeId("::abstract::hashCode")]
     public partial class hashCode : Ice.UserException
     {
-        public int @if;
+        public int if;
 
-        public hashCode(int @if)
+        public hashCode(int if)
         {
-            this.@if = @if;
+            this.if = if;
         }
 
         public hashCode()
@@ -155,14 +155,14 @@ namespace @abstract
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::abstract::hashCode", -1, true);
-            ostr_.writeInt(@if);
+            ostr_.writeInt(if);
             ostr_.endSlice();
         }
 
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @if = istr_.readInt();
+            if = istr_.readInt();
             istr_.endSlice();
         }
     }
@@ -174,7 +174,7 @@ namespace @abstract
 
         public int native;
 
-        public import(int @if, int instanceof, int native) : base(@if)
+        public import(int if, int instanceof, int native) : base(if)
         {
             this.instanceof = instanceof;
             this.native = native;
@@ -206,12 +206,12 @@ namespace @abstract
     }
 
     [Ice.SliceTypeId("::abstract::new")]
-    public partial interface @new : Ice.Object
+    public partial interface new : Ice.Object
     {
-        assert notify(@break notifyAll, @else? @null, finalizePrx? package, catchPrx? @public, defaultPrx? @return, int @static, int strictfp, int super, Ice.Current current);
+        assert notify(break notifyAll, else? null, finalizePrx? package, catchPrx? public, defaultPrx? return, int static, int strictfp, int super, Ice.Current current);
     }
 
-    public abstract class @switch
+    public abstract class switch
     {
         public const int value = 0;
     }
@@ -221,12 +221,12 @@ namespace @abstract
         public const int value = 0;
     }
 
-    public abstract class @this
+    public abstract class this
     {
         public const int value = 0;
     }
 
-    public abstract class @throw
+    public abstract class throw
     {
         public const int value = 0;
     }
@@ -236,7 +236,7 @@ namespace @abstract
         public const int value = 0;
     }
 
-    public abstract class @try
+    public abstract class try
     {
         public const int value = 0;
     }
@@ -246,7 +246,7 @@ namespace @abstract
         public const int value = 0;
     }
 
-    public abstract class @volatile
+    public abstract class volatile
     {
         public const int value = 0;
     }
@@ -256,12 +256,12 @@ namespace @abstract
         public const int value = 0;
     }
 
-    public abstract class @while
+    public abstract class while
     {
         public const int value = 0;
     }
 
-    public abstract class @finally
+    public abstract class finally
     {
         public const int value = 0;
     }
@@ -272,18 +272,18 @@ namespace @abstract
     }
 }
 
-namespace @abstract
+namespace abstract
 {
     public interface catchPrx : Ice.ObjectPrx
     {
-        void ice_checkedCast(int clone, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void checkedCast(int clone, out int continue, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface defaultPrx : Ice.ObjectPrx
     {
-        void @do(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void do(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task doAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
@@ -294,21 +294,21 @@ namespace @abstract
 
     public interface newPrx : Ice.ObjectPrx
     {
-        assert notify(@break notifyAll, @else? @null, finalizePrx? package, catchPrx? @public, defaultPrx? @return, int @static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        assert notify(break notifyAll, else? null, finalizePrx? package, catchPrx? public, defaultPrx? return, int static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<assert> notifyAsync(@break notifyAll, @else? @null, finalizePrx? package, catchPrx? @public, defaultPrx? @return, int @static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<assert> notifyAsync(break notifyAll, else? null, finalizePrx? package, catchPrx? public, defaultPrx? return, int static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
-namespace @abstract
+namespace abstract
 {
     public sealed class catchPrxHelper : Ice.ObjectPrxHelperBase, catchPrx
     {
-        public void ice_checkedCast(int clone, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void checkedCast(int clone, out int continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                @continue = _iceI_checkedCastAsync(clone, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                continue = _iceI_checkedCastAsync(clone, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -402,7 +402,7 @@ namespace @abstract
 
     public sealed class defaultPrxHelper : Ice.ObjectPrxHelperBase, defaultPrx
     {
-        public void @do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -489,7 +489,7 @@ namespace @abstract
 
     public sealed class finalizePrxHelper : Ice.ObjectPrxHelperBase, finalizePrx
     {
-        public void @do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -501,11 +501,11 @@ namespace @abstract
             }
         }
 
-        public void ice_checkedCast(int clone, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void checkedCast(int clone, out int continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                @continue = _iceI_checkedCastAsync(clone, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                continue = _iceI_checkedCastAsync(clone, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -695,11 +695,11 @@ namespace @abstract
 
     public sealed class newPrxHelper : Ice.ObjectPrxHelperBase, newPrx
     {
-        public assert notify(@break notifyAll, @else? @null, finalizePrx? package, catchPrx? @public, defaultPrx? @return, int @static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public assert notify(break notifyAll, else? null, finalizePrx? package, catchPrx? public, defaultPrx? return, int static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_notifyAsync(notifyAll, @null, package, @public, @return, @static, strictfp, super, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_notifyAsync(notifyAll, null, package, public, return, static, strictfp, super, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -707,12 +707,12 @@ namespace @abstract
             }
         }
 
-        public global::System.Threading.Tasks.Task<assert> notifyAsync(@break notifyAll, @else? @null, finalizePrx? package, catchPrx? @public, defaultPrx? @return, int @static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<assert> notifyAsync(break notifyAll, else? null, finalizePrx? package, catchPrx? public, defaultPrx? return, int static, int strictfp, int super, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_notifyAsync(notifyAll, @null, package, @public, @return, @static, strictfp, super, context, progress, cancel, false);
+            return _iceI_notifyAsync(notifyAll, null, package, public, return, static, strictfp, super, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<assert> _iceI_notifyAsync(@break iceP_notifyAll, @else? iceP_null, finalizePrx? iceP_package, catchPrx? iceP_public, defaultPrx? iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<assert> _iceI_notifyAsync(break iceP_notifyAll, else? iceP_null, finalizePrx? iceP_package, catchPrx? iceP_public, defaultPrx? iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_notify_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<assert>(progress, cancel);
@@ -722,7 +722,7 @@ namespace @abstract
 
         private const string _notify_name = "notify";
 
-        private void _iceI_notify(@break iceP_notifyAll, @else? iceP_null, finalizePrx? iceP_package, catchPrx? iceP_public, defaultPrx? iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_notify(break iceP_notifyAll, else? iceP_null, finalizePrx? iceP_package, catchPrx? iceP_public, defaultPrx? iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<assert>(completed);
             outAsync.invoke(
@@ -818,9 +818,9 @@ namespace @abstract
     }
 }
 
-namespace @abstract
+namespace abstract
 {
-    public abstract class catchDisp_ : Ice.ObjectImpl, @catch
+    public abstract class catchDisp_ : Ice.ObjectImpl, catch
     {
         public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, Ice.Current current);
 
@@ -831,7 +831,7 @@ namespace @abstract
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "checkedCast" => @catch.iceD_checkedCastAsync(this, request),
+                "checkedCast" => catch.iceD_checkedCastAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -840,9 +840,9 @@ namespace @abstract
             };
     }
 
-    public abstract class defaultDisp_ : Ice.ObjectImpl, @default
+    public abstract class defaultDisp_ : Ice.ObjectImpl, default
     {
-        public abstract void @do(Ice.Current current);
+        public abstract void do(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -851,7 +851,7 @@ namespace @abstract
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "do" => @default.iceD_doAsync(this, request),
+                "do" => default.iceD_doAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -862,7 +862,7 @@ namespace @abstract
 
     public abstract class finalizeDisp_ : Ice.ObjectImpl, finalize
     {
-        public abstract void @do(Ice.Current current);
+        public abstract void do(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, Ice.Current current);
 
@@ -873,8 +873,8 @@ namespace @abstract
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "do" => @default.iceD_doAsync(this, request),
-                "checkedCast" => @catch.iceD_checkedCastAsync(this, request),
+                "do" => default.iceD_doAsync(this, request),
+                "checkedCast" => catch.iceD_checkedCastAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -883,9 +883,9 @@ namespace @abstract
             };
     }
 
-    public abstract class newDisp_ : Ice.ObjectImpl, @new
+    public abstract class newDisp_ : Ice.ObjectImpl, new
     {
-        public abstract assert notify(@break notifyAll, @else? @null, finalizePrx? package, catchPrx? @public, defaultPrx? @return, int @static, int strictfp, int super, Ice.Current current);
+        public abstract assert notify(break notifyAll, else? null, finalizePrx? package, catchPrx? public, defaultPrx? return, int static, int strictfp, int super, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -894,7 +894,7 @@ namespace @abstract
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "notify" => @new.iceD_notifyAsync(this, request),
+                "notify" => new.iceD_notifyAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -904,12 +904,12 @@ namespace @abstract
     }
 }
 
-namespace @abstract
+namespace abstract
 {
-    public partial interface @catch
+    public partial interface catch
     {
         protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkedCastAsync(
-            @catch obj,
+            catch obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -929,15 +929,15 @@ namespace @abstract
         }
     }
 
-    public partial interface @default
+    public partial interface default
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_doAsync(
-            @default obj,
+            default obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
-            obj.@do(request.current);
+            obj.do(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
@@ -946,25 +946,25 @@ namespace @abstract
     {
     }
 
-    public partial interface @new
+    public partial interface new
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_notifyAsync(
-            @new obj,
+            new obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @break iceP_notifyAll;
-            @else? iceP_null = null;
+            break iceP_notifyAll;
+            else? iceP_null = null;
             finalizePrx? iceP_package;
             catchPrx? iceP_public;
             defaultPrx? iceP_return;
             int iceP_static;
             int iceP_strictfp;
             int iceP_super;
-            iceP_notifyAll = new @break(istr);
-            istr.readValue((@else? v) => { iceP_null = v; });
+            iceP_notifyAll = new break(istr);
+            istr.readValue((else? v) => { iceP_null = v; });
             iceP_package = finalizePrxHelper.read(istr);
             iceP_public = catchPrxHelper.read(istr);
             iceP_return = defaultPrxHelper.read(istr);

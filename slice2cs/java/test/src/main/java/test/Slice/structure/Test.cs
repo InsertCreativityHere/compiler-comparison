@@ -123,7 +123,7 @@ namespace Test
 
         public C? cls;
 
-        public global::Ice.ObjectPrx? prx;
+        public Ice.ObjectPrx? prx;
 
         partial void ice_initialize();
 
@@ -140,7 +140,7 @@ namespace Test
             ice_initialize();
         }
 
-        public S2(bool bo, byte by, short sh, int i, long l, float f, double d, string str, string[] ss, int[] il, global::System.Collections.Generic.Dictionary<string, string> sd, S1 s, C? cls, global::Ice.ObjectPrx? prx)
+        public S2(bool bo, byte by, short sh, int i, long l, float f, double d, string str, string[] ss, int[] il, global::System.Collections.Generic.Dictionary<string, string> sd, S1 s, C? cls, Ice.ObjectPrx? prx)
         {
             this.bo = bo;
             this.by = by;

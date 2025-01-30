@@ -155,7 +155,7 @@ namespace IceStormElection
         /// <param name="topic">
         /// The topic name to which to add the subscriber.
         /// </param>
-        /// <param name="@record">
+        /// <param name="record">
         /// The subscriber information.
         /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -163,7 +163,7 @@ namespace IceStormElection
         /// Raised if an
         /// inconsisency was detected.
         /// </exception>
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, Ice.Current current);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, Ice.Current current);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -320,7 +320,7 @@ namespace IceStormElection
 
         public string group = "";
 
-        public global::Ice.ObjectPrx? replica;
+        public Ice.ObjectPrx? replica;
 
         public NodeState state;
 
@@ -337,7 +337,7 @@ namespace IceStormElection
             ice_initialize();
         }
 
-        public QueryInfo(int id, int coord, string group, global::Ice.ObjectPrx? replica, NodeState state, GroupInfo[] up, int max)
+        public QueryInfo(int id, int coord, string group, Ice.ObjectPrx? replica, NodeState state, GroupInfo[] up, int max)
         {
             this.id = id;
             this.coord = coord;
@@ -416,7 +416,7 @@ namespace IceStormElection
         /// The current generation count.
         /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, Ice.Current current);
+        void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, Ice.Current current);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -440,7 +440,7 @@ namespace IceStormElection
         /// The highest priority node seen by this replica group.
         /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, Ice.Current current);
+        void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, Ice.Current current);
 
         /// <summary>
         /// Determine if this node is a coordinator.
@@ -473,7 +473,7 @@ namespace IceStormElection
         /// <returns>
         /// The sync object.
         /// </returns>
-        global::Ice.ObjectPrx? sync(Ice.Current current);
+        Ice.ObjectPrx? sync(Ice.Current current);
 
         /// <summary>
         /// Get the replication group information.
@@ -621,7 +621,7 @@ namespace IceStormElection
         /// <param name="topic">
         /// The topic name to which to add the subscriber.
         /// </param>
-        /// <param name="@record">
+        /// <param name="record">
         /// The subscriber information.
         /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -629,7 +629,7 @@ namespace IceStormElection
         /// Raised if an
         /// inconsisency was detected.
         /// </exception>
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Add a subscriber to a topic.
@@ -640,7 +640,7 @@ namespace IceStormElection
         /// <param name="topic">
         /// The topic name to which to add the subscriber.
         /// </param>
-        /// <param name="@record">
+        /// <param name="record">
         /// The subscriber information.
         /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -651,7 +651,7 @@ namespace IceStormElection
         /// Raised if an
         /// inconsisency was detected.
         /// </exception>
-        global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -765,7 +765,7 @@ namespace IceStormElection
         /// The current generation count.
         /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -789,7 +789,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task readyAsync(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -813,7 +813,7 @@ namespace IceStormElection
         /// The highest priority node seen by this replica group.
         /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -840,7 +840,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Determine if this node is a coordinator.
@@ -897,7 +897,7 @@ namespace IceStormElection
         /// <returns>
         /// The sync object.
         /// </returns>
-        global::Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the sync object for the replica hosted by this node.
@@ -906,7 +906,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the replication group information.
@@ -1019,11 +1019,11 @@ namespace IceStormElection
             }
         }
 
-        public void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_addSubscriberAsync(llu, topic, @record, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_addSubscriberAsync(llu, topic, record, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1178,9 +1178,9 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_addSubscriberAsync(llu, topic, @record, context, progress, cancel, false);
+            return _iceI_addSubscriberAsync(llu, topic, record, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task _iceI_addSubscriberAsync(LogUpdate iceP_llu, string iceP_topic, global::IceStorm.SubscriberRecord iceP_record, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -1495,7 +1495,7 @@ namespace IceStormElection
             }
         }
 
-        public void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1507,7 +1507,7 @@ namespace IceStormElection
             }
         }
 
-        public void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1543,7 +1543,7 @@ namespace IceStormElection
             }
         }
 
-        public global::Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1609,12 +1609,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task readyAsync(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_readyAsync(j, gn, coordinator, max, generation, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_readyAsync(int iceP_j, string iceP_gn, global::Ice.ObjectPrx? iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_readyAsync(int iceP_j, string iceP_gn, Ice.ObjectPrx? iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_ready(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context, synchronous, completed);
@@ -1623,7 +1623,7 @@ namespace IceStormElection
 
         private const string _ready_name = "ready";
 
-        private void _iceI_ready(int iceP_j, string iceP_gn, global::Ice.ObjectPrx? iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_ready(int iceP_j, string iceP_gn, Ice.ObjectPrx? iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1642,12 +1642,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_acceptAsync(j, gn, forwardedInvites, observer, llu, max, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_acceptAsync(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, global::Ice.ObjectPrx? iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_acceptAsync(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, Ice.ObjectPrx? iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_accept(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context, synchronous, completed);
@@ -1656,7 +1656,7 @@ namespace IceStormElection
 
         private const string _accept_name = "accept";
 
-        private void _iceI_accept(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, global::Ice.ObjectPrx? iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_accept(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, Ice.ObjectPrx? iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1745,15 +1745,15 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_syncAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_sync_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_sync(context, synchronous, completed);
             return completed.Task;
         }
@@ -1762,7 +1762,7 @@ namespace IceStormElection
 
         private void _iceI_sync(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _sync_name,
                 Ice.OperationMode.Idempotent,
@@ -1771,7 +1771,7 @@ namespace IceStormElection
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -1900,7 +1900,7 @@ namespace IceStormElection
 
         public abstract void destroyTopic(LogUpdate llu, string name, Ice.Current current);
 
-        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, Ice.Current current);
+        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, Ice.Current current);
 
         public abstract void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, Ice.Current current);
 
@@ -1948,15 +1948,15 @@ namespace IceStormElection
     {
         public abstract void invitation(int j, string gn, Ice.Current current);
 
-        public abstract void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, Ice.Current current);
+        public abstract void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, Ice.Current current);
 
-        public abstract void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, Ice.Current current);
+        public abstract void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, Ice.Current current);
 
         public abstract bool areYouCoordinator(Ice.Current current);
 
         public abstract bool areYouThere(string gn, int j, Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? sync(Ice.Current current);
+        public abstract Ice.ObjectPrx? sync(Ice.Current current);
 
         public abstract NodeInfo[] nodes(Ice.Current current);
 
@@ -2122,7 +2122,7 @@ namespace IceStormElection
             istr.startEncapsulation();
             int iceP_j;
             string iceP_gn;
-            global::Ice.ObjectPrx? iceP_coordinator;
+            Ice.ObjectPrx? iceP_coordinator;
             int iceP_max;
             long iceP_generation;
             iceP_j = istr.readInt();
@@ -2145,7 +2145,7 @@ namespace IceStormElection
             int iceP_j;
             string iceP_gn;
             int[] iceP_forwardedInvites;
-            global::Ice.ObjectPrx? iceP_observer;
+            Ice.ObjectPrx? iceP_observer;
             LogUpdate iceP_llu;
             int iceP_max;
             iceP_j = istr.readInt();

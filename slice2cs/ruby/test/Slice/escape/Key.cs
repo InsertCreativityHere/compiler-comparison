@@ -74,9 +74,9 @@ namespace BEGIN
     }
 
     [Ice.SliceTypeId("::BEGIN::break")]
-    public partial interface @break : Ice.Object
+    public partial interface break : Ice.Object
     {
-        void @case(int clone, int def, Ice.Current current);
+        void case(int clone, int def, Ice.Current current);
 
         void to_a(Ice.Current current);
 
@@ -90,20 +90,20 @@ namespace BEGIN
     {
         public int when;
 
-        public int @do;
+        public int do;
 
         public breakPrx? dup;
 
-        public int @else;
+        public int else;
 
         partial void ice_initialize();
 
-        public display(int when, int @do, breakPrx? dup, int @else)
+        public display(int when, int do, breakPrx? dup, int else)
         {
             this.when = when;
-            this.@do = @do;
+            this.do = do;
             this.dup = dup;
-            this.@else = @else;
+            this.else = else;
             ice_initialize();
         }
 
@@ -119,9 +119,9 @@ namespace BEGIN
         {
             ostr_.startSlice(ice_staticId(), -1, true);
             ostr_.writeInt(when);
-            ostr_.writeInt(@do);
+            ostr_.writeInt(do);
             breakPrxHelper.write(ostr_, dup);
-            ostr_.writeInt(@else);
+            ostr_.writeInt(else);
             ostr_.endSlice();
         }
 
@@ -129,26 +129,26 @@ namespace BEGIN
         {
             istr_.startSlice();
             when = istr_.readInt();
-            @do = istr_.readInt();
+            do = istr_.readInt();
             dup = breakPrxHelper.read(istr_);
-            @else = istr_.readInt();
+            else = istr_.readInt();
             istr_.endSlice();
         }
     }
 
     [Ice.SliceTypeId("::BEGIN::elsif")]
-    public partial interface elsif : @break
+    public partial interface elsif : break
     {
     }
 
     [Ice.SliceTypeId("::BEGIN::next")]
     public partial class next : Ice.UserException
     {
-        public int @new;
+        public int new;
 
-        public next(int @new)
+        public next(int new)
         {
-            this.@new = @new;
+            this.new = new;
         }
 
         public next()
@@ -160,14 +160,14 @@ namespace BEGIN
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::BEGIN::next", -1, true);
-            ostr_.writeInt(@new);
+            ostr_.writeInt(new);
             ostr_.endSlice();
         }
 
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @new = istr_.readInt();
+            new = istr_.readInt();
             istr_.endSlice();
         }
     }
@@ -179,7 +179,7 @@ namespace BEGIN
 
         public int or;
 
-        public nil(int @new, int not, int or) : base(@new)
+        public nil(int new, int not, int or) : base(new)
         {
             this.not = not;
             this.or = or;
@@ -213,7 +213,7 @@ namespace BEGIN
     [Ice.SliceTypeId("::BEGIN::extend")]
     public partial interface extend : Ice.Object
     {
-        END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
+        END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
     }
 
     public abstract class redo
@@ -226,7 +226,7 @@ namespace BEGIN
 {
     public interface breakPrx : Ice.ObjectPrx
     {
-        void @case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task caseAsync(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
@@ -249,9 +249,9 @@ namespace BEGIN
 
     public interface extendPrx : Ice.ObjectPrx
     {
-        END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<END> forAsync(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<END> forAsync(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -259,7 +259,7 @@ namespace BEGIN
 {
     public sealed class breakPrxHelper : Ice.ObjectPrxHelperBase, breakPrx
     {
-        public void @case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -462,7 +462,7 @@ namespace BEGIN
 
     public sealed class elsifPrxHelper : Ice.ObjectPrxHelperBase, elsifPrx
     {
-        public void @case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -735,11 +735,11 @@ namespace BEGIN
 
     public sealed class extendPrxHelper : Ice.ObjectPrxHelperBase, extendPrx
     {
-        public END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_forAsync(freeze, hash, @if, inspect, method, methods, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_forAsync(freeze, hash, if, inspect, method, methods, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -747,9 +747,9 @@ namespace BEGIN
             }
         }
 
-        public global::System.Threading.Tasks.Task<END> forAsync(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<END> forAsync(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_forAsync(freeze, hash, @if, inspect, method, methods, context, progress, cancel, false);
+            return _iceI_forAsync(freeze, hash, if, inspect, method, methods, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<END> _iceI_forAsync(display? iceP_freeze, elsifPrx? iceP_hash, breakPrx? iceP_if, display? iceP_inspect, elsifPrx? iceP_method, int iceP_methods, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -854,9 +854,9 @@ namespace BEGIN
 
 namespace BEGIN
 {
-    public abstract class breakDisp_ : Ice.ObjectImpl, @break
+    public abstract class breakDisp_ : Ice.ObjectImpl, break
     {
-        public abstract void @case(int clone, int def, Ice.Current current);
+        public abstract void case(int clone, int def, Ice.Current current);
 
         public abstract void to_a(Ice.Current current);
 
@@ -871,10 +871,10 @@ namespace BEGIN
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "case" => @break.iceD_caseAsync(this, request),
-                "to_a" => @break.iceD_to_aAsync(this, request),
-                "instance_variable_set" => @break.iceD_instance_variable_setAsync(this, request),
-                "instance_variables" => @break.iceD_instance_variablesAsync(this, request),
+                "case" => break.iceD_caseAsync(this, request),
+                "to_a" => break.iceD_to_aAsync(this, request),
+                "instance_variable_set" => break.iceD_instance_variable_setAsync(this, request),
+                "instance_variables" => break.iceD_instance_variablesAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -885,7 +885,7 @@ namespace BEGIN
 
     public abstract class elsifDisp_ : Ice.ObjectImpl, elsif
     {
-        public abstract void @case(int clone, int def, Ice.Current current);
+        public abstract void case(int clone, int def, Ice.Current current);
 
         public abstract void to_a(Ice.Current current);
 
@@ -900,10 +900,10 @@ namespace BEGIN
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "case" => @break.iceD_caseAsync(this, request),
-                "to_a" => @break.iceD_to_aAsync(this, request),
-                "instance_variable_set" => @break.iceD_instance_variable_setAsync(this, request),
-                "instance_variables" => @break.iceD_instance_variablesAsync(this, request),
+                "case" => break.iceD_caseAsync(this, request),
+                "to_a" => break.iceD_to_aAsync(this, request),
+                "instance_variable_set" => break.iceD_instance_variable_setAsync(this, request),
+                "instance_variables" => break.iceD_instance_variablesAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -914,7 +914,7 @@ namespace BEGIN
 
     public abstract class extendDisp_ : Ice.ObjectImpl, extend
     {
-        public abstract END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
+        public abstract END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -935,10 +935,10 @@ namespace BEGIN
 
 namespace BEGIN
 {
-    public partial interface @break
+    public partial interface break
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_caseAsync(
-            @break obj,
+            break obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -949,12 +949,12 @@ namespace BEGIN
             iceP_clone = istr.readInt();
             iceP_def = istr.readInt();
             istr.endEncapsulation();
-            obj.@case(iceP_clone, iceP_def, request.current);
+            obj.case(iceP_clone, iceP_def, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_to_aAsync(
-            @break obj,
+            break obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -964,7 +964,7 @@ namespace BEGIN
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_instance_variable_setAsync(
-            @break obj,
+            break obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -974,7 +974,7 @@ namespace BEGIN
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_instance_variablesAsync(
-            @break obj,
+            break obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -1011,7 +1011,7 @@ namespace BEGIN
             iceP_methods = istr.readInt();
             istr.readPendingValues();
             istr.endEncapsulation();
-            var ret = obj.@for(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, request.current);
+            var ret = obj.for(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);

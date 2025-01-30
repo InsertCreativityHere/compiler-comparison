@@ -24,7 +24,7 @@ namespace and
 {
     public enum assert
     {
-        @break
+        break
     }
 
     public sealed class assertHelper
@@ -42,19 +42,19 @@ namespace and
         }
     }
 
-    public partial record struct @continue
+    public partial record struct continue
     {
         public int def;
 
         partial void ice_initialize();
 
-        public @continue(int def)
+        public continue(int def)
         {
             this.def = def;
             ice_initialize();
         }
 
-        public @continue(Ice.InputStream istr)
+        public continue(Ice.InputStream istr)
         {
             this.def = istr.readInt();
             ice_initialize();
@@ -65,28 +65,28 @@ namespace and
             ostr.writeInt(this.def);
         }
 
-        public static void ice_write(Ice.OutputStream ostr, @continue v)
+        public static void ice_write(Ice.OutputStream ostr, continue v)
         {
             v.ice_writeMembers(ostr);
         }
 
-        public static @continue ice_read(Ice.InputStream istr) => new(istr);
+        public static continue ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [Ice.SliceTypeId("::and::del")]
     public partial interface del : Ice.Object
     {
-        global::System.Threading.Tasks.Task<int> elifAsync(int @else, Ice.Current current);
+        global::System.Threading.Tasks.Task<int> elifAsync(int else, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::and::exec")]
     public partial interface exec : Ice.Object
     {
-        void @finally(Ice.Current current);
+        void finally(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::and::for")]
-    public partial class @for : Ice.Value
+    public partial class for : Ice.Value
     {
         public int lambda;
 
@@ -96,7 +96,7 @@ namespace and
 
         partial void ice_initialize();
 
-        public @for(int lambda, execPrx? from, int global)
+        public for(int lambda, execPrx? from, int global)
         {
             this.lambda = lambda;
             this.from = from;
@@ -104,7 +104,7 @@ namespace and
             ice_initialize();
         }
 
-        public @for()
+        public for()
         {
             ice_initialize();
         }
@@ -132,21 +132,21 @@ namespace and
     }
 
     [Ice.SliceTypeId("::and::if")]
-    public partial interface @if : exec, del
+    public partial interface if : exec, del
     {
     }
 
     [Ice.SliceTypeId("::and::is")]
-    public partial class @is : Ice.UserException
+    public partial class is : Ice.UserException
     {
         public int lambda;
 
-        public @is(int lambda)
+        public is(int lambda)
         {
             this.lambda = lambda;
         }
 
-        public @is()
+        public is()
         {
         }
 
@@ -168,7 +168,7 @@ namespace and
     }
 
     [Ice.SliceTypeId("::and::not")]
-    public partial class not : @is
+    public partial class not : is
     {
         public int or;
 
@@ -208,7 +208,7 @@ namespace and
     [Ice.SliceTypeId("::and::print")]
     public partial interface print : Ice.Object
     {
-        assert raise(@continue @else, @for? @return, delPrx? @while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
+        assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
     }
 
     public abstract class lambda
@@ -241,14 +241,14 @@ namespace and
 {
     public interface delPrx : Ice.ObjectPrx
     {
-        void elif(int @else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void elif(int else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<int> elifAsync(int else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface execPrx : Ice.ObjectPrx
     {
-        void @finally(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void finally(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task finallyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
@@ -259,9 +259,9 @@ namespace and
 
     public interface printPrx : Ice.ObjectPrx
     {
-        assert raise(@continue @else, @for? @return, delPrx? @while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for? @return, delPrx? @while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<assert> raiseAsync(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -269,11 +269,11 @@ namespace and
 {
     public sealed class delPrxHelper : Ice.ObjectPrxHelperBase, delPrx
     {
-        public void elif(int @else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void elif(int else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                except = _iceI_elifAsync(@else, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                except = _iceI_elifAsync(else, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -281,9 +281,9 @@ namespace and
             }
         }
 
-        public global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<int> elifAsync(int else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_elifAsync(@else, context, progress, cancel, false);
+            return _iceI_elifAsync(else, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<int> _iceI_elifAsync(int iceP_else, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -367,7 +367,7 @@ namespace and
 
     public sealed class execPrxHelper : Ice.ObjectPrxHelperBase, execPrx
     {
-        public void @finally(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void finally(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -454,7 +454,7 @@ namespace and
 
     public sealed class ifPrxHelper : Ice.ObjectPrxHelperBase, ifPrx
     {
-        public void @finally(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void finally(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -466,11 +466,11 @@ namespace and
             }
         }
 
-        public void elif(int @else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void elif(int else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                except = _iceI_elifAsync(@else, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                except = _iceI_elifAsync(else, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -503,9 +503,9 @@ namespace and
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<int> elifAsync(int else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_elifAsync(@else, context, progress, cancel, false);
+            return _iceI_elifAsync(else, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<int> _iceI_elifAsync(int iceP_else, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -660,11 +660,11 @@ namespace and
 
     public sealed class printPrxHelper : Ice.ObjectPrxHelperBase, printPrx
     {
-        public assert raise(@continue @else, @for? @return, delPrx? @while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_raiseAsync(@else, @return, @while, yield, or, global, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_raiseAsync(else, return, while, yield, or, global, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -672,12 +672,12 @@ namespace and
             }
         }
 
-        public global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for? @return, delPrx? @while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<assert> raiseAsync(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_raiseAsync(@else, @return, @while, yield, or, global, context, progress, cancel, false);
+            return _iceI_raiseAsync(else, return, while, yield, or, global, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<assert> _iceI_raiseAsync(@continue iceP_else, @for? iceP_return, delPrx? iceP_while, execPrx? iceP_yield, ifPrx? iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<assert> _iceI_raiseAsync(continue iceP_else, for? iceP_return, delPrx? iceP_while, execPrx? iceP_yield, ifPrx? iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_raise_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<assert>(progress, cancel);
@@ -687,7 +687,7 @@ namespace and
 
         private const string _raise_name = "raise";
 
-        private void _iceI_raise(@continue iceP_else, @for? iceP_return, delPrx? iceP_while, execPrx? iceP_yield, ifPrx? iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_raise(continue iceP_else, for? iceP_return, delPrx? iceP_while, execPrx? iceP_yield, ifPrx? iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<assert>(completed);
             outAsync.invoke(
@@ -712,7 +712,7 @@ namespace and
                     {
                         throw ex;
                     }
-                    catch(@is)
+                    catch(is)
                     {
                         throw;
                     }
@@ -781,7 +781,7 @@ namespace and
 {
     public abstract class delDisp_ : Ice.ObjectImpl, del
     {
-        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int else, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -801,7 +801,7 @@ namespace and
 
     public abstract class execDisp_ : Ice.ObjectImpl, exec
     {
-        public abstract void @finally(Ice.Current current);
+        public abstract void finally(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -819,11 +819,11 @@ namespace and
             };
     }
 
-    public abstract class ifDisp_ : Ice.ObjectImpl, @if
+    public abstract class ifDisp_ : Ice.ObjectImpl, if
     {
-        public abstract void @finally(Ice.Current current);
+        public abstract void finally(Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int else, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -844,7 +844,7 @@ namespace and
 
     public abstract class printDisp_ : Ice.ObjectImpl, print
     {
-        public abstract assert raise(@continue @else, @for? @return, delPrx? @while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
+        public abstract assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -896,12 +896,12 @@ namespace and
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
-            obj.@finally(request.current);
+            obj.finally(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 
-    public partial interface @if
+    public partial interface if
     {
     }
 
@@ -914,14 +914,14 @@ namespace and
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @continue iceP_else;
-            @for? iceP_return = null;
+            continue iceP_else;
+            for? iceP_return = null;
             delPrx? iceP_while;
             execPrx? iceP_yield;
             ifPrx? iceP_or;
             int iceP_global;
-            iceP_else = new @continue(istr);
-            istr.readValue((@for? v) => { iceP_return = v; });
+            iceP_else = new continue(istr);
+            istr.readValue((for? v) => { iceP_return = v; });
             iceP_while = delPrxHelper.read(istr);
             iceP_yield = execPrxHelper.read(istr);
             iceP_or = ifPrxHelper.read(istr);

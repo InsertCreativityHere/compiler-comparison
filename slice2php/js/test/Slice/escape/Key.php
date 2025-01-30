@@ -416,58 +416,6 @@ namespace await
 
 namespace await
 {
-    global $await__t_BaseMethods;
-    class BaseMethods extends \Ice\UserException
-    {
-        public function ice_id()
-        {
-            return '::await::BaseMethods';
-        }
-
-        public function __toString(): string
-        {
-            global $await__t_BaseMethods;
-            return IcePHP_stringifyException($this, $await__t_BaseMethods);
-        }
-
-        public $Data;
-        public $HelpLink;
-        public $InnerException;
-        public $Message;
-        public $Source;
-        public $StackTrace;
-        public $TargetSite;
-        public $HResult;
-        public $Equals;
-        public $GetBaseException;
-        public $GetHashCode;
-        public $GetObjectData;
-        public $GetType;
-        public $ReferenceEquals;
-        public $ToString;
-    }
-    global $IcePHP__t_int;
-
-    $await__t_BaseMethods = IcePHP_defineException('::await::BaseMethods', '\\await\\BaseMethods', null, array(
-        array('Data', $IcePHP__t_int, false, 0),
-        array('HelpLink', $IcePHP__t_int, false, 0),
-        array('InnerException', $IcePHP__t_int, false, 0),
-        array('Message', $IcePHP__t_int, false, 0),
-        array('Source', $IcePHP__t_int, false, 0),
-        array('StackTrace', $IcePHP__t_int, false, 0),
-        array('TargetSite', $IcePHP__t_int, false, 0),
-        array('HResult', $IcePHP__t_int, false, 0),
-        array('Equals', $IcePHP__t_int, false, 0),
-        array('GetBaseException', $IcePHP__t_int, false, 0),
-        array('GetHashCode', $IcePHP__t_int, false, 0),
-        array('GetObjectData', $IcePHP__t_int, false, 0),
-        array('GetType', $IcePHP__t_int, false, 0),
-        array('ReferenceEquals', $IcePHP__t_int, false, 0),
-        array('ToString', $IcePHP__t_int, false, 0)));
-}
-
-namespace await
-{
     global $await__t_implicit;
     global $await__t_implicitPrx;
     $await__t_implicitPrx = IcePHP_declareProxy('::await::implicit');

@@ -182,7 +182,7 @@ namespace Test
     {
         public MyClass? c;
 
-        public global::Ice.Value? o;
+        public Ice.Value? o;
 
         public LargeStruct s;
 
@@ -210,7 +210,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        public MyClass(MyClass? c, global::Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        public MyClass(MyClass? c, Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
         {
             this.c = c;
             this.o = o;
@@ -315,7 +315,7 @@ namespace Test
         {
             istr_.startSlice();
             istr_.readValue((MyClass? v) => { this.c = v; });
-            istr_.readValue((global::Ice.Value? v) => { this.o = v; });
+            istr_.readValue((Ice.Value? v) => { this.o = v; });
             s = new LargeStruct(istr_);
             seq1 = global::Ice.BoolSeqHelper.read(istr_);
             seq2 = global::Ice.ByteSeqHelper.read(istr_);

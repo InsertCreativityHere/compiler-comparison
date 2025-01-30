@@ -79,13 +79,13 @@ namespace Clash
 
         public string inS = "";
 
-        public string @in = "";
+        public string in = "";
 
         public string proxy = "";
 
         partial void ice_initialize();
 
-        public Cls(IntfPrx? s, string context, int current, short response, string upCast, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy)
+        public Cls(IntfPrx? s, string context, int current, short response, string upCast, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string in, string proxy)
         {
             this.s = s;
             global::System.ArgumentNullException.ThrowIfNull(context);
@@ -106,8 +106,8 @@ namespace Clash
             this.ostr = ostr;
             global::System.ArgumentNullException.ThrowIfNull(inS);
             this.inS = inS;
-            global::System.ArgumentNullException.ThrowIfNull(@in);
-            this.@in = @in;
+            global::System.ArgumentNullException.ThrowIfNull(in);
+            this.in = in;
             global::System.ArgumentNullException.ThrowIfNull(proxy);
             this.proxy = proxy;
             ice_initialize();
@@ -136,7 +136,7 @@ namespace Clash
             ostr_.writeString(istr);
             ostr_.writeString(ostr);
             ostr_.writeString(inS);
-            ostr_.writeString(@in);
+            ostr_.writeString(in);
             ostr_.writeString(proxy);
             ostr_.writeShort(1, cookie);
             ostr_.endSlice();
@@ -157,7 +157,7 @@ namespace Clash
             istr = istr_.readString();
             ostr = istr_.readString();
             inS = istr_.readString();
-            @in = istr_.readString();
+            in = istr_.readString();
             proxy = istr_.readString();
             cookie = istr_.readShort(1);
             istr_.endSlice();

@@ -75,7 +75,7 @@ namespace IceGrid
 
     public sealed partial record class ObjectInfo
     {
-        public global::Ice.ObjectPrx? proxy;
+        public Ice.ObjectPrx? proxy;
 
         public string type = "";
 
@@ -86,7 +86,7 @@ namespace IceGrid
             ice_initialize();
         }
 
-        public ObjectInfo(global::Ice.ObjectPrx? proxy, string type)
+        public ObjectInfo(Ice.ObjectPrx? proxy, string type)
         {
             this.proxy = proxy;
             global::System.ArgumentNullException.ThrowIfNull(type);
@@ -119,7 +119,7 @@ namespace IceGrid
     {
         public string id = "";
 
-        public global::Ice.ObjectPrx? proxy;
+        public Ice.ObjectPrx? proxy;
 
         public string replicaGroupId = "";
 
@@ -130,7 +130,7 @@ namespace IceGrid
             ice_initialize();
         }
 
-        public AdapterInfo(string id, global::Ice.ObjectPrx? proxy, string replicaGroupId)
+        public AdapterInfo(string id, Ice.ObjectPrx? proxy, string replicaGroupId)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -784,7 +784,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ServerNotExistException">
         /// Raised if the server doesn't exist.
         /// </exception>
-        global::Ice.ObjectPrx? getServerAdmin(string id, Ice.Current current);
+        Ice.ObjectPrx? getServerAdmin(string id, Ice.Current current);
 
         /// <summary>
         /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -963,7 +963,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectExistsException">
         /// Raised if the object is already registered.
         /// </exception>
-        void addObject(global::Ice.ObjectPrx? obj, Ice.Current current);
+        void addObject(Ice.ObjectPrx? obj, Ice.Current current);
 
         /// <summary>
         /// Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -980,7 +980,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectNotRegisteredException">
         /// Raised if the object isn't registered with the registry.
         /// </exception>
-        void updateObject(global::Ice.ObjectPrx? obj, Ice.Current current);
+        void updateObject(Ice.ObjectPrx? obj, Ice.Current current);
 
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
@@ -998,7 +998,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectExistsException">
         /// Raised if the object is already registered.
         /// </exception>
-        void addObjectWithType(global::Ice.ObjectPrx? obj, string type, Ice.Current current);
+        void addObjectWithType(Ice.ObjectPrx? obj, string type, Ice.Current current);
 
         /// <summary>
         /// Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -1124,7 +1124,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.NodeUnreachableException">
         /// Raised if the node could not be reached.
         /// </exception>
-        global::Ice.ObjectPrx? getNodeAdmin(string name, Ice.Current current);
+        Ice.ObjectPrx? getNodeAdmin(string name, Ice.Current current);
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1234,7 +1234,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.RegistryNotExistException">
         /// Raised if the registry doesn't exist.
         /// </exception>
-        global::Ice.ObjectPrx? getRegistryAdmin(string name, Ice.Current current);
+        Ice.ObjectPrx? getRegistryAdmin(string name, Ice.Current current);
 
         /// <summary>
         /// Shutdown an IceGrid registry.
@@ -1354,7 +1354,7 @@ namespace IceGrid
     {
         public string id = "";
 
-        public global::Ice.ObjectPrx? proxy;
+        public Ice.ObjectPrx? proxy;
 
         partial void ice_initialize();
 
@@ -1363,7 +1363,7 @@ namespace IceGrid
             ice_initialize();
         }
 
-        public AdapterDynamicInfo(string id, global::Ice.ObjectPrx? proxy)
+        public AdapterDynamicInfo(string id, Ice.ObjectPrx? proxy)
         {
             global::System.ArgumentNullException.ThrowIfNull(id);
             this.id = id;
@@ -1698,7 +1698,7 @@ namespace IceGrid
         /// <returns>
         /// A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
         /// </returns>
-        global::Ice.ObjectPrx? getAdminCallbackTemplate(Ice.Current current);
+        Ice.ObjectPrx? getAdminCallbackTemplate(Ice.Current current);
 
         /// <summary>
         /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -2514,7 +2514,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ServerNotExistException">
         /// Raised if the server doesn't exist.
         /// </exception>
-        global::Ice.ObjectPrx? getServerAdmin(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? getServerAdmin(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get a proxy to the server's admin object.
@@ -2535,7 +2535,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ServerNotExistException">
         /// Raised if the server doesn't exist.
         /// </exception>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getServerAdminAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getServerAdminAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -2885,7 +2885,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectExistsException">
         /// Raised if the object is already registered.
         /// </exception>
-        void addObject(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void addObject(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
@@ -2905,7 +2905,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectExistsException">
         /// Raised if the object is already registered.
         /// </exception>
-        global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task addObjectAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -2922,7 +2922,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectNotRegisteredException">
         /// Raised if the object isn't registered with the registry.
         /// </exception>
-        void updateObject(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void updateObject(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -2942,7 +2942,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectNotRegisteredException">
         /// Raised if the object isn't registered with the registry.
         /// </exception>
-        global::System.Threading.Tasks.Task updateObjectAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task updateObjectAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
@@ -2960,7 +2960,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectExistsException">
         /// Raised if the object is already registered.
         /// </exception>
-        void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void addObjectWithType(Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
@@ -2981,7 +2981,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.ObjectExistsException">
         /// Raised if the object is already registered.
         /// </exception>
-        global::System.Threading.Tasks.Task addObjectWithTypeAsync(global::Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task addObjectWithTypeAsync(Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -3218,7 +3218,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.NodeUnreachableException">
         /// Raised if the node could not be reached.
         /// </exception>
-        global::Ice.ObjectPrx? getNodeAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? getNodeAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get a proxy to the IceGrid node's admin object.
@@ -3236,7 +3236,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.NodeUnreachableException">
         /// Raised if the node could not be reached.
         /// </exception>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getNodeAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getNodeAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -3444,7 +3444,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.RegistryNotExistException">
         /// Raised if the registry doesn't exist.
         /// </exception>
-        global::Ice.ObjectPrx? getRegistryAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? getRegistryAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get a proxy to the IceGrid registry's admin object.
@@ -3459,7 +3459,7 @@ namespace IceGrid
         /// <exception cref="IceGrid.RegistryNotExistException">
         /// Raised if the registry doesn't exist.
         /// </exception>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getRegistryAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getRegistryAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Shutdown an IceGrid registry.
@@ -4159,7 +4159,7 @@ namespace IceGrid
         /// <returns>
         /// A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
         /// </returns>
-        global::Ice.ObjectPrx? getAdminCallbackTemplate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? getAdminCallbackTemplate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
@@ -4169,7 +4169,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getAdminCallbackTemplateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getAdminCallbackTemplateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -4725,7 +4725,7 @@ namespace IceGrid
     public sealed class StringObjectProxyDictHelper
     {
         public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> v)
+                                 global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> v)
         {
             if(v == null)
             {
@@ -4734,7 +4734,7 @@ namespace IceGrid
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, global::Ice.ObjectPrx?> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, Ice.ObjectPrx?> e in v)
                 {
                     ostr.writeString(e.Key);
                     ostr.writeProxy(e.Value);
@@ -4742,15 +4742,15 @@ namespace IceGrid
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> read(Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> r = new global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?>();
+            global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> r = new global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?>();
             for(int i = 0; i < sz; ++i)
             {
                 string k;
                 k = istr.readString();
-                global::Ice.ObjectPrx? v;
+                Ice.ObjectPrx? v;
                 v = istr.readProxy();
                 r[k] = v;
             }
@@ -5060,7 +5060,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx? getServerAdmin(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getServerAdmin(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5180,7 +5180,7 @@ namespace IceGrid
             }
         }
 
-        public void addObject(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void addObject(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5192,7 +5192,7 @@ namespace IceGrid
             }
         }
 
-        public void updateObject(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void updateObject(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5204,7 +5204,7 @@ namespace IceGrid
             }
         }
 
-        public void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void addObjectWithType(Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5300,7 +5300,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx? getNodeAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getNodeAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5384,7 +5384,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx? getRegistryAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getRegistryAdmin(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -6128,15 +6128,15 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getServerAdminAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getServerAdminAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getServerAdminAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getServerAdminAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getServerAdminAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerAdmin_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getServerAdmin(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
@@ -6145,7 +6145,7 @@ namespace IceGrid
 
         private void _iceI_getServerAdmin(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getServerAdmin_name,
                 Ice.OperationMode.Idempotent,
@@ -6180,7 +6180,7 @@ namespace IceGrid
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -6628,12 +6628,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task addObjectAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addObjectAsync(obj, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_addObjectAsync(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_addObjectAsync(Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addObject_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -6643,7 +6643,7 @@ namespace IceGrid
 
         private const string _addObject_name = "addObject";
 
-        private void _iceI_addObject(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addObject(Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6676,12 +6676,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task updateObjectAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task updateObjectAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_updateObjectAsync(obj, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_updateObjectAsync(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_updateObjectAsync(Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_updateObject_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -6691,7 +6691,7 @@ namespace IceGrid
 
         private const string _updateObject_name = "updateObject";
 
-        private void _iceI_updateObject(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_updateObject(Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6724,12 +6724,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task addObjectWithTypeAsync(global::Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task addObjectWithTypeAsync(Ice.ObjectPrx? obj, string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addObjectWithTypeAsync(obj, type, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_addObjectWithTypeAsync(global::Ice.ObjectPrx? iceP_obj, string iceP_type, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_addObjectWithTypeAsync(Ice.ObjectPrx? iceP_obj, string iceP_type, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addObjectWithType_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -6739,7 +6739,7 @@ namespace IceGrid
 
         private const string _addObjectWithType_name = "addObjectWithType";
 
-        private void _iceI_addObjectWithType(global::Ice.ObjectPrx? iceP_obj, string iceP_type, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addObjectWithType(Ice.ObjectPrx? iceP_obj, string iceP_type, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7101,15 +7101,15 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getNodeAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getNodeAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getNodeAdminAsync(name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getNodeAdminAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getNodeAdminAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getNodeAdmin_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getNodeAdmin(iceP_name, context, synchronous, completed);
             return completed.Task;
         }
@@ -7118,7 +7118,7 @@ namespace IceGrid
 
         private void _iceI_getNodeAdmin(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getNodeAdmin_name,
                 Ice.OperationMode.Idempotent,
@@ -7149,7 +7149,7 @@ namespace IceGrid
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -7447,15 +7447,15 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getRegistryAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getRegistryAdminAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getRegistryAdminAsync(name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getRegistryAdminAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getRegistryAdminAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRegistryAdmin_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getRegistryAdmin(iceP_name, context, synchronous, completed);
             return completed.Task;
         }
@@ -7464,7 +7464,7 @@ namespace IceGrid
 
         private void _iceI_getRegistryAdmin(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getRegistryAdmin_name,
                 Ice.OperationMode.Idempotent,
@@ -7491,7 +7491,7 @@ namespace IceGrid
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -9018,7 +9018,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx? getAdminCallbackTemplate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getAdminCallbackTemplate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -9256,15 +9256,15 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getAdminCallbackTemplateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getAdminCallbackTemplateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getAdminCallbackTemplateAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getAdminCallbackTemplateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getAdminCallbackTemplateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getAdminCallbackTemplate_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getAdminCallbackTemplate(context, synchronous, completed);
             return completed.Task;
         }
@@ -9273,7 +9273,7 @@ namespace IceGrid
 
         private void _iceI_getAdminCallbackTemplate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getAdminCallbackTemplate_name,
                 Ice.OperationMode.Idempotent,
@@ -9282,7 +9282,7 @@ namespace IceGrid
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -10010,7 +10010,7 @@ namespace IceGrid
 
         public abstract string getServerAdminCategory(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getServerAdmin(string id, Ice.Current current);
+        public abstract Ice.ObjectPrx? getServerAdmin(string id, Ice.Current current);
 
         public abstract void enableServer(string id, bool enabled, Ice.Current current);
 
@@ -10030,11 +10030,11 @@ namespace IceGrid
 
         public abstract string[] getAllAdapterIds(Ice.Current current);
 
-        public abstract void addObject(global::Ice.ObjectPrx? obj, Ice.Current current);
+        public abstract void addObject(Ice.ObjectPrx? obj, Ice.Current current);
 
-        public abstract void updateObject(global::Ice.ObjectPrx? obj, Ice.Current current);
+        public abstract void updateObject(Ice.ObjectPrx? obj, Ice.Current current);
 
-        public abstract void addObjectWithType(global::Ice.ObjectPrx? obj, string type, Ice.Current current);
+        public abstract void addObjectWithType(Ice.ObjectPrx? obj, string type, Ice.Current current);
 
         public abstract void removeObject(global::Ice.Identity id, Ice.Current current);
 
@@ -10050,7 +10050,7 @@ namespace IceGrid
 
         public abstract NodeInfo getNodeInfo(string name, Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getNodeAdmin(string name, Ice.Current current);
+        public abstract Ice.ObjectPrx? getNodeAdmin(string name, Ice.Current current);
 
         public abstract int getNodeProcessorSocketCount(string name, Ice.Current current);
 
@@ -10064,7 +10064,7 @@ namespace IceGrid
 
         public abstract RegistryInfo getRegistryInfo(string name, Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getRegistryAdmin(string name, Ice.Current current);
+        public abstract Ice.ObjectPrx? getRegistryAdmin(string name, Ice.Current current);
 
         public abstract void shutdownRegistry(string name, Ice.Current current);
 
@@ -10308,7 +10308,7 @@ namespace IceGrid
 
         public abstract AdminPrx? getAdmin(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getAdminCallbackTemplate(Ice.Current current);
+        public abstract Ice.ObjectPrx? getAdminCallbackTemplate(Ice.Current current);
 
         public abstract void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, Ice.Current current);
 
@@ -10757,7 +10757,7 @@ namespace IceGrid
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.ObjectPrx? iceP_obj;
+            Ice.ObjectPrx? iceP_obj;
             iceP_obj = istr.readProxy();
             istr.endEncapsulation();
             obj.addObject(iceP_obj, request.current);
@@ -10771,7 +10771,7 @@ namespace IceGrid
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.ObjectPrx? iceP_obj;
+            Ice.ObjectPrx? iceP_obj;
             iceP_obj = istr.readProxy();
             istr.endEncapsulation();
             obj.updateObject(iceP_obj, request.current);
@@ -10785,7 +10785,7 @@ namespace IceGrid
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.ObjectPrx? iceP_obj;
+            Ice.ObjectPrx? iceP_obj;
             string iceP_type;
             iceP_obj = istr.readProxy();
             iceP_type = istr.readString();

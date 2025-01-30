@@ -1095,7 +1095,7 @@ namespace Test
     {
         void shutdown(Ice.Current current);
 
-        Initial_PingPongMarshaledResult pingPong(global::Ice.Value? o, Ice.Current current);
+        Initial_PingPongMarshaledResult pingPong(Ice.Value? o, Ice.Current current);
 
         void opOptionalException(int? a, string? b, Ice.Current current);
 
@@ -1193,7 +1193,7 @@ namespace Test
 {
     public readonly record struct Initial_PingPongMarshaledResult : Ice.MarshaledResult
     {
-        public Initial_PingPongMarshaledResult(global::Ice.Value? ret, Ice.Current current)
+        public Initial_PingPongMarshaledResult(Ice.Value? ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
             _ostr.startEncapsulation(current.encoding, null);
@@ -1413,9 +1413,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::Ice.Value? pingPong(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.Value? pingPong(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::Ice.Value?> pingPongAsync(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.Value?> pingPongAsync(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void opOptionalException(int? a, string? b, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -2320,7 +2320,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Value? pingPong(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.Value? pingPong(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2967,24 +2967,24 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.Value?> pingPongAsync(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.Value?> pingPongAsync(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_pingPongAsync(o, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Value?> _iceI_pingPongAsync(global::Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.Value?> _iceI_pingPongAsync(Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_pingPong_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.Value?>(progress, cancel);
             _iceI_pingPong(iceP_o, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _pingPong_name = "pingPong";
 
-        private void _iceI_pingPong(global::Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_pingPong(Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Value?>(completed);
+            var outAsync = getOutgoingAsync<Ice.Value?>(completed);
             outAsync.invoke(
                 _pingPong_name,
                 Ice.OperationMode.Normal,
@@ -2998,8 +2998,8 @@ namespace Test
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.Value? ret = null;
-                    istr.readValue((global::Ice.Value? v) => {ret = v; });
+                    Ice.Value? ret = null;
+                    istr.readValue((Ice.Value? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
@@ -5113,7 +5113,7 @@ namespace Test
     {
         public abstract void shutdown(Ice.Current current);
 
-        public abstract Initial_PingPongMarshaledResult pingPong(global::Ice.Value? o, Ice.Current current);
+        public abstract Initial_PingPongMarshaledResult pingPong(Ice.Value? o, Ice.Current current);
 
         public abstract void opOptionalException(int? a, string? b, Ice.Current current);
 
@@ -5302,8 +5302,8 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.Value? iceP_o = null;
-            istr.readValue((global::Ice.Value? v) => { iceP_o = v; });
+            Ice.Value? iceP_o = null;
+            istr.readValue((Ice.Value? v) => { iceP_o = v; });
             istr.readPendingValues();
             istr.endEncapsulation();
             var result = obj.pingPong(iceP_o, request.current);

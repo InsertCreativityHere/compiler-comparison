@@ -14,12 +14,12 @@ import Ice
 import IcePy
 import builtins as _builtins
 
-# Start of module abstract
-_M_abstract = Ice.openModule('abstract')
-__name__ = 'abstract'
+# Start of module cs_abstract
+_M_cs_abstract = Ice.openModule('cs_abstract')
+__name__ = 'cs_abstract'
 
-if '_as' not in _M_abstract.__dict__:
-    _M_abstract._as = None
+if '_as' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._as = None
     class _as(Ice.EnumBase):
 
         def __init__(self, _n, _v):
@@ -34,13 +34,13 @@ if '_as' not in _M_abstract.__dict__:
     _as.base = _as("base", 0)
     _as._enumerators = { 0:_as.base }
 
-    _M_abstract._t__as = IcePy.defineEnum('::abstract::as', _as, (), _as._enumerators)
+    _M_cs_abstract._t__as = IcePy.defineEnum('::cs_abstract::as', _as, (), _as._enumerators)
 
-    _M_abstract._as = _as
+    _M_cs_abstract._as = _as
     del _as
 
-if '_break' not in _M_abstract.__dict__:
-    _M_abstract._break = None
+if '_break' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._break = None
     class _break(object):
         def __init__(self, readonly=0):
             self.readonly = readonly
@@ -53,7 +53,7 @@ if '_break' not in _M_abstract.__dict__:
         def __compare(self, other):
             if other is None:
                 return 1
-            elif not isinstance(other, _M_abstract._break):
+            elif not isinstance(other, _M_cs_abstract._break):
                 return NotImplemented
             else:
                 if self.readonly is None or other.readonly is None:
@@ -109,20 +109,63 @@ if '_break' not in _M_abstract.__dict__:
                 return r != 0
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t__break)
+            return IcePy.stringify(self, _M_cs_abstract._t__break)
 
         __repr__ = __str__
 
-    _M_abstract._t__break = IcePy.defineStruct('::abstract::break', _break, (), (('readonly', (), IcePy._t_int),))
+    _M_cs_abstract._t__break = IcePy.defineStruct('::cs_abstract::break', _break, (), (('readonly', (), IcePy._t_int),))
 
-    _M_abstract._break = _break
+    _M_cs_abstract._break = _break
     del _break
 
-if '_case' not in _M_abstract.__dict__:
-    _M_abstract._t_casePrx = IcePy.declareProxy('::abstract::case')
+if 'fixed' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.fixed = None
+    class fixed(Ice.UserException):
+        def __init__(self, _for=0):
+            self._for = _for
 
-if 'casePrx' not in _M_abstract.__dict__:
-    _M_abstract.casePrx = None
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::cs_abstract::fixed'
+
+    _M_cs_abstract._t_fixed = IcePy.defineException('::cs_abstract::fixed', fixed, (), None, (('_for', (), IcePy._t_int, False, 0),))
+    fixed._ice_type = _M_cs_abstract._t_fixed
+
+    _M_cs_abstract.fixed = fixed
+    del fixed
+
+if 'foreach' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.foreach = None
+    class foreach(_M_cs_abstract.fixed):
+        def __init__(self, _for=0, goto=0, Message=0):
+            _M_cs_abstract.fixed.__init__(self, _for)
+            self.goto = goto
+            self.Message = Message
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::cs_abstract::foreach'
+
+    _M_cs_abstract._t_foreach = IcePy.defineException('::cs_abstract::foreach', foreach, (), _M_cs_abstract._t_fixed, (
+        ('goto', (), IcePy._t_int, False, 0),
+        ('Message', (), IcePy._t_int, False, 0)
+    ))
+    foreach._ice_type = _M_cs_abstract._t_foreach
+
+    _M_cs_abstract.foreach = foreach
+    del foreach
+
+if '_case' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t_casePrx = IcePy.declareProxy('::cs_abstract::case')
+
+if 'casePrx' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.casePrx = None
     class casePrx(Ice.ObjectPrx):
 
         def __init__(self, communicator, proxyString):
@@ -144,58 +187,94 @@ if 'casePrx' not in _M_abstract.__dict__:
             super().__init__(communicator, proxyString)
 
         def catch(self, checked, context=None):
-            return _M_abstract._case._op_catch.invoke(self, ((checked, ), context))
+            """
+            Parameters
+            ----------
+            checked : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+                make sure the parameter doc-comment is mapped without a leading '@'.
+            """
+            return _M_cs_abstract._case._op_catch.invoke(self, ((checked, ), context))
 
         def catchAsync(self, checked, context=None):
-            return _M_abstract._case._op_catch.invokeAsync(self, ((checked, ), context))
+            """
+            Parameters
+            ----------
+            checked : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_cs_abstract._case._op_catch.invokeAsync(self, ((checked, ), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_abstract.casePrx.ice_checkedCast(proxy, '::abstract::case', facetOrContext, context)
+            return _M_cs_abstract.casePrx.ice_checkedCast(proxy, '::cs_abstract::case', facetOrContext, context)
 
         @staticmethod
         def uncheckedCast(proxy, facet=None):
-            return _M_abstract.casePrx.ice_uncheckedCast(proxy, facet)
+            return _M_cs_abstract.casePrx.ice_uncheckedCast(proxy, facet)
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::case'
-    _M_abstract._t_casePrx = IcePy.defineProxy('::abstract::case', casePrx)
+            return '::cs_abstract::case'
+    _M_cs_abstract._t_casePrx = IcePy.defineProxy('::cs_abstract::case', casePrx)
 
-    _M_abstract.casePrx = casePrx
+    _M_cs_abstract.casePrx = casePrx
     del casePrx
 
-    _M_abstract._case = None
+    _M_cs_abstract._case = None
     class _case(Ice.Object):
 
         def ice_ids(self, current=None):
-            return ('::Ice::Object', '::abstract::case')
+            return ('::Ice::Object', '::cs_abstract::case')
 
         def ice_id(self, current=None):
-            return '::abstract::case'
+            return '::cs_abstract::case'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::case'
+            return '::cs_abstract::case'
 
         def catch(self, checked, current=None):
+            """
+            Parameters
+            ----------
+            checked : int
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'catch' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_caseDisp)
+            return IcePy.stringify(self, _M_cs_abstract._t_caseDisp)
 
         __repr__ = __str__
 
     _case._op_catch = IcePy.Operation('catch', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
-    _M_abstract._case = _case
+    _M_cs_abstract._case = _case
     del _case
 
-if 'decimal' not in _M_abstract.__dict__:
-    _M_abstract._t_decimalPrx = IcePy.declareProxy('::abstract::decimal')
+if 'decimal' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t_decimalPrx = IcePy.declareProxy('::cs_abstract::decimal')
 
-if 'decimalPrx' not in _M_abstract.__dict__:
-    _M_abstract.decimalPrx = None
+if 'decimalPrx' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.decimalPrx = None
     class decimalPrx(Ice.ObjectPrx):
 
         def __init__(self, communicator, proxyString):
@@ -217,92 +296,117 @@ if 'decimalPrx' not in _M_abstract.__dict__:
             super().__init__(communicator, proxyString)
 
         def default(self, context=None):
-            return _M_abstract.decimal._op_default.invoke(self, ((), context))
+            """
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            foreach
+                make sure the link is correctly generated.
+            """
+            return _M_cs_abstract.decimal._op_default.invoke(self, ((), context))
 
         def defaultAsync(self, context=None):
-            return _M_abstract.decimal._op_default.invokeAsync(self, ((), context))
+            return _M_cs_abstract.decimal._op_default.invokeAsync(self, ((), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_abstract.decimalPrx.ice_checkedCast(proxy, '::abstract::decimal', facetOrContext, context)
+            return _M_cs_abstract.decimalPrx.ice_checkedCast(proxy, '::cs_abstract::decimal', facetOrContext, context)
 
         @staticmethod
         def uncheckedCast(proxy, facet=None):
-            return _M_abstract.decimalPrx.ice_uncheckedCast(proxy, facet)
+            return _M_cs_abstract.decimalPrx.ice_uncheckedCast(proxy, facet)
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::decimal'
-    _M_abstract._t_decimalPrx = IcePy.defineProxy('::abstract::decimal', decimalPrx)
+            return '::cs_abstract::decimal'
+    _M_cs_abstract._t_decimalPrx = IcePy.defineProxy('::cs_abstract::decimal', decimalPrx)
 
-    _M_abstract.decimalPrx = decimalPrx
+    _M_cs_abstract.decimalPrx = decimalPrx
     del decimalPrx
 
-    _M_abstract.decimal = None
+    _M_cs_abstract.decimal = None
     class decimal(Ice.Object):
 
         def ice_ids(self, current=None):
-            return ('::Ice::Object', '::abstract::decimal')
+            return ('::Ice::Object', '::cs_abstract::decimal')
 
         def ice_id(self, current=None):
-            return '::abstract::decimal'
+            return '::cs_abstract::decimal'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::decimal'
+            return '::cs_abstract::decimal'
 
         def default(self, current=None):
+            """
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            foreach
+                make sure the link is correctly generated.
+            """
             raise NotImplementedError("servant method 'default' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_decimalDisp)
+            return IcePy.stringify(self, _M_cs_abstract._t_decimalDisp)
 
         __repr__ = __str__
 
-    decimal._op_default = IcePy.Operation('default', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    decimal._op_default = IcePy.Operation('default', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_cs_abstract._t_foreach,))
 
-    _M_abstract.decimal = decimal
+    _M_cs_abstract.decimal = decimal
     del decimal
 
-if 'delegate' not in _M_abstract.__dict__:
-    _M_abstract._t_delegate = IcePy.declareValue('::abstract::delegate')
+if 'delegate' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t_delegate = IcePy.declareValue('::cs_abstract::delegate')
 
-if 'delegate' not in _M_abstract.__dict__:
-    _M_abstract.delegate = None
+if 'delegate' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.delegate = None
     class delegate(Ice.Value):
-        def __init__(self, _if=0, _else=None, event=0):
+        def __init__(self, _if=0, _else=None):
             self._if = _if
             self._else = _else
-            self.event = event
 
         def ice_id(self):
-            return '::abstract::delegate'
+            return '::cs_abstract::delegate'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::delegate'
+            return '::cs_abstract::delegate'
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_delegate)
+            return IcePy.stringify(self, _M_cs_abstract._t_delegate)
 
         __repr__ = __str__
 
-    _M_abstract._t_delegate = IcePy.defineValue('::abstract::delegate', delegate, -1, (), False, None, (
+    _M_cs_abstract._t_delegate = IcePy.defineValue('::cs_abstract::delegate', delegate, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
-        ('_else', (), _M_abstract._t_casePrx, False, 0),
-        ('event', (), IcePy._t_int, False, 0)
+        ('_else', (), _M_cs_abstract._t_casePrx, False, 0)
     ))
-    delegate._ice_type = _M_abstract._t_delegate
+    delegate._ice_type = _M_cs_abstract._t_delegate
 
-    _M_abstract.delegate = delegate
+    _M_cs_abstract.delegate = delegate
     del delegate
 
-if 'explicit' not in _M_abstract.__dict__:
-    _M_abstract._t_explicitPrx = IcePy.declareProxy('::abstract::explicit')
+if 'explicit' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t_explicitPrx = IcePy.declareProxy('::cs_abstract::explicit')
 
-if 'explicitPrx' not in _M_abstract.__dict__:
-    _M_abstract.explicitPrx = None
-    class explicitPrx(_M_abstract.decimalPrx, _M_abstract.casePrx):
+if 'explicitPrx' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.explicitPrx = None
+    class explicitPrx(_M_cs_abstract.decimalPrx, _M_cs_abstract.casePrx):
 
         def __init__(self, communicator, proxyString):
             """
@@ -324,49 +428,49 @@ if 'explicitPrx' not in _M_abstract.__dict__:
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_abstract.explicitPrx.ice_checkedCast(proxy, '::abstract::explicit', facetOrContext, context)
+            return _M_cs_abstract.explicitPrx.ice_checkedCast(proxy, '::cs_abstract::explicit', facetOrContext, context)
 
         @staticmethod
         def uncheckedCast(proxy, facet=None):
-            return _M_abstract.explicitPrx.ice_uncheckedCast(proxy, facet)
+            return _M_cs_abstract.explicitPrx.ice_uncheckedCast(proxy, facet)
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::explicit'
-    _M_abstract._t_explicitPrx = IcePy.defineProxy('::abstract::explicit', explicitPrx)
+            return '::cs_abstract::explicit'
+    _M_cs_abstract._t_explicitPrx = IcePy.defineProxy('::cs_abstract::explicit', explicitPrx)
 
-    _M_abstract.explicitPrx = explicitPrx
+    _M_cs_abstract.explicitPrx = explicitPrx
     del explicitPrx
 
-    _M_abstract.explicit = None
-    class explicit(_M_abstract.decimal, _M_abstract._case):
+    _M_cs_abstract.explicit = None
+    class explicit(_M_cs_abstract.decimal, _M_cs_abstract._case):
 
         def ice_ids(self, current=None):
-            return ('::Ice::Object', '::abstract::case', '::abstract::decimal', '::abstract::explicit')
+            return ('::Ice::Object', '::cs_abstract::case', '::cs_abstract::decimal', '::cs_abstract::explicit')
 
         def ice_id(self, current=None):
-            return '::abstract::explicit'
+            return '::cs_abstract::explicit'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::explicit'
+            return '::cs_abstract::explicit'
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_explicitDisp)
+            return IcePy.stringify(self, _M_cs_abstract._t_explicitDisp)
 
         __repr__ = __str__
 
-    _M_abstract.explicit = explicit
+    _M_cs_abstract.explicit = explicit
     del explicit
 
-if '_t__while' not in _M_abstract.__dict__:
-    _M_abstract._t__while = IcePy.defineDictionary('::abstract::while', (), IcePy._t_string, _M_abstract._t__break)
+if '_t__while' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t__while = IcePy.defineDictionary('::cs_abstract::while', (), IcePy._t_string, _M_cs_abstract._t__break)
 
-if 'optionalMembers' not in _M_abstract.__dict__:
-    _M_abstract._t_optionalMembers = IcePy.declareValue('::abstract::optionalMembers')
+if 'optionalMembers' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t_optionalMembers = IcePy.declareValue('::cs_abstract::optionalMembers')
 
-if 'optionalMembers' not in _M_abstract.__dict__:
-    _M_abstract.optionalMembers = None
+if 'optionalMembers' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.optionalMembers = None
     class optionalMembers(Ice.Value):
         def __init__(self, _for=None, goto=None, _if=None, internal=None, namespace=None):
             self._for = _for
@@ -376,34 +480,34 @@ if 'optionalMembers' not in _M_abstract.__dict__:
             self.namespace = namespace
 
         def ice_id(self):
-            return '::abstract::optionalMembers'
+            return '::cs_abstract::optionalMembers'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::optionalMembers'
+            return '::cs_abstract::optionalMembers'
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_optionalMembers)
+            return IcePy.stringify(self, _M_cs_abstract._t_optionalMembers)
 
         __repr__ = __str__
 
-    _M_abstract._t_optionalMembers = IcePy.defineValue('::abstract::optionalMembers', optionalMembers, -1, (), False, None, (
-        ('_for', (), _M_abstract._t__break, True, 1),
-        ('goto', (), _M_abstract._t__as, True, 2),
-        ('_if', (), _M_abstract._t_explicitPrx, True, 3),
-        ('internal', (), _M_abstract._t__while, True, 5),
+    _M_cs_abstract._t_optionalMembers = IcePy.defineValue('::cs_abstract::optionalMembers', optionalMembers, -1, (), False, None, (
+        ('_for', (), _M_cs_abstract._t__break, True, 1),
+        ('goto', (), _M_cs_abstract._t__as, True, 2),
+        ('_if', (), _M_cs_abstract._t_explicitPrx, True, 3),
+        ('internal', (), _M_cs_abstract._t__while, True, 5),
         ('namespace', (), IcePy._t_string, True, 7)
     ))
-    optionalMembers._ice_type = _M_abstract._t_optionalMembers
+    optionalMembers._ice_type = _M_cs_abstract._t_optionalMembers
 
-    _M_abstract.optionalMembers = optionalMembers
+    _M_cs_abstract.optionalMembers = optionalMembers
     del optionalMembers
 
-if 'optionalParams' not in _M_abstract.__dict__:
-    _M_abstract._t_optionalParamsPrx = IcePy.declareProxy('::abstract::optionalParams')
+if 'optionalParams' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract._t_optionalParamsPrx = IcePy.declareProxy('::cs_abstract::optionalParams')
 
-if 'optionalParamsPrx' not in _M_abstract.__dict__:
-    _M_abstract.optionalParamsPrx = None
+if 'optionalParamsPrx' not in _M_cs_abstract.__dict__:
+    _M_cs_abstract.optionalParamsPrx = None
     class optionalParamsPrx(Ice.ObjectPrx):
 
         def __init__(self, communicator, proxyString):
@@ -424,63 +528,63 @@ if 'optionalParamsPrx' not in _M_abstract.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def _for(self, goto=None, _if=None, internal=None, namespace=None, context=None):
-            return _M_abstract.optionalParams._op_for.invoke(self, ((goto, _if, internal, namespace), context))
+        def _for(self, goto=None, _if=None, internal=None, context=None, context_=None):
+            return _M_cs_abstract.optionalParams._op_for.invoke(self, ((goto, _if, internal, context), context_))
 
-        def forAsync(self, goto, _if, internal, namespace, context=None):
-            return _M_abstract.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, namespace), context))
+        def forAsync(self, goto, _if, internal, context, context_=None):
+            return _M_cs_abstract.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, context), context_))
 
-        def _continue(self, goto=None, _if=None, internal=None, namespace=None, context=None):
-            return _M_abstract.optionalParams._op_continue.invoke(self, ((goto, _if, internal, namespace), context))
+        def _continue(self, goto=None, _if=None, internal=None, context=None, context_=None):
+            return _M_cs_abstract.optionalParams._op_continue.invoke(self, ((goto, _if, internal, context), context_))
 
-        def continueAsync(self, goto, _if, internal, namespace, context=None):
-            return _M_abstract.optionalParams._op_continue.invokeAsync(self, ((goto, _if, internal, namespace), context))
+        def continueAsync(self, goto, _if, internal, context, context_=None):
+            return _M_cs_abstract.optionalParams._op_continue.invokeAsync(self, ((goto, _if, internal, context), context_))
 
-        def _in(self, context=None):
-            return _M_abstract.optionalParams._op_in.invoke(self, ((), context))
+        def _in(self, context_=None):
+            return _M_cs_abstract.optionalParams._op_in.invoke(self, ((), context_))
 
-        def inAsync(self, context=None):
-            return _M_abstract.optionalParams._op_in.invokeAsync(self, ((), context))
+        def inAsync(self, context_=None):
+            return _M_cs_abstract.optionalParams._op_in.invokeAsync(self, ((), context_))
 
-        def foreach(self, context=None):
-            return _M_abstract.optionalParams._op_foreach.invoke(self, ((), context))
+        def foreach(self, context_=None):
+            return _M_cs_abstract.optionalParams._op_foreach.invoke(self, ((), context_))
 
-        def foreachAsync(self, context=None):
-            return _M_abstract.optionalParams._op_foreach.invokeAsync(self, ((), context))
+        def foreachAsync(self, context_=None):
+            return _M_cs_abstract.optionalParams._op_foreach.invokeAsync(self, ((), context_))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_abstract.optionalParamsPrx.ice_checkedCast(proxy, '::abstract::optionalParams', facetOrContext, context)
+            return _M_cs_abstract.optionalParamsPrx.ice_checkedCast(proxy, '::cs_abstract::optionalParams', facetOrContext, context)
 
         @staticmethod
         def uncheckedCast(proxy, facet=None):
-            return _M_abstract.optionalParamsPrx.ice_uncheckedCast(proxy, facet)
+            return _M_cs_abstract.optionalParamsPrx.ice_uncheckedCast(proxy, facet)
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::optionalParams'
-    _M_abstract._t_optionalParamsPrx = IcePy.defineProxy('::abstract::optionalParams', optionalParamsPrx)
+            return '::cs_abstract::optionalParams'
+    _M_cs_abstract._t_optionalParamsPrx = IcePy.defineProxy('::cs_abstract::optionalParams', optionalParamsPrx)
 
-    _M_abstract.optionalParamsPrx = optionalParamsPrx
+    _M_cs_abstract.optionalParamsPrx = optionalParamsPrx
     del optionalParamsPrx
 
-    _M_abstract.optionalParams = None
+    _M_cs_abstract.optionalParams = None
     class optionalParams(Ice.Object):
 
         def ice_ids(self, current=None):
-            return ('::Ice::Object', '::abstract::optionalParams')
+            return ('::Ice::Object', '::cs_abstract::optionalParams')
 
         def ice_id(self, current=None):
-            return '::abstract::optionalParams'
+            return '::cs_abstract::optionalParams'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::optionalParams'
+            return '::cs_abstract::optionalParams'
 
-        def _for(self, goto, _if, internal, namespace, current=None):
+        def _for(self, goto, _if, internal, context, current=None):
             raise NotImplementedError("servant method '_for' not implemented")
 
-        def _continue(self, goto, _if, internal, namespace, current=None):
+        def _continue(self, goto, _if, internal, context, current=None):
             raise NotImplementedError("servant method '_continue' not implemented")
 
         def _in(self, current=None):
@@ -490,196 +594,31 @@ if 'optionalParamsPrx' not in _M_abstract.__dict__:
             raise NotImplementedError("servant method 'foreach' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_optionalParamsDisp)
+            return IcePy.stringify(self, _M_cs_abstract._t_optionalParamsDisp)
 
         __repr__ = __str__
 
-    optionalParams._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), (), ((), _M_abstract._t__break, True, 1), ())
-    optionalParams._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, True, None, (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), (), ((), _M_abstract._t__break, True, 1), ())
-    optionalParams._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, False, None, (), (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), ((), _M_abstract._t__break, True, 1), ())
-    optionalParams._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, True, None, (), (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), ((), _M_abstract._t__break, True, 1), ())
+    optionalParams._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, False, None, (), (((), _M_cs_abstract._t__as, True, 2), ((), _M_cs_abstract._t_explicitPrx, True, 3), ((), _M_cs_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), (), ((), _M_cs_abstract._t__break, True, 1), ())
+    optionalParams._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, True, None, (), (((), _M_cs_abstract._t__as, True, 2), ((), _M_cs_abstract._t_explicitPrx, True, 3), ((), _M_cs_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), (), ((), _M_cs_abstract._t__break, True, 1), ())
+    optionalParams._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, False, None, (), (), (((), _M_cs_abstract._t__as, True, 2), ((), _M_cs_abstract._t_explicitPrx, True, 3), ((), _M_cs_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), ((), _M_cs_abstract._t__break, True, 1), ())
+    optionalParams._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, True, None, (), (), (((), _M_cs_abstract._t__as, True, 2), ((), _M_cs_abstract._t_explicitPrx, True, 3), ((), _M_cs_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), ((), _M_cs_abstract._t__break, True, 1), ())
 
-    _M_abstract.optionalParams = optionalParams
+    _M_cs_abstract.optionalParams = optionalParams
     del optionalParams
 
-if 'fixed' not in _M_abstract.__dict__:
-    _M_abstract.fixed = None
-    class fixed(Ice.UserException):
-        def __init__(self, _for=0):
-            self._for = _for
+_M_cs_abstract.protected = 0
 
-        def __str__(self):
-            return IcePy.stringifyException(self)
+_M_cs_abstract.struct = 1
 
-        __repr__ = __str__
+# Start of module cs_abstract.System
+_M_cs_abstract.System = Ice.openModule('cs_abstract.System')
+__name__ = 'cs_abstract.System'
 
-        _ice_id = '::abstract::fixed'
+if 'Test' not in _M_cs_abstract.System.__dict__:
+    _M_cs_abstract.System._t_TestPrx = IcePy.declareProxy('::cs_abstract::System::Test')
 
-    _M_abstract._t_fixed = IcePy.defineException('::abstract::fixed', fixed, (), None, (('_for', (), IcePy._t_int, False, 0),))
-    fixed._ice_type = _M_abstract._t_fixed
-
-    _M_abstract.fixed = fixed
-    del fixed
-
-if 'foreach' not in _M_abstract.__dict__:
-    _M_abstract.foreach = None
-    class foreach(_M_abstract.fixed):
-        def __init__(self, _for=0, goto=0, _if=0):
-            _M_abstract.fixed.__init__(self, _for)
-            self.goto = goto
-            self._if = _if
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::abstract::foreach'
-
-    _M_abstract._t_foreach = IcePy.defineException('::abstract::foreach', foreach, (), _M_abstract._t_fixed, (
-        ('goto', (), IcePy._t_int, False, 0),
-        ('_if', (), IcePy._t_int, False, 0)
-    ))
-    foreach._ice_type = _M_abstract._t_foreach
-
-    _M_abstract.foreach = foreach
-    del foreach
-
-if 'BaseMethods' not in _M_abstract.__dict__:
-    _M_abstract.BaseMethods = None
-    class BaseMethods(Ice.UserException):
-        def __init__(self, Data=0, HelpLink=0, InnerException=0, Message=0, Source=0, StackTrace=0, TargetSite=0, HResult=0, Equals=0, GetBaseException=0, GetHashCode=0, GetObjectData=0, GetType=0, ReferenceEquals=0, ToString=0):
-            self.Data = Data
-            self.HelpLink = HelpLink
-            self.InnerException = InnerException
-            self.Message = Message
-            self.Source = Source
-            self.StackTrace = StackTrace
-            self.TargetSite = TargetSite
-            self.HResult = HResult
-            self.Equals = Equals
-            self.GetBaseException = GetBaseException
-            self.GetHashCode = GetHashCode
-            self.GetObjectData = GetObjectData
-            self.GetType = GetType
-            self.ReferenceEquals = ReferenceEquals
-            self.ToString = ToString
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::abstract::BaseMethods'
-
-    _M_abstract._t_BaseMethods = IcePy.defineException('::abstract::BaseMethods', BaseMethods, (), None, (
-        ('Data', (), IcePy._t_int, False, 0),
-        ('HelpLink', (), IcePy._t_int, False, 0),
-        ('InnerException', (), IcePy._t_int, False, 0),
-        ('Message', (), IcePy._t_int, False, 0),
-        ('Source', (), IcePy._t_int, False, 0),
-        ('StackTrace', (), IcePy._t_int, False, 0),
-        ('TargetSite', (), IcePy._t_int, False, 0),
-        ('HResult', (), IcePy._t_int, False, 0),
-        ('Equals', (), IcePy._t_int, False, 0),
-        ('GetBaseException', (), IcePy._t_int, False, 0),
-        ('GetHashCode', (), IcePy._t_int, False, 0),
-        ('GetObjectData', (), IcePy._t_int, False, 0),
-        ('GetType', (), IcePy._t_int, False, 0),
-        ('ReferenceEquals', (), IcePy._t_int, False, 0),
-        ('ToString', (), IcePy._t_int, False, 0)
-    ))
-    BaseMethods._ice_type = _M_abstract._t_BaseMethods
-
-    _M_abstract.BaseMethods = BaseMethods
-    del BaseMethods
-
-if 'implicit' not in _M_abstract.__dict__:
-    _M_abstract._t_implicitPrx = IcePy.declareProxy('::abstract::implicit')
-
-if 'implicitPrx' not in _M_abstract.__dict__:
-    _M_abstract.implicitPrx = None
-    class implicitPrx(Ice.ObjectPrx):
-
-        def __init__(self, communicator, proxyString):
-            """
-            Creates a new implicitPrx proxy
-            
-            Parameters
-            ----------
-            communicator : Ice.Communicator
-                The communicator of the new proxy.
-            proxyString : str
-                The string representation of the proxy.
-            
-            Raises
-            ------
-            ParseException
-                Thrown when proxyString is not a valid proxy string.
-            """
-            super().__init__(communicator, proxyString)
-
-        def _in(self, internal, _is, lock, namespace, new, null, override, params, private, context=None):
-            return _M_abstract.implicit._op_in.invoke(self, ((internal, _is, lock, namespace, new, null, override, params, private), context))
-
-        def inAsync(self, internal, _is, lock, namespace, new, null, override, params, private, context=None):
-            return _M_abstract.implicit._op_in.invokeAsync(self, ((internal, _is, lock, namespace, new, null, override, params, private), context))
-
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_abstract.implicitPrx.ice_checkedCast(proxy, '::abstract::implicit', facetOrContext, context)
-
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_abstract.implicitPrx.ice_uncheckedCast(proxy, facet)
-
-        @staticmethod
-        def ice_staticId():
-            return '::abstract::implicit'
-    _M_abstract._t_implicitPrx = IcePy.defineProxy('::abstract::implicit', implicitPrx)
-
-    _M_abstract.implicitPrx = implicitPrx
-    del implicitPrx
-
-    _M_abstract.implicit = None
-    class implicit(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::abstract::implicit')
-
-        def ice_id(self, current=None):
-            return '::abstract::implicit'
-
-        @staticmethod
-        def ice_staticId():
-            return '::abstract::implicit'
-
-        def _in(self, internal, _is, lock, namespace, new, null, override, params, private, current=None):
-            raise NotImplementedError("servant method '_in' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_implicitDisp)
-
-        __repr__ = __str__
-
-    implicit._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t_delegate, False, 0), ((), _M_abstract._t_explicitPrx, False, 0), ((), _M_abstract._t_casePrx, False, 0), ((), _M_abstract._t_decimalPrx, False, 0), ((), _M_abstract._t_delegate, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__as, False, 0), (_M_abstract._t_fixed, _M_abstract._t_foreach))
-
-    _M_abstract.implicit = implicit
-    del implicit
-
-_M_abstract.protected = 0
-
-_M_abstract.public = 0
-
-# Start of module abstract.System
-_M_abstract.System = Ice.openModule('abstract.System')
-__name__ = 'abstract.System'
-
-if 'Test' not in _M_abstract.System.__dict__:
-    _M_abstract.System._t_TestPrx = IcePy.declareProxy('::abstract::System::Test')
-
-if 'TestPrx' not in _M_abstract.System.__dict__:
-    _M_abstract.System.TestPrx = None
+if 'TestPrx' not in _M_cs_abstract.System.__dict__:
+    _M_cs_abstract.System.TestPrx = None
     class TestPrx(Ice.ObjectPrx):
 
         def __init__(self, communicator, proxyString):
@@ -701,58 +640,58 @@ if 'TestPrx' not in _M_abstract.System.__dict__:
             super().__init__(communicator, proxyString)
 
         def op(self, context=None):
-            return _M_abstract.System.Test._op_op.invoke(self, ((), context))
+            return _M_cs_abstract.System.Test._op_op.invoke(self, ((), context))
 
         def opAsync(self, context=None):
-            return _M_abstract.System.Test._op_op.invokeAsync(self, ((), context))
+            return _M_cs_abstract.System.Test._op_op.invokeAsync(self, ((), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_abstract.System.TestPrx.ice_checkedCast(proxy, '::abstract::System::Test', facetOrContext, context)
+            return _M_cs_abstract.System.TestPrx.ice_checkedCast(proxy, '::cs_abstract::System::Test', facetOrContext, context)
 
         @staticmethod
         def uncheckedCast(proxy, facet=None):
-            return _M_abstract.System.TestPrx.ice_uncheckedCast(proxy, facet)
+            return _M_cs_abstract.System.TestPrx.ice_uncheckedCast(proxy, facet)
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::System::Test'
-    _M_abstract.System._t_TestPrx = IcePy.defineProxy('::abstract::System::Test', TestPrx)
+            return '::cs_abstract::System::Test'
+    _M_cs_abstract.System._t_TestPrx = IcePy.defineProxy('::cs_abstract::System::Test', TestPrx)
 
-    _M_abstract.System.TestPrx = TestPrx
+    _M_cs_abstract.System.TestPrx = TestPrx
     del TestPrx
 
-    _M_abstract.System.Test = None
+    _M_cs_abstract.System.Test = None
     class Test(Ice.Object):
 
         def ice_ids(self, current=None):
-            return ('::Ice::Object', '::abstract::System::Test')
+            return ('::Ice::Object', '::cs_abstract::System::Test')
 
         def ice_id(self, current=None):
-            return '::abstract::System::Test'
+            return '::cs_abstract::System::Test'
 
         @staticmethod
         def ice_staticId():
-            return '::abstract::System::Test'
+            return '::cs_abstract::System::Test'
 
         def op(self, current=None):
             raise NotImplementedError("servant method 'op' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract.System._t_TestDisp)
+            return IcePy.stringify(self, _M_cs_abstract.System._t_TestDisp)
 
         __repr__ = __str__
 
     Test._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
-    _M_abstract.System.Test = Test
+    _M_cs_abstract.System.Test = Test
     del Test
 
-# End of module abstract.System
+# End of module cs_abstract.System
 
-__name__ = 'abstract'
+__name__ = 'cs_abstract'
 
-# End of module abstract
+# End of module cs_abstract
 
 # Start of module System
 _M_System = Ice.openModule('System')

@@ -35,7 +35,7 @@ namespace Ice.proxy
         [Ice.SliceTypeId("::Test::MyDerivedClass")]
         public partial interface MyDerivedClass : MyClass
         {
-            global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, Ice.Current current);
+            Ice.ObjectPrx? echo(Ice.ObjectPrx? obj, Ice.Current current);
         }
     }
 }
@@ -57,9 +57,9 @@ namespace Ice.proxy
 
         public interface MyDerivedClassPrx : MyClassPrx
         {
-            global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            Ice.ObjectPrx? echo(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Ice.ObjectPrx?> echoAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -225,7 +225,7 @@ namespace Ice.proxy
                 }
             }
 
-            public global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public Ice.ObjectPrx? echo(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -294,24 +294,24 @@ namespace Ice.proxy
                     });
             }
 
-            public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> echoAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_echoAsync(obj, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_echoAsync(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_echoAsync(Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_echo_name);
-                var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
                 _iceI_echo(iceP_obj, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _echo_name = "echo";
 
-            private void _iceI_echo(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_echo(Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+                var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
                 outAsync.invoke(
                     _echo_name,
                     Ice.OperationMode.Normal,
@@ -324,7 +324,7 @@ namespace Ice.proxy
                     },
                     read: (Ice.InputStream istr) =>
                     {
-                        global::Ice.ObjectPrx? ret;
+                        Ice.ObjectPrx? ret;
                         ret = istr.readProxy();
                         return ret;
                     });
@@ -414,7 +414,7 @@ namespace Ice.proxy
 
             public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(Ice.Current current);
 
-            public abstract global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, Ice.Current current);
+            public abstract Ice.ObjectPrx? echo(Ice.ObjectPrx? obj, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -476,7 +476,7 @@ namespace Ice.proxy
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::Ice.ObjectPrx? iceP_obj;
+                Ice.ObjectPrx? iceP_obj;
                 iceP_obj = istr.readProxy();
                 istr.endEncapsulation();
                 var ret = obj.echo(iceP_obj, request.current);

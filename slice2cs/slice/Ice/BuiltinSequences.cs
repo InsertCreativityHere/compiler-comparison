@@ -148,7 +148,7 @@ namespace Ice
 
     public sealed class ObjectSeqHelper
     {
-        public static void write(Ice.OutputStream ostr, Value?[] v)
+        public static void write(Ice.OutputStream ostr, Ice.Value?[] v)
         {
             if (v is null)
             {
@@ -164,9 +164,9 @@ namespace Ice
             }
         }
 
-        public static Value?[] read(Ice.InputStream istr)
+        public static Ice.Value?[] read(Ice.InputStream istr)
         {
-            Value?[] v;
+            Ice.Value?[] v;
             int v_lenx = istr.readAndCheckSeqSize(1);
             v = new Ice.Value?[v_lenx];
             for (int ix = 0; ix < v_lenx; ++ix)
@@ -179,7 +179,7 @@ namespace Ice
 
     public sealed class ObjectProxySeqHelper
     {
-        public static void write(Ice.OutputStream ostr, ObjectPrx?[] v)
+        public static void write(Ice.OutputStream ostr, Ice.ObjectPrx?[] v)
         {
             if (v is null)
             {
@@ -195,9 +195,9 @@ namespace Ice
             }
         }
 
-        public static ObjectPrx?[] read(Ice.InputStream istr)
+        public static Ice.ObjectPrx?[] read(Ice.InputStream istr)
         {
-            ObjectPrx?[] v;
+            Ice.ObjectPrx?[] v;
             int v_lenx = istr.readAndCheckSeqSize(2);
             v = new Ice.ObjectPrx?[v_lenx];
             for (int ix = 0; ix < v_lenx; ++ix)

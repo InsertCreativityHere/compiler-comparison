@@ -79,9 +79,9 @@ namespace Test
 
         void unknownExceptionWithServantException(Ice.Current current);
 
-        string impossibleException(bool @throw, Ice.Current current);
+        string impossibleException(bool throw, Ice.Current current);
 
-        string intfUserException(bool @throw, Ice.Current current);
+        string intfUserException(bool throw, Ice.Current current);
 
         void asyncResponse(Ice.Current current);
 
@@ -137,13 +137,13 @@ namespace Test
 
         global::System.Threading.Tasks.Task unknownExceptionWithServantExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string impossibleException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        string impossibleException(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string intfUserException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        string intfUserException(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void asyncResponse(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -278,11 +278,11 @@ namespace Test
             }
         }
 
-        public string impossibleException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public string impossibleException(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_impossibleExceptionAsync(@throw, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_impossibleExceptionAsync(throw, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -290,11 +290,11 @@ namespace Test
             }
         }
 
-        public string intfUserException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public string intfUserException(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_intfUserExceptionAsync(@throw, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_intfUserExceptionAsync(throw, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -563,9 +563,9 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_impossibleExceptionAsync(@throw, context, progress, cancel, false);
+            return _iceI_impossibleExceptionAsync(throw, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<string> _iceI_impossibleExceptionAsync(bool iceP_throw, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -613,9 +613,9 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_intfUserExceptionAsync(@throw, context, progress, cancel, false);
+            return _iceI_intfUserExceptionAsync(throw, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<string> _iceI_intfUserExceptionAsync(bool iceP_throw, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -942,9 +942,9 @@ namespace Test
 
         public abstract void unknownExceptionWithServantException(Ice.Current current);
 
-        public abstract string impossibleException(bool @throw, Ice.Current current);
+        public abstract string impossibleException(bool throw, Ice.Current current);
 
-        public abstract string intfUserException(bool @throw, Ice.Current current);
+        public abstract string intfUserException(bool throw, Ice.Current current);
 
         public abstract void asyncResponse(Ice.Current current);
 

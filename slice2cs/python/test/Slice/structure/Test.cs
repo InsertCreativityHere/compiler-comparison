@@ -180,7 +180,7 @@ namespace Test
 
         public global::System.Collections.Generic.Dictionary<string, string> sd;
 
-        public global::Ice.ObjectPrx? prx;
+        public Ice.ObjectPrx? prx;
 
         partial void ice_initialize();
 
@@ -191,7 +191,7 @@ namespace Test
             ice_initialize();
         }
 
-        public S3(C? obj, global::System.Collections.Generic.Dictionary<string, string> sd, global::Ice.ObjectPrx? prx)
+        public S3(C? obj, global::System.Collections.Generic.Dictionary<string, string> sd, Ice.ObjectPrx? prx)
         {
             this.obj = obj;
             global::System.ArgumentNullException.ThrowIfNull(sd);

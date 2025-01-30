@@ -401,7 +401,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.ObjectPrx? getPublisher(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getPublisher(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -413,7 +413,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.ObjectPrx? getNonReplicatedPublisher(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getNonReplicatedPublisher(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -425,7 +425,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -437,7 +437,7 @@ namespace IceStorm
             }
         }
 
-        public void unsubscribe(global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void unsubscribe(Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -565,15 +565,15 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getPublisherAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getPublisher_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getPublisher(context, synchronous, completed);
             return completed.Task;
         }
@@ -582,7 +582,7 @@ namespace IceStorm
 
         private void _iceI_getPublisher(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getPublisher_name,
                 Ice.OperationMode.Idempotent,
@@ -591,21 +591,21 @@ namespace IceStorm
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getNonReplicatedPublisherAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getNonReplicatedPublisher_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getNonReplicatedPublisher(context, synchronous, completed);
             return completed.Task;
         }
@@ -614,7 +614,7 @@ namespace IceStorm
 
         private void _iceI_getNonReplicatedPublisher(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getNonReplicatedPublisher_name,
                 Ice.OperationMode.Idempotent,
@@ -623,30 +623,30 @@ namespace IceStorm
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> theQoS, Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_subscribeAndGetPublisherAsync(theQoS, subscriber, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, global::Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_subscribeAndGetPublisher_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_subscribeAndGetPublisher(iceP_theQoS, iceP_subscriber, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _subscribeAndGetPublisher_name = "subscribeAndGetPublisher";
 
-        private void _iceI_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, global::Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _subscribeAndGetPublisher_name,
                 Ice.OperationMode.Normal,
@@ -682,18 +682,18 @@ namespace IceStorm
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task unsubscribeAsync(global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task unsubscribeAsync(Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unsubscribeAsync(subscriber, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unsubscribeAsync(global::Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unsubscribeAsync(Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unsubscribe(iceP_subscriber, context, synchronous, completed);
@@ -702,7 +702,7 @@ namespace IceStorm
 
         private const string _unsubscribe_name = "unsubscribe";
 
-        private void _iceI_unsubscribe(global::Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unsubscribe(Ice.ObjectPrx? iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1310,13 +1310,13 @@ namespace IceStorm
     {
         public abstract string getName(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getPublisher(Ice.Current current);
+        public abstract Ice.ObjectPrx? getPublisher(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
+        public abstract Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, Ice.Current current);
+        public abstract Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, Ice.ObjectPrx? subscriber, Ice.Current current);
 
-        public abstract void unsubscribe(global::Ice.ObjectPrx? subscriber, Ice.Current current);
+        public abstract void unsubscribe(Ice.ObjectPrx? subscriber, Ice.Current current);
 
         public abstract void link(TopicPrx? linkTo, int cost, Ice.Current current);
 

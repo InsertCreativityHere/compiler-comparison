@@ -344,7 +344,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(Ice.Current current);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(Ice.Current current);
 
         /// <summary>
         /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
@@ -354,7 +354,7 @@ namespace IceGrid
         /// <returns>
         /// A direct proxy containing the last known adapter endpoints if the adapter is already active.
         /// </returns>
-        global::Ice.ObjectPrx? getDirectProxy(Ice.Current current);
+        Ice.ObjectPrx? getDirectProxy(Ice.Current current);
 
         /// <summary>
         /// Set the direct proxy for this adapter.
@@ -368,7 +368,7 @@ namespace IceGrid
         /// The adapter is already active. It's not possible to override the direct proxy of
         /// an active adapter.
         /// </exception>
-        void setDirectProxy(global::Ice.ObjectPrx? proxy, Ice.Current current);
+        void setDirectProxy(Ice.ObjectPrx? proxy, Ice.Current current);
     }
 
     /// <summary>
@@ -749,7 +749,7 @@ namespace IceGrid
         /// for replicated objects (e.g.: IceGrid::Query object).
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, Ice.Current current);
+        void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, Ice.Current current);
 
         /// <summary>
         /// Registers the replica well-known objects with the master.
@@ -762,7 +762,7 @@ namespace IceGrid
         /// with the locator registry interface.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, Ice.Current current);
+        void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, Ice.Current current);
 
         /// <summary>
         /// Notify the master that an update was received. The master might wait for replication updates to be received by
@@ -1012,7 +1012,7 @@ namespace IceGrid
         /// adapter is inactive or the adapter direct proxy it's active.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-        global::Ice.ObjectPrx? activate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? activate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
@@ -1023,7 +1023,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
@@ -1033,7 +1033,7 @@ namespace IceGrid
         /// <returns>
         /// A direct proxy containing the last known adapter endpoints if the adapter is already active.
         /// </returns>
-        global::Ice.ObjectPrx? getDirectProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? getDirectProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
@@ -1043,7 +1043,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the direct proxy for this adapter.
@@ -1057,7 +1057,7 @@ namespace IceGrid
         /// The adapter is already active. It's not possible to override the direct proxy of
         /// an active adapter.
         /// </exception>
-        void setDirectProxy(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void setDirectProxy(Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the direct proxy for this adapter.
@@ -1074,7 +1074,7 @@ namespace IceGrid
         /// The adapter is already active. It's not possible to override the direct proxy of
         /// an active adapter.
         /// </exception>
-        global::System.Threading.Tasks.Task setDirectProxyAsync(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setDirectProxyAsync(Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface FileReaderPrx : Ice.ObjectPrx
@@ -1675,7 +1675,7 @@ namespace IceGrid
         /// for replicated objects (e.g.: IceGrid::Query object).
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-        void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
@@ -1685,7 +1685,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Registers the replica well-known objects with the master.
@@ -1707,7 +1707,7 @@ namespace IceGrid
         /// with the locator registry interface.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-        void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
@@ -1717,7 +1717,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Notify the master that an update was received. The master might wait for replication updates to be received by
@@ -2033,7 +2033,7 @@ namespace IceGrid
 
     public sealed class AdapterPrxHelper : Ice.ObjectPrxHelperBase, AdapterPrx
     {
-        public global::Ice.ObjectPrx? activate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? activate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2045,7 +2045,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx? getDirectProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getDirectProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2057,7 +2057,7 @@ namespace IceGrid
             }
         }
 
-        public void setDirectProxy(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void setDirectProxy(Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2069,15 +2069,15 @@ namespace IceGrid
             }
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_activateAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_activate_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_activate(context, synchronous, completed);
             return completed.Task;
         }
@@ -2086,7 +2086,7 @@ namespace IceGrid
 
         private void _iceI_activate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _activate_name,
                 Ice.OperationMode.Normal,
@@ -2095,21 +2095,21 @@ namespace IceGrid
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getDirectProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getDirectProxy_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getDirectProxy(context, synchronous, completed);
             return completed.Task;
         }
@@ -2118,7 +2118,7 @@ namespace IceGrid
 
         private void _iceI_getDirectProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getDirectProxy_name,
                 Ice.OperationMode.Idempotent,
@@ -2141,18 +2141,18 @@ namespace IceGrid
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task setDirectProxyAsync(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setDirectProxyAsync(Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setDirectProxyAsync(proxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setDirectProxyAsync(global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setDirectProxyAsync(Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setDirectProxy_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -2162,7 +2162,7 @@ namespace IceGrid
 
         private const string _setDirectProxy_name = "setDirectProxy";
 
-        private void _iceI_setDirectProxy(global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setDirectProxy(Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5186,7 +5186,7 @@ namespace IceGrid
             }
         }
 
-        public void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5210,7 +5210,7 @@ namespace IceGrid
             }
         }
 
-        public void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -5357,12 +5357,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setEndpointsAsync(endpoints, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setEndpoints(iceP_endpoints, context, synchronous, completed);
@@ -5371,7 +5371,7 @@ namespace IceGrid
 
         private const string _setEndpoints_name = "setEndpoints";
 
-        private void _iceI_setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5415,12 +5415,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setAdapterDirectProxy_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -5430,7 +5430,7 @@ namespace IceGrid
 
         private const string _setAdapterDirectProxy_name = "setAdapterDirectProxy";
 
-        private void _iceI_setAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6202,11 +6202,11 @@ namespace IceGrid
 {
     public abstract class AdapterDisp_ : Ice.ObjectImpl, Adapter
     {
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getDirectProxy(Ice.Current current);
+        public abstract Ice.ObjectPrx? getDirectProxy(Ice.Current current);
 
-        public abstract void setDirectProxy(global::Ice.ObjectPrx? proxy, Ice.Current current);
+        public abstract void setDirectProxy(Ice.ObjectPrx? proxy, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -6492,11 +6492,11 @@ namespace IceGrid
 
         public abstract void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, Ice.Current current);
 
-        public abstract void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, Ice.Current current);
+        public abstract void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, Ice.Current current);
 
         public abstract void registerWellKnownObjects(ObjectInfo[] objects, Ice.Current current);
 
-        public abstract void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, Ice.Current current);
+        public abstract void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, Ice.Current current);
 
         public abstract void receivedUpdate(TopicName name, int serial, string failure, Ice.Current current);
 
@@ -6617,7 +6617,7 @@ namespace IceGrid
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.ObjectPrx? iceP_proxy;
+            Ice.ObjectPrx? iceP_proxy;
             iceP_proxy = istr.readProxy();
             istr.endEncapsulation();
             obj.setDirectProxy(iceP_proxy, request.current);
@@ -7210,7 +7210,7 @@ namespace IceGrid
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> iceP_endpoints;
+            global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> iceP_endpoints;
             iceP_endpoints = StringObjectProxyDictHelper.read(istr);
             istr.endEncapsulation();
             obj.setEndpoints(iceP_endpoints, request.current);
@@ -7240,7 +7240,7 @@ namespace IceGrid
             istr.startEncapsulation();
             string iceP_adapterId;
             string iceP_replicaGroupId;
-            global::Ice.ObjectPrx? iceP_proxy;
+            Ice.ObjectPrx? iceP_proxy;
             iceP_adapterId = istr.readString();
             iceP_replicaGroupId = istr.readString();
             iceP_proxy = istr.readProxy();

@@ -25,7 +25,7 @@ namespace Test
     [Ice.SliceTypeId("::Test::Single")]
     public partial interface Single : Ice.Object
     {
-        void @event(int i, Ice.Current current);
+        void event(int i, Ice.Current current);
     }
 }
 
@@ -33,7 +33,7 @@ namespace Test
 {
     public interface SinglePrx : Ice.ObjectPrx
     {
-        void @event(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void event(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task eventAsync(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
@@ -43,7 +43,7 @@ namespace Test
 {
     public sealed class SinglePrxHelper : Ice.ObjectPrxHelperBase, SinglePrx
     {
-        public void @event(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void event(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace Test
 {
     public abstract class SingleDisp_ : Ice.ObjectImpl, Single
     {
-        public abstract void @event(int i, Ice.Current current);
+        public abstract void event(int i, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -170,7 +170,7 @@ namespace Test
             int iceP_i;
             iceP_i = istr.readInt();
             istr.endEncapsulation();
-            obj.@event(iceP_i, request.current);
+            obj.event(iceP_i, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }

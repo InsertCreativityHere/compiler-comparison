@@ -815,11 +815,11 @@ namespace Test
     [Ice.SliceTypeId("::Test::K")]
     public partial class K : Ice.Value
     {
-        public global::Ice.Value? value;
+        public Ice.Value? value;
 
         partial void ice_initialize();
 
-        public K(global::Ice.Value? value)
+        public K(Ice.Value? value)
         {
             this.value = value;
             ice_initialize();
@@ -843,7 +843,7 @@ namespace Test
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((global::Ice.Value? v) => { this.value = v; });
+            istr_.readValue((Ice.Value? v) => { this.value = v; });
             istr_.endSlice();
         }
     }
@@ -1034,11 +1034,11 @@ namespace Test
 
         K? getK(Ice.Current current);
 
-        global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, Ice.Current current);
+        Ice.Value? opValue(Ice.Value? v1, out Ice.Value? v2, Ice.Current current);
 
-        global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, Ice.Current current);
+        Ice.Value?[] opValueSeq(Ice.Value?[] v1, out Ice.Value?[] v2, Ice.Current current);
 
-        global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, Ice.Current current);
+        global::System.Collections.Generic.Dictionary<string, Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, Ice.Value?> v2, Ice.Current current);
 
         D1? getD1(D1? d1, Ice.Current current);
 
@@ -1403,11 +1403,11 @@ namespace Test
 
     public record struct Initial_GetAllResult(B? b1, B? b2, C? theC, D? theD);
 
-    public record struct Initial_OpValueResult(global::Ice.Value? returnValue, global::Ice.Value? v2);
+    public record struct Initial_OpValueResult(Ice.Value? returnValue, Ice.Value? v2);
 
-    public record struct Initial_OpValueSeqResult(global::Ice.Value?[] returnValue, global::Ice.Value?[] v2);
+    public record struct Initial_OpValueSeqResult(Ice.Value?[] returnValue, Ice.Value?[] v2);
 
-    public record struct Initial_OpValueMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2);
+    public record struct Initial_OpValueMapResult(global::System.Collections.Generic.Dictionary<string, Ice.Value?> returnValue, global::System.Collections.Generic.Dictionary<string, Ice.Value?> v2);
 
     public record struct Initial_OpBaseSeqResult(Base?[] returnValue, Base?[] outSeq);
 
@@ -1472,17 +1472,17 @@ namespace Test
 
         global::System.Threading.Tasks.Task<K?> getKAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.Value? opValue(Ice.Value? v1, out Ice.Value? v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Initial_OpValueResult> opValueAsync(global::Ice.Value? v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Initial_OpValueResult> opValueAsync(Ice.Value? v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.Value?[] opValueSeq(Ice.Value?[] v1, out Ice.Value?[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Initial_OpValueSeqResult> opValueSeqAsync(global::Ice.Value?[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Initial_OpValueSeqResult> opValueSeqAsync(Ice.Value?[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        global::System.Collections.Generic.Dictionary<string, Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, Ice.Value?> v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Initial_OpValueMapResult> opValueMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Initial_OpValueMapResult> opValueMapAsync(global::System.Collections.Generic.Dictionary<string, Ice.Value?> v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         D1? getD1(D1? d1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1597,7 +1597,7 @@ namespace Test
 
     public sealed class ValueSeqHelper
     {
-        public static void write(Ice.OutputStream ostr, global::Ice.Value?[] v)
+        public static void write(Ice.OutputStream ostr, Ice.Value?[] v)
         {
             if (v is null)
             {
@@ -1613,9 +1613,9 @@ namespace Test
             }
         }
 
-        public static global::Ice.Value?[] read(Ice.InputStream istr)
+        public static Ice.Value?[] read(Ice.InputStream istr)
         {
-            global::Ice.Value?[] v;
+            Ice.Value?[] v;
             int v_lenx = istr.readAndCheckSeqSize(1);
             v = new Ice.Value?[v_lenx];
             for (int ix = 0; ix < v_lenx; ++ix)
@@ -1629,7 +1629,7 @@ namespace Test
     public sealed class ValueMapHelper
     {
         public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v)
+                                 global::System.Collections.Generic.Dictionary<string, Ice.Value?> v)
         {
             if(v == null)
             {
@@ -1638,7 +1638,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, global::Ice.Value?> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, Ice.Value?> e in v)
                 {
                     ostr.writeString(e.Key);
                     ostr.writeValue(e.Value);
@@ -1646,15 +1646,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> read(Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, Ice.Value?> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> r = new global::System.Collections.Generic.Dictionary<string, global::Ice.Value?>();
+            global::System.Collections.Generic.Dictionary<string, Ice.Value?> r = new global::System.Collections.Generic.Dictionary<string, Ice.Value?>();
             for(int i = 0; i < sz; ++i)
             {
                 string k;
                 k = istr.readString();
-                istr.readValue((global::Ice.Value? v) => { r[k] = v; });
+                istr.readValue((Ice.Value? v) => { r[k] = v; });
             }
             return r;
         }
@@ -1844,7 +1844,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.Value? opValue(Ice.Value? v1, out Ice.Value? v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1858,7 +1858,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.Value?[] opValueSeq(Ice.Value?[] v1, out Ice.Value?[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1872,7 +1872,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public global::System.Collections.Generic.Dictionary<string, Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, Ice.Value?> v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2448,12 +2448,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpValueResult> opValueAsync(global::Ice.Value? v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Initial_OpValueResult> opValueAsync(Ice.Value? v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opValueAsync(v1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpValueResult> _iceI_opValueAsync(global::Ice.Value? iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpValueResult> _iceI_opValueAsync(Ice.Value? iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opValue_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<Initial_OpValueResult>(progress, cancel);
@@ -2463,7 +2463,7 @@ namespace Test
 
         private const string _opValue_name = "opValue";
 
-        private void _iceI_opValue(global::Ice.Value? iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opValue(Ice.Value? iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpValueResult>(completed);
             outAsync.invoke(
@@ -2480,19 +2480,19 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpValueResult();
-                    istr.readValue((global::Ice.Value? v) => { ret.v2 = v; });
-                    istr.readValue((global::Ice.Value? v) => {ret.returnValue = v; });
+                    istr.readValue((Ice.Value? v) => { ret.v2 = v; });
+                    istr.readValue((Ice.Value? v) => {ret.returnValue = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpValueSeqResult> opValueSeqAsync(global::Ice.Value?[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Initial_OpValueSeqResult> opValueSeqAsync(Ice.Value?[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opValueSeqAsync(v1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpValueSeqResult> _iceI_opValueSeqAsync(global::Ice.Value?[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpValueSeqResult> _iceI_opValueSeqAsync(Ice.Value?[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opValueSeq_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<Initial_OpValueSeqResult>(progress, cancel);
@@ -2502,7 +2502,7 @@ namespace Test
 
         private const string _opValueSeq_name = "opValueSeq";
 
-        private void _iceI_opValueSeq(global::Ice.Value?[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opValueSeq(Ice.Value?[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpValueSeqResult>(completed);
             outAsync.invoke(
@@ -2526,12 +2526,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpValueMapResult> opValueMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Initial_OpValueMapResult> opValueMapAsync(global::System.Collections.Generic.Dictionary<string, Ice.Value?> v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opValueMapAsync(v1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpValueMapResult> _iceI_opValueMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpValueMapResult> _iceI_opValueMapAsync(global::System.Collections.Generic.Dictionary<string, Ice.Value?> iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opValueMap_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<Initial_OpValueMapResult>(progress, cancel);
@@ -2541,7 +2541,7 @@ namespace Test
 
         private const string _opValueMap_name = "opValueMap";
 
-        private void _iceI_opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opValueMap(global::System.Collections.Generic.Dictionary<string, Ice.Value?> iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpValueMapResult>(completed);
             outAsync.invoke(
@@ -3464,11 +3464,11 @@ namespace Test
 
         public abstract K? getK(Ice.Current current);
 
-        public abstract global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, Ice.Current current);
+        public abstract Ice.Value? opValue(Ice.Value? v1, out Ice.Value? v2, Ice.Current current);
 
-        public abstract global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, Ice.Current current);
+        public abstract Ice.Value?[] opValueSeq(Ice.Value?[] v1, out Ice.Value?[] v2, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, Ice.Value?> v2, Ice.Current current);
 
         public abstract D1? getD1(D1? d1, Ice.Current current);
 
@@ -3768,11 +3768,11 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.Value? iceP_v1 = null;
-            istr.readValue((global::Ice.Value? v) => { iceP_v1 = v; });
+            Ice.Value? iceP_v1 = null;
+            istr.readValue((Ice.Value? v) => { iceP_v1 = v; });
             istr.readPendingValues();
             istr.endEncapsulation();
-            global::Ice.Value? iceP_v2;
+            Ice.Value? iceP_v2;
             var ret = obj.opValue(iceP_v1, out iceP_v2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
@@ -3790,11 +3790,11 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.Value?[] iceP_v1;
+            Ice.Value?[] iceP_v1;
             iceP_v1 = ValueSeqHelper.read(istr);
             istr.readPendingValues();
             istr.endEncapsulation();
-            global::Ice.Value?[] iceP_v2;
+            Ice.Value?[] iceP_v2;
             var ret = obj.opValueSeq(iceP_v1, out iceP_v2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
@@ -3812,11 +3812,11 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> iceP_v1;
+            global::System.Collections.Generic.Dictionary<string, Ice.Value?> iceP_v1;
             iceP_v1 = ValueMapHelper.read(istr);
             istr.readPendingValues();
             istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> iceP_v2;
+            global::System.Collections.Generic.Dictionary<string, Ice.Value?> iceP_v2;
             var ret = obj.opValueMap(iceP_v1, out iceP_v2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);

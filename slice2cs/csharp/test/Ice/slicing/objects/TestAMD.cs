@@ -554,7 +554,7 @@ namespace Test
     [Ice.SliceTypeId("::Test::TestIntf")]
     public partial interface TestIntf : Ice.Object
     {
-        global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(Ice.Current current);
+        global::System.Threading.Tasks.Task<Ice.Value?> SBaseAsObjectAsync(Ice.Current current);
 
         global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(Ice.Current current);
 
@@ -566,9 +566,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(Ice.Current current);
 
-        global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(Ice.Current current);
+        global::System.Threading.Tasks.Task<Ice.Value?> SUnknownAsObjectAsync(Ice.Current current);
 
-        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, Ice.Current current);
+        global::System.Threading.Tasks.Task checkSUnknownAsync(Ice.Value? o, Ice.Current current);
 
         global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(Ice.Current current);
 
@@ -723,9 +723,9 @@ namespace Test
 {
     public interface TestIntfPrx : Ice.ObjectPrx
     {
-        global::Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.Value?> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         SBase? SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -747,13 +747,13 @@ namespace Test
 
         global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::Ice.Value? SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.Value? SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.Value?> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void checkSUnknown(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void checkSUnknown(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task checkSUnknownAsync(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         B? oneElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -977,7 +977,7 @@ namespace Test
 
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
-        public global::Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1049,7 +1049,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Value? SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.Value? SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1061,7 +1061,7 @@ namespace Test
             }
         }
 
-        public void checkSUnknown(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void checkSUnknown(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1438,15 +1438,15 @@ namespace Test
             }
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.Value?> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBaseAsObjectAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Value?> _iceI_SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.Value?> _iceI_SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBaseAsObject_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.Value?>(progress, cancel);
             _iceI_SBaseAsObject(context, synchronous, completed);
             return completed.Task;
         }
@@ -1455,7 +1455,7 @@ namespace Test
 
         private void _iceI_SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Value?>(completed);
+            var outAsync = getOutgoingAsync<Ice.Value?>(completed);
             outAsync.invoke(
                 _SBaseAsObject_name,
                 Ice.OperationMode.Normal,
@@ -1464,8 +1464,8 @@ namespace Test
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.Value? ret = null;
-                    istr.readValue((global::Ice.Value? v) => {ret = v; });
+                    Ice.Value? ret = null;
+                    istr.readValue((Ice.Value? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
@@ -1636,15 +1636,15 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.Value?> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SUnknownAsObjectAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Value?> _iceI_SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.Value?> _iceI_SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SUnknownAsObject_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.Value?>(progress, cancel);
             _iceI_SUnknownAsObject(context, synchronous, completed);
             return completed.Task;
         }
@@ -1653,7 +1653,7 @@ namespace Test
 
         private void _iceI_SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Value?>(completed);
+            var outAsync = getOutgoingAsync<Ice.Value?>(completed);
             outAsync.invoke(
                 _SUnknownAsObject_name,
                 Ice.OperationMode.Normal,
@@ -1662,19 +1662,19 @@ namespace Test
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.Value? ret = null;
-                    istr.readValue((global::Ice.Value? v) => {ret = v; });
+                    Ice.Value? ret = null;
+                    istr.readValue((Ice.Value? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task checkSUnknownAsync(Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkSUnknownAsync(o, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_checkSUnknownAsync(global::Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_checkSUnknownAsync(Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_checkSUnknown(iceP_o, context, synchronous, completed);
@@ -1683,7 +1683,7 @@ namespace Test
 
         private const string _checkSUnknown_name = "checkSUnknown";
 
-        private void _iceI_checkSUnknown(global::Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_checkSUnknown(Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2764,7 +2764,7 @@ namespace Test
 {
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<Ice.Value?> SBaseAsObjectAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(Ice.Current current);
 
@@ -2776,9 +2776,9 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<Ice.Value?> SUnknownAsObjectAsync(Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task checkSUnknownAsync(Ice.Value? o, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(Ice.Current current);
 
@@ -3028,8 +3028,8 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.Value? iceP_o = null;
-            istr.readValue((global::Ice.Value? v) => { iceP_o = v; });
+            Ice.Value? iceP_o = null;
+            istr.readValue((Ice.Value? v) => { iceP_o = v; });
             istr.readPendingValues();
             istr.endEncapsulation();
             await obj.checkSUnknownAsync(iceP_o, request.current).ConfigureAwait(false);

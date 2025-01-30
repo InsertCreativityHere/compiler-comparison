@@ -299,34 +299,6 @@ module ::Await
         ])
     end
 
-    if not defined?(::Await::BaseMethods)
-        class BaseMethods < Ice::UserException
-            def to_s
-                '::await::BaseMethods'
-            end
-
-            attr_accessor :Data, :HelpLink, :InnerException, :Message, :Source, :StackTrace, :TargetSite, :HResult, :Equals, :GetBaseException, :GetHashCode, :GetObjectData, :GetType, :ReferenceEquals, :ToString
-        end
-
-        T_BaseMethods = ::Ice::__defineException('::await::BaseMethods', BaseMethods, nil, [
-            ["Data", ::Ice::T_int, false, 0],
-            ["HelpLink", ::Ice::T_int, false, 0],
-            ["InnerException", ::Ice::T_int, false, 0],
-            ["Message", ::Ice::T_int, false, 0],
-            ["Source", ::Ice::T_int, false, 0],
-            ["StackTrace", ::Ice::T_int, false, 0],
-            ["TargetSite", ::Ice::T_int, false, 0],
-            ["HResult", ::Ice::T_int, false, 0],
-            ["Equals", ::Ice::T_int, false, 0],
-            ["GetBaseException", ::Ice::T_int, false, 0],
-            ["GetHashCode", ::Ice::T_int, false, 0],
-            ["GetObjectData", ::Ice::T_int, false, 0],
-            ["GetType", ::Ice::T_int, false, 0],
-            ["ReferenceEquals", ::Ice::T_int, false, 0],
-            ["ToString", ::Ice::T_int, false, 0]
-        ])
-    end
-
     if not defined?(::Await::T_ImplicitPrx)
         T_ImplicitPrx = ::Ice::__declareProxy('::await::implicit')
     end

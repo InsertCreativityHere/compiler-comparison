@@ -68,7 +68,7 @@ namespace IceStorm
 
         public bool link;
 
-        public global::Ice.ObjectPrx? obj;
+        public Ice.ObjectPrx? obj;
 
         public global::System.Collections.Generic.Dictionary<string, string> theQoS;
 
@@ -87,7 +87,7 @@ namespace IceStorm
             ice_initialize();
         }
 
-        public SubscriberRecord(string topicName, global::Ice.Identity id, bool link, global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string> theQoS, int cost, TopicPrx? theTopic)
+        public SubscriberRecord(string topicName, global::Ice.Identity id, bool link, Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string> theQoS, int cost, TopicPrx? theTopic)
         {
             global::System.ArgumentNullException.ThrowIfNull(topicName);
             this.topicName = topicName;

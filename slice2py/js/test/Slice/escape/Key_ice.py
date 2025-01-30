@@ -601,55 +601,6 @@ if 'foreach' not in _M__await.__dict__:
     _M__await.foreach = foreach
     del foreach
 
-if 'BaseMethods' not in _M__await.__dict__:
-    _M__await.BaseMethods = None
-    class BaseMethods(Ice.UserException):
-        def __init__(self, Data=0, HelpLink=0, InnerException=0, Message=0, Source=0, StackTrace=0, TargetSite=0, HResult=0, Equals=0, GetBaseException=0, GetHashCode=0, GetObjectData=0, GetType=0, ReferenceEquals=0, ToString=0):
-            self.Data = Data
-            self.HelpLink = HelpLink
-            self.InnerException = InnerException
-            self.Message = Message
-            self.Source = Source
-            self.StackTrace = StackTrace
-            self.TargetSite = TargetSite
-            self.HResult = HResult
-            self.Equals = Equals
-            self.GetBaseException = GetBaseException
-            self.GetHashCode = GetHashCode
-            self.GetObjectData = GetObjectData
-            self.GetType = GetType
-            self.ReferenceEquals = ReferenceEquals
-            self.ToString = ToString
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::await::BaseMethods'
-
-    _M__await._t_BaseMethods = IcePy.defineException('::await::BaseMethods', BaseMethods, (), None, (
-        ('Data', (), IcePy._t_int, False, 0),
-        ('HelpLink', (), IcePy._t_int, False, 0),
-        ('InnerException', (), IcePy._t_int, False, 0),
-        ('Message', (), IcePy._t_int, False, 0),
-        ('Source', (), IcePy._t_int, False, 0),
-        ('StackTrace', (), IcePy._t_int, False, 0),
-        ('TargetSite', (), IcePy._t_int, False, 0),
-        ('HResult', (), IcePy._t_int, False, 0),
-        ('Equals', (), IcePy._t_int, False, 0),
-        ('GetBaseException', (), IcePy._t_int, False, 0),
-        ('GetHashCode', (), IcePy._t_int, False, 0),
-        ('GetObjectData', (), IcePy._t_int, False, 0),
-        ('GetType', (), IcePy._t_int, False, 0),
-        ('ReferenceEquals', (), IcePy._t_int, False, 0),
-        ('ToString', (), IcePy._t_int, False, 0)
-    ))
-    BaseMethods._ice_type = _M__await._t_BaseMethods
-
-    _M__await.BaseMethods = BaseMethods
-    del BaseMethods
-
 if 'implicit' not in _M__await.__dict__:
     _M__await._t_implicitPrx = IcePy.declareProxy('::await::implicit')
 

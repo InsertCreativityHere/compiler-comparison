@@ -200,11 +200,11 @@ namespace Test
     [Ice.SliceTypeId("::Test::PCDerived3")]
     public partial class PCDerived3 : PCDerived2
     {
-        public global::Ice.Value? pcd3;
+        public Ice.Value? pcd3;
 
         partial void ice_initialize();
 
-        public PCDerived3(int pi, string ps, PBase? pb, PBase?[] pbs, int pcd2, global::Ice.Value? pcd3) : base(pi, ps, pb, pbs, pcd2)
+        public PCDerived3(int pi, string ps, PBase? pb, PBase?[] pbs, int pcd2, Ice.Value? pcd3) : base(pi, ps, pb, pbs, pcd2)
         {
             this.pcd3 = pcd3;
             ice_initialize();
@@ -235,7 +235,7 @@ namespace Test
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((global::Ice.Value? v) => { this.pcd3 = v; });
+            istr_.readValue((Ice.Value? v) => { this.pcd3 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }

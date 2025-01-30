@@ -673,7 +673,7 @@ namespace Test
 
         public byte[] bs;
 
-        public int[] @is;
+        public int[] is;
 
         public InnerStruct st;
 
@@ -681,18 +681,18 @@ namespace Test
 
         partial void ice_initialize();
 
-        public StructNoDefaults(byte[] bs, int[] @is, global::System.Collections.Generic.Dictionary<int, string> dict)
+        public StructNoDefaults(byte[] bs, int[] is, global::System.Collections.Generic.Dictionary<int, string> dict)
         {
             global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
-            global::System.ArgumentNullException.ThrowIfNull(@is);
-            this.@is = @is;
+            global::System.ArgumentNullException.ThrowIfNull(is);
+            this.is = is;
             global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
             ice_initialize();
         }
 
-        public StructNoDefaults(bool bo, byte b, short s, int i, long l, float f, double d, string str, Color c1, byte[] bs, int[] @is, InnerStruct st, global::System.Collections.Generic.Dictionary<int, string> dict)
+        public StructNoDefaults(bool bo, byte b, short s, int i, long l, float f, double d, string str, Color c1, byte[] bs, int[] is, InnerStruct st, global::System.Collections.Generic.Dictionary<int, string> dict)
         {
             this.bo = bo;
             this.b = b;
@@ -706,8 +706,8 @@ namespace Test
             this.c1 = c1;
             global::System.ArgumentNullException.ThrowIfNull(bs);
             this.bs = bs;
-            global::System.ArgumentNullException.ThrowIfNull(@is);
-            this.@is = @is;
+            global::System.ArgumentNullException.ThrowIfNull(is);
+            this.is = is;
             this.st = st;
             global::System.ArgumentNullException.ThrowIfNull(dict);
             this.dict = dict;
@@ -726,7 +726,7 @@ namespace Test
             this.str = istr.readString();
             this.c1 = (Color)istr.readEnum(2);
             this.bs = ByteSeqHelper.read(istr);
-            this.@is = IntSeqHelper.read(istr);
+            this.is = IntSeqHelper.read(istr);
             this.st = new InnerStruct(istr);
             this.dict = IntStringDictHelper.read(istr);
             ice_initialize();
@@ -744,7 +744,7 @@ namespace Test
             ostr.writeString(this.str);
             ostr.writeEnum((int)this.c1, 2);
             ByteSeqHelper.write(ostr, this.bs);
-            IntSeqHelper.write(ostr, this.@is);
+            IntSeqHelper.write(ostr, this.is);
             this.st.ice_writeMembers(ostr);
             IntStringDictHelper.write(ostr, this.dict);
         }

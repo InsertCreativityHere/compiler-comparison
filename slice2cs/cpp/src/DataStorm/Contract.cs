@@ -76,7 +76,7 @@ namespace DataStormContract
 
         public long tag;
 
-        public global::DataStorm.SampleEvent @event;
+        public global::DataStorm.SampleEvent event;
 
         public byte[] value;
 
@@ -91,7 +91,7 @@ namespace DataStormContract
             ice_initialize();
         }
 
-        public DataSample(long id, long keyId, byte[] keyValue, long timestamp, long tag, global::DataStorm.SampleEvent @event, byte[] value)
+        public DataSample(long id, long keyId, byte[] keyValue, long timestamp, long tag, global::DataStorm.SampleEvent event, byte[] value)
         {
             this.id = id;
             this.keyId = keyId;
@@ -99,7 +99,7 @@ namespace DataStormContract
             this.keyValue = keyValue;
             this.timestamp = timestamp;
             this.tag = tag;
-            this.@event = @event;
+            this.event = event;
             global::System.ArgumentNullException.ThrowIfNull(value);
             this.value = value;
             ice_initialize();
@@ -112,7 +112,7 @@ namespace DataStormContract
             this.keyValue = global::Ice.ByteSeqHelper.read(istr);
             this.timestamp = istr.readLong();
             this.tag = istr.readLong();
-            this.@event = (global::DataStorm.SampleEvent)istr.readEnum(3);
+            this.event = (global::DataStorm.SampleEvent)istr.readEnum(3);
             this.value = global::Ice.ByteSeqHelper.read(istr);
             ice_initialize();
         }
@@ -124,7 +124,7 @@ namespace DataStormContract
             global::Ice.ByteSeqHelper.write(ostr, this.keyValue);
             ostr.writeLong(this.timestamp);
             ostr.writeLong(this.tag);
-            ostr.writeEnum((int)this.@event, 3);
+            ostr.writeEnum((int)this.event, 3);
             global::Ice.ByteSeqHelper.write(ostr, this.value);
         }
 

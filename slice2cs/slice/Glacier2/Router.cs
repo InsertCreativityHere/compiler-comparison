@@ -374,7 +374,7 @@ namespace Glacier2
 {
     public sealed class RouterPrxHelper : Ice.ObjectPrxHelperBase, RouterPrx
     {
-        public global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -388,7 +388,7 @@ namespace Glacier2
             }
         }
 
-        public global::Ice.ObjectPrx? getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -400,7 +400,7 @@ namespace Glacier2
             }
         }
 
-        public global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx?[] addProxies(Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -532,15 +532,15 @@ namespace Glacier2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getServerProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerProxy_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getServerProxy(context, synchronous, completed);
             return completed.Task;
         }
@@ -549,7 +549,7 @@ namespace Glacier2
 
         private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getServerProxy_name,
                 Ice.OperationMode.Idempotent,
@@ -558,30 +558,30 @@ namespace Glacier2
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?[]> addProxiesAsync(global::Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?[]> addProxiesAsync(Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addProxiesAsync(proxies, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?[]> _iceI_addProxiesAsync(global::Ice.ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?[]> _iceI_addProxiesAsync(Ice.ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addProxies_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?[]>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?[]>(progress, cancel);
             _iceI_addProxies(iceP_proxies, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _addProxies_name = "addProxies";
 
-        private void _iceI_addProxies(global::Ice.ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addProxies(Ice.ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?[]>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?[]>(completed);
             outAsync.invoke(
                 _addProxies_name,
                 Ice.OperationMode.Idempotent,
@@ -594,7 +594,7 @@ namespace Glacier2
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx?[] ret;
+                    Ice.ObjectPrx?[] ret;
                     ret = global::Ice.ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
@@ -935,11 +935,11 @@ namespace Glacier2
 {
     public abstract class RouterDisp_ : Ice.ObjectImpl, Router
     {
-        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
+        public abstract Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getServerProxy(Ice.Current current);
+        public abstract Ice.ObjectPrx? getServerProxy(Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, Ice.Current current);
+        public abstract Ice.ObjectPrx?[] addProxies(Ice.ObjectPrx?[] proxies, Ice.Current current);
 
         public abstract string getCategoryForClient(Ice.Current current);
 

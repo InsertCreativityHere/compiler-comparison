@@ -24,7 +24,7 @@ namespace and
 {
     public enum array
     {
-        @as
+        as
     }
 
     public sealed class arrayHelper
@@ -44,65 +44,65 @@ namespace and
 
     public partial record struct xor
     {
-        public int @abstract;
+        public int abstract;
 
         public int clone;
 
-        public int @private;
+        public int private;
 
-        public int @protected;
+        public int protected;
 
-        public int @public;
+        public int public;
 
-        public int @this;
+        public int this;
 
-        public int @throw;
+        public int throw;
 
         public int use;
 
-        public int @var;
+        public int var;
 
         partial void ice_initialize();
 
-        public xor(int @abstract, int clone, int @private, int @protected, int @public, int @this, int @throw, int use, int @var)
+        public xor(int abstract, int clone, int private, int protected, int public, int this, int throw, int use, int var)
         {
-            this.@abstract = @abstract;
+            this.abstract = abstract;
             this.clone = clone;
-            this.@private = @private;
-            this.@protected = @protected;
-            this.@public = @public;
-            this.@this = @this;
-            this.@throw = @throw;
+            this.private = private;
+            this.protected = protected;
+            this.public = public;
+            this.this = this;
+            this.throw = throw;
             this.use = use;
-            this.@var = @var;
+            this.var = var;
             ice_initialize();
         }
 
         public xor(Ice.InputStream istr)
         {
-            this.@abstract = istr.readInt();
+            this.abstract = istr.readInt();
             this.clone = istr.readInt();
-            this.@private = istr.readInt();
-            this.@protected = istr.readInt();
-            this.@public = istr.readInt();
-            this.@this = istr.readInt();
-            this.@throw = istr.readInt();
+            this.private = istr.readInt();
+            this.protected = istr.readInt();
+            this.public = istr.readInt();
+            this.this = istr.readInt();
+            this.throw = istr.readInt();
             this.use = istr.readInt();
-            this.@var = istr.readInt();
+            this.var = istr.readInt();
             ice_initialize();
         }
 
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
-            ostr.writeInt(this.@abstract);
+            ostr.writeInt(this.abstract);
             ostr.writeInt(this.clone);
-            ostr.writeInt(this.@private);
-            ostr.writeInt(this.@protected);
-            ostr.writeInt(this.@public);
-            ostr.writeInt(this.@this);
-            ostr.writeInt(this.@throw);
+            ostr.writeInt(this.private);
+            ostr.writeInt(this.protected);
+            ostr.writeInt(this.public);
+            ostr.writeInt(this.this);
+            ostr.writeInt(this.throw);
             ostr.writeInt(this.use);
-            ostr.writeInt(this.@var);
+            ostr.writeInt(this.var);
         }
 
         public static void ice_write(Ice.OutputStream ostr, xor v)
@@ -114,29 +114,29 @@ namespace and
     }
 
     [Ice.SliceTypeId("::and::break")]
-    public partial interface @break : Ice.Object
+    public partial interface break : Ice.Object
     {
-        void @case(int @catch, out int @try, Ice.Current current);
+        void case(int catch, out int try, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::and::function")]
     public partial interface function : Ice.Object
     {
-        void @continue(int declare, int @default, Ice.Current current);
+        void continue(int declare, int default, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::and::die")]
     public partial interface die : Ice.Object
     {
-        void @do(Ice.Current current);
+        void do(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::and::echo")]
     public partial class echo : Ice.Value
     {
-        public int @if;
+        public int if;
 
-        public int @else;
+        public int else;
 
         public diePrx? elseif;
 
@@ -144,10 +144,10 @@ namespace and
 
         partial void ice_initialize();
 
-        public echo(int @if, int @else, diePrx? elseif, int empty)
+        public echo(int if, int else, diePrx? elseif, int empty)
         {
-            this.@if = @if;
-            this.@else = @else;
+            this.if = if;
+            this.else = else;
             this.elseif = elseif;
             this.empty = empty;
             ice_initialize();
@@ -164,8 +164,8 @@ namespace and
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(@if);
-            ostr_.writeInt(@else);
+            ostr_.writeInt(if);
+            ostr_.writeInt(else);
             diePrxHelper.write(ostr_, elseif);
             ostr_.writeInt(empty);
             ostr_.endSlice();
@@ -174,8 +174,8 @@ namespace and
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @if = istr_.readInt();
-            @else = istr_.readInt();
+            if = istr_.readInt();
+            else = istr_.readInt();
             elseif = diePrxHelper.read(istr_);
             empty = istr_.readInt();
             istr_.endSlice();
@@ -257,9 +257,9 @@ namespace and
     }
 
     [Ice.SliceTypeId("::and::for")]
-    public partial interface @for : Ice.Object
+    public partial interface for : Ice.Object
     {
-        array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, Ice.Current current);
+        array foreach(breakPrx? if, echo? global, functionPrx? include, diePrx? return, enddeclarePrx? list, int new, int static, Ice.Current current);
     }
 
     public abstract class or
@@ -282,21 +282,21 @@ namespace and
 {
     public interface breakPrx : Ice.ObjectPrx
     {
-        void @case(int @catch, out int @try, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void case(int catch, out int try, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<int> caseAsync(int catch, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface functionPrx : Ice.ObjectPrx
     {
-        void @continue(int declare, int @default, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void continue(int declare, int default, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task continueAsync(int declare, int @default, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task continueAsync(int declare, int default, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface diePrx : Ice.ObjectPrx
     {
-        void @do(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void do(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task doAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
@@ -307,9 +307,9 @@ namespace and
 
     public interface forPrx : Ice.ObjectPrx
     {
-        array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        array foreach(breakPrx? if, echo? global, functionPrx? include, diePrx? return, enddeclarePrx? list, int new, int static, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx? if, echo? global, functionPrx? include, diePrx? return, enddeclarePrx? list, int new, int static, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -317,11 +317,11 @@ namespace and
 {
     public sealed class breakPrxHelper : Ice.ObjectPrxHelperBase, breakPrx
     {
-        public void @case(int @catch, out int @try, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void case(int catch, out int try, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                @try = _iceI_caseAsync(@catch, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                try = _iceI_caseAsync(catch, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -329,9 +329,9 @@ namespace and
             }
         }
 
-        public global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<int> caseAsync(int catch, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_caseAsync(@catch, context, progress, cancel, false);
+            return _iceI_caseAsync(catch, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<int> _iceI_caseAsync(int iceP_catch, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -415,11 +415,11 @@ namespace and
 
     public sealed class functionPrxHelper : Ice.ObjectPrxHelperBase, functionPrx
     {
-        public void @continue(int declare, int @default, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void continue(int declare, int default, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_continueAsync(declare, @default, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_continueAsync(declare, default, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -427,9 +427,9 @@ namespace and
             }
         }
 
-        public global::System.Threading.Tasks.Task continueAsync(int declare, int @default, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task continueAsync(int declare, int default, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_continueAsync(declare, @default, context, progress, cancel, false);
+            return _iceI_continueAsync(declare, default, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task _iceI_continueAsync(int iceP_declare, int iceP_default, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -507,7 +507,7 @@ namespace and
 
     public sealed class diePrxHelper : Ice.ObjectPrxHelperBase, diePrx
     {
-        public void @do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -594,7 +594,7 @@ namespace and
 
     public sealed class enddeclarePrxHelper : Ice.ObjectPrxHelperBase, enddeclarePrx
     {
-        public void @do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void do(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -606,11 +606,11 @@ namespace and
             }
         }
 
-        public void @continue(int declare, int @default, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void continue(int declare, int default, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_continueAsync(declare, @default, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_continueAsync(declare, default, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -643,9 +643,9 @@ namespace and
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task continueAsync(int declare, int @default, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task continueAsync(int declare, int default, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_continueAsync(declare, @default, context, progress, cancel, false);
+            return _iceI_continueAsync(declare, default, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task _iceI_continueAsync(int iceP_declare, int iceP_default, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -794,11 +794,11 @@ namespace and
 
     public sealed class forPrxHelper : Ice.ObjectPrxHelperBase, forPrx
     {
-        public array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public array foreach(breakPrx? if, echo? global, functionPrx? include, diePrx? return, enddeclarePrx? list, int new, int static, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_foreachAsync(@if, global, include, @return, list, @new, @static, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_foreachAsync(if, global, include, return, list, new, static, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -806,9 +806,9 @@ namespace and
             }
         }
 
-        public global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx? if, echo? global, functionPrx? include, diePrx? return, enddeclarePrx? list, int new, int static, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_foreachAsync(@if, global, include, @return, list, @new, @static, context, progress, cancel, false);
+            return _iceI_foreachAsync(if, global, include, return, list, new, static, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<array> _iceI_foreachAsync(breakPrx? iceP_if, echo? iceP_global, functionPrx? iceP_include, diePrx? iceP_return, enddeclarePrx? iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -918,9 +918,9 @@ namespace and
 
 namespace and
 {
-    public abstract class breakDisp_ : Ice.ObjectImpl, @break
+    public abstract class breakDisp_ : Ice.ObjectImpl, break
     {
-        public abstract void @case(int @catch, out int @try, Ice.Current current);
+        public abstract void case(int catch, out int try, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -929,7 +929,7 @@ namespace and
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "case" => @break.iceD_caseAsync(this, request),
+                "case" => break.iceD_caseAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -940,7 +940,7 @@ namespace and
 
     public abstract class functionDisp_ : Ice.ObjectImpl, function
     {
-        public abstract void @continue(int declare, int @default, Ice.Current current);
+        public abstract void continue(int declare, int default, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -960,7 +960,7 @@ namespace and
 
     public abstract class dieDisp_ : Ice.ObjectImpl, die
     {
-        public abstract void @do(Ice.Current current);
+        public abstract void do(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -980,9 +980,9 @@ namespace and
 
     public abstract class enddeclareDisp_ : Ice.ObjectImpl, enddeclare
     {
-        public abstract void @do(Ice.Current current);
+        public abstract void do(Ice.Current current);
 
-        public abstract void @continue(int declare, int @default, Ice.Current current);
+        public abstract void continue(int declare, int default, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1001,9 +1001,9 @@ namespace and
             };
     }
 
-    public abstract class forDisp_ : Ice.ObjectImpl, @for
+    public abstract class forDisp_ : Ice.ObjectImpl, for
     {
-        public abstract array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, Ice.Current current);
+        public abstract array foreach(breakPrx? if, echo? global, functionPrx? include, diePrx? return, enddeclarePrx? list, int new, int static, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1012,7 +1012,7 @@ namespace and
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "foreach" => @for.iceD_foreachAsync(this, request),
+                "foreach" => for.iceD_foreachAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1024,10 +1024,10 @@ namespace and
 
 namespace and
 {
-    public partial interface @break
+    public partial interface break
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_caseAsync(
-            @break obj,
+            break obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -1037,7 +1037,7 @@ namespace and
             iceP_catch = istr.readInt();
             istr.endEncapsulation();
             int iceP_try;
-            obj.@case(iceP_catch, out iceP_try, request.current);
+            obj.case(iceP_catch, out iceP_try, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(iceP_try);
@@ -1060,7 +1060,7 @@ namespace and
             iceP_declare = istr.readInt();
             iceP_default = istr.readInt();
             istr.endEncapsulation();
-            obj.@continue(iceP_declare, iceP_default, request.current);
+            obj.continue(iceP_declare, iceP_default, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
@@ -1073,7 +1073,7 @@ namespace and
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
-            obj.@do(request.current);
+            obj.do(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
@@ -1082,10 +1082,10 @@ namespace and
     {
     }
 
-    public partial interface @for
+    public partial interface for
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_foreachAsync(
-            @for obj,
+            for obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -1107,7 +1107,7 @@ namespace and
             iceP_static = istr.readInt();
             istr.readPendingValues();
             istr.endEncapsulation();
-            var ret = obj.@foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, request.current);
+            var ret = obj.foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);

@@ -158,12 +158,12 @@ namespace Test
     [Ice.SliceTypeId("::Test::E")]
     public partial class E : Ice.UserException
     {
-        public string ice_data_ = "";
+        public string data = "";
 
-        public E(string ice_data_)
+        public E(string data)
         {
-            global::System.ArgumentNullException.ThrowIfNull(ice_data_);
-            this.ice_data_ = ice_data_;
+            global::System.ArgumentNullException.ThrowIfNull(data);
+            this.data = data;
         }
 
         public E()
@@ -175,14 +175,14 @@ namespace Test
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Test::E", -1, true);
-            ostr_.writeString(ice_data_);
+            ostr_.writeString(data);
             ostr_.endSlice();
         }
 
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            ice_data_ = istr_.readString();
+            data = istr_.readString();
             istr_.endSlice();
         }
     }
@@ -190,12 +190,12 @@ namespace Test
     [Ice.SliceTypeId("::Test::F")]
     public partial class F : Ice.UserException
     {
-        public string ice_data_ = "";
+        public string data = "";
 
-        public F(string ice_data_)
+        public F(string data)
         {
-            global::System.ArgumentNullException.ThrowIfNull(ice_data_);
-            this.ice_data_ = ice_data_;
+            global::System.ArgumentNullException.ThrowIfNull(data);
+            this.data = data;
         }
 
         public F()
@@ -207,14 +207,14 @@ namespace Test
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Test::F", -1, true);
-            ostr_.writeString(ice_data_);
+            ostr_.writeString(data);
             ostr_.endSlice();
         }
 
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            ice_data_ = istr_.readString();
+            data = istr_.readString();
             istr_.endSlice();
         }
     }

@@ -16,16 +16,16 @@
 import { Ice } from "ice";
 
 
-export const abstract = {};
+export const cs_abstract = {};
 
-abstract.System = abstract.System || {};
+cs_abstract.System = cs_abstract.System || {};
 
 export const System = {};
 
-abstract.as = Ice.defineEnum([
+cs_abstract.as = Ice.defineEnum([
     ['base', 0]]);
 
-abstract._break = class
+cs_abstract._break = class
 {
     constructor(readonly = 0)
     {
@@ -48,180 +48,9 @@ abstract._break = class
     }
 };
 
-Ice.defineStruct(abstract._break, true, false);
+Ice.defineStruct(cs_abstract._break, true, false);
 
-const iceC_abstract__case_ids = [
-    "::Ice::Object",
-    "::abstract::case"
-];
-
-abstract._case = class extends Ice.Object
-{
-};
-
-abstract.casePrx = class extends Ice.ObjectPrx
-{
-};
-Ice.TypeRegistry.declareProxyType("abstract.casePrx", abstract.casePrx);
-
-Ice.defineOperations(
-    abstract._case,
-    abstract.casePrx,
-    iceC_abstract__case_ids,
-    "::abstract::case",
-    {
-        "catch": ["_catch", , , , [[3]], [[3]], , , ]
-    });
-
-const iceC_abstract_decimal_ids = [
-    "::Ice::Object",
-    "::abstract::decimal"
-];
-
-abstract.decimal = class extends Ice.Object
-{
-};
-
-abstract.decimalPrx = class extends Ice.ObjectPrx
-{
-};
-Ice.TypeRegistry.declareProxyType("abstract.decimalPrx", abstract.decimalPrx);
-
-Ice.defineOperations(
-    abstract.decimal,
-    abstract.decimalPrx,
-    iceC_abstract_decimal_ids,
-    "::abstract::decimal",
-    {
-        "default": ["_default", , , , , , , , ]
-    });
-
-abstract.delegate = class extends Ice.Value
-{
-    constructor(_if = 0, _else = null, event = 0)
-    {
-        super();
-        this._if = _if;
-        this._else = _else;
-        this.event = event;
-    }
-
-    _iceWriteMemberImpl(ostr)
-    {
-        ostr.writeInt(this._if);
-        ostr.writeProxy(this._else);
-        ostr.writeInt(this.event);
-    }
-
-    _iceReadMemberImpl(istr)
-    {
-        this._if = istr.readInt();
-        this._else = istr.readProxy();
-        this.event = istr.readInt();
-    }
-};
-
-Ice.defineValue(abstract.delegate, "::abstract::delegate");
-Ice.TypeRegistry.declareValueType("abstract.delegate", abstract.delegate);
-
-const iceC_abstract_explicit_ids = [
-    "::Ice::Object",
-    "::abstract::case",
-    "::abstract::decimal",
-    "::abstract::explicit"
-];
-
-abstract.explicit = class extends Ice.Object
-{
-    static get _iceImplements()
-    {
-        return [
-            abstract.decimal,
-            abstract.case
-        ];
-    }
-};
-
-abstract.explicitPrx = class extends Ice.ObjectPrx
-{
-    static get _implements()
-    {
-        return [
-            abstract.decimalPrx,
-            abstract.casePrx];
-    }
-};
-Ice.TypeRegistry.declareProxyType("abstract.explicitPrx", abstract.explicitPrx);
-
-Ice.defineOperations(
-    abstract.explicit,
-    abstract.explicitPrx,
-    iceC_abstract_explicit_ids,
-    "::abstract::explicit");
-
-[abstract._while, abstract._whileHelper] = Ice.defineDictionary(Ice.StringHelper, abstract._break, false, undefined);
-
-abstract.optionalMembers = class extends Ice.Value
-{
-    constructor(_for = undefined, goto = undefined, _if = undefined, internal = undefined, namespace = undefined)
-    {
-        super();
-        this._for = _for;
-        this.goto = goto;
-        this._if = _if;
-        this.internal = internal;
-        this.namespace = namespace;
-    }
-
-    _iceWriteMemberImpl(ostr)
-    {
-        abstract._break.writeOptional(ostr, 1, this._for);
-        abstract.as._writeOpt(ostr, 2, this.goto);
-        abstract.explicitPrx.writeOptional(ostr, 3, this._if);
-        abstract._whileHelper.writeOptional(ostr, 5, this.internal);
-        Ice.StringHelper.writeOptional(ostr, 7, this.namespace);
-    }
-
-    _iceReadMemberImpl(istr)
-    {
-        this._for = abstract._break.readOptional(istr, 1);
-        this.goto = abstract.as._readOpt(istr, 2);
-        this._if = abstract.explicitPrx.readOptional(istr, 3);
-        this.internal = abstract._whileHelper.readOptional(istr, 5);
-        this.namespace = Ice.StringHelper.readOptional(istr, 7);
-    }
-};
-
-Ice.defineValue(abstract.optionalMembers, "::abstract::optionalMembers");
-Ice.TypeRegistry.declareValueType("abstract.optionalMembers", abstract.optionalMembers);
-
-const iceC_abstract_optionalParams_ids = [
-    "::Ice::Object",
-    "::abstract::optionalParams"
-];
-
-abstract.optionalParams = class extends Ice.Object
-{
-};
-
-abstract.optionalParamsPrx = class extends Ice.ObjectPrx
-{
-};
-Ice.TypeRegistry.declareProxyType("abstract.optionalParamsPrx", abstract.optionalParamsPrx);
-
-Ice.defineOperations(
-    abstract.optionalParams,
-    abstract.optionalParamsPrx,
-    iceC_abstract_optionalParams_ids,
-    "::abstract::optionalParams",
-    {
-        "for": ["_for", , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], [abstract.whileHelper, , 5], [7, , 7]], , , , ],
-        "continue": ["_continue", , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], [abstract.whileHelper, , 5], [7, , 7]], , , , ],
-        "in": ["_in", , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], [abstract.whileHelper, , 5], [7, , 7]], , , ],
-        "foreach": [, , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], [abstract.whileHelper, , 5], [7, , 7]], , , ]
-    });
-
-abstract.fixed = class extends Ice.UserException
+cs_abstract.fixed = class extends Ice.UserException
 {
     constructor(_for = 0, _cause = "")
     {
@@ -236,12 +65,12 @@ abstract.fixed = class extends Ice.UserException
 
     static get _ice_id()
     {
-        return "::abstract::fixed";
+        return "::cs_abstract::fixed";
     }
 
     _mostDerivedType()
     {
-        return abstract.fixed;
+        return cs_abstract.fixed;
     }
 
     _writeMemberImpl(ostr)
@@ -255,184 +84,249 @@ abstract.fixed = class extends Ice.UserException
     }
 };
 Ice.TypeRegistry.declareUserExceptionType(
-    "abstract.fixed",
-    abstract.fixed);
+    "cs_abstract.fixed",
+    cs_abstract.fixed);
 
-abstract.foreach = class extends abstract.fixed
+cs_abstract.foreach = class extends cs_abstract.fixed
 {
-    constructor(_for, goto = 0, _if = 0, _cause = "")
+    constructor(_for, goto = 0, Message = 0, _cause = "")
     {
         super(_for, _cause);
         this.goto = goto;
-        this._if = _if;
+        this.Message = Message;
     }
 
     static get _parent()
     {
-        return abstract.fixed;
+        return cs_abstract.fixed;
     }
 
     static get _ice_id()
     {
-        return "::abstract::foreach";
+        return "::cs_abstract::foreach";
     }
 
     _mostDerivedType()
     {
-        return abstract.foreach;
+        return cs_abstract.foreach;
     }
 
     _writeMemberImpl(ostr)
     {
         ostr.writeInt(this.goto);
-        ostr.writeInt(this._if);
+        ostr.writeInt(this.Message);
     }
 
     _readMemberImpl(istr)
     {
         this.goto = istr.readInt();
-        this._if = istr.readInt();
-    }
-};
-Ice.TypeRegistry.declareUserExceptionType(
-    "abstract.foreach",
-    abstract.foreach);
-
-abstract.BaseMethods = class extends Ice.UserException
-{
-    constructor(Data = 0, HelpLink = 0, InnerException = 0, Message = 0, Source = 0, StackTrace = 0, TargetSite = 0, HResult = 0, Equals = 0, GetBaseException = 0, GetHashCode = 0, GetObjectData = 0, GetType = 0, ReferenceEquals = 0, ToString = 0, _cause = "")
-    {
-        super(_cause);
-        this.Data = Data;
-        this.HelpLink = HelpLink;
-        this.InnerException = InnerException;
-        this.Message = Message;
-        this.Source = Source;
-        this.StackTrace = StackTrace;
-        this.TargetSite = TargetSite;
-        this.HResult = HResult;
-        this.Equals = Equals;
-        this.GetBaseException = GetBaseException;
-        this.GetHashCode = GetHashCode;
-        this.GetObjectData = GetObjectData;
-        this.GetType = GetType;
-        this.ReferenceEquals = ReferenceEquals;
-        this.ToString = ToString;
-    }
-
-    static get _parent()
-    {
-        return Ice.UserException;
-    }
-
-    static get _ice_id()
-    {
-        return "::abstract::BaseMethods";
-    }
-
-    _mostDerivedType()
-    {
-        return abstract.BaseMethods;
-    }
-
-    _writeMemberImpl(ostr)
-    {
-        ostr.writeInt(this.Data);
-        ostr.writeInt(this.HelpLink);
-        ostr.writeInt(this.InnerException);
-        ostr.writeInt(this.Message);
-        ostr.writeInt(this.Source);
-        ostr.writeInt(this.StackTrace);
-        ostr.writeInt(this.TargetSite);
-        ostr.writeInt(this.HResult);
-        ostr.writeInt(this.Equals);
-        ostr.writeInt(this.GetBaseException);
-        ostr.writeInt(this.GetHashCode);
-        ostr.writeInt(this.GetObjectData);
-        ostr.writeInt(this.GetType);
-        ostr.writeInt(this.ReferenceEquals);
-        ostr.writeInt(this.ToString);
-    }
-
-    _readMemberImpl(istr)
-    {
-        this.Data = istr.readInt();
-        this.HelpLink = istr.readInt();
-        this.InnerException = istr.readInt();
         this.Message = istr.readInt();
-        this.Source = istr.readInt();
-        this.StackTrace = istr.readInt();
-        this.TargetSite = istr.readInt();
-        this.HResult = istr.readInt();
-        this.Equals = istr.readInt();
-        this.GetBaseException = istr.readInt();
-        this.GetHashCode = istr.readInt();
-        this.GetObjectData = istr.readInt();
-        this.GetType = istr.readInt();
-        this.ReferenceEquals = istr.readInt();
-        this.ToString = istr.readInt();
     }
 };
 Ice.TypeRegistry.declareUserExceptionType(
-    "abstract.BaseMethods",
-    abstract.BaseMethods);
+    "cs_abstract.foreach",
+    cs_abstract.foreach);
 
-const iceC_abstract_implicit_ids = [
+const iceC_cs_abstract__case_ids = [
     "::Ice::Object",
-    "::abstract::implicit"
+    "::cs_abstract::case"
 ];
 
-abstract.implicit = class extends Ice.Object
+cs_abstract._case = class extends Ice.Object
 {
 };
 
-abstract.implicitPrx = class extends Ice.ObjectPrx
+cs_abstract.casePrx = class extends Ice.ObjectPrx
 {
 };
-Ice.TypeRegistry.declareProxyType("abstract.implicitPrx", abstract.implicitPrx);
+Ice.TypeRegistry.declareProxyType("cs_abstract.casePrx", cs_abstract.casePrx);
 
 Ice.defineOperations(
-    abstract.implicit,
-    abstract.implicitPrx,
-    iceC_abstract_implicit_ids,
-    "::abstract::implicit",
+    cs_abstract._case,
+    cs_abstract.casePrx,
+    iceC_cs_abstract__case_ids,
+    "::cs_abstract::case",
     {
-        "in": ["_in", , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["abstract.explicitPrx"], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], [3], [3], [3]], ,
-        [
-            abstract.foreach,
-            abstract.fixed
-        ], true, ]
+        "catch": ["_catch", , , , [[3]], [[3]], , , ]
     });
 
-Object.defineProperty(abstract, '_protected', {
-    enumerable: true,
-    value: 0
-});
-
-Object.defineProperty(abstract, '_public', {
-    enumerable: true,
-    value: 0
-});
-
-const iceC_abstract_System_Test_ids = [
+const iceC_cs_abstract_decimal_ids = [
     "::Ice::Object",
-    "::abstract::System::Test"
+    "::cs_abstract::decimal"
 ];
 
-abstract.System.Test = class extends Ice.Object
+cs_abstract.decimal = class extends Ice.Object
 {
 };
 
-abstract.System.TestPrx = class extends Ice.ObjectPrx
+cs_abstract.decimalPrx = class extends Ice.ObjectPrx
 {
 };
-Ice.TypeRegistry.declareProxyType("abstract.System.TestPrx", abstract.System.TestPrx);
+Ice.TypeRegistry.declareProxyType("cs_abstract.decimalPrx", cs_abstract.decimalPrx);
 
 Ice.defineOperations(
-    abstract.System.Test,
-    abstract.System.TestPrx,
-    iceC_abstract_System_Test_ids,
-    "::abstract::System::Test",
+    cs_abstract.decimal,
+    cs_abstract.decimalPrx,
+    iceC_cs_abstract_decimal_ids,
+    "::cs_abstract::decimal",
+    {
+        "default": ["_default", , , , , ,
+        [
+            cs_abstract.foreach
+        ], , ]
+    });
+
+cs_abstract.delegate = class extends Ice.Value
+{
+    constructor(_if = 0, _else = null)
+    {
+        super();
+        this._if = _if;
+        this._else = _else;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        ostr.writeInt(this._if);
+        ostr.writeProxy(this._else);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this._if = istr.readInt();
+        this._else = istr.readProxy();
+    }
+};
+
+Ice.defineValue(cs_abstract.delegate, "::cs_abstract::delegate");
+Ice.TypeRegistry.declareValueType("cs_abstract.delegate", cs_abstract.delegate);
+
+const iceC_cs_abstract_explicit_ids = [
+    "::Ice::Object",
+    "::cs_abstract::case",
+    "::cs_abstract::decimal",
+    "::cs_abstract::explicit"
+];
+
+cs_abstract.explicit = class extends Ice.Object
+{
+    static get _iceImplements()
+    {
+        return [
+            cs_abstract.decimal,
+            cs_abstract.case
+        ];
+    }
+};
+
+cs_abstract.explicitPrx = class extends Ice.ObjectPrx
+{
+    static get _implements()
+    {
+        return [
+            cs_abstract.decimalPrx,
+            cs_abstract.casePrx];
+    }
+};
+Ice.TypeRegistry.declareProxyType("cs_abstract.explicitPrx", cs_abstract.explicitPrx);
+
+Ice.defineOperations(
+    cs_abstract.explicit,
+    cs_abstract.explicitPrx,
+    iceC_cs_abstract_explicit_ids,
+    "::cs_abstract::explicit");
+
+[cs_abstract._while, cs_abstract._whileHelper] = Ice.defineDictionary(Ice.StringHelper, cs_abstract._break, false, undefined);
+
+cs_abstract.optionalMembers = class extends Ice.Value
+{
+    constructor(_for = undefined, goto = undefined, _if = undefined, internal = undefined, namespace = undefined)
+    {
+        super();
+        this._for = _for;
+        this.goto = goto;
+        this._if = _if;
+        this.internal = internal;
+        this.namespace = namespace;
+    }
+
+    _iceWriteMemberImpl(ostr)
+    {
+        cs_abstract._break.writeOptional(ostr, 1, this._for);
+        cs_abstract.as._writeOpt(ostr, 2, this.goto);
+        cs_abstract.explicitPrx.writeOptional(ostr, 3, this._if);
+        cs_abstract._whileHelper.writeOptional(ostr, 5, this.internal);
+        Ice.StringHelper.writeOptional(ostr, 7, this.namespace);
+    }
+
+    _iceReadMemberImpl(istr)
+    {
+        this._for = cs_abstract._break.readOptional(istr, 1);
+        this.goto = cs_abstract.as._readOpt(istr, 2);
+        this._if = cs_abstract.explicitPrx.readOptional(istr, 3);
+        this.internal = cs_abstract._whileHelper.readOptional(istr, 5);
+        this.namespace = Ice.StringHelper.readOptional(istr, 7);
+    }
+};
+
+Ice.defineValue(cs_abstract.optionalMembers, "::cs_abstract::optionalMembers");
+Ice.TypeRegistry.declareValueType("cs_abstract.optionalMembers", cs_abstract.optionalMembers);
+
+const iceC_cs_abstract_optionalParams_ids = [
+    "::Ice::Object",
+    "::cs_abstract::optionalParams"
+];
+
+cs_abstract.optionalParams = class extends Ice.Object
+{
+};
+
+cs_abstract.optionalParamsPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("cs_abstract.optionalParamsPrx", cs_abstract.optionalParamsPrx);
+
+Ice.defineOperations(
+    cs_abstract.optionalParams,
+    cs_abstract.optionalParamsPrx,
+    iceC_cs_abstract_optionalParams_ids,
+    "::cs_abstract::optionalParams",
+    {
+        "for": ["_for", , , [cs_abstract._break, , 1], [[cs_abstract.as._helper, , 2], ["cs_abstract.explicitPrx", , 3], [cs_abstract.whileHelper, , 5], [7, , 7]], , , , ],
+        "continue": ["_continue", , , [cs_abstract._break, , 1], [[cs_abstract.as._helper, , 2], ["cs_abstract.explicitPrx", , 3], [cs_abstract.whileHelper, , 5], [7, , 7]], , , , ],
+        "in": ["_in", , , [cs_abstract._break, , 1], , [[cs_abstract.as._helper, , 2], ["cs_abstract.explicitPrx", , 3], [cs_abstract.whileHelper, , 5], [7, , 7]], , , ],
+        "foreach": [, , , [cs_abstract._break, , 1], , [[cs_abstract.as._helper, , 2], ["cs_abstract.explicitPrx", , 3], [cs_abstract.whileHelper, , 5], [7, , 7]], , , ]
+    });
+
+Object.defineProperty(cs_abstract, '_protected', {
+    enumerable: true,
+    value: 0
+});
+
+Object.defineProperty(cs_abstract, 'struct', {
+    enumerable: true,
+    value: 1
+});
+
+const iceC_cs_abstract_System_Test_ids = [
+    "::Ice::Object",
+    "::cs_abstract::System::Test"
+];
+
+cs_abstract.System.Test = class extends Ice.Object
+{
+};
+
+cs_abstract.System.TestPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("cs_abstract.System.TestPrx", cs_abstract.System.TestPrx);
+
+Ice.defineOperations(
+    cs_abstract.System.Test,
+    cs_abstract.System.TestPrx,
+    iceC_cs_abstract_System_Test_ids,
+    "::cs_abstract::System::Test",
     {
         "op": [, , , , , , , , ]
     });

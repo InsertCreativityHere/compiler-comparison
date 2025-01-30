@@ -131,7 +131,7 @@ namespace Test
     {
         public Base? b;
 
-        public global::Ice.Value? o;
+        public Ice.Value? o;
 
         public Struct1 s;
 
@@ -153,7 +153,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        public Base(Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
+        public Base(Base? b, Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
         {
             this.b = b;
             this.o = o;
@@ -240,7 +240,7 @@ namespace Test
         {
             istr_.startSlice();
             istr_.readValue((Base? v) => { this.b = v; });
-            istr_.readValue((global::Ice.Value? v) => { this.o = v; });
+            istr_.readValue((Ice.Value? v) => { this.o = v; });
             s = new Struct1(istr_);
             seq1 = ByteSHelper.read(istr_);
             seq2 = IntSHelper.read(istr_);
@@ -257,11 +257,11 @@ namespace Test
     [Ice.SliceTypeId("::Test::Derived")]
     public partial class Derived : Base
     {
-        public global::Ice.ObjectPrx? p;
+        public Ice.ObjectPrx? p;
 
         partial void ice_initialize();
 
-        public Derived(Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4, global::Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        public Derived(Base? b, Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4, Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
         {
             this.p = p;
             ice_initialize();

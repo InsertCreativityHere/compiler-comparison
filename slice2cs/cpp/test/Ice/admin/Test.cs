@@ -25,7 +25,7 @@ namespace Test
     [Ice.SliceTypeId("::Test::RemoteCommunicator")]
     public partial interface RemoteCommunicator : Ice.Object
     {
-        global::Ice.ObjectPrx? getAdmin(Ice.Current current);
+        Ice.ObjectPrx? getAdmin(Ice.Current current);
 
         global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
 
@@ -67,9 +67,9 @@ namespace Test
 {
     public interface RemoteCommunicatorPrx : Ice.ObjectPrx
     {
-        global::Ice.ObjectPrx? getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Ice.ObjectPrx? getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getAdminAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getAdminAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -135,7 +135,7 @@ namespace Test
 {
     public sealed class RemoteCommunicatorPrxHelper : Ice.ObjectPrxHelperBase, RemoteCommunicatorPrx
     {
-        public global::Ice.ObjectPrx? getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Ice.ObjectPrx? getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -267,15 +267,15 @@ namespace Test
             }
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getAdminAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Ice.ObjectPrx?> getAdminAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getAdminAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getAdminAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Ice.ObjectPrx?> _iceI_getAdminAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getAdmin_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Ice.ObjectPrx?>(progress, cancel);
             _iceI_getAdmin(context, synchronous, completed);
             return completed.Task;
         }
@@ -284,7 +284,7 @@ namespace Test
 
         private void _iceI_getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
+            var outAsync = getOutgoingAsync<Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getAdmin_name,
                 Ice.OperationMode.Normal,
@@ -293,7 +293,7 @@ namespace Test
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx? ret;
+                    Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -848,7 +848,7 @@ namespace Test
 {
     public abstract class RemoteCommunicatorDisp_ : Ice.ObjectImpl, RemoteCommunicator
     {
-        public abstract global::Ice.ObjectPrx? getAdmin(Ice.Current current);
+        public abstract Ice.ObjectPrx? getAdmin(Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
 

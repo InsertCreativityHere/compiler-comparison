@@ -20,35 +20,35 @@
 #pragma warning disable CS0618 // Type or member is obsolete
 #pragma warning disable CS0619 // Type or member is obsolete
 
-namespace @await
+namespace await
 {
-    public enum @var
+    public enum var
     {
-        @base
+        base
     }
 
     public sealed class varHelper
     {
-        public static void write(Ice.OutputStream ostr, @var v)
+        public static void write(Ice.OutputStream ostr, var v)
         {
             ostr.writeEnum((int)v, 0);
         }
 
-        public static @var read(Ice.InputStream istr)
+        public static var read(Ice.InputStream istr)
         {
-            @var v;
-            v = (@var)istr.readEnum(0);
+            var v;
+            v = (var)istr.readEnum(0);
             return v;
         }
     }
 
-    public sealed partial record class @break
+    public sealed partial record class break
     {
-        public int @while;
+        public int while;
 
-        public string ice_clone_ = "";
+        public string clone = "";
 
-        public string ice_equals_ = "";
+        public string equals = "";
 
         public string hashCode = "";
 
@@ -56,18 +56,18 @@ namespace @await
 
         partial void ice_initialize();
 
-        public @break()
+        public break()
         {
             ice_initialize();
         }
 
-        public @break(int @while, string ice_clone_, string ice_equals_, string hashCode, string constructor)
+        public break(int while, string clone, string equals, string hashCode, string constructor)
         {
-            this.@while = @while;
-            global::System.ArgumentNullException.ThrowIfNull(ice_clone_);
-            this.ice_clone_ = ice_clone_;
-            global::System.ArgumentNullException.ThrowIfNull(ice_equals_);
-            this.ice_equals_ = ice_equals_;
+            this.while = while;
+            global::System.ArgumentNullException.ThrowIfNull(clone);
+            this.clone = clone;
+            global::System.ArgumentNullException.ThrowIfNull(equals);
+            this.equals = equals;
             global::System.ArgumentNullException.ThrowIfNull(hashCode);
             this.hashCode = hashCode;
             global::System.ArgumentNullException.ThrowIfNull(constructor);
@@ -75,11 +75,11 @@ namespace @await
             ice_initialize();
         }
 
-        public @break(Ice.InputStream istr)
+        public break(Ice.InputStream istr)
         {
-            this.@while = istr.readInt();
-            this.ice_clone_ = istr.readString();
-            this.ice_equals_ = istr.readString();
+            this.while = istr.readInt();
+            this.clone = istr.readString();
+            this.equals = istr.readString();
             this.hashCode = istr.readString();
             this.constructor = istr.readString();
             ice_initialize();
@@ -87,45 +87,45 @@ namespace @await
 
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
-            ostr.writeInt(this.@while);
-            ostr.writeString(this.ice_clone_);
-            ostr.writeString(this.ice_equals_);
+            ostr.writeInt(this.while);
+            ostr.writeString(this.clone);
+            ostr.writeString(this.equals);
             ostr.writeString(this.hashCode);
             ostr.writeString(this.constructor);
         }
 
-        public static void ice_write(Ice.OutputStream ostr, @break v)
+        public static void ice_write(Ice.OutputStream ostr, break v)
         {
             v.ice_writeMembers(ostr);
         }
 
-        public static @break ice_read(Ice.InputStream istr) => new(istr);
+        public static break ice_read(Ice.InputStream istr) => new(istr);
     }
 
     [Ice.SliceTypeId("::await::case")]
-    public partial interface @case : Ice.Object
+    public partial interface case : Ice.Object
     {
-        global::System.Threading.Tasks.Task<int> catchAsync(int @checked, Ice.Current current);
+        global::System.Threading.Tasks.Task<int> catchAsync(int checked, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::await::typeof")]
-    public partial interface @typeof : Ice.Object
+    public partial interface typeof : Ice.Object
     {
-        void @default(Ice.Current current);
+        void default(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::await::delete")]
     public partial class delete : Ice.Value
     {
-        public int @if;
+        public int if;
 
-        public casePrx? @else;
+        public casePrx? else;
 
         public int export;
 
-        public string ice_clone_ = "";
+        public string clone = "";
 
-        public string ice_equals_ = "";
+        public string equals = "";
 
         public string hashCode = "";
 
@@ -133,15 +133,15 @@ namespace @await
 
         partial void ice_initialize();
 
-        public delete(int @if, casePrx? @else, int export, string ice_clone_, string ice_equals_, string hashCode, string constructor)
+        public delete(int if, casePrx? else, int export, string clone, string equals, string hashCode, string constructor)
         {
-            this.@if = @if;
-            this.@else = @else;
+            this.if = if;
+            this.else = else;
             this.export = export;
-            global::System.ArgumentNullException.ThrowIfNull(ice_clone_);
-            this.ice_clone_ = ice_clone_;
-            global::System.ArgumentNullException.ThrowIfNull(ice_equals_);
-            this.ice_equals_ = ice_equals_;
+            global::System.ArgumentNullException.ThrowIfNull(clone);
+            this.clone = clone;
+            global::System.ArgumentNullException.ThrowIfNull(equals);
+            this.equals = equals;
             global::System.ArgumentNullException.ThrowIfNull(hashCode);
             this.hashCode = hashCode;
             global::System.ArgumentNullException.ThrowIfNull(constructor);
@@ -160,11 +160,11 @@ namespace @await
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(@if);
-            casePrxHelper.write(ostr_, @else);
+            ostr_.writeInt(if);
+            casePrxHelper.write(ostr_, else);
             ostr_.writeInt(export);
-            ostr_.writeString(ice_clone_);
-            ostr_.writeString(ice_equals_);
+            ostr_.writeString(clone);
+            ostr_.writeString(equals);
             ostr_.writeString(hashCode);
             ostr_.writeString(constructor);
             ostr_.endSlice();
@@ -173,11 +173,11 @@ namespace @await
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @if = istr_.readInt();
-            @else = casePrxHelper.read(istr_);
+            if = istr_.readInt();
+            else = casePrxHelper.read(istr_);
             export = istr_.readInt();
-            ice_clone_ = istr_.readString();
-            ice_equals_ = istr_.readString();
+            clone = istr_.readString();
+            equals = istr_.readString();
             hashCode = istr_.readString();
             constructor = istr_.readString();
             istr_.endSlice();
@@ -185,35 +185,35 @@ namespace @await
     }
 
     [Ice.SliceTypeId("::await::explicit")]
-    public partial interface @explicit : @typeof, @case
+    public partial interface explicit : typeof, case
     {
     }
 
     [Ice.SliceTypeId("::await::package")]
     public partial class package : Ice.Value
     {
-        public @break? @for;
+        public break? for;
 
-        public @var? @goto;
+        public var? goto;
 
-        public explicitPrx? @if;
+        public explicitPrx? if;
 
-        public global::System.Collections.Generic.Dictionary<string, @break>? @internal;
+        public global::System.Collections.Generic.Dictionary<string, break>? internal;
 
         public string? debugger;
 
-        public explicitPrx? @null;
+        public explicitPrx? null;
 
         partial void ice_initialize();
 
-        public package(@break? @for, @var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? debugger, explicitPrx? @null)
+        public package(break? for, var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? debugger, explicitPrx? null)
         {
-            this.@for = @for;
-            this.@goto = @goto;
-            this.@if = @if;
-            this.@internal = @internal;
+            this.for = for;
+            this.goto = goto;
+            this.if = if;
+            this.internal = internal;
             this.debugger = debugger;
-            this.@null = @null;
+            this.null = null;
             ice_initialize();
         }
 
@@ -228,25 +228,25 @@ namespace @await
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            if (@for is not null && ostr_.writeOptional(1, Ice.OptionalFormat.FSize))
+            if (for is not null && ostr_.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                @break.ice_write(ostr_, @for);
+                break.ice_write(ostr_, for);
                 ostr_.endSize(pos);
             }
-            if (@goto is not null)
+            if (goto is not null)
             {
-                ostr_.writeEnum(2, (int)@goto.Value, 1);
+                ostr_.writeEnum(2, (int)goto.Value, 1);
             }
-            ostr_.writeProxy(3, @if);
-            if (@internal is not null && ostr_.writeOptional(5, Ice.OptionalFormat.FSize))
+            ostr_.writeProxy(3, if);
+            if (internal is not null && ostr_.writeOptional(5, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                whileHelper.write(ostr_, @internal);
+                whileHelper.write(ostr_, internal);
                 ostr_.endSize(pos);
             }
             ostr_.writeString(7, debugger);
-            ostr_.writeProxy(8, @null);
+            ostr_.writeProxy(8, null);
             ostr_.endSlice();
         }
 
@@ -256,53 +256,53 @@ namespace @await
             if (istr_.readOptional(1, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                @break tmpVal;
-                tmpVal = new @break(istr_);
-                @for = tmpVal;
+                break tmpVal;
+                tmpVal = new break(istr_);
+                for = tmpVal;
             }
             else
             {
-                @for = null;
+                for = null;
             }
             if (istr_.readOptional(2, Ice.OptionalFormat.Size))
             {
-                @var tmpVal;
-                tmpVal = (@var)istr_.readEnum(0);
-                @goto = tmpVal;
+                var tmpVal;
+                tmpVal = (var)istr_.readEnum(0);
+                goto = tmpVal;
             }
             else
             {
-                @goto = null;
+                goto = null;
             }
             if (istr_.readOptional(3, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                @if = explicitPrxHelper.read(istr_);
+                if = explicitPrxHelper.read(istr_);
             }
             else
             {
-                @if = null;
+                if = null;
             }
             if (istr_.readOptional(5, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
+                global::System.Collections.Generic.Dictionary<string, break> tmpVal = new global::System.Collections.Generic.Dictionary<string, break>();
                 tmpVal = whileHelper.read(istr_);
-                @internal = tmpVal;
+                internal = tmpVal;
             }
             else
             {
-                @internal = null;
+                internal = null;
             }
             debugger = istr_.readString(7);
             if (istr_.readOptional(8, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                @null = explicitPrxHelper.read(istr_);
+                null = explicitPrxHelper.read(istr_);
             }
             else
             {
-                @null = null;
+                null = null;
             }
             istr_.endSlice();
         }
@@ -311,26 +311,26 @@ namespace @await
     [Ice.SliceTypeId("::await::optionalParams")]
     public partial interface optionalParams : Ice.Object
     {
-        @break? @for(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, Ice.Current current);
+        break? for(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, Ice.Current current);
 
-        global::System.Threading.Tasks.Task<@break?> continueAsync(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, Ice.Current current);
+        global::System.Threading.Tasks.Task<break?> continueAsync(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, Ice.Current current);
 
-        @break? @in(out @var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, Ice.Current current);
+        break? in(out var? goto, out explicitPrx? if, out global::System.Collections.Generic.Dictionary<string, break>? internal, out string? namespace, out explicitPrx? null, Ice.Current current);
 
         global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::await::fixed")]
-    public partial class @fixed : Ice.UserException
+    public partial class fixed : Ice.UserException
     {
-        public int @for;
+        public int for;
 
-        public @fixed(int @for)
+        public fixed(int for)
         {
-            this.@for = @for;
+            this.for = for;
         }
 
-        public @fixed()
+        public fixed()
         {
         }
 
@@ -339,32 +339,32 @@ namespace @await
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::await::fixed", -1, true);
-            ostr_.writeInt(@for);
+            ostr_.writeInt(for);
             ostr_.endSlice();
         }
 
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @for = istr_.readInt();
+            for = istr_.readInt();
             istr_.endSlice();
         }
     }
 
     [Ice.SliceTypeId("::await::foreach")]
-    public partial class @foreach : @fixed
+    public partial class foreach : fixed
     {
-        public int @goto;
+        public int goto;
 
-        public int @if;
+        public int if;
 
-        public @foreach(int @for, int @goto, int @if) : base(@for)
+        public foreach(int for, int goto, int if) : base(for)
         {
-            this.@goto = @goto;
-            this.@if = @if;
+            this.goto = goto;
+            this.if = if;
         }
 
-        public @foreach()
+        public foreach()
         {
         }
 
@@ -373,8 +373,8 @@ namespace @await
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::await::foreach", -1, false);
-            ostr_.writeInt(@goto);
-            ostr_.writeInt(@if);
+            ostr_.writeInt(goto);
+            ostr_.writeInt(if);
             ostr_.endSlice();
             base.iceWriteImpl(ostr_);
         }
@@ -382,126 +382,25 @@ namespace @await
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            @goto = istr_.readInt();
-            @if = istr_.readInt();
+            goto = istr_.readInt();
+            if = istr_.readInt();
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
     }
 
-    [Ice.SliceTypeId("::await::BaseMethods")]
-    public partial class BaseMethods : Ice.UserException
-    {
-        public int ice_Data_;
-
-        public int ice_HelpLink_;
-
-        public int ice_InnerException_;
-
-        public int ice_Message_;
-
-        public int ice_Source_;
-
-        public int ice_StackTrace_;
-
-        public int ice_TargetSite_;
-
-        public int ice_HResult_;
-
-        public int ice_Equals_;
-
-        public int ice_GetBaseException_;
-
-        public int ice_GetHashCode_;
-
-        public int ice_GetObjectData_;
-
-        public int ice_GetType_;
-
-        public int ice_ReferenceEquals_;
-
-        public int ice_ToString_;
-
-        public BaseMethods(int ice_Data_, int ice_HelpLink_, int ice_InnerException_, int ice_Message_, int ice_Source_, int ice_StackTrace_, int ice_TargetSite_, int ice_HResult_, int ice_Equals_, int ice_GetBaseException_, int ice_GetHashCode_, int ice_GetObjectData_, int ice_GetType_, int ice_ReferenceEquals_, int ice_ToString_)
-        {
-            this.ice_Data_ = ice_Data_;
-            this.ice_HelpLink_ = ice_HelpLink_;
-            this.ice_InnerException_ = ice_InnerException_;
-            this.ice_Message_ = ice_Message_;
-            this.ice_Source_ = ice_Source_;
-            this.ice_StackTrace_ = ice_StackTrace_;
-            this.ice_TargetSite_ = ice_TargetSite_;
-            this.ice_HResult_ = ice_HResult_;
-            this.ice_Equals_ = ice_Equals_;
-            this.ice_GetBaseException_ = ice_GetBaseException_;
-            this.ice_GetHashCode_ = ice_GetHashCode_;
-            this.ice_GetObjectData_ = ice_GetObjectData_;
-            this.ice_GetType_ = ice_GetType_;
-            this.ice_ReferenceEquals_ = ice_ReferenceEquals_;
-            this.ice_ToString_ = ice_ToString_;
-        }
-
-        public BaseMethods()
-        {
-        }
-
-        public override string ice_id() => "::await::BaseMethods";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::await::BaseMethods", -1, true);
-            ostr_.writeInt(ice_Data_);
-            ostr_.writeInt(ice_HelpLink_);
-            ostr_.writeInt(ice_InnerException_);
-            ostr_.writeInt(ice_Message_);
-            ostr_.writeInt(ice_Source_);
-            ostr_.writeInt(ice_StackTrace_);
-            ostr_.writeInt(ice_TargetSite_);
-            ostr_.writeInt(ice_HResult_);
-            ostr_.writeInt(ice_Equals_);
-            ostr_.writeInt(ice_GetBaseException_);
-            ostr_.writeInt(ice_GetHashCode_);
-            ostr_.writeInt(ice_GetObjectData_);
-            ostr_.writeInt(ice_GetType_);
-            ostr_.writeInt(ice_ReferenceEquals_);
-            ostr_.writeInt(ice_ToString_);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            ice_Data_ = istr_.readInt();
-            ice_HelpLink_ = istr_.readInt();
-            ice_InnerException_ = istr_.readInt();
-            ice_Message_ = istr_.readInt();
-            ice_Source_ = istr_.readInt();
-            ice_StackTrace_ = istr_.readInt();
-            ice_TargetSite_ = istr_.readInt();
-            ice_HResult_ = istr_.readInt();
-            ice_Equals_ = istr_.readInt();
-            ice_GetBaseException_ = istr_.readInt();
-            ice_GetHashCode_ = istr_.readInt();
-            ice_GetObjectData_ = istr_.readInt();
-            ice_GetType_ = istr_.readInt();
-            ice_ReferenceEquals_ = istr_.readInt();
-            ice_ToString_ = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
     [Ice.SliceTypeId("::await::implicit")]
-    public partial interface @implicit : Ice.Object
+    public partial interface implicit : Ice.Object
     {
-        @var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, Ice.Current current);
+        var in(break internal, delete? is, explicitPrx? lock, casePrx? namespace, typeofPrx? new, delete? null, explicitPrx? operator, int override, int params, int private, Ice.Current current);
     }
 
-    public abstract class @protected
+    public abstract class protected
     {
         public const int value = 0;
     }
 
-    public abstract class @public
+    public abstract class public
     {
         public const int value = 0;
     }
@@ -525,25 +424,25 @@ namespace System
     }
 }
 
-namespace @await
+namespace await
 {
-    public record struct optionalParams_InResult(@break? returnValue, @var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null);
+    public record struct optionalParams_InResult(break? returnValue, var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null);
 
-    public record struct optionalParams_ForeachResult(@break? returnValue, @var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null);
+    public record struct optionalParams_ForeachResult(break? returnValue, var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null);
 }
 
-namespace @await
+namespace await
 {
     public interface casePrx : Ice.ObjectPrx
     {
-        void @catch(int @checked, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void catch(int checked, out int continue, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<int> catchAsync(int checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface typeofPrx : Ice.ObjectPrx
     {
-        void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void default(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task defaultAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
@@ -554,28 +453,28 @@ namespace @await
 
     public interface optionalParamsPrx : Ice.ObjectPrx
     {
-        @break? @for(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        break? for(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<@break?> forAsync(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<break?> forAsync(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        @break? @continue(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        break? continue(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<@break?> continueAsync(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<break?> continueAsync(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        @break? @in(out @var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        break? in(out var? goto, out explicitPrx? if, out global::System.Collections.Generic.Dictionary<string, break>? internal, out string? namespace, out explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<optionalParams_InResult> inAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        @break? @foreach(out @var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        break? foreach(out var? goto, out explicitPrx? if, out global::System.Collections.Generic.Dictionary<string, break>? internal, out string? namespace, out explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface implicitPrx : Ice.ObjectPrx
     {
-        @var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        var in(break internal, delete? is, explicitPrx? lock, casePrx? namespace, typeofPrx? new, delete? null, explicitPrx? operator, int override, int params, int private, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<@var> inAsync(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<var> inAsync(break internal, delete? is, explicitPrx? lock, casePrx? namespace, typeofPrx? new, delete? null, explicitPrx? operator, int override, int params, int private, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     namespace System
@@ -599,15 +498,15 @@ namespace System
     }
 }
 
-namespace @await
+namespace await
 {
     public sealed class casePrxHelper : Ice.ObjectPrxHelperBase, casePrx
     {
-        public void @catch(int @checked, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void catch(int checked, out int continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                @continue = _iceI_catchAsync(@checked, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                continue = _iceI_catchAsync(checked, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -615,9 +514,9 @@ namespace @await
             }
         }
 
-        public global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<int> catchAsync(int checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_catchAsync(@checked, context, progress, cancel, false);
+            return _iceI_catchAsync(checked, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<int> _iceI_catchAsync(int iceP_checked, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -701,7 +600,7 @@ namespace @await
 
     public sealed class typeofPrxHelper : Ice.ObjectPrxHelperBase, typeofPrx
     {
-        public void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void default(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -788,7 +687,7 @@ namespace @await
 
     public sealed class explicitPrxHelper : Ice.ObjectPrxHelperBase, explicitPrx
     {
-        public void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void default(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -800,11 +699,11 @@ namespace @await
             }
         }
 
-        public void @catch(int @checked, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void catch(int checked, out int continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                @continue = _iceI_catchAsync(@checked, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                continue = _iceI_catchAsync(checked, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -837,9 +736,9 @@ namespace @await
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<int> catchAsync(int checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_catchAsync(@checked, context, progress, cancel, false);
+            return _iceI_catchAsync(checked, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task<int> _iceI_catchAsync(int iceP_checked, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -926,7 +825,7 @@ namespace @await
     public sealed class whileHelper
     {
         public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, @break> v)
+                                 global::System.Collections.Generic.Dictionary<string, break> v)
         {
             if(v == null)
             {
@@ -935,24 +834,24 @@ namespace @await
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, @break> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, break> e in v)
                 {
                     ostr.writeString(e.Key);
-                    @break.ice_write(ostr, e.Value);
+                    break.ice_write(ostr, e.Value);
                 }
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, @break> read(Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, break> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, @break> r = new global::System.Collections.Generic.Dictionary<string, @break>();
+            global::System.Collections.Generic.Dictionary<string, break> r = new global::System.Collections.Generic.Dictionary<string, break>();
             for(int i = 0; i < sz; ++i)
             {
                 string k;
                 k = istr.readString();
-                @break v;
-                v = new @break(istr);
+                break v;
+                v = new break(istr);
                 r[k] = v;
             }
             return r;
@@ -961,11 +860,11 @@ namespace @await
 
     public sealed class optionalParamsPrxHelper : Ice.ObjectPrxHelperBase, optionalParamsPrx
     {
-        public @break? @for(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public break? for(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_forAsync(@goto, @if, @internal, @namespace, @null, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_forAsync(goto, if, internal, namespace, null, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -973,11 +872,11 @@ namespace @await
             }
         }
 
-        public @break? @continue(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public break? continue(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_continueAsync(@goto, @if, @internal, @namespace, @null, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_continueAsync(goto, if, internal, namespace, null, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -985,16 +884,16 @@ namespace @await
             }
         }
 
-        public @break? @in(out @var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public break? in(out var? goto, out explicitPrx? if, out global::System.Collections.Generic.Dictionary<string, break>? internal, out string? namespace, out explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 var result_ = _iceI_inAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-                @goto = result_.@goto;
-                @if = result_.@if;
-                @internal = result_.@internal;
-                @namespace = result_.@namespace;
-                @null = result_.@null;
+                goto = result_.goto;
+                if = result_.if;
+                internal = result_.internal;
+                namespace = result_.namespace;
+                null = result_.null;
                 return result_.returnValue;
             }
             catch (global::System.AggregateException ex_)
@@ -1003,16 +902,16 @@ namespace @await
             }
         }
 
-        public @break? @foreach(out @var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public break? foreach(out var? goto, out explicitPrx? if, out global::System.Collections.Generic.Dictionary<string, break>? internal, out string? namespace, out explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 var result_ = _iceI_foreachAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-                @goto = result_.@goto;
-                @if = result_.@if;
-                @internal = result_.@internal;
-                @namespace = result_.@namespace;
-                @null = result_.@null;
+                goto = result_.goto;
+                if = result_.if;
+                internal = result_.internal;
+                namespace = result_.namespace;
+                null = result_.null;
                 return result_.returnValue;
             }
             catch (global::System.AggregateException ex_)
@@ -1021,24 +920,24 @@ namespace @await
             }
         }
 
-        public global::System.Threading.Tasks.Task<@break?> forAsync(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<break?> forAsync(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_forAsync(@goto, @if, @internal, @namespace, @null, context, progress, cancel, false);
+            return _iceI_forAsync(goto, if, internal, namespace, null, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<@break?> _iceI_forAsync(@var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<break?> _iceI_forAsync(var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_for_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<@break?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<break?>(progress, cancel);
             _iceI_for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _for_name = "for";
 
-        private void _iceI_for(@var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_for(var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<@break?>(completed);
+            var outAsync = getOutgoingAsync<break?>(completed);
             outAsync.invoke(
                 _for_name,
                 Ice.OperationMode.Normal,
@@ -1063,12 +962,12 @@ namespace @await
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    @break? ret;
+                    break? ret;
                     if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        @break tmpVal;
-                        tmpVal = new @break(istr);
+                        break tmpVal;
+                        tmpVal = new break(istr);
                         ret = tmpVal;
                     }
                     else
@@ -1079,24 +978,24 @@ namespace @await
                 });
         }
 
-        public global::System.Threading.Tasks.Task<@break?> continueAsync(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<break?> continueAsync(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_continueAsync(@goto, @if, @internal, @namespace, @null, context, progress, cancel, false);
+            return _iceI_continueAsync(goto, if, internal, namespace, null, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<@break?> _iceI_continueAsync(@var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<break?> _iceI_continueAsync(var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_continue_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<@break?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<break?>(progress, cancel);
             _iceI_continue(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _continue_name = "continue";
 
-        private void _iceI_continue(@var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_continue(var? iceP_goto, explicitPrx? iceP_if, global::System.Collections.Generic.Dictionary<string, break>? iceP_internal, string? iceP_namespace, explicitPrx? iceP_null, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<@break?>(completed);
+            var outAsync = getOutgoingAsync<break?>(completed);
             outAsync.invoke(
                 _continue_name,
                 Ice.OperationMode.Normal,
@@ -1121,12 +1020,12 @@ namespace @await
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    @break? ret;
+                    break? ret;
                     if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        @break tmpVal;
-                        tmpVal = new @break(istr);
+                        break tmpVal;
+                        tmpVal = new break(istr);
                         ret = tmpVal;
                     }
                     else
@@ -1167,8 +1066,8 @@ namespace @await
                     if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        @break tmpVal;
-                        tmpVal = new @break(istr);
+                        break tmpVal;
+                        tmpVal = new break(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -1177,43 +1076,43 @@ namespace @await
                     }
                     if (istr.readOptional(2, Ice.OptionalFormat.Size))
                     {
-                        @var tmpVal;
-                        tmpVal = (@var)istr.readEnum(0);
-                        ret.@goto = tmpVal;
+                        var tmpVal;
+                        tmpVal = (var)istr.readEnum(0);
+                        ret.goto = tmpVal;
                     }
                     else
                     {
-                        ret.@goto = null;
+                        ret.goto = null;
                     }
                     if (istr.readOptional(3, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        ret.@if = explicitPrxHelper.read(istr);
+                        ret.if = explicitPrxHelper.read(istr);
                     }
                     else
                     {
-                        ret.@if = null;
+                        ret.if = null;
                     }
                     if (istr.readOptional(5, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
+                        global::System.Collections.Generic.Dictionary<string, break> tmpVal = new global::System.Collections.Generic.Dictionary<string, break>();
                         tmpVal = whileHelper.read(istr);
-                        ret.@internal = tmpVal;
+                        ret.internal = tmpVal;
                     }
                     else
                     {
-                        ret.@internal = null;
+                        ret.internal = null;
                     }
-                    ret.@namespace = istr.readString(7);
+                    ret.namespace = istr.readString(7);
                     if (istr.readOptional(8, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        ret.@null = explicitPrxHelper.read(istr);
+                        ret.null = explicitPrxHelper.read(istr);
                     }
                     else
                     {
-                        ret.@null = null;
+                        ret.null = null;
                     }
                     return ret;
                 });
@@ -1249,8 +1148,8 @@ namespace @await
                     if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        @break tmpVal;
-                        tmpVal = new @break(istr);
+                        break tmpVal;
+                        tmpVal = new break(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -1259,43 +1158,43 @@ namespace @await
                     }
                     if (istr.readOptional(2, Ice.OptionalFormat.Size))
                     {
-                        @var tmpVal;
-                        tmpVal = (@var)istr.readEnum(0);
-                        ret.@goto = tmpVal;
+                        var tmpVal;
+                        tmpVal = (var)istr.readEnum(0);
+                        ret.goto = tmpVal;
                     }
                     else
                     {
-                        ret.@goto = null;
+                        ret.goto = null;
                     }
                     if (istr.readOptional(3, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        ret.@if = explicitPrxHelper.read(istr);
+                        ret.if = explicitPrxHelper.read(istr);
                     }
                     else
                     {
-                        ret.@if = null;
+                        ret.if = null;
                     }
                     if (istr.readOptional(5, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
+                        global::System.Collections.Generic.Dictionary<string, break> tmpVal = new global::System.Collections.Generic.Dictionary<string, break>();
                         tmpVal = whileHelper.read(istr);
-                        ret.@internal = tmpVal;
+                        ret.internal = tmpVal;
                     }
                     else
                     {
-                        ret.@internal = null;
+                        ret.internal = null;
                     }
-                    ret.@namespace = istr.readString(7);
+                    ret.namespace = istr.readString(7);
                     if (istr.readOptional(8, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        ret.@null = explicitPrxHelper.read(istr);
+                        ret.null = explicitPrxHelper.read(istr);
                     }
                     else
                     {
-                        ret.@null = null;
+                        ret.null = null;
                     }
                     return ret;
                 });
@@ -1351,11 +1250,11 @@ namespace @await
 
     public sealed class implicitPrxHelper : Ice.ObjectPrxHelperBase, implicitPrx
     {
-        public @var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public var in(break internal, delete? is, explicitPrx? lock, casePrx? namespace, typeofPrx? new, delete? null, explicitPrx? operator, int override, int params, int private, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                return _iceI_inAsync(@internal, @is, @lock, @namespace, @new, @null, @operator, @override, @params, @private, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_inAsync(internal, is, lock, namespace, new, null, operator, override, params, private, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1363,24 +1262,24 @@ namespace @await
             }
         }
 
-        public global::System.Threading.Tasks.Task<@var> inAsync(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<var> inAsync(break internal, delete? is, explicitPrx? lock, casePrx? namespace, typeofPrx? new, delete? null, explicitPrx? operator, int override, int params, int private, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_inAsync(@internal, @is, @lock, @namespace, @new, @null, @operator, @override, @params, @private, context, progress, cancel, false);
+            return _iceI_inAsync(internal, is, lock, namespace, new, null, operator, override, params, private, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<@var> _iceI_inAsync(@break iceP_internal, delete? iceP_is, explicitPrx? iceP_lock, casePrx? iceP_namespace, typeofPrx? iceP_new, delete? iceP_null, explicitPrx? iceP_operator, int iceP_override, int iceP_params, int iceP_private, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<var> _iceI_inAsync(break iceP_internal, delete? iceP_is, explicitPrx? iceP_lock, casePrx? iceP_namespace, typeofPrx? iceP_new, delete? iceP_null, explicitPrx? iceP_operator, int iceP_override, int iceP_params, int iceP_private, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_in_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<@var>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<var>(progress, cancel);
             _iceI_in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _in_name = "in";
 
-        private void _iceI_in(@break iceP_internal, delete? iceP_is, explicitPrx? iceP_lock, casePrx? iceP_namespace, typeofPrx? iceP_new, delete? iceP_null, explicitPrx? iceP_operator, int iceP_override, int iceP_params, int iceP_private, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_in(break iceP_internal, delete? iceP_is, explicitPrx? iceP_lock, casePrx? iceP_namespace, typeofPrx? iceP_new, delete? iceP_null, explicitPrx? iceP_operator, int iceP_override, int iceP_params, int iceP_private, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<@var>(completed);
+            var outAsync = getOutgoingAsync<var>(completed);
             outAsync.invoke(
                 _in_name,
                 Ice.OperationMode.Normal,
@@ -1389,7 +1288,7 @@ namespace @await
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    @break.ice_write(ostr, iceP_internal);
+                    break.ice_write(ostr, iceP_internal);
                     ostr.writeValue(iceP_is);
                     explicitPrxHelper.write(ostr, iceP_lock);
                     casePrxHelper.write(ostr, iceP_namespace);
@@ -1407,11 +1306,11 @@ namespace @await
                     {
                         throw ex;
                     }
-                    catch(@foreach)
+                    catch(foreach)
                     {
                         throw;
                     }
-                    catch(@fixed)
+                    catch(fixed)
                     {
                         throw;
                     }
@@ -1421,8 +1320,8 @@ namespace @await
                 },
                 read: (Ice.InputStream istr) =>
                 {
-                    @var ret;
-                    ret = (@var)istr.readEnum(0);
+                    var ret;
+                    ret = (var)istr.readEnum(0);
                     return ret;
                 });
         }
@@ -1656,11 +1555,11 @@ namespace System
     }
 }
 
-namespace @await
+namespace await
 {
-    public abstract class caseDisp_ : Ice.ObjectImpl, @case
+    public abstract class caseDisp_ : Ice.ObjectImpl, case
     {
-        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int checked, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1669,7 +1568,7 @@ namespace @await
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "catch" => @case.iceD_catchAsync(this, request),
+                "catch" => case.iceD_catchAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1678,9 +1577,9 @@ namespace @await
             };
     }
 
-    public abstract class typeofDisp_ : Ice.ObjectImpl, @typeof
+    public abstract class typeofDisp_ : Ice.ObjectImpl, typeof
     {
-        public abstract void @default(Ice.Current current);
+        public abstract void default(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1689,7 +1588,7 @@ namespace @await
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "default" => @typeof.iceD_defaultAsync(this, request),
+                "default" => typeof.iceD_defaultAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1698,11 +1597,11 @@ namespace @await
             };
     }
 
-    public abstract class explicitDisp_ : Ice.ObjectImpl, @explicit
+    public abstract class explicitDisp_ : Ice.ObjectImpl, explicit
     {
-        public abstract void @default(Ice.Current current);
+        public abstract void default(Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int checked, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1711,8 +1610,8 @@ namespace @await
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "default" => @typeof.iceD_defaultAsync(this, request),
-                "catch" => @case.iceD_catchAsync(this, request),
+                "default" => typeof.iceD_defaultAsync(this, request),
+                "catch" => case.iceD_catchAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1723,11 +1622,11 @@ namespace @await
 
     public abstract class optionalParamsDisp_ : Ice.ObjectImpl, optionalParams
     {
-        public abstract @break? @for(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, Ice.Current current);
+        public abstract break? for(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<@break?> continueAsync(@var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<break?> continueAsync(var? goto, explicitPrx? if, global::System.Collections.Generic.Dictionary<string, break>? internal, string? namespace, explicitPrx? null, Ice.Current current);
 
-        public abstract @break? @in(out @var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, Ice.Current current);
+        public abstract break? in(out var? goto, out explicitPrx? if, out global::System.Collections.Generic.Dictionary<string, break>? internal, out string? namespace, out explicitPrx? null, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(Ice.Current current);
 
@@ -1750,9 +1649,9 @@ namespace @await
             };
     }
 
-    public abstract class implicitDisp_ : Ice.ObjectImpl, @implicit
+    public abstract class implicitDisp_ : Ice.ObjectImpl, implicit
     {
-        public abstract @var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, Ice.Current current);
+        public abstract var in(break internal, delete? is, explicitPrx? lock, casePrx? namespace, typeofPrx? new, delete? null, explicitPrx? operator, int override, int params, int private, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1761,7 +1660,7 @@ namespace @await
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "in" => @implicit.iceD_inAsync(this, request),
+                "in" => implicit.iceD_inAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1817,12 +1716,12 @@ namespace System
     }
 }
 
-namespace @await
+namespace await
 {
-    public partial interface @case
+    public partial interface case
     {
         protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_catchAsync(
-            @case obj,
+            case obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
@@ -1842,20 +1741,20 @@ namespace @await
         }
     }
 
-    public partial interface @typeof
+    public partial interface typeof
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_defaultAsync(
-            @typeof obj,
+            typeof obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
-            obj.@default(request.current);
+            obj.default(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 
-    public partial interface @explicit
+    public partial interface explicit
     {
     }
 
@@ -1868,15 +1767,15 @@ namespace @await
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @var? iceP_goto;
+            var? iceP_goto;
             explicitPrx? iceP_if;
-            global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal;
+            global::System.Collections.Generic.Dictionary<string, break>? iceP_internal;
             string? iceP_namespace;
             explicitPrx? iceP_null;
             if (istr.readOptional(2, Ice.OptionalFormat.Size))
             {
-                @var tmpVal;
-                tmpVal = (@var)istr.readEnum(0);
+                var tmpVal;
+                tmpVal = (var)istr.readEnum(0);
                 iceP_goto = tmpVal;
             }
             else
@@ -1895,7 +1794,7 @@ namespace @await
             if (istr.readOptional(5, Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
+                global::System.Collections.Generic.Dictionary<string, break> tmpVal = new global::System.Collections.Generic.Dictionary<string, break>();
                 tmpVal = whileHelper.read(istr);
                 iceP_internal = tmpVal;
             }
@@ -1914,13 +1813,13 @@ namespace @await
                 iceP_null = null;
             }
             istr.endEncapsulation();
-            var ret = obj.@for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current);
+            var ret = obj.for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                @break.ice_write(ostr, ret);
+                break.ice_write(ostr, ret);
                 ostr.endSize(pos);
             }
             ostr.endEncapsulation();
@@ -1934,15 +1833,15 @@ namespace @await
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @var? iceP_goto;
+            var? iceP_goto;
             explicitPrx? iceP_if;
-            global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal;
+            global::System.Collections.Generic.Dictionary<string, break>? iceP_internal;
             string? iceP_namespace;
             explicitPrx? iceP_null;
             if (istr.readOptional(2, Ice.OptionalFormat.Size))
             {
-                @var tmpVal;
-                tmpVal = (@var)istr.readEnum(0);
+                var tmpVal;
+                tmpVal = (var)istr.readEnum(0);
                 iceP_goto = tmpVal;
             }
             else
@@ -1961,7 +1860,7 @@ namespace @await
             if (istr.readOptional(5, Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
+                global::System.Collections.Generic.Dictionary<string, break> tmpVal = new global::System.Collections.Generic.Dictionary<string, break>();
                 tmpVal = whileHelper.read(istr);
                 iceP_internal = tmpVal;
             }
@@ -1989,7 +1888,7 @@ namespace @await
                     if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        @break.ice_write(ostr, ret);
+                        break.ice_write(ostr, ret);
                         ostr.endSize(pos);
                     }
                 });
@@ -2001,18 +1900,18 @@ namespace @await
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
-            @var? iceP_goto;
+            var? iceP_goto;
             explicitPrx? iceP_if;
-            global::System.Collections.Generic.Dictionary<string, @break>? iceP_internal;
+            global::System.Collections.Generic.Dictionary<string, break>? iceP_internal;
             string? iceP_namespace;
             explicitPrx? iceP_null;
-            var ret = obj.@in(out iceP_goto, out iceP_if, out iceP_internal, out iceP_namespace, out iceP_null, request.current);
+            var ret = obj.in(out iceP_goto, out iceP_if, out iceP_internal, out iceP_namespace, out iceP_null, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                @break.ice_write(ostr, ret);
+                break.ice_write(ostr, ret);
                 ostr.endSize(pos);
             }
             if (iceP_goto is not null)
@@ -2047,36 +1946,36 @@ namespace @await
                     if (ret.returnValue is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        @break.ice_write(ostr, ret.returnValue);
+                        break.ice_write(ostr, ret.returnValue);
                         ostr.endSize(pos);
                     }
-                    if (ret.@goto is not null)
+                    if (ret.goto is not null)
                     {
-                        ostr.writeEnum(2, (int)ret.@goto.Value, 1);
+                        ostr.writeEnum(2, (int)ret.goto.Value, 1);
                     }
-                    ostr.writeProxy(3, ret.@if);
-                    if (ret.@internal is not null && ostr.writeOptional(5, Ice.OptionalFormat.FSize))
+                    ostr.writeProxy(3, ret.if);
+                    if (ret.internal is not null && ostr.writeOptional(5, Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        whileHelper.write(ostr, ret.@internal);
+                        whileHelper.write(ostr, ret.internal);
                         ostr.endSize(pos);
                     }
-                    ostr.writeString(7, ret.@namespace);
-                    ostr.writeProxy(8, ret.@null);
+                    ostr.writeString(7, ret.namespace);
+                    ostr.writeProxy(8, ret.null);
                 });
         }
     }
 
-    public partial interface @implicit
+    public partial interface implicit
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_inAsync(
-            @implicit obj,
+            implicit obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @break iceP_internal;
+            break iceP_internal;
             delete? iceP_is = null;
             explicitPrx? iceP_lock;
             casePrx? iceP_namespace;
@@ -2086,7 +1985,7 @@ namespace @await
             int iceP_override;
             int iceP_params;
             int iceP_private;
-            iceP_internal = new @break(istr);
+            iceP_internal = new break(istr);
             istr.readValue((delete? v) => { iceP_is = v; });
             iceP_lock = explicitPrxHelper.read(istr);
             iceP_namespace = casePrxHelper.read(istr);
@@ -2098,7 +1997,7 @@ namespace @await
             iceP_private = istr.readInt();
             istr.readPendingValues();
             istr.endEncapsulation();
-            var ret = obj.@in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, request.current);
+            var ret = obj.in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);

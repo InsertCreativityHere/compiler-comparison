@@ -54,7 +54,6 @@ namespace
     const IceInternal::DefaultValueFactoryInit<::await::package> iceC_await_package_init("::await::package");
     const IceInternal::DefaultUserExceptionFactoryInit<::await::fixed> iceC_await_fixed_init("::await::fixed");
     const IceInternal::DefaultUserExceptionFactoryInit<::await::foreach> iceC_await_foreach_init("::await::foreach");
-    const IceInternal::DefaultUserExceptionFactoryInit<::await::BaseMethods> iceC_await_BaseMethods_init("::await::BaseMethods");
 }
 
 void
@@ -637,60 +636,6 @@ await::foreach::_readImpl(Ice::InputStream* istr)
     istr->readAll(this->goto, this->if);
     istr->endSlice();
     fixed::_readImpl(istr);
-}
-
-void
-await::BaseMethods::ice_printFields(std::ostream& os) const
-{
-    Ice::print(os << "Data = ", this->Data);
-    Ice::print(os << ", HelpLink = ", this->HelpLink);
-    Ice::print(os << ", InnerException = ", this->InnerException);
-    Ice::print(os << ", Message = ", this->Message);
-    Ice::print(os << ", Source = ", this->Source);
-    Ice::print(os << ", StackTrace = ", this->StackTrace);
-    Ice::print(os << ", TargetSite = ", this->TargetSite);
-    Ice::print(os << ", HResult = ", this->HResult);
-    Ice::print(os << ", Equals = ", this->Equals);
-    Ice::print(os << ", GetBaseException = ", this->GetBaseException);
-    Ice::print(os << ", GetHashCode = ", this->GetHashCode);
-    Ice::print(os << ", GetObjectData = ", this->GetObjectData);
-    Ice::print(os << ", GetType = ", this->GetType);
-    Ice::print(os << ", ReferenceEquals = ", this->ReferenceEquals);
-    Ice::print(os << ", ToString = ", this->ToString);
-}
-
-const char*
-await::BaseMethods::ice_staticId() noexcept
-{
-    return "::await::BaseMethods";
-}
-
-const char*
-await::BaseMethods::ice_id() const noexcept
-{
-    return ice_staticId();
-}
-
-void
-await::BaseMethods::ice_throw() const
-{
-    throw *this;
-}
-
-void
-await::BaseMethods::_writeImpl(Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->Data, this->HelpLink, this->InnerException, this->Message, this->Source, this->StackTrace, this->TargetSite, this->HResult, this->Equals, this->GetBaseException, this->GetHashCode, this->GetObjectData, this->GetType, this->ReferenceEquals, this->ToString);
-    ostr->endSlice();
-}
-
-void
-await::BaseMethods::_readImpl(Ice::InputStream* istr)
-{
-    istr->startSlice();
-    istr->readAll(this->Data, this->HelpLink, this->InnerException, this->Message, this->Source, this->StackTrace, this->TargetSite, this->HResult, this->Equals, this->GetBaseException, this->GetHashCode, this->GetObjectData, this->GetType, this->ReferenceEquals, this->ToString);
-    istr->endSlice();
 }
 
 std::vector<std::string>

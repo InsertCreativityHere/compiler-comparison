@@ -79,9 +79,9 @@ namespace Ice.servantLocator
 
             void unknownExceptionWithServantException(Ice.Current current);
 
-            string impossibleException(bool @throw, Ice.Current current);
+            string impossibleException(bool shouldThrow, Ice.Current current);
 
-            string intfUserException(bool @throw, Ice.Current current);
+            string intfUserException(bool shouldThrow, Ice.Current current);
 
             void asyncResponse(Ice.Current current);
 
@@ -136,13 +136,13 @@ namespace Ice.servantLocator
 
             global::System.Threading.Tasks.Task unknownExceptionWithServantExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            string impossibleException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            string impossibleException(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            string intfUserException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            string intfUserException(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             void asyncResponse(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -268,11 +268,11 @@ namespace Ice.servantLocator
                 }
             }
 
-            public string impossibleException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public string impossibleException(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
-                    return _iceI_impossibleExceptionAsync(@throw, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                    return _iceI_impossibleExceptionAsync(shouldThrow, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch (global::System.AggregateException ex_)
                 {
@@ -280,11 +280,11 @@ namespace Ice.servantLocator
                 }
             }
 
-            public string intfUserException(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public string intfUserException(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
-                    return _iceI_intfUserExceptionAsync(@throw, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                    return _iceI_intfUserExceptionAsync(shouldThrow, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch (global::System.AggregateException ex_)
                 {
@@ -528,22 +528,22 @@ namespace Ice.servantLocator
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<string> impossibleExceptionAsync(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
-                return _iceI_impossibleExceptionAsync(@throw, context, progress, cancel, false);
+                return _iceI_impossibleExceptionAsync(shouldThrow, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<string> _iceI_impossibleExceptionAsync(bool iceP_throw, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<string> _iceI_impossibleExceptionAsync(bool iceP_shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_impossibleException_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
-                _iceI_impossibleException(iceP_throw, context, synchronous, completed);
+                _iceI_impossibleException(iceP_shouldThrow, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _impossibleException_name = "impossibleException";
 
-            private void _iceI_impossibleException(bool iceP_throw, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_impossibleException(bool iceP_shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
@@ -554,7 +554,7 @@ namespace Ice.servantLocator
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        ostr.writeBool(iceP_throw);
+                        ostr.writeBool(iceP_shouldThrow);
                     },
                     userException: (Ice.UserException ex) =>
                     {
@@ -578,22 +578,22 @@ namespace Ice.servantLocator
                     });
             }
 
-            public global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool @throw, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<string> intfUserExceptionAsync(bool shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
-                return _iceI_intfUserExceptionAsync(@throw, context, progress, cancel, false);
+                return _iceI_intfUserExceptionAsync(shouldThrow, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<string> _iceI_intfUserExceptionAsync(bool iceP_throw, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<string> _iceI_intfUserExceptionAsync(bool iceP_shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_intfUserException_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
-                _iceI_intfUserException(iceP_throw, context, synchronous, completed);
+                _iceI_intfUserException(iceP_shouldThrow, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _intfUserException_name = "intfUserException";
 
-            private void _iceI_intfUserException(bool iceP_throw, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_intfUserException(bool iceP_shouldThrow, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
@@ -604,7 +604,7 @@ namespace Ice.servantLocator
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        ostr.writeBool(iceP_throw);
+                        ostr.writeBool(iceP_shouldThrow);
                     },
                     userException: (Ice.UserException ex) =>
                     {
@@ -908,9 +908,9 @@ namespace Ice.servantLocator
 
             public abstract void unknownExceptionWithServantException(Ice.Current current);
 
-            public abstract string impossibleException(bool @throw, Ice.Current current);
+            public abstract string impossibleException(bool shouldThrow, Ice.Current current);
 
-            public abstract string intfUserException(bool @throw, Ice.Current current);
+            public abstract string intfUserException(bool shouldThrow, Ice.Current current);
 
             public abstract void asyncResponse(Ice.Current current);
 
@@ -1061,10 +1061,10 @@ namespace Ice.servantLocator
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                bool iceP_throw;
-                iceP_throw = istr.readBool();
+                bool iceP_shouldThrow;
+                iceP_shouldThrow = istr.readBool();
                 istr.endEncapsulation();
-                var ret = obj.impossibleException(iceP_throw, request.current);
+                var ret = obj.impossibleException(iceP_shouldThrow, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
                 ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
@@ -1079,10 +1079,10 @@ namespace Ice.servantLocator
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                bool iceP_throw;
-                iceP_throw = istr.readBool();
+                bool iceP_shouldThrow;
+                iceP_shouldThrow = istr.readBool();
                 istr.endEncapsulation();
-                var ret = obj.intfUserException(iceP_throw, request.current);
+                var ret = obj.intfUserException(iceP_shouldThrow, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
                 ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);

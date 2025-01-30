@@ -77,7 +77,7 @@ namespace Clash
 
         public string inS = "";
 
-        public string @in = "";
+        public string in = "";
 
         public string proxy = "";
 
@@ -85,11 +85,11 @@ namespace Clash
 
         public int getCookie;
 
-        public string ice_clone_ = "";
+        public string clone = "";
 
         partial void ice_initialize();
 
-        public Cls(IntfPrx? s, string context, int current, short response, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy, int obj, int getCookie, string ice_clone_)
+        public Cls(IntfPrx? s, string context, int current, short response, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string in, string proxy, int obj, int getCookie, string clone)
         {
             this.s = s;
             global::System.ArgumentNullException.ThrowIfNull(context);
@@ -108,14 +108,14 @@ namespace Clash
             this.ostr = ostr;
             global::System.ArgumentNullException.ThrowIfNull(inS);
             this.inS = inS;
-            global::System.ArgumentNullException.ThrowIfNull(@in);
-            this.@in = @in;
+            global::System.ArgumentNullException.ThrowIfNull(in);
+            this.in = in;
             global::System.ArgumentNullException.ThrowIfNull(proxy);
             this.proxy = proxy;
             this.obj = obj;
             this.getCookie = getCookie;
-            global::System.ArgumentNullException.ThrowIfNull(ice_clone_);
-            this.ice_clone_ = ice_clone_;
+            global::System.ArgumentNullException.ThrowIfNull(clone);
+            this.clone = clone;
             ice_initialize();
         }
 
@@ -141,11 +141,11 @@ namespace Clash
             ostr_.writeString(istr);
             ostr_.writeString(ostr);
             ostr_.writeString(inS);
-            ostr_.writeString(@in);
+            ostr_.writeString(in);
             ostr_.writeString(proxy);
             ostr_.writeInt(obj);
             ostr_.writeInt(getCookie);
-            ostr_.writeString(ice_clone_);
+            ostr_.writeString(clone);
             ostr_.writeShort(1, cookie);
             ostr_.endSlice();
         }
@@ -164,11 +164,11 @@ namespace Clash
             istr = istr_.readString();
             ostr = istr_.readString();
             inS = istr_.readString();
-            @in = istr_.readString();
+            in = istr_.readString();
             proxy = istr_.readString();
             obj = istr_.readInt();
             getCookie = istr_.readInt();
-            ice_clone_ = istr_.readString();
+            clone = istr_.readString();
             cookie = istr_.readShort(1);
             istr_.endSlice();
         }
@@ -186,7 +186,7 @@ namespace Clash
 
         public string hashCode = "";
 
-        public int ice_clone_;
+        public int clone;
 
         partial void ice_initialize();
 
@@ -195,7 +195,7 @@ namespace Clash
             ice_initialize();
         }
 
-        public St(string v, short istr, int ostr, int rhs, string hashCode, int ice_clone_)
+        public St(string v, short istr, int ostr, int rhs, string hashCode, int clone)
         {
             global::System.ArgumentNullException.ThrowIfNull(v);
             this.v = v;
@@ -204,7 +204,7 @@ namespace Clash
             this.rhs = rhs;
             global::System.ArgumentNullException.ThrowIfNull(hashCode);
             this.hashCode = hashCode;
-            this.ice_clone_ = ice_clone_;
+            this.clone = clone;
             ice_initialize();
         }
 
@@ -215,7 +215,7 @@ namespace Clash
             this.ostr = istr.readInt();
             this.rhs = istr.readInt();
             this.hashCode = istr.readString();
-            this.ice_clone_ = istr.readInt();
+            this.clone = istr.readInt();
             ice_initialize();
         }
 
@@ -226,7 +226,7 @@ namespace Clash
             ostr.writeInt(this.ostr);
             ostr.writeInt(this.rhs);
             ostr.writeString(this.hashCode);
-            ostr.writeInt(this.ice_clone_);
+            ostr.writeInt(this.clone);
         }
 
         public static void ice_write(Ice.OutputStream ostr, St v)

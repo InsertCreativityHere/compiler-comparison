@@ -275,19 +275,19 @@ namespace Ice.seqMapping.AMD
 
             global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, Ice.Current current);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, Ice.Current current);
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, Ice.Current current);
 
             global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, Ice.Current current);
 
@@ -432,19 +432,19 @@ namespace Ice.seqMapping.AMD
 
         public record struct MyClass_OpSStringSResult(global::System.Collections.Generic.Stack<string> returnValue, global::System.Collections.Generic.Stack<string> o);
 
-        public record struct MyClass_OpAObjectSResult(global::Ice.Value?[] returnValue, global::Ice.Value?[] o);
+        public record struct MyClass_OpAObjectSResult(Ice.Value?[] returnValue, Ice.Value?[] o);
 
-        public record struct MyClass_OpLObjectSResult(global::System.Collections.Generic.List<global::Ice.Value?> returnValue, global::System.Collections.Generic.List<global::Ice.Value?> o);
+        public record struct MyClass_OpLObjectSResult(global::System.Collections.Generic.List<Ice.Value?> returnValue, global::System.Collections.Generic.List<Ice.Value?> o);
 
-        public record struct MyClass_OpAObjectPrxSResult(global::Ice.ObjectPrx?[] returnValue, global::Ice.ObjectPrx?[] o);
+        public record struct MyClass_OpAObjectPrxSResult(Ice.ObjectPrx?[] returnValue, Ice.ObjectPrx?[] o);
 
-        public record struct MyClass_OpLObjectPrxSResult(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.List<global::Ice.ObjectPrx?> o);
+        public record struct MyClass_OpLObjectPrxSResult(global::System.Collections.Generic.List<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.List<Ice.ObjectPrx?> o);
 
-        public record struct MyClass_OpKObjectPrxSResult(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> o);
+        public record struct MyClass_OpKObjectPrxSResult(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o);
 
-        public record struct MyClass_OpQObjectPrxSResult(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> o);
+        public record struct MyClass_OpQObjectPrxSResult(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o);
 
-        public record struct MyClass_OpSObjectPrxSResult(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> o);
+        public record struct MyClass_OpSObjectPrxSResult(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o);
 
         public record struct MyClass_OpAStructSResult(S[] returnValue, S[] o);
 
@@ -678,33 +678,33 @@ namespace Ice.seqMapping.AMD
 
             global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.Value?[] opAObjectS(global::Ice.Value?[] i, out global::Ice.Value?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            Ice.Value?[] opAObjectS(Ice.Value?[] i, out Ice.Value?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<global::Ice.Value?> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> i, out global::System.Collections.Generic.List<global::Ice.Value?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            global::System.Collections.Generic.List<Ice.Value?> opLObjectS(global::System.Collections.Generic.List<Ice.Value?> i, out global::System.Collections.Generic.List<Ice.Value?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.ObjectPrx?[] opAObjectPrxS(global::Ice.ObjectPrx?[] i, out global::Ice.ObjectPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            Ice.ObjectPrx?[] opAObjectPrxS(Ice.ObjectPrx?[] i, out Ice.ObjectPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<global::Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            global::System.Collections.Generic.List<Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            global::System.Collections.Generic.Queue<Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            global::System.Collections.Generic.Stack<Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             S[] opAStructS(S[] i, out S[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1427,7 +1427,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class AObjectSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::Ice.Value?[] v)
+            public static void write(Ice.OutputStream ostr, Ice.Value?[] v)
             {
                 if (v is null)
                 {
@@ -1443,9 +1443,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.Value?[] read(Ice.InputStream istr)
+            public static Ice.Value?[] read(Ice.InputStream istr)
             {
-                global::Ice.Value?[] v;
+                Ice.Value?[] v;
                 int v_lenx = istr.readAndCheckSeqSize(1);
                 v = new Ice.Value?[v_lenx];
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1458,7 +1458,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class LObjectSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.Value?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<Ice.Value?> v)
             {
                 if (v is null)
                 {
@@ -1474,9 +1474,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<global::Ice.Value?> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<Ice.Value?> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.List<global::Ice.Value?> v;
+                global::System.Collections.Generic.List<Ice.Value?> v;
                 int v_lenx = istr.readAndCheckSeqSize(1);
                 v = new global::System.Collections.Generic.List<Ice.Value?>(v_lenx);
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1489,7 +1489,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class AObjectPrxSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::Ice.ObjectPrx?[] v)
+            public static void write(Ice.OutputStream ostr, Ice.ObjectPrx?[] v)
             {
                 if (v is null)
                 {
@@ -1505,9 +1505,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::Ice.ObjectPrx?[] read(Ice.InputStream istr)
+            public static Ice.ObjectPrx?[] read(Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx?[] v;
+                Ice.ObjectPrx?[] v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
                 v = new Ice.ObjectPrx?[v_lenx];
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1520,7 +1520,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class LObjectPrxSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1536,9 +1536,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.List<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.List<global::Ice.ObjectPrx?> v;
+                global::System.Collections.Generic.List<Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
                 v = new global::System.Collections.Generic.List<Ice.ObjectPrx?>(v_lenx);
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1552,7 +1552,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class KObjectPrxSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1561,7 +1561,7 @@ namespace Ice.seqMapping.AMD
                 else
                 {
                     ostr.writeSize(v.Count);
-                    global::System.Collections.Generic.IEnumerator<global::Ice.ObjectPrx?> e = v.GetEnumerator();
+                    global::System.Collections.Generic.IEnumerator<Ice.ObjectPrx?> e = v.GetEnumerator();
                     while(e.MoveNext())
                     {
                         ostr.writeProxy(e.Current);
@@ -1569,9 +1569,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> v;
+                global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
                 v = new global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?>();
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1585,7 +1585,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class QObjectPrxSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1594,7 +1594,7 @@ namespace Ice.seqMapping.AMD
                 else
                 {
                     ostr.writeSize(v.Count);
-                    global::System.Collections.Generic.IEnumerator<global::Ice.ObjectPrx?> e = v.GetEnumerator();
+                    global::System.Collections.Generic.IEnumerator<Ice.ObjectPrx?> e = v.GetEnumerator();
                     while(e.MoveNext())
                     {
                         ostr.writeProxy(e.Current);
@@ -1602,9 +1602,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.Queue<Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> v;
+                global::System.Collections.Generic.Queue<Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
                 v = new global::System.Collections.Generic.Queue<Ice.ObjectPrx?>(v_lenx);
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1618,7 +1618,7 @@ namespace Ice.seqMapping.AMD
 
         public sealed class SObjectPrxSHelper
         {
-            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<Ice.ObjectPrx?> v)
             {
                 if (v is null)
                 {
@@ -1635,9 +1635,9 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public static global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.Stack<Ice.ObjectPrx?> read(Ice.InputStream istr)
             {
-                global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> v;
+                global::System.Collections.Generic.Stack<Ice.ObjectPrx?> v;
                 int v_lenx = istr.readAndCheckSeqSize(2);
                 Ice.ObjectPrx?[] v_tmp = new Ice.ObjectPrx?[v_lenx];
                 for (int ix = 0; ix < v_lenx; ++ix)
@@ -1645,7 +1645,7 @@ namespace Ice.seqMapping.AMD
                     v_tmp[ix] = istr.readProxy();
                 }
                 global::System.Array.Reverse(v_tmp);
-                v = new global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?>(v_tmp);
+                v = new global::System.Collections.Generic.Stack<Ice.ObjectPrx?>(v_tmp);
                 return v;
             }
         }
@@ -3225,7 +3225,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.Value?[] opAObjectS(global::Ice.Value?[] i, out global::Ice.Value?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public Ice.Value?[] opAObjectS(Ice.Value?[] i, out Ice.Value?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3239,7 +3239,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<global::Ice.Value?> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> i, out global::System.Collections.Generic.List<global::Ice.Value?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public global::System.Collections.Generic.List<Ice.Value?> opLObjectS(global::System.Collections.Generic.List<Ice.Value?> i, out global::System.Collections.Generic.List<Ice.Value?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3253,7 +3253,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.ObjectPrx?[] opAObjectPrxS(global::Ice.ObjectPrx?[] i, out global::Ice.ObjectPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public Ice.ObjectPrx?[] opAObjectPrxS(Ice.ObjectPrx?[] i, out Ice.ObjectPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3267,7 +3267,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<global::Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public global::System.Collections.Generic.List<Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3281,7 +3281,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3295,7 +3295,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public global::System.Collections.Generic.Queue<Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3309,7 +3309,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public global::System.Collections.Generic.Stack<Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -5220,12 +5220,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAObjectSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> _iceI_opAObjectSAsync(global::Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> _iceI_opAObjectSAsync(Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAObjectS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectSResult>(progress, cancel);
@@ -5235,7 +5235,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opAObjectS_name = "opAObjectS";
 
-            private void _iceI_opAObjectS(global::Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAObjectS(Ice.Value?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAObjectSResult>(completed);
                 outAsync.invoke(
@@ -5259,12 +5259,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLObjectSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> _iceI_opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> _iceI_opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLObjectS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectSResult>(progress, cancel);
@@ -5274,7 +5274,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opLObjectS_name = "opLObjectS";
 
-            private void _iceI_opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLObjectS(global::System.Collections.Generic.List<Ice.Value?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLObjectSResult>(completed);
                 outAsync.invoke(
@@ -5298,12 +5298,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> _iceI_opAObjectPrxSAsync(global::Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> _iceI_opAObjectPrxSAsync(Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAObjectPrxS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectPrxSResult>(progress, cancel);
@@ -5313,7 +5313,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opAObjectPrxS_name = "opAObjectPrxS";
 
-            private void _iceI_opAObjectPrxS(global::Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAObjectPrxS(Ice.ObjectPrx?[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpAObjectPrxSResult>(completed);
                 outAsync.invoke(
@@ -5335,12 +5335,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> _iceI_opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> _iceI_opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLObjectPrxS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectPrxSResult>(progress, cancel);
@@ -5350,7 +5350,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opLObjectPrxS_name = "opLObjectPrxS";
 
-            private void _iceI_opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLObjectPrxS(global::System.Collections.Generic.List<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpLObjectPrxSResult>(completed);
                 outAsync.invoke(
@@ -5372,12 +5372,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> _iceI_opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> _iceI_opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKObjectPrxS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKObjectPrxSResult>(progress, cancel);
@@ -5387,7 +5387,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opKObjectPrxS_name = "opKObjectPrxS";
 
-            private void _iceI_opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opKObjectPrxS(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpKObjectPrxSResult>(completed);
                 outAsync.invoke(
@@ -5409,12 +5409,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> _iceI_opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> _iceI_opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQObjectPrxS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQObjectPrxSResult>(progress, cancel);
@@ -5424,7 +5424,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opQObjectPrxS_name = "opQObjectPrxS";
 
-            private void _iceI_opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opQObjectPrxS(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpQObjectPrxSResult>(completed);
                 outAsync.invoke(
@@ -5446,12 +5446,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> _iceI_opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> _iceI_opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSObjectPrxS_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSObjectPrxSResult>(progress, cancel);
@@ -5461,7 +5461,7 @@ namespace Ice.seqMapping.AMD
 
             private const string _opSObjectPrxS_name = "opSObjectPrxS";
 
-            private void _iceI_opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opSObjectPrxS(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<MyClass_OpSObjectPrxSResult>(completed);
                 outAsync.invoke(
@@ -6676,19 +6676,19 @@ namespace Ice.seqMapping.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, Ice.Current current);
 
@@ -7702,7 +7702,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::Ice.Value?[] iceP_i;
+                Ice.Value?[] iceP_i;
                 iceP_i = AObjectSHelper.read(istr);
                 istr.readPendingValues();
                 istr.endEncapsulation();
@@ -7725,7 +7725,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::System.Collections.Generic.List<global::Ice.Value?> iceP_i;
+                global::System.Collections.Generic.List<Ice.Value?> iceP_i;
                 iceP_i = LObjectSHelper.read(istr);
                 istr.readPendingValues();
                 istr.endEncapsulation();
@@ -7748,7 +7748,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::Ice.ObjectPrx?[] iceP_i;
+                Ice.ObjectPrx?[] iceP_i;
                 iceP_i = AObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opAObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
@@ -7769,7 +7769,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::System.Collections.Generic.List<global::Ice.ObjectPrx?> iceP_i;
+                global::System.Collections.Generic.List<Ice.ObjectPrx?> iceP_i;
                 iceP_i = LObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opLObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
@@ -7790,7 +7790,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> iceP_i;
+                global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> iceP_i;
                 iceP_i = KObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opKObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
@@ -7811,7 +7811,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> iceP_i;
+                global::System.Collections.Generic.Queue<Ice.ObjectPrx?> iceP_i;
                 iceP_i = QObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opQObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
@@ -7832,7 +7832,7 @@ namespace Ice.seqMapping.AMD
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> iceP_i;
+                global::System.Collections.Generic.Stack<Ice.ObjectPrx?> iceP_i;
                 iceP_i = SObjectPrxSHelper.read(istr);
                 istr.endEncapsulation();
                 var result = await obj.opSObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);

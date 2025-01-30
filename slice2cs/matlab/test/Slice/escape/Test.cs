@@ -22,37 +22,37 @@
 
 namespace classdef
 {
-    namespace @break
+    namespace break
     {
         public enum bitand
         {
-            @break,
-            @case,
-            @catch,
+            break,
+            case,
+            catch,
             classdef,
-            @continue,
-            @else,
+            continue,
+            else,
             elseif,
             end,
             enumeration,
             events,
-            @for,
+            for,
             function,
             global,
-            @if,
+            if,
             methods,
             otherwise,
             parfor,
             persistent,
             properties,
-            @return,
+            return,
             spmd,
-            @switch,
-            @try,
-            @while,
+            switch,
+            try,
+            while,
             abs,
             and,
-            @char,
+            char,
             eq,
             length,
             size,
@@ -77,9 +77,9 @@ namespace classdef
 
         public sealed partial record class bitor
         {
-            public bitand @case = classdef.@break.bitand.@catch;
+            public bitand case = classdef.break.bitand.catch;
 
-            public int @continue = 1;
+            public int continue = 1;
 
             public int eq = 2;
 
@@ -92,10 +92,10 @@ namespace classdef
                 ice_initialize();
             }
 
-            public bitor(bitand @case, int @continue, int eq, int ne)
+            public bitor(bitand case, int continue, int eq, int ne)
             {
-                this.@case = @case;
-                this.@continue = @continue;
+                this.case = case;
+                this.continue = continue;
                 this.eq = eq;
                 this.ne = ne;
                 ice_initialize();
@@ -103,8 +103,8 @@ namespace classdef
 
             public bitor(Ice.InputStream istr)
             {
-                this.@case = (bitand)istr.readEnum(31);
-                this.@continue = istr.readInt();
+                this.case = (bitand)istr.readEnum(31);
+                this.continue = istr.readInt();
                 this.eq = istr.readInt();
                 this.ne = istr.readInt();
                 ice_initialize();
@@ -112,8 +112,8 @@ namespace classdef
 
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
-                ostr.writeEnum((int)this.@case, 31);
-                ostr.writeInt(this.@continue);
+                ostr.writeEnum((int)this.case, 31);
+                ostr.writeInt(this.continue);
                 ostr.writeInt(this.eq);
                 ostr.writeInt(this.ne);
             }
@@ -129,34 +129,34 @@ namespace classdef
         [Ice.SliceTypeId("::classdef::break::logical")]
         public partial class logical : Ice.Value
         {
-            public bitand @else = classdef.@break.bitand.enumeration;
+            public bitand else = classdef.break.bitand.enumeration;
 
-            public bitor @for;
+            public bitor for;
 
             public bool int64 = true;
 
             partial void ice_initialize();
 
-            public logical(bitand @else, bitor @for, bool int64)
+            public logical(bitand else, bitor for, bool int64)
             {
-                this.@else = @else;
-                global::System.ArgumentNullException.ThrowIfNull(@for);
-                this.@for = @for;
+                this.else = else;
+                global::System.ArgumentNullException.ThrowIfNull(for);
+                this.for = for;
                 this.int64 = int64;
                 ice_initialize();
             }
 
-            public logical(bitor @for)
+            public logical(bitor for)
             {
-                global::System.ArgumentNullException.ThrowIfNull(@for);
-                this.@for = @for;
+                global::System.ArgumentNullException.ThrowIfNull(for);
+                this.for = for;
                 ice_initialize();
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             public logical()
             {
-                this.@for = null!;
+                this.for = null!;
                 ice_initialize();
             }
 
@@ -166,8 +166,8 @@ namespace classdef
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeEnum((int)@else, 31);
-                bitor.ice_write(ostr_, @for);
+                ostr_.writeEnum((int)else, 31);
+                bitor.ice_write(ostr_, for);
                 ostr_.writeBool(int64);
                 ostr_.endSlice();
             }
@@ -175,8 +175,8 @@ namespace classdef
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                @else = (bitand)istr_.readEnum(31);
-                @for = new bitor(istr_);
+                else = (bitand)istr_.readEnum(31);
+                for = new bitor(istr_);
                 int64 = istr_.readBool();
                 istr_.endSlice();
             }
@@ -185,17 +185,17 @@ namespace classdef
         [Ice.SliceTypeId("::classdef::break::xor")]
         public partial class xor : logical
         {
-            public int @return = 1;
+            public int return = 1;
 
             partial void ice_initialize();
 
-            public xor(bitand @else, bitor @for, bool int64, int @return) : base(@else, @for, int64)
+            public xor(bitand else, bitor for, bool int64, int return) : base(else, for, int64)
             {
-                this.@return = @return;
+                this.return = return;
                 ice_initialize();
             }
 
-            public xor(bitor @for) : base(@for)
+            public xor(bitor for) : base(for)
             {
                 ice_initialize();
             }
@@ -212,7 +212,7 @@ namespace classdef
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, false);
-                ostr_.writeInt(@return);
+                ostr_.writeInt(return);
                 ostr_.endSlice();
                 base.iceWriteImpl(ostr_);
             }
@@ -220,29 +220,29 @@ namespace classdef
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                @return = istr_.readInt();
+                return = istr_.readInt();
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
             }
         }
 
         [Ice.SliceTypeId("::classdef::break::try")]
-        public partial class @try : Ice.Value
+        public partial class try : Ice.Value
         {
-            public int @while = 1;
+            public int while = 1;
 
             public int delete = 2;
 
             partial void ice_initialize();
 
-            public @try(int @while, int delete)
+            public try(int while, int delete)
             {
-                this.@while = @while;
+                this.while = while;
                 this.delete = delete;
                 ice_initialize();
             }
 
-            public @try()
+            public try()
             {
                 ice_initialize();
             }
@@ -253,7 +253,7 @@ namespace classdef
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeInt(@while);
+                ostr_.writeInt(while);
                 ostr_.writeInt(delete);
                 ostr_.endSlice();
             }
@@ -261,18 +261,18 @@ namespace classdef
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                @while = istr_.readInt();
+                while = istr_.readInt();
                 delete = istr_.readInt();
                 istr_.endSlice();
             }
         }
 
         [Ice.SliceTypeId("::classdef::break::properties")]
-        public partial class properties : @try
+        public partial class properties : try
         {
-            public int @if = 2;
+            public int if = 2;
 
-            public xor? @catch;
+            public xor? catch;
 
             public bitor[] spmd;
 
@@ -280,10 +280,10 @@ namespace classdef
 
             partial void ice_initialize();
 
-            public properties(int @while, int delete, int @if, xor? @catch, bitor[] spmd, global::System.Collections.Generic.Dictionary<int, bitor> otherwise) : base(@while, delete)
+            public properties(int while, int delete, int if, xor? catch, bitor[] spmd, global::System.Collections.Generic.Dictionary<int, bitor> otherwise) : base(while, delete)
             {
-                this.@if = @if;
-                this.@catch = @catch;
+                this.if = if;
+                this.catch = catch;
                 global::System.ArgumentNullException.ThrowIfNull(spmd);
                 this.spmd = spmd;
                 global::System.ArgumentNullException.ThrowIfNull(otherwise);
@@ -314,8 +314,8 @@ namespace classdef
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, false);
-                ostr_.writeInt(@if);
-                ostr_.writeValue(@catch);
+                ostr_.writeInt(if);
+                ostr_.writeValue(catch);
                 parforHelper.write(ostr_, spmd);
                 switchHelper.write(ostr_, otherwise);
                 ostr_.endSlice();
@@ -325,8 +325,8 @@ namespace classdef
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                @if = istr_.readInt();
-                istr_.readValue((xor? v) => { this.@catch = v; });
+                if = istr_.readInt();
+                istr_.readValue((xor? v) => { this.catch = v; });
                 spmd = parforHelper.read(istr_);
                 otherwise = switchHelper.read(istr_);
                 istr_.endSlice();
@@ -339,7 +339,7 @@ namespace classdef
         {
             public string identifier = "1";
 
-            public string ice_message_ = "2";
+            public string message = "2";
 
             public string stack = "3";
 
@@ -349,12 +349,12 @@ namespace classdef
 
             public logical? end;
 
-            public persistent(string identifier, string ice_message_, string stack, string cause, string type, logical? end)
+            public persistent(string identifier, string message, string stack, string cause, string type, logical? end)
             {
                 global::System.ArgumentNullException.ThrowIfNull(identifier);
                 this.identifier = identifier;
-                global::System.ArgumentNullException.ThrowIfNull(ice_message_);
-                this.ice_message_ = ice_message_;
+                global::System.ArgumentNullException.ThrowIfNull(message);
+                this.message = message;
                 global::System.ArgumentNullException.ThrowIfNull(stack);
                 this.stack = stack;
                 global::System.ArgumentNullException.ThrowIfNull(cause);
@@ -374,7 +374,7 @@ namespace classdef
             {
                 ostr_.startSlice("::classdef::break::persistent", -1, true);
                 ostr_.writeString(identifier);
-                ostr_.writeString(ice_message_);
+                ostr_.writeString(message);
                 ostr_.writeString(stack);
                 ostr_.writeString(cause);
                 ostr_.writeString(type);
@@ -386,7 +386,7 @@ namespace classdef
             {
                 istr_.startSlice();
                 identifier = istr_.readString();
-                ice_message_ = istr_.readString();
+                message = istr_.readString();
                 stack = istr_.readString();
                 cause = istr_.readString();
                 type = istr_.readString();
@@ -405,7 +405,7 @@ namespace classdef
         {
             public int enumeration = 1;
 
-            public global(string identifier, string ice_message_, string stack, string cause, string type, logical? end, int enumeration) : base(identifier, ice_message_, stack, cause, type, end)
+            public global(string identifier, string message, string stack, string cause, string type, logical? end, int enumeration) : base(identifier, message, stack, cause, type, end)
             {
                 this.enumeration = enumeration;
             }
@@ -442,7 +442,7 @@ namespace classdef
 
             void delete(Ice.Current current);
 
-            void ice_checkedCast(Ice.Current current);
+            void checkedCast(Ice.Current current);
         }
 
         public abstract class methods
@@ -454,7 +454,7 @@ namespace classdef
 
 namespace classdef
 {
-    namespace @break
+    namespace break
     {
         public interface elseifPrx : Ice.ObjectPrx
         {
@@ -470,7 +470,7 @@ namespace classdef
 
             global::System.Threading.Tasks.Task deleteAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void ice_checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            void checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task checkedCastAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
@@ -479,7 +479,7 @@ namespace classdef
 
 namespace classdef
 {
-    namespace @break
+    namespace break
     {
         public sealed class parforHelper
         {
@@ -588,7 +588,7 @@ namespace classdef
                 }
             }
 
-            public void ice_checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public void checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -752,7 +752,7 @@ namespace classdef
 
 namespace classdef
 {
-    namespace @break
+    namespace break
     {
         public abstract class elseifDisp_ : Ice.ObjectImpl, elseif
         {
@@ -762,7 +762,7 @@ namespace classdef
 
             public abstract void delete(Ice.Current current);
 
-            public abstract void ice_checkedCast(Ice.Current current);
+            public abstract void checkedCast(Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -787,7 +787,7 @@ namespace classdef
 
 namespace classdef
 {
-    namespace @break
+    namespace break
     {
         public partial interface elseif
         {
@@ -827,7 +827,7 @@ namespace classdef
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
-                obj.ice_checkedCast(request.current);
+                obj.checkedCast(request.current);
                 return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }

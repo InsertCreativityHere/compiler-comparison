@@ -184,7 +184,7 @@ namespace Ice.stream
         {
             public MyClass? c;
 
-            public global::Ice.Value? o;
+            public Ice.Value? o;
 
             public LargeStruct s;
 
@@ -212,7 +212,7 @@ namespace Ice.stream
 
             partial void ice_initialize();
 
-            public MyClass(MyClass? c, global::Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+            public MyClass(MyClass? c, Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
             {
                 this.c = c;
                 this.o = o;
@@ -317,7 +317,7 @@ namespace Ice.stream
             {
                 istr_.startSlice();
                 istr_.readValue((MyClass? v) => { this.c = v; });
-                istr_.readValue((global::Ice.Value? v) => { this.o = v; });
+                istr_.readValue((Ice.Value? v) => { this.o = v; });
                 s = new LargeStruct(istr_);
                 seq1 = global::Ice.BoolSeqHelper.read(istr_);
                 seq2 = global::Ice.ByteSeqHelper.read(istr_);
@@ -1331,7 +1331,7 @@ namespace Ice.stream
 
         public sealed class ObjectStackHelper
         {
-            public static void write(Ice.OutputStream ostr, global::Ice.Value?[] v)
+            public static void write(Ice.OutputStream ostr, Ice.Value?[] v)
             {
                 if (v is null)
                 {
@@ -1347,9 +1347,9 @@ namespace Ice.stream
                 }
             }
 
-            public static global::Ice.Value?[] read(Ice.InputStream istr)
+            public static Ice.Value?[] read(Ice.InputStream istr)
             {
-                global::Ice.Value?[] v;
+                Ice.Value?[] v;
                 int v_lenx = istr.readAndCheckSeqSize(1);
                 v = new Ice.Value?[v_lenx];
                 for (int ix = 0; ix < v_lenx; ++ix)
