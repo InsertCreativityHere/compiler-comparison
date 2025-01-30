@@ -41,7 +41,7 @@ namespace IceStorm
 
     struct LinkInfo;
 
-    /// A sequence of {@link LinkInfo} objects.
+    /// A sequence of LinkInfo objects.
     using LinkInfoSeq = std::vector<LinkInfo>;
 
     /// This dictionary represents quality of service parameters.

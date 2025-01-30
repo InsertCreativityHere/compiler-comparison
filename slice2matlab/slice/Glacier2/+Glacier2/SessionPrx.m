@@ -8,7 +8,7 @@
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 %
-% See also Router, Glacier2.SessionManager
+% See also Glacier2.Router, Glacier2.SessionManager
 
 % Copyright (c) ZeroC, Inc.
 % Generated from Session.ice by slice2matlab version 3.8.0-alpha.0

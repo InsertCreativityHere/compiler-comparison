@@ -39,7 +39,7 @@ namespace Ice
 namespace Ice
 {
     /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-    /// servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
+    /// servers to get the locator registry proxy. <p class="Note">The Locator interface is intended to be used
     /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
     /// of this interface directly.
     class ICE_API LocatorPrx : public Ice::Proxy<LocatorPrx, Ice::ObjectPrx>
@@ -168,7 +168,7 @@ namespace Ice
     };
 
     /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-    /// locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+    /// locator. <p class="Note"> The LocatorRegistry interface is intended to be used by Ice internals and by
     /// locator implementations. Regular user code should not attempt to use any functionality of this interface
     /// directly.
     class ICE_API LocatorRegistryPrx : public Ice::Proxy<LocatorRegistryPrx, Ice::ObjectPrx>
@@ -489,7 +489,7 @@ namespace Ice
 namespace Ice
 {
     /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-    /// servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
+    /// servers to get the locator registry proxy. <p class="Note">The Locator interface is intended to be used
     /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
     /// of this interface directly.
     class ICE_API Locator : public virtual Ice::Object
@@ -551,7 +551,7 @@ namespace Ice
     using LocatorPtr = std::shared_ptr<Locator>;
 
     /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-    /// locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+    /// locator. <p class="Note"> The LocatorRegistry interface is intended to be used by Ice internals and by
     /// locator implementations. Regular user code should not attempt to use any functionality of this interface
     /// directly.
     class ICE_API LocatorRegistry : public virtual Ice::Object

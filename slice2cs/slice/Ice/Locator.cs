@@ -255,7 +255,7 @@ namespace Ice
 {
     /// <summary>
     /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-    /// servers to get the locator registry proxy. The <see cref="Locator" /> interface is intended to be used
+    /// servers to get the locator registry proxy. The  interface is intended to be used
     /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
     /// of this interface directly.
     /// </summary>
@@ -344,7 +344,7 @@ namespace Ice
 
     /// <summary>
     /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-    /// locator.  The <see cref="LocatorRegistry" /> interface is intended to be used by Ice internals and by
+    /// locator.  The  interface is intended to be used by Ice internals and by
     /// locator implementations. Regular user code should not attempt to use any functionality of this interface
     /// directly.
     /// </summary>

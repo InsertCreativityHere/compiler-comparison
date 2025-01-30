@@ -23,6 +23,13 @@ namespace
 
 namespace IceGrid
 {
+    global $IceGrid__t_Registry;
+    global $IceGrid__t_RegistryPrx;
+    $IceGrid__t_RegistryPrx = IcePHP_declareProxy('::IceGrid::Registry');
+}
+
+namespace IceGrid
+{
     global $IceGrid__t_ServerState;
     class ServerState
     {

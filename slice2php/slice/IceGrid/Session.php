@@ -20,6 +20,13 @@ namespace
 
 namespace IceGrid
 {
+    global $IceGrid__t_Registry;
+    global $IceGrid__t_RegistryPrx;
+    $IceGrid__t_RegistryPrx = IcePHP_declareProxy('::IceGrid::Registry');
+}
+
+namespace IceGrid
+{
     global $IceGrid__t_Session;
     global $IceGrid__t_SessionPrx;
     $IceGrid__t_SessionPrx = IcePHP_declareProxy('::IceGrid::Session');

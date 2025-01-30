@@ -35,7 +35,7 @@ namespace IceMX
 
     struct MetricsFailures;
 
-    /// A sequence of {@link MetricsFailures}.
+    /// A sequence of MetricsFailures.
     using MetricsFailuresSeq = std::vector<MetricsFailures>;
 
     /// A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
@@ -444,7 +444,7 @@ namespace IceMX
         /// The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
         std::int32_t inUseForUser = 0;
         /// The number of threads which are currently performing other activities. These are all other that are not
-        /// counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
+        /// counted with ::IceMX::ThreadMetrics#inUseForUser or ::IceMX::ThreadMetrics#inUseForIO, such as DNS lookups, garbage collection).
         std::int32_t inUseForOther = 0;
 
         ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
@@ -517,7 +517,7 @@ namespace IceMX
 
     /// Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
     /// collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-    /// embedded within {@link InvocationMetrics}.
+    /// embedded within InvocationMetrics.
     class ICE_CLASS(ICE_API) ChildInvocationMetrics : public Metrics
     {
     public:
@@ -573,7 +573,7 @@ namespace IceMX
     };
 
     /// Provides information on invocations that are collocated. Collocated metrics are embedded within
-    /// {@link InvocationMetrics}.
+    /// InvocationMetrics.
     class ICE_CLASS(ICE_API) CollocatedMetrics : public ChildInvocationMetrics
     {
     public:using ChildInvocationMetrics::ChildInvocationMetrics;
@@ -598,7 +598,7 @@ namespace IceMX
     };
 
     /// Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-    /// within {@link InvocationMetrics}.
+    /// within InvocationMetrics.
     class ICE_CLASS(ICE_API) RemoteMetrics : public ChildInvocationMetrics
     {
     public:using ChildInvocationMetrics::ChildInvocationMetrics;

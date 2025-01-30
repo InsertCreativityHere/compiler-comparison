@@ -26,6 +26,9 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 # Start of module Glacier2
 __name__ = 'Glacier2'
 
+if 'Router' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_RouterPrx = IcePy.declareProxy('::Glacier2::Router')
+
 if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
     _M_Glacier2.CannotCreateSessionException = None
     class CannotCreateSessionException(Ice.UserException):

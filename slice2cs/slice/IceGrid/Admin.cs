@@ -1633,7 +1633,7 @@ namespace IceGrid
         /// registry.
         /// </summary>
         /// <param name="objects">
-        /// The objects registered with the <see cref="Admin" /> interface (not through the deployment
+        /// The objects registered with the  interface (not through the deployment
         /// mechanism).
         /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -1641,7 +1641,7 @@ namespace IceGrid
 
         /// <summary>
         /// The objectAdded operation is called to notify an observer when an object was added to the
-        /// <see cref="Admin" /> interface.
+        /// interface.
         /// </summary>
         /// <param name="info">
         /// The details of the added object.
@@ -1650,7 +1650,7 @@ namespace IceGrid
         void objectAdded(ObjectInfo info, Ice.Current current);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the <see cref="Admin" />
+        /// objectUpdated is called to notify an observer when an object registered with the
         /// interface was updated.
         /// </summary>
         /// <param name="info">
@@ -1660,7 +1660,7 @@ namespace IceGrid
         void objectUpdated(ObjectInfo info, Ice.Current current);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the <see cref="Admin" />
+        /// objectRemoved is called to notify an observer when an object registered with the
         /// interface was removed.
         /// </summary>
         /// <param name="id">
@@ -4016,7 +4016,7 @@ namespace IceGrid
         /// registry.
         /// </summary>
         /// <param name="objects">
-        /// The objects registered with the <see cref="Admin" /> interface (not through the deployment
+        /// The objects registered with the  interface (not through the deployment
         /// mechanism).
         /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4027,7 +4027,7 @@ namespace IceGrid
         /// registry.
         /// </summary>
         /// <param name="objects">
-        /// The objects registered with the <see cref="Admin" /> interface (not through the deployment
+        /// The objects registered with the  interface (not through the deployment
         /// mechanism).
         /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -4038,7 +4038,7 @@ namespace IceGrid
 
         /// <summary>
         /// The objectAdded operation is called to notify an observer when an object was added to the
-        /// <see cref="Admin" /> interface.
+        /// interface.
         /// </summary>
         /// <param name="info">
         /// The details of the added object.
@@ -4048,7 +4048,7 @@ namespace IceGrid
 
         /// <summary>
         /// The objectAdded operation is called to notify an observer when an object was added to the
-        /// <see cref="Admin" /> interface.
+        /// interface.
         /// </summary>
         /// <param name="info">
         /// The details of the added object.
@@ -4060,7 +4060,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectAddedAsync(ObjectInfo info, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the <see cref="Admin" />
+        /// objectUpdated is called to notify an observer when an object registered with the
         /// interface was updated.
         /// </summary>
         /// <param name="info">
@@ -4070,7 +4070,7 @@ namespace IceGrid
         void objectUpdated(ObjectInfo info, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the <see cref="Admin" />
+        /// objectUpdated is called to notify an observer when an object registered with the
         /// interface was updated.
         /// </summary>
         /// <param name="info">
@@ -4083,7 +4083,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectUpdatedAsync(ObjectInfo info, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the <see cref="Admin" />
+        /// objectRemoved is called to notify an observer when an object registered with the
         /// interface was removed.
         /// </summary>
         /// <param name="id">
@@ -4093,7 +4093,7 @@ namespace IceGrid
         void objectRemoved(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the <see cref="Admin" />
+        /// objectRemoved is called to notify an observer when an object registered with the
         /// interface was removed.
         /// </summary>
         /// <param name="id">
@@ -4108,7 +4108,7 @@ namespace IceGrid
 
     /// <summary>
     /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-    /// sessions are created either via the <see cref="Registry" /> object or via the registry admin
+    /// sessions are created either via the  object or via the registry admin
     /// SessionManager object.
     /// </summary>
     /// <seealso cref="Registry" />

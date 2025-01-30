@@ -40,6 +40,8 @@
 
 namespace IceGrid
 {
+    class RegistryPrx;
+
     /// An enumeration representing the state of the server.
     enum class ServerState : std::uint8_t
     {
@@ -81,14 +83,14 @@ namespace IceGrid
 
     struct RegistryInfo;
 
-    /// A sequence of {@link RegistryInfo} structures.
+    /// A sequence of RegistryInfo structures.
     using RegistryInfoSeq = std::vector<RegistryInfo>;
 
     struct LoadInfo;
 
     struct ApplicationInfo;
 
-    /// A sequence of {@link ApplicationInfo} structures.
+    /// A sequence of ApplicationInfo structures.
     using ApplicationInfoSeq = std::vector<ApplicationInfo>;
 
     struct ApplicationUpdateInfo;
@@ -2198,14 +2200,14 @@ namespace IceGrid
     public:
         /// <code>objectInit</code> is called after the registration of an observer to indicate the state of the
         /// registry.
-        /// @param objects The objects registered with the {@link Admin} interface (not through the deployment
+        /// @param objects The objects registered with the ::IceGrid::Admin interface (not through the deployment
         /// mechanism).
         /// @param context The Context map to send with the invocation.
         void objectInit(const ObjectInfoSeq& objects, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// <code>objectInit</code> is called after the registration of an observer to indicate the state of the
         /// registry.
-        /// @param objects The objects registered with the {@link Admin} interface (not through the deployment
+        /// @param objects The objects registered with the ::IceGrid::Admin interface (not through the deployment
         /// mechanism).
         /// @param context The Context map to send with the invocation.
         /// @return The future object for the invocation.
@@ -2213,7 +2215,7 @@ namespace IceGrid
 
         /// <code>objectInit</code> is called after the registration of an observer to indicate the state of the
         /// registry.
-        /// @param objects The objects registered with the {@link Admin} interface (not through the deployment
+        /// @param objects The objects registered with the ::IceGrid::Admin interface (not through the deployment
         /// mechanism).
         /// @param response The response callback.
         /// @param exception The exception callback.
@@ -2228,20 +2230,20 @@ namespace IceGrid
         /// \endcond
 
         /// The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-        /// {@link Admin} interface.
+        /// ::IceGrid::Admin interface.
         /// @param info The details of the added object.
         /// @param context The Context map to send with the invocation.
         void objectAdded(const ObjectInfo& info, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-        /// {@link Admin} interface.
+        /// ::IceGrid::Admin interface.
         /// @param info The details of the added object.
         /// @param context The Context map to send with the invocation.
         /// @return The future object for the invocation.
         [[nodiscard]] std::future<void> objectAddedAsync(const ObjectInfo& info, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-        /// {@link Admin} interface.
+        /// ::IceGrid::Admin interface.
         /// @param info The details of the added object.
         /// @param response The response callback.
         /// @param exception The exception callback.
@@ -2255,20 +2257,20 @@ namespace IceGrid
         void _iceI_objectAdded(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const Ice::Context&) const;
         /// \endcond
 
-        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was updated.
         /// @param info The details of the updated object.
         /// @param context The Context map to send with the invocation.
         void objectUpdated(const ObjectInfo& info, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was updated.
         /// @param info The details of the updated object.
         /// @param context The Context map to send with the invocation.
         /// @return The future object for the invocation.
         [[nodiscard]] std::future<void> objectUpdatedAsync(const ObjectInfo& info, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was updated.
         /// @param info The details of the updated object.
         /// @param response The response callback.
@@ -2283,20 +2285,20 @@ namespace IceGrid
         void _iceI_objectUpdated(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const Ice::Context&) const;
         /// \endcond
 
-        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was removed.
         /// @param id The identity of the removed object.
         /// @param context The Context map to send with the invocation.
         void objectRemoved(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was removed.
         /// @param id The identity of the removed object.
         /// @param context The Context map to send with the invocation.
         /// @return The future object for the invocation.
         [[nodiscard]] std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was removed.
         /// @param id The identity of the removed object.
         /// @param response The response callback.
@@ -2354,7 +2356,7 @@ namespace IceGrid
     };
 
     /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-    /// sessions are created either via the {@link Registry} object or via the registry admin
+    /// sessions are created either via the Registry object or via the registry admin
     /// <code>SessionManager</code> object.
     /// @see Registry
     class ICEGRID_API AdminSessionPrx : public Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
@@ -4091,7 +4093,7 @@ namespace IceGrid
 
         /// <code>objectInit</code> is called after the registration of an observer to indicate the state of the
         /// registry.
-        /// @param objects The objects registered with the {@link Admin} interface (not through the deployment
+        /// @param objects The objects registered with the ::IceGrid::Admin interface (not through the deployment
         /// mechanism).
         /// @param current The Current object for the invocation.
         virtual void objectInit(ObjectInfoSeq objects, const Ice::Current& current) = 0;
@@ -4101,7 +4103,7 @@ namespace IceGrid
         /// \endcond
 
         /// The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-        /// {@link Admin} interface.
+        /// ::IceGrid::Admin interface.
         /// @param info The details of the added object.
         /// @param current The Current object for the invocation.
         virtual void objectAdded(ObjectInfo info, const Ice::Current& current) = 0;
@@ -4110,7 +4112,7 @@ namespace IceGrid
         void _iceD_objectAdded(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
         /// \endcond
 
-        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectUpdated</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was updated.
         /// @param info The details of the updated object.
         /// @param current The Current object for the invocation.
@@ -4120,7 +4122,7 @@ namespace IceGrid
         void _iceD_objectUpdated(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
         /// \endcond
 
-        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+        /// <code>objectRemoved</code> is called to notify an observer when an object registered with the ::IceGrid::Admin
         /// interface was removed.
         /// @param id The identity of the removed object.
         /// @param current The Current object for the invocation.
@@ -4136,7 +4138,7 @@ namespace IceGrid
     using ObjectObserverPtr = std::shared_ptr<ObjectObserver>;
 
     /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-    /// sessions are created either via the {@link Registry} object or via the registry admin
+    /// sessions are created either via the Registry object or via the registry admin
     /// <code>SessionManager</code> object.
     /// @see Registry
     class ICEGRID_API AdminSession : public virtual ::Glacier2::Session

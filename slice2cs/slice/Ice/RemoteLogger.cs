@@ -28,19 +28,19 @@ namespace Ice
     public enum LogMessageType
     {
         /// <summary>
-        /// The <see cref="RemoteLogger" /> received a print message.
+        /// The  received a print message.
         /// </summary>
         PrintMessage,
         /// <summary>
-        /// The <see cref="RemoteLogger" /> received a trace message.
+        /// The  received a trace message.
         /// </summary>
         TraceMessage,
         /// <summary>
-        /// The <see cref="RemoteLogger" /> received a warning message.
+        /// The  received a warning message.
         /// </summary>
         WarningMessage,
         /// <summary>
-        /// The <see cref="RemoteLogger" /> received an error message.
+        /// The  received an error message.
         /// </summary>
         ErrorMessage
     }
@@ -237,7 +237,7 @@ namespace Ice
 {
     /// <summary>
     /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-    /// to the local <see cref="RemoteLogger" /> of another Ice application.
+    /// to the local  of another Ice application.
     /// </summary>
     public interface RemoteLoggerPrx : Ice.ObjectPrx
     {
@@ -292,7 +292,7 @@ namespace Ice
 
     /// <summary>
     /// The interface of the admin object that allows an Ice application the attach its
-    /// <see cref="RemoteLogger" /> to the <see cref="RemoteLogger" /> of this admin object's Ice communicator.
+    /// to the  of this admin object's Ice communicator.
     /// </summary>
     public interface LoggerAdminPrx : Ice.ObjectPrx
     {

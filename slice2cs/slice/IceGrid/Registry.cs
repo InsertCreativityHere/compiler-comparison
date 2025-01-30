@@ -197,7 +197,7 @@ namespace IceGrid
 
         /// <summary>
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call <see cref="Session.keepAlive" /> (resp. <see cref="AdminSession.keepAlive" />) to keep
+        /// send heartbeats (using ACM) or call  (resp. ) to keep
         /// a session alive in the IceGrid registry.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -512,7 +512,7 @@ namespace IceGrid
 
         /// <summary>
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call <see cref="Session.keepAlive" /> (resp. <see cref="AdminSession.keepAlive" />) to keep
+        /// send heartbeats (using ACM) or call  (resp. ) to keep
         /// a session alive in the IceGrid registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -524,7 +524,7 @@ namespace IceGrid
 
         /// <summary>
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call <see cref="Session.keepAlive" /> (resp. <see cref="AdminSession.keepAlive" />) to keep
+        /// send heartbeats (using ACM) or call  (resp. ) to keep
         /// a session alive in the IceGrid registry.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -536,7 +536,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// The IceGrid locator interface provides access to the <see cref="Query" /> and <see cref="Registry" /> object of the IceGrid
+    /// The IceGrid locator interface provides access to the  and  object of the IceGrid
     /// registry.
     /// </summary>
     /// <seealso cref="Query" />

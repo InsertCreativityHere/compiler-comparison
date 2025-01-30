@@ -37,13 +37,15 @@
 
 namespace IceGrid
 {
+    class RegistryPrx;
+
     class SessionPrx;
 }
 
 namespace IceGrid
 {
     /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-    /// via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
+    /// via the Registry object or via the registry client <code>SessionManager</code> object.
     /// @see Registry
     class ICEGRID_API SessionPrx : public Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
     {
@@ -265,7 +267,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-    /// via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
+    /// via the Registry object or via the registry client <code>SessionManager</code> object.
     /// @see Registry
     class ICEGRID_API Session : public virtual ::Glacier2::Session
     {

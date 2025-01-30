@@ -83,8 +83,8 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// icegridadmin provides a <see cref="FileParser" /> object to transform XML files into
-    /// <see cref="ApplicationDescriptor" /> objects.
+    /// icegridadmin provides a  object to transform XML files into
+    /// objects.
     /// </summary>
     public interface FileParserPrx : Ice.ObjectPrx
     {

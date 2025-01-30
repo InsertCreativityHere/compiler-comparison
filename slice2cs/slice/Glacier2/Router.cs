@@ -60,8 +60,8 @@ namespace Glacier2
         string getCategoryForClient(Ice.Current current);
 
         /// <summary>
-        /// Create a per-client session with the router. If a <see cref="SessionManager" /> has been installed, a proxy to a
-        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -89,8 +89,8 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a <see cref="SessionManager" /> has been installed, a proxy to a
-        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -179,8 +179,8 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Create a per-client session with the router. If a <see cref="SessionManager" /> has been installed, a proxy to a
-        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -194,7 +194,7 @@ namespace Glacier2
         /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>
-        /// A proxy for the newly created session, or null if no <see cref="SessionManager" /> has been installed.
+        /// A proxy for the newly created session, or null if no  has been installed.
         /// </returns>
         /// <exception cref="Glacier2.CannotCreateSessionException">
         /// Raised if the session cannot be created.
@@ -209,8 +209,8 @@ namespace Glacier2
         SessionPrx? createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a per-client session with the router. If a <see cref="SessionManager" /> has been installed, a proxy to a
-        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -240,8 +240,8 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a <see cref="SessionManager" /> has been installed, a proxy to a
-        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -249,7 +249,7 @@ namespace Glacier2
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>
-        /// A proxy for the newly created session, or null if no <see cref="SessionManager" /> has been installed.
+        /// A proxy for the newly created session, or null if no  has been installed.
         /// </returns>
         /// <exception cref="Glacier2.CannotCreateSessionException">
         /// Raised if the session cannot be created.
@@ -265,8 +265,8 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a <see cref="SessionManager" /> has been installed, a proxy to a
-        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session

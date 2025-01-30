@@ -21,6 +21,13 @@ namespace
 
 namespace Glacier2
 {
+    global $Glacier2__t_Router;
+    global $Glacier2__t_RouterPrx;
+    $Glacier2__t_RouterPrx = IcePHP_declareProxy('::Glacier2::Router');
+}
+
+namespace Glacier2
+{
     global $Glacier2__t_CannotCreateSessionException;
     class CannotCreateSessionException extends \Ice\UserException
     {

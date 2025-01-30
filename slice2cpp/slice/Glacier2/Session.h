@@ -38,6 +38,8 @@
 
 namespace Glacier2
 {
+    class RouterPrx;
+
     class SessionPrx;
 
     class StringSetPrx;
@@ -53,7 +55,7 @@ namespace Glacier2
 
 namespace Glacier2
 {
-    /// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+    /// A client-visible session object, which is tied to the lifecycle of a Router.
     /// @see Router
     /// @see SessionManager
     class GLACIER2_API SessionPrx : public Ice::Proxy<SessionPrx, Ice::ObjectPrx>
@@ -124,7 +126,7 @@ namespace Glacier2
     };
 
     /// An object for managing the set of identity constraints for specific parts of object identity on a
-    /// {@link Session}.
+    /// Session.
     /// @see Session
     /// @see SessionControl
     class GLACIER2_API StringSetPrx : public Ice::Proxy<StringSetPrx, Ice::ObjectPrx>
@@ -248,7 +250,7 @@ namespace Glacier2
         /// \endcond
     };
 
-    /// An object for managing the set of object identity constraints on a {@link Session}.
+    /// An object for managing the set of object identity constraints on a Session.
     /// @see Session
     /// @see SessionControl
     class GLACIER2_API IdentitySetPrx : public Ice::Proxy<IdentitySetPrx, Ice::ObjectPrx>
@@ -375,7 +377,7 @@ namespace Glacier2
         /// \endcond
     };
 
-    /// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+    /// An administrative session control object, which is tied to the lifecycle of a Session.
     /// @see Session
     class GLACIER2_API SessionControlPrx : public Ice::Proxy<SessionControlPrx, Ice::ObjectPrx>
     {
@@ -536,8 +538,8 @@ namespace Glacier2
         /// \endcond
     };
 
-    /// The session manager for username/password authenticated users that is responsible for managing {@link Session}
-    /// objects. New session objects are created by the {@link Router} object calling on an application-provided
+    /// The session manager for username/password authenticated users that is responsible for managing Session
+    /// objects. New session objects are created by the Router object calling on an application-provided
     /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
     /// the client.
     /// @see Router
@@ -546,7 +548,7 @@ namespace Glacier2
     {
     public:
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// {@link CannotCreateSessionException} if the session cannot be created.
+        /// ::Glacier2::CannotCreateSessionException if the session cannot be created.
         /// @param userId The user id for the session.
         /// @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
         /// are not configured.
@@ -556,7 +558,7 @@ namespace Glacier2
         std::optional<SessionPrx> create(std::string_view userId, const std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// {@link CannotCreateSessionException} if the session cannot be created.
+        /// ::Glacier2::CannotCreateSessionException if the session cannot be created.
         /// @param userId The user id for the session.
         /// @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
         /// are not configured.
@@ -565,7 +567,7 @@ namespace Glacier2
         [[nodiscard]] std::future<std::optional<SessionPrx>> createAsync(std::string_view userId, const std::optional<SessionControlPrx>& control, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// {@link CannotCreateSessionException} if the session cannot be created.
+        /// ::Glacier2::CannotCreateSessionException if the session cannot be created.
         /// @param userId The user id for the session.
         /// @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
         /// are not configured.
@@ -623,8 +625,8 @@ namespace Glacier2
         /// \endcond
     };
 
-    /// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
-    /// session objects are created by the {@link Router} object calling on an application-provided session manager. If
+    /// The session manager for SSL authenticated users that is responsible for managing Session objects. New
+    /// session objects are created by the Router object calling on an application-provided session manager. If
     /// no session manager is provided by the application, no client-visible sessions are passed to the client.
     /// @see Router
     /// @see Session
@@ -752,7 +754,7 @@ namespace Glacier2
 
 namespace Glacier2
 {
-    /// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+    /// A client-visible session object, which is tied to the lifecycle of a Router.
     /// @see Router
     /// @see SessionManager
     class GLACIER2_API Session : public virtual Ice::Object
@@ -788,7 +790,7 @@ namespace Glacier2
     using SessionPtr = std::shared_ptr<Session>;
 
     /// An object for managing the set of identity constraints for specific parts of object identity on a
-    /// {@link Session}.
+    /// Session.
     /// @see Session
     /// @see SessionControl
     class GLACIER2_API StringSet : public virtual Ice::Object
@@ -843,7 +845,7 @@ namespace Glacier2
 
     using StringSetPtr = std::shared_ptr<StringSet>;
 
-    /// An object for managing the set of object identity constraints on a {@link Session}.
+    /// An object for managing the set of object identity constraints on a Session.
     /// @see Session
     /// @see SessionControl
     class GLACIER2_API IdentitySet : public virtual Ice::Object
@@ -899,7 +901,7 @@ namespace Glacier2
 
     using IdentitySetPtr = std::shared_ptr<IdentitySet>;
 
-    /// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+    /// An administrative session control object, which is tied to the lifecycle of a Session.
     /// @see Session
     class GLACIER2_API SessionControl : public virtual Ice::Object
     {
@@ -969,8 +971,8 @@ namespace Glacier2
 
     using SessionControlPtr = std::shared_ptr<SessionControl>;
 
-    /// The session manager for username/password authenticated users that is responsible for managing {@link Session}
-    /// objects. New session objects are created by the {@link Router} object calling on an application-provided
+    /// The session manager for username/password authenticated users that is responsible for managing Session
+    /// objects. New session objects are created by the Router object calling on an application-provided
     /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
     /// the client.
     /// @see Router
@@ -995,7 +997,7 @@ namespace Glacier2
         static const char* ice_staticId() noexcept;
 
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// {@link CannotCreateSessionException} if the session cannot be created.
+        /// ::Glacier2::CannotCreateSessionException if the session cannot be created.
         /// @param userId The user id for the session.
         /// @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
         /// are not configured.
@@ -1013,8 +1015,8 @@ namespace Glacier2
 
     using SessionManagerPtr = std::shared_ptr<SessionManager>;
 
-    /// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
-    /// session objects are created by the {@link Router} object calling on an application-provided session manager. If
+    /// The session manager for SSL authenticated users that is responsible for managing Session objects. New
+    /// session objects are created by the Router object calling on an application-provided session manager. If
     /// no session manager is provided by the application, no client-visible sessions are passed to the client.
     /// @see Router
     /// @see Session

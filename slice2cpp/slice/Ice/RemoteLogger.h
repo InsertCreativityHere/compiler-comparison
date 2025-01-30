@@ -31,24 +31,24 @@ namespace Ice
     /// An enumeration representing the different types of log messages.
     enum class LogMessageType : std::uint8_t
     {
-        /// The {@link RemoteLogger} received a print message.
+        /// The ::Ice::RemoteLogger received a print message.
         PrintMessage,
-        /// The {@link RemoteLogger} received a trace message.
+        /// The ::Ice::RemoteLogger received a trace message.
         TraceMessage,
-        /// The {@link RemoteLogger} received a warning message.
+        /// The ::Ice::RemoteLogger received a warning message.
         WarningMessage,
-        /// The {@link RemoteLogger} received an error message.
+        /// The ::Ice::RemoteLogger received an error message.
         ErrorMessage
     };
 
     ICE_API std::ostream& operator<<(std::ostream&, LogMessageType);
 
-    /// A sequence of {@link LogMessageType}.
+    /// A sequence of LogMessageType.
     using LogMessageTypeSeq = std::vector<LogMessageType>;
 
     struct LogMessage;
 
-    /// A sequence of {@link LogMessage}.
+    /// A sequence of LogMessage.
     using LogMessageSeq = std::list<LogMessage>;
 
     class RemoteLoggerPrx;
@@ -59,7 +59,7 @@ namespace Ice
 namespace Ice
 {
     /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-    /// to the local {@link RemoteLogger} of another Ice application.
+    /// to the local RemoteLogger of another Ice application.
     class ICE_API RemoteLoggerPrx : public Ice::Proxy<RemoteLoggerPrx, Ice::ObjectPrx>
     {
     public:
@@ -159,7 +159,7 @@ namespace Ice
     };
 
     /// The interface of the admin object that allows an Ice application the attach its
-    /// {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+    /// RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
     class ICE_API LoggerAdminPrx : public Ice::Proxy<LoggerAdminPrx, Ice::ObjectPrx>
     {
     public:
@@ -333,9 +333,9 @@ namespace Ice
     /// A complete log message.
     struct LogMessage
     {
-        /// The type of message sent to the {@link RemoteLogger}.
+        /// The type of message sent to the ::Ice::RemoteLogger.
         ::Ice::LogMessageType type;
-        /// The date and time when the {@link RemoteLogger} received this message, expressed as the number of microseconds
+        /// The date and time when the ::Ice::RemoteLogger received this message, expressed as the number of microseconds
         /// since the Unix Epoch (00:00:00 UTC on 1 January 1970)
         std::int64_t timestamp;
         /// For a message of type trace, the trace category of this log message; otherwise, the empty string.
@@ -386,7 +386,7 @@ namespace Ice
 namespace Ice
 {
     /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-    /// to the local {@link RemoteLogger} of another Ice application.
+    /// to the local RemoteLogger of another Ice application.
     class ICE_API RemoteLogger : public virtual Ice::Object
     {
     public:
@@ -431,7 +431,7 @@ namespace Ice
     using RemoteLoggerPtr = std::shared_ptr<RemoteLogger>;
 
     /// The interface of the admin object that allows an Ice application the attach its
-    /// {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+    /// RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
     class ICE_API LoggerAdmin : public virtual Ice::Object
     {
     public:

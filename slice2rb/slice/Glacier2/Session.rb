@@ -17,6 +17,10 @@ require_relative 'SSLInfo.rb'
 
 module ::Glacier2
 
+    if not defined?(::Glacier2::T_RouterPrx)
+        T_RouterPrx = ::Ice::__declareProxy('::Glacier2::Router')
+    end
+
     if not defined?(::Glacier2::CannotCreateSessionException)
         class CannotCreateSessionException < Ice::UserException
             def to_s

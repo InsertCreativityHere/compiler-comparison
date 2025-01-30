@@ -28,6 +28,9 @@ _M_IceGrid = Ice.openModule('IceGrid')
 # Start of module IceGrid
 __name__ = 'IceGrid'
 
+if 'Registry' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_RegistryPrx = IcePy.declareProxy('::IceGrid::Registry')
+
 if 'Session' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_SessionPrx = IcePy.declareProxy('::IceGrid::Session')
 

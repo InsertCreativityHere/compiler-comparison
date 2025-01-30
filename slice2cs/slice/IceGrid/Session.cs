@@ -104,7 +104,7 @@ namespace IceGrid
 {
     /// <summary>
     /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-    /// via the <see cref="Registry" /> object or via the registry client SessionManager object.
+    /// via the  object or via the registry client SessionManager object.
     /// </summary>
     /// <seealso cref="Registry" />
     public interface SessionPrx : global::Glacier2.SessionPrx

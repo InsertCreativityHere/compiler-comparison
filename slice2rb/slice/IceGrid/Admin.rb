@@ -19,6 +19,10 @@ require_relative 'Descriptor.rb'
 
 module ::IceGrid
 
+    if not defined?(::IceGrid::T_RegistryPrx)
+        T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
+    end
+
     if not defined?(::IceGrid::ServerState)
         class ServerState
             include Comparable

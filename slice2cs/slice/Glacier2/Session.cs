@@ -183,7 +183,7 @@ namespace Glacier2
     {
         /// <summary>
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// <see cref="CannotCreateSessionException" /> if the session cannot be created.
+        /// if the session cannot be created.
         /// </summary>
         /// <param name="userId">
         /// The user id for the session.
@@ -228,7 +228,7 @@ namespace Glacier2
 namespace Glacier2
 {
     /// <summary>
-    /// A client-visible session object, which is tied to the lifecycle of a <see cref="Router" />.
+    /// A client-visible session object, which is tied to the lifecycle of a .
     /// </summary>
     /// <seealso cref="Router" />
     /// <seealso cref="SessionManager" />
@@ -252,7 +252,7 @@ namespace Glacier2
 
     /// <summary>
     /// An object for managing the set of identity constraints for specific parts of object identity on a
-    /// <see cref="Session" />.
+    /// .
     /// </summary>
     /// <seealso cref="Session" />
     /// <seealso cref="SessionControl" />
@@ -322,7 +322,7 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An object for managing the set of object identity constraints on a <see cref="Session" />.
+    /// An object for managing the set of object identity constraints on a .
     /// </summary>
     /// <seealso cref="Session" />
     /// <seealso cref="SessionControl" />
@@ -394,7 +394,7 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An administrative session control object, which is tied to the lifecycle of a <see cref="Session" />.
+    /// An administrative session control object, which is tied to the lifecycle of a .
     /// </summary>
     /// <seealso cref="Session" />
     public interface SessionControlPrx : Ice.ObjectPrx
@@ -488,8 +488,8 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// The session manager for username/password authenticated users that is responsible for managing <see cref="Session" />
-    /// objects. New session objects are created by the <see cref="Router" /> object calling on an application-provided
+    /// The session manager for username/password authenticated users that is responsible for managing
+    /// objects. New session objects are created by the  object calling on an application-provided
     /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
     /// the client.
     /// </summary>
@@ -499,7 +499,7 @@ namespace Glacier2
     {
         /// <summary>
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// <see cref="CannotCreateSessionException" /> if the session cannot be created.
+        /// if the session cannot be created.
         /// </summary>
         /// <param name="userId">
         /// The user id for the session.
@@ -519,7 +519,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a new session. The implementation must return a non-null proxy or raise
-        /// <see cref="CannotCreateSessionException" /> if the session cannot be created.
+        /// if the session cannot be created.
         /// </summary>
         /// <param name="userId">
         /// The user id for the session.
@@ -539,8 +539,8 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// The session manager for SSL authenticated users that is responsible for managing <see cref="Session" /> objects. New
-    /// session objects are created by the <see cref="Router" /> object calling on an application-provided session manager. If
+    /// The session manager for SSL authenticated users that is responsible for managing  objects. New
+    /// session objects are created by the  object calling on an application-provided session manager. If
     /// no session manager is provided by the application, no client-visible sessions are passed to the client.
     /// </summary>
     /// <seealso cref="Router" />

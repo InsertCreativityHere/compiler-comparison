@@ -16,6 +16,10 @@ require_relative 'Exception.rb'
 
 module ::IceGrid
 
+    if not defined?(::IceGrid::T_RegistryPrx)
+        T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
+    end
+
     if not defined?(::IceGrid::T_SessionPrx)
         T_SessionPrx = ::Ice::__declareProxy('::IceGrid::Session')
     end

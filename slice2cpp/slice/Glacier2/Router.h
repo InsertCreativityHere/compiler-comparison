@@ -76,8 +76,8 @@ namespace Glacier2
         void _iceI_getCategoryForClient(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::string>>&, const Ice::Context&) const;
         /// \endcond
 
-        /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -85,7 +85,7 @@ namespace Glacier2
         /// @param userId The user id for which to check the password.
         /// @param password The password for the given user id.
         /// @param context The Context map to send with the invocation.
-        /// @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+        /// @return A proxy for the newly created session, or null if no ::Glacier2::SessionManager has been installed.
         /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
         /// @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
         /// user is not allowed access.
@@ -94,8 +94,8 @@ namespace Glacier2
         /// @see PermissionsVerifier
         std::optional<SessionPrx> createSession(std::string_view userId, std::string_view password, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-        /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -109,8 +109,8 @@ namespace Glacier2
         /// @see PermissionsVerifier
         [[nodiscard]] std::future<std::optional<SessionPrx>> createSessionAsync(std::string_view userId, std::string_view password, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -133,14 +133,14 @@ namespace Glacier2
         /// \endcond
 
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
         /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// @param context The Context map to send with the invocation.
-        /// @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+        /// @return A proxy for the newly created session, or null if no ::Glacier2::SessionManager has been installed.
         /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
         /// @throws Glacier2::PermissionDeniedException Raised if the user cannot be authenticated or if the user is not allowed
         /// access.
@@ -150,8 +150,8 @@ namespace Glacier2
         std::optional<SessionPrx> createSessionFromSecureConnection(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -164,8 +164,8 @@ namespace Glacier2
         [[nodiscard]] std::future<std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -388,8 +388,8 @@ namespace Glacier2
         void _iceD_getCategoryForClient(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) const;
         /// \endcond
 
-        /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// Create a per-client session with the router. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session
@@ -412,8 +412,8 @@ namespace Glacier2
         /// \endcond
 
         /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-        /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+        /// have been associated with the connection. If a ::Glacier2::SessionManager has been installed, a proxy to a
+        /// ::Glacier2::Session object is returned to the client. Otherwise, null is returned and only an internal session
         /// (i.e., not visible to the client) is created.
         /// If a session proxy is returned, it must be configured to route through the router that created it. This will
         /// happen automatically if the router is configured as the client's default router at the time the session

@@ -373,21 +373,21 @@ namespace IceGrid
         /// \endcond
 
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+        /// send heartbeats (using ACM) or call ::IceGrid::Session::keepAlive (resp. ::IceGrid::AdminSession::keepAlive) to keep
         /// a session alive in the IceGrid registry.
         /// @param context The Context map to send with the invocation.
         /// @return The session timeout (in seconds).
         [[deprecated]] std::int32_t getSessionTimeout(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+        /// send heartbeats (using ACM) or call ::IceGrid::Session::keepAlive (resp. ::IceGrid::AdminSession::keepAlive) to keep
         /// a session alive in the IceGrid registry.
         /// @param context The Context map to send with the invocation.
         /// @return The future object for the invocation.
         [[deprecated]] [[nodiscard]] std::future<std::int32_t> getSessionTimeoutAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+        /// send heartbeats (using ACM) or call ::IceGrid::Session::keepAlive (resp. ::IceGrid::AdminSession::keepAlive) to keep
         /// a session alive in the IceGrid registry.
         /// @param response The response callback.
         /// @param exception The exception callback.
@@ -443,7 +443,7 @@ namespace IceGrid
         /// \endcond
     };
 
-    /// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+    /// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
     /// registry.
     /// @see Query
     /// @see Registry
@@ -703,7 +703,7 @@ namespace IceGrid
         /// \endcond
 
         /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+        /// send heartbeats (using ACM) or call ::IceGrid::Session::keepAlive (resp. ::IceGrid::AdminSession::keepAlive) to keep
         /// a session alive in the IceGrid registry.
         /// @param current The Current object for the invocation.
         /// @return The session timeout (in seconds).
@@ -718,7 +718,7 @@ namespace IceGrid
 
     using RegistryPtr = std::shared_ptr<Registry>;
 
-    /// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+    /// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
     /// registry.
     /// @see Query
     /// @see Registry
