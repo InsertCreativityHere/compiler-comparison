@@ -22,6 +22,42 @@
 
 namespace IceGrid
 {
+    public sealed class StringLongDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, long> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, long> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeLong(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, long> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, long> r = new global::System.Collections.Generic.Dictionary<string, long>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                long v;
+                v = istr.readLong();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     public sealed partial record class AllData
     {
         public ApplicationInfo[] applications;
@@ -76,44 +112,5 @@ namespace IceGrid
         }
 
         public static AllData ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace IceGrid
-{
-    public sealed class StringLongDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, long> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, long> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeLong(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, long> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, long> r = new global::System.Collections.Generic.Dictionary<string, long>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                long v;
-                v = istr.readLong();
-                r[k] = v;
-            }
-            return r;
-        }
     }
 }

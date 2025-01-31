@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Interface2")]
-    public partial interface Interface2 : Ice.Object
-    {
-        void method(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface Interface2Prx : Ice.ObjectPrx
     {
         void method(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task methodAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class Interface2PrxHelper : Ice.ObjectPrxHelperBase, Interface2Prx
     {
         public void method(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -131,6 +119,22 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Interface2")]
+    public partial interface Interface2 : Ice.Object
+    {
+        void method(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_methodAsync(
+            Interface2 obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.method(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class Interface2Disp_ : Ice.ObjectImpl, Interface2
     {
         public abstract void method(Ice.Current current);
@@ -149,21 +153,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Interface2
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_methodAsync(
-            Interface2 obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.method(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

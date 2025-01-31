@@ -22,50 +22,6 @@
 
 namespace Ice
 {
-    [Ice.SliceTypeId("::Ice::PropertiesAdmin")]
-    public partial interface PropertiesAdmin : Ice.Object
-    {
-        /// <summary>
-        /// Get a property by key. If the property is not set, an empty string is returned.
-        /// </summary>
-        /// <param name="key">
-        /// The property key.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The property value.
-        /// </returns>
-        string getProperty(string key, Ice.Current current);
-
-        /// <summary>
-        /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
-        /// properties are returned.
-        /// </summary>
-        /// <param name="prefix">
-        /// The prefix to search for (empty string if none).
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The matching property set.
-        /// </returns>
-        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Ice.Current current);
-
-        /// <summary>
-        /// Update the communicator's properties with the given property set. If an entry in newProperties
-        /// matches the name of an existing property, that property's value is replaced with the new value. If the new
-        /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
-        /// by the entries in newProperties are retained with their original values.
-        /// </summary>
-        /// <param name="newProperties">
-        /// Properties to be added, changed, or removed.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);
-    }
-}
-
-namespace Ice
-{
     /// <summary>
     /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
     /// </summary>
@@ -148,10 +104,7 @@ namespace Ice
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Ice
-{
     public sealed class PropertiesAdminPrxHelper : Ice.ObjectPrxHelperBase, PropertiesAdminPrx
     {
         public string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -342,6 +295,97 @@ namespace Ice
 
 namespace Ice
 {
+    [Ice.SliceTypeId("::Ice::PropertiesAdmin")]
+    public partial interface PropertiesAdmin : Ice.Object
+    {
+        /// <summary>
+        /// Get a property by key. If the property is not set, an empty string is returned.
+        /// </summary>
+        /// <param name="key">
+        /// The property key.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The property value.
+        /// </returns>
+        string getProperty(string key, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPropertyAsync(
+            PropertiesAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_key;
+            iceP_key = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getProperty(iceP_key, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+        /// properties are returned.
+        /// </summary>
+        /// <param name="prefix">
+        /// The prefix to search for (empty string if none).
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The matching property set.
+        /// </returns>
+        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPropertiesForPrefixAsync(
+            PropertiesAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_prefix;
+            iceP_prefix = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getPropertiesForPrefix(iceP_prefix, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            PropertyDictHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Update the communicator's properties with the given property set. If an entry in newProperties
+        /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+        /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        /// by the entries in newProperties are retained with their original values.
+        /// </summary>
+        /// <param name="newProperties">
+        /// Properties to be added, changed, or removed.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setPropertiesAsync(
+            PropertiesAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
+            iceP_newProperties = PropertyDictHelper.read(istr);
+            istr.endEncapsulation();
+            obj.setProperties(iceP_newProperties, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class PropertiesAdminDisp_ : Ice.ObjectImpl, PropertiesAdmin
     {
         public abstract string getProperty(string key, Ice.Current current);
@@ -366,61 +410,5 @@ namespace Ice
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Ice
-{
-    public partial interface PropertiesAdmin
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPropertyAsync(
-            PropertiesAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_key;
-            iceP_key = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.getProperty(iceP_key, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPropertiesForPrefixAsync(
-            PropertiesAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_prefix;
-            iceP_prefix = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.getPropertiesForPrefix(iceP_prefix, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            PropertyDictHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setPropertiesAsync(
-            PropertiesAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
-            iceP_newProperties = PropertyDictHelper.read(istr);
-            istr.endEncapsulation();
-            obj.setProperties(iceP_newProperties, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -22,10 +22,6 @@
 
 namespace Ice
 {
-}
-
-namespace Ice
-{
     public sealed class BoolSeqHelper
     {
         public static void write(Ice.OutputStream ostr, bool[] v)

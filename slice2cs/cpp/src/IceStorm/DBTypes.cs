@@ -22,51 +22,6 @@
 
 namespace IceStormElection
 {
-}
-
-namespace IceStorm
-{
-    public sealed partial record class AllData
-    {
-        public global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus;
-
-        public global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers;
-
-        partial void ice_initialize();
-
-        public AllData(global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus, global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(llus);
-            this.llus = llus;
-            global::System.ArgumentNullException.ThrowIfNull(subscribers);
-            this.subscribers = subscribers;
-            ice_initialize();
-        }
-
-        public AllData(Ice.InputStream istr)
-        {
-            this.llus = global::IceStormElection.StringLogUpdateDictHelper.read(istr);
-            this.subscribers = SubscriberRecordDictHelper.read(istr);
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            global::IceStormElection.StringLogUpdateDictHelper.write(ostr, this.llus);
-            SubscriberRecordDictHelper.write(ostr, this.subscribers);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, AllData v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static AllData ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace IceStormElection
-{
     public sealed class StringLogUpdateDictHelper
     {
         public static void write(Ice.OutputStream ostr,
@@ -140,5 +95,43 @@ namespace IceStorm
             }
             return r;
         }
+    }
+
+    public sealed partial record class AllData
+    {
+        public global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus;
+
+        public global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers;
+
+        partial void ice_initialize();
+
+        public AllData(global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus, global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(llus);
+            this.llus = llus;
+            global::System.ArgumentNullException.ThrowIfNull(subscribers);
+            this.subscribers = subscribers;
+            ice_initialize();
+        }
+
+        public AllData(Ice.InputStream istr)
+        {
+            this.llus = global::IceStormElection.StringLogUpdateDictHelper.read(istr);
+            this.subscribers = SubscriberRecordDictHelper.read(istr);
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            global::IceStormElection.StringLogUpdateDictHelper.write(ostr, this.llus);
+            SubscriberRecordDictHelper.write(ostr, this.subscribers);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, AllData v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static AllData ice_read(Ice.InputStream istr) => new(istr);
     }
 }

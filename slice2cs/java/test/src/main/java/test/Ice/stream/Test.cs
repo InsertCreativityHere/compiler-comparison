@@ -44,6 +44,21 @@ namespace Test
         }
     }
 
+    public sealed class SerialSmallHelper
+    {
+        public static void write(Ice.OutputStream ostr, byte[] v)
+        {
+            ostr.writeByteSeq(v);
+        }
+
+        public static byte[] read(Ice.InputStream istr)
+        {
+            byte[] v;
+            v = istr.readByteSeq();
+            return v;
+        }
+    }
+
     public sealed partial record class LargeStruct
     {
         public bool bo;
@@ -168,6 +183,178 @@ namespace Test
         }
 
         public static Point ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class MyEnumSHelper
+    {
+        public static void write(Ice.OutputStream ostr, MyEnum[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeEnum((int)v[ix], 2);
+                }
+            }
+        }
+
+        public static MyEnum[] read(Ice.InputStream istr)
+        {
+            MyEnum[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new MyEnum[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = (MyEnum)istr.readEnum(2);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class MyClassSHelper
+    {
+        public static void write(Ice.OutputStream ostr, MyClass?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static MyClass?[] read(Ice.InputStream istr)
+        {
+            MyClass?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new MyClass?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<MyClass>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class ByteBoolDHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<byte, bool> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<byte, bool> e in v)
+                {
+                    ostr.writeByte(e.Key);
+                    ostr.writeBool(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<byte, bool> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
+            for(int i = 0; i < sz; ++i)
+            {
+                byte k;
+                k = istr.readByte();
+                bool v;
+                v = istr.readBool();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class ShortIntDHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<short, int> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<short, int> e in v)
+                {
+                    ostr.writeShort(e.Key);
+                    ostr.writeInt(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<short, int> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
+            for(int i = 0; i < sz; ++i)
+            {
+                short k;
+                k = istr.readShort();
+                int v;
+                v = istr.readInt();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class StringMyClassDHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, MyClass?> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, MyClass?> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeValue(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, MyClass?> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, MyClass?> r = new global::System.Collections.Generic.Dictionary<string, MyClass?>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                istr.readValue((MyClass? v) => { r[k] = v; });
+            }
+            return r;
+        }
     }
 
     [Ice.SliceTypeId("::Test::OptionalClass")]
@@ -347,404 +534,6 @@ namespace Test
                 p15 = null;
             }
             istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::MyClass")]
-    public partial class MyClass : Ice.Value
-    {
-        public MyClass? c;
-
-        public MyInterfacePrx? prx;
-
-        public Ice.Value? o;
-
-        public LargeStruct s;
-
-        public bool[] seq1;
-
-        public byte[] seq2;
-
-        public short[] seq3;
-
-        public int[] seq4;
-
-        public long[] seq5;
-
-        public float[] seq6;
-
-        public double[] seq7;
-
-        public string[] seq8;
-
-        public MyEnum[] seq9;
-
-        public MyClass?[] seq10;
-
-        public global::System.Collections.Generic.Dictionary<string, MyClass?> d;
-
-        partial void ice_initialize();
-
-        public MyClass(MyClass? c, MyInterfacePrx? prx, Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
-        {
-            this.c = c;
-            this.prx = prx;
-            this.o = o;
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(seq1);
-            this.seq1 = seq1;
-            global::System.ArgumentNullException.ThrowIfNull(seq2);
-            this.seq2 = seq2;
-            global::System.ArgumentNullException.ThrowIfNull(seq3);
-            this.seq3 = seq3;
-            global::System.ArgumentNullException.ThrowIfNull(seq4);
-            this.seq4 = seq4;
-            global::System.ArgumentNullException.ThrowIfNull(seq5);
-            this.seq5 = seq5;
-            global::System.ArgumentNullException.ThrowIfNull(seq6);
-            this.seq6 = seq6;
-            global::System.ArgumentNullException.ThrowIfNull(seq7);
-            this.seq7 = seq7;
-            global::System.ArgumentNullException.ThrowIfNull(seq8);
-            this.seq8 = seq8;
-            global::System.ArgumentNullException.ThrowIfNull(seq9);
-            this.seq9 = seq9;
-            global::System.ArgumentNullException.ThrowIfNull(seq10);
-            this.seq10 = seq10;
-            global::System.ArgumentNullException.ThrowIfNull(d);
-            this.d = d;
-            ice_initialize();
-        }
-
-        public MyClass(LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(seq1);
-            this.seq1 = seq1;
-            global::System.ArgumentNullException.ThrowIfNull(seq2);
-            this.seq2 = seq2;
-            global::System.ArgumentNullException.ThrowIfNull(seq3);
-            this.seq3 = seq3;
-            global::System.ArgumentNullException.ThrowIfNull(seq4);
-            this.seq4 = seq4;
-            global::System.ArgumentNullException.ThrowIfNull(seq5);
-            this.seq5 = seq5;
-            global::System.ArgumentNullException.ThrowIfNull(seq6);
-            this.seq6 = seq6;
-            global::System.ArgumentNullException.ThrowIfNull(seq7);
-            this.seq7 = seq7;
-            global::System.ArgumentNullException.ThrowIfNull(seq8);
-            this.seq8 = seq8;
-            global::System.ArgumentNullException.ThrowIfNull(seq9);
-            this.seq9 = seq9;
-            global::System.ArgumentNullException.ThrowIfNull(seq10);
-            this.seq10 = seq10;
-            global::System.ArgumentNullException.ThrowIfNull(d);
-            this.d = d;
-            ice_initialize();
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public MyClass()
-        {
-            this.s = null!;
-            this.seq1 = null!;
-            this.seq2 = null!;
-            this.seq3 = null!;
-            this.seq4 = null!;
-            this.seq5 = null!;
-            this.seq6 = null!;
-            this.seq7 = null!;
-            this.seq8 = null!;
-            this.seq9 = null!;
-            this.seq10 = null!;
-            this.d = null!;
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::MyClass";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(c);
-            MyInterfacePrxHelper.write(ostr_, prx);
-            ostr_.writeValue(o);
-            LargeStruct.ice_write(ostr_, s);
-            global::Ice.BoolSeqHelper.write(ostr_, seq1);
-            global::Ice.ByteSeqHelper.write(ostr_, seq2);
-            global::Ice.ShortSeqHelper.write(ostr_, seq3);
-            global::Ice.IntSeqHelper.write(ostr_, seq4);
-            global::Ice.LongSeqHelper.write(ostr_, seq5);
-            global::Ice.FloatSeqHelper.write(ostr_, seq6);
-            global::Ice.DoubleSeqHelper.write(ostr_, seq7);
-            global::Ice.StringSeqHelper.write(ostr_, seq8);
-            MyEnumSHelper.write(ostr_, seq9);
-            MyClassSHelper.write(ostr_, seq10);
-            StringMyClassDHelper.write(ostr_, d);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((MyClass? v) => { this.c = v; });
-            prx = MyInterfacePrxHelper.read(istr_);
-            istr_.readValue((Ice.Value? v) => { this.o = v; });
-            s = new LargeStruct(istr_);
-            seq1 = global::Ice.BoolSeqHelper.read(istr_);
-            seq2 = global::Ice.ByteSeqHelper.read(istr_);
-            seq3 = global::Ice.ShortSeqHelper.read(istr_);
-            seq4 = global::Ice.IntSeqHelper.read(istr_);
-            seq5 = global::Ice.LongSeqHelper.read(istr_);
-            seq6 = global::Ice.FloatSeqHelper.read(istr_);
-            seq7 = global::Ice.DoubleSeqHelper.read(istr_);
-            seq8 = global::Ice.StringSeqHelper.read(istr_);
-            seq9 = MyEnumSHelper.read(istr_);
-            seq10 = MyClassSHelper.read(istr_);
-            d = StringMyClassDHelper.read(istr_);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::MyException")]
-    public partial class MyException : Ice.UserException
-    {
-        public MyClass? c;
-
-        public MyException(MyClass? c)
-        {
-            this.c = c;
-        }
-
-        public MyException()
-        {
-        }
-
-        public override string ice_id() => "::Test::MyException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::MyException", -1, true);
-            ostr_.writeValue(c);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((MyClass? v) => { this.c = v; });
-            istr_.endSlice();
-        }
-
-        public override bool iceUsesClasses()
-        {
-            return true;
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::MyInterface")]
-    public partial interface MyInterface : Ice.Object
-    {
-    }
-}
-
-namespace Test
-{
-    public interface MyInterfacePrx : Ice.ObjectPrx
-    {
-    }
-}
-
-namespace Test
-{
-    public sealed class SerialSmallHelper
-    {
-        public static void write(Ice.OutputStream ostr, byte[] v)
-        {
-            ostr.writeByteSeq(v);
-        }
-
-        public static byte[] read(Ice.InputStream istr)
-        {
-            byte[] v;
-            v = istr.readByteSeq();
-            return v;
-        }
-    }
-
-    public sealed class MyEnumSHelper
-    {
-        public static void write(Ice.OutputStream ostr, MyEnum[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeEnum((int)v[ix], 2);
-                }
-            }
-        }
-
-        public static MyEnum[] read(Ice.InputStream istr)
-        {
-            MyEnum[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new MyEnum[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = (MyEnum)istr.readEnum(2);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class MyClassSHelper
-    {
-        public static void write(Ice.OutputStream ostr, MyClass?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static MyClass?[] read(Ice.InputStream istr)
-        {
-            MyClass?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new MyClass?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<MyClass>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class ByteBoolDHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<byte, bool> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<byte, bool> e in v)
-                {
-                    ostr.writeByte(e.Key);
-                    ostr.writeBool(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<byte, bool> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
-            for(int i = 0; i < sz; ++i)
-            {
-                byte k;
-                k = istr.readByte();
-                bool v;
-                v = istr.readBool();
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class ShortIntDHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<short, int> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<short, int> e in v)
-                {
-                    ostr.writeShort(e.Key);
-                    ostr.writeInt(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<short, int> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
-            for(int i = 0; i < sz; ++i)
-            {
-                short k;
-                k = istr.readShort();
-                int v;
-                v = istr.readInt();
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class StringMyClassDHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, MyClass?> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, MyClass?> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeValue(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, MyClass?> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, MyClass?> r = new global::System.Collections.Generic.Dictionary<string, MyClass?>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                istr.readValue((MyClass? v) => { r[k] = v; });
-            }
-            return r;
         }
     }
 
@@ -1150,6 +939,206 @@ namespace Test
         }
     }
 
+    [Ice.SliceTypeId("::Test::MyClass")]
+    public partial class MyClass : Ice.Value
+    {
+        public MyClass? c;
+
+        public MyInterfacePrx? prx;
+
+        public Ice.Value? o;
+
+        public LargeStruct s;
+
+        public bool[] seq1;
+
+        public byte[] seq2;
+
+        public short[] seq3;
+
+        public int[] seq4;
+
+        public long[] seq5;
+
+        public float[] seq6;
+
+        public double[] seq7;
+
+        public string[] seq8;
+
+        public MyEnum[] seq9;
+
+        public MyClass?[] seq10;
+
+        public global::System.Collections.Generic.Dictionary<string, MyClass?> d;
+
+        partial void ice_initialize();
+
+        public MyClass(MyClass? c, MyInterfacePrx? prx, Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        {
+            this.c = c;
+            this.prx = prx;
+            this.o = o;
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
+            this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
+            this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
+            this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
+            this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(seq5);
+            this.seq5 = seq5;
+            global::System.ArgumentNullException.ThrowIfNull(seq6);
+            this.seq6 = seq6;
+            global::System.ArgumentNullException.ThrowIfNull(seq7);
+            this.seq7 = seq7;
+            global::System.ArgumentNullException.ThrowIfNull(seq8);
+            this.seq8 = seq8;
+            global::System.ArgumentNullException.ThrowIfNull(seq9);
+            this.seq9 = seq9;
+            global::System.ArgumentNullException.ThrowIfNull(seq10);
+            this.seq10 = seq10;
+            global::System.ArgumentNullException.ThrowIfNull(d);
+            this.d = d;
+            ice_initialize();
+        }
+
+        public MyClass(LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
+            this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
+            this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
+            this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
+            this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(seq5);
+            this.seq5 = seq5;
+            global::System.ArgumentNullException.ThrowIfNull(seq6);
+            this.seq6 = seq6;
+            global::System.ArgumentNullException.ThrowIfNull(seq7);
+            this.seq7 = seq7;
+            global::System.ArgumentNullException.ThrowIfNull(seq8);
+            this.seq8 = seq8;
+            global::System.ArgumentNullException.ThrowIfNull(seq9);
+            this.seq9 = seq9;
+            global::System.ArgumentNullException.ThrowIfNull(seq10);
+            this.seq10 = seq10;
+            global::System.ArgumentNullException.ThrowIfNull(d);
+            this.d = d;
+            ice_initialize();
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public MyClass()
+        {
+            this.s = null!;
+            this.seq1 = null!;
+            this.seq2 = null!;
+            this.seq3 = null!;
+            this.seq4 = null!;
+            this.seq5 = null!;
+            this.seq6 = null!;
+            this.seq7 = null!;
+            this.seq8 = null!;
+            this.seq9 = null!;
+            this.seq10 = null!;
+            this.d = null!;
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::MyClass";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeValue(c);
+            MyInterfacePrxHelper.write(ostr_, prx);
+            ostr_.writeValue(o);
+            LargeStruct.ice_write(ostr_, s);
+            global::Ice.BoolSeqHelper.write(ostr_, seq1);
+            global::Ice.ByteSeqHelper.write(ostr_, seq2);
+            global::Ice.ShortSeqHelper.write(ostr_, seq3);
+            global::Ice.IntSeqHelper.write(ostr_, seq4);
+            global::Ice.LongSeqHelper.write(ostr_, seq5);
+            global::Ice.FloatSeqHelper.write(ostr_, seq6);
+            global::Ice.DoubleSeqHelper.write(ostr_, seq7);
+            global::Ice.StringSeqHelper.write(ostr_, seq8);
+            MyEnumSHelper.write(ostr_, seq9);
+            MyClassSHelper.write(ostr_, seq10);
+            StringMyClassDHelper.write(ostr_, d);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((MyClass? v) => { this.c = v; });
+            prx = MyInterfacePrxHelper.read(istr_);
+            istr_.readValue((Ice.Value? v) => { this.o = v; });
+            s = new LargeStruct(istr_);
+            seq1 = global::Ice.BoolSeqHelper.read(istr_);
+            seq2 = global::Ice.ByteSeqHelper.read(istr_);
+            seq3 = global::Ice.ShortSeqHelper.read(istr_);
+            seq4 = global::Ice.IntSeqHelper.read(istr_);
+            seq5 = global::Ice.LongSeqHelper.read(istr_);
+            seq6 = global::Ice.FloatSeqHelper.read(istr_);
+            seq7 = global::Ice.DoubleSeqHelper.read(istr_);
+            seq8 = global::Ice.StringSeqHelper.read(istr_);
+            seq9 = MyEnumSHelper.read(istr_);
+            seq10 = MyClassSHelper.read(istr_);
+            d = StringMyClassDHelper.read(istr_);
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::MyException")]
+    public partial class MyException : Ice.UserException
+    {
+        public MyClass? c;
+
+        public MyException(MyClass? c)
+        {
+            this.c = c;
+        }
+
+        public MyException()
+        {
+        }
+
+        public override string ice_id() => "::Test::MyException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::MyException", -1, true);
+            ostr_.writeValue(c);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((MyClass? v) => { this.c = v; });
+            istr_.endSlice();
+        }
+
+        public override bool iceUsesClasses()
+        {
+            return true;
+        }
+    }
+
+    public interface MyInterfacePrx : Ice.ObjectPrx
+    {
+    }
+
     public sealed class MyInterfacePrxHelper : Ice.ObjectPrxHelperBase, MyInterfacePrx
     {
         public static MyInterfacePrx createProxy(Ice.Communicator communicator, string proxyString) =>
@@ -1203,14 +1192,15 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::MyInterface")]
+    public partial interface MyInterface : Ice.Object
+    {
+    }
+
     public abstract class MyInterfaceDisp_ : Ice.ObjectImpl, MyInterface
     {
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::MyInterface";
     }
-}
-
-namespace Test
-{
 }

@@ -60,6 +60,39 @@ namespace IceStormElection
         public static TopicContent ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class TopicContentSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, TopicContent[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static TopicContent[] read(Ice.InputStream istr)
+        {
+            TopicContent[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(3);
+                v = new TopicContent[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new TopicContent(istr);
+                }
+            }
+            return v;
+        }
+    }
+
     /// <summary>
     /// Thrown if an observer detects an inconsistency.
     /// </summary>
@@ -95,413 +128,6 @@ namespace IceStormElection
         }
     }
 
-    [Ice.SliceTypeId("::IceStormElection::ReplicaObserver")]
-    public partial interface ReplicaObserver : Ice.Object
-    {
-        /// <summary>
-        /// Initialize the observer.
-        /// </summary>
-        /// <param name="llu">
-        /// The last log update seen by the master.
-        /// </param>
-        /// <param name="content">
-        /// The topic content.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStormElection.ObserverInconsistencyException">
-        /// Raised if an
-        /// inconsisency was detected.
-        /// </exception>
-        void init(LogUpdate llu, TopicContent[] content, Ice.Current current);
-
-        /// <summary>
-        /// Create the topic with the given name.
-        /// </summary>
-        /// <param name="llu">
-        /// The log update token.
-        /// </param>
-        /// <param name="name">
-        /// The topic name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStormElection.ObserverInconsistencyException">
-        /// Raised if an
-        /// inconsisency was detected.
-        /// </exception>
-        void createTopic(LogUpdate llu, string name, Ice.Current current);
-
-        /// <summary>
-        /// Destroy the topic with the given name.
-        /// </summary>
-        /// <param name="llu">
-        /// The log update token.
-        /// </param>
-        /// <param name="name">
-        /// The topic name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStormElection.ObserverInconsistencyException">
-        /// Raised if an
-        /// inconsisency was detected.
-        /// </exception>
-        void destroyTopic(LogUpdate llu, string name, Ice.Current current);
-
-        /// <summary>
-        /// Add a subscriber to a topic.
-        /// </summary>
-        /// <param name="llu">
-        /// The log update token.
-        /// </param>
-        /// <param name="topic">
-        /// The topic name to which to add the subscriber.
-        /// </param>
-        /// <param name="record">
-        /// The subscriber information.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStormElection.ObserverInconsistencyException">
-        /// Raised if an
-        /// inconsisency was detected.
-        /// </exception>
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, Ice.Current current);
-
-        /// <summary>
-        /// Remove a subscriber from a topic.
-        /// </summary>
-        /// <param name="llu">
-        /// The log update token.
-        /// </param>
-        /// <param name="subscribers">
-        /// The identities of the subscribers to remove.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStormElection.ObserverInconsistencyException">
-        /// Raised if an inconsisency was detected.
-        /// </exception>
-        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceStormElection::TopicManagerSync")]
-    public partial interface TopicManagerSync : Ice.Object
-    {
-        /// <summary>
-        /// Retrieve the topic content.
-        /// </summary>
-        /// <param name="llu">
-        /// The last log update token.
-        /// </param>
-        /// <param name="content">
-        /// The topic content.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void getContent(out LogUpdate llu, out TopicContent[] content, Ice.Current current);
-    }
-
-    /// <summary>
-    /// The node state.
-    /// </summary>
-    public enum NodeState
-    {
-        /// <summary>
-        /// The node is inactive and awaiting an election.
-        /// </summary>
-        NodeStateInactive,
-        /// <summary>
-        /// The node is electing a leader.
-        /// </summary>
-        NodeStateElection,
-        /// <summary>
-        /// The replica group is reorganizing.
-        /// </summary>
-        NodeStateReorganization,
-        /// <summary>
-        /// The replica group is active &amp; replicating.
-        /// </summary>
-        NodeStateNormal
-    }
-
-    public sealed class NodeStateHelper
-    {
-        public static void write(Ice.OutputStream ostr, NodeState v)
-        {
-            ostr.writeEnum((int)v, 3);
-        }
-
-        public static NodeState read(Ice.InputStream istr)
-        {
-            NodeState v;
-            v = (NodeState)istr.readEnum(3);
-            return v;
-        }
-    }
-
-    public sealed partial record class NodeInfo
-    {
-        public int id;
-
-        public NodePrx? n;
-
-        partial void ice_initialize();
-
-        public NodeInfo()
-        {
-            ice_initialize();
-        }
-
-        public NodeInfo(int id, NodePrx? n)
-        {
-            this.id = id;
-            this.n = n;
-            ice_initialize();
-        }
-
-        public NodeInfo(Ice.InputStream istr)
-        {
-            this.id = istr.readInt();
-            this.n = NodePrxHelper.read(istr);
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeInt(this.id);
-            NodePrxHelper.write(ostr, this.n);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, NodeInfo v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static NodeInfo ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    public partial record struct GroupInfo
-    {
-        public int id;
-
-        public LogUpdate llu;
-
-        partial void ice_initialize();
-
-        public GroupInfo(int id, LogUpdate llu)
-        {
-            this.id = id;
-            this.llu = llu;
-            ice_initialize();
-        }
-
-        public GroupInfo(Ice.InputStream istr)
-        {
-            this.id = istr.readInt();
-            this.llu = new LogUpdate(istr);
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeInt(this.id);
-            this.llu.ice_writeMembers(ostr);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, GroupInfo v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static GroupInfo ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    public sealed partial record class QueryInfo
-    {
-        public int id;
-
-        public int coord;
-
-        public string group = "";
-
-        public Ice.ObjectPrx? replica;
-
-        public NodeState state;
-
-        public GroupInfo[] up;
-
-        public int max;
-
-        partial void ice_initialize();
-
-        public QueryInfo(GroupInfo[] up)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(up);
-            this.up = up;
-            ice_initialize();
-        }
-
-        public QueryInfo(int id, int coord, string group, Ice.ObjectPrx? replica, NodeState state, GroupInfo[] up, int max)
-        {
-            this.id = id;
-            this.coord = coord;
-            global::System.ArgumentNullException.ThrowIfNull(group);
-            this.group = group;
-            this.replica = replica;
-            this.state = state;
-            global::System.ArgumentNullException.ThrowIfNull(up);
-            this.up = up;
-            this.max = max;
-            ice_initialize();
-        }
-
-        public QueryInfo(Ice.InputStream istr)
-        {
-            this.id = istr.readInt();
-            this.coord = istr.readInt();
-            this.group = istr.readString();
-            this.replica = istr.readProxy();
-            this.state = (NodeState)istr.readEnum(3);
-            this.up = GroupInfoSeqHelper.read(istr);
-            this.max = istr.readInt();
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeInt(this.id);
-            ostr.writeInt(this.coord);
-            ostr.writeString(this.group);
-            ostr.writeProxy(this.replica);
-            ostr.writeEnum((int)this.state, 3);
-            GroupInfoSeqHelper.write(ostr, this.up);
-            ostr.writeInt(this.max);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, QueryInfo v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static QueryInfo ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    [Ice.SliceTypeId("::IceStormElection::Node")]
-    public partial interface Node : Ice.Object
-    {
-        /// <summary>
-        /// Invite the node into a group with the given coordinator and group name.
-        /// </summary>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void invitation(int j, string gn, Ice.Current current);
-
-        /// <summary>
-        /// Call from the group coordinator to a node to inform the node that the replica group is active.
-        /// </summary>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="coordinator">
-        /// The proxy to the coordinator.
-        /// </param>
-        /// <param name="max">
-        /// The highest priority node seen by this replica group.
-        /// </param>
-        /// <param name="generation">
-        /// The current generation count.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, Ice.Current current);
-
-        /// <summary>
-        /// Called to accept an invitation into the given group.
-        /// </summary>
-        /// <param name="j">
-        /// The id of the node accepting the invitation.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="forwardedInvites">
-        /// The ids of the nodes to which invitations were forwarded.
-        /// </param>
-        /// <param name="observer">
-        /// The observer.
-        /// </param>
-        /// <param name="llu">
-        /// The last log update for the given node.
-        /// </param>
-        /// <param name="max">
-        /// The highest priority node seen by this replica group.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, Ice.Current current);
-
-        /// <summary>
-        /// Determine if this node is a coordinator.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// True if the node is a coordinator, false otherwise.
-        /// </returns>
-        bool areYouCoordinator(Ice.Current current);
-
-        /// <summary>
-        /// Determine if the node is a member of the given group with the given coordinator.
-        /// </summary>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// True if the node is a member, false otherwise.
-        /// </returns>
-        bool areYouThere(string gn, int j, Ice.Current current);
-
-        /// <summary>
-        /// Get the sync object for the replica hosted by this node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The sync object.
-        /// </returns>
-        Ice.ObjectPrx? sync(Ice.Current current);
-
-        /// <summary>
-        /// Get the replication group information.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The set of configured nodes and the associated priority.
-        /// </returns>
-        NodeInfo[] nodes(Ice.Current current);
-
-        /// <summary>
-        /// Get the query information for the given node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The query information.
-        /// </returns>
-        QueryInfo query(Ice.Current current);
-    }
-}
-
-namespace IceStormElection
-{
-    public record struct TopicManagerSync_GetContentResult(LogUpdate llu, TopicContent[] content);
-}
-
-namespace IceStormElection
-{
     /// <summary>
     /// The replica observer.
     /// </summary>
@@ -685,300 +311,6 @@ namespace IceStormElection
         /// Raised if an inconsisency was detected.
         /// </exception>
         global::System.Threading.Tasks.Task removeSubscriberAsync(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    /// <summary>
-    /// Interface used to sync topics.
-    /// </summary>
-    public interface TopicManagerSyncPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Retrieve the topic content.
-        /// </summary>
-        /// <param name="llu">
-        /// The last log update token.
-        /// </param>
-        /// <param name="content">
-        /// The topic content.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Retrieve the topic content.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> getContentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    /// <summary>
-    /// A replica node.
-    /// </summary>
-    public interface NodePrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Invite the node into a group with the given coordinator and group name.
-        /// </summary>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void invitation(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Invite the node into a group with the given coordinator and group name.
-        /// </summary>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Call from the group coordinator to a node to inform the node that the replica group is active.
-        /// </summary>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="coordinator">
-        /// The proxy to the coordinator.
-        /// </param>
-        /// <param name="max">
-        /// The highest priority node seen by this replica group.
-        /// </param>
-        /// <param name="generation">
-        /// The current generation count.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Call from the group coordinator to a node to inform the node that the replica group is active.
-        /// </summary>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="coordinator">
-        /// The proxy to the coordinator.
-        /// </param>
-        /// <param name="max">
-        /// The highest priority node seen by this replica group.
-        /// </param>
-        /// <param name="generation">
-        /// The current generation count.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task readyAsync(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Called to accept an invitation into the given group.
-        /// </summary>
-        /// <param name="j">
-        /// The id of the node accepting the invitation.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="forwardedInvites">
-        /// The ids of the nodes to which invitations were forwarded.
-        /// </param>
-        /// <param name="observer">
-        /// The observer.
-        /// </param>
-        /// <param name="llu">
-        /// The last log update for the given node.
-        /// </param>
-        /// <param name="max">
-        /// The highest priority node seen by this replica group.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Called to accept an invitation into the given group.
-        /// </summary>
-        /// <param name="j">
-        /// The id of the node accepting the invitation.
-        /// </param>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="forwardedInvites">
-        /// The ids of the nodes to which invitations were forwarded.
-        /// </param>
-        /// <param name="observer">
-        /// The observer.
-        /// </param>
-        /// <param name="llu">
-        /// The last log update for the given node.
-        /// </param>
-        /// <param name="max">
-        /// The highest priority node seen by this replica group.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Determine if this node is a coordinator.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// True if the node is a coordinator, false otherwise.
-        /// </returns>
-        bool areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Determine if this node is a coordinator.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<bool> areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Determine if the node is a member of the given group with the given coordinator.
-        /// </summary>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// True if the node is a member, false otherwise.
-        /// </returns>
-        bool areYouThere(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Determine if the node is a member of the given group with the given coordinator.
-        /// </summary>
-        /// <param name="gn">
-        /// The group name.
-        /// </param>
-        /// <param name="j">
-        /// The group coordinator.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the sync object for the replica hosted by this node.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The sync object.
-        /// </returns>
-        Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the sync object for the replica hosted by this node.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the replication group information.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The set of configured nodes and the associated priority.
-        /// </returns>
-        NodeInfo[] nodes(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the replication group information.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<NodeInfo[]> nodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the query information for the given node.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The query information.
-        /// </returns>
-        QueryInfo query(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the query information for the given node.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceStormElection
-{
-    public sealed class TopicContentSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, TopicContent[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static TopicContent[] read(Ice.InputStream istr)
-        {
-            TopicContent[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(3);
-                v = new TopicContent[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new TopicContent(istr);
-                }
-            }
-            return v;
-        }
     }
 
     public sealed class ReplicaObserverPrxHelper : Ice.ObjectPrxHelperBase, ReplicaObserverPrx
@@ -1318,6 +650,33 @@ namespace IceStormElection
         }
     }
 
+    /// <summary>
+    /// Interface used to sync topics.
+    /// </summary>
+    public interface TopicManagerSyncPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Retrieve the topic content.
+        /// </summary>
+        /// <param name="llu">
+        /// The last log update token.
+        /// </param>
+        /// <param name="content">
+        /// The topic content.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Retrieve the topic content.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> getContentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class TopicManagerSyncPrxHelper : Ice.ObjectPrxHelperBase, TopicManagerSyncPrx
     {
         public void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1415,6 +774,85 @@ namespace IceStormElection
         }
     }
 
+    /// <summary>
+    /// The node state.
+    /// </summary>
+    public enum NodeState
+    {
+        /// <summary>
+        /// The node is inactive and awaiting an election.
+        /// </summary>
+        NodeStateInactive,
+        /// <summary>
+        /// The node is electing a leader.
+        /// </summary>
+        NodeStateElection,
+        /// <summary>
+        /// The replica group is reorganizing.
+        /// </summary>
+        NodeStateReorganization,
+        /// <summary>
+        /// The replica group is active &amp; replicating.
+        /// </summary>
+        NodeStateNormal
+    }
+
+    public sealed class NodeStateHelper
+    {
+        public static void write(Ice.OutputStream ostr, NodeState v)
+        {
+            ostr.writeEnum((int)v, 3);
+        }
+
+        public static NodeState read(Ice.InputStream istr)
+        {
+            NodeState v;
+            v = (NodeState)istr.readEnum(3);
+            return v;
+        }
+    }
+
+    public sealed partial record class NodeInfo
+    {
+        public int id;
+
+        public NodePrx? n;
+
+        partial void ice_initialize();
+
+        public NodeInfo()
+        {
+            ice_initialize();
+        }
+
+        public NodeInfo(int id, NodePrx? n)
+        {
+            this.id = id;
+            this.n = n;
+            ice_initialize();
+        }
+
+        public NodeInfo(Ice.InputStream istr)
+        {
+            this.id = istr.readInt();
+            this.n = NodePrxHelper.read(istr);
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeInt(this.id);
+            NodePrxHelper.write(ostr, this.n);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, NodeInfo v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static NodeInfo ice_read(Ice.InputStream istr) => new(istr);
+    }
+
     public sealed class NodeInfoSeqHelper
     {
         public static void write(Ice.OutputStream ostr, NodeInfo[] v)
@@ -1448,6 +886,42 @@ namespace IceStormElection
         }
     }
 
+    public partial record struct GroupInfo
+    {
+        public int id;
+
+        public LogUpdate llu;
+
+        partial void ice_initialize();
+
+        public GroupInfo(int id, LogUpdate llu)
+        {
+            this.id = id;
+            this.llu = llu;
+            ice_initialize();
+        }
+
+        public GroupInfo(Ice.InputStream istr)
+        {
+            this.id = istr.readInt();
+            this.llu = new LogUpdate(istr);
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeInt(this.id);
+            this.llu.ice_writeMembers(ostr);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, GroupInfo v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static GroupInfo ice_read(Ice.InputStream istr) => new(istr);
+    }
+
     public sealed class GroupInfoSeqHelper
     {
         public static void write(Ice.OutputStream ostr, GroupInfo[] v)
@@ -1479,6 +953,307 @@ namespace IceStormElection
             }
             return v;
         }
+    }
+
+    public sealed partial record class QueryInfo
+    {
+        public int id;
+
+        public int coord;
+
+        public string group = "";
+
+        public Ice.ObjectPrx? replica;
+
+        public NodeState state;
+
+        public GroupInfo[] up;
+
+        public int max;
+
+        partial void ice_initialize();
+
+        public QueryInfo(GroupInfo[] up)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(up);
+            this.up = up;
+            ice_initialize();
+        }
+
+        public QueryInfo(int id, int coord, string group, Ice.ObjectPrx? replica, NodeState state, GroupInfo[] up, int max)
+        {
+            this.id = id;
+            this.coord = coord;
+            global::System.ArgumentNullException.ThrowIfNull(group);
+            this.group = group;
+            this.replica = replica;
+            this.state = state;
+            global::System.ArgumentNullException.ThrowIfNull(up);
+            this.up = up;
+            this.max = max;
+            ice_initialize();
+        }
+
+        public QueryInfo(Ice.InputStream istr)
+        {
+            this.id = istr.readInt();
+            this.coord = istr.readInt();
+            this.group = istr.readString();
+            this.replica = istr.readProxy();
+            this.state = (NodeState)istr.readEnum(3);
+            this.up = GroupInfoSeqHelper.read(istr);
+            this.max = istr.readInt();
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeInt(this.id);
+            ostr.writeInt(this.coord);
+            ostr.writeString(this.group);
+            ostr.writeProxy(this.replica);
+            ostr.writeEnum((int)this.state, 3);
+            GroupInfoSeqHelper.write(ostr, this.up);
+            ostr.writeInt(this.max);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, QueryInfo v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static QueryInfo ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    /// <summary>
+    /// A replica node.
+    /// </summary>
+    public interface NodePrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Invite the node into a group with the given coordinator and group name.
+        /// </summary>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void invitation(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Invite the node into a group with the given coordinator and group name.
+        /// </summary>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
+        /// </summary>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="coordinator">
+        /// The proxy to the coordinator.
+        /// </param>
+        /// <param name="max">
+        /// The highest priority node seen by this replica group.
+        /// </param>
+        /// <param name="generation">
+        /// The current generation count.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
+        /// </summary>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="coordinator">
+        /// The proxy to the coordinator.
+        /// </param>
+        /// <param name="max">
+        /// The highest priority node seen by this replica group.
+        /// </param>
+        /// <param name="generation">
+        /// The current generation count.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task readyAsync(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Called to accept an invitation into the given group.
+        /// </summary>
+        /// <param name="j">
+        /// The id of the node accepting the invitation.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="forwardedInvites">
+        /// The ids of the nodes to which invitations were forwarded.
+        /// </param>
+        /// <param name="observer">
+        /// The observer.
+        /// </param>
+        /// <param name="llu">
+        /// The last log update for the given node.
+        /// </param>
+        /// <param name="max">
+        /// The highest priority node seen by this replica group.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Called to accept an invitation into the given group.
+        /// </summary>
+        /// <param name="j">
+        /// The id of the node accepting the invitation.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="forwardedInvites">
+        /// The ids of the nodes to which invitations were forwarded.
+        /// </param>
+        /// <param name="observer">
+        /// The observer.
+        /// </param>
+        /// <param name="llu">
+        /// The last log update for the given node.
+        /// </param>
+        /// <param name="max">
+        /// The highest priority node seen by this replica group.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Determine if this node is a coordinator.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// True if the node is a coordinator, false otherwise.
+        /// </returns>
+        bool areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Determine if this node is a coordinator.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<bool> areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Determine if the node is a member of the given group with the given coordinator.
+        /// </summary>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// True if the node is a member, false otherwise.
+        /// </returns>
+        bool areYouThere(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Determine if the node is a member of the given group with the given coordinator.
+        /// </summary>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the sync object for the replica hosted by this node.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The sync object.
+        /// </returns>
+        Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the sync object for the replica hosted by this node.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the replication group information.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The set of configured nodes and the associated priority.
+        /// </returns>
+        NodeInfo[] nodes(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the replication group information.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<NodeInfo[]> nodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the query information for the given node.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The query information.
+        /// </returns>
+        QueryInfo query(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the query information for the given node.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class NodePrxHelper : Ice.ObjectPrxHelperBase, NodePrx
@@ -1892,6 +1667,181 @@ namespace IceStormElection
 
 namespace IceStormElection
 {
+    public record struct TopicManagerSync_GetContentResult(LogUpdate llu, TopicContent[] content);
+}
+
+namespace IceStormElection
+{
+    [Ice.SliceTypeId("::IceStormElection::ReplicaObserver")]
+    public partial interface ReplicaObserver : Ice.Object
+    {
+        /// <summary>
+        /// Initialize the observer.
+        /// </summary>
+        /// <param name="llu">
+        /// The last log update seen by the master.
+        /// </param>
+        /// <param name="content">
+        /// The topic content.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStormElection.ObserverInconsistencyException">
+        /// Raised if an
+        /// inconsisency was detected.
+        /// </exception>
+        void init(LogUpdate llu, TopicContent[] content, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_initAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogUpdate iceP_llu;
+            TopicContent[] iceP_content;
+            iceP_llu = new LogUpdate(istr);
+            iceP_content = TopicContentSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.init(iceP_llu, iceP_content, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Create the topic with the given name.
+        /// </summary>
+        /// <param name="llu">
+        /// The log update token.
+        /// </param>
+        /// <param name="name">
+        /// The topic name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStormElection.ObserverInconsistencyException">
+        /// Raised if an
+        /// inconsisency was detected.
+        /// </exception>
+        void createTopic(LogUpdate llu, string name, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createTopicAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogUpdate iceP_llu;
+            string iceP_name;
+            iceP_llu = new LogUpdate(istr);
+            iceP_name = istr.readString();
+            istr.endEncapsulation();
+            obj.createTopic(iceP_llu, iceP_name, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Destroy the topic with the given name.
+        /// </summary>
+        /// <param name="llu">
+        /// The log update token.
+        /// </param>
+        /// <param name="name">
+        /// The topic name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStormElection.ObserverInconsistencyException">
+        /// Raised if an
+        /// inconsisency was detected.
+        /// </exception>
+        void destroyTopic(LogUpdate llu, string name, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyTopicAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogUpdate iceP_llu;
+            string iceP_name;
+            iceP_llu = new LogUpdate(istr);
+            iceP_name = istr.readString();
+            istr.endEncapsulation();
+            obj.destroyTopic(iceP_llu, iceP_name, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Add a subscriber to a topic.
+        /// </summary>
+        /// <param name="llu">
+        /// The log update token.
+        /// </param>
+        /// <param name="topic">
+        /// The topic name to which to add the subscriber.
+        /// </param>
+        /// <param name="record">
+        /// The subscriber information.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStormElection.ObserverInconsistencyException">
+        /// Raised if an
+        /// inconsisency was detected.
+        /// </exception>
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addSubscriberAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogUpdate iceP_llu;
+            string iceP_topic;
+            global::IceStorm.SubscriberRecord iceP_record;
+            iceP_llu = new LogUpdate(istr);
+            iceP_topic = istr.readString();
+            iceP_record = new global::IceStorm.SubscriberRecord(istr);
+            istr.endEncapsulation();
+            obj.addSubscriber(iceP_llu, iceP_topic, iceP_record, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Remove a subscriber from a topic.
+        /// </summary>
+        /// <param name="llu">
+        /// The log update token.
+        /// </param>
+        /// <param name="subscribers">
+        /// The identities of the subscribers to remove.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStormElection.ObserverInconsistencyException">
+        /// Raised if an inconsisency was detected.
+        /// </exception>
+        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_removeSubscriberAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogUpdate iceP_llu;
+            string iceP_topic;
+            global::Ice.Identity[] iceP_subscribers;
+            iceP_llu = new LogUpdate(istr);
+            iceP_topic = istr.readString();
+            iceP_subscribers = global::Ice.IdentitySeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.removeSubscriber(iceP_llu, iceP_topic, iceP_subscribers, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ReplicaObserverDisp_ : Ice.ObjectImpl, ReplicaObserver
     {
         public abstract void init(LogUpdate llu, TopicContent[] content, Ice.Current current);
@@ -1924,6 +1874,39 @@ namespace IceStormElection
             };
     }
 
+    [Ice.SliceTypeId("::IceStormElection::TopicManagerSync")]
+    public partial interface TopicManagerSync : Ice.Object
+    {
+        /// <summary>
+        /// Retrieve the topic content.
+        /// </summary>
+        /// <param name="llu">
+        /// The last log update token.
+        /// </param>
+        /// <param name="content">
+        /// The topic content.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void getContent(out LogUpdate llu, out TopicContent[] content, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getContentAsync(
+            TopicManagerSync obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            LogUpdate iceP_llu;
+            TopicContent[] iceP_content;
+            obj.getContent(out iceP_llu, out iceP_content, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            iceP_llu.ice_writeMembers(ostr);
+            TopicContentSeqHelper.write(ostr, iceP_content);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class TopicManagerSyncDisp_ : Ice.ObjectImpl, TopicManagerSync
     {
         public abstract void getContent(out LogUpdate llu, out TopicContent[] content, Ice.Current current);
@@ -1942,6 +1925,256 @@ namespace IceStormElection
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::IceStormElection::Node")]
+    public partial interface Node : Ice.Object
+    {
+        /// <summary>
+        /// Invite the node into a group with the given coordinator and group name.
+        /// </summary>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void invitation(int j, string gn, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_invitationAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_j;
+            string iceP_gn;
+            iceP_j = istr.readInt();
+            iceP_gn = istr.readString();
+            istr.endEncapsulation();
+            obj.invitation(iceP_j, iceP_gn, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
+        /// </summary>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="coordinator">
+        /// The proxy to the coordinator.
+        /// </param>
+        /// <param name="max">
+        /// The highest priority node seen by this replica group.
+        /// </param>
+        /// <param name="generation">
+        /// The current generation count.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void ready(int j, string gn, Ice.ObjectPrx? coordinator, int max, long generation, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_readyAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_j;
+            string iceP_gn;
+            Ice.ObjectPrx? iceP_coordinator;
+            int iceP_max;
+            long iceP_generation;
+            iceP_j = istr.readInt();
+            iceP_gn = istr.readString();
+            iceP_coordinator = istr.readProxy();
+            iceP_max = istr.readInt();
+            iceP_generation = istr.readLong();
+            istr.endEncapsulation();
+            obj.ready(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Called to accept an invitation into the given group.
+        /// </summary>
+        /// <param name="j">
+        /// The id of the node accepting the invitation.
+        /// </param>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="forwardedInvites">
+        /// The ids of the nodes to which invitations were forwarded.
+        /// </param>
+        /// <param name="observer">
+        /// The observer.
+        /// </param>
+        /// <param name="llu">
+        /// The last log update for the given node.
+        /// </param>
+        /// <param name="max">
+        /// The highest priority node seen by this replica group.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void accept(int j, string gn, int[] forwardedInvites, Ice.ObjectPrx? observer, LogUpdate llu, int max, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_acceptAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_j;
+            string iceP_gn;
+            int[] iceP_forwardedInvites;
+            Ice.ObjectPrx? iceP_observer;
+            LogUpdate iceP_llu;
+            int iceP_max;
+            iceP_j = istr.readInt();
+            iceP_gn = istr.readString();
+            iceP_forwardedInvites = global::Ice.IntSeqHelper.read(istr);
+            iceP_observer = istr.readProxy();
+            iceP_llu = new LogUpdate(istr);
+            iceP_max = istr.readInt();
+            istr.endEncapsulation();
+            obj.accept(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Determine if this node is a coordinator.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// True if the node is a coordinator, false otherwise.
+        /// </returns>
+        bool areYouCoordinator(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_areYouCoordinatorAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.areYouCoordinator(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Determine if the node is a member of the given group with the given coordinator.
+        /// </summary>
+        /// <param name="gn">
+        /// The group name.
+        /// </param>
+        /// <param name="j">
+        /// The group coordinator.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// True if the node is a member, false otherwise.
+        /// </returns>
+        bool areYouThere(string gn, int j, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_areYouThereAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_gn;
+            int iceP_j;
+            iceP_gn = istr.readString();
+            iceP_j = istr.readInt();
+            istr.endEncapsulation();
+            var ret = obj.areYouThere(iceP_gn, iceP_j, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the sync object for the replica hosted by this node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The sync object.
+        /// </returns>
+        Ice.ObjectPrx? sync(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_syncAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.sync(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the replication group information.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The set of configured nodes and the associated priority.
+        /// </returns>
+        NodeInfo[] nodes(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_nodesAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.nodes(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            NodeInfoSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the query information for the given node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The query information.
+        /// </returns>
+        QueryInfo query(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_queryAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.query(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            QueryInfo.ice_write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
     }
 
     public abstract class NodeDisp_ : Ice.ObjectImpl, Node
@@ -1983,256 +2216,5 @@ namespace IceStormElection
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceStormElection
-{
-    public partial interface ReplicaObserver
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_initAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogUpdate iceP_llu;
-            TopicContent[] iceP_content;
-            iceP_llu = new LogUpdate(istr);
-            iceP_content = TopicContentSeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.init(iceP_llu, iceP_content, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createTopicAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogUpdate iceP_llu;
-            string iceP_name;
-            iceP_llu = new LogUpdate(istr);
-            iceP_name = istr.readString();
-            istr.endEncapsulation();
-            obj.createTopic(iceP_llu, iceP_name, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyTopicAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogUpdate iceP_llu;
-            string iceP_name;
-            iceP_llu = new LogUpdate(istr);
-            iceP_name = istr.readString();
-            istr.endEncapsulation();
-            obj.destroyTopic(iceP_llu, iceP_name, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addSubscriberAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogUpdate iceP_llu;
-            string iceP_topic;
-            global::IceStorm.SubscriberRecord iceP_record;
-            iceP_llu = new LogUpdate(istr);
-            iceP_topic = istr.readString();
-            iceP_record = new global::IceStorm.SubscriberRecord(istr);
-            istr.endEncapsulation();
-            obj.addSubscriber(iceP_llu, iceP_topic, iceP_record, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_removeSubscriberAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogUpdate iceP_llu;
-            string iceP_topic;
-            global::Ice.Identity[] iceP_subscribers;
-            iceP_llu = new LogUpdate(istr);
-            iceP_topic = istr.readString();
-            iceP_subscribers = global::Ice.IdentitySeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.removeSubscriber(iceP_llu, iceP_topic, iceP_subscribers, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TopicManagerSync
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getContentAsync(
-            TopicManagerSync obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            LogUpdate iceP_llu;
-            TopicContent[] iceP_content;
-            obj.getContent(out iceP_llu, out iceP_content, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            iceP_llu.ice_writeMembers(ostr);
-            TopicContentSeqHelper.write(ostr, iceP_content);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-    }
-
-    public partial interface Node
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_invitationAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_j;
-            string iceP_gn;
-            iceP_j = istr.readInt();
-            iceP_gn = istr.readString();
-            istr.endEncapsulation();
-            obj.invitation(iceP_j, iceP_gn, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_readyAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_j;
-            string iceP_gn;
-            Ice.ObjectPrx? iceP_coordinator;
-            int iceP_max;
-            long iceP_generation;
-            iceP_j = istr.readInt();
-            iceP_gn = istr.readString();
-            iceP_coordinator = istr.readProxy();
-            iceP_max = istr.readInt();
-            iceP_generation = istr.readLong();
-            istr.endEncapsulation();
-            obj.ready(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_acceptAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_j;
-            string iceP_gn;
-            int[] iceP_forwardedInvites;
-            Ice.ObjectPrx? iceP_observer;
-            LogUpdate iceP_llu;
-            int iceP_max;
-            iceP_j = istr.readInt();
-            iceP_gn = istr.readString();
-            iceP_forwardedInvites = global::Ice.IntSeqHelper.read(istr);
-            iceP_observer = istr.readProxy();
-            iceP_llu = new LogUpdate(istr);
-            iceP_max = istr.readInt();
-            istr.endEncapsulation();
-            obj.accept(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_areYouCoordinatorAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.areYouCoordinator(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_areYouThereAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_gn;
-            int iceP_j;
-            iceP_gn = istr.readString();
-            iceP_j = istr.readInt();
-            istr.endEncapsulation();
-            var ret = obj.areYouThere(iceP_gn, iceP_j, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_syncAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.sync(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_nodesAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.nodes(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            NodeInfoSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_queryAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.query(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            QueryInfo.ice_write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

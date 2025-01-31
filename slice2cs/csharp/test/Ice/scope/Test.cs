@@ -55,6 +55,75 @@ namespace Ice.scope
             public static S ice_read(Ice.InputStream istr) => new(istr);
         }
 
+        public sealed class SMapHelper
+        {
+            public static void write(Ice.OutputStream ostr,
+                                     global::System.Collections.Generic.Dictionary<string, S> v)
+            {
+                if(v == null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Count);
+                    foreach(global::System.Collections.Generic.KeyValuePair<string, S> e in v)
+                    {
+                        ostr.writeString(e.Key);
+                        e.Value.ice_writeMembers(ostr);
+                    }
+                }
+            }
+
+            public static global::System.Collections.Generic.Dictionary<string, S> read(Ice.InputStream istr)
+            {
+                int sz = istr.readSize();
+                global::System.Collections.Generic.Dictionary<string, S> r = new global::System.Collections.Generic.Dictionary<string, S>();
+                for(int i = 0; i < sz; ++i)
+                {
+                    string k;
+                    k = istr.readString();
+                    S v;
+                    v = new S(istr);
+                    r[k] = v;
+                }
+                return r;
+            }
+        }
+
+        public sealed class SSeqHelper
+        {
+            public static void write(Ice.OutputStream ostr, S[] v)
+            {
+                if (v is null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Length);
+                    for(int ix = 0; ix < v.Length; ++ix)
+                    {
+                        v[ix].ice_writeMembers(ostr);
+                    }
+                }
+            }
+
+            public static S[] read(Ice.InputStream istr)
+            {
+                S[] v;
+                {
+                    int szx = istr.readAndCheckSeqSize(4);
+                    v = new S[szx];
+                    for(int ix = 0; ix < szx; ++ix)
+                    {
+                        v[ix] = new S(istr);
+                    }
+                }
+                return v;
+            }
+        }
+
         [Ice.SliceTypeId("::Test::C")]
         public partial class C : Ice.Value
         {
@@ -88,6 +157,73 @@ namespace Ice.scope
                 istr_.startSlice();
                 s = new S(istr_);
                 istr_.endSlice();
+            }
+        }
+
+        public sealed class CMapHelper
+        {
+            public static void write(Ice.OutputStream ostr,
+                                     global::System.Collections.Generic.Dictionary<string, C?> v)
+            {
+                if(v == null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Count);
+                    foreach(global::System.Collections.Generic.KeyValuePair<string, C?> e in v)
+                    {
+                        ostr.writeString(e.Key);
+                        ostr.writeValue(e.Value);
+                    }
+                }
+            }
+
+            public static global::System.Collections.Generic.Dictionary<string, C?> read(Ice.InputStream istr)
+            {
+                int sz = istr.readSize();
+                global::System.Collections.Generic.Dictionary<string, C?> r = new global::System.Collections.Generic.Dictionary<string, C?>();
+                for(int i = 0; i < sz; ++i)
+                {
+                    string k;
+                    k = istr.readString();
+                    istr.readValue((C? v) => { r[k] = v; });
+                }
+                return r;
+            }
+        }
+
+        public sealed class CSeqHelper
+        {
+            public static void write(Ice.OutputStream ostr, C?[] v)
+            {
+                if (v is null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Length);
+                    for(int ix = 0; ix < v.Length; ++ix)
+                    {
+                        ostr.writeValue(v[ix]);
+                    }
+                }
+            }
+
+            public static C?[] read(Ice.InputStream istr)
+            {
+                C?[] v;
+                {
+                    int szx = istr.readAndCheckSeqSize(1);
+                    v = new C?[szx];
+                    for (int ix = 0; ix < szx; ++ix)
+                    {
+                        istr.readValue(Ice.Internal.Patcher.arrayReadValue<C>(v, ix));
+                    }
+                }
+                return v;
             }
         }
 
@@ -292,308 +428,6 @@ namespace Ice.scope
             }
         }
 
-        [Ice.SliceTypeId("::Test::I")]
-        public partial interface I : Ice.Object
-        {
-            S opS(S s1, out S s2, Ice.Current current);
-
-            S[] opSSeq(S[] s1, out S[] s2, Ice.Current current);
-
-            global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, Ice.Current current);
-
-            C? opC(C? c1, out C? c2, Ice.Current current);
-
-            C?[] opCSeq(C?[] c1, out C?[] c2, Ice.Current current);
-
-            global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, Ice.Current current);
-
-            E1 opE1(E1 E1, Ice.Current current);
-
-            S1 opS1(S1 S1, Ice.Current current);
-
-            C1? opC1(C1? C1, Ice.Current current);
-
-            void shutdown(Ice.Current current);
-        }
-
-        namespace Inner
-        {
-            public partial record struct S
-            {
-                public int v;
-
-                partial void ice_initialize();
-
-                public S(int v)
-                {
-                    this.v = v;
-                    ice_initialize();
-                }
-
-                public S(Ice.InputStream istr)
-                {
-                    this.v = istr.readInt();
-                    ice_initialize();
-                }
-
-                public void ice_writeMembers(Ice.OutputStream ostr)
-                {
-                    ostr.writeInt(this.v);
-                }
-
-                public static void ice_write(Ice.OutputStream ostr, S v)
-                {
-                    v.ice_writeMembers(ostr);
-                }
-
-                public static S ice_read(Ice.InputStream istr) => new(istr);
-            }
-
-            namespace Inner2
-            {
-                public partial record struct S
-                {
-                    public int v;
-
-                    partial void ice_initialize();
-
-                    public S(int v)
-                    {
-                        this.v = v;
-                        ice_initialize();
-                    }
-
-                    public S(Ice.InputStream istr)
-                    {
-                        this.v = istr.readInt();
-                        ice_initialize();
-                    }
-
-                    public void ice_writeMembers(Ice.OutputStream ostr)
-                    {
-                        ostr.writeInt(this.v);
-                    }
-
-                    public static void ice_write(Ice.OutputStream ostr, S v)
-                    {
-                        v.ice_writeMembers(ostr);
-                    }
-
-                    public static S ice_read(Ice.InputStream istr) => new(istr);
-                }
-
-                [Ice.SliceTypeId("::Test::Inner::Inner2::C")]
-                public partial class C : Ice.Value
-                {
-                    public S s;
-
-                    partial void ice_initialize();
-
-                    public C(S s)
-                    {
-                        this.s = s;
-                        ice_initialize();
-                    }
-
-                    public C()
-                    {
-                        ice_initialize();
-                    }
-
-                    public static new string ice_staticId() => "::Test::Inner::Inner2::C";
-                    public override string ice_id() => ice_staticId();
-
-                    protected override void iceWriteImpl(Ice.OutputStream ostr_)
-                    {
-                        ostr_.startSlice(ice_staticId(), -1, true);
-                        s.ice_writeMembers(ostr_);
-                        ostr_.endSlice();
-                    }
-
-                    protected override void iceReadImpl(Ice.InputStream istr_)
-                    {
-                        istr_.startSlice();
-                        s = new S(istr_);
-                        istr_.endSlice();
-                    }
-                }
-
-                [Ice.SliceTypeId("::Test::Inner::Inner2::I")]
-                public partial interface I : Ice.Object
-                {
-                    S opS(S s1, out S s2, Ice.Current current);
-
-                    S[] opSSeq(S[] s1, out S[] s2, Ice.Current current);
-
-                    global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, Ice.Current current);
-
-                    C? opC(C? c1, out C? c2, Ice.Current current);
-
-                    C?[] opCSeq(C?[] c1, out C?[] c2, Ice.Current current);
-
-                    global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, Ice.Current current);
-
-                    void shutdown(Ice.Current current);
-                }
-            }
-
-            [Ice.SliceTypeId("::Test::Inner::C")]
-            public partial class C : Ice.Value
-            {
-                public S s;
-
-                partial void ice_initialize();
-
-                public C(S s)
-                {
-                    this.s = s;
-                    ice_initialize();
-                }
-
-                public C()
-                {
-                    ice_initialize();
-                }
-
-                public static new string ice_staticId() => "::Test::Inner::C";
-                public override string ice_id() => ice_staticId();
-
-                protected override void iceWriteImpl(Ice.OutputStream ostr_)
-                {
-                    ostr_.startSlice(ice_staticId(), -1, true);
-                    s.ice_writeMembers(ostr_);
-                    ostr_.endSlice();
-                }
-
-                protected override void iceReadImpl(Ice.InputStream istr_)
-                {
-                    istr_.startSlice();
-                    s = new S(istr_);
-                    istr_.endSlice();
-                }
-            }
-
-            [Ice.SliceTypeId("::Test::Inner::I")]
-            public partial interface I : Ice.Object
-            {
-                global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, Ice.Current current);
-
-                global::Ice.scope.Test.Inner.Inner2.S[] opSSeq(global::Ice.scope.Test.Inner.Inner2.S[] s1, out global::Ice.scope.Test.Inner.Inner2.S[] s2, Ice.Current current);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2, Ice.Current current);
-
-                global::Ice.scope.Test.Inner.Inner2.C? opC(global::Ice.scope.Test.Inner.Inner2.C? c1, out global::Ice.scope.Test.Inner.Inner2.C? c2, Ice.Current current);
-
-                global::Ice.scope.Test.Inner.Inner2.C?[] opCSeq(global::Ice.scope.Test.Inner.Inner2.C?[] c1, out global::Ice.scope.Test.Inner.Inner2.C?[] c2, Ice.Current current);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2, Ice.Current current);
-
-                void shutdown(Ice.Current current);
-            }
-        }
-    }
-}
-
-namespace Inner
-{
-    namespace Test
-    {
-        namespace Inner2
-        {
-            [Ice.SliceTypeId("::Inner::Test::Inner2::I")]
-            public partial interface I : Ice.Object
-            {
-                global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, Ice.Current current);
-
-                global::Ice.scope.Test.S[] opSSeq(global::Ice.scope.Test.S[] s1, out global::Ice.scope.Test.S[] s2, Ice.Current current);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2, Ice.Current current);
-
-                global::Ice.scope.Test.C? opC(global::Ice.scope.Test.C? c1, out global::Ice.scope.Test.C? c2, Ice.Current current);
-
-                global::Ice.scope.Test.C?[] opCSeq(global::Ice.scope.Test.C?[] c1, out global::Ice.scope.Test.C?[] c2, Ice.Current current);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2, Ice.Current current);
-
-                void shutdown(Ice.Current current);
-            }
-        }
-    }
-}
-
-namespace Ice.scope
-{
-    namespace Test
-    {
-        public record struct I_OpSResult(S returnValue, S s2);
-
-        public record struct I_OpSSeqResult(S[] returnValue, S[] s2);
-
-        public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2);
-
-        public record struct I_OpCResult(C? returnValue, C? c2);
-
-        public record struct I_OpCSeqResult(C?[] returnValue, C?[] c2);
-
-        public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C?> returnValue, global::System.Collections.Generic.Dictionary<string, C?> c2);
-
-        namespace Inner
-        {
-            namespace Inner2
-            {
-                public record struct I_OpSResult(S returnValue, S s2);
-
-                public record struct I_OpSSeqResult(S[] returnValue, S[] s2);
-
-                public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2);
-
-                public record struct I_OpCResult(C? returnValue, C? c2);
-
-                public record struct I_OpCSeqResult(C?[] returnValue, C?[] c2);
-
-                public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C?> returnValue, global::System.Collections.Generic.Dictionary<string, C?> c2);
-            }
-
-            public record struct I_OpSResult(global::Ice.scope.Test.Inner.Inner2.S returnValue, global::Ice.scope.Test.Inner.Inner2.S s2);
-
-            public record struct I_OpSSeqResult(global::Ice.scope.Test.Inner.Inner2.S[] returnValue, global::Ice.scope.Test.Inner.Inner2.S[] s2);
-
-            public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2);
-
-            public record struct I_OpCResult(global::Ice.scope.Test.Inner.Inner2.C? returnValue, global::Ice.scope.Test.Inner.Inner2.C? c2);
-
-            public record struct I_OpCSeqResult(global::Ice.scope.Test.Inner.Inner2.C?[] returnValue, global::Ice.scope.Test.Inner.Inner2.C?[] c2);
-
-            public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2);
-        }
-    }
-}
-
-namespace Inner
-{
-    namespace Test
-    {
-        namespace Inner2
-        {
-            public record struct I_OpSResult(global::Ice.scope.Test.S returnValue, global::Ice.scope.Test.S s2);
-
-            public record struct I_OpSSeqResult(global::Ice.scope.Test.S[] returnValue, global::Ice.scope.Test.S[] s2);
-
-            public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2);
-
-            public record struct I_OpCResult(global::Ice.scope.Test.C? returnValue, global::Ice.scope.Test.C? c2);
-
-            public record struct I_OpCSeqResult(global::Ice.scope.Test.C?[] returnValue, global::Ice.scope.Test.C?[] c2);
-
-            public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2);
-        }
-    }
-}
-
-namespace Ice.scope
-{
-    namespace Test
-    {
         public interface IPrx : Ice.ObjectPrx
         {
             S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -635,256 +469,6 @@ namespace Ice.scope
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        namespace Inner
-        {
-            namespace Inner2
-            {
-                public interface IPrx : Ice.ObjectPrx
-                {
-                    S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task<I_OpSResult> opSAsync(S s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                    S[] opSSeq(S[] s1, out S[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task<I_OpSSeqResult> opSSeqAsync(S[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                    global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task<I_OpSMapResult> opSMapAsync(global::System.Collections.Generic.Dictionary<string, S> s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                    C? opC(C? c1, out C? c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task<I_OpCResult> opCAsync(C? c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                    C?[] opCSeq(C?[] c1, out C?[] c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task<I_OpCSeqResult> opCSeqAsync(C?[] c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                    global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task<I_OpCMapResult> opCMapAsync(global::System.Collections.Generic.Dictionary<string, C?> c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                    void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                    global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-                }
-            }
-
-            public interface IPrx : Ice.ObjectPrx
-            {
-                global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpSResult> opSAsync(global::Ice.scope.Test.Inner.Inner2.S s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::Ice.scope.Test.Inner.Inner2.S[] opSSeq(global::Ice.scope.Test.Inner.Inner2.S[] s1, out global::Ice.scope.Test.Inner.Inner2.S[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpSSeqResult> opSSeqAsync(global::Ice.scope.Test.Inner.Inner2.S[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpSMapResult> opSMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::Ice.scope.Test.Inner.Inner2.C? opC(global::Ice.scope.Test.Inner.Inner2.C? c1, out global::Ice.scope.Test.Inner.Inner2.C? c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpCResult> opCAsync(global::Ice.scope.Test.Inner.Inner2.C? c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::Ice.scope.Test.Inner.Inner2.C?[] opCSeq(global::Ice.scope.Test.Inner.Inner2.C?[] c1, out global::Ice.scope.Test.Inner.Inner2.C?[] c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpCSeqResult> opCSeqAsync(global::Ice.scope.Test.Inner.Inner2.C?[] c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpCMapResult> opCMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-            }
-        }
-    }
-}
-
-namespace Inner
-{
-    namespace Test
-    {
-        namespace Inner2
-        {
-            public interface IPrx : Ice.ObjectPrx
-            {
-                global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpSResult> opSAsync(global::Ice.scope.Test.S s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::Ice.scope.Test.S[] opSSeq(global::Ice.scope.Test.S[] s1, out global::Ice.scope.Test.S[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpSSeqResult> opSSeqAsync(global::Ice.scope.Test.S[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpSMapResult> opSMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::Ice.scope.Test.C? opC(global::Ice.scope.Test.C? c1, out global::Ice.scope.Test.C? c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpCResult> opCAsync(global::Ice.scope.Test.C? c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::Ice.scope.Test.C?[] opCSeq(global::Ice.scope.Test.C?[] c1, out global::Ice.scope.Test.C?[] c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpCSeqResult> opCSeqAsync(global::Ice.scope.Test.C?[] c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task<I_OpCMapResult> opCMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-                void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-                global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-            }
-        }
-    }
-}
-
-namespace Ice.scope
-{
-    namespace Test
-    {
-        public sealed class SMapHelper
-        {
-            public static void write(Ice.OutputStream ostr,
-                                     global::System.Collections.Generic.Dictionary<string, S> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    foreach(global::System.Collections.Generic.KeyValuePair<string, S> e in v)
-                    {
-                        ostr.writeString(e.Key);
-                        e.Value.ice_writeMembers(ostr);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Dictionary<string, S> read(Ice.InputStream istr)
-            {
-                int sz = istr.readSize();
-                global::System.Collections.Generic.Dictionary<string, S> r = new global::System.Collections.Generic.Dictionary<string, S>();
-                for(int i = 0; i < sz; ++i)
-                {
-                    string k;
-                    k = istr.readString();
-                    S v;
-                    v = new S(istr);
-                    r[k] = v;
-                }
-                return r;
-            }
-        }
-
-        public sealed class SSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, S[] v)
-            {
-                if (v is null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        v[ix].ice_writeMembers(ostr);
-                    }
-                }
-            }
-
-            public static S[] read(Ice.InputStream istr)
-            {
-                S[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(4);
-                    v = new S[szx];
-                    for(int ix = 0; ix < szx; ++ix)
-                    {
-                        v[ix] = new S(istr);
-                    }
-                }
-                return v;
-            }
-        }
-
-        public sealed class CMapHelper
-        {
-            public static void write(Ice.OutputStream ostr,
-                                     global::System.Collections.Generic.Dictionary<string, C?> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    foreach(global::System.Collections.Generic.KeyValuePair<string, C?> e in v)
-                    {
-                        ostr.writeString(e.Key);
-                        ostr.writeValue(e.Value);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Dictionary<string, C?> read(Ice.InputStream istr)
-            {
-                int sz = istr.readSize();
-                global::System.Collections.Generic.Dictionary<string, C?> r = new global::System.Collections.Generic.Dictionary<string, C?>();
-                for(int i = 0; i < sz; ++i)
-                {
-                    string k;
-                    k = istr.readString();
-                    istr.readValue((C? v) => { r[k] = v; });
-                }
-                return r;
-            }
-        }
-
-        public sealed class CSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, C?[] v)
-            {
-                if (v is null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeValue(v[ix]);
-                    }
-                }
-            }
-
-            public static C?[] read(Ice.InputStream istr)
-            {
-                C?[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new C?[szx];
-                    for (int ix = 0; ix < szx; ++ix)
-                    {
-                        istr.readValue(Ice.Internal.Patcher.arrayReadValue<C>(v, ix));
-                    }
-                }
-                return v;
-            }
         }
 
         public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
@@ -1503,8 +1087,70 @@ namespace Ice.scope
 
         namespace Inner
         {
+            public partial record struct S
+            {
+                public int v;
+
+                partial void ice_initialize();
+
+                public S(int v)
+                {
+                    this.v = v;
+                    ice_initialize();
+                }
+
+                public S(Ice.InputStream istr)
+                {
+                    this.v = istr.readInt();
+                    ice_initialize();
+                }
+
+                public void ice_writeMembers(Ice.OutputStream ostr)
+                {
+                    ostr.writeInt(this.v);
+                }
+
+                public static void ice_write(Ice.OutputStream ostr, S v)
+                {
+                    v.ice_writeMembers(ostr);
+                }
+
+                public static S ice_read(Ice.InputStream istr) => new(istr);
+            }
+
             namespace Inner2
             {
+                public partial record struct S
+                {
+                    public int v;
+
+                    partial void ice_initialize();
+
+                    public S(int v)
+                    {
+                        this.v = v;
+                        ice_initialize();
+                    }
+
+                    public S(Ice.InputStream istr)
+                    {
+                        this.v = istr.readInt();
+                        ice_initialize();
+                    }
+
+                    public void ice_writeMembers(Ice.OutputStream ostr)
+                    {
+                        ostr.writeInt(this.v);
+                    }
+
+                    public static void ice_write(Ice.OutputStream ostr, S v)
+                    {
+                        v.ice_writeMembers(ostr);
+                    }
+
+                    public static S ice_read(Ice.InputStream istr) => new(istr);
+                }
+
                 public sealed class SMapHelper
                 {
                     public static void write(Ice.OutputStream ostr,
@@ -1574,6 +1220,42 @@ namespace Ice.scope
                     }
                 }
 
+                [Ice.SliceTypeId("::Test::Inner::Inner2::C")]
+                public partial class C : Ice.Value
+                {
+                    public S s;
+
+                    partial void ice_initialize();
+
+                    public C(S s)
+                    {
+                        this.s = s;
+                        ice_initialize();
+                    }
+
+                    public C()
+                    {
+                        ice_initialize();
+                    }
+
+                    public static new string ice_staticId() => "::Test::Inner::Inner2::C";
+                    public override string ice_id() => ice_staticId();
+
+                    protected override void iceWriteImpl(Ice.OutputStream ostr_)
+                    {
+                        ostr_.startSlice(ice_staticId(), -1, true);
+                        s.ice_writeMembers(ostr_);
+                        ostr_.endSlice();
+                    }
+
+                    protected override void iceReadImpl(Ice.InputStream istr_)
+                    {
+                        istr_.startSlice();
+                        s = new S(istr_);
+                        istr_.endSlice();
+                    }
+                }
+
                 public sealed class CMapHelper
                 {
                     public static void write(Ice.OutputStream ostr,
@@ -1639,6 +1321,37 @@ namespace Ice.scope
                         }
                         return v;
                     }
+                }
+
+                public interface IPrx : Ice.ObjectPrx
+                {
+                    S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task<I_OpSResult> opSAsync(S s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                    S[] opSSeq(S[] s1, out S[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task<I_OpSSeqResult> opSSeqAsync(S[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                    global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task<I_OpSMapResult> opSMapAsync(global::System.Collections.Generic.Dictionary<string, S> s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                    C? opC(C? c1, out C? c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task<I_OpCResult> opCAsync(C? c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                    C?[] opCSeq(C?[] c1, out C?[] c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task<I_OpCSeqResult> opCSeqAsync(C?[] c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                    global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task<I_OpCMapResult> opCMapAsync(global::System.Collections.Generic.Dictionary<string, C?> c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                    void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                    global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
                 }
 
                 public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
@@ -2110,6 +1823,42 @@ namespace Ice.scope
                 }
             }
 
+            [Ice.SliceTypeId("::Test::Inner::C")]
+            public partial class C : Ice.Value
+            {
+                public S s;
+
+                partial void ice_initialize();
+
+                public C(S s)
+                {
+                    this.s = s;
+                    ice_initialize();
+                }
+
+                public C()
+                {
+                    ice_initialize();
+                }
+
+                public static new string ice_staticId() => "::Test::Inner::C";
+                public override string ice_id() => ice_staticId();
+
+                protected override void iceWriteImpl(Ice.OutputStream ostr_)
+                {
+                    ostr_.startSlice(ice_staticId(), -1, true);
+                    s.ice_writeMembers(ostr_);
+                    ostr_.endSlice();
+                }
+
+                protected override void iceReadImpl(Ice.InputStream istr_)
+                {
+                    istr_.startSlice();
+                    s = new S(istr_);
+                    istr_.endSlice();
+                }
+            }
+
             public sealed class SSeqHelper
             {
                 public static void write(Ice.OutputStream ostr, global::Ice.scope.Test.Inner.Inner2.S[] v)
@@ -2244,6 +1993,37 @@ namespace Ice.scope
                     }
                     return v;
                 }
+            }
+
+            public interface IPrx : Ice.ObjectPrx
+            {
+                global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpSResult> opSAsync(global::Ice.scope.Test.Inner.Inner2.S s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::Ice.scope.Test.Inner.Inner2.S[] opSSeq(global::Ice.scope.Test.Inner.Inner2.S[] s1, out global::Ice.scope.Test.Inner.Inner2.S[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpSSeqResult> opSSeqAsync(global::Ice.scope.Test.Inner.Inner2.S[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpSMapResult> opSMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::Ice.scope.Test.Inner.Inner2.C? opC(global::Ice.scope.Test.Inner.Inner2.C? c1, out global::Ice.scope.Test.Inner.Inner2.C? c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpCResult> opCAsync(global::Ice.scope.Test.Inner.Inner2.C? c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::Ice.scope.Test.Inner.Inner2.C?[] opCSeq(global::Ice.scope.Test.Inner.Inner2.C?[] c1, out global::Ice.scope.Test.Inner.Inner2.C?[] c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpCSeqResult> opCSeqAsync(global::Ice.scope.Test.Inner.Inner2.C?[] c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpCMapResult> opCMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
             }
 
             public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
@@ -2723,6 +2503,37 @@ namespace Inner
     {
         namespace Inner2
         {
+            public interface IPrx : Ice.ObjectPrx
+            {
+                global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpSResult> opSAsync(global::Ice.scope.Test.S s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::Ice.scope.Test.S[] opSSeq(global::Ice.scope.Test.S[] s1, out global::Ice.scope.Test.S[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpSSeqResult> opSSeqAsync(global::Ice.scope.Test.S[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpSMapResult> opSMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::Ice.scope.Test.C? opC(global::Ice.scope.Test.C? c1, out global::Ice.scope.Test.C? c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpCResult> opCAsync(global::Ice.scope.Test.C? c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::Ice.scope.Test.C?[] opCSeq(global::Ice.scope.Test.C?[] c1, out global::Ice.scope.Test.C?[] c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpCSeqResult> opCSeqAsync(global::Ice.scope.Test.C?[] c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task<I_OpCMapResult> opCMapAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+                void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+                global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            }
+
             public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
             {
                 public global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -3129,6 +2940,291 @@ namespace Ice.scope
 {
     namespace Test
     {
+        public record struct I_OpSResult(S returnValue, S s2);
+
+        public record struct I_OpSSeqResult(S[] returnValue, S[] s2);
+
+        public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2);
+
+        public record struct I_OpCResult(C? returnValue, C? c2);
+
+        public record struct I_OpCSeqResult(C?[] returnValue, C?[] c2);
+
+        public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C?> returnValue, global::System.Collections.Generic.Dictionary<string, C?> c2);
+
+        namespace Inner
+        {
+            namespace Inner2
+            {
+                public record struct I_OpSResult(S returnValue, S s2);
+
+                public record struct I_OpSSeqResult(S[] returnValue, S[] s2);
+
+                public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2);
+
+                public record struct I_OpCResult(C? returnValue, C? c2);
+
+                public record struct I_OpCSeqResult(C?[] returnValue, C?[] c2);
+
+                public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C?> returnValue, global::System.Collections.Generic.Dictionary<string, C?> c2);
+            }
+
+            public record struct I_OpSResult(global::Ice.scope.Test.Inner.Inner2.S returnValue, global::Ice.scope.Test.Inner.Inner2.S s2);
+
+            public record struct I_OpSSeqResult(global::Ice.scope.Test.Inner.Inner2.S[] returnValue, global::Ice.scope.Test.Inner.Inner2.S[] s2);
+
+            public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2);
+
+            public record struct I_OpCResult(global::Ice.scope.Test.Inner.Inner2.C? returnValue, global::Ice.scope.Test.Inner.Inner2.C? c2);
+
+            public record struct I_OpCSeqResult(global::Ice.scope.Test.Inner.Inner2.C?[] returnValue, global::Ice.scope.Test.Inner.Inner2.C?[] c2);
+
+            public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2);
+        }
+    }
+}
+
+namespace Inner
+{
+    namespace Test
+    {
+        namespace Inner2
+        {
+            public record struct I_OpSResult(global::Ice.scope.Test.S returnValue, global::Ice.scope.Test.S s2);
+
+            public record struct I_OpSSeqResult(global::Ice.scope.Test.S[] returnValue, global::Ice.scope.Test.S[] s2);
+
+            public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2);
+
+            public record struct I_OpCResult(global::Ice.scope.Test.C? returnValue, global::Ice.scope.Test.C? c2);
+
+            public record struct I_OpCSeqResult(global::Ice.scope.Test.C?[] returnValue, global::Ice.scope.Test.C?[] c2);
+
+            public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2);
+        }
+    }
+}
+
+namespace Ice.scope
+{
+    namespace Test
+    {
+        [Ice.SliceTypeId("::Test::I")]
+        public partial interface I : Ice.Object
+        {
+            S opS(S s1, out S s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                S iceP_s1;
+                iceP_s1 = new S(istr);
+                istr.endEncapsulation();
+                S iceP_s2;
+                var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                iceP_s2.ice_writeMembers(ostr);
+                ret.ice_writeMembers(ostr);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            S[] opSSeq(S[] s1, out S[] s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                S[] iceP_s1;
+                iceP_s1 = SSeqHelper.read(istr);
+                istr.endEncapsulation();
+                S[] iceP_s2;
+                var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                SSeqHelper.write(ostr, iceP_s2);
+                SSeqHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, S> iceP_s1;
+                iceP_s1 = SMapHelper.read(istr);
+                istr.endEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, S> iceP_s2;
+                var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                SMapHelper.write(ostr, iceP_s2);
+                SMapHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            C? opC(C? c1, out C? c2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                C? iceP_c1 = null;
+                istr.readValue((C? v) => { iceP_c1 = v; });
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                C? iceP_c2;
+                var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeValue(iceP_c2);
+                ostr.writeValue(ret);
+                ostr.writePendingValues();
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            C?[] opCSeq(C?[] c1, out C?[] c2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                C?[] iceP_c1;
+                iceP_c1 = CSeqHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                C?[] iceP_c2;
+                var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                CSeqHelper.write(ostr, iceP_c2);
+                CSeqHelper.write(ostr, ret);
+                ostr.writePendingValues();
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, C?> iceP_c1;
+                iceP_c1 = CMapHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, C?> iceP_c2;
+                var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                CMapHelper.write(ostr, iceP_c2);
+                CMapHelper.write(ostr, ret);
+                ostr.writePendingValues();
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            E1 opE1(E1 E1, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opE1Async(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                E1 iceP_E1;
+                iceP_E1 = (E1)istr.readEnum(2);
+                istr.endEncapsulation();
+                var ret = obj.opE1(iceP_E1, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeEnum((int)ret, 2);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            S1 opS1(S1 S1, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opS1Async(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                S1 iceP_S1;
+                iceP_S1 = new S1(istr);
+                istr.endEncapsulation();
+                var ret = obj.opS1(iceP_S1, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                S1.ice_write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            C1? opC1(C1? C1, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opC1Async(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                C1? iceP_C1 = null;
+                istr.readValue((C1? v) => { iceP_C1 = v; });
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var ret = obj.opC1(iceP_C1, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeValue(ret);
+                ostr.writePendingValues();
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            void shutdown(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                I obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class IDisp_ : Ice.ObjectImpl, I
         {
             public abstract S opS(S s1, out S s2, Ice.Current current);
@@ -3180,6 +3276,160 @@ namespace Ice.scope
         {
             namespace Inner2
             {
+                [Ice.SliceTypeId("::Test::Inner::Inner2::I")]
+                public partial interface I : Ice.Object
+                {
+                    S opS(S s1, out S s2, Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        var istr = request.inputStream;
+                        istr.startEncapsulation();
+                        S iceP_s1;
+                        iceP_s1 = new S(istr);
+                        istr.endEncapsulation();
+                        S iceP_s2;
+                        var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
+                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                        ostr.startEncapsulation(request.current.encoding, null);
+                        iceP_s2.ice_writeMembers(ostr);
+                        ret.ice_writeMembers(ostr);
+                        ostr.endEncapsulation();
+                        return new(new Ice.OutgoingResponse(ostr));
+                    }
+
+                    S[] opSSeq(S[] s1, out S[] s2, Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        var istr = request.inputStream;
+                        istr.startEncapsulation();
+                        S[] iceP_s1;
+                        iceP_s1 = SSeqHelper.read(istr);
+                        istr.endEncapsulation();
+                        S[] iceP_s2;
+                        var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
+                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                        ostr.startEncapsulation(request.current.encoding, null);
+                        SSeqHelper.write(ostr, iceP_s2);
+                        SSeqHelper.write(ostr, ret);
+                        ostr.endEncapsulation();
+                        return new(new Ice.OutgoingResponse(ostr));
+                    }
+
+                    global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        var istr = request.inputStream;
+                        istr.startEncapsulation();
+                        global::System.Collections.Generic.Dictionary<string, S> iceP_s1;
+                        iceP_s1 = SMapHelper.read(istr);
+                        istr.endEncapsulation();
+                        global::System.Collections.Generic.Dictionary<string, S> iceP_s2;
+                        var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
+                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                        ostr.startEncapsulation(request.current.encoding, null);
+                        SMapHelper.write(ostr, iceP_s2);
+                        SMapHelper.write(ostr, ret);
+                        ostr.endEncapsulation();
+                        return new(new Ice.OutgoingResponse(ostr));
+                    }
+
+                    C? opC(C? c1, out C? c2, Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        var istr = request.inputStream;
+                        istr.startEncapsulation();
+                        C? iceP_c1 = null;
+                        istr.readValue((C? v) => { iceP_c1 = v; });
+                        istr.readPendingValues();
+                        istr.endEncapsulation();
+                        C? iceP_c2;
+                        var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
+                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                        ostr.startEncapsulation(request.current.encoding, null);
+                        ostr.writeValue(iceP_c2);
+                        ostr.writeValue(ret);
+                        ostr.writePendingValues();
+                        ostr.endEncapsulation();
+                        return new(new Ice.OutgoingResponse(ostr));
+                    }
+
+                    C?[] opCSeq(C?[] c1, out C?[] c2, Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        var istr = request.inputStream;
+                        istr.startEncapsulation();
+                        C?[] iceP_c1;
+                        iceP_c1 = CSeqHelper.read(istr);
+                        istr.readPendingValues();
+                        istr.endEncapsulation();
+                        C?[] iceP_c2;
+                        var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
+                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                        ostr.startEncapsulation(request.current.encoding, null);
+                        CSeqHelper.write(ostr, iceP_c2);
+                        CSeqHelper.write(ostr, ret);
+                        ostr.writePendingValues();
+                        ostr.endEncapsulation();
+                        return new(new Ice.OutgoingResponse(ostr));
+                    }
+
+                    global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        var istr = request.inputStream;
+                        istr.startEncapsulation();
+                        global::System.Collections.Generic.Dictionary<string, C?> iceP_c1;
+                        iceP_c1 = CMapHelper.read(istr);
+                        istr.readPendingValues();
+                        istr.endEncapsulation();
+                        global::System.Collections.Generic.Dictionary<string, C?> iceP_c2;
+                        var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
+                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                        ostr.startEncapsulation(request.current.encoding, null);
+                        CMapHelper.write(ostr, iceP_c2);
+                        CMapHelper.write(ostr, ret);
+                        ostr.writePendingValues();
+                        ostr.endEncapsulation();
+                        return new(new Ice.OutgoingResponse(ostr));
+                    }
+
+                    void shutdown(Ice.Current current);
+
+                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                        I obj,
+                        Ice.IncomingRequest request)
+                    {
+                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                        request.inputStream.skipEmptyEncapsulation();
+                        obj.shutdown(request.current);
+                        return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                    }
+                }
+
                 public abstract class IDisp_ : Ice.ObjectImpl, I
                 {
                     public abstract S opS(S s1, out S s2, Ice.Current current);
@@ -3216,6 +3466,160 @@ namespace Ice.scope
                             "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                             _ => throw new Ice.OperationNotExistException()
                         };
+                }
+            }
+
+            [Ice.SliceTypeId("::Test::Inner::I")]
+            public partial interface I : Ice.Object
+            {
+                global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.S iceP_s1;
+                    iceP_s1 = new global::Ice.scope.Test.Inner.Inner2.S(istr);
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.S iceP_s2;
+                    var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    iceP_s2.ice_writeMembers(ostr);
+                    ret.ice_writeMembers(ostr);
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::Ice.scope.Test.Inner.Inner2.S[] opSSeq(global::Ice.scope.Test.Inner.Inner2.S[] s1, out global::Ice.scope.Test.Inner.Inner2.S[] s2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.S[] iceP_s1;
+                    iceP_s1 = global::Ice.scope.Test.Inner.Inner2.SSeqHelper.read(istr);
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.S[] iceP_s2;
+                    var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, iceP_s2);
+                    global::Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> iceP_s1;
+                    iceP_s1 = global::Ice.scope.Test.Inner.Inner2.SMapHelper.read(istr);
+                    istr.endEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> iceP_s2;
+                    var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, iceP_s2);
+                    global::Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::Ice.scope.Test.Inner.Inner2.C? opC(global::Ice.scope.Test.Inner.Inner2.C? c1, out global::Ice.scope.Test.Inner.Inner2.C? c2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.C? iceP_c1 = null;
+                    istr.readValue((global::Ice.scope.Test.Inner.Inner2.C? v) => { iceP_c1 = v; });
+                    istr.readPendingValues();
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.C? iceP_c2;
+                    var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    ostr.writeValue(iceP_c2);
+                    ostr.writeValue(ret);
+                    ostr.writePendingValues();
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::Ice.scope.Test.Inner.Inner2.C?[] opCSeq(global::Ice.scope.Test.Inner.Inner2.C?[] c1, out global::Ice.scope.Test.Inner.Inner2.C?[] c2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.C?[] iceP_c1;
+                    iceP_c1 = global::Ice.scope.Test.Inner.Inner2.CSeqHelper.read(istr);
+                    istr.readPendingValues();
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.Inner.Inner2.C?[] iceP_c2;
+                    var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, iceP_c2);
+                    global::Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, ret);
+                    ostr.writePendingValues();
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> iceP_c1;
+                    iceP_c1 = global::Ice.scope.Test.Inner.Inner2.CMapHelper.read(istr);
+                    istr.readPendingValues();
+                    istr.endEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> iceP_c2;
+                    var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, iceP_c2);
+                    global::Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, ret);
+                    ostr.writePendingValues();
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                void shutdown(Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    request.inputStream.skipEmptyEncapsulation();
+                    obj.shutdown(request.current);
+                    return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
                 }
             }
 
@@ -3266,6 +3670,160 @@ namespace Inner
     {
         namespace Inner2
         {
+            [Ice.SliceTypeId("::Inner::Test::Inner2::I")]
+            public partial interface I : Ice.Object
+            {
+                global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.S iceP_s1;
+                    iceP_s1 = new global::Ice.scope.Test.S(istr);
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.S iceP_s2;
+                    var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    iceP_s2.ice_writeMembers(ostr);
+                    ret.ice_writeMembers(ostr);
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::Ice.scope.Test.S[] opSSeq(global::Ice.scope.Test.S[] s1, out global::Ice.scope.Test.S[] s2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.S[] iceP_s1;
+                    iceP_s1 = global::Ice.scope.Test.SSeqHelper.read(istr);
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.S[] iceP_s2;
+                    var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.SSeqHelper.write(ostr, iceP_s2);
+                    global::Ice.scope.Test.SSeqHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> iceP_s1;
+                    iceP_s1 = global::Ice.scope.Test.SMapHelper.read(istr);
+                    istr.endEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> iceP_s2;
+                    var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.SMapHelper.write(ostr, iceP_s2);
+                    global::Ice.scope.Test.SMapHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::Ice.scope.Test.C? opC(global::Ice.scope.Test.C? c1, out global::Ice.scope.Test.C? c2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.C? iceP_c1 = null;
+                    istr.readValue((global::Ice.scope.Test.C? v) => { iceP_c1 = v; });
+                    istr.readPendingValues();
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.C? iceP_c2;
+                    var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    ostr.writeValue(iceP_c2);
+                    ostr.writeValue(ret);
+                    ostr.writePendingValues();
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::Ice.scope.Test.C?[] opCSeq(global::Ice.scope.Test.C?[] c1, out global::Ice.scope.Test.C?[] c2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::Ice.scope.Test.C?[] iceP_c1;
+                    iceP_c1 = global::Ice.scope.Test.CSeqHelper.read(istr);
+                    istr.readPendingValues();
+                    istr.endEncapsulation();
+                    global::Ice.scope.Test.C?[] iceP_c2;
+                    var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.CSeqHelper.write(ostr, iceP_c2);
+                    global::Ice.scope.Test.CSeqHelper.write(ostr, ret);
+                    ostr.writePendingValues();
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2, Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> iceP_c1;
+                    iceP_c1 = global::Ice.scope.Test.CMapHelper.read(istr);
+                    istr.readPendingValues();
+                    istr.endEncapsulation();
+                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> iceP_c2;
+                    var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
+                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, null);
+                    global::Ice.scope.Test.CMapHelper.write(ostr, iceP_c2);
+                    global::Ice.scope.Test.CMapHelper.write(ostr, ret);
+                    ostr.writePendingValues();
+                    ostr.endEncapsulation();
+                    return new(new Ice.OutgoingResponse(ostr));
+                }
+
+                void shutdown(Ice.Current current);
+
+                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                    I obj,
+                    Ice.IncomingRequest request)
+                {
+                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                    request.inputStream.skipEmptyEncapsulation();
+                    obj.shutdown(request.current);
+                    return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                }
+            }
+
             public abstract class IDisp_ : Ice.ObjectImpl, I
             {
                 public abstract global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, Ice.Current current);
@@ -3302,639 +3860,6 @@ namespace Inner
                         "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                         _ => throw new Ice.OperationNotExistException()
                     };
-            }
-        }
-    }
-}
-
-namespace Ice.scope
-{
-    namespace Test
-    {
-        public partial interface I
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                S iceP_s1;
-                iceP_s1 = new S(istr);
-                istr.endEncapsulation();
-                S iceP_s2;
-                var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                iceP_s2.ice_writeMembers(ostr);
-                ret.ice_writeMembers(ostr);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                S[] iceP_s1;
-                iceP_s1 = SSeqHelper.read(istr);
-                istr.endEncapsulation();
-                S[] iceP_s2;
-                var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                SSeqHelper.write(ostr, iceP_s2);
-                SSeqHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, S> iceP_s1;
-                iceP_s1 = SMapHelper.read(istr);
-                istr.endEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, S> iceP_s2;
-                var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                SMapHelper.write(ostr, iceP_s2);
-                SMapHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                C? iceP_c1 = null;
-                istr.readValue((C? v) => { iceP_c1 = v; });
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                C? iceP_c2;
-                var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeValue(iceP_c2);
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                C?[] iceP_c1;
-                iceP_c1 = CSeqHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                C?[] iceP_c2;
-                var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                CSeqHelper.write(ostr, iceP_c2);
-                CSeqHelper.write(ostr, ret);
-                ostr.writePendingValues();
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, C?> iceP_c1;
-                iceP_c1 = CMapHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, C?> iceP_c2;
-                var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                CMapHelper.write(ostr, iceP_c2);
-                CMapHelper.write(ostr, ret);
-                ostr.writePendingValues();
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opE1Async(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                E1 iceP_E1;
-                iceP_E1 = (E1)istr.readEnum(2);
-                istr.endEncapsulation();
-                var ret = obj.opE1(iceP_E1, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeEnum((int)ret, 2);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opS1Async(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                S1 iceP_S1;
-                iceP_S1 = new S1(istr);
-                istr.endEncapsulation();
-                var ret = obj.opS1(iceP_S1, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                S1.ice_write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opC1Async(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                C1? iceP_C1 = null;
-                istr.readValue((C1? v) => { iceP_C1 = v; });
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var ret = obj.opC1(iceP_C1, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                I obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.shutdown(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-        }
-
-        namespace Inner
-        {
-            namespace Inner2
-            {
-                public partial interface I
-                {
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        var istr = request.inputStream;
-                        istr.startEncapsulation();
-                        S iceP_s1;
-                        iceP_s1 = new S(istr);
-                        istr.endEncapsulation();
-                        S iceP_s2;
-                        var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
-                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, null);
-                        iceP_s2.ice_writeMembers(ostr);
-                        ret.ice_writeMembers(ostr);
-                        ostr.endEncapsulation();
-                        return new(new Ice.OutgoingResponse(ostr));
-                    }
-
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        var istr = request.inputStream;
-                        istr.startEncapsulation();
-                        S[] iceP_s1;
-                        iceP_s1 = SSeqHelper.read(istr);
-                        istr.endEncapsulation();
-                        S[] iceP_s2;
-                        var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
-                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, null);
-                        SSeqHelper.write(ostr, iceP_s2);
-                        SSeqHelper.write(ostr, ret);
-                        ostr.endEncapsulation();
-                        return new(new Ice.OutgoingResponse(ostr));
-                    }
-
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        var istr = request.inputStream;
-                        istr.startEncapsulation();
-                        global::System.Collections.Generic.Dictionary<string, S> iceP_s1;
-                        iceP_s1 = SMapHelper.read(istr);
-                        istr.endEncapsulation();
-                        global::System.Collections.Generic.Dictionary<string, S> iceP_s2;
-                        var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
-                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, null);
-                        SMapHelper.write(ostr, iceP_s2);
-                        SMapHelper.write(ostr, ret);
-                        ostr.endEncapsulation();
-                        return new(new Ice.OutgoingResponse(ostr));
-                    }
-
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        var istr = request.inputStream;
-                        istr.startEncapsulation();
-                        C? iceP_c1 = null;
-                        istr.readValue((C? v) => { iceP_c1 = v; });
-                        istr.readPendingValues();
-                        istr.endEncapsulation();
-                        C? iceP_c2;
-                        var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
-                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, null);
-                        ostr.writeValue(iceP_c2);
-                        ostr.writeValue(ret);
-                        ostr.writePendingValues();
-                        ostr.endEncapsulation();
-                        return new(new Ice.OutgoingResponse(ostr));
-                    }
-
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        var istr = request.inputStream;
-                        istr.startEncapsulation();
-                        C?[] iceP_c1;
-                        iceP_c1 = CSeqHelper.read(istr);
-                        istr.readPendingValues();
-                        istr.endEncapsulation();
-                        C?[] iceP_c2;
-                        var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
-                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, null);
-                        CSeqHelper.write(ostr, iceP_c2);
-                        CSeqHelper.write(ostr, ret);
-                        ostr.writePendingValues();
-                        ostr.endEncapsulation();
-                        return new(new Ice.OutgoingResponse(ostr));
-                    }
-
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        var istr = request.inputStream;
-                        istr.startEncapsulation();
-                        global::System.Collections.Generic.Dictionary<string, C?> iceP_c1;
-                        iceP_c1 = CMapHelper.read(istr);
-                        istr.readPendingValues();
-                        istr.endEncapsulation();
-                        global::System.Collections.Generic.Dictionary<string, C?> iceP_c2;
-                        var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
-                        var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, null);
-                        CMapHelper.write(ostr, iceP_c2);
-                        CMapHelper.write(ostr, ret);
-                        ostr.writePendingValues();
-                        ostr.endEncapsulation();
-                        return new(new Ice.OutgoingResponse(ostr));
-                    }
-
-                    protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                        I obj,
-                        Ice.IncomingRequest request)
-                    {
-                        Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                        request.inputStream.skipEmptyEncapsulation();
-                        obj.shutdown(request.current);
-                        return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-                    }
-                }
-            }
-
-            public partial interface I
-            {
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.S iceP_s1;
-                    iceP_s1 = new global::Ice.scope.Test.Inner.Inner2.S(istr);
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.S iceP_s2;
-                    var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    iceP_s2.ice_writeMembers(ostr);
-                    ret.ice_writeMembers(ostr);
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.S[] iceP_s1;
-                    iceP_s1 = global::Ice.scope.Test.Inner.Inner2.SSeqHelper.read(istr);
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.S[] iceP_s2;
-                    var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, iceP_s2);
-                    global::Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, ret);
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> iceP_s1;
-                    iceP_s1 = global::Ice.scope.Test.Inner.Inner2.SMapHelper.read(istr);
-                    istr.endEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> iceP_s2;
-                    var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, iceP_s2);
-                    global::Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, ret);
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.C? iceP_c1 = null;
-                    istr.readValue((global::Ice.scope.Test.Inner.Inner2.C? v) => { iceP_c1 = v; });
-                    istr.readPendingValues();
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.C? iceP_c2;
-                    var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    ostr.writeValue(iceP_c2);
-                    ostr.writeValue(ret);
-                    ostr.writePendingValues();
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.C?[] iceP_c1;
-                    iceP_c1 = global::Ice.scope.Test.Inner.Inner2.CSeqHelper.read(istr);
-                    istr.readPendingValues();
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.Inner.Inner2.C?[] iceP_c2;
-                    var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, iceP_c2);
-                    global::Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, ret);
-                    ostr.writePendingValues();
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> iceP_c1;
-                    iceP_c1 = global::Ice.scope.Test.Inner.Inner2.CMapHelper.read(istr);
-                    istr.readPendingValues();
-                    istr.endEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> iceP_c2;
-                    var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, iceP_c2);
-                    global::Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, ret);
-                    ostr.writePendingValues();
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    request.inputStream.skipEmptyEncapsulation();
-                    obj.shutdown(request.current);
-                    return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-                }
-            }
-        }
-    }
-}
-
-namespace Inner
-{
-    namespace Test
-    {
-        namespace Inner2
-        {
-            public partial interface I
-            {
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.S iceP_s1;
-                    iceP_s1 = new global::Ice.scope.Test.S(istr);
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.S iceP_s2;
-                    var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    iceP_s2.ice_writeMembers(ostr);
-                    ret.ice_writeMembers(ostr);
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.S[] iceP_s1;
-                    iceP_s1 = global::Ice.scope.Test.SSeqHelper.read(istr);
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.S[] iceP_s2;
-                    var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.SSeqHelper.write(ostr, iceP_s2);
-                    global::Ice.scope.Test.SSeqHelper.write(ostr, ret);
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSMapAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> iceP_s1;
-                    iceP_s1 = global::Ice.scope.Test.SMapHelper.read(istr);
-                    istr.endEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> iceP_s2;
-                    var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.SMapHelper.write(ostr, iceP_s2);
-                    global::Ice.scope.Test.SMapHelper.write(ostr, ret);
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.C? iceP_c1 = null;
-                    istr.readValue((global::Ice.scope.Test.C? v) => { iceP_c1 = v; });
-                    istr.readPendingValues();
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.C? iceP_c2;
-                    var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    ostr.writeValue(iceP_c2);
-                    ostr.writeValue(ret);
-                    ostr.writePendingValues();
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCSeqAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::Ice.scope.Test.C?[] iceP_c1;
-                    iceP_c1 = global::Ice.scope.Test.CSeqHelper.read(istr);
-                    istr.readPendingValues();
-                    istr.endEncapsulation();
-                    global::Ice.scope.Test.C?[] iceP_c2;
-                    var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.CSeqHelper.write(ostr, iceP_c2);
-                    global::Ice.scope.Test.CSeqHelper.write(ostr, ret);
-                    ostr.writePendingValues();
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCMapAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    var istr = request.inputStream;
-                    istr.startEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> iceP_c1;
-                    iceP_c1 = global::Ice.scope.Test.CMapHelper.read(istr);
-                    istr.readPendingValues();
-                    istr.endEncapsulation();
-                    global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> iceP_c2;
-                    var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
-                    var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, null);
-                    global::Ice.scope.Test.CMapHelper.write(ostr, iceP_c2);
-                    global::Ice.scope.Test.CMapHelper.write(ostr, ret);
-                    ostr.writePendingValues();
-                    ostr.endEncapsulation();
-                    return new(new Ice.OutgoingResponse(ostr));
-                }
-
-                protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                    I obj,
-                    Ice.IncomingRequest request)
-                {
-                    Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                    request.inputStream.skipEmptyEncapsulation();
-                    obj.shutdown(request.current);
-                    return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-                }
             }
         }
     }

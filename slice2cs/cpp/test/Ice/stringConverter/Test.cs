@@ -40,19 +40,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::MyObject")]
-    public partial interface MyObject : Ice.Object
-    {
-        string widen(string msg, Ice.Current current);
-
-        string narrow(string wmsg, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface MyObjectPrx : Ice.ObjectPrx
     {
         string widen(string msg, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -67,10 +54,7 @@ namespace Test
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class MyObjectPrxHelper : Ice.ObjectPrxHelperBase, MyObjectPrx
     {
         public string widen(string msg, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -271,6 +255,62 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::MyObject")]
+    public partial interface MyObject : Ice.Object
+    {
+        string widen(string msg, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_widenAsync(
+            MyObject obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_msg;
+            iceP_msg = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.widen(iceP_msg, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string narrow(string wmsg, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_narrowAsync(
+            MyObject obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_wmsg;
+            iceP_wmsg = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.narrow(iceP_wmsg, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            MyObject obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class MyObjectDisp_ : Ice.ObjectImpl, MyObject
     {
         public abstract string widen(string msg, Ice.Current current);
@@ -295,57 +335,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface MyObject
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_widenAsync(
-            MyObject obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_msg;
-            iceP_msg = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.widen(iceP_msg, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_narrowAsync(
-            MyObject obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_wmsg;
-            iceP_wmsg = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.narrow(iceP_wmsg, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            MyObject obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

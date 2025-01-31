@@ -22,45 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::RemoteCommunicator")]
-    public partial interface RemoteCommunicator : Ice.Object
-    {
-        Ice.ObjectPrx? getAdmin(Ice.Current current);
-
-        global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
-
-        void print(string message, Ice.Current current);
-
-        void trace(string category, string message, Ice.Current current);
-
-        void warning(string message, Ice.Current current);
-
-        void error(string message, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-
-        void waitForShutdown(Ice.Current current);
-
-        void destroy(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::RemoteCommunicatorFactory")]
-    public partial interface RemoteCommunicatorFactory : Ice.Object
-    {
-        RemoteCommunicatorPrx? createCommunicator(global::System.Collections.Generic.Dictionary<string, string> props, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::TestFacet")]
-    public partial interface TestFacet : Ice.Object
-    {
-        void op(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface RemoteCommunicatorPrx : Ice.ObjectPrx
     {
         Ice.ObjectPrx? getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -100,27 +61,6 @@ namespace Test
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface RemoteCommunicatorFactoryPrx : Ice.ObjectPrx
-    {
-        RemoteCommunicatorPrx? createCommunicator(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<RemoteCommunicatorPrx?> createCommunicatorAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface TestFacetPrx : Ice.ObjectPrx
-    {
-        void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class RemoteCommunicatorPrxHelper : Ice.ObjectPrxHelperBase, RemoteCommunicatorPrx
     {
         public Ice.ObjectPrx? getAdmin(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -535,6 +475,17 @@ namespace Test
         }
     }
 
+    public interface RemoteCommunicatorFactoryPrx : Ice.ObjectPrx
+    {
+        RemoteCommunicatorPrx? createCommunicator(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<RemoteCommunicatorPrx?> createCommunicatorAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class RemoteCommunicatorFactoryPrxHelper : Ice.ObjectPrxHelperBase, RemoteCommunicatorFactoryPrx
     {
         public RemoteCommunicatorPrx? createCommunicator(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -670,6 +621,13 @@ namespace Test
         }
     }
 
+    public interface TestFacetPrx : Ice.ObjectPrx
+    {
+        void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class TestFacetPrxHelper : Ice.ObjectPrxHelperBase, TestFacetPrx
     {
         public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -760,6 +718,144 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::RemoteCommunicator")]
+    public partial interface RemoteCommunicator : Ice.Object
+    {
+        Ice.ObjectPrx? getAdmin(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAdminAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getAdmin(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getChangesAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getChanges(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Ice.PropertyDictHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void print(string message, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_printAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_message;
+            iceP_message = istr.readString();
+            istr.endEncapsulation();
+            obj.print(iceP_message, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void trace(string category, string message, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_traceAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_category;
+            string iceP_message;
+            iceP_category = istr.readString();
+            iceP_message = istr.readString();
+            istr.endEncapsulation();
+            obj.trace(iceP_category, iceP_message, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void warning(string message, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_warningAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_message;
+            iceP_message = istr.readString();
+            istr.endEncapsulation();
+            obj.warning(iceP_message, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void error(string message, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_errorAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_message;
+            iceP_message = istr.readString();
+            istr.endEncapsulation();
+            obj.error(iceP_message, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void waitForShutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitForShutdownAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.waitForShutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void destroy(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
+            RemoteCommunicator obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.destroy(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class RemoteCommunicatorDisp_ : Ice.ObjectImpl, RemoteCommunicator
     {
         public abstract Ice.ObjectPrx? getAdmin(Ice.Current current);
@@ -804,6 +900,42 @@ namespace Test
             };
     }
 
+    [Ice.SliceTypeId("::Test::RemoteCommunicatorFactory")]
+    public partial interface RemoteCommunicatorFactory : Ice.Object
+    {
+        RemoteCommunicatorPrx? createCommunicator(global::System.Collections.Generic.Dictionary<string, string> props, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createCommunicatorAsync(
+            RemoteCommunicatorFactory obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
+            iceP_props = global::Ice.PropertyDictHelper.read(istr);
+            istr.endEncapsulation();
+            var ret = obj.createCommunicator(iceP_props, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            RemoteCommunicatorPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            RemoteCommunicatorFactory obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class RemoteCommunicatorFactoryDisp_ : Ice.ObjectImpl, RemoteCommunicatorFactory
     {
         public abstract RemoteCommunicatorPrx? createCommunicator(global::System.Collections.Generic.Dictionary<string, string> props, Ice.Current current);
@@ -827,6 +959,22 @@ namespace Test
             };
     }
 
+    [Ice.SliceTypeId("::Test::TestFacet")]
+    public partial interface TestFacet : Ice.Object
+    {
+        void op(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
+            TestFacet obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.op(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestFacetDisp_ : Ice.ObjectImpl, TestFacet
     {
         public abstract void op(Ice.Current current);
@@ -845,171 +993,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface RemoteCommunicator
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAdminAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getAdmin(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getChangesAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getChanges(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Ice.PropertyDictHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_printAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_message;
-            iceP_message = istr.readString();
-            istr.endEncapsulation();
-            obj.print(iceP_message, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_traceAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_category;
-            string iceP_message;
-            iceP_category = istr.readString();
-            iceP_message = istr.readString();
-            istr.endEncapsulation();
-            obj.trace(iceP_category, iceP_message, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_warningAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_message;
-            iceP_message = istr.readString();
-            istr.endEncapsulation();
-            obj.warning(iceP_message, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_errorAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_message;
-            iceP_message = istr.readString();
-            istr.endEncapsulation();
-            obj.error(iceP_message, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitForShutdownAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.waitForShutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
-            RemoteCommunicator obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.destroy(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface RemoteCommunicatorFactory
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createCommunicatorAsync(
-            RemoteCommunicatorFactory obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
-            iceP_props = global::Ice.PropertyDictHelper.read(istr);
-            istr.endEncapsulation();
-            var ret = obj.createCommunicator(iceP_props, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            RemoteCommunicatorPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            RemoteCommunicatorFactory obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TestFacet
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
-            TestFacet obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.op(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

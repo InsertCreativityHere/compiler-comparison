@@ -22,6 +22,57 @@
 
 namespace Test
 {
+    public sealed class IntSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, int[] v)
+        {
+            ostr.writeIntSeq(v);
+        }
+
+        public static int[] read(Ice.InputStream istr)
+        {
+            int[] v;
+            v = istr.readIntSeq();
+            return v;
+        }
+    }
+
+    public sealed class StringDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, string> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeString(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                string v;
+                v = istr.readString();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     public sealed partial record class S1
     {
         public string name = "";
@@ -221,59 +272,5 @@ namespace Test
         }
 
         public static S3 ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace Test
-{
-    public sealed class IntSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, int[] v)
-        {
-            ostr.writeIntSeq(v);
-        }
-
-        public static int[] read(Ice.InputStream istr)
-        {
-            int[] v;
-            v = istr.readIntSeq();
-            return v;
-        }
-    }
-
-    public sealed class StringDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, string> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeString(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                string v;
-                v = istr.readString();
-                r[k] = v;
-            }
-            return r;
-        }
     }
 }

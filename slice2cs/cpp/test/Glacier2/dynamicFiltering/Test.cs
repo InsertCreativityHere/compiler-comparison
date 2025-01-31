@@ -22,116 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Backend")]
-    public partial interface Backend : Ice.Object
-    {
-        void check(Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-
-    public enum StateCode
-    {
-        Initial,
-        Running,
-        Finished
-    }
-
-    public sealed class StateCodeHelper
-    {
-        public static void write(Ice.OutputStream ostr, StateCode v)
-        {
-            ostr.writeEnum((int)v, 2);
-        }
-
-        public static StateCode read(Ice.InputStream istr)
-        {
-            StateCode v;
-            v = (StateCode)istr.readEnum(2);
-            return v;
-        }
-    }
-
-    public sealed partial record class TestToken
-    {
-        public bool expectedResult;
-
-        public string description = "";
-
-        public StateCode code;
-
-        public short config;
-
-        public short caseIndex;
-
-        public string testReference = "";
-
-        partial void ice_initialize();
-
-        public TestToken()
-        {
-            ice_initialize();
-        }
-
-        public TestToken(bool expectedResult, string description, StateCode code, short config, short caseIndex, string testReference)
-        {
-            this.expectedResult = expectedResult;
-            global::System.ArgumentNullException.ThrowIfNull(description);
-            this.description = description;
-            this.code = code;
-            this.config = config;
-            this.caseIndex = caseIndex;
-            global::System.ArgumentNullException.ThrowIfNull(testReference);
-            this.testReference = testReference;
-            ice_initialize();
-        }
-
-        public TestToken(Ice.InputStream istr)
-        {
-            this.expectedResult = istr.readBool();
-            this.description = istr.readString();
-            this.code = (StateCode)istr.readEnum(2);
-            this.config = istr.readShort();
-            this.caseIndex = istr.readShort();
-            this.testReference = istr.readString();
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeBool(this.expectedResult);
-            ostr.writeString(this.description);
-            ostr.writeEnum((int)this.code, 2);
-            ostr.writeShort(this.config);
-            ostr.writeShort(this.caseIndex);
-            ostr.writeString(this.testReference);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, TestToken v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static TestToken ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    [Ice.SliceTypeId("::Test::TestController")]
-    public partial interface TestController : Ice.Object
-    {
-        void step(global::Glacier2.SessionPrx? currentSession, TestToken currentState, out TestToken newState, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::TestSession")]
-    public partial interface TestSession : global::Glacier2.Session
-    {
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface BackendPrx : Ice.ObjectPrx
     {
         void check(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -143,27 +33,6 @@ namespace Test
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface TestControllerPrx : Ice.ObjectPrx
-    {
-        void step(global::Glacier2.SessionPrx? currentSession, TestToken currentState, out TestToken newState, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestToken> stepAsync(global::Glacier2.SessionPrx? currentSession, TestToken currentState, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface TestSessionPrx : global::Glacier2.SessionPrx
-    {
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class BackendPrxHelper : Ice.ObjectPrxHelperBase, BackendPrx
     {
         public void check(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -286,6 +155,102 @@ namespace Test
             : base(reference)
         {
         }
+    }
+
+    public enum StateCode
+    {
+        Initial,
+        Running,
+        Finished
+    }
+
+    public sealed class StateCodeHelper
+    {
+        public static void write(Ice.OutputStream ostr, StateCode v)
+        {
+            ostr.writeEnum((int)v, 2);
+        }
+
+        public static StateCode read(Ice.InputStream istr)
+        {
+            StateCode v;
+            v = (StateCode)istr.readEnum(2);
+            return v;
+        }
+    }
+
+    public sealed partial record class TestToken
+    {
+        public bool expectedResult;
+
+        public string description = "";
+
+        public StateCode code;
+
+        public short config;
+
+        public short caseIndex;
+
+        public string testReference = "";
+
+        partial void ice_initialize();
+
+        public TestToken()
+        {
+            ice_initialize();
+        }
+
+        public TestToken(bool expectedResult, string description, StateCode code, short config, short caseIndex, string testReference)
+        {
+            this.expectedResult = expectedResult;
+            global::System.ArgumentNullException.ThrowIfNull(description);
+            this.description = description;
+            this.code = code;
+            this.config = config;
+            this.caseIndex = caseIndex;
+            global::System.ArgumentNullException.ThrowIfNull(testReference);
+            this.testReference = testReference;
+            ice_initialize();
+        }
+
+        public TestToken(Ice.InputStream istr)
+        {
+            this.expectedResult = istr.readBool();
+            this.description = istr.readString();
+            this.code = (StateCode)istr.readEnum(2);
+            this.config = istr.readShort();
+            this.caseIndex = istr.readShort();
+            this.testReference = istr.readString();
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeBool(this.expectedResult);
+            ostr.writeString(this.description);
+            ostr.writeEnum((int)this.code, 2);
+            ostr.writeShort(this.config);
+            ostr.writeShort(this.caseIndex);
+            ostr.writeString(this.testReference);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, TestToken v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static TestToken ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public interface TestControllerPrx : Ice.ObjectPrx
+    {
+        void step(global::Glacier2.SessionPrx? currentSession, TestToken currentState, out TestToken newState, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestToken> stepAsync(global::Glacier2.SessionPrx? currentSession, TestToken currentState, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class TestControllerPrxHelper : Ice.ObjectPrxHelperBase, TestControllerPrx
@@ -424,6 +389,13 @@ namespace Test
         }
     }
 
+    public interface TestSessionPrx : global::Glacier2.SessionPrx
+    {
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class TestSessionPrxHelper : Ice.ObjectPrxHelperBase, TestSessionPrx
     {
         public void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -552,6 +524,34 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Backend")]
+    public partial interface Backend : Ice.Object
+    {
+        void check(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkAsync(
+            Backend obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.check(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Backend obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class BackendDisp_ : Ice.ObjectImpl, Backend
     {
         public abstract void check(Ice.Current current);
@@ -573,6 +573,45 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::Test::TestController")]
+    public partial interface TestController : Ice.Object
+    {
+        void step(global::Glacier2.SessionPrx? currentSession, TestToken currentState, out TestToken newState, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stepAsync(
+            TestController obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Glacier2.SessionPrx? iceP_currentSession;
+            TestToken iceP_currentState;
+            iceP_currentSession = global::Glacier2.SessionPrxHelper.read(istr);
+            iceP_currentState = new TestToken(istr);
+            istr.endEncapsulation();
+            TestToken iceP_newState;
+            obj.step(iceP_currentSession, iceP_currentState, out iceP_newState, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            TestToken.ice_write(ostr, iceP_newState);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestController obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 
     public abstract class TestControllerDisp_ : Ice.ObjectImpl, TestController
@@ -598,6 +637,22 @@ namespace Test
             };
     }
 
+    [Ice.SliceTypeId("::Test::TestSession")]
+    public partial interface TestSession : global::Glacier2.Session
+    {
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestSessionDisp_ : Ice.ObjectImpl, TestSession
     {
         public abstract void destroy(Ice.Current current);
@@ -619,78 +674,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Backend
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkAsync(
-            Backend obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.check(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Backend obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TestController
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stepAsync(
-            TestController obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::Glacier2.SessionPrx? iceP_currentSession;
-            TestToken iceP_currentState;
-            iceP_currentSession = global::Glacier2.SessionPrxHelper.read(istr);
-            iceP_currentState = new TestToken(istr);
-            istr.endEncapsulation();
-            TestToken iceP_newState;
-            obj.step(iceP_currentSession, iceP_currentState, out iceP_newState, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            TestToken.ice_write(ostr, iceP_newState);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestController obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TestSession
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::MyObject")]
-    public partial interface MyObject : Ice.Object
-    {
-        string getName(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface MyObjectPrx : Ice.ObjectPrx
     {
         string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class MyObjectPrxHelper : Ice.ObjectPrxHelperBase, MyObjectPrx
     {
         public string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -138,6 +126,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::MyObject")]
+    public partial interface MyObject : Ice.Object
+    {
+        string getName(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
+            MyObject obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getName(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class MyObjectDisp_ : Ice.ObjectImpl, MyObject
     {
         public abstract string getName(Ice.Current current);
@@ -156,25 +164,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface MyObject
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
-            MyObject obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getName(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

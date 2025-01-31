@@ -22,35 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Server")]
-    public partial interface Server : Ice.Object
-    {
-        void noCert(Ice.Current current);
-
-        void checkCert(string subjectDN, string issuerDN, Ice.Current current);
-
-        void checkCipher(string cipher, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::ServerFactory")]
-    public partial interface ServerFactory : Ice.Object
-    {
-        ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, Ice.Current current);
-
-        void destroyServer(ServerPrx? srv, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::Pingable")]
-    public partial interface Pingable : Ice.Object
-    {
-        void ping(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface ServerPrx : Ice.ObjectPrx
     {
         void noCert(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -66,31 +37,6 @@ namespace Test
         global::System.Threading.Tasks.Task checkCipherAsync(string cipher, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface ServerFactoryPrx : Ice.ObjectPrx
-    {
-        ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<ServerPrx?> createServerAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void destroyServer(ServerPrx? srv, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task destroyServerAsync(ServerPrx? srv, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface PingablePrx : Ice.ObjectPrx
-    {
-        void ping(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task pingAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class ServerPrxHelper : Ice.ObjectPrxHelperBase, ServerPrx
     {
         public void noCert(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -297,6 +243,21 @@ namespace Test
         }
     }
 
+    public interface ServerFactoryPrx : Ice.ObjectPrx
+    {
+        ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<ServerPrx?> createServerAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void destroyServer(ServerPrx? srv, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task destroyServerAsync(ServerPrx? srv, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class ServerFactoryPrxHelper : Ice.ObjectPrxHelperBase, ServerFactoryPrx
     {
         public ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -473,6 +434,13 @@ namespace Test
         }
     }
 
+    public interface PingablePrx : Ice.ObjectPrx
+    {
+        void ping(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task pingAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class PingablePrxHelper : Ice.ObjectPrxHelperBase, PingablePrx
     {
         public void ping(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -563,6 +531,56 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Server")]
+    public partial interface Server : Ice.Object
+    {
+        void noCert(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_noCertAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.noCert(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void checkCert(string subjectDN, string issuerDN, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkCertAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_subjectDN;
+            string iceP_issuerDN;
+            iceP_subjectDN = istr.readString();
+            iceP_issuerDN = istr.readString();
+            istr.endEncapsulation();
+            obj.checkCert(iceP_subjectDN, iceP_issuerDN, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void checkCipher(string cipher, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkCipherAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_cipher;
+            iceP_cipher = istr.readString();
+            istr.endEncapsulation();
+            obj.checkCipher(iceP_cipher, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ServerDisp_ : Ice.ObjectImpl, Server
     {
         public abstract void noCert(Ice.Current current);
@@ -587,6 +605,58 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::Test::ServerFactory")]
+    public partial interface ServerFactory : Ice.Object
+    {
+        ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createServerAsync(
+            ServerFactory obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
+            iceP_props = PropertiesHelper.read(istr);
+            istr.endEncapsulation();
+            var ret = obj.createServer(iceP_props, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ServerPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void destroyServer(ServerPrx? srv, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyServerAsync(
+            ServerFactory obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            ServerPrx? iceP_srv;
+            iceP_srv = ServerPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.destroyServer(iceP_srv, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            ServerFactory obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 
     public abstract class ServerFactoryDisp_ : Ice.ObjectImpl, ServerFactory
@@ -615,6 +685,22 @@ namespace Test
             };
     }
 
+    [Ice.SliceTypeId("::Test::Pingable")]
+    public partial interface Pingable : Ice.Object
+    {
+        void ping(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingAsync(
+            Pingable obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.ping(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class PingableDisp_ : Ice.ObjectImpl, Pingable
     {
         public abstract void ping(Ice.Current current);
@@ -633,109 +719,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Server
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_noCertAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.noCert(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkCertAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_subjectDN;
-            string iceP_issuerDN;
-            iceP_subjectDN = istr.readString();
-            iceP_issuerDN = istr.readString();
-            istr.endEncapsulation();
-            obj.checkCert(iceP_subjectDN, iceP_issuerDN, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkCipherAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_cipher;
-            iceP_cipher = istr.readString();
-            istr.endEncapsulation();
-            obj.checkCipher(iceP_cipher, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface ServerFactory
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createServerAsync(
-            ServerFactory obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
-            iceP_props = PropertiesHelper.read(istr);
-            istr.endEncapsulation();
-            var ret = obj.createServer(iceP_props, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ServerPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyServerAsync(
-            ServerFactory obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            ServerPrx? iceP_srv;
-            iceP_srv = ServerPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.destroyServer(iceP_srv, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            ServerFactory obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface Pingable
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingAsync(
-            Pingable obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.ping(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

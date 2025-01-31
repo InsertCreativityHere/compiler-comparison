@@ -24,807 +24,6 @@ namespace Ice.seqMapping.AMD
 {
     namespace Test
     {
-        public partial record struct S
-        {
-            public int i;
-
-            partial void ice_initialize();
-
-            public S(int i)
-            {
-                this.i = i;
-                ice_initialize();
-            }
-
-            public S(Ice.InputStream istr)
-            {
-                this.i = istr.readInt();
-                ice_initialize();
-            }
-
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeInt(this.i);
-            }
-
-            public static void ice_write(Ice.OutputStream ostr, S v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            public static S ice_read(Ice.InputStream istr) => new(istr);
-        }
-
-        public sealed partial record class SD
-        {
-            public int i = 1;
-
-            partial void ice_initialize();
-
-            public SD()
-            {
-                ice_initialize();
-            }
-
-            public SD(int i)
-            {
-                this.i = i;
-                ice_initialize();
-            }
-
-            public SD(Ice.InputStream istr)
-            {
-                this.i = istr.readInt();
-                ice_initialize();
-            }
-
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeInt(this.i);
-            }
-
-            public static void ice_write(Ice.OutputStream ostr, SD v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            public static SD ice_read(Ice.InputStream istr) => new(istr);
-        }
-
-        [Ice.SliceTypeId("::Test::CV")]
-        public partial class CV : Ice.Value
-        {
-            public int i;
-
-            partial void ice_initialize();
-
-            public CV(int i)
-            {
-                this.i = i;
-                ice_initialize();
-            }
-
-            public CV()
-            {
-                ice_initialize();
-            }
-
-            public static new string ice_staticId() => "::Test::CV";
-            public override string ice_id() => ice_staticId();
-
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeInt(i);
-                ostr_.endSlice();
-            }
-
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                i = istr_.readInt();
-                istr_.endSlice();
-            }
-        }
-
-        [Ice.SliceTypeId("::Test::I")]
-        public partial interface I : Ice.Object
-        {
-        }
-
-        [Ice.SliceTypeId("::Test::CR")]
-        public partial class CR : Ice.Value
-        {
-            public CV? v;
-
-            partial void ice_initialize();
-
-            public CR(CV? v)
-            {
-                this.v = v;
-                ice_initialize();
-            }
-
-            public CR()
-            {
-                ice_initialize();
-            }
-
-            public static new string ice_staticId() => "::Test::CR";
-            public override string ice_id() => ice_staticId();
-
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeValue(v);
-                ostr_.endSlice();
-            }
-
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                istr_.readValue((CV? v) => { this.v = v; });
-                istr_.endSlice();
-            }
-        }
-
-        public enum En
-        {
-            A,
-            B,
-            C
-        }
-
-        public sealed class EnHelper
-        {
-            public static void write(Ice.OutputStream ostr, En v)
-            {
-                ostr.writeEnum((int)v, 2);
-            }
-
-            public static En read(Ice.InputStream istr)
-            {
-                En v;
-                v = (En)istr.readEnum(2);
-                return v;
-            }
-        }
-
-        [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : Ice.Object
-        {
-            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.seqMapping.AMD
-{
-    namespace Test
-    {
-        public record struct MyClass_OpAByteSResult(byte[] returnValue, byte[] o);
-
-        public record struct MyClass_OpLByteSResult(global::System.Collections.Generic.List<byte> returnValue, global::System.Collections.Generic.List<byte> o);
-
-        public record struct MyClass_OpKByteSResult(global::System.Collections.Generic.LinkedList<byte> returnValue, global::System.Collections.Generic.LinkedList<byte> o);
-
-        public record struct MyClass_OpQByteSResult(global::System.Collections.Generic.Queue<byte> returnValue, global::System.Collections.Generic.Queue<byte> o);
-
-        public record struct MyClass_OpSByteSResult(global::System.Collections.Generic.Stack<byte> returnValue, global::System.Collections.Generic.Stack<byte> o);
-
-        public record struct MyClass_OpABoolSResult(bool[] returnValue, bool[] o);
-
-        public record struct MyClass_OpLBoolSResult(global::System.Collections.Generic.List<bool> returnValue, global::System.Collections.Generic.List<bool> o);
-
-        public record struct MyClass_OpKBoolSResult(global::System.Collections.Generic.LinkedList<bool> returnValue, global::System.Collections.Generic.LinkedList<bool> o);
-
-        public record struct MyClass_OpQBoolSResult(global::System.Collections.Generic.Queue<bool> returnValue, global::System.Collections.Generic.Queue<bool> o);
-
-        public record struct MyClass_OpSBoolSResult(global::System.Collections.Generic.Stack<bool> returnValue, global::System.Collections.Generic.Stack<bool> o);
-
-        public record struct MyClass_OpAShortSResult(short[] returnValue, short[] o);
-
-        public record struct MyClass_OpLShortSResult(global::System.Collections.Generic.List<short> returnValue, global::System.Collections.Generic.List<short> o);
-
-        public record struct MyClass_OpKShortSResult(global::System.Collections.Generic.LinkedList<short> returnValue, global::System.Collections.Generic.LinkedList<short> o);
-
-        public record struct MyClass_OpQShortSResult(global::System.Collections.Generic.Queue<short> returnValue, global::System.Collections.Generic.Queue<short> o);
-
-        public record struct MyClass_OpSShortSResult(global::System.Collections.Generic.Stack<short> returnValue, global::System.Collections.Generic.Stack<short> o);
-
-        public record struct MyClass_OpAIntSResult(int[] returnValue, int[] o);
-
-        public record struct MyClass_OpLIntSResult(global::System.Collections.Generic.List<int> returnValue, global::System.Collections.Generic.List<int> o);
-
-        public record struct MyClass_OpKIntSResult(global::System.Collections.Generic.LinkedList<int> returnValue, global::System.Collections.Generic.LinkedList<int> o);
-
-        public record struct MyClass_OpQIntSResult(global::System.Collections.Generic.Queue<int> returnValue, global::System.Collections.Generic.Queue<int> o);
-
-        public record struct MyClass_OpSIntSResult(global::System.Collections.Generic.Stack<int> returnValue, global::System.Collections.Generic.Stack<int> o);
-
-        public record struct MyClass_OpALongSResult(long[] returnValue, long[] o);
-
-        public record struct MyClass_OpLLongSResult(global::System.Collections.Generic.List<long> returnValue, global::System.Collections.Generic.List<long> o);
-
-        public record struct MyClass_OpKLongSResult(global::System.Collections.Generic.LinkedList<long> returnValue, global::System.Collections.Generic.LinkedList<long> o);
-
-        public record struct MyClass_OpQLongSResult(global::System.Collections.Generic.Queue<long> returnValue, global::System.Collections.Generic.Queue<long> o);
-
-        public record struct MyClass_OpSLongSResult(global::System.Collections.Generic.Stack<long> returnValue, global::System.Collections.Generic.Stack<long> o);
-
-        public record struct MyClass_OpAFloatSResult(float[] returnValue, float[] o);
-
-        public record struct MyClass_OpLFloatSResult(global::System.Collections.Generic.List<float> returnValue, global::System.Collections.Generic.List<float> o);
-
-        public record struct MyClass_OpKFloatSResult(global::System.Collections.Generic.LinkedList<float> returnValue, global::System.Collections.Generic.LinkedList<float> o);
-
-        public record struct MyClass_OpQFloatSResult(global::System.Collections.Generic.Queue<float> returnValue, global::System.Collections.Generic.Queue<float> o);
-
-        public record struct MyClass_OpSFloatSResult(global::System.Collections.Generic.Stack<float> returnValue, global::System.Collections.Generic.Stack<float> o);
-
-        public record struct MyClass_OpADoubleSResult(double[] returnValue, double[] o);
-
-        public record struct MyClass_OpLDoubleSResult(global::System.Collections.Generic.List<double> returnValue, global::System.Collections.Generic.List<double> o);
-
-        public record struct MyClass_OpKDoubleSResult(global::System.Collections.Generic.LinkedList<double> returnValue, global::System.Collections.Generic.LinkedList<double> o);
-
-        public record struct MyClass_OpQDoubleSResult(global::System.Collections.Generic.Queue<double> returnValue, global::System.Collections.Generic.Queue<double> o);
-
-        public record struct MyClass_OpSDoubleSResult(global::System.Collections.Generic.Stack<double> returnValue, global::System.Collections.Generic.Stack<double> o);
-
-        public record struct MyClass_OpAStringSResult(string[] returnValue, string[] o);
-
-        public record struct MyClass_OpLStringSResult(global::System.Collections.Generic.List<string> returnValue, global::System.Collections.Generic.List<string> o);
-
-        public record struct MyClass_OpKStringSResult(global::System.Collections.Generic.LinkedList<string> returnValue, global::System.Collections.Generic.LinkedList<string> o);
-
-        public record struct MyClass_OpQStringSResult(global::System.Collections.Generic.Queue<string> returnValue, global::System.Collections.Generic.Queue<string> o);
-
-        public record struct MyClass_OpSStringSResult(global::System.Collections.Generic.Stack<string> returnValue, global::System.Collections.Generic.Stack<string> o);
-
-        public record struct MyClass_OpAObjectSResult(Ice.Value?[] returnValue, Ice.Value?[] o);
-
-        public record struct MyClass_OpLObjectSResult(global::System.Collections.Generic.List<Ice.Value?> returnValue, global::System.Collections.Generic.List<Ice.Value?> o);
-
-        public record struct MyClass_OpAObjectPrxSResult(Ice.ObjectPrx?[] returnValue, Ice.ObjectPrx?[] o);
-
-        public record struct MyClass_OpLObjectPrxSResult(global::System.Collections.Generic.List<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.List<Ice.ObjectPrx?> o);
-
-        public record struct MyClass_OpKObjectPrxSResult(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o);
-
-        public record struct MyClass_OpQObjectPrxSResult(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o);
-
-        public record struct MyClass_OpSObjectPrxSResult(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o);
-
-        public record struct MyClass_OpAStructSResult(S[] returnValue, S[] o);
-
-        public record struct MyClass_OpLStructSResult(global::System.Collections.Generic.List<S> returnValue, global::System.Collections.Generic.List<S> o);
-
-        public record struct MyClass_OpKStructSResult(global::System.Collections.Generic.LinkedList<S> returnValue, global::System.Collections.Generic.LinkedList<S> o);
-
-        public record struct MyClass_OpQStructSResult(global::System.Collections.Generic.Queue<S> returnValue, global::System.Collections.Generic.Queue<S> o);
-
-        public record struct MyClass_OpSStructSResult(global::System.Collections.Generic.Stack<S> returnValue, global::System.Collections.Generic.Stack<S> o);
-
-        public record struct MyClass_OpAStructSDResult(SD[] returnValue, SD[] o);
-
-        public record struct MyClass_OpLStructSDResult(global::System.Collections.Generic.List<SD> returnValue, global::System.Collections.Generic.List<SD> o);
-
-        public record struct MyClass_OpKStructSDResult(global::System.Collections.Generic.LinkedList<SD> returnValue, global::System.Collections.Generic.LinkedList<SD> o);
-
-        public record struct MyClass_OpQStructSDResult(global::System.Collections.Generic.Queue<SD> returnValue, global::System.Collections.Generic.Queue<SD> o);
-
-        public record struct MyClass_OpSStructSDResult(global::System.Collections.Generic.Stack<SD> returnValue, global::System.Collections.Generic.Stack<SD> o);
-
-        public record struct MyClass_OpACVSResult(CV?[] returnValue, CV?[] o);
-
-        public record struct MyClass_OpLCVSResult(global::System.Collections.Generic.List<CV?> returnValue, global::System.Collections.Generic.List<CV?> o);
-
-        public record struct MyClass_OpACRSResult(CR?[] returnValue, CR?[] o);
-
-        public record struct MyClass_OpLCRSResult(global::System.Collections.Generic.List<CR?> returnValue, global::System.Collections.Generic.List<CR?> o);
-
-        public record struct MyClass_OpAEnSResult(En[] returnValue, En[] o);
-
-        public record struct MyClass_OpLEnSResult(global::System.Collections.Generic.List<En> returnValue, global::System.Collections.Generic.List<En> o);
-
-        public record struct MyClass_OpKEnSResult(global::System.Collections.Generic.LinkedList<En> returnValue, global::System.Collections.Generic.LinkedList<En> o);
-
-        public record struct MyClass_OpQEnSResult(global::System.Collections.Generic.Queue<En> returnValue, global::System.Collections.Generic.Queue<En> o);
-
-        public record struct MyClass_OpSEnSResult(global::System.Collections.Generic.Stack<En> returnValue, global::System.Collections.Generic.Stack<En> o);
-
-        public record struct MyClass_OpAIPrxSResult(IPrx?[] returnValue, IPrx?[] o);
-
-        public record struct MyClass_OpLIPrxSResult(global::System.Collections.Generic.List<IPrx?> returnValue, global::System.Collections.Generic.List<IPrx?> o);
-
-        public record struct MyClass_OpKIPrxSResult(global::System.Collections.Generic.LinkedList<IPrx?> returnValue, global::System.Collections.Generic.LinkedList<IPrx?> o);
-
-        public record struct MyClass_OpQIPrxSResult(global::System.Collections.Generic.Queue<IPrx?> returnValue, global::System.Collections.Generic.Queue<IPrx?> o);
-
-        public record struct MyClass_OpSIPrxSResult(global::System.Collections.Generic.Stack<IPrx?> returnValue, global::System.Collections.Generic.Stack<IPrx?> o);
-
-        public record struct MyClass_OpCustomIntSResult(global::Ice.seqMapping.Custom<int> returnValue, global::Ice.seqMapping.Custom<int> o);
-
-        public record struct MyClass_OpCustomCVSResult(global::Ice.seqMapping.Custom<CV?> returnValue, global::Ice.seqMapping.Custom<CV?> o);
-
-        public record struct MyClass_OpCustomIntSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o);
-
-        public record struct MyClass_OpCustomCVSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o);
-    }
-}
-
-namespace Ice.seqMapping.AMD
-{
-    namespace Test
-    {
-        public interface IPrx : Ice.ObjectPrx
-        {
-        }
-
-        public interface MyClassPrx : Ice.ObjectPrx
-        {
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            byte[] opAByteS(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            bool[] opABoolS(bool[] i, out bool[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            short[] opAShortS(short[] i, out short[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            int[] opAIntS(int[] i, out int[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            long[] opALongS(long[] i, out long[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            float[] opAFloatS(float[] i, out float[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            double[] opADoubleS(double[] i, out double[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opAStringS(string[] i, out string[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            Ice.Value?[] opAObjectS(Ice.Value?[] i, out Ice.Value?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<Ice.Value?> opLObjectS(global::System.Collections.Generic.List<Ice.Value?> i, out global::System.Collections.Generic.List<Ice.Value?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            Ice.ObjectPrx?[] opAObjectPrxS(Ice.ObjectPrx?[] i, out Ice.ObjectPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            S[] opAStructS(S[] i, out S[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            SD[] opAStructSD(SD[] i, out SD[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            CV?[] opACVS(CV?[] i, out CV?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<CV?> opLCVS(global::System.Collections.Generic.List<CV?> i, out global::System.Collections.Generic.List<CV?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            CR?[] opACRS(CR?[] i, out CR?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<CR?> opLCRS(global::System.Collections.Generic.List<CR?> i, out global::System.Collections.Generic.List<CR?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            En[] opAEnS(En[] i, out En[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            IPrx?[] opAIPrxS(IPrx?[] i, out IPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.List<IPrx?> opLIPrxS(global::System.Collections.Generic.List<IPrx?> i, out global::System.Collections.Generic.List<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.LinkedList<IPrx?> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> i, out global::System.Collections.Generic.LinkedList<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Queue<IPrx?> opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> i, out global::System.Collections.Generic.Queue<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Stack<IPrx?> opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> i, out global::System.Collections.Generic.Stack<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::Ice.seqMapping.Custom<CV?> opCustomCVS(global::Ice.seqMapping.Custom<CV?> i, out global::Ice.seqMapping.Custom<CV?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.seqMapping.AMD
-{
-    namespace Test
-    {
         public sealed class AByteSHelper
         {
             public static void write(Ice.OutputStream ostr, byte[] v)
@@ -1650,6 +849,37 @@ namespace Ice.seqMapping.AMD
             }
         }
 
+        public partial record struct S
+        {
+            public int i;
+
+            partial void ice_initialize();
+
+            public S(int i)
+            {
+                this.i = i;
+                ice_initialize();
+            }
+
+            public S(Ice.InputStream istr)
+            {
+                this.i = istr.readInt();
+                ice_initialize();
+            }
+
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeInt(this.i);
+            }
+
+            public static void ice_write(Ice.OutputStream ostr, S v)
+            {
+                v.ice_writeMembers(ostr);
+            }
+
+            public static S ice_read(Ice.InputStream istr) => new(istr);
+        }
+
         public sealed class AStructSHelper
         {
             public static void write(Ice.OutputStream ostr, S[] v)
@@ -1821,6 +1051,42 @@ namespace Ice.seqMapping.AMD
                 }
                 return v;
             }
+        }
+
+        public sealed partial record class SD
+        {
+            public int i = 1;
+
+            partial void ice_initialize();
+
+            public SD()
+            {
+                ice_initialize();
+            }
+
+            public SD(int i)
+            {
+                this.i = i;
+                ice_initialize();
+            }
+
+            public SD(Ice.InputStream istr)
+            {
+                this.i = istr.readInt();
+                ice_initialize();
+            }
+
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeInt(this.i);
+            }
+
+            public static void ice_write(Ice.OutputStream ostr, SD v)
+            {
+                v.ice_writeMembers(ostr);
+            }
+
+            public static SD ice_read(Ice.InputStream istr) => new(istr);
         }
 
         public sealed class AStructSDHelper
@@ -1996,6 +1262,42 @@ namespace Ice.seqMapping.AMD
             }
         }
 
+        [Ice.SliceTypeId("::Test::CV")]
+        public partial class CV : Ice.Value
+        {
+            public int i;
+
+            partial void ice_initialize();
+
+            public CV(int i)
+            {
+                this.i = i;
+                ice_initialize();
+            }
+
+            public CV()
+            {
+                ice_initialize();
+            }
+
+            public static new string ice_staticId() => "::Test::CV";
+            public override string ice_id() => ice_staticId();
+
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
+            {
+                ostr_.startSlice(ice_staticId(), -1, true);
+                ostr_.writeInt(i);
+                ostr_.endSlice();
+            }
+
+            protected override void iceReadImpl(Ice.InputStream istr_)
+            {
+                istr_.startSlice();
+                i = istr_.readInt();
+                istr_.endSlice();
+            }
+        }
+
         public sealed class ACVSHelper
         {
             public static void write(Ice.OutputStream ostr, CV?[] v)
@@ -2060,6 +1362,10 @@ namespace Ice.seqMapping.AMD
                 }
                 return v;
             }
+        }
+
+        public interface IPrx : Ice.ObjectPrx
+        {
         }
 
         public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
@@ -2282,6 +1588,42 @@ namespace Ice.seqMapping.AMD
             }
         }
 
+        [Ice.SliceTypeId("::Test::CR")]
+        public partial class CR : Ice.Value
+        {
+            public CV? v;
+
+            partial void ice_initialize();
+
+            public CR(CV? v)
+            {
+                this.v = v;
+                ice_initialize();
+            }
+
+            public CR()
+            {
+                ice_initialize();
+            }
+
+            public static new string ice_staticId() => "::Test::CR";
+            public override string ice_id() => ice_staticId();
+
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
+            {
+                ostr_.startSlice(ice_staticId(), -1, true);
+                ostr_.writeValue(v);
+                ostr_.endSlice();
+            }
+
+            protected override void iceReadImpl(Ice.InputStream istr_)
+            {
+                istr_.startSlice();
+                istr_.readValue((CV? v) => { this.v = v; });
+                istr_.endSlice();
+            }
+        }
+
         public sealed class ACRSHelper
         {
             public static void write(Ice.OutputStream ostr, CR?[] v)
@@ -2344,6 +1686,28 @@ namespace Ice.seqMapping.AMD
                         istr.readValue(Ice.Internal.Patcher.listReadValue<CR>(v, ix));
                     }
                 }
+                return v;
+            }
+        }
+
+        public enum En
+        {
+            A,
+            B,
+            C
+        }
+
+        public sealed class EnHelper
+        {
+            public static void write(Ice.OutputStream ostr, En v)
+            {
+                ostr.writeEnum((int)v, 2);
+            }
+
+            public static En read(Ice.InputStream istr)
+            {
+                En v;
+                v = (En)istr.readEnum(2);
                 return v;
             }
         }
@@ -2649,6 +2013,313 @@ namespace Ice.seqMapping.AMD
                 }
                 return v;
             }
+        }
+
+        public interface MyClassPrx : Ice.ObjectPrx
+        {
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            byte[] opAByteS(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            bool[] opABoolS(bool[] i, out bool[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            short[] opAShortS(short[] i, out short[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            int[] opAIntS(int[] i, out int[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            long[] opALongS(long[] i, out long[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            float[] opAFloatS(float[] i, out float[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            double[] opADoubleS(double[] i, out double[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opAStringS(string[] i, out string[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            Ice.Value?[] opAObjectS(Ice.Value?[] i, out Ice.Value?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<Ice.Value?> opLObjectS(global::System.Collections.Generic.List<Ice.Value?> i, out global::System.Collections.Generic.List<Ice.Value?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            Ice.ObjectPrx?[] opAObjectPrxS(Ice.ObjectPrx?[] i, out Ice.ObjectPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            S[] opAStructS(S[] i, out S[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            SD[] opAStructSD(SD[] i, out SD[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            CV?[] opACVS(CV?[] i, out CV?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<CV?> opLCVS(global::System.Collections.Generic.List<CV?> i, out global::System.Collections.Generic.List<CV?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            CR?[] opACRS(CR?[] i, out CR?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<CR?> opLCRS(global::System.Collections.Generic.List<CR?> i, out global::System.Collections.Generic.List<CR?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            En[] opAEnS(En[] i, out En[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            IPrx?[] opAIPrxS(IPrx?[] i, out IPrx?[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.List<IPrx?> opLIPrxS(global::System.Collections.Generic.List<IPrx?> i, out global::System.Collections.Generic.List<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.LinkedList<IPrx?> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> i, out global::System.Collections.Generic.LinkedList<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Queue<IPrx?> opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> i, out global::System.Collections.Generic.Queue<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Stack<IPrx?> opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> i, out global::System.Collections.Generic.Stack<IPrx?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::Ice.seqMapping.Custom<CV?> opCustomCVS(global::Ice.seqMapping.Custom<CV?> i, out global::Ice.seqMapping.Custom<CV?> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
@@ -6585,11 +6256,1929 @@ namespace Ice.seqMapping.AMD
 {
     namespace Test
     {
+        public record struct MyClass_OpAByteSResult(byte[] returnValue, byte[] o);
+
+        public record struct MyClass_OpLByteSResult(global::System.Collections.Generic.List<byte> returnValue, global::System.Collections.Generic.List<byte> o);
+
+        public record struct MyClass_OpKByteSResult(global::System.Collections.Generic.LinkedList<byte> returnValue, global::System.Collections.Generic.LinkedList<byte> o);
+
+        public record struct MyClass_OpQByteSResult(global::System.Collections.Generic.Queue<byte> returnValue, global::System.Collections.Generic.Queue<byte> o);
+
+        public record struct MyClass_OpSByteSResult(global::System.Collections.Generic.Stack<byte> returnValue, global::System.Collections.Generic.Stack<byte> o);
+
+        public record struct MyClass_OpABoolSResult(bool[] returnValue, bool[] o);
+
+        public record struct MyClass_OpLBoolSResult(global::System.Collections.Generic.List<bool> returnValue, global::System.Collections.Generic.List<bool> o);
+
+        public record struct MyClass_OpKBoolSResult(global::System.Collections.Generic.LinkedList<bool> returnValue, global::System.Collections.Generic.LinkedList<bool> o);
+
+        public record struct MyClass_OpQBoolSResult(global::System.Collections.Generic.Queue<bool> returnValue, global::System.Collections.Generic.Queue<bool> o);
+
+        public record struct MyClass_OpSBoolSResult(global::System.Collections.Generic.Stack<bool> returnValue, global::System.Collections.Generic.Stack<bool> o);
+
+        public record struct MyClass_OpAShortSResult(short[] returnValue, short[] o);
+
+        public record struct MyClass_OpLShortSResult(global::System.Collections.Generic.List<short> returnValue, global::System.Collections.Generic.List<short> o);
+
+        public record struct MyClass_OpKShortSResult(global::System.Collections.Generic.LinkedList<short> returnValue, global::System.Collections.Generic.LinkedList<short> o);
+
+        public record struct MyClass_OpQShortSResult(global::System.Collections.Generic.Queue<short> returnValue, global::System.Collections.Generic.Queue<short> o);
+
+        public record struct MyClass_OpSShortSResult(global::System.Collections.Generic.Stack<short> returnValue, global::System.Collections.Generic.Stack<short> o);
+
+        public record struct MyClass_OpAIntSResult(int[] returnValue, int[] o);
+
+        public record struct MyClass_OpLIntSResult(global::System.Collections.Generic.List<int> returnValue, global::System.Collections.Generic.List<int> o);
+
+        public record struct MyClass_OpKIntSResult(global::System.Collections.Generic.LinkedList<int> returnValue, global::System.Collections.Generic.LinkedList<int> o);
+
+        public record struct MyClass_OpQIntSResult(global::System.Collections.Generic.Queue<int> returnValue, global::System.Collections.Generic.Queue<int> o);
+
+        public record struct MyClass_OpSIntSResult(global::System.Collections.Generic.Stack<int> returnValue, global::System.Collections.Generic.Stack<int> o);
+
+        public record struct MyClass_OpALongSResult(long[] returnValue, long[] o);
+
+        public record struct MyClass_OpLLongSResult(global::System.Collections.Generic.List<long> returnValue, global::System.Collections.Generic.List<long> o);
+
+        public record struct MyClass_OpKLongSResult(global::System.Collections.Generic.LinkedList<long> returnValue, global::System.Collections.Generic.LinkedList<long> o);
+
+        public record struct MyClass_OpQLongSResult(global::System.Collections.Generic.Queue<long> returnValue, global::System.Collections.Generic.Queue<long> o);
+
+        public record struct MyClass_OpSLongSResult(global::System.Collections.Generic.Stack<long> returnValue, global::System.Collections.Generic.Stack<long> o);
+
+        public record struct MyClass_OpAFloatSResult(float[] returnValue, float[] o);
+
+        public record struct MyClass_OpLFloatSResult(global::System.Collections.Generic.List<float> returnValue, global::System.Collections.Generic.List<float> o);
+
+        public record struct MyClass_OpKFloatSResult(global::System.Collections.Generic.LinkedList<float> returnValue, global::System.Collections.Generic.LinkedList<float> o);
+
+        public record struct MyClass_OpQFloatSResult(global::System.Collections.Generic.Queue<float> returnValue, global::System.Collections.Generic.Queue<float> o);
+
+        public record struct MyClass_OpSFloatSResult(global::System.Collections.Generic.Stack<float> returnValue, global::System.Collections.Generic.Stack<float> o);
+
+        public record struct MyClass_OpADoubleSResult(double[] returnValue, double[] o);
+
+        public record struct MyClass_OpLDoubleSResult(global::System.Collections.Generic.List<double> returnValue, global::System.Collections.Generic.List<double> o);
+
+        public record struct MyClass_OpKDoubleSResult(global::System.Collections.Generic.LinkedList<double> returnValue, global::System.Collections.Generic.LinkedList<double> o);
+
+        public record struct MyClass_OpQDoubleSResult(global::System.Collections.Generic.Queue<double> returnValue, global::System.Collections.Generic.Queue<double> o);
+
+        public record struct MyClass_OpSDoubleSResult(global::System.Collections.Generic.Stack<double> returnValue, global::System.Collections.Generic.Stack<double> o);
+
+        public record struct MyClass_OpAStringSResult(string[] returnValue, string[] o);
+
+        public record struct MyClass_OpLStringSResult(global::System.Collections.Generic.List<string> returnValue, global::System.Collections.Generic.List<string> o);
+
+        public record struct MyClass_OpKStringSResult(global::System.Collections.Generic.LinkedList<string> returnValue, global::System.Collections.Generic.LinkedList<string> o);
+
+        public record struct MyClass_OpQStringSResult(global::System.Collections.Generic.Queue<string> returnValue, global::System.Collections.Generic.Queue<string> o);
+
+        public record struct MyClass_OpSStringSResult(global::System.Collections.Generic.Stack<string> returnValue, global::System.Collections.Generic.Stack<string> o);
+
+        public record struct MyClass_OpAObjectSResult(Ice.Value?[] returnValue, Ice.Value?[] o);
+
+        public record struct MyClass_OpLObjectSResult(global::System.Collections.Generic.List<Ice.Value?> returnValue, global::System.Collections.Generic.List<Ice.Value?> o);
+
+        public record struct MyClass_OpAObjectPrxSResult(Ice.ObjectPrx?[] returnValue, Ice.ObjectPrx?[] o);
+
+        public record struct MyClass_OpLObjectPrxSResult(global::System.Collections.Generic.List<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.List<Ice.ObjectPrx?> o);
+
+        public record struct MyClass_OpKObjectPrxSResult(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> o);
+
+        public record struct MyClass_OpQObjectPrxSResult(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Queue<Ice.ObjectPrx?> o);
+
+        public record struct MyClass_OpSObjectPrxSResult(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> returnValue, global::System.Collections.Generic.Stack<Ice.ObjectPrx?> o);
+
+        public record struct MyClass_OpAStructSResult(S[] returnValue, S[] o);
+
+        public record struct MyClass_OpLStructSResult(global::System.Collections.Generic.List<S> returnValue, global::System.Collections.Generic.List<S> o);
+
+        public record struct MyClass_OpKStructSResult(global::System.Collections.Generic.LinkedList<S> returnValue, global::System.Collections.Generic.LinkedList<S> o);
+
+        public record struct MyClass_OpQStructSResult(global::System.Collections.Generic.Queue<S> returnValue, global::System.Collections.Generic.Queue<S> o);
+
+        public record struct MyClass_OpSStructSResult(global::System.Collections.Generic.Stack<S> returnValue, global::System.Collections.Generic.Stack<S> o);
+
+        public record struct MyClass_OpAStructSDResult(SD[] returnValue, SD[] o);
+
+        public record struct MyClass_OpLStructSDResult(global::System.Collections.Generic.List<SD> returnValue, global::System.Collections.Generic.List<SD> o);
+
+        public record struct MyClass_OpKStructSDResult(global::System.Collections.Generic.LinkedList<SD> returnValue, global::System.Collections.Generic.LinkedList<SD> o);
+
+        public record struct MyClass_OpQStructSDResult(global::System.Collections.Generic.Queue<SD> returnValue, global::System.Collections.Generic.Queue<SD> o);
+
+        public record struct MyClass_OpSStructSDResult(global::System.Collections.Generic.Stack<SD> returnValue, global::System.Collections.Generic.Stack<SD> o);
+
+        public record struct MyClass_OpACVSResult(CV?[] returnValue, CV?[] o);
+
+        public record struct MyClass_OpLCVSResult(global::System.Collections.Generic.List<CV?> returnValue, global::System.Collections.Generic.List<CV?> o);
+
+        public record struct MyClass_OpACRSResult(CR?[] returnValue, CR?[] o);
+
+        public record struct MyClass_OpLCRSResult(global::System.Collections.Generic.List<CR?> returnValue, global::System.Collections.Generic.List<CR?> o);
+
+        public record struct MyClass_OpAEnSResult(En[] returnValue, En[] o);
+
+        public record struct MyClass_OpLEnSResult(global::System.Collections.Generic.List<En> returnValue, global::System.Collections.Generic.List<En> o);
+
+        public record struct MyClass_OpKEnSResult(global::System.Collections.Generic.LinkedList<En> returnValue, global::System.Collections.Generic.LinkedList<En> o);
+
+        public record struct MyClass_OpQEnSResult(global::System.Collections.Generic.Queue<En> returnValue, global::System.Collections.Generic.Queue<En> o);
+
+        public record struct MyClass_OpSEnSResult(global::System.Collections.Generic.Stack<En> returnValue, global::System.Collections.Generic.Stack<En> o);
+
+        public record struct MyClass_OpAIPrxSResult(IPrx?[] returnValue, IPrx?[] o);
+
+        public record struct MyClass_OpLIPrxSResult(global::System.Collections.Generic.List<IPrx?> returnValue, global::System.Collections.Generic.List<IPrx?> o);
+
+        public record struct MyClass_OpKIPrxSResult(global::System.Collections.Generic.LinkedList<IPrx?> returnValue, global::System.Collections.Generic.LinkedList<IPrx?> o);
+
+        public record struct MyClass_OpQIPrxSResult(global::System.Collections.Generic.Queue<IPrx?> returnValue, global::System.Collections.Generic.Queue<IPrx?> o);
+
+        public record struct MyClass_OpSIPrxSResult(global::System.Collections.Generic.Stack<IPrx?> returnValue, global::System.Collections.Generic.Stack<IPrx?> o);
+
+        public record struct MyClass_OpCustomIntSResult(global::Ice.seqMapping.Custom<int> returnValue, global::Ice.seqMapping.Custom<int> o);
+
+        public record struct MyClass_OpCustomCVSResult(global::Ice.seqMapping.Custom<CV?> returnValue, global::Ice.seqMapping.Custom<CV?> o);
+
+        public record struct MyClass_OpCustomIntSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o);
+
+        public record struct MyClass_OpCustomCVSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o);
+    }
+}
+
+namespace Ice.seqMapping.AMD
+{
+    namespace Test
+    {
+        [Ice.SliceTypeId("::Test::I")]
+        public partial interface I : Ice.Object
+        {
+        }
+
         public abstract class IDisp_ : Ice.ObjectImpl, I
         {
             public override string ice_id(Ice.Current current) => ice_staticId();
 
             public static new string ice_staticId() => "::Test::I";
+        }
+
+        [Ice.SliceTypeId("::Test::MyClass")]
+        public partial interface MyClass : Ice.Object
+        {
+            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.shutdownAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAByteSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte[] iceP_i;
+                iceP_i = AByteSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAByteSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AByteSHelper.write(ostr, ret.o);
+                        AByteSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLByteSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<byte> iceP_i;
+                iceP_i = LByteSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLByteSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LByteSHelper.write(ostr, ret.o);
+                        LByteSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKByteSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<byte> iceP_i;
+                iceP_i = KByteSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKByteSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KByteSHelper.write(ostr, ret.o);
+                        KByteSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQByteSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<byte> iceP_i;
+                iceP_i = QByteSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQByteSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QByteSHelper.write(ostr, ret.o);
+                        QByteSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSByteSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<byte> iceP_i;
+                iceP_i = SByteSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSByteSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SByteSHelper.write(ostr, ret.o);
+                        SByteSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opABoolSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool[] iceP_i;
+                iceP_i = ABoolSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opABoolSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ABoolSHelper.write(ostr, ret.o);
+                        ABoolSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLBoolSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<bool> iceP_i;
+                iceP_i = LBoolSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LBoolSHelper.write(ostr, ret.o);
+                        LBoolSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKBoolSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<bool> iceP_i;
+                iceP_i = KBoolSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KBoolSHelper.write(ostr, ret.o);
+                        KBoolSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQBoolSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<bool> iceP_i;
+                iceP_i = QBoolSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QBoolSHelper.write(ostr, ret.o);
+                        QBoolSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSBoolSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<bool> iceP_i;
+                iceP_i = SBoolSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SBoolSHelper.write(ostr, ret.o);
+                        SBoolSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAShortSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                short[] iceP_i;
+                iceP_i = AShortSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAShortSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AShortSHelper.write(ostr, ret.o);
+                        AShortSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLShortSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<short> iceP_i;
+                iceP_i = LShortSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLShortSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LShortSHelper.write(ostr, ret.o);
+                        LShortSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKShortSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<short> iceP_i;
+                iceP_i = KShortSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKShortSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KShortSHelper.write(ostr, ret.o);
+                        KShortSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQShortSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<short> iceP_i;
+                iceP_i = QShortSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQShortSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QShortSHelper.write(ostr, ret.o);
+                        QShortSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSShortSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<short> iceP_i;
+                iceP_i = SShortSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSShortSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SShortSHelper.write(ostr, ret.o);
+                        SShortSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int[] iceP_i;
+                iceP_i = AIntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAIntSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AIntSHelper.write(ostr, ret.o);
+                        AIntSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<int> iceP_i;
+                iceP_i = LIntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLIntSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LIntSHelper.write(ostr, ret.o);
+                        LIntSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<int> iceP_i;
+                iceP_i = KIntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKIntSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KIntSHelper.write(ostr, ret.o);
+                        KIntSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<int> iceP_i;
+                iceP_i = QIntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQIntSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QIntSHelper.write(ostr, ret.o);
+                        QIntSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<int> iceP_i;
+                iceP_i = SIntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSIntSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SIntSHelper.write(ostr, ret.o);
+                        SIntSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opALongSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                long[] iceP_i;
+                iceP_i = ALongSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opALongSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ALongSHelper.write(ostr, ret.o);
+                        ALongSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLLongSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<long> iceP_i;
+                iceP_i = LLongSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLLongSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LLongSHelper.write(ostr, ret.o);
+                        LLongSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKLongSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<long> iceP_i;
+                iceP_i = KLongSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKLongSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KLongSHelper.write(ostr, ret.o);
+                        KLongSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQLongSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<long> iceP_i;
+                iceP_i = QLongSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQLongSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QLongSHelper.write(ostr, ret.o);
+                        QLongSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSLongSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<long> iceP_i;
+                iceP_i = SLongSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSLongSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SLongSHelper.write(ostr, ret.o);
+                        SLongSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAFloatSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                float[] iceP_i;
+                iceP_i = AFloatSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AFloatSHelper.write(ostr, ret.o);
+                        AFloatSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLFloatSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<float> iceP_i;
+                iceP_i = LFloatSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LFloatSHelper.write(ostr, ret.o);
+                        LFloatSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKFloatSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<float> iceP_i;
+                iceP_i = KFloatSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KFloatSHelper.write(ostr, ret.o);
+                        KFloatSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQFloatSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<float> iceP_i;
+                iceP_i = QFloatSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QFloatSHelper.write(ostr, ret.o);
+                        QFloatSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSFloatSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<float> iceP_i;
+                iceP_i = SFloatSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SFloatSHelper.write(ostr, ret.o);
+                        SFloatSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opADoubleSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                double[] iceP_i;
+                iceP_i = ADoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opADoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ADoubleSHelper.write(ostr, ret.o);
+                        ADoubleSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLDoubleSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<double> iceP_i;
+                iceP_i = LDoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LDoubleSHelper.write(ostr, ret.o);
+                        LDoubleSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKDoubleSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<double> iceP_i;
+                iceP_i = KDoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KDoubleSHelper.write(ostr, ret.o);
+                        KDoubleSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQDoubleSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<double> iceP_i;
+                iceP_i = QDoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QDoubleSHelper.write(ostr, ret.o);
+                        QDoubleSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSDoubleSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<double> iceP_i;
+                iceP_i = SDoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SDoubleSHelper.write(ostr, ret.o);
+                        SDoubleSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStringSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[] iceP_i;
+                iceP_i = AStringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAStringSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AStringSHelper.write(ostr, ret.o);
+                        AStringSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStringSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<string> iceP_i;
+                iceP_i = LStringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLStringSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LStringSHelper.write(ostr, ret.o);
+                        LStringSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStringSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<string> iceP_i;
+                iceP_i = KStringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKStringSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KStringSHelper.write(ostr, ret.o);
+                        KStringSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStringSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<string> iceP_i;
+                iceP_i = QStringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQStringSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QStringSHelper.write(ostr, ret.o);
+                        QStringSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStringSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<string> iceP_i;
+                iceP_i = SStringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSStringSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SStringSHelper.write(ostr, ret.o);
+                        SStringSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(Ice.Value?[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAObjectSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                Ice.Value?[] iceP_i;
+                iceP_i = AObjectSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opAObjectSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AObjectSHelper.write(ostr, ret.o);
+                        AObjectSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<Ice.Value?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLObjectSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<Ice.Value?> iceP_i;
+                iceP_i = LObjectSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opLObjectSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LObjectSHelper.write(ostr, ret.o);
+                        LObjectSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(Ice.ObjectPrx?[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAObjectPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                Ice.ObjectPrx?[] iceP_i;
+                iceP_i = AObjectPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AObjectPrxSHelper.write(ostr, ret.o);
+                        AObjectPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<Ice.ObjectPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLObjectPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<Ice.ObjectPrx?> iceP_i;
+                iceP_i = LObjectPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LObjectPrxSHelper.write(ostr, ret.o);
+                        LObjectPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKObjectPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> iceP_i;
+                iceP_i = KObjectPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KObjectPrxSHelper.write(ostr, ret.o);
+                        KObjectPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<Ice.ObjectPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQObjectPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<Ice.ObjectPrx?> iceP_i;
+                iceP_i = QObjectPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QObjectPrxSHelper.write(ostr, ret.o);
+                        QObjectPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<Ice.ObjectPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSObjectPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<Ice.ObjectPrx?> iceP_i;
+                iceP_i = SObjectPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SObjectPrxSHelper.write(ostr, ret.o);
+                        SObjectPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStructSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                S[] iceP_i;
+                iceP_i = AStructSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAStructSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AStructSHelper.write(ostr, ret.o);
+                        AStructSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStructSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<S> iceP_i;
+                iceP_i = LStructSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLStructSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LStructSHelper.write(ostr, ret.o);
+                        LStructSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStructSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<S> iceP_i;
+                iceP_i = KStructSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKStructSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KStructSHelper.write(ostr, ret.o);
+                        KStructSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStructSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<S> iceP_i;
+                iceP_i = QStructSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQStructSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QStructSHelper.write(ostr, ret.o);
+                        QStructSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStructSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<S> iceP_i;
+                iceP_i = SStructSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSStructSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SStructSHelper.write(ostr, ret.o);
+                        SStructSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStructSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                SD[] iceP_i;
+                iceP_i = AStructSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AStructSDHelper.write(ostr, ret.o);
+                        AStructSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStructSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<SD> iceP_i;
+                iceP_i = LStructSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LStructSDHelper.write(ostr, ret.o);
+                        LStructSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStructSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<SD> iceP_i;
+                iceP_i = KStructSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KStructSDHelper.write(ostr, ret.o);
+                        KStructSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStructSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<SD> iceP_i;
+                iceP_i = QStructSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QStructSDHelper.write(ostr, ret.o);
+                        QStructSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStructSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<SD> iceP_i;
+                iceP_i = SStructSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SStructSDHelper.write(ostr, ret.o);
+                        SStructSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opACVSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                CV?[] iceP_i;
+                iceP_i = ACVSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opACVSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ACVSHelper.write(ostr, ret.o);
+                        ACVSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLCVSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<CV?> iceP_i;
+                iceP_i = LCVSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opLCVSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LCVSHelper.write(ostr, ret.o);
+                        LCVSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opACRSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                CR?[] iceP_i;
+                iceP_i = ACRSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opACRSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ACRSHelper.write(ostr, ret.o);
+                        ACRSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLCRSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<CR?> iceP_i;
+                iceP_i = LCRSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opLCRSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LCRSHelper.write(ostr, ret.o);
+                        LCRSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAEnSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                En[] iceP_i;
+                iceP_i = AEnSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAEnSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AEnSHelper.write(ostr, ret.o);
+                        AEnSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLEnSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<En> iceP_i;
+                iceP_i = LEnSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLEnSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LEnSHelper.write(ostr, ret.o);
+                        LEnSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKEnSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<En> iceP_i;
+                iceP_i = KEnSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKEnSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KEnSHelper.write(ostr, ret.o);
+                        KEnSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQEnSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<En> iceP_i;
+                iceP_i = QEnSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQEnSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QEnSHelper.write(ostr, ret.o);
+                        QEnSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSEnSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<En> iceP_i;
+                iceP_i = SEnSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSEnSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SEnSHelper.write(ostr, ret.o);
+                        SEnSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAIPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                IPrx?[] iceP_i;
+                iceP_i = AIPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opAIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        AIPrxSHelper.write(ostr, ret.o);
+                        AIPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLIPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.List<IPrx?> iceP_i;
+                iceP_i = LIPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LIPrxSHelper.write(ostr, ret.o);
+                        LIPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKIPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.LinkedList<IPrx?> iceP_i;
+                iceP_i = KIPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opKIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        KIPrxSHelper.write(ostr, ret.o);
+                        KIPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQIPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Queue<IPrx?> iceP_i;
+                iceP_i = QIPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opQIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        QIPrxSHelper.write(ostr, ret.o);
+                        QIPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSIPrxSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Stack<IPrx?> iceP_i;
+                iceP_i = SIPrxSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opSIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        SIPrxSHelper.write(ostr, ret.o);
+                        SIPrxSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::Ice.seqMapping.Custom<int> iceP_i;
+                iceP_i = CustomIntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opCustomIntSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        CustomIntSHelper.write(ostr, ret.o);
+                        CustomIntSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomCVSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::Ice.seqMapping.Custom<CV?> iceP_i;
+                iceP_i = CustomCVSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opCustomCVSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        CustomCVSHelper.write(ostr, ret.o);
+                        CustomCVSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomIntSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i;
+                iceP_i = CustomIntSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opCustomIntSSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        CustomIntSSHelper.write(ostr, ret.o);
+                        CustomIntSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomCVSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> iceP_i;
+                iceP_i = CustomCVSSHelper.read(istr);
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opCustomCVSSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        CustomCVSSHelper.write(ostr, ret.o);
+                        CustomCVSSHelper.write(ostr, ret.returnValue);
+                        ostr.writePendingValues();
+                    });
+            }
         }
 
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
@@ -6835,1616 +8424,6 @@ namespace Ice.seqMapping.AMD
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.seqMapping.AMD
-{
-    namespace Test
-    {
-        public partial interface MyClass
-        {
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.shutdownAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAByteSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                byte[] iceP_i;
-                iceP_i = AByteSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AByteSHelper.write(ostr, ret.o);
-                        AByteSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLByteSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<byte> iceP_i;
-                iceP_i = LByteSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LByteSHelper.write(ostr, ret.o);
-                        LByteSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKByteSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<byte> iceP_i;
-                iceP_i = KByteSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KByteSHelper.write(ostr, ret.o);
-                        KByteSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQByteSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<byte> iceP_i;
-                iceP_i = QByteSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QByteSHelper.write(ostr, ret.o);
-                        QByteSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSByteSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<byte> iceP_i;
-                iceP_i = SByteSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSByteSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SByteSHelper.write(ostr, ret.o);
-                        SByteSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opABoolSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool[] iceP_i;
-                iceP_i = ABoolSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opABoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ABoolSHelper.write(ostr, ret.o);
-                        ABoolSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLBoolSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<bool> iceP_i;
-                iceP_i = LBoolSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LBoolSHelper.write(ostr, ret.o);
-                        LBoolSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKBoolSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<bool> iceP_i;
-                iceP_i = KBoolSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KBoolSHelper.write(ostr, ret.o);
-                        KBoolSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQBoolSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<bool> iceP_i;
-                iceP_i = QBoolSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QBoolSHelper.write(ostr, ret.o);
-                        QBoolSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSBoolSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<bool> iceP_i;
-                iceP_i = SBoolSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSBoolSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SBoolSHelper.write(ostr, ret.o);
-                        SBoolSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAShortSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                short[] iceP_i;
-                iceP_i = AShortSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AShortSHelper.write(ostr, ret.o);
-                        AShortSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLShortSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<short> iceP_i;
-                iceP_i = LShortSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LShortSHelper.write(ostr, ret.o);
-                        LShortSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKShortSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<short> iceP_i;
-                iceP_i = KShortSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KShortSHelper.write(ostr, ret.o);
-                        KShortSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQShortSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<short> iceP_i;
-                iceP_i = QShortSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QShortSHelper.write(ostr, ret.o);
-                        QShortSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSShortSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<short> iceP_i;
-                iceP_i = SShortSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSShortSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SShortSHelper.write(ostr, ret.o);
-                        SShortSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                int[] iceP_i;
-                iceP_i = AIntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AIntSHelper.write(ostr, ret.o);
-                        AIntSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<int> iceP_i;
-                iceP_i = LIntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LIntSHelper.write(ostr, ret.o);
-                        LIntSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<int> iceP_i;
-                iceP_i = KIntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KIntSHelper.write(ostr, ret.o);
-                        KIntSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<int> iceP_i;
-                iceP_i = QIntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QIntSHelper.write(ostr, ret.o);
-                        QIntSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<int> iceP_i;
-                iceP_i = SIntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SIntSHelper.write(ostr, ret.o);
-                        SIntSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opALongSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                long[] iceP_i;
-                iceP_i = ALongSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opALongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ALongSHelper.write(ostr, ret.o);
-                        ALongSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLLongSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<long> iceP_i;
-                iceP_i = LLongSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LLongSHelper.write(ostr, ret.o);
-                        LLongSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKLongSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<long> iceP_i;
-                iceP_i = KLongSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KLongSHelper.write(ostr, ret.o);
-                        KLongSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQLongSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<long> iceP_i;
-                iceP_i = QLongSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QLongSHelper.write(ostr, ret.o);
-                        QLongSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSLongSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<long> iceP_i;
-                iceP_i = SLongSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSLongSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SLongSHelper.write(ostr, ret.o);
-                        SLongSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAFloatSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                float[] iceP_i;
-                iceP_i = AFloatSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AFloatSHelper.write(ostr, ret.o);
-                        AFloatSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLFloatSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<float> iceP_i;
-                iceP_i = LFloatSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LFloatSHelper.write(ostr, ret.o);
-                        LFloatSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKFloatSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<float> iceP_i;
-                iceP_i = KFloatSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KFloatSHelper.write(ostr, ret.o);
-                        KFloatSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQFloatSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<float> iceP_i;
-                iceP_i = QFloatSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QFloatSHelper.write(ostr, ret.o);
-                        QFloatSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSFloatSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<float> iceP_i;
-                iceP_i = SFloatSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSFloatSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SFloatSHelper.write(ostr, ret.o);
-                        SFloatSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opADoubleSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                double[] iceP_i;
-                iceP_i = ADoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opADoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ADoubleSHelper.write(ostr, ret.o);
-                        ADoubleSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLDoubleSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<double> iceP_i;
-                iceP_i = LDoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LDoubleSHelper.write(ostr, ret.o);
-                        LDoubleSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKDoubleSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<double> iceP_i;
-                iceP_i = KDoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KDoubleSHelper.write(ostr, ret.o);
-                        KDoubleSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQDoubleSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<double> iceP_i;
-                iceP_i = QDoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QDoubleSHelper.write(ostr, ret.o);
-                        QDoubleSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSDoubleSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<double> iceP_i;
-                iceP_i = SDoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSDoubleSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SDoubleSHelper.write(ostr, ret.o);
-                        SDoubleSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStringSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[] iceP_i;
-                iceP_i = AStringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AStringSHelper.write(ostr, ret.o);
-                        AStringSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStringSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<string> iceP_i;
-                iceP_i = LStringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LStringSHelper.write(ostr, ret.o);
-                        LStringSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStringSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<string> iceP_i;
-                iceP_i = KStringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KStringSHelper.write(ostr, ret.o);
-                        KStringSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStringSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<string> iceP_i;
-                iceP_i = QStringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QStringSHelper.write(ostr, ret.o);
-                        QStringSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStringSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<string> iceP_i;
-                iceP_i = SStringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSStringSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SStringSHelper.write(ostr, ret.o);
-                        SStringSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAObjectSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                Ice.Value?[] iceP_i;
-                iceP_i = AObjectSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opAObjectSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AObjectSHelper.write(ostr, ret.o);
-                        AObjectSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLObjectSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<Ice.Value?> iceP_i;
-                iceP_i = LObjectSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opLObjectSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LObjectSHelper.write(ostr, ret.o);
-                        LObjectSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAObjectPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                Ice.ObjectPrx?[] iceP_i;
-                iceP_i = AObjectPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AObjectPrxSHelper.write(ostr, ret.o);
-                        AObjectPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLObjectPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<Ice.ObjectPrx?> iceP_i;
-                iceP_i = LObjectPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LObjectPrxSHelper.write(ostr, ret.o);
-                        LObjectPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKObjectPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<Ice.ObjectPrx?> iceP_i;
-                iceP_i = KObjectPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KObjectPrxSHelper.write(ostr, ret.o);
-                        KObjectPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQObjectPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<Ice.ObjectPrx?> iceP_i;
-                iceP_i = QObjectPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QObjectPrxSHelper.write(ostr, ret.o);
-                        QObjectPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSObjectPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<Ice.ObjectPrx?> iceP_i;
-                iceP_i = SObjectPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSObjectPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SObjectPrxSHelper.write(ostr, ret.o);
-                        SObjectPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStructSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                S[] iceP_i;
-                iceP_i = AStructSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AStructSHelper.write(ostr, ret.o);
-                        AStructSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStructSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<S> iceP_i;
-                iceP_i = LStructSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LStructSHelper.write(ostr, ret.o);
-                        LStructSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStructSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<S> iceP_i;
-                iceP_i = KStructSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KStructSHelper.write(ostr, ret.o);
-                        KStructSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStructSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<S> iceP_i;
-                iceP_i = QStructSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QStructSHelper.write(ostr, ret.o);
-                        QStructSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStructSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<S> iceP_i;
-                iceP_i = SStructSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSStructSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SStructSHelper.write(ostr, ret.o);
-                        SStructSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAStructSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                SD[] iceP_i;
-                iceP_i = AStructSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AStructSDHelper.write(ostr, ret.o);
-                        AStructSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLStructSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<SD> iceP_i;
-                iceP_i = LStructSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LStructSDHelper.write(ostr, ret.o);
-                        LStructSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKStructSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<SD> iceP_i;
-                iceP_i = KStructSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KStructSDHelper.write(ostr, ret.o);
-                        KStructSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQStructSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<SD> iceP_i;
-                iceP_i = QStructSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QStructSDHelper.write(ostr, ret.o);
-                        QStructSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSStructSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<SD> iceP_i;
-                iceP_i = SStructSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSStructSDAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SStructSDHelper.write(ostr, ret.o);
-                        SStructSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opACVSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                CV?[] iceP_i;
-                iceP_i = ACVSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opACVSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ACVSHelper.write(ostr, ret.o);
-                        ACVSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLCVSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<CV?> iceP_i;
-                iceP_i = LCVSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opLCVSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LCVSHelper.write(ostr, ret.o);
-                        LCVSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opACRSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                CR?[] iceP_i;
-                iceP_i = ACRSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opACRSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ACRSHelper.write(ostr, ret.o);
-                        ACRSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLCRSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<CR?> iceP_i;
-                iceP_i = LCRSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opLCRSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LCRSHelper.write(ostr, ret.o);
-                        LCRSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAEnSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                En[] iceP_i;
-                iceP_i = AEnSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AEnSHelper.write(ostr, ret.o);
-                        AEnSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLEnSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<En> iceP_i;
-                iceP_i = LEnSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LEnSHelper.write(ostr, ret.o);
-                        LEnSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKEnSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<En> iceP_i;
-                iceP_i = KEnSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KEnSHelper.write(ostr, ret.o);
-                        KEnSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQEnSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<En> iceP_i;
-                iceP_i = QEnSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QEnSHelper.write(ostr, ret.o);
-                        QEnSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSEnSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<En> iceP_i;
-                iceP_i = SEnSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSEnSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SEnSHelper.write(ostr, ret.o);
-                        SEnSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAIPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                IPrx?[] iceP_i;
-                iceP_i = AIPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opAIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        AIPrxSHelper.write(ostr, ret.o);
-                        AIPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLIPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.List<IPrx?> iceP_i;
-                iceP_i = LIPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LIPrxSHelper.write(ostr, ret.o);
-                        LIPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opKIPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.LinkedList<IPrx?> iceP_i;
-                iceP_i = KIPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opKIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        KIPrxSHelper.write(ostr, ret.o);
-                        KIPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opQIPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Queue<IPrx?> iceP_i;
-                iceP_i = QIPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opQIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        QIPrxSHelper.write(ostr, ret.o);
-                        QIPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSIPrxSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Stack<IPrx?> iceP_i;
-                iceP_i = SIPrxSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opSIPrxSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        SIPrxSHelper.write(ostr, ret.o);
-                        SIPrxSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::Ice.seqMapping.Custom<int> iceP_i;
-                iceP_i = CustomIntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opCustomIntSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        CustomIntSHelper.write(ostr, ret.o);
-                        CustomIntSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomCVSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::Ice.seqMapping.Custom<CV?> iceP_i;
-                iceP_i = CustomCVSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opCustomCVSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        CustomCVSHelper.write(ostr, ret.o);
-                        CustomCVSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomIntSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i;
-                iceP_i = CustomIntSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opCustomIntSSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        CustomIntSSHelper.write(ostr, ret.o);
-                        CustomIntSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opCustomCVSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> iceP_i;
-                iceP_i = CustomCVSSHelper.read(istr);
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opCustomCVSSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        CustomCVSSHelper.write(ostr, ret.o);
-                        CustomCVSSHelper.write(ostr, ret.returnValue);
-                        ostr.writePendingValues();
-                    });
-            }
         }
     }
 }

@@ -132,10 +132,7 @@ namespace IceStorm
 
         public static SubscriberRecord ice_read(Ice.InputStream istr) => new(istr);
     }
-}
 
-namespace IceStorm
-{
     public sealed class SubscriberRecordSeqHelper
     {
         public static void write(Ice.OutputStream ostr, SubscriberRecord[] v)

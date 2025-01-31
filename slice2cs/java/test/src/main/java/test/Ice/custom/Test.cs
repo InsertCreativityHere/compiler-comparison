@@ -53,417 +53,6 @@ namespace Test
         public static A ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    public enum E
-    {
-        E1,
-        E2,
-        E3
-    }
-
-    public sealed class EHelper
-    {
-        public static void write(Ice.OutputStream ostr, E v)
-        {
-            ostr.writeEnum((int)v, 2);
-        }
-
-        public static E read(Ice.InputStream istr)
-        {
-            E v;
-            v = (E)istr.readEnum(2);
-            return v;
-        }
-    }
-
-    public partial record struct S
-    {
-        public E en;
-
-        partial void ice_initialize();
-
-        public S(E en)
-        {
-            this.en = en;
-            ice_initialize();
-        }
-
-        public S(Ice.InputStream istr)
-        {
-            this.en = (E)istr.readEnum(2);
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeEnum((int)this.en, 2);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, S v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static S ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : Ice.Object
-    {
-        A[] opASeq(A[] inSeq, out A[] outSeq, Ice.Current current);
-
-        A[] opAArray(A[] inSeq, out A[] outSeq, Ice.Current current);
-
-        A[] opAList(A[] inSeq, out A[] outSeq, Ice.Current current);
-
-        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, Ice.Current current);
-
-        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, Ice.Current current);
-
-        short[] opShortSeq(short[] inSeq, out short[] outSeq, Ice.Current current);
-
-        int[] opIntSeq(int[] inSeq, out int[] outSeq, Ice.Current current);
-
-        long[] opLongSeq(long[] inSeq, out long[] outSeq, Ice.Current current);
-
-        float[] opFloatSeq(float[] inSeq, out float[] outSeq, Ice.Current current);
-
-        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, Ice.Current current);
-
-        string[] opStringSeq(string[] inSeq, out string[] outSeq, Ice.Current current);
-
-        E[] opESeq(E[] inSeq, out E[] outSeq, Ice.Current current);
-
-        S[] opSSeq(S[] inSeq, out S[] outSeq, Ice.Current current);
-
-        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, Ice.Current current);
-
-        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, Ice.Current current);
-
-        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, Ice.Current current);
-
-        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, Ice.Current current);
-
-        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, Ice.Current current);
-
-        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, Ice.Current current);
-
-        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, Ice.Current current);
-
-        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, Ice.Current current);
-
-        A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, Ice.Current current);
-
-        A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, Ice.Current current);
-
-        A[]? opOptAList(A[]? inSeq, out A[]? outSeq, Ice.Current current);
-
-        bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, Ice.Current current);
-
-        byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, Ice.Current current);
-
-        short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, Ice.Current current);
-
-        int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, Ice.Current current);
-
-        long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, Ice.Current current);
-
-        float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, Ice.Current current);
-
-        double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, Ice.Current current);
-
-        string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, Ice.Current current);
-
-        E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, Ice.Current current);
-
-        S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, Ice.Current current);
-
-        global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, Ice.Current current);
-
-        string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, Ice.Current current);
-
-        byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, Ice.Current current);
-
-        short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, Ice.Current current);
-
-        int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, Ice.Current current);
-
-        long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, Ice.Current current);
-
-        float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, Ice.Current current);
-
-        double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace Test
-{
-    public record struct TestIntf_OpASeqResult(A[] returnValue, A[] outSeq);
-
-    public record struct TestIntf_OpAArrayResult(A[] returnValue, A[] outSeq);
-
-    public record struct TestIntf_OpAListResult(A[] returnValue, A[] outSeq);
-
-    public record struct TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq);
-
-    public record struct TestIntf_OpByteSeqResult(byte[] returnValue, byte[] outSeq);
-
-    public record struct TestIntf_OpShortSeqResult(short[] returnValue, short[] outSeq);
-
-    public record struct TestIntf_OpIntSeqResult(int[] returnValue, int[] outSeq);
-
-    public record struct TestIntf_OpLongSeqResult(long[] returnValue, long[] outSeq);
-
-    public record struct TestIntf_OpFloatSeqResult(float[] returnValue, float[] outSeq);
-
-    public record struct TestIntf_OpDoubleSeqResult(double[] returnValue, double[] outSeq);
-
-    public record struct TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq);
-
-    public record struct TestIntf_OpESeqResult(E[] returnValue, E[] outSeq);
-
-    public record struct TestIntf_OpSSeqResult(S[] returnValue, S[] outSeq);
-
-    public record struct TestIntf_OpDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[] returnValue, global::System.Collections.Generic.Dictionary<int, string>[] outSeq);
-
-    public record struct TestIntf_OpStringSeqSeqResult(string[][] returnValue, string[][] outSeq);
-
-    public record struct TestIntf_OpByteBufferSeqResult(byte[] returnValue, byte[] outSeq);
-
-    public record struct TestIntf_OpShortBufferSeqResult(short[] returnValue, short[] outSeq);
-
-    public record struct TestIntf_OpIntBufferSeqResult(int[] returnValue, int[] outSeq);
-
-    public record struct TestIntf_OpLongBufferSeqResult(long[] returnValue, long[] outSeq);
-
-    public record struct TestIntf_OpFloatBufferSeqResult(float[] returnValue, float[] outSeq);
-
-    public record struct TestIntf_OpDoubleBufferSeqResult(double[] returnValue, double[] outSeq);
-
-    public record struct TestIntf_OpOptASeqResult(A[]? returnValue, A[]? outSeq);
-
-    public record struct TestIntf_OpOptAArrayResult(A[]? returnValue, A[]? outSeq);
-
-    public record struct TestIntf_OpOptAListResult(A[]? returnValue, A[]? outSeq);
-
-    public record struct TestIntf_OpOptBoolSeqResult(bool[]? returnValue, bool[]? outSeq);
-
-    public record struct TestIntf_OpOptByteSeqResult(byte[]? returnValue, byte[]? outSeq);
-
-    public record struct TestIntf_OpOptShortSeqResult(short[]? returnValue, short[]? outSeq);
-
-    public record struct TestIntf_OpOptIntSeqResult(int[]? returnValue, int[]? outSeq);
-
-    public record struct TestIntf_OpOptLongSeqResult(long[]? returnValue, long[]? outSeq);
-
-    public record struct TestIntf_OpOptFloatSeqResult(float[]? returnValue, float[]? outSeq);
-
-    public record struct TestIntf_OpOptDoubleSeqResult(double[]? returnValue, double[]? outSeq);
-
-    public record struct TestIntf_OpOptStringSeqResult(string[]? returnValue, string[]? outSeq);
-
-    public record struct TestIntf_OpOptESeqResult(E[]? returnValue, E[]? outSeq);
-
-    public record struct TestIntf_OpOptSSeqResult(S[]? returnValue, S[]? outSeq);
-
-    public record struct TestIntf_OpOptDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[]? returnValue, global::System.Collections.Generic.Dictionary<int, string>[]? outSeq);
-
-    public record struct TestIntf_OpOptStringSeqSeqResult(string[][]? returnValue, string[][]? outSeq);
-
-    public record struct TestIntf_OpOptByteBufferSeqResult(byte[]? returnValue, byte[]? outSeq);
-
-    public record struct TestIntf_OpOptShortBufferSeqResult(short[]? returnValue, short[]? outSeq);
-
-    public record struct TestIntf_OpOptIntBufferSeqResult(int[]? returnValue, int[]? outSeq);
-
-    public record struct TestIntf_OpOptLongBufferSeqResult(long[]? returnValue, long[]? outSeq);
-
-    public record struct TestIntf_OpOptFloatBufferSeqResult(float[]? returnValue, float[]? outSeq);
-
-    public record struct TestIntf_OpOptDoubleBufferSeqResult(double[]? returnValue, double[]? outSeq);
-}
-
-namespace Test
-{
-    public interface TestIntfPrx : Ice.ObjectPrx
-    {
-        A[] opASeq(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpASeqResult> opASeqAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        A[] opAArray(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpAArrayResult> opAArrayAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        A[] opAList(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpAListResult> opAListAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        short[] opShortSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int[] opIntSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        long[] opLongSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> opLongSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> opFloatSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> opDoubleSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        string[] opStringSeq(string[] inSeq, out string[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        E[] opESeq(E[] inSeq, out E[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> opESeqAsync(E[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        S[] opSSeq(S[] inSeq, out S[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> opSSeqAsync(S[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> opStringSeqSeqAsync(string[][] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> opByteBufferSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> opShortBufferSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> opIntBufferSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> opLongBufferSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> opFloatBufferSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptASeqResult> opOptASeqAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptAArrayResult> opOptAArrayAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        A[]? opOptAList(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptAListResult> opOptAListAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> opOptBoolSeqAsync(bool[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> opOptByteSeqAsync(byte[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> opOptShortSeqAsync(short[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> opOptIntSeqAsync(int[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> opOptLongSeqAsync(long[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> opOptFloatSeqAsync(float[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> opOptDoubleSeqAsync(double[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> opOptStringSeqAsync(string[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> opOptESeqAsync(E[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> opOptSSeqAsync(S[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> opOptStringSeqSeqAsync(string[][]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> opOptByteBufferSeqAsync(byte[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> opOptShortBufferSeqAsync(short[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> opOptIntBufferSeqAsync(int[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> opOptLongBufferSeqAsync(long[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> opOptFloatBufferSeqAsync(float[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> opOptDoubleBufferSeqAsync(double[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class ASeqHelper
     {
         public static void write(Ice.OutputStream ostr, A[] v)
@@ -773,6 +362,28 @@ namespace Test
         }
     }
 
+    public enum E
+    {
+        E1,
+        E2,
+        E3
+    }
+
+    public sealed class EHelper
+    {
+        public static void write(Ice.OutputStream ostr, E v)
+        {
+            ostr.writeEnum((int)v, 2);
+        }
+
+        public static E read(Ice.InputStream istr)
+        {
+            E v;
+            v = (E)istr.readEnum(2);
+            return v;
+        }
+    }
+
     public sealed class ESeqHelper
     {
         public static void write(Ice.OutputStream ostr, E[] v)
@@ -804,6 +415,37 @@ namespace Test
             }
             return v;
         }
+    }
+
+    public partial record struct S
+    {
+        public E en;
+
+        partial void ice_initialize();
+
+        public S(E en)
+        {
+            this.en = en;
+            ice_initialize();
+        }
+
+        public S(Ice.InputStream istr)
+        {
+            this.en = (E)istr.readEnum(2);
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeEnum((int)this.en, 2);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, S v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static S ice_read(Ice.InputStream istr) => new(istr);
     }
 
     public sealed class SSeqHelper
@@ -939,6 +581,181 @@ namespace Test
             }
             return v;
         }
+    }
+
+    public interface TestIntfPrx : Ice.ObjectPrx
+    {
+        A[] opASeq(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpASeqResult> opASeqAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        A[] opAArray(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpAArrayResult> opAArrayAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        A[] opAList(A[] inSeq, out A[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpAListResult> opAListAsync(A[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        short[] opShortSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        int[] opIntSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        long[] opLongSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> opLongSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> opFloatSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> opDoubleSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        string[] opStringSeq(string[] inSeq, out string[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        E[] opESeq(E[] inSeq, out E[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> opESeqAsync(E[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        S[] opSSeq(S[] inSeq, out S[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> opSSeqAsync(S[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> opStringSeqSeqAsync(string[][] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> opByteBufferSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> opShortBufferSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> opIntBufferSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> opLongBufferSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> opFloatBufferSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptASeqResult> opOptASeqAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptAArrayResult> opOptAArrayAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        A[]? opOptAList(A[]? inSeq, out A[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptAListResult> opOptAListAsync(A[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> opOptBoolSeqAsync(bool[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> opOptByteSeqAsync(byte[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> opOptShortSeqAsync(short[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> opOptIntSeqAsync(int[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> opOptLongSeqAsync(long[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> opOptFloatSeqAsync(float[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> opOptDoubleSeqAsync(double[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> opOptStringSeqAsync(string[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> opOptESeqAsync(E[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> opOptSSeqAsync(S[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> opOptStringSeqSeqAsync(string[][]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> opOptByteBufferSeqAsync(byte[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> opOptShortBufferSeqAsync(short[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> opOptIntBufferSeqAsync(int[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> opOptLongBufferSeqAsync(long[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> opOptFloatBufferSeqAsync(float[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> opOptDoubleBufferSeqAsync(double[]? inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
@@ -3345,6 +3162,1167 @@ namespace Test
 
 namespace Test
 {
+    public record struct TestIntf_OpASeqResult(A[] returnValue, A[] outSeq);
+
+    public record struct TestIntf_OpAArrayResult(A[] returnValue, A[] outSeq);
+
+    public record struct TestIntf_OpAListResult(A[] returnValue, A[] outSeq);
+
+    public record struct TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq);
+
+    public record struct TestIntf_OpByteSeqResult(byte[] returnValue, byte[] outSeq);
+
+    public record struct TestIntf_OpShortSeqResult(short[] returnValue, short[] outSeq);
+
+    public record struct TestIntf_OpIntSeqResult(int[] returnValue, int[] outSeq);
+
+    public record struct TestIntf_OpLongSeqResult(long[] returnValue, long[] outSeq);
+
+    public record struct TestIntf_OpFloatSeqResult(float[] returnValue, float[] outSeq);
+
+    public record struct TestIntf_OpDoubleSeqResult(double[] returnValue, double[] outSeq);
+
+    public record struct TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq);
+
+    public record struct TestIntf_OpESeqResult(E[] returnValue, E[] outSeq);
+
+    public record struct TestIntf_OpSSeqResult(S[] returnValue, S[] outSeq);
+
+    public record struct TestIntf_OpDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[] returnValue, global::System.Collections.Generic.Dictionary<int, string>[] outSeq);
+
+    public record struct TestIntf_OpStringSeqSeqResult(string[][] returnValue, string[][] outSeq);
+
+    public record struct TestIntf_OpByteBufferSeqResult(byte[] returnValue, byte[] outSeq);
+
+    public record struct TestIntf_OpShortBufferSeqResult(short[] returnValue, short[] outSeq);
+
+    public record struct TestIntf_OpIntBufferSeqResult(int[] returnValue, int[] outSeq);
+
+    public record struct TestIntf_OpLongBufferSeqResult(long[] returnValue, long[] outSeq);
+
+    public record struct TestIntf_OpFloatBufferSeqResult(float[] returnValue, float[] outSeq);
+
+    public record struct TestIntf_OpDoubleBufferSeqResult(double[] returnValue, double[] outSeq);
+
+    public record struct TestIntf_OpOptASeqResult(A[]? returnValue, A[]? outSeq);
+
+    public record struct TestIntf_OpOptAArrayResult(A[]? returnValue, A[]? outSeq);
+
+    public record struct TestIntf_OpOptAListResult(A[]? returnValue, A[]? outSeq);
+
+    public record struct TestIntf_OpOptBoolSeqResult(bool[]? returnValue, bool[]? outSeq);
+
+    public record struct TestIntf_OpOptByteSeqResult(byte[]? returnValue, byte[]? outSeq);
+
+    public record struct TestIntf_OpOptShortSeqResult(short[]? returnValue, short[]? outSeq);
+
+    public record struct TestIntf_OpOptIntSeqResult(int[]? returnValue, int[]? outSeq);
+
+    public record struct TestIntf_OpOptLongSeqResult(long[]? returnValue, long[]? outSeq);
+
+    public record struct TestIntf_OpOptFloatSeqResult(float[]? returnValue, float[]? outSeq);
+
+    public record struct TestIntf_OpOptDoubleSeqResult(double[]? returnValue, double[]? outSeq);
+
+    public record struct TestIntf_OpOptStringSeqResult(string[]? returnValue, string[]? outSeq);
+
+    public record struct TestIntf_OpOptESeqResult(E[]? returnValue, E[]? outSeq);
+
+    public record struct TestIntf_OpOptSSeqResult(S[]? returnValue, S[]? outSeq);
+
+    public record struct TestIntf_OpOptDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[]? returnValue, global::System.Collections.Generic.Dictionary<int, string>[]? outSeq);
+
+    public record struct TestIntf_OpOptStringSeqSeqResult(string[][]? returnValue, string[][]? outSeq);
+
+    public record struct TestIntf_OpOptByteBufferSeqResult(byte[]? returnValue, byte[]? outSeq);
+
+    public record struct TestIntf_OpOptShortBufferSeqResult(short[]? returnValue, short[]? outSeq);
+
+    public record struct TestIntf_OpOptIntBufferSeqResult(int[]? returnValue, int[]? outSeq);
+
+    public record struct TestIntf_OpOptLongBufferSeqResult(long[]? returnValue, long[]? outSeq);
+
+    public record struct TestIntf_OpOptFloatBufferSeqResult(float[]? returnValue, float[]? outSeq);
+
+    public record struct TestIntf_OpOptDoubleBufferSeqResult(double[]? returnValue, double[]? outSeq);
+}
+
+namespace Test
+{
+    [Ice.SliceTypeId("::Test::TestIntf")]
+    public partial interface TestIntf : Ice.Object
+    {
+        A[] opASeq(A[] inSeq, out A[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opASeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A[] iceP_inSeq;
+            iceP_inSeq = ASeqHelper.read(istr);
+            istr.endEncapsulation();
+            A[] iceP_outSeq;
+            var ret = obj.opASeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ASeqHelper.write(ostr, iceP_outSeq);
+            ASeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        A[] opAArray(A[] inSeq, out A[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAArrayAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A[] iceP_inSeq;
+            iceP_inSeq = AArrayHelper.read(istr);
+            istr.endEncapsulation();
+            A[] iceP_outSeq;
+            var ret = obj.opAArray(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            AArrayHelper.write(ostr, iceP_outSeq);
+            AArrayHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        A[] opAList(A[] inSeq, out A[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAListAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A[] iceP_inSeq;
+            iceP_inSeq = AListHelper.read(istr);
+            istr.endEncapsulation();
+            A[] iceP_outSeq;
+            var ret = obj.opAList(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            AListHelper.write(ostr, iceP_outSeq);
+            AListHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool[] iceP_inSeq;
+            iceP_inSeq = BoolSeqHelper.read(istr);
+            istr.endEncapsulation();
+            bool[] iceP_outSeq;
+            var ret = obj.opBoolSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            BoolSeqHelper.write(ostr, iceP_outSeq);
+            BoolSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[] iceP_inSeq;
+            iceP_inSeq = ByteSeqHelper.read(istr);
+            istr.endEncapsulation();
+            byte[] iceP_outSeq;
+            var ret = obj.opByteSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ByteSeqHelper.write(ostr, iceP_outSeq);
+            ByteSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[] opShortSeq(short[] inSeq, out short[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[] iceP_inSeq;
+            iceP_inSeq = ShortSeqHelper.read(istr);
+            istr.endEncapsulation();
+            short[] iceP_outSeq;
+            var ret = obj.opShortSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ShortSeqHelper.write(ostr, iceP_outSeq);
+            ShortSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        int[] opIntSeq(int[] inSeq, out int[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int[] iceP_inSeq;
+            iceP_inSeq = IntSeqHelper.read(istr);
+            istr.endEncapsulation();
+            int[] iceP_outSeq;
+            var ret = obj.opIntSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            IntSeqHelper.write(ostr, iceP_outSeq);
+            IntSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        long[] opLongSeq(long[] inSeq, out long[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            long[] iceP_inSeq;
+            iceP_inSeq = LongSeqHelper.read(istr);
+            istr.endEncapsulation();
+            long[] iceP_outSeq;
+            var ret = obj.opLongSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            LongSeqHelper.write(ostr, iceP_outSeq);
+            LongSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        float[] opFloatSeq(float[] inSeq, out float[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            float[] iceP_inSeq;
+            iceP_inSeq = FloatSeqHelper.read(istr);
+            istr.endEncapsulation();
+            float[] iceP_outSeq;
+            var ret = obj.opFloatSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            FloatSeqHelper.write(ostr, iceP_outSeq);
+            FloatSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            double[] iceP_inSeq;
+            iceP_inSeq = DoubleSeqHelper.read(istr);
+            istr.endEncapsulation();
+            double[] iceP_outSeq;
+            var ret = obj.opDoubleSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            DoubleSeqHelper.write(ostr, iceP_outSeq);
+            DoubleSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[] opStringSeq(string[] inSeq, out string[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[] iceP_inSeq;
+            iceP_inSeq = StringSeqHelper.read(istr);
+            istr.endEncapsulation();
+            string[] iceP_outSeq;
+            var ret = obj.opStringSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            StringSeqHelper.write(ostr, iceP_outSeq);
+            StringSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        E[] opESeq(E[] inSeq, out E[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opESeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            E[] iceP_inSeq;
+            iceP_inSeq = ESeqHelper.read(istr);
+            istr.endEncapsulation();
+            E[] iceP_outSeq;
+            var ret = obj.opESeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ESeqHelper.write(ostr, iceP_outSeq);
+            ESeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        S[] opSSeq(S[] inSeq, out S[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            S[] iceP_inSeq;
+            iceP_inSeq = SSeqHelper.read(istr);
+            istr.endEncapsulation();
+            S[] iceP_outSeq;
+            var ret = obj.opSSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            SSeqHelper.write(ostr, iceP_outSeq);
+            SSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq;
+            iceP_inSeq = DSeqHelper.read(istr);
+            istr.endEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, string>[] iceP_outSeq;
+            var ret = obj.opDSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            DSeqHelper.write(ostr, iceP_outSeq);
+            DSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSeqSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[][] iceP_inSeq;
+            iceP_inSeq = StringSeqSeqHelper.read(istr);
+            istr.endEncapsulation();
+            string[][] iceP_outSeq;
+            var ret = obj.opStringSeqSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            StringSeqSeqHelper.write(ostr, iceP_outSeq);
+            StringSeqSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[] iceP_inSeq;
+            iceP_inSeq = ByteBufferHelper.read(istr);
+            istr.endEncapsulation();
+            byte[] iceP_outSeq;
+            var ret = obj.opByteBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ByteBufferHelper.write(ostr, iceP_outSeq);
+            ByteBufferHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[] iceP_inSeq;
+            iceP_inSeq = ShortBufferHelper.read(istr);
+            istr.endEncapsulation();
+            short[] iceP_outSeq;
+            var ret = obj.opShortBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ShortBufferHelper.write(ostr, iceP_outSeq);
+            ShortBufferHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int[] iceP_inSeq;
+            iceP_inSeq = IntBufferHelper.read(istr);
+            istr.endEncapsulation();
+            int[] iceP_outSeq;
+            var ret = obj.opIntBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            IntBufferHelper.write(ostr, iceP_outSeq);
+            IntBufferHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            long[] iceP_inSeq;
+            iceP_inSeq = LongBufferHelper.read(istr);
+            istr.endEncapsulation();
+            long[] iceP_outSeq;
+            var ret = obj.opLongBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            LongBufferHelper.write(ostr, iceP_outSeq);
+            LongBufferHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            float[] iceP_inSeq;
+            iceP_inSeq = FloatBufferHelper.read(istr);
+            istr.endEncapsulation();
+            float[] iceP_outSeq;
+            var ret = obj.opFloatBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            FloatBufferHelper.write(ostr, iceP_outSeq);
+            FloatBufferHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            double[] iceP_inSeq;
+            iceP_inSeq = DoubleBufferHelper.read(istr);
+            istr.endEncapsulation();
+            double[] iceP_outSeq;
+            var ret = obj.opDoubleBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            DoubleBufferHelper.write(ostr, iceP_outSeq);
+            DoubleBufferHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        A[]? opOptASeq(A[]? inSeq, out A[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptASeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                A[] tmpVal;
+                tmpVal = ASeqHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            A[]? iceP_outSeq;
+            var ret = obj.opOptASeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                ASeqHelper.write(ostr, ret);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
+                ASeqHelper.write(ostr, iceP_outSeq);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        A[]? opOptAArray(A[]? inSeq, out A[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptAArrayAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                A[] tmpVal;
+                tmpVal = AArrayHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            A[]? iceP_outSeq;
+            var ret = obj.opOptAArray(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                AArrayHelper.write(ostr, ret);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
+                AArrayHelper.write(ostr, iceP_outSeq);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        A[]? opOptAList(A[]? inSeq, out A[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptAListAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                A[] tmpVal;
+                tmpVal = AListHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            A[]? iceP_outSeq;
+            var ret = obj.opOptAList(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                AListHelper.write(ostr, ret);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
+                AListHelper.write(ostr, iceP_outSeq);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptBoolSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool[]? iceP_inSeq;
+            iceP_inSeq = istr.readBoolSeq(2);
+            istr.endEncapsulation();
+            bool[]? iceP_outSeq;
+            var ret = obj.opOptBoolSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBoolSeq(1, ret);
+            ostr.writeBoolSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptByteSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[]? iceP_inSeq;
+            iceP_inSeq = istr.readByteSeq(2);
+            istr.endEncapsulation();
+            byte[]? iceP_outSeq;
+            var ret = obj.opOptByteSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeByteSeq(1, ret);
+            ostr.writeByteSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptShortSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[]? iceP_inSeq;
+            iceP_inSeq = istr.readShortSeq(2);
+            istr.endEncapsulation();
+            short[]? iceP_outSeq;
+            var ret = obj.opOptShortSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeShortSeq(1, ret);
+            ostr.writeShortSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptIntSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int[]? iceP_inSeq;
+            iceP_inSeq = istr.readIntSeq(2);
+            istr.endEncapsulation();
+            int[]? iceP_outSeq;
+            var ret = obj.opOptIntSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeIntSeq(1, ret);
+            ostr.writeIntSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptLongSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            long[]? iceP_inSeq;
+            iceP_inSeq = istr.readLongSeq(2);
+            istr.endEncapsulation();
+            long[]? iceP_outSeq;
+            var ret = obj.opOptLongSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLongSeq(1, ret);
+            ostr.writeLongSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptFloatSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            float[]? iceP_inSeq;
+            iceP_inSeq = istr.readFloatSeq(2);
+            istr.endEncapsulation();
+            float[]? iceP_outSeq;
+            var ret = obj.opOptFloatSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeFloatSeq(1, ret);
+            ostr.writeFloatSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptDoubleSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            double[]? iceP_inSeq;
+            iceP_inSeq = istr.readDoubleSeq(2);
+            istr.endEncapsulation();
+            double[]? iceP_outSeq;
+            var ret = obj.opOptDoubleSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeDoubleSeq(1, ret);
+            ostr.writeDoubleSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptStringSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[]? iceP_inSeq;
+            iceP_inSeq = istr.readStringSeq(2);
+            istr.endEncapsulation();
+            string[]? iceP_outSeq;
+            var ret = obj.opOptStringSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeStringSeq(1, ret);
+            ostr.writeStringSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptESeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            E[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                E[] tmpVal;
+                tmpVal = ESeqHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            E[]? iceP_outSeq;
+            var ret = obj.opOptESeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                ESeqHelper.write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                ESeqHelper.write(ostr, iceP_outSeq);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptSSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            S[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                S[] tmpVal;
+                tmpVal = SSeqHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            S[]? iceP_outSeq;
+            var ret = obj.opOptSSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                SSeqHelper.write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                SSeqHelper.write(ostr, iceP_outSeq);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptDSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, string>[]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                global::System.Collections.Generic.Dictionary<int, string>[] tmpVal;
+                tmpVal = DSeqHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, string>[]? iceP_outSeq;
+            var ret = obj.opOptDSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                DSeqHelper.write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                DSeqHelper.write(ostr, iceP_outSeq);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptStringSeqSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[][]? iceP_inSeq;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                string[][] tmpVal;
+                tmpVal = StringSeqSeqHelper.read(istr);
+                iceP_inSeq = tmpVal;
+            }
+            else
+            {
+                iceP_inSeq = null;
+            }
+            istr.endEncapsulation();
+            string[][]? iceP_outSeq;
+            var ret = obj.opOptStringSeqSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                StringSeqSeqHelper.write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                StringSeqSeqHelper.write(ostr, iceP_outSeq);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptByteBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[]? iceP_inSeq;
+            iceP_inSeq = istr.readByteSeq(2);
+            istr.endEncapsulation();
+            byte[]? iceP_outSeq;
+            var ret = obj.opOptByteBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeByteSeq(1, ret);
+            ostr.writeByteSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptShortBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[]? iceP_inSeq;
+            iceP_inSeq = istr.readShortSeq(2);
+            istr.endEncapsulation();
+            short[]? iceP_outSeq;
+            var ret = obj.opOptShortBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeShortSeq(1, ret);
+            ostr.writeShortSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptIntBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int[]? iceP_inSeq;
+            iceP_inSeq = istr.readIntSeq(2);
+            istr.endEncapsulation();
+            int[]? iceP_outSeq;
+            var ret = obj.opOptIntBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeIntSeq(1, ret);
+            ostr.writeIntSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptLongBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            long[]? iceP_inSeq;
+            iceP_inSeq = istr.readLongSeq(2);
+            istr.endEncapsulation();
+            long[]? iceP_outSeq;
+            var ret = obj.opOptLongBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLongSeq(1, ret);
+            ostr.writeLongSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptFloatBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            float[]? iceP_inSeq;
+            iceP_inSeq = istr.readFloatSeq(2);
+            istr.endEncapsulation();
+            float[]? iceP_outSeq;
+            var ret = obj.opOptFloatBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeFloatSeq(1, ret);
+            ostr.writeFloatSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptDoubleBufferSeqAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            double[]? iceP_inSeq;
+            iceP_inSeq = istr.readDoubleSeq(2);
+            istr.endEncapsulation();
+            double[]? iceP_outSeq;
+            var ret = obj.opOptDoubleBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeDoubleSeq(1, ret);
+            ostr.writeDoubleSeq(3, iceP_outSeq);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
         public abstract A[] opASeq(A[] inSeq, out A[] outSeq, Ice.Current current);
@@ -3489,995 +4467,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface TestIntf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opASeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A[] iceP_inSeq;
-            iceP_inSeq = ASeqHelper.read(istr);
-            istr.endEncapsulation();
-            A[] iceP_outSeq;
-            var ret = obj.opASeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ASeqHelper.write(ostr, iceP_outSeq);
-            ASeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAArrayAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A[] iceP_inSeq;
-            iceP_inSeq = AArrayHelper.read(istr);
-            istr.endEncapsulation();
-            A[] iceP_outSeq;
-            var ret = obj.opAArray(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            AArrayHelper.write(ostr, iceP_outSeq);
-            AArrayHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAListAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A[] iceP_inSeq;
-            iceP_inSeq = AListHelper.read(istr);
-            istr.endEncapsulation();
-            A[] iceP_outSeq;
-            var ret = obj.opAList(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            AListHelper.write(ostr, iceP_outSeq);
-            AListHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool[] iceP_inSeq;
-            iceP_inSeq = BoolSeqHelper.read(istr);
-            istr.endEncapsulation();
-            bool[] iceP_outSeq;
-            var ret = obj.opBoolSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            BoolSeqHelper.write(ostr, iceP_outSeq);
-            BoolSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[] iceP_inSeq;
-            iceP_inSeq = ByteSeqHelper.read(istr);
-            istr.endEncapsulation();
-            byte[] iceP_outSeq;
-            var ret = obj.opByteSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ByteSeqHelper.write(ostr, iceP_outSeq);
-            ByteSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[] iceP_inSeq;
-            iceP_inSeq = ShortSeqHelper.read(istr);
-            istr.endEncapsulation();
-            short[] iceP_outSeq;
-            var ret = obj.opShortSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ShortSeqHelper.write(ostr, iceP_outSeq);
-            ShortSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int[] iceP_inSeq;
-            iceP_inSeq = IntSeqHelper.read(istr);
-            istr.endEncapsulation();
-            int[] iceP_outSeq;
-            var ret = obj.opIntSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            IntSeqHelper.write(ostr, iceP_outSeq);
-            IntSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            long[] iceP_inSeq;
-            iceP_inSeq = LongSeqHelper.read(istr);
-            istr.endEncapsulation();
-            long[] iceP_outSeq;
-            var ret = obj.opLongSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            LongSeqHelper.write(ostr, iceP_outSeq);
-            LongSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            float[] iceP_inSeq;
-            iceP_inSeq = FloatSeqHelper.read(istr);
-            istr.endEncapsulation();
-            float[] iceP_outSeq;
-            var ret = obj.opFloatSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            FloatSeqHelper.write(ostr, iceP_outSeq);
-            FloatSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            double[] iceP_inSeq;
-            iceP_inSeq = DoubleSeqHelper.read(istr);
-            istr.endEncapsulation();
-            double[] iceP_outSeq;
-            var ret = obj.opDoubleSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            DoubleSeqHelper.write(ostr, iceP_outSeq);
-            DoubleSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[] iceP_inSeq;
-            iceP_inSeq = StringSeqHelper.read(istr);
-            istr.endEncapsulation();
-            string[] iceP_outSeq;
-            var ret = obj.opStringSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            StringSeqHelper.write(ostr, iceP_outSeq);
-            StringSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opESeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            E[] iceP_inSeq;
-            iceP_inSeq = ESeqHelper.read(istr);
-            istr.endEncapsulation();
-            E[] iceP_outSeq;
-            var ret = obj.opESeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ESeqHelper.write(ostr, iceP_outSeq);
-            ESeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            S[] iceP_inSeq;
-            iceP_inSeq = SSeqHelper.read(istr);
-            istr.endEncapsulation();
-            S[] iceP_outSeq;
-            var ret = obj.opSSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            SSeqHelper.write(ostr, iceP_outSeq);
-            SSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq;
-            iceP_inSeq = DSeqHelper.read(istr);
-            istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, string>[] iceP_outSeq;
-            var ret = obj.opDSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            DSeqHelper.write(ostr, iceP_outSeq);
-            DSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSeqSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[][] iceP_inSeq;
-            iceP_inSeq = StringSeqSeqHelper.read(istr);
-            istr.endEncapsulation();
-            string[][] iceP_outSeq;
-            var ret = obj.opStringSeqSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            StringSeqSeqHelper.write(ostr, iceP_outSeq);
-            StringSeqSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[] iceP_inSeq;
-            iceP_inSeq = ByteBufferHelper.read(istr);
-            istr.endEncapsulation();
-            byte[] iceP_outSeq;
-            var ret = obj.opByteBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ByteBufferHelper.write(ostr, iceP_outSeq);
-            ByteBufferHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[] iceP_inSeq;
-            iceP_inSeq = ShortBufferHelper.read(istr);
-            istr.endEncapsulation();
-            short[] iceP_outSeq;
-            var ret = obj.opShortBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ShortBufferHelper.write(ostr, iceP_outSeq);
-            ShortBufferHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int[] iceP_inSeq;
-            iceP_inSeq = IntBufferHelper.read(istr);
-            istr.endEncapsulation();
-            int[] iceP_outSeq;
-            var ret = obj.opIntBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            IntBufferHelper.write(ostr, iceP_outSeq);
-            IntBufferHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            long[] iceP_inSeq;
-            iceP_inSeq = LongBufferHelper.read(istr);
-            istr.endEncapsulation();
-            long[] iceP_outSeq;
-            var ret = obj.opLongBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            LongBufferHelper.write(ostr, iceP_outSeq);
-            LongBufferHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            float[] iceP_inSeq;
-            iceP_inSeq = FloatBufferHelper.read(istr);
-            istr.endEncapsulation();
-            float[] iceP_outSeq;
-            var ret = obj.opFloatBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            FloatBufferHelper.write(ostr, iceP_outSeq);
-            FloatBufferHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            double[] iceP_inSeq;
-            iceP_inSeq = DoubleBufferHelper.read(istr);
-            istr.endEncapsulation();
-            double[] iceP_outSeq;
-            var ret = obj.opDoubleBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            DoubleBufferHelper.write(ostr, iceP_outSeq);
-            DoubleBufferHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptASeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                A[] tmpVal;
-                tmpVal = ASeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            A[]? iceP_outSeq;
-            var ret = obj.opOptASeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
-                ASeqHelper.write(ostr, ret);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
-                ASeqHelper.write(ostr, iceP_outSeq);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptAArrayAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                A[] tmpVal;
-                tmpVal = AArrayHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            A[]? iceP_outSeq;
-            var ret = obj.opOptAArray(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
-                AArrayHelper.write(ostr, ret);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
-                AArrayHelper.write(ostr, iceP_outSeq);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptAListAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                A[] tmpVal;
-                tmpVal = AListHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            A[]? iceP_outSeq;
-            var ret = obj.opOptAList(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
-                AListHelper.write(ostr, ret);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(iceP_outSeq.Length * 4 + (iceP_outSeq.Length > 254 ? 5 : 1));
-                AListHelper.write(ostr, iceP_outSeq);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptBoolSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool[]? iceP_inSeq;
-            iceP_inSeq = istr.readBoolSeq(2);
-            istr.endEncapsulation();
-            bool[]? iceP_outSeq;
-            var ret = obj.opOptBoolSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBoolSeq(1, ret);
-            ostr.writeBoolSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptByteSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[]? iceP_inSeq;
-            iceP_inSeq = istr.readByteSeq(2);
-            istr.endEncapsulation();
-            byte[]? iceP_outSeq;
-            var ret = obj.opOptByteSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeByteSeq(1, ret);
-            ostr.writeByteSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptShortSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[]? iceP_inSeq;
-            iceP_inSeq = istr.readShortSeq(2);
-            istr.endEncapsulation();
-            short[]? iceP_outSeq;
-            var ret = obj.opOptShortSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeShortSeq(1, ret);
-            ostr.writeShortSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptIntSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int[]? iceP_inSeq;
-            iceP_inSeq = istr.readIntSeq(2);
-            istr.endEncapsulation();
-            int[]? iceP_outSeq;
-            var ret = obj.opOptIntSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeIntSeq(1, ret);
-            ostr.writeIntSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptLongSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            long[]? iceP_inSeq;
-            iceP_inSeq = istr.readLongSeq(2);
-            istr.endEncapsulation();
-            long[]? iceP_outSeq;
-            var ret = obj.opOptLongSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLongSeq(1, ret);
-            ostr.writeLongSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptFloatSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            float[]? iceP_inSeq;
-            iceP_inSeq = istr.readFloatSeq(2);
-            istr.endEncapsulation();
-            float[]? iceP_outSeq;
-            var ret = obj.opOptFloatSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeFloatSeq(1, ret);
-            ostr.writeFloatSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptDoubleSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            double[]? iceP_inSeq;
-            iceP_inSeq = istr.readDoubleSeq(2);
-            istr.endEncapsulation();
-            double[]? iceP_outSeq;
-            var ret = obj.opOptDoubleSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeDoubleSeq(1, ret);
-            ostr.writeDoubleSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptStringSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[]? iceP_inSeq;
-            iceP_inSeq = istr.readStringSeq(2);
-            istr.endEncapsulation();
-            string[]? iceP_outSeq;
-            var ret = obj.opOptStringSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeStringSeq(1, ret);
-            ostr.writeStringSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptESeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            E[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                E[] tmpVal;
-                tmpVal = ESeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            E[]? iceP_outSeq;
-            var ret = obj.opOptESeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                ESeqHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                ESeqHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptSSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            S[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                S[] tmpVal;
-                tmpVal = SSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            S[]? iceP_outSeq;
-            var ret = obj.opOptSSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                SSeqHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                SSeqHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptDSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, string>[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                global::System.Collections.Generic.Dictionary<int, string>[] tmpVal;
-                tmpVal = DSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, string>[]? iceP_outSeq;
-            var ret = obj.opOptDSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                DSeqHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                DSeqHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptStringSeqSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[][]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                string[][] tmpVal;
-                tmpVal = StringSeqSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
-            istr.endEncapsulation();
-            string[][]? iceP_outSeq;
-            var ret = obj.opOptStringSeqSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                StringSeqSeqHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_outSeq is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                StringSeqSeqHelper.write(ostr, iceP_outSeq);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptByteBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[]? iceP_inSeq;
-            iceP_inSeq = istr.readByteSeq(2);
-            istr.endEncapsulation();
-            byte[]? iceP_outSeq;
-            var ret = obj.opOptByteBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeByteSeq(1, ret);
-            ostr.writeByteSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptShortBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[]? iceP_inSeq;
-            iceP_inSeq = istr.readShortSeq(2);
-            istr.endEncapsulation();
-            short[]? iceP_outSeq;
-            var ret = obj.opOptShortBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeShortSeq(1, ret);
-            ostr.writeShortSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptIntBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int[]? iceP_inSeq;
-            iceP_inSeq = istr.readIntSeq(2);
-            istr.endEncapsulation();
-            int[]? iceP_outSeq;
-            var ret = obj.opOptIntBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeIntSeq(1, ret);
-            ostr.writeIntSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptLongBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            long[]? iceP_inSeq;
-            iceP_inSeq = istr.readLongSeq(2);
-            istr.endEncapsulation();
-            long[]? iceP_outSeq;
-            var ret = obj.opOptLongBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLongSeq(1, ret);
-            ostr.writeLongSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptFloatBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            float[]? iceP_inSeq;
-            iceP_inSeq = istr.readFloatSeq(2);
-            istr.endEncapsulation();
-            float[]? iceP_outSeq;
-            var ret = obj.opOptFloatBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeFloatSeq(1, ret);
-            ostr.writeFloatSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptDoubleBufferSeqAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            double[]? iceP_inSeq;
-            iceP_inSeq = istr.readDoubleSeq(2);
-            istr.endEncapsulation();
-            double[]? iceP_outSeq;
-            var ret = obj.opOptDoubleBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeDoubleSeq(1, ret);
-            ostr.writeDoubleSeq(3, iceP_outSeq);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -270,6 +270,39 @@ namespace Test
         public static Point ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class PointsHelper
+    {
+        public static void write(Ice.OutputStream ostr, Point[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static Point[] read(Ice.InputStream istr)
+        {
+            Point[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(8);
+                v = new Point[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new Point(istr);
+                }
+            }
+            return v;
+        }
+    }
+
     public sealed partial record class Polyline
     {
         public Point[] vertices;
@@ -346,6 +379,42 @@ namespace Test
         }
 
         public static Color ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class StringColorMapHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, Color> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, Color> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    e.Value.ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, Color> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, Color> r = new global::System.Collections.Generic.Dictionary<int, Color>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                Color v;
+                v = new Color(istr);
+                r[k] = v;
+            }
+            return r;
+        }
     }
 
     public sealed partial record class ColorPalette
@@ -465,77 +534,5 @@ namespace Test
         }
 
         public static Draw ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace Test
-{
-    public sealed class PointsHelper
-    {
-        public static void write(Ice.OutputStream ostr, Point[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static Point[] read(Ice.InputStream istr)
-        {
-            Point[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(8);
-                v = new Point[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new Point(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class StringColorMapHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, Color> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, Color> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    e.Value.ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, Color> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, Color> r = new global::System.Collections.Generic.Dictionary<int, Color>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                Color v;
-                v = new Color(istr);
-                r[k] = v;
-            }
-            return r;
-        }
     }
 }

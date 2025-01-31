@@ -54,25 +54,13 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::MyInterface")]
-    public partial interface MyInterface : Ice.Object
-    {
-        void op(bool throwIt, Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface MyInterfacePrx : Ice.ObjectPrx
     {
         void op(bool throwIt, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task opAsync(bool throwIt, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class MyInterfacePrxHelper : Ice.ObjectPrxHelperBase, MyInterfacePrx
     {
         public void op(bool throwIt, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -182,6 +170,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::MyInterface")]
+    public partial interface MyInterface : Ice.Object
+    {
+        void op(bool throwIt, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
+            MyInterface obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool iceP_throwIt;
+            iceP_throwIt = istr.readBool();
+            istr.endEncapsulation();
+            obj.op(iceP_throwIt, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class MyInterfaceDisp_ : Ice.ObjectImpl, MyInterface
     {
         public abstract void op(bool throwIt, Ice.Current current);
@@ -200,25 +208,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface MyInterface
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
-            MyInterface obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool iceP_throwIt;
-            iceP_throwIt = istr.readBool();
-            istr.endEncapsulation();
-            obj.op(iceP_throwIt, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

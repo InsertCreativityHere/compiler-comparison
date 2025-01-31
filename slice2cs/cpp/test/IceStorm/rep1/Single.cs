@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Single")]
-    public partial interface Single : Ice.Object
-    {
-        void event(int i, Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface SinglePrx : Ice.ObjectPrx
     {
         void event(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task eventAsync(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class SinglePrxHelper : Ice.ObjectPrxHelperBase, SinglePrx
     {
         public void event(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -135,6 +123,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Single")]
+    public partial interface Single : Ice.Object
+    {
+        void event(int i, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_eventAsync(
+            Single obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_i;
+            iceP_i = istr.readInt();
+            istr.endEncapsulation();
+            obj.event(iceP_i, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class SingleDisp_ : Ice.ObjectImpl, Single
     {
         public abstract void event(int i, Ice.Current current);
@@ -153,25 +161,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Single
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_eventAsync(
-            Single obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_i;
-            iceP_i = istr.readInt();
-            istr.endEncapsulation();
-            obj.event(iceP_i, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

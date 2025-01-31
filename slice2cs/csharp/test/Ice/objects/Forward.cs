@@ -61,31 +61,13 @@ namespace Ice.objects
             }
         }
 
-        [Ice.SliceTypeId("::Test::F2")]
-        public partial interface F2 : Ice.Object
-        {
-            void op(Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.objects
-{
-    namespace Test
-    {
         public interface F2Prx : Ice.ObjectPrx
         {
             void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
-    }
-}
 
-namespace Ice.objects
-{
-    namespace Test
-    {
         public sealed class F2PrxHelper : Ice.ObjectPrxHelperBase, F2Prx
         {
             public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -179,6 +161,22 @@ namespace Ice.objects
 {
     namespace Test
     {
+        [Ice.SliceTypeId("::Test::F2")]
+        public partial interface F2 : Ice.Object
+        {
+            void op(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
+                F2 obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.op(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class F2Disp_ : Ice.ObjectImpl, F2
         {
             public abstract void op(Ice.Current current);
@@ -197,25 +195,6 @@ namespace Ice.objects
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.objects
-{
-    namespace Test
-    {
-        public partial interface F2
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
-                F2 obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.op(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

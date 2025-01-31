@@ -69,6 +69,75 @@ namespace IceStorm
         public static LinkInfo ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class LinkInfoSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, LinkInfo[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static LinkInfo[] read(Ice.InputStream istr)
+        {
+            LinkInfo[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(7);
+                v = new LinkInfo[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new LinkInfo(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class QoSHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, string> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeString(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                string v;
+                v = istr.readString();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     /// <summary>
     /// This exception indicates that an attempt was made to create a link that already exists.
     /// </summary>
@@ -230,258 +299,6 @@ namespace IceStorm
         }
     }
 
-    [Ice.SliceTypeId("::IceStorm::Topic")]
-    public partial interface Topic : Ice.Object
-    {
-        /// <summary>
-        /// Get the name of this topic.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The name of the topic.
-        /// </returns>
-        /// <seealso cref="TopicManager.create" />
-        string getName(Ice.Current current);
-
-        /// <summary>
-        /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-        /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-        /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A proxy to publish data on this topic.
-        /// </returns>
-        Ice.ObjectPrx? getPublisher(Ice.Current current);
-
-        /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-        /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-        /// never null.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A proxy to publish data on this topic.
-        /// </returns>
-        Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
-
-        /// <summary>
-        /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
-        /// </summary>
-        /// <param name="theQoS">
-        /// The quality of service parameters for this subscription.
-        /// </param>
-        /// <param name="subscriber">
-        /// The subscriber's proxy. This proxy is never null.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The per-subscriber publisher object. The returned object is never null.
-        /// </returns>
-        /// <exception cref="IceStorm.AlreadySubscribed">
-        /// Raised if the subscriber object is already subscribed.
-        /// </exception>
-        /// <exception cref="IceStorm.BadQoS">
-        /// Raised if the requested quality of service is unavailable or invalid.
-        /// </exception>
-        /// <exception cref="IceStorm.InvalidSubscriber">
-        /// Raised if the subscriber object is null.
-        /// </exception>
-        /// <seealso cref="unsubscribe" />
-        Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, Ice.ObjectPrx? subscriber, Ice.Current current);
-
-        /// <summary>
-        /// Unsubscribe the given subscriber.
-        /// </summary>
-        /// <param name="subscriber">
-        /// The proxy of an existing subscriber. This proxy is never null.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <seealso cref="subscribeAndGetPublisher" />
-        void unsubscribe(Ice.ObjectPrx? subscriber, Ice.Current current);
-
-        /// <summary>
-        /// Create a link to the given topic. All events originating on this topic will also be sent to
-        /// linkTo.
-        /// </summary>
-        /// <param name="linkTo">
-        /// The topic to link to. This proxy is never null.
-        /// </param>
-        /// <param name="cost">
-        /// The cost to the linked topic.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStorm.LinkExists">
-        /// Raised if a link to the same topic already exists.
-        /// </exception>
-        void link(TopicPrx? linkTo, int cost, Ice.Current current);
-
-        /// <summary>
-        /// Destroy the link from this topic to the given topic linkTo.
-        /// </summary>
-        /// <param name="linkTo">
-        /// The topic to destroy the link to. This proxy is never null.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStorm.NoSuchLink">
-        /// Raised if a link to the topic does not exist.
-        /// </exception>
-        void unlink(TopicPrx? linkTo, Ice.Current current);
-
-        /// <summary>
-        /// Retrieve information on the current links.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A sequence of LinkInfo objects.
-        /// </returns>
-        LinkInfo[] getLinkInfoSeq(Ice.Current current);
-
-        /// <summary>
-        /// Retrieve the list of subscribers for this topic.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The sequence of Ice identities for the subscriber objects.
-        /// </returns>
-        global::Ice.Identity[] getSubscribers(Ice.Current current);
-
-        /// <summary>
-        /// Destroy the topic.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void destroy(Ice.Current current);
-    }
-
-    /// <summary>
-    /// This exception indicates that an attempt was made to create a topic that already exists.
-    /// </summary>
-    [Ice.SliceTypeId("::IceStorm::TopicExists")]
-    public partial class TopicExists : Ice.UserException
-    {
-        public string name = "";
-
-        public TopicExists(string name)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(name);
-            this.name = name;
-        }
-
-        public TopicExists()
-        {
-        }
-
-        public override string ice_id() => "::IceStorm::TopicExists";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::IceStorm::TopicExists", -1, true);
-            ostr_.writeString(name);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            name = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
-    /// <summary>
-    /// This exception indicates that an attempt was made to retrieve a topic that does not exist.
-    /// </summary>
-    [Ice.SliceTypeId("::IceStorm::NoSuchTopic")]
-    public partial class NoSuchTopic : Ice.UserException
-    {
-        public string name = "";
-
-        public NoSuchTopic(string name)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(name);
-            this.name = name;
-        }
-
-        public NoSuchTopic()
-        {
-        }
-
-        public override string ice_id() => "::IceStorm::NoSuchTopic";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::IceStorm::NoSuchTopic", -1, true);
-            ostr_.writeString(name);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            name = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::IceStorm::TopicManager")]
-    public partial interface TopicManager : Ice.Object
-    {
-        /// <summary>
-        /// Create a new topic. The topic name must be unique.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the topic.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A proxy to the topic instance. The returned proxy is never null.
-        /// </returns>
-        /// <exception cref="IceStorm.TopicExists">
-        /// Raised if a topic with the same name already exists.
-        /// </exception>
-        TopicPrx? create(string name, Ice.Current current);
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the topic.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A proxy to the topic instance. The returned proxy is never null.
-        /// </returns>
-        /// <exception cref="IceStorm.NoSuchTopic">
-        /// Raised if the topic does not exist.
-        /// </exception>
-        TopicPrx? retrieve(string name, Ice.Current current);
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A dictionary of string, topic proxy pairs.
-        /// </returns>
-        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceStorm::Finder")]
-    public partial interface Finder : Ice.Object
-    {
-        /// <summary>
-        /// Get the topic manager proxy. The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The topic manager proxy. The returned proxy is never null.
-        /// </returns>
-        TopicManagerPrx? getTopicManager(Ice.Current current);
-    }
-}
-
-namespace IceStorm
-{
     /// <summary>
     /// Publishers publish information on a particular topic. A topic logically represents a type.
     /// </summary>
@@ -737,188 +554,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    /// <summary>
-    /// A topic manager manages topics, and subscribers to topics.
-    /// </summary>
-    /// <seealso cref="Topic" />
-    public interface TopicManagerPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Create a new topic. The topic name must be unique.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the topic.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// A proxy to the topic instance. The returned proxy is never null.
-        /// </returns>
-        /// <exception cref="IceStorm.TopicExists">
-        /// Raised if a topic with the same name already exists.
-        /// </exception>
-        TopicPrx? create(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Create a new topic. The topic name must be unique.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the topic.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceStorm.TopicExists">
-        /// Raised if a topic with the same name already exists.
-        /// </exception>
-        global::System.Threading.Tasks.Task<TopicPrx?> createAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the topic.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// A proxy to the topic instance. The returned proxy is never null.
-        /// </returns>
-        /// <exception cref="IceStorm.NoSuchTopic">
-        /// Raised if the topic does not exist.
-        /// </exception>
-        TopicPrx? retrieve(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the topic.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceStorm.NoSuchTopic">
-        /// Raised if the topic does not exist.
-        /// </exception>
-        global::System.Threading.Tasks.Task<TopicPrx?> retrieveAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// A dictionary of string, topic proxy pairs.
-        /// </returns>
-        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx?>> retrieveAllAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    /// <summary>
-    /// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
-    /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
-    /// </summary>
-    public interface FinderPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Get the topic manager proxy. The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The topic manager proxy. The returned proxy is never null.
-        /// </returns>
-        TopicManagerPrx? getTopicManager(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the topic manager proxy. The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<TopicManagerPrx?> getTopicManagerAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceStorm
-{
-    public sealed class LinkInfoSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, LinkInfo[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static LinkInfo[] read(Ice.InputStream istr)
-        {
-            LinkInfo[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(7);
-                v = new LinkInfo[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new LinkInfo(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class QoSHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, string> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeString(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                string v;
-                v = istr.readString();
-                r[k] = v;
-            }
-            return r;
-        }
     }
 
     public sealed class TopicPrxHelper : Ice.ObjectPrxHelperBase, TopicPrx
@@ -1489,6 +1124,161 @@ namespace IceStorm
         }
     }
 
+    /// <summary>
+    /// This exception indicates that an attempt was made to create a topic that already exists.
+    /// </summary>
+    [Ice.SliceTypeId("::IceStorm::TopicExists")]
+    public partial class TopicExists : Ice.UserException
+    {
+        public string name = "";
+
+        public TopicExists(string name)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(name);
+            this.name = name;
+        }
+
+        public TopicExists()
+        {
+        }
+
+        public override string ice_id() => "::IceStorm::TopicExists";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::IceStorm::TopicExists", -1, true);
+            ostr_.writeString(name);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            name = istr_.readString();
+            istr_.endSlice();
+        }
+    }
+
+    /// <summary>
+    /// This exception indicates that an attempt was made to retrieve a topic that does not exist.
+    /// </summary>
+    [Ice.SliceTypeId("::IceStorm::NoSuchTopic")]
+    public partial class NoSuchTopic : Ice.UserException
+    {
+        public string name = "";
+
+        public NoSuchTopic(string name)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(name);
+            this.name = name;
+        }
+
+        public NoSuchTopic()
+        {
+        }
+
+        public override string ice_id() => "::IceStorm::NoSuchTopic";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::IceStorm::NoSuchTopic", -1, true);
+            ostr_.writeString(name);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            name = istr_.readString();
+            istr_.endSlice();
+        }
+    }
+
+    /// <summary>
+    /// A topic manager manages topics, and subscribers to topics.
+    /// </summary>
+    /// <seealso cref="Topic" />
+    public interface TopicManagerPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Create a new topic. The topic name must be unique.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.TopicExists">
+        /// Raised if a topic with the same name already exists.
+        /// </exception>
+        TopicPrx? create(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Create a new topic. The topic name must be unique.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.TopicExists">
+        /// Raised if a topic with the same name already exists.
+        /// </exception>
+        global::System.Threading.Tasks.Task<TopicPrx?> createAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Retrieve a topic by name.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.NoSuchTopic">
+        /// Raised if the topic does not exist.
+        /// </exception>
+        TopicPrx? retrieve(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Retrieve a topic by name.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.NoSuchTopic">
+        /// Raised if the topic does not exist.
+        /// </exception>
+        global::System.Threading.Tasks.Task<TopicPrx?> retrieveAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Retrieve all topics managed by this topic manager.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// A dictionary of string, topic proxy pairs.
+        /// </returns>
+        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Retrieve all topics managed by this topic manager.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx?>> retrieveAllAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class TopicManagerPrxHelper : Ice.ObjectPrxHelperBase, TopicManagerPrx
     {
         public TopicPrx? create(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1707,6 +1497,31 @@ namespace IceStorm
         }
     }
 
+    /// <summary>
+    /// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
+    /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
+    /// </summary>
+    public interface FinderPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Get the topic manager proxy. The proxy might point to several replicas.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The topic manager proxy. The returned proxy is never null.
+        /// </returns>
+        TopicManagerPrx? getTopicManager(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the topic manager proxy. The proxy might point to several replicas.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<TopicManagerPrx?> getTopicManagerAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class FinderPrxHelper : Ice.ObjectPrxHelperBase, FinderPrx
     {
         public TopicManagerPrx? getTopicManager(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1804,6 +1619,273 @@ namespace IceStorm
 
 namespace IceStorm
 {
+    [Ice.SliceTypeId("::IceStorm::Topic")]
+    public partial interface Topic : Ice.Object
+    {
+        /// <summary>
+        /// Get the name of this topic.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The name of the topic.
+        /// </returns>
+        /// <seealso cref="TopicManager.create" />
+        string getName(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getName(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+        /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A proxy to publish data on this topic.
+        /// </returns>
+        Ice.ObjectPrx? getPublisher(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPublisherAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getPublisher(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+        /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        /// never null.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A proxy to publish data on this topic.
+        /// </returns>
+        Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNonReplicatedPublisherAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getNonReplicatedPublisher(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
+        /// </summary>
+        /// <param name="theQoS">
+        /// The quality of service parameters for this subscription.
+        /// </param>
+        /// <param name="subscriber">
+        /// The subscriber's proxy. This proxy is never null.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The per-subscriber publisher object. The returned object is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.AlreadySubscribed">
+        /// Raised if the subscriber object is already subscribed.
+        /// </exception>
+        /// <exception cref="IceStorm.BadQoS">
+        /// Raised if the requested quality of service is unavailable or invalid.
+        /// </exception>
+        /// <exception cref="IceStorm.InvalidSubscriber">
+        /// Raised if the subscriber object is null.
+        /// </exception>
+        /// <seealso cref="unsubscribe" />
+        Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, Ice.ObjectPrx? subscriber, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_subscribeAndGetPublisherAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS;
+            Ice.ObjectPrx? iceP_subscriber;
+            iceP_theQoS = QoSHelper.read(istr);
+            iceP_subscriber = istr.readProxy();
+            istr.endEncapsulation();
+            var ret = obj.subscribeAndGetPublisher(iceP_theQoS, iceP_subscriber, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Unsubscribe the given subscriber.
+        /// </summary>
+        /// <param name="subscriber">
+        /// The proxy of an existing subscriber. This proxy is never null.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <seealso cref="subscribeAndGetPublisher" />
+        void unsubscribe(Ice.ObjectPrx? subscriber, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unsubscribeAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Ice.ObjectPrx? iceP_subscriber;
+            iceP_subscriber = istr.readProxy();
+            istr.endEncapsulation();
+            obj.unsubscribe(iceP_subscriber, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Create a link to the given topic. All events originating on this topic will also be sent to
+        /// linkTo.
+        /// </summary>
+        /// <param name="linkTo">
+        /// The topic to link to. This proxy is never null.
+        /// </param>
+        /// <param name="cost">
+        /// The cost to the linked topic.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStorm.LinkExists">
+        /// Raised if a link to the same topic already exists.
+        /// </exception>
+        void link(TopicPrx? linkTo, int cost, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_linkAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            TopicPrx? iceP_linkTo;
+            int iceP_cost;
+            iceP_linkTo = TopicPrxHelper.read(istr);
+            iceP_cost = istr.readInt();
+            istr.endEncapsulation();
+            obj.link(iceP_linkTo, iceP_cost, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Destroy the link from this topic to the given topic linkTo.
+        /// </summary>
+        /// <param name="linkTo">
+        /// The topic to destroy the link to. This proxy is never null.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceStorm.NoSuchLink">
+        /// Raised if a link to the topic does not exist.
+        /// </exception>
+        void unlink(TopicPrx? linkTo, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unlinkAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            TopicPrx? iceP_linkTo;
+            iceP_linkTo = TopicPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.unlink(iceP_linkTo, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Retrieve information on the current links.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A sequence of LinkInfo objects.
+        /// </returns>
+        LinkInfo[] getLinkInfoSeq(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLinkInfoSeqAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getLinkInfoSeq(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            LinkInfoSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Retrieve the list of subscribers for this topic.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The sequence of Ice identities for the subscriber objects.
+        /// </returns>
+        global::Ice.Identity[] getSubscribers(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getSubscribersAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getSubscribers(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Ice.IdentitySeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Destroy the topic.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void destroy(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
+            Topic obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.destroy(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TopicDisp_ : Ice.ObjectImpl, Topic
     {
         public abstract string getName(Ice.Current current);
@@ -1851,6 +1933,99 @@ namespace IceStorm
             };
     }
 
+    [Ice.SliceTypeId("::IceStorm::TopicManager")]
+    public partial interface TopicManager : Ice.Object
+    {
+        /// <summary>
+        /// Create a new topic. The topic name must be unique.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.TopicExists">
+        /// Raised if a topic with the same name already exists.
+        /// </exception>
+        TopicPrx? create(string name, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createAsync(
+            TopicManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_name;
+            iceP_name = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.create(iceP_name, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            TopicPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Retrieve a topic by name.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.NoSuchTopic">
+        /// Raised if the topic does not exist.
+        /// </exception>
+        TopicPrx? retrieve(string name, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_retrieveAsync(
+            TopicManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_name;
+            iceP_name = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.retrieve(iceP_name, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            TopicPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Retrieve all topics managed by this topic manager.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A dictionary of string, topic proxy pairs.
+        /// </returns>
+        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_retrieveAllAsync(
+            TopicManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.retrieveAll(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            TopicDictHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class TopicManagerDisp_ : Ice.ObjectImpl, TopicManager
     {
         public abstract TopicPrx? create(string name, Ice.Current current);
@@ -1877,6 +2052,33 @@ namespace IceStorm
             };
     }
 
+    [Ice.SliceTypeId("::IceStorm::Finder")]
+    public partial interface Finder : Ice.Object
+    {
+        /// <summary>
+        /// Get the topic manager proxy. The proxy might point to several replicas.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The topic manager proxy. The returned proxy is never null.
+        /// </returns>
+        TopicManagerPrx? getTopicManager(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTopicManagerAsync(
+            Finder obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getTopicManager(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            TopicManagerPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class FinderDisp_ : Ice.ObjectImpl, Finder
     {
         public abstract TopicManagerPrx? getTopicManager(Ice.Current current);
@@ -1895,225 +2097,5 @@ namespace IceStorm
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceStorm
-{
-    public partial interface Topic
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getName(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPublisherAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getPublisher(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNonReplicatedPublisherAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getNonReplicatedPublisher(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_subscribeAndGetPublisherAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS;
-            Ice.ObjectPrx? iceP_subscriber;
-            iceP_theQoS = QoSHelper.read(istr);
-            iceP_subscriber = istr.readProxy();
-            istr.endEncapsulation();
-            var ret = obj.subscribeAndGetPublisher(iceP_theQoS, iceP_subscriber, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unsubscribeAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Ice.ObjectPrx? iceP_subscriber;
-            iceP_subscriber = istr.readProxy();
-            istr.endEncapsulation();
-            obj.unsubscribe(iceP_subscriber, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_linkAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            TopicPrx? iceP_linkTo;
-            int iceP_cost;
-            iceP_linkTo = TopicPrxHelper.read(istr);
-            iceP_cost = istr.readInt();
-            istr.endEncapsulation();
-            obj.link(iceP_linkTo, iceP_cost, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unlinkAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            TopicPrx? iceP_linkTo;
-            iceP_linkTo = TopicPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.unlink(iceP_linkTo, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLinkInfoSeqAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getLinkInfoSeq(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            LinkInfoSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getSubscribersAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getSubscribers(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Ice.IdentitySeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
-            Topic obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.destroy(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TopicManager
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createAsync(
-            TopicManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_name;
-            iceP_name = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.create(iceP_name, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            TopicPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_retrieveAsync(
-            TopicManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_name;
-            iceP_name = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.retrieve(iceP_name, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            TopicPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_retrieveAllAsync(
-            TopicManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.retrieveAll(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            TopicDictHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-    }
-
-    public partial interface Finder
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTopicManagerAsync(
-            Finder obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getTopicManager(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            TopicManagerPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

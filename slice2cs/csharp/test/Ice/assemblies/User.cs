@@ -48,25 +48,13 @@ namespace User
         }
     }
 
-    [Ice.SliceTypeId("::User::Registry")]
-    public partial interface Registry : Ice.Object
-    {
-        UserInfo? getUserInfo(string id, Ice.Current current);
-    }
-}
-
-namespace User
-{
     public interface RegistryPrx : Ice.ObjectPrx
     {
         UserInfo? getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<UserInfo?> getUserInfoAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace User
-{
     public sealed class RegistryPrxHelper : Ice.ObjectPrxHelperBase, RegistryPrx
     {
         public UserInfo? getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -183,31 +171,11 @@ namespace User
 
 namespace User
 {
-    public abstract class RegistryDisp_ : Ice.ObjectImpl, Registry
+    [Ice.SliceTypeId("::User::Registry")]
+    public partial interface Registry : Ice.Object
     {
-        public abstract UserInfo? getUserInfo(string id, Ice.Current current);
+        UserInfo? getUserInfo(string id, Ice.Current current);
 
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::User::Registry";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "getUserInfo" => Registry.iceD_getUserInfoAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace User
-{
-    public partial interface Registry
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getUserInfoAsync(
             Registry obj,
             Ice.IncomingRequest request)
@@ -226,5 +194,25 @@ namespace User
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public abstract class RegistryDisp_ : Ice.ObjectImpl, Registry
+    {
+        public abstract UserInfo? getUserInfo(string id, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::User::Registry";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "getUserInfo" => Registry.iceD_getUserInfoAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

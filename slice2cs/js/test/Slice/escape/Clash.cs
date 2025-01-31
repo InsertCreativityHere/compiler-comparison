@@ -22,271 +22,6 @@
 
 namespace Clash
 {
-    [Ice.SliceTypeId("::Clash::Intf")]
-    public partial interface Intf : Ice.Object
-    {
-        void context(Ice.Current current);
-
-        void current(Ice.Current current);
-
-        void response(Ice.Current current);
-
-        void typeId(Ice.Current current);
-
-        void del(Ice.Current current);
-
-        void cookie(Ice.Current current);
-
-        void sync(Ice.Current current);
-
-        void inS(Ice.Current current);
-
-        void istr(Ice.Current current);
-
-        void obj(Ice.Current current);
-
-        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj, Ice.Current current_);
-
-        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string? proxy, out int? obj, Ice.Current current_);
-    }
-
-    [Ice.SliceTypeId("::Clash::Cls")]
-    public partial class Cls : Ice.Value
-    {
-        public IntfPrx? s;
-
-        public string context = "";
-
-        public int current;
-
-        public short response;
-
-        public int typeId;
-
-        public short del;
-
-        public short? cookie;
-
-        public string ex = "";
-
-        public int result;
-
-        public string istr = "";
-
-        public string ostr = "";
-
-        public string inS = "";
-
-        public string in = "";
-
-        public string proxy = "";
-
-        public int obj;
-
-        public int getCookie;
-
-        public string clone = "";
-
-        partial void ice_initialize();
-
-        public Cls(IntfPrx? s, string context, int current, short response, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string in, string proxy, int obj, int getCookie, string clone)
-        {
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(context);
-            this.context = context;
-            this.current = current;
-            this.response = response;
-            this.typeId = typeId;
-            this.del = del;
-            this.cookie = cookie;
-            global::System.ArgumentNullException.ThrowIfNull(ex);
-            this.ex = ex;
-            this.result = result;
-            global::System.ArgumentNullException.ThrowIfNull(istr);
-            this.istr = istr;
-            global::System.ArgumentNullException.ThrowIfNull(ostr);
-            this.ostr = ostr;
-            global::System.ArgumentNullException.ThrowIfNull(inS);
-            this.inS = inS;
-            global::System.ArgumentNullException.ThrowIfNull(in);
-            this.in = in;
-            global::System.ArgumentNullException.ThrowIfNull(proxy);
-            this.proxy = proxy;
-            this.obj = obj;
-            this.getCookie = getCookie;
-            global::System.ArgumentNullException.ThrowIfNull(clone);
-            this.clone = clone;
-            ice_initialize();
-        }
-
-        public Cls()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Clash::Cls";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            IntfPrxHelper.write(ostr_, s);
-            ostr_.writeString(context);
-            ostr_.writeInt(current);
-            ostr_.writeShort(response);
-            ostr_.writeInt(typeId);
-            ostr_.writeShort(del);
-            ostr_.writeString(ex);
-            ostr_.writeInt(result);
-            ostr_.writeString(istr);
-            ostr_.writeString(ostr);
-            ostr_.writeString(inS);
-            ostr_.writeString(in);
-            ostr_.writeString(proxy);
-            ostr_.writeInt(obj);
-            ostr_.writeInt(getCookie);
-            ostr_.writeString(clone);
-            ostr_.writeShort(1, cookie);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            s = IntfPrxHelper.read(istr_);
-            context = istr_.readString();
-            current = istr_.readInt();
-            response = istr_.readShort();
-            typeId = istr_.readInt();
-            del = istr_.readShort();
-            ex = istr_.readString();
-            result = istr_.readInt();
-            istr = istr_.readString();
-            ostr = istr_.readString();
-            inS = istr_.readString();
-            in = istr_.readString();
-            proxy = istr_.readString();
-            obj = istr_.readInt();
-            getCookie = istr_.readInt();
-            clone = istr_.readString();
-            cookie = istr_.readShort(1);
-            istr_.endSlice();
-        }
-    }
-
-    public sealed partial record class St
-    {
-        public string v = "";
-
-        public short istr;
-
-        public int ostr;
-
-        public int rhs;
-
-        public string hashCode = "";
-
-        public int clone;
-
-        partial void ice_initialize();
-
-        public St()
-        {
-            ice_initialize();
-        }
-
-        public St(string v, short istr, int ostr, int rhs, string hashCode, int clone)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(v);
-            this.v = v;
-            this.istr = istr;
-            this.ostr = ostr;
-            this.rhs = rhs;
-            global::System.ArgumentNullException.ThrowIfNull(hashCode);
-            this.hashCode = hashCode;
-            this.clone = clone;
-            ice_initialize();
-        }
-
-        public St(Ice.InputStream istr)
-        {
-            this.v = istr.readString();
-            this.istr = istr.readShort();
-            this.ostr = istr.readInt();
-            this.rhs = istr.readInt();
-            this.hashCode = istr.readString();
-            this.clone = istr.readInt();
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeString(this.v);
-            ostr.writeShort(this.istr);
-            ostr.writeInt(this.ostr);
-            ostr.writeInt(this.rhs);
-            ostr.writeString(this.hashCode);
-            ostr.writeInt(this.clone);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, St v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static St ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    [Ice.SliceTypeId("::Clash::Ex")]
-    public partial class Ex : Ice.UserException
-    {
-        public short istr;
-
-        public int ostr;
-
-        public string cause = "";
-
-        public Ex(short istr, int ostr, string cause)
-        {
-            this.istr = istr;
-            this.ostr = ostr;
-            global::System.ArgumentNullException.ThrowIfNull(cause);
-            this.cause = cause;
-        }
-
-        public Ex()
-        {
-        }
-
-        public override string ice_id() => "::Clash::Ex";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Clash::Ex", -1, true);
-            ostr_.writeShort(istr);
-            ostr_.writeInt(ostr);
-            ostr_.writeString(cause);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr = istr_.readShort();
-            ostr = istr_.readInt();
-            cause = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-}
-
-namespace Clash
-{
-    public record struct Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj);
-}
-
-namespace Clash
-{
     public interface IntfPrx : Ice.ObjectPrx
     {
         void context(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -337,10 +72,7 @@ namespace Clash
 
         global::System.Threading.Tasks.Task<Intf_OpOutResult> opOutAsync(global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Clash
-{
     public sealed class IntfPrxHelper : Ice.ObjectPrxHelperBase, IntfPrx
     {
         public void context(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -879,10 +611,445 @@ namespace Clash
         {
         }
     }
+
+    [Ice.SliceTypeId("::Clash::Cls")]
+    public partial class Cls : Ice.Value
+    {
+        public IntfPrx? s;
+
+        public string context = "";
+
+        public int current;
+
+        public short response;
+
+        public int typeId;
+
+        public short del;
+
+        public short? cookie;
+
+        public string ex = "";
+
+        public int result;
+
+        public string istr = "";
+
+        public string ostr = "";
+
+        public string inS = "";
+
+        public string in = "";
+
+        public string proxy = "";
+
+        public int obj;
+
+        public int getCookie;
+
+        public string clone = "";
+
+        partial void ice_initialize();
+
+        public Cls(IntfPrx? s, string context, int current, short response, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string in, string proxy, int obj, int getCookie, string clone)
+        {
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(context);
+            this.context = context;
+            this.current = current;
+            this.response = response;
+            this.typeId = typeId;
+            this.del = del;
+            this.cookie = cookie;
+            global::System.ArgumentNullException.ThrowIfNull(ex);
+            this.ex = ex;
+            this.result = result;
+            global::System.ArgumentNullException.ThrowIfNull(istr);
+            this.istr = istr;
+            global::System.ArgumentNullException.ThrowIfNull(ostr);
+            this.ostr = ostr;
+            global::System.ArgumentNullException.ThrowIfNull(inS);
+            this.inS = inS;
+            global::System.ArgumentNullException.ThrowIfNull(in);
+            this.in = in;
+            global::System.ArgumentNullException.ThrowIfNull(proxy);
+            this.proxy = proxy;
+            this.obj = obj;
+            this.getCookie = getCookie;
+            global::System.ArgumentNullException.ThrowIfNull(clone);
+            this.clone = clone;
+            ice_initialize();
+        }
+
+        public Cls()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Clash::Cls";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            IntfPrxHelper.write(ostr_, s);
+            ostr_.writeString(context);
+            ostr_.writeInt(current);
+            ostr_.writeShort(response);
+            ostr_.writeInt(typeId);
+            ostr_.writeShort(del);
+            ostr_.writeString(ex);
+            ostr_.writeInt(result);
+            ostr_.writeString(istr);
+            ostr_.writeString(ostr);
+            ostr_.writeString(inS);
+            ostr_.writeString(in);
+            ostr_.writeString(proxy);
+            ostr_.writeInt(obj);
+            ostr_.writeInt(getCookie);
+            ostr_.writeString(clone);
+            ostr_.writeShort(1, cookie);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            s = IntfPrxHelper.read(istr_);
+            context = istr_.readString();
+            current = istr_.readInt();
+            response = istr_.readShort();
+            typeId = istr_.readInt();
+            del = istr_.readShort();
+            ex = istr_.readString();
+            result = istr_.readInt();
+            istr = istr_.readString();
+            ostr = istr_.readString();
+            inS = istr_.readString();
+            in = istr_.readString();
+            proxy = istr_.readString();
+            obj = istr_.readInt();
+            getCookie = istr_.readInt();
+            clone = istr_.readString();
+            cookie = istr_.readShort(1);
+            istr_.endSlice();
+        }
+    }
+
+    public sealed partial record class St
+    {
+        public string v = "";
+
+        public short istr;
+
+        public int ostr;
+
+        public int rhs;
+
+        public string hashCode = "";
+
+        public int clone;
+
+        partial void ice_initialize();
+
+        public St()
+        {
+            ice_initialize();
+        }
+
+        public St(string v, short istr, int ostr, int rhs, string hashCode, int clone)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(v);
+            this.v = v;
+            this.istr = istr;
+            this.ostr = ostr;
+            this.rhs = rhs;
+            global::System.ArgumentNullException.ThrowIfNull(hashCode);
+            this.hashCode = hashCode;
+            this.clone = clone;
+            ice_initialize();
+        }
+
+        public St(Ice.InputStream istr)
+        {
+            this.v = istr.readString();
+            this.istr = istr.readShort();
+            this.ostr = istr.readInt();
+            this.rhs = istr.readInt();
+            this.hashCode = istr.readString();
+            this.clone = istr.readInt();
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeString(this.v);
+            ostr.writeShort(this.istr);
+            ostr.writeInt(this.ostr);
+            ostr.writeInt(this.rhs);
+            ostr.writeString(this.hashCode);
+            ostr.writeInt(this.clone);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, St v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static St ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    [Ice.SliceTypeId("::Clash::Ex")]
+    public partial class Ex : Ice.UserException
+    {
+        public short istr;
+
+        public int ostr;
+
+        public string cause = "";
+
+        public Ex(short istr, int ostr, string cause)
+        {
+            this.istr = istr;
+            this.ostr = ostr;
+            global::System.ArgumentNullException.ThrowIfNull(cause);
+            this.cause = cause;
+        }
+
+        public Ex()
+        {
+        }
+
+        public override string ice_id() => "::Clash::Ex";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Clash::Ex", -1, true);
+            ostr_.writeShort(istr);
+            ostr_.writeInt(ostr);
+            ostr_.writeString(cause);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr = istr_.readShort();
+            ostr = istr_.readInt();
+            cause = istr_.readString();
+            istr_.endSlice();
+        }
+    }
 }
 
 namespace Clash
 {
+    public record struct Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj);
+}
+
+namespace Clash
+{
+    [Ice.SliceTypeId("::Clash::Intf")]
+    public partial interface Intf : Ice.Object
+    {
+        void context(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_contextAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.context(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void current(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_currentAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.current(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void response(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_responseAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.response(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void typeId(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_typeIdAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.typeId(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void del(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_delAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.del(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void cookie(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_cookieAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.cookie(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void sync(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_syncAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.sync(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void inS(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_inSAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.inS(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void istr(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_istrAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.istr(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void obj(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_objAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.obj(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj, Ice.Current current_);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_context;
+            string iceP_current;
+            string iceP_response;
+            string iceP_ex;
+            string iceP_sent;
+            string iceP_cookie;
+            string iceP_sync;
+            string iceP_result;
+            string iceP_istr;
+            string iceP_ostr;
+            string? iceP_proxy;
+            int? iceP_obj;
+            iceP_context = istr.readString();
+            iceP_current = istr.readString();
+            iceP_response = istr.readString();
+            iceP_ex = istr.readString();
+            iceP_sent = istr.readString();
+            iceP_cookie = istr.readString();
+            iceP_sync = istr.readString();
+            iceP_result = istr.readString();
+            iceP_istr = istr.readString();
+            iceP_ostr = istr.readString();
+            iceP_proxy = istr.readString(1);
+            iceP_obj = istr.readInt(2);
+            istr.endEncapsulation();
+            obj.op(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string? proxy, out int? obj, Ice.Current current_);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOutAsync(
+            Intf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            string iceP_context;
+            string iceP_current;
+            string iceP_response;
+            string iceP_ex;
+            string iceP_sent;
+            string iceP_cookie;
+            string iceP_sync;
+            string iceP_result;
+            string iceP_istr;
+            string iceP_ostr;
+            string? iceP_proxy;
+            int? iceP_obj;
+            obj.opOut(out iceP_context, out iceP_current, out iceP_response, out iceP_ex, out iceP_sent, out iceP_cookie, out iceP_sync, out iceP_result, out iceP_istr, out iceP_ostr, out iceP_proxy, out iceP_obj, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(iceP_context);
+            ostr.writeString(iceP_current);
+            ostr.writeString(iceP_response);
+            ostr.writeString(iceP_ex);
+            ostr.writeString(iceP_sent);
+            ostr.writeString(iceP_cookie);
+            ostr.writeString(iceP_sync);
+            ostr.writeString(iceP_result);
+            ostr.writeString(iceP_istr);
+            ostr.writeString(iceP_ostr);
+            ostr.writeString(1, iceP_proxy);
+            ostr.writeInt(2, iceP_obj);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class IntfDisp_ : Ice.ObjectImpl, Intf
     {
         public abstract void context(Ice.Current current);
@@ -934,184 +1101,5 @@ namespace Clash
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Clash
-{
-    public partial interface Intf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_contextAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.context(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_currentAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.current(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_responseAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.response(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_typeIdAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.typeId(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_delAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.del(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_cookieAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.cookie(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_syncAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.sync(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_inSAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.inS(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_istrAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.istr(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_objAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.obj(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_context;
-            string iceP_current;
-            string iceP_response;
-            string iceP_ex;
-            string iceP_sent;
-            string iceP_cookie;
-            string iceP_sync;
-            string iceP_result;
-            string iceP_istr;
-            string iceP_ostr;
-            string? iceP_proxy;
-            int? iceP_obj;
-            iceP_context = istr.readString();
-            iceP_current = istr.readString();
-            iceP_response = istr.readString();
-            iceP_ex = istr.readString();
-            iceP_sent = istr.readString();
-            iceP_cookie = istr.readString();
-            iceP_sync = istr.readString();
-            iceP_result = istr.readString();
-            iceP_istr = istr.readString();
-            iceP_ostr = istr.readString();
-            iceP_proxy = istr.readString(1);
-            iceP_obj = istr.readInt(2);
-            istr.endEncapsulation();
-            obj.op(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOutAsync(
-            Intf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            string iceP_context;
-            string iceP_current;
-            string iceP_response;
-            string iceP_ex;
-            string iceP_sent;
-            string iceP_cookie;
-            string iceP_sync;
-            string iceP_result;
-            string iceP_istr;
-            string iceP_ostr;
-            string? iceP_proxy;
-            int? iceP_obj;
-            obj.opOut(out iceP_context, out iceP_current, out iceP_response, out iceP_ex, out iceP_sent, out iceP_cookie, out iceP_sync, out iceP_result, out iceP_istr, out iceP_ostr, out iceP_proxy, out iceP_obj, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(iceP_context);
-            ostr.writeString(iceP_current);
-            ostr.writeString(iceP_response);
-            ostr.writeString(iceP_ex);
-            ostr.writeString(iceP_sent);
-            ostr.writeString(iceP_cookie);
-            ostr.writeString(iceP_sync);
-            ostr.writeString(iceP_result);
-            ostr.writeString(iceP_istr);
-            ostr.writeString(iceP_ostr);
-            ostr.writeString(1, iceP_proxy);
-            ostr.writeInt(2, iceP_obj);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

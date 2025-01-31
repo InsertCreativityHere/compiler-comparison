@@ -24,36 +24,6 @@ namespace Ice.binding
 {
     namespace Test
     {
-        [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : Ice.Object
-        {
-            string getAdapterName(Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::RemoteObjectAdapter")]
-        public partial interface RemoteObjectAdapter : Ice.Object
-        {
-            TestIntfPrx? getTestIntf(Ice.Current current);
-
-            void deactivate(Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::RemoteCommunicator")]
-        public partial interface RemoteCommunicator : Ice.Object
-        {
-            RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, Ice.Current current);
-
-            void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, Ice.Current current);
-
-            void shutdown(Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.binding
-{
-    namespace Test
-    {
         public interface TestIntfPrx : Ice.ObjectPrx
         {
             string getAdapterName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -61,38 +31,6 @@ namespace Ice.binding
             global::System.Threading.Tasks.Task<string> getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
-        public interface RemoteObjectAdapterPrx : Ice.ObjectPrx
-        {
-            TestIntfPrx? getTestIntf(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntfPrx?> getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void deactivate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task deactivateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface RemoteCommunicatorPrx : Ice.ObjectPrx
-        {
-            RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx?> createObjectAdapterAsync(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.binding
-{
-    namespace Test
-    {
         public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
         {
             public string getAdapterName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -185,6 +123,17 @@ namespace Ice.binding
                 : base(reference)
             {
             }
+        }
+
+        public interface RemoteObjectAdapterPrx : Ice.ObjectPrx
+        {
+            TestIntfPrx? getTestIntf(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntfPrx?> getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void deactivate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task deactivateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class RemoteObjectAdapterPrxHelper : Ice.ObjectPrxHelperBase, RemoteObjectAdapterPrx
@@ -316,6 +265,21 @@ namespace Ice.binding
                 : base(reference)
             {
             }
+        }
+
+        public interface RemoteCommunicatorPrx : Ice.ObjectPrx
+        {
+            RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx?> createObjectAdapterAsync(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class RemoteCommunicatorPrxHelper : Ice.ObjectPrxHelperBase, RemoteCommunicatorPrx
@@ -501,6 +465,26 @@ namespace Ice.binding
 {
     namespace Test
     {
+        [Ice.SliceTypeId("::Test::TestIntf")]
+        public partial interface TestIntf : Ice.Object
+        {
+            string getAdapterName(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAdapterNameAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.getAdapterName(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
             public abstract string getAdapterName(Ice.Current current);
@@ -519,6 +503,38 @@ namespace Ice.binding
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::RemoteObjectAdapter")]
+        public partial interface RemoteObjectAdapter : Ice.Object
+        {
+            TestIntfPrx? getTestIntf(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTestIntfAsync(
+                RemoteObjectAdapter obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.getTestIntf(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                TestIntfPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            void deactivate(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deactivateAsync(
+                RemoteObjectAdapter obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.deactivate(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
         }
 
         public abstract class RemoteObjectAdapterDisp_ : Ice.ObjectImpl, RemoteObjectAdapter
@@ -542,6 +558,60 @@ namespace Ice.binding
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::RemoteCommunicator")]
+        public partial interface RemoteCommunicator : Ice.Object
+        {
+            RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createObjectAdapterAsync(
+                RemoteCommunicator obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_name;
+                string iceP_endpoints;
+                iceP_name = istr.readString();
+                iceP_endpoints = istr.readString();
+                istr.endEncapsulation();
+                var ret = obj.createObjectAdapter(iceP_name, iceP_endpoints, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                RemoteObjectAdapterPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deactivateObjectAdapterAsync(
+                RemoteCommunicator obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                RemoteObjectAdapterPrx? iceP_adapter;
+                iceP_adapter = RemoteObjectAdapterPrxHelper.read(istr);
+                istr.endEncapsulation();
+                obj.deactivateObjectAdapter(iceP_adapter, request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void shutdown(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                RemoteCommunicator obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
         }
 
         public abstract class RemoteCommunicatorDisp_ : Ice.ObjectImpl, RemoteCommunicator
@@ -568,103 +638,6 @@ namespace Ice.binding
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.binding
-{
-    namespace Test
-    {
-        public partial interface TestIntf
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAdapterNameAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var ret = obj.getAdapterName(request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-
-        public partial interface RemoteObjectAdapter
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTestIntfAsync(
-                RemoteObjectAdapter obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var ret = obj.getTestIntf(request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                TestIntfPrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deactivateAsync(
-                RemoteObjectAdapter obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.deactivate(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-        }
-
-        public partial interface RemoteCommunicator
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createObjectAdapterAsync(
-                RemoteCommunicator obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_name;
-                string iceP_endpoints;
-                iceP_name = istr.readString();
-                iceP_endpoints = istr.readString();
-                istr.endEncapsulation();
-                var ret = obj.createObjectAdapter(iceP_name, iceP_endpoints, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                RemoteObjectAdapterPrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deactivateObjectAdapterAsync(
-                RemoteCommunicator obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                RemoteObjectAdapterPrx? iceP_adapter;
-                iceP_adapter = RemoteObjectAdapterPrxHelper.read(istr);
-                istr.endEncapsulation();
-                obj.deactivateObjectAdapter(iceP_adapter, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                RemoteCommunicator obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.shutdown(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

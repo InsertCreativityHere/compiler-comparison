@@ -60,48 +60,6 @@ namespace Ice.servantLocator
             }
         }
 
-        [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : Ice.Object
-        {
-            void requestFailedException(Ice.Current current);
-
-            void unknownUserException(Ice.Current current);
-
-            void unknownLocalException(Ice.Current current);
-
-            void unknownException(Ice.Current current);
-
-            void localException(Ice.Current current);
-
-            void userException(Ice.Current current);
-
-            void csException(Ice.Current current);
-
-            void unknownExceptionWithServantException(Ice.Current current);
-
-            string impossibleException(bool shouldThrow, Ice.Current current);
-
-            string intfUserException(bool shouldThrow, Ice.Current current);
-
-            void asyncResponse(Ice.Current current);
-
-            void asyncException(Ice.Current current);
-
-            void shutdown(Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::TestActivation")]
-        public partial interface TestActivation : Ice.Object
-        {
-            void activateServantLocator(bool activate, Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.servantLocator
-{
-    namespace Test
-    {
         public interface TestIntfPrx : Ice.ObjectPrx
         {
             void requestFailedException(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -157,19 +115,6 @@ namespace Ice.servantLocator
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
-        public interface TestActivationPrx : Ice.ObjectPrx
-        {
-            void activateServantLocator(bool activate, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task activateServantLocatorAsync(bool activate, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.servantLocator
-{
-    namespace Test
-    {
         public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
         {
             public void requestFailedException(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -793,6 +738,13 @@ namespace Ice.servantLocator
             }
         }
 
+        public interface TestActivationPrx : Ice.ObjectPrx
+        {
+            void activateServantLocator(bool activate, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task activateServantLocatorAsync(bool activate, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class TestActivationPrxHelper : Ice.ObjectPrxHelperBase, TestActivationPrx
         {
             public void activateServantLocator(bool activate, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -890,6 +842,182 @@ namespace Ice.servantLocator
 {
     namespace Test
     {
+        [Ice.SliceTypeId("::Test::TestIntf")]
+        public partial interface TestIntf : Ice.Object
+        {
+            void requestFailedException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_requestFailedExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.requestFailedException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void unknownUserException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownUserExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.unknownUserException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void unknownLocalException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownLocalExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.unknownLocalException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void unknownException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.unknownException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void localException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_localExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.localException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void userException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_userExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.userException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void csException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_csExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.csException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void unknownExceptionWithServantException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownExceptionWithServantExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.unknownExceptionWithServantException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            string impossibleException(bool shouldThrow, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_impossibleExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool iceP_shouldThrow;
+                iceP_shouldThrow = istr.readBool();
+                istr.endEncapsulation();
+                var ret = obj.impossibleException(iceP_shouldThrow, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string intfUserException(bool shouldThrow, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_intfUserExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool iceP_shouldThrow;
+                iceP_shouldThrow = istr.readBool();
+                istr.endEncapsulation();
+                var ret = obj.intfUserException(iceP_shouldThrow, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            void asyncResponse(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_asyncResponseAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.asyncResponse(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void asyncException(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_asyncExceptionAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.asyncException(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void shutdown(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
             public abstract void requestFailedException(Ice.Current current);
@@ -946,6 +1074,26 @@ namespace Ice.servantLocator
                 };
         }
 
+        [Ice.SliceTypeId("::Test::TestActivation")]
+        public partial interface TestActivation : Ice.Object
+        {
+            void activateServantLocator(bool activate, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_activateServantLocatorAsync(
+                TestActivation obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool iceP_activate;
+                iceP_activate = istr.readBool();
+                istr.endEncapsulation();
+                obj.activateServantLocator(iceP_activate, request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class TestActivationDisp_ : Ice.ObjectImpl, TestActivation
         {
             public abstract void activateServantLocator(bool activate, Ice.Current current);
@@ -964,178 +1112,6 @@ namespace Ice.servantLocator
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.servantLocator
-{
-    namespace Test
-    {
-        public partial interface TestIntf
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_requestFailedExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.requestFailedException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownUserExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.unknownUserException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownLocalExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.unknownLocalException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.unknownException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_localExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.localException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_userExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.userException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_csExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.csException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownExceptionWithServantExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.unknownExceptionWithServantException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_impossibleExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool iceP_shouldThrow;
-                iceP_shouldThrow = istr.readBool();
-                istr.endEncapsulation();
-                var ret = obj.impossibleException(iceP_shouldThrow, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_intfUserExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool iceP_shouldThrow;
-                iceP_shouldThrow = istr.readBool();
-                istr.endEncapsulation();
-                var ret = obj.intfUserException(iceP_shouldThrow, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_asyncResponseAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.asyncResponse(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_asyncExceptionAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.asyncException(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.shutdown(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-        }
-
-        public partial interface TestActivation
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_activateServantLocatorAsync(
-                TestActivation obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool iceP_activate;
-                iceP_activate = istr.readBool();
-                istr.endEncapsulation();
-                obj.activateServantLocator(iceP_activate, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

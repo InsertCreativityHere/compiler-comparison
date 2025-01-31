@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Backend")]
-    public partial interface Backend : Ice.Object
-    {
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface BackendPrx : Ice.ObjectPrx
     {
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class BackendPrxHelper : Ice.ObjectPrxHelperBase, BackendPrx
     {
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -131,6 +119,22 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Backend")]
+    public partial interface Backend : Ice.Object
+    {
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Backend obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class BackendDisp_ : Ice.ObjectImpl, Backend
     {
         public abstract void shutdown(Ice.Current current);
@@ -149,21 +153,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Backend
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Backend obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -45,112 +45,6 @@ namespace Glacier2
         }
     }
 
-    [Ice.SliceTypeId("::Glacier2::Router")]
-    public partial interface Router : global::Ice.Router
-    {
-        /// <summary>
-        /// This category must be used in the identities of all of the client's callback objects. This is necessary in
-        /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-        /// are not set, the returned category is an empty string.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The category.
-        /// </returns>
-        string getCategoryForClient(Ice.Current current);
-
-        /// <summary>
-        /// Create a per-client session with the router. If a  has been installed, a proxy to a
-        /// object is returned to the client. Otherwise, null is returned and only an internal session
-        /// (i.e., not visible to the client) is created.
-        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-        /// happen automatically if the router is configured as the client's default router at the time the session
-        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-        /// </summary>
-        /// <param name="userId">
-        /// The user id for which to check the password.
-        /// </param>
-        /// <param name="password">
-        /// The password for the given user id.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="Glacier2.CannotCreateSessionException">
-        /// Raised if the session cannot be created.
-        /// </exception>
-        /// <exception cref="Glacier2.PermissionDeniedException">
-        /// Raised if the password for the given user id is not correct, or if the
-        /// user is not allowed access.
-        /// </exception>
-        /// <seealso cref="Session" />
-        /// <seealso cref="SessionManager" />
-        /// <seealso cref="PermissionsVerifier" />
-        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, Ice.Current current);
-
-        /// <summary>
-        /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-        /// have been associated with the connection. If a  has been installed, a proxy to a
-        /// object is returned to the client. Otherwise, null is returned and only an internal session
-        /// (i.e., not visible to the client) is created.
-        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-        /// happen automatically if the router is configured as the client's default router at the time the session
-        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="Glacier2.CannotCreateSessionException">
-        /// Raised if the session cannot be created.
-        /// </exception>
-        /// <exception cref="Glacier2.PermissionDeniedException">
-        /// Raised if the user cannot be authenticated or if the user is not allowed
-        /// access.
-        /// </exception>
-        /// <seealso cref="Session" />
-        /// <seealso cref="SessionManager" />
-        /// <seealso cref="PermissionsVerifier" />
-        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(Ice.Current current);
-
-        /// <summary>
-        /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
-        /// and earlier and does nothing in newer versions of Glacier2.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="Glacier2.SessionNotExistException">
-        /// Raised if no session exists for the caller (client).
-        /// </exception>
-        void refreshSession(Ice.Current current);
-
-        /// <summary>
-        /// Destroy the calling client's session with this router.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="Glacier2.SessionNotExistException">
-        /// Raised if no session exists for the calling client.
-        /// </exception>
-        void destroySession(Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by the server-side of the connection.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The idle timeout (in seconds).
-        /// </returns>
-        long getSessionTimeout(Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by the server-side of the connection.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The idle timeout (in seconds).
-        /// </returns>
-        int getACMTimeout(Ice.Current current);
-    }
-}
-
-namespace Glacier2
-{
     /// <summary>
     /// The Glacier2 specialization of the Ice::Router interface.
     /// </summary>
@@ -368,10 +262,7 @@ namespace Glacier2
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Glacier2
-{
     public sealed class RouterPrxHelper : Ice.ObjectPrxHelperBase, RouterPrx
     {
         public Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -933,6 +824,209 @@ namespace Glacier2
 
 namespace Glacier2
 {
+    [Ice.SliceTypeId("::Glacier2::Router")]
+    public partial interface Router : global::Ice.Router
+    {
+        /// <summary>
+        /// This category must be used in the identities of all of the client's callback objects. This is necessary in
+        /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        /// are not set, the returned category is an empty string.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The category.
+        /// </returns>
+        string getCategoryForClient(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getCategoryForClientAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getCategoryForClient(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Create a per-client session with the router. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+        /// </summary>
+        /// <param name="userId">
+        /// The user id for which to check the password.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createSessionAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_userId;
+            string iceP_password;
+            iceP_userId = istr.readString();
+            iceP_password = istr.readString();
+            istr.endEncapsulation();
+            var result = await obj.createSessionAsync(iceP_userId, iceP_password, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    SessionPrxHelper.write(ostr, ret);
+                });
+        }
+
+        /// <summary>
+        /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+        /// have been associated with the connection. If a  has been installed, a proxy to a
+        /// object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user cannot be authenticated or if the user is not allowed
+        /// access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createSessionFromSecureConnectionAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.createSessionFromSecureConnectionAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    SessionPrxHelper.write(ostr, ret);
+                });
+        }
+
+        /// <summary>
+        /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+        /// and earlier and does nothing in newer versions of Glacier2.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the caller (client).
+        /// </exception>
+        void refreshSession(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_refreshSessionAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.refreshSession(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Destroy the calling client's session with this router.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the calling client.
+        /// </exception>
+        void destroySession(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroySessionAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.destroySession(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Get the idle timeout used by the server-side of the connection.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The idle timeout (in seconds).
+        /// </returns>
+        long getSessionTimeout(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getSessionTimeoutAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getSessionTimeout(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the idle timeout used by the server-side of the connection.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The idle timeout (in seconds).
+        /// </returns>
+        int getACMTimeout(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getACMTimeoutAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getACMTimeout(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class RouterDisp_ : Ice.ObjectImpl, Router
     {
         public abstract Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
@@ -978,111 +1072,5 @@ namespace Glacier2
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Glacier2
-{
-    public partial interface Router
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getCategoryForClientAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getCategoryForClient(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createSessionAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_userId;
-            string iceP_password;
-            iceP_userId = istr.readString();
-            iceP_password = istr.readString();
-            istr.endEncapsulation();
-            var result = await obj.createSessionAsync(iceP_userId, iceP_password, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    SessionPrxHelper.write(ostr, ret);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_createSessionFromSecureConnectionAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = await obj.createSessionFromSecureConnectionAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    SessionPrxHelper.write(ostr, ret);
-                });
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_refreshSessionAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.refreshSession(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroySessionAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.destroySession(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getSessionTimeoutAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getSessionTimeout(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getACMTimeoutAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getACMTimeout(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

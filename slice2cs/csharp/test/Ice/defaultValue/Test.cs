@@ -1384,6 +1384,72 @@ namespace Ice.defaultValue
             }
         }
 
+        public sealed class ByteSeqHelper
+        {
+            public static void write(Ice.OutputStream ostr, byte[] v)
+            {
+                ostr.writeByteSeq(v);
+            }
+
+            public static byte[] read(Ice.InputStream istr)
+            {
+                byte[] v;
+                v = istr.readByteSeq();
+                return v;
+            }
+        }
+
+        public sealed class IntSeqHelper
+        {
+            public static void write(Ice.OutputStream ostr, int[] v)
+            {
+                ostr.writeIntSeq(v);
+            }
+
+            public static int[] read(Ice.InputStream istr)
+            {
+                int[] v;
+                v = istr.readIntSeq();
+                return v;
+            }
+        }
+
+        public sealed class IntStringDictHelper
+        {
+            public static void write(Ice.OutputStream ostr,
+                                     global::System.Collections.Generic.Dictionary<int, string> v)
+            {
+                if(v == null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Count);
+                    foreach(global::System.Collections.Generic.KeyValuePair<int, string> e in v)
+                    {
+                        ostr.writeInt(e.Key);
+                        ostr.writeString(e.Value);
+                    }
+                }
+            }
+
+            public static global::System.Collections.Generic.Dictionary<int, string> read(Ice.InputStream istr)
+            {
+                int sz = istr.readSize();
+                global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();
+                for(int i = 0; i < sz; ++i)
+                {
+                    int k;
+                    k = istr.readInt();
+                    string v;
+                    v = istr.readString();
+                    r[k] = v;
+                }
+                return r;
+            }
+        }
+
         public partial record struct InnerStruct
         {
             public int a;
@@ -1789,78 +1855,6 @@ namespace Ice.defaultValue
                 dict = IntStringDictHelper.read(istr_);
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
-            }
-        }
-    }
-}
-
-namespace Ice.defaultValue
-{
-    namespace Test
-    {
-        public sealed class ByteSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, byte[] v)
-            {
-                ostr.writeByteSeq(v);
-            }
-
-            public static byte[] read(Ice.InputStream istr)
-            {
-                byte[] v;
-                v = istr.readByteSeq();
-                return v;
-            }
-        }
-
-        public sealed class IntSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, int[] v)
-            {
-                ostr.writeIntSeq(v);
-            }
-
-            public static int[] read(Ice.InputStream istr)
-            {
-                int[] v;
-                v = istr.readIntSeq();
-                return v;
-            }
-        }
-
-        public sealed class IntStringDictHelper
-        {
-            public static void write(Ice.OutputStream ostr,
-                                     global::System.Collections.Generic.Dictionary<int, string> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    foreach(global::System.Collections.Generic.KeyValuePair<int, string> e in v)
-                    {
-                        ostr.writeInt(e.Key);
-                        ostr.writeString(e.Value);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Dictionary<int, string> read(Ice.InputStream istr)
-            {
-                int sz = istr.readSize();
-                global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();
-                for(int i = 0; i < sz; ++i)
-                {
-                    int k;
-                    k = istr.readInt();
-                    string v;
-                    v = istr.readString();
-                    r[k] = v;
-                }
-                return r;
             }
         }
     }

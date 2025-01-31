@@ -22,27 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::DelayedTestIntf")]
-    public partial interface DelayedTestIntf : Ice.Object
-    {
-        void sleep(int ms, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : DelayedTestIntf
-    {
-        void shutdown(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::TestIntfBidir")]
-    public partial interface TestIntfBidir : Ice.Object
-    {
-        void makeSleep(bool aborted, int ms, DelayedTestIntfPrx? target, Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface DelayedTestIntfPrx : Ice.ObjectPrx
     {
         void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -50,23 +29,6 @@ namespace Test
         global::System.Threading.Tasks.Task sleepAsync(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface TestIntfPrx : DelayedTestIntfPrx
-    {
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface TestIntfBidirPrx : Ice.ObjectPrx
-    {
-        void makeSleep(bool aborted, int ms, DelayedTestIntfPrx? target, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task makeSleepAsync(bool aborted, int ms, DelayedTestIntfPrx? target, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class DelayedTestIntfPrxHelper : Ice.ObjectPrxHelperBase, DelayedTestIntfPrx
     {
         public void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -156,6 +118,13 @@ namespace Test
             : base(reference)
         {
         }
+    }
+
+    public interface TestIntfPrx : DelayedTestIntfPrx
+    {
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
@@ -287,6 +256,13 @@ namespace Test
         }
     }
 
+    public interface TestIntfBidirPrx : Ice.ObjectPrx
+    {
+        void makeSleep(bool aborted, int ms, DelayedTestIntfPrx? target, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task makeSleepAsync(bool aborted, int ms, DelayedTestIntfPrx? target, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class TestIntfBidirPrxHelper : Ice.ObjectPrxHelperBase, TestIntfBidirPrx
     {
         public void makeSleep(bool aborted, int ms, DelayedTestIntfPrx? target, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -383,6 +359,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::DelayedTestIntf")]
+    public partial interface DelayedTestIntf : Ice.Object
+    {
+        void sleep(int ms, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sleepAsync(
+            DelayedTestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_ms;
+            iceP_ms = istr.readInt();
+            istr.endEncapsulation();
+            obj.sleep(iceP_ms, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class DelayedTestIntfDisp_ : Ice.ObjectImpl, DelayedTestIntf
     {
         public abstract void sleep(int ms, Ice.Current current);
@@ -401,6 +397,22 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::Test::TestIntf")]
+    public partial interface TestIntf : DelayedTestIntf
+    {
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
@@ -426,6 +438,30 @@ namespace Test
             };
     }
 
+    [Ice.SliceTypeId("::Test::TestIntfBidir")]
+    public partial interface TestIntfBidir : Ice.Object
+    {
+        void makeSleep(bool aborted, int ms, DelayedTestIntfPrx? target, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_makeSleepAsync(
+            TestIntfBidir obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool iceP_aborted;
+            int iceP_ms;
+            DelayedTestIntfPrx? iceP_target;
+            iceP_aborted = istr.readBool();
+            iceP_ms = istr.readInt();
+            iceP_target = DelayedTestIntfPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.makeSleep(iceP_aborted, iceP_ms, iceP_target, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestIntfBidirDisp_ : Ice.ObjectImpl, TestIntfBidir
     {
         public abstract void makeSleep(bool aborted, int ms, DelayedTestIntfPrx? target, Ice.Current current);
@@ -444,59 +480,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface DelayedTestIntf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sleepAsync(
-            DelayedTestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_ms;
-            iceP_ms = istr.readInt();
-            istr.endEncapsulation();
-            obj.sleep(iceP_ms, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TestIntf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TestIntfBidir
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_makeSleepAsync(
-            TestIntfBidir obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool iceP_aborted;
-            int iceP_ms;
-            DelayedTestIntfPrx? iceP_target;
-            iceP_aborted = istr.readBool();
-            iceP_ms = istr.readInt();
-            iceP_target = DelayedTestIntfPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.makeSleep(iceP_aborted, iceP_ms, iceP_target, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -156,41 +156,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : Ice.Object
-    {
-        global::System.Threading.Tasks.Task baseAsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task unknownDerivedAsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownDerivedAsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownDerivedAsKnownDerivedAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task unknownIntermediateAsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownIntermediateAsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownMostDerivedAsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownIntermediateAsKnownIntermediateAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownMostDerivedAsKnownIntermediateAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task knownMostDerivedAsKnownMostDerivedAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task unknownMostDerived1AsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task unknownMostDerived1AsKnownIntermediateAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task unknownMostDerived2AsBaseAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface TestIntfPrx : Ice.ObjectPrx
     {
         void baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -249,10 +214,7 @@ namespace Test
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
         public void baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1019,6 +981,178 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::TestIntf")]
+    public partial interface TestIntf : Ice.Object
+    {
+        global::System.Threading.Tasks.Task baseAsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_baseAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.baseAsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task unknownDerivedAsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.unknownDerivedAsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownDerivedAsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownDerivedAsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownDerivedAsKnownDerivedAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsKnownDerivedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownDerivedAsKnownDerivedAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task unknownIntermediateAsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownIntermediateAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.unknownIntermediateAsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownIntermediateAsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownIntermediateAsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownMostDerivedAsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownMostDerivedAsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownIntermediateAsKnownIntermediateAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsKnownIntermediateAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownIntermediateAsKnownIntermediateAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownMostDerivedAsKnownIntermediateAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownIntermediateAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownMostDerivedAsKnownIntermediateAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task knownMostDerivedAsKnownMostDerivedAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownMostDerivedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.knownMostDerivedAsKnownMostDerivedAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task unknownMostDerived1AsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.unknownMostDerived1AsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task unknownMostDerived1AsKnownIntermediateAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsKnownIntermediateAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.unknownMostDerived1AsKnownIntermediateAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task unknownMostDerived2AsBaseAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived2AsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.unknownMostDerived2AsBaseAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.shutdownAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+    }
+
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
         public abstract global::System.Threading.Tasks.Task baseAsBaseAsync(Ice.Current current);
@@ -1076,151 +1210,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface TestIntf
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_baseAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.baseAsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.unknownDerivedAsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownDerivedAsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsKnownDerivedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownDerivedAsKnownDerivedAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownIntermediateAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.unknownIntermediateAsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownIntermediateAsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownMostDerivedAsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsKnownIntermediateAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownIntermediateAsKnownIntermediateAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownIntermediateAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownMostDerivedAsKnownIntermediateAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownMostDerivedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.knownMostDerivedAsKnownMostDerivedAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.unknownMostDerived1AsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsKnownIntermediateAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.unknownMostDerived1AsKnownIntermediateAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived2AsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.unknownMostDerived2AsBaseAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.shutdownAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
     }
 }

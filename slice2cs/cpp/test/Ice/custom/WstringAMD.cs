@@ -22,6 +22,57 @@
 
 namespace Test1
 {
+    public sealed class WstringSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, string[] v)
+        {
+            ostr.writeStringSeq(v);
+        }
+
+        public static string[] read(Ice.InputStream istr)
+        {
+            string[] v;
+            v = istr.readStringSeq();
+            return v;
+        }
+    }
+
+    public sealed class WstringWStringDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, string> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeString(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                string v;
+                v = istr.readString();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     public sealed partial record class WstringStruct
     {
         public string s = "";
@@ -91,115 +142,6 @@ namespace Test1
         }
     }
 
-    [Ice.SliceTypeId("::Test1::WstringClass")]
-    public partial interface WstringClass : Ice.Object
-    {
-        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, Ice.Current current);
-
-        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, Ice.Current current);
-
-        global::System.Threading.Tasks.Task throwExceptAsync(string reason, Ice.Current current);
-    }
-}
-
-namespace Test2
-{
-    public sealed partial record class WstringStruct
-    {
-        public string s = "";
-
-        partial void ice_initialize();
-
-        public WstringStruct()
-        {
-            ice_initialize();
-        }
-
-        public WstringStruct(string s)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            ice_initialize();
-        }
-
-        public WstringStruct(Ice.InputStream istr)
-        {
-            this.s = istr.readString();
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            ostr.writeString(this.s);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, WstringStruct v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static WstringStruct ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    [Ice.SliceTypeId("::Test2::WstringException")]
-    public partial class WstringException : Ice.UserException
-    {
-        public string reason = "";
-
-        public WstringException(string reason)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(reason);
-            this.reason = reason;
-        }
-
-        public WstringException()
-        {
-        }
-
-        public override string ice_id() => "::Test2::WstringException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test2::WstringException", -1, true);
-            ostr_.writeString(reason);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            reason = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test2::WstringClass")]
-    public partial interface WstringClass : Ice.Object
-    {
-        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, Ice.Current current);
-
-        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, Ice.Current current);
-
-        global::System.Threading.Tasks.Task throwExceptAsync(string reason, Ice.Current current);
-    }
-}
-
-namespace Test1
-{
-    public record struct WstringClass_OpStringResult(string returnValue, string s2);
-
-    public record struct WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2);
-}
-
-namespace Test2
-{
-    public record struct WstringClass_OpStringResult(string returnValue, string s2);
-
-    public record struct WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2);
-}
-
-namespace Test1
-{
     public interface WstringClassPrx : Ice.ObjectPrx
     {
         string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -213,78 +155,6 @@ namespace Test1
         void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test2
-{
-    public interface WstringClassPrx : Ice.ObjectPrx
-    {
-        string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test1
-{
-    public sealed class WstringSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, string[] v)
-        {
-            ostr.writeStringSeq(v);
-        }
-
-        public static string[] read(Ice.InputStream istr)
-        {
-            string[] v;
-            v = istr.readStringSeq();
-            return v;
-        }
-    }
-
-    public sealed class WstringWStringDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, string> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeString(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                string v;
-                v = istr.readString();
-                r[k] = v;
-            }
-            return r;
-        }
     }
 
     public sealed class WstringClassPrxHelper : Ice.ObjectPrxHelperBase, WstringClassPrx
@@ -549,6 +419,90 @@ namespace Test2
         }
     }
 
+    public sealed partial record class WstringStruct
+    {
+        public string s = "";
+
+        partial void ice_initialize();
+
+        public WstringStruct()
+        {
+            ice_initialize();
+        }
+
+        public WstringStruct(string s)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            ice_initialize();
+        }
+
+        public WstringStruct(Ice.InputStream istr)
+        {
+            this.s = istr.readString();
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            ostr.writeString(this.s);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, WstringStruct v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static WstringStruct ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    [Ice.SliceTypeId("::Test2::WstringException")]
+    public partial class WstringException : Ice.UserException
+    {
+        public string reason = "";
+
+        public WstringException(string reason)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(reason);
+            this.reason = reason;
+        }
+
+        public WstringException()
+        {
+        }
+
+        public override string ice_id() => "::Test2::WstringException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test2::WstringException", -1, true);
+            ostr_.writeString(reason);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            reason = istr_.readString();
+            istr_.endSlice();
+        }
+    }
+
+    public interface WstringClassPrx : Ice.ObjectPrx
+    {
+        string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class WstringClassPrxHelper : Ice.ObjectPrxHelperBase, WstringClassPrx
     {
         public string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -760,6 +714,86 @@ namespace Test2
 
 namespace Test1
 {
+    public record struct WstringClass_OpStringResult(string returnValue, string s2);
+
+    public record struct WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2);
+}
+
+namespace Test2
+{
+    public record struct WstringClass_OpStringResult(string returnValue, string s2);
+
+    public record struct WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2);
+}
+
+namespace Test1
+{
+    [Ice.SliceTypeId("::Test1::WstringClass")]
+    public partial interface WstringClass : Ice.Object
+    {
+        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
+            WstringClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_s1;
+            iceP_s1 = istr.readString();
+            istr.endEncapsulation();
+            var result = await obj.opStringAsync(iceP_s1, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeString(ret.s2);
+                    ostr.writeString(ret.returnValue);
+                });
+        }
+
+        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStructAsync(
+            WstringClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            WstringStruct iceP_s1;
+            iceP_s1 = new WstringStruct(istr);
+            istr.endEncapsulation();
+            var result = await obj.opStructAsync(iceP_s1, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    WstringStruct.ice_write(ostr, ret.s2);
+                    WstringStruct.ice_write(ostr, ret.returnValue);
+                });
+        }
+
+        global::System.Threading.Tasks.Task throwExceptAsync(string reason, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwExceptAsync(
+            WstringClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_reason;
+            iceP_reason = istr.readString();
+            istr.endEncapsulation();
+            await obj.throwExceptAsync(iceP_reason, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+    }
+
     public abstract class WstringClassDisp_ : Ice.ObjectImpl, WstringClass
     {
         public abstract global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, Ice.Current current);
@@ -789,6 +823,72 @@ namespace Test1
 
 namespace Test2
 {
+    [Ice.SliceTypeId("::Test2::WstringClass")]
+    public partial interface WstringClass : Ice.Object
+    {
+        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
+            WstringClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_s1;
+            iceP_s1 = istr.readString();
+            istr.endEncapsulation();
+            var result = await obj.opStringAsync(iceP_s1, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeString(ret.s2);
+                    ostr.writeString(ret.returnValue);
+                });
+        }
+
+        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStructAsync(
+            WstringClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            WstringStruct iceP_s1;
+            iceP_s1 = new WstringStruct(istr);
+            istr.endEncapsulation();
+            var result = await obj.opStructAsync(iceP_s1, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    WstringStruct.ice_write(ostr, ret.s2);
+                    WstringStruct.ice_write(ostr, ret.returnValue);
+                });
+        }
+
+        global::System.Threading.Tasks.Task throwExceptAsync(string reason, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwExceptAsync(
+            WstringClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_reason;
+            iceP_reason = istr.readString();
+            istr.endEncapsulation();
+            await obj.throwExceptAsync(iceP_reason, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+    }
+
     public abstract class WstringClassDisp_ : Ice.ObjectImpl, WstringClass
     {
         public abstract global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, Ice.Current current);
@@ -813,129 +913,5 @@ namespace Test2
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test1
-{
-    public partial interface WstringClass
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
-            WstringClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_s1;
-            iceP_s1 = istr.readString();
-            istr.endEncapsulation();
-            var result = await obj.opStringAsync(iceP_s1, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeString(ret.s2);
-                    ostr.writeString(ret.returnValue);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStructAsync(
-            WstringClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            WstringStruct iceP_s1;
-            iceP_s1 = new WstringStruct(istr);
-            istr.endEncapsulation();
-            var result = await obj.opStructAsync(iceP_s1, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    WstringStruct.ice_write(ostr, ret.s2);
-                    WstringStruct.ice_write(ostr, ret.returnValue);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwExceptAsync(
-            WstringClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_reason;
-            iceP_reason = istr.readString();
-            istr.endEncapsulation();
-            await obj.throwExceptAsync(iceP_reason, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-    }
-}
-
-namespace Test2
-{
-    public partial interface WstringClass
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
-            WstringClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_s1;
-            iceP_s1 = istr.readString();
-            istr.endEncapsulation();
-            var result = await obj.opStringAsync(iceP_s1, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeString(ret.s2);
-                    ostr.writeString(ret.returnValue);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStructAsync(
-            WstringClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            WstringStruct iceP_s1;
-            iceP_s1 = new WstringStruct(istr);
-            istr.endEncapsulation();
-            var result = await obj.opStructAsync(iceP_s1, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    WstringStruct.ice_write(ostr, ret.s2);
-                    WstringStruct.ice_write(ostr, ret.returnValue);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwExceptAsync(
-            WstringClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_reason;
-            iceP_reason = istr.readString();
-            istr.endEncapsulation();
-            await obj.throwExceptAsync(iceP_reason, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
     }
 }

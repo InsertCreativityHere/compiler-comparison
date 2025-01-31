@@ -22,54 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Interface1")]
-    public partial interface Interface1 : Ice.Object
-    {
-        void method(Ice.Current current);
-    }
-}
-
-namespace Test2
-{
-    [Ice.SliceTypeId("::Test2::Class1")]
-    public partial class Class1 : Ice.Value
-    {
-        partial void ice_initialize();
-
-        public Class1()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test2::Class1";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.endSlice();
-        }
-    }
-}
-
-namespace Test
-{
     public interface Interface1Prx : Ice.ObjectPrx
     {
         void method(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task methodAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class Interface1PrxHelper : Ice.ObjectPrxHelperBase, Interface1Prx
     {
         public void method(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -158,8 +117,53 @@ namespace Test
     }
 }
 
+namespace Test2
+{
+    [Ice.SliceTypeId("::Test2::Class1")]
+    public partial class Class1 : Ice.Value
+    {
+        partial void ice_initialize();
+
+        public Class1()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test2::Class1";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.endSlice();
+        }
+    }
+}
+
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Interface1")]
+    public partial interface Interface1 : Ice.Object
+    {
+        void method(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_methodAsync(
+            Interface1 obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.method(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class Interface1Disp_ : Ice.ObjectImpl, Interface1
     {
         public abstract void method(Ice.Current current);
@@ -178,21 +182,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Interface1
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_methodAsync(
-            Interface1 obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.method(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

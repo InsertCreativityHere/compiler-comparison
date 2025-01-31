@@ -22,10 +22,6 @@
 
 namespace Ice
 {
-}
-
-namespace Ice
-{
     public sealed class ContextHelper
     {
         public static void write(Ice.OutputStream ostr,

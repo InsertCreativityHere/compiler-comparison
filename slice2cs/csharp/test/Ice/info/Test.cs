@@ -24,22 +24,6 @@ namespace Ice.info
 {
     namespace Test
     {
-        [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : Ice.Object
-        {
-            void shutdown(Ice.Current current);
-
-            global::System.Collections.Generic.Dictionary<string, string> getEndpointInfoAsContext(Ice.Current current);
-
-            global::System.Collections.Generic.Dictionary<string, string> getConnectionInfoAsContext(Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.info
-{
-    namespace Test
-    {
         public interface TestIntfPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -54,13 +38,7 @@ namespace Ice.info
 
             global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getConnectionInfoAsContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
-    }
-}
 
-namespace Ice.info
-{
-    namespace Test
-    {
         public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -242,6 +220,54 @@ namespace Ice.info
 {
     namespace Test
     {
+        [Ice.SliceTypeId("::Test::TestIntf")]
+        public partial interface TestIntf : Ice.Object
+        {
+            void shutdown(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            global::System.Collections.Generic.Dictionary<string, string> getEndpointInfoAsContext(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getEndpointInfoAsContextAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.getEndpointInfoAsContext(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                global::Ice.ContextHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            global::System.Collections.Generic.Dictionary<string, string> getConnectionInfoAsContext(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getConnectionInfoAsContextAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.getConnectionInfoAsContext(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                global::Ice.ContextHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
             public abstract void shutdown(Ice.Current current);
@@ -266,53 +292,6 @@ namespace Ice.info
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.info
-{
-    namespace Test
-    {
-        public partial interface TestIntf
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.shutdown(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getEndpointInfoAsContextAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var ret = obj.getEndpointInfoAsContext(request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                global::Ice.ContextHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getConnectionInfoAsContextAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var ret = obj.getConnectionInfoAsContext(request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                global::Ice.ContextHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
         }
     }
 }

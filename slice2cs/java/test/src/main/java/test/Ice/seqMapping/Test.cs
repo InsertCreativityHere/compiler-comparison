@@ -22,177 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::MyClass")]
-    public partial interface MyClass : Ice.Object
-    {
-        void shutdown(Ice.Current current);
-
-        byte[] opSerialSmallJava(byte[] i, out byte[] o, Ice.Current current);
-
-        byte[] opSerialLargeJava(byte[] i, out byte[] o, Ice.Current current);
-
-        byte[] opSerialStructJava(byte[] i, out byte[] o, Ice.Current current);
-    }
-
-    public sealed partial record class Foo
-    {
-        public byte[] SLmem;
-
-        public byte[][] SLSmem;
-
-        partial void ice_initialize();
-
-        public Foo(byte[] SLmem, byte[][] SLSmem)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(SLmem);
-            this.SLmem = SLmem;
-            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
-            this.SLSmem = SLSmem;
-            ice_initialize();
-        }
-
-        public Foo(Ice.InputStream istr)
-        {
-            this.SLmem = SerialLargeHelper.read(istr);
-            this.SLSmem = SLSHelper.read(istr);
-            ice_initialize();
-        }
-
-        public void ice_writeMembers(Ice.OutputStream ostr)
-        {
-            SerialLargeHelper.write(ostr, this.SLmem);
-            SLSHelper.write(ostr, this.SLSmem);
-        }
-
-        public static void ice_write(Ice.OutputStream ostr, Foo v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        public static Foo ice_read(Ice.InputStream istr) => new(istr);
-    }
-
-    [Ice.SliceTypeId("::Test::Bar")]
-    public partial class Bar : Ice.UserException
-    {
-        public byte[] SLmem;
-
-        public byte[][] SLSmem;
-
-        public Bar(byte[] SLmem, byte[][] SLSmem)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(SLmem);
-            this.SLmem = SLmem;
-            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
-            this.SLSmem = SLSmem;
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Bar()
-        {
-            this.SLmem = null!;
-            this.SLSmem = null!;
-        }
-
-        public override string ice_id() => "::Test::Bar";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::Bar", -1, true);
-            SerialLargeHelper.write(ostr_, SLmem);
-            SLSHelper.write(ostr_, SLSmem);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            SLmem = SerialLargeHelper.read(istr_);
-            SLSmem = SLSHelper.read(istr_);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::Baz")]
-    public partial class Baz : Ice.Value
-    {
-        public byte[] SLmem;
-
-        public byte[][] SLSmem;
-
-        partial void ice_initialize();
-
-        public Baz(byte[] SLmem, byte[][] SLSmem)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(SLmem);
-            this.SLmem = SLmem;
-            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
-            this.SLSmem = SLSmem;
-            ice_initialize();
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Baz()
-        {
-            this.SLmem = null!;
-            this.SLSmem = null!;
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::Baz";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            SerialLargeHelper.write(ostr_, SLmem);
-            SLSHelper.write(ostr_, SLSmem);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            SLmem = SerialLargeHelper.read(istr_);
-            SLSmem = SLSHelper.read(istr_);
-            istr_.endSlice();
-        }
-    }
-}
-
-namespace Test
-{
-    public record struct MyClass_OpSerialSmallJavaResult(byte[] returnValue, byte[] o);
-
-    public record struct MyClass_OpSerialLargeJavaResult(byte[] returnValue, byte[] o);
-
-    public record struct MyClass_OpSerialStructJavaResult(byte[] returnValue, byte[] o);
-}
-
-namespace Test
-{
-    public interface MyClassPrx : Ice.ObjectPrx
-    {
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class SerialSmallHelper
     {
         public static void write(Ice.OutputStream ostr, byte[] v)
@@ -236,6 +65,25 @@ namespace Test
             v = istr.readByteSeq();
             return v;
         }
+    }
+
+    public interface MyClassPrx : Ice.ObjectPrx
+    {
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
@@ -615,10 +463,226 @@ namespace Test
             return r;
         }
     }
+
+    public sealed partial record class Foo
+    {
+        public byte[] SLmem;
+
+        public byte[][] SLSmem;
+
+        partial void ice_initialize();
+
+        public Foo(byte[] SLmem, byte[][] SLSmem)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(SLmem);
+            this.SLmem = SLmem;
+            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
+            this.SLSmem = SLSmem;
+            ice_initialize();
+        }
+
+        public Foo(Ice.InputStream istr)
+        {
+            this.SLmem = SerialLargeHelper.read(istr);
+            this.SLSmem = SLSHelper.read(istr);
+            ice_initialize();
+        }
+
+        public void ice_writeMembers(Ice.OutputStream ostr)
+        {
+            SerialLargeHelper.write(ostr, this.SLmem);
+            SLSHelper.write(ostr, this.SLSmem);
+        }
+
+        public static void ice_write(Ice.OutputStream ostr, Foo v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        public static Foo ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    [Ice.SliceTypeId("::Test::Bar")]
+    public partial class Bar : Ice.UserException
+    {
+        public byte[] SLmem;
+
+        public byte[][] SLSmem;
+
+        public Bar(byte[] SLmem, byte[][] SLSmem)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(SLmem);
+            this.SLmem = SLmem;
+            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
+            this.SLSmem = SLSmem;
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Bar()
+        {
+            this.SLmem = null!;
+            this.SLSmem = null!;
+        }
+
+        public override string ice_id() => "::Test::Bar";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::Bar", -1, true);
+            SerialLargeHelper.write(ostr_, SLmem);
+            SLSHelper.write(ostr_, SLSmem);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            SLmem = SerialLargeHelper.read(istr_);
+            SLSmem = SLSHelper.read(istr_);
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::Baz")]
+    public partial class Baz : Ice.Value
+    {
+        public byte[] SLmem;
+
+        public byte[][] SLSmem;
+
+        partial void ice_initialize();
+
+        public Baz(byte[] SLmem, byte[][] SLSmem)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(SLmem);
+            this.SLmem = SLmem;
+            global::System.ArgumentNullException.ThrowIfNull(SLSmem);
+            this.SLSmem = SLSmem;
+            ice_initialize();
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Baz()
+        {
+            this.SLmem = null!;
+            this.SLSmem = null!;
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::Baz";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            SerialLargeHelper.write(ostr_, SLmem);
+            SLSHelper.write(ostr_, SLSmem);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            SLmem = SerialLargeHelper.read(istr_);
+            SLSmem = SLSHelper.read(istr_);
+            istr_.endSlice();
+        }
+    }
 }
 
 namespace Test
 {
+    public record struct MyClass_OpSerialSmallJavaResult(byte[] returnValue, byte[] o);
+
+    public record struct MyClass_OpSerialLargeJavaResult(byte[] returnValue, byte[] o);
+
+    public record struct MyClass_OpSerialStructJavaResult(byte[] returnValue, byte[] o);
+}
+
+namespace Test
+{
+    [Ice.SliceTypeId("::Test::MyClass")]
+    public partial interface MyClass : Ice.Object
+    {
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            MyClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        byte[] opSerialSmallJava(byte[] i, out byte[] o, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerialSmallJavaAsync(
+            MyClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[] iceP_i;
+            iceP_i = SerialSmallHelper.read(istr);
+            istr.endEncapsulation();
+            byte[] iceP_o;
+            var ret = obj.opSerialSmallJava(iceP_i, out iceP_o, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            SerialSmallHelper.write(ostr, iceP_o);
+            SerialSmallHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[] opSerialLargeJava(byte[] i, out byte[] o, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerialLargeJavaAsync(
+            MyClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[] iceP_i;
+            iceP_i = SerialLargeHelper.read(istr);
+            istr.endEncapsulation();
+            byte[] iceP_o;
+            var ret = obj.opSerialLargeJava(iceP_i, out iceP_o, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            SerialLargeHelper.write(ostr, iceP_o);
+            SerialLargeHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[] opSerialStructJava(byte[] i, out byte[] o, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerialStructJavaAsync(
+            MyClass obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[] iceP_i;
+            iceP_i = SerialStructHelper.read(istr);
+            istr.endEncapsulation();
+            byte[] iceP_o;
+            var ret = obj.opSerialStructJava(iceP_i, out iceP_o, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            SerialStructHelper.write(ostr, iceP_o);
+            SerialStructHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
     {
         public abstract void shutdown(Ice.Current current);
@@ -646,81 +710,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface MyClass
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            MyClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerialSmallJavaAsync(
-            MyClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[] iceP_i;
-            iceP_i = SerialSmallHelper.read(istr);
-            istr.endEncapsulation();
-            byte[] iceP_o;
-            var ret = obj.opSerialSmallJava(iceP_i, out iceP_o, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            SerialSmallHelper.write(ostr, iceP_o);
-            SerialSmallHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerialLargeJavaAsync(
-            MyClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[] iceP_i;
-            iceP_i = SerialLargeHelper.read(istr);
-            istr.endEncapsulation();
-            byte[] iceP_o;
-            var ret = obj.opSerialLargeJava(iceP_i, out iceP_o, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            SerialLargeHelper.write(ostr, iceP_o);
-            SerialLargeHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerialStructJavaAsync(
-            MyClass obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[] iceP_i;
-            iceP_i = SerialStructHelper.read(istr);
-            istr.endEncapsulation();
-            byte[] iceP_o;
-            var ret = obj.opSerialStructJava(iceP_i, out iceP_o, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            SerialStructHelper.write(ostr, iceP_o);
-            SerialStructHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

@@ -94,6 +94,208 @@ namespace LocalTest
         public static S1 ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class C1SeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, C1?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static C1?[] read(Ice.InputStream istr)
+        {
+            C1?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new C1?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<C1>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class S1SeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, S1[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static S1[] read(Ice.InputStream istr)
+        {
+            S1[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new S1[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new S1(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class C1DictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, C1?> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, C1?> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    ostr.writeValue(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, C1?> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, C1?> r = new global::System.Collections.Generic.Dictionary<int, C1?>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                istr.readValue((C1? v) => { r[k] = v; });
+            }
+            return r;
+        }
+    }
+
+    public sealed class S1DictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, S1> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, S1> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    S1.ice_write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, S1> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, S1> r = new global::System.Collections.Generic.Dictionary<int, S1>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                S1 v;
+                v = new S1(istr);
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class C1SeqSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, C1?[][] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    C1SeqHelper.write(ostr, v[ix]);
+                }
+            }
+        }
+
+        public static C1?[][] read(Ice.InputStream istr)
+        {
+            C1?[][] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new C1?[szx][];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = C1SeqHelper.read(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class S1SeqSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, S1[][] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    S1SeqHelper.write(ostr, v[ix]);
+                }
+            }
+        }
+
+        public static S1[][] read(Ice.InputStream istr)
+        {
+            S1[][] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new S1[szx][];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = S1SeqHelper.read(istr);
+                }
+            }
+            return v;
+        }
+    }
+
     public sealed partial record class S2
     {
         public S1 s1;
@@ -678,211 +880,6 @@ namespace LocalTest
         }
 
         public static StructKey ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace LocalTest
-{
-    public sealed class C1SeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, C1?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static C1?[] read(Ice.InputStream istr)
-        {
-            C1?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new C1?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<C1>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class S1SeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, S1[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static S1[] read(Ice.InputStream istr)
-        {
-            S1[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new S1[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new S1(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class C1DictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, C1?> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, C1?> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    ostr.writeValue(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, C1?> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, C1?> r = new global::System.Collections.Generic.Dictionary<int, C1?>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                istr.readValue((C1? v) => { r[k] = v; });
-            }
-            return r;
-        }
-    }
-
-    public sealed class S1DictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, S1> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, S1> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    S1.ice_write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, S1> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, S1> r = new global::System.Collections.Generic.Dictionary<int, S1>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                S1 v;
-                v = new S1(istr);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class C1SeqSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, C1?[][] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    C1SeqHelper.write(ostr, v[ix]);
-                }
-            }
-        }
-
-        public static C1?[][] read(Ice.InputStream istr)
-        {
-            C1?[][] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new C1?[szx][];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = C1SeqHelper.read(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class S1SeqSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, S1[][] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    S1SeqHelper.write(ostr, v[ix]);
-                }
-            }
-        }
-
-        public static S1[][] read(Ice.InputStream istr)
-        {
-            S1[][] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new S1[szx][];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = S1SeqHelper.read(istr);
-                }
-            }
-            return v;
-        }
     }
 
     public sealed class StructDict1Helper

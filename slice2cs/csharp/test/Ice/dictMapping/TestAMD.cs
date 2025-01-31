@@ -24,101 +24,6 @@ namespace Ice.dictMapping.AMD
 {
     namespace Test
     {
-        [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : Ice.Object
-        {
-            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.dictMapping.AMD
-{
-    namespace Test
-    {
-        public record struct MyClass_OpNVResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> o);
-
-        public record struct MyClass_OpNRResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> o);
-
-        public record struct MyClass_OpNDVResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o);
-
-        public record struct MyClass_OpNDRResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o);
-
-        public record struct MyClass_OpNDAISResult(global::System.Collections.Generic.Dictionary<string, int[]> returnValue, global::System.Collections.Generic.Dictionary<string, int[]> o);
-
-        public record struct MyClass_OpNDGISResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o);
-
-        public record struct MyClass_OpNDASSResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> o);
-
-        public record struct MyClass_OpNDGSSResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o);
-    }
-}
-
-namespace Ice.dictMapping.AMD
-{
-    namespace Test
-    {
-        public interface MyClassPrx : Ice.ObjectPrx
-        {
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.dictMapping.AMD
-{
-    namespace Test
-    {
         public sealed class NVHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -465,6 +370,45 @@ namespace Ice.dictMapping.AMD
                 }
                 return r;
             }
+        }
+
+        public interface MyClassPrx : Ice.ObjectPrx
+        {
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
@@ -968,6 +912,228 @@ namespace Ice.dictMapping.AMD
 {
     namespace Test
     {
+        public record struct MyClass_OpNVResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> o);
+
+        public record struct MyClass_OpNRResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> o);
+
+        public record struct MyClass_OpNDVResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o);
+
+        public record struct MyClass_OpNDRResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o);
+
+        public record struct MyClass_OpNDAISResult(global::System.Collections.Generic.Dictionary<string, int[]> returnValue, global::System.Collections.Generic.Dictionary<string, int[]> o);
+
+        public record struct MyClass_OpNDGISResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o);
+
+        public record struct MyClass_OpNDASSResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> o);
+
+        public record struct MyClass_OpNDGSSResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o);
+    }
+}
+
+namespace Ice.dictMapping.AMD
+{
+    namespace Test
+    {
+        [Ice.SliceTypeId("::Test::MyClass")]
+        public partial interface MyClass : Ice.Object
+        {
+            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.shutdownAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNVAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<int, int> iceP_i;
+                iceP_i = NVHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNVAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NVHelper.write(ostr, ret.o);
+                        NVHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNRAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, string> iceP_i;
+                iceP_i = NRHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNRAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NRHelper.write(ostr, ret.o);
+                        NRHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDVAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i;
+                iceP_i = NDVHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNDVAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NDVHelper.write(ostr, ret.o);
+                        NDVHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDRAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i;
+                iceP_i = NDRHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNDRAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NDRHelper.write(ostr, ret.o);
+                        NDRHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDAISAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, int[]> iceP_i;
+                iceP_i = NDAISHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNDAISAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NDAISHelper.write(ostr, ret.o);
+                        NDAISHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDGISAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i;
+                iceP_i = NDGISHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNDGISAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NDGISHelper.write(ostr, ret.o);
+                        NDGISHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDASSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, string[]> iceP_i;
+                iceP_i = NDASSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNDASSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NDASSHelper.write(ostr, ret.o);
+                        NDASSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDGSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i;
+                iceP_i = NDGSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opNDGSSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        NDGSSHelper.write(ostr, ret.o);
+                        NDGSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+        }
+
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
             public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
@@ -1010,193 +1176,6 @@ namespace Ice.dictMapping.AMD
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.dictMapping.AMD
-{
-    namespace Test
-    {
-        public partial interface MyClass
-        {
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.shutdownAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNVAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<int, int> iceP_i;
-                iceP_i = NVHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNVAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NVHelper.write(ostr, ret.o);
-                        NVHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNRAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, string> iceP_i;
-                iceP_i = NRHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNRAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NRHelper.write(ostr, ret.o);
-                        NRHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDVAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i;
-                iceP_i = NDVHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNDVAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NDVHelper.write(ostr, ret.o);
-                        NDVHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDRAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i;
-                iceP_i = NDRHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNDRAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NDRHelper.write(ostr, ret.o);
-                        NDRHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDAISAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, int[]> iceP_i;
-                iceP_i = NDAISHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNDAISAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NDAISHelper.write(ostr, ret.o);
-                        NDAISHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDGISAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i;
-                iceP_i = NDGISHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNDGISAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NDGISHelper.write(ostr, ret.o);
-                        NDGISHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDASSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, string[]> iceP_i;
-                iceP_i = NDASSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNDASSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NDASSHelper.write(ostr, ret.o);
-                        NDASSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opNDGSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i;
-                iceP_i = NDGSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opNDGSSAsync(iceP_i, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        NDGSSHelper.write(ostr, ret.o);
-                        NDGSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
         }
     }
 }

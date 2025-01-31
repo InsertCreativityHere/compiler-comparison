@@ -24,31 +24,13 @@ namespace Ice.maxConnections
 {
     namespace Test
     {
-        [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : Ice.Object
-        {
-            void shutdown(Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.maxConnections
-{
-    namespace Test
-    {
         public interface TestIntfPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
-    }
-}
 
-namespace Ice.maxConnections
-{
-    namespace Test
-    {
         public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -142,6 +124,22 @@ namespace Ice.maxConnections
 {
     namespace Test
     {
+        [Ice.SliceTypeId("::Test::TestIntf")]
+        public partial interface TestIntf : Ice.Object
+        {
+            void shutdown(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
             public abstract void shutdown(Ice.Current current);
@@ -160,25 +158,6 @@ namespace Ice.maxConnections
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.maxConnections
-{
-    namespace Test
-    {
-        public partial interface TestIntf
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.shutdown(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

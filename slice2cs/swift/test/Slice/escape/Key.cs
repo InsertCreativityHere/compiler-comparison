@@ -111,182 +111,6 @@ namespace and
         public static defer ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    [Ice.SliceTypeId("::and::break")]
-    public partial interface break : Ice.Object
-    {
-        global::System.Threading.Tasks.Task<int> caseAsync(int catch, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::and::func")]
-    public partial interface func : Ice.Object
-    {
-        void public(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::and::switch")]
-    public partial class switch : Ice.Value
-    {
-        public int if;
-
-        public funcPrx? export;
-
-        public int volatile;
-
-        partial void ice_initialize();
-
-        public switch(int if, funcPrx? export, int volatile)
-        {
-            this.if = if;
-            this.export = export;
-            this.volatile = volatile;
-            ice_initialize();
-        }
-
-        public switch()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::and::switch";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(if);
-            funcPrxHelper.write(ostr_, export);
-            ostr_.writeInt(volatile);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            if = istr_.readInt();
-            export = funcPrxHelper.read(istr_);
-            volatile = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::and::do")]
-    public partial interface do : func, break
-    {
-    }
-
-    [Ice.SliceTypeId("::and::return")]
-    public partial class return : Ice.UserException
-    {
-        public int Int32;
-
-        public return(int Int32)
-        {
-            this.Int32 = Int32;
-        }
-
-        public return()
-        {
-        }
-
-        public override string ice_id() => "::and::return";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::and::return", -1, true);
-            ostr_.writeInt(Int32);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            Int32 = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::and::as")]
-    public partial class as : return
-    {
-        public int static;
-
-        public int switch;
-
-        public as(int Int32, int static, int switch) : base(Int32)
-        {
-            this.static = static;
-            this.switch = switch;
-        }
-
-        public as()
-        {
-        }
-
-        public override string ice_id() => "::and::as";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::and::as", -1, false);
-            ostr_.writeInt(static);
-            ostr_.writeInt(switch);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            static = istr_.readInt();
-            switch = istr_.readInt();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::and::friend")]
-    public partial interface friend : Ice.Object
-    {
-        guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, Ice.Current current);
-    }
-
-    public abstract class is
-    {
-        public const int value = 0;
-    }
-
-    public abstract class self
-    {
-        public const int value = 0;
-    }
-
-    public abstract class throw
-    {
-        public const int value = 0;
-    }
-
-    public abstract class typealias
-    {
-        public const int value = 0;
-    }
-
-    public abstract class internal
-    {
-        public const int value = 0;
-    }
-
-    public abstract class while
-    {
-        public const int value = 0;
-    }
-
-    public abstract class import
-    {
-        public const int value = 0;
-    }
-}
-
-namespace and
-{
     public interface breakPrx : Ice.ObjectPrx
     {
         void case(int catch, out int try, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -294,27 +118,6 @@ namespace and
         global::System.Threading.Tasks.Task<int> caseAsync(int catch, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface funcPrx : Ice.ObjectPrx
-    {
-        void public(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task publicAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface doPrx : funcPrx, breakPrx
-    {
-    }
-
-    public interface friendPrx : Ice.ObjectPrx
-    {
-        guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<guard> gotoAsync(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace and
-{
     public sealed class breakPrxHelper : Ice.ObjectPrxHelperBase, breakPrx
     {
         public void case(int catch, out int try, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -413,6 +216,13 @@ namespace and
         }
     }
 
+    public interface funcPrx : Ice.ObjectPrx
+    {
+        void public(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task publicAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class funcPrxHelper : Ice.ObjectPrxHelperBase, funcPrx
     {
         public void public(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -498,6 +308,56 @@ namespace and
             : base(reference)
         {
         }
+    }
+
+    [Ice.SliceTypeId("::and::switch")]
+    public partial class switch : Ice.Value
+    {
+        public int if;
+
+        public funcPrx? export;
+
+        public int volatile;
+
+        partial void ice_initialize();
+
+        public switch(int if, funcPrx? export, int volatile)
+        {
+            this.if = if;
+            this.export = export;
+            this.volatile = volatile;
+            ice_initialize();
+        }
+
+        public switch()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::and::switch";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeInt(if);
+            funcPrxHelper.write(ostr_, export);
+            ostr_.writeInt(volatile);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            if = istr_.readInt();
+            export = funcPrxHelper.read(istr_);
+            volatile = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    public interface doPrx : funcPrx, breakPrx
+    {
     }
 
     public sealed class doPrxHelper : Ice.ObjectPrxHelperBase, doPrx
@@ -706,6 +566,82 @@ namespace and
         }
     }
 
+    [Ice.SliceTypeId("::and::return")]
+    public partial class return : Ice.UserException
+    {
+        public int Int32;
+
+        public return(int Int32)
+        {
+            this.Int32 = Int32;
+        }
+
+        public return()
+        {
+        }
+
+        public override string ice_id() => "::and::return";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::and::return", -1, true);
+            ostr_.writeInt(Int32);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            Int32 = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::and::as")]
+    public partial class as : return
+    {
+        public int static;
+
+        public int switch;
+
+        public as(int Int32, int static, int switch) : base(Int32)
+        {
+            this.static = static;
+            this.switch = switch;
+        }
+
+        public as()
+        {
+        }
+
+        public override string ice_id() => "::and::as";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::and::as", -1, false);
+            ostr_.writeInt(static);
+            ostr_.writeInt(switch);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            static = istr_.readInt();
+            switch = istr_.readInt();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    public interface friendPrx : Ice.ObjectPrx
+    {
+        guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<guard> gotoAsync(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class friendPrxHelper : Ice.ObjectPrxHelperBase, friendPrx
     {
         public guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -834,10 +770,71 @@ namespace and
         {
         }
     }
+
+    public abstract class is
+    {
+        public const int value = 0;
+    }
+
+    public abstract class self
+    {
+        public const int value = 0;
+    }
+
+    public abstract class throw
+    {
+        public const int value = 0;
+    }
+
+    public abstract class typealias
+    {
+        public const int value = 0;
+    }
+
+    public abstract class internal
+    {
+        public const int value = 0;
+    }
+
+    public abstract class while
+    {
+        public const int value = 0;
+    }
+
+    public abstract class import
+    {
+        public const int value = 0;
+    }
 }
 
 namespace and
 {
+    [Ice.SliceTypeId("::and::break")]
+    public partial interface break : Ice.Object
+    {
+        global::System.Threading.Tasks.Task<int> caseAsync(int catch, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_caseAsync(
+            break obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_catch;
+            iceP_catch = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.caseAsync(iceP_catch, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, iceP_try) =>
+                {
+                    ostr.writeInt(iceP_try);
+                });
+        }
+    }
+
     public abstract class breakDisp_ : Ice.ObjectImpl, break
     {
         public abstract global::System.Threading.Tasks.Task<int> caseAsync(int catch, Ice.Current current);
@@ -858,6 +855,22 @@ namespace and
             };
     }
 
+    [Ice.SliceTypeId("::and::func")]
+    public partial interface func : Ice.Object
+    {
+        void public(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_publicAsync(
+            func obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.public(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class funcDisp_ : Ice.ObjectImpl, func
     {
         public abstract void public(Ice.Current current);
@@ -876,6 +889,11 @@ namespace and
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::and::do")]
+    public partial interface do : func, break
+    {
     }
 
     public abstract class doDisp_ : Ice.ObjectImpl, do
@@ -901,71 +919,11 @@ namespace and
             };
     }
 
-    public abstract class friendDisp_ : Ice.ObjectImpl, friend
+    [Ice.SliceTypeId("::and::friend")]
+    public partial interface friend : Ice.Object
     {
-        public abstract guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, Ice.Current current);
+        guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, Ice.Current current);
 
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::and::friend";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "goto" => friend.iceD_gotoAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace and
-{
-    public partial interface break
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_caseAsync(
-            break obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_catch;
-            iceP_catch = istr.readInt();
-            istr.endEncapsulation();
-            var result = await obj.caseAsync(iceP_catch, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, iceP_try) =>
-                {
-                    ostr.writeInt(iceP_try);
-                });
-        }
-    }
-
-    public partial interface func
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_publicAsync(
-            func obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.public(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface do
-    {
-    }
-
-    public partial interface friend
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_gotoAsync(
             friend obj,
             Ice.IncomingRequest request)
@@ -1008,5 +966,25 @@ namespace and
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public abstract class friendDisp_ : Ice.ObjectImpl, friend
+    {
+        public abstract guard goto(continue if, guard d, defer inline, switch? private, doPrx? mutable, breakPrx? namespace, funcPrx? new, switch? not, doPrx? operator, int or, int protected, int public, int register, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::and::friend";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "goto" => friend.iceD_gotoAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

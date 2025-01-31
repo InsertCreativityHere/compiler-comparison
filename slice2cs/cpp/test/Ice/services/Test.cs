@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Clock")]
-    public partial interface Clock : Ice.Object
-    {
-        void tick(string time, Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface ClockPrx : Ice.ObjectPrx
     {
         void tick(string time, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task tickAsync(string time, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class ClockPrxHelper : Ice.ObjectPrxHelperBase, ClockPrx
     {
         public void tick(string time, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -135,6 +123,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Clock")]
+    public partial interface Clock : Ice.Object
+    {
+        void tick(string time, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_tickAsync(
+            Clock obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_time;
+            iceP_time = istr.readString();
+            istr.endEncapsulation();
+            obj.tick(iceP_time, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ClockDisp_ : Ice.ObjectImpl, Clock
     {
         public abstract void tick(string time, Ice.Current current);
@@ -153,25 +161,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Clock
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_tickAsync(
-            Clock obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_time;
-            iceP_time = istr.readString();
-            istr.endEncapsulation();
-            obj.tick(iceP_time, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Event")]
-    public partial interface Event : Ice.Object
-    {
-        void pub(string data, Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface EventPrx : Ice.ObjectPrx
     {
         void pub(string data, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task pubAsync(string data, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class EventPrxHelper : Ice.ObjectPrxHelperBase, EventPrx
     {
         public void pub(string data, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -135,6 +123,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Event")]
+    public partial interface Event : Ice.Object
+    {
+        void pub(string data, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pubAsync(
+            Event obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_data;
+            iceP_data = istr.readString();
+            istr.endEncapsulation();
+            obj.pub(iceP_data, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class EventDisp_ : Ice.ObjectImpl, Event
     {
         public abstract void pub(string data, Ice.Current current);
@@ -153,25 +161,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Event
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pubAsync(
-            Event obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_data;
-            iceP_data = istr.readString();
-            istr.endEncapsulation();
-            obj.pub(iceP_data, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

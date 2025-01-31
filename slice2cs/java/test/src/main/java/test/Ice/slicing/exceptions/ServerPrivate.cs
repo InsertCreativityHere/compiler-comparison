@@ -156,177 +156,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : Ice.Object
-    {
-        void baseAsBase(Ice.Current current);
-
-        void unknownDerivedAsBase(Ice.Current current);
-
-        void knownDerivedAsBase(Ice.Current current);
-
-        void knownDerivedAsKnownDerived(Ice.Current current);
-
-        void unknownIntermediateAsBase(Ice.Current current);
-
-        void knownIntermediateAsBase(Ice.Current current);
-
-        void knownMostDerivedAsBase(Ice.Current current);
-
-        void knownIntermediateAsKnownIntermediate(Ice.Current current);
-
-        void knownMostDerivedAsKnownIntermediate(Ice.Current current);
-
-        void knownMostDerivedAsKnownMostDerived(Ice.Current current);
-
-        void unknownMostDerived1AsBase(Ice.Current current);
-
-        void unknownMostDerived1AsKnownIntermediate(Ice.Current current);
-
-        void unknownMostDerived2AsBase(Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::UnknownDerived")]
-    public partial class UnknownDerived : Base
-    {
-        public string ud = "";
-
-        public UnknownDerived(string b, string ud) : base(b)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(ud);
-            this.ud = ud;
-        }
-
-        public UnknownDerived()
-        {
-        }
-
-        public override string ice_id() => "::Test::UnknownDerived";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::UnknownDerived", -1, false);
-            ostr_.writeString(ud);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            ud = istr_.readString();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::UnknownIntermediate")]
-    public partial class UnknownIntermediate : Base
-    {
-        public string ui = "";
-
-        public UnknownIntermediate(string b, string ui) : base(b)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(ui);
-            this.ui = ui;
-        }
-
-        public UnknownIntermediate()
-        {
-        }
-
-        public override string ice_id() => "::Test::UnknownIntermediate";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::UnknownIntermediate", -1, false);
-            ostr_.writeString(ui);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            ui = istr_.readString();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::UnknownMostDerived1")]
-    public partial class UnknownMostDerived1 : KnownIntermediate
-    {
-        public string umd1 = "";
-
-        public UnknownMostDerived1(string b, string ki, string umd1) : base(b, ki)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(umd1);
-            this.umd1 = umd1;
-        }
-
-        public UnknownMostDerived1()
-        {
-        }
-
-        public override string ice_id() => "::Test::UnknownMostDerived1";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::UnknownMostDerived1", -1, false);
-            ostr_.writeString(umd1);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            umd1 = istr_.readString();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::UnknownMostDerived2")]
-    public partial class UnknownMostDerived2 : UnknownIntermediate
-    {
-        public string umd2 = "";
-
-        public UnknownMostDerived2(string b, string ui, string umd2) : base(b, ui)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(umd2);
-            this.umd2 = umd2;
-        }
-
-        public UnknownMostDerived2()
-        {
-        }
-
-        public override string ice_id() => "::Test::UnknownMostDerived2";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::UnknownMostDerived2", -1, false);
-            ostr_.writeString(umd2);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            umd2 = istr_.readString();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-}
-
-namespace Test
-{
     public interface TestIntfPrx : Ice.ObjectPrx
     {
         void baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -385,10 +214,7 @@ namespace Test
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
         public void baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1151,10 +977,318 @@ namespace Test
         {
         }
     }
+
+    [Ice.SliceTypeId("::Test::UnknownDerived")]
+    public partial class UnknownDerived : Base
+    {
+        public string ud = "";
+
+        public UnknownDerived(string b, string ud) : base(b)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(ud);
+            this.ud = ud;
+        }
+
+        public UnknownDerived()
+        {
+        }
+
+        public override string ice_id() => "::Test::UnknownDerived";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::UnknownDerived", -1, false);
+            ostr_.writeString(ud);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            ud = istr_.readString();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::UnknownIntermediate")]
+    public partial class UnknownIntermediate : Base
+    {
+        public string ui = "";
+
+        public UnknownIntermediate(string b, string ui) : base(b)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(ui);
+            this.ui = ui;
+        }
+
+        public UnknownIntermediate()
+        {
+        }
+
+        public override string ice_id() => "::Test::UnknownIntermediate";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::UnknownIntermediate", -1, false);
+            ostr_.writeString(ui);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            ui = istr_.readString();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::UnknownMostDerived1")]
+    public partial class UnknownMostDerived1 : KnownIntermediate
+    {
+        public string umd1 = "";
+
+        public UnknownMostDerived1(string b, string ki, string umd1) : base(b, ki)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(umd1);
+            this.umd1 = umd1;
+        }
+
+        public UnknownMostDerived1()
+        {
+        }
+
+        public override string ice_id() => "::Test::UnknownMostDerived1";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::UnknownMostDerived1", -1, false);
+            ostr_.writeString(umd1);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            umd1 = istr_.readString();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::UnknownMostDerived2")]
+    public partial class UnknownMostDerived2 : UnknownIntermediate
+    {
+        public string umd2 = "";
+
+        public UnknownMostDerived2(string b, string ui, string umd2) : base(b, ui)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(umd2);
+            this.umd2 = umd2;
+        }
+
+        public UnknownMostDerived2()
+        {
+        }
+
+        public override string ice_id() => "::Test::UnknownMostDerived2";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::UnknownMostDerived2", -1, false);
+            ostr_.writeString(umd2);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            umd2 = istr_.readString();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
 }
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::TestIntf")]
+    public partial interface TestIntf : Ice.Object
+    {
+        void baseAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_baseAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.baseAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void unknownDerivedAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownDerivedAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownDerivedAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownDerivedAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownDerivedAsKnownDerived(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsKnownDerivedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownDerivedAsKnownDerived(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void unknownIntermediateAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownIntermediateAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownIntermediateAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownIntermediateAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownIntermediateAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownMostDerivedAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownMostDerivedAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownIntermediateAsKnownIntermediate(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsKnownIntermediateAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownIntermediateAsKnownIntermediate(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownMostDerivedAsKnownIntermediate(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownIntermediateAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownMostDerivedAsKnownIntermediate(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void knownMostDerivedAsKnownMostDerived(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownMostDerivedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownMostDerivedAsKnownMostDerived(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void unknownMostDerived1AsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived1AsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void unknownMostDerived1AsKnownIntermediate(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsKnownIntermediateAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived1AsKnownIntermediate(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void unknownMostDerived2AsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived2AsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived2AsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
         public abstract void baseAsBase(Ice.Current current);
@@ -1212,151 +1346,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface TestIntf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_baseAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.baseAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.unknownDerivedAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownDerivedAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownDerivedAsKnownDerivedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownDerivedAsKnownDerived(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownIntermediateAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.unknownIntermediateAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownIntermediateAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownMostDerivedAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownIntermediateAsKnownIntermediateAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownIntermediateAsKnownIntermediate(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownIntermediateAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownMostDerivedAsKnownIntermediate(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownMostDerivedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.knownMostDerivedAsKnownMostDerived(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.unknownMostDerived1AsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived1AsKnownIntermediateAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.unknownMostDerived1AsKnownIntermediate(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_unknownMostDerived2AsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.unknownMostDerived2AsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

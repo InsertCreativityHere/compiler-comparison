@@ -22,86 +22,6 @@
 
 namespace IceGrid
 {
-    [Ice.SliceTypeId("::IceGrid::Session")]
-    public partial interface Session : global::Glacier2.Session
-    {
-        /// <summary>
-        /// Keep the session alive.
-        /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        [global::System.Obsolete]
-        void keepAlive(Ice.Current current);
-
-        /// <summary>
-        /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-        /// available or until the timeout is reached.
-        /// </summary>
-        /// <param name="id">
-        /// The identity of the object to allocate.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceGrid.AllocationException">
-        /// Raised if the object can't be allocated.
-        /// </exception>
-        /// <exception cref="IceGrid.ObjectNotRegisteredException">
-        /// Raised if the object with the given identity is not registered with
-        /// the registry.
-        /// </exception>
-        /// <seealso cref="setAllocationTimeout" />
-        /// <seealso cref="releaseObject" />
-        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
-
-        /// <summary>
-        /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-        /// an object becomes available or until the timeout is reached.
-        /// </summary>
-        /// <param name="type">
-        /// The type of the object.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceGrid.AllocationException">
-        /// Raised if the object could not be allocated.
-        /// </exception>
-        /// <seealso cref="setAllocationTimeout" />
-        /// <seealso cref="releaseObject" />
-        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, Ice.Current current);
-
-        /// <summary>
-        /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
-        /// </summary>
-        /// <param name="id">
-        /// The identity of the object to release.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceGrid.AllocationException">
-        /// Raised if the given object can't be released. This might happen if the object
-        /// isn't allocatable or isn't allocated by the session.
-        /// </exception>
-        /// <exception cref="IceGrid.ObjectNotRegisteredException">
-        /// Raised if the object with the given identity is not registered with
-        /// the registry.
-        /// </exception>
-        void releaseObject(global::Ice.Identity id, Ice.Current current);
-
-        /// <summary>
-        /// Set the allocation timeout. If no objects are available for an allocation request, a call to
-        /// allocateObjectById or allocateObjectByType will block for the duration of this
-        /// timeout.
-        /// </summary>
-        /// <param name="timeout">
-        /// The timeout in milliseconds.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setAllocationTimeout(int timeout, Ice.Current current);
-    }
-}
-
-namespace IceGrid
-{
     /// <summary>
     /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
     /// via the  object or via the registry client SessionManager object.
@@ -272,10 +192,7 @@ namespace IceGrid
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace IceGrid
-{
     public sealed class SessionPrxHelper : Ice.ObjectPrxHelperBase, SessionPrx
     {
         public void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -633,6 +550,161 @@ namespace IceGrid
 
 namespace IceGrid
 {
+    [Ice.SliceTypeId("::IceGrid::Session")]
+    public partial interface Session : global::Glacier2.Session
+    {
+        /// <summary>
+        /// Keep the session alive.
+        /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        [global::System.Obsolete]
+        void keepAlive(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_keepAliveAsync(
+            Session obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.keepAlive(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+        /// available or until the timeout is reached.
+        /// </summary>
+        /// <param name="id">
+        /// The identity of the object to allocate.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object can't be allocated.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_allocateObjectByIdAsync(
+            Session obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.Identity iceP_id;
+            iceP_id = new global::Ice.Identity(istr);
+            istr.endEncapsulation();
+            var result = await obj.allocateObjectByIdAsync(iceP_id, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        /// <summary>
+        /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+        /// an object becomes available or until the timeout is reached.
+        /// </summary>
+        /// <param name="type">
+        /// The type of the object.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object could not be allocated.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_allocateObjectByTypeAsync(
+            Session obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_type;
+            iceP_type = istr.readString();
+            istr.endEncapsulation();
+            var result = await obj.allocateObjectByTypeAsync(iceP_type, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        /// <summary>
+        /// Release an object that was allocated using allocateObjectById or
+        /// allocateObjectByType.
+        /// </summary>
+        /// <param name="id">
+        /// The identity of the object to release.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the given object can't be released. This might happen if the object
+        /// isn't allocatable or isn't allocated by the session.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
+        void releaseObject(global::Ice.Identity id, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_releaseObjectAsync(
+            Session obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.Identity iceP_id;
+            iceP_id = new global::Ice.Identity(istr);
+            istr.endEncapsulation();
+            obj.releaseObject(iceP_id, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+        /// allocateObjectById or allocateObjectByType will block for the duration of this
+        /// timeout.
+        /// </summary>
+        /// <param name="timeout">
+        /// The timeout in milliseconds.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setAllocationTimeout(int timeout, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setAllocationTimeoutAsync(
+            Session obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_timeout;
+            iceP_timeout = istr.readInt();
+            istr.endEncapsulation();
+            obj.setAllocationTimeout(iceP_timeout, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class SessionDisp_ : Ice.ObjectImpl, Session
     {
         public abstract void destroy(Ice.Current current);
@@ -666,89 +738,5 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceGrid
-{
-    public partial interface Session
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_keepAliveAsync(
-            Session obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.keepAlive(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_allocateObjectByIdAsync(
-            Session obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::Ice.Identity iceP_id;
-            iceP_id = new global::Ice.Identity(istr);
-            istr.endEncapsulation();
-            var result = await obj.allocateObjectByIdAsync(iceP_id, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_allocateObjectByTypeAsync(
-            Session obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_type;
-            iceP_type = istr.readString();
-            istr.endEncapsulation();
-            var result = await obj.allocateObjectByTypeAsync(iceP_type, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_releaseObjectAsync(
-            Session obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::Ice.Identity iceP_id;
-            iceP_id = new global::Ice.Identity(istr);
-            istr.endEncapsulation();
-            obj.releaseObject(iceP_id, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setAllocationTimeoutAsync(
-            Session obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_timeout;
-            iceP_timeout = istr.readInt();
-            istr.endEncapsulation();
-            obj.setAllocationTimeout(iceP_timeout, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -73,172 +73,6 @@ namespace and
         public static continue ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    [Ice.SliceTypeId("::and::del")]
-    public partial interface del : Ice.Object
-    {
-        global::System.Threading.Tasks.Task<int> elifAsync(int else, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::and::exec")]
-    public partial interface exec : Ice.Object
-    {
-        void finally(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::and::for")]
-    public partial class for : Ice.Value
-    {
-        public int lambda;
-
-        public execPrx? from;
-
-        public int global;
-
-        partial void ice_initialize();
-
-        public for(int lambda, execPrx? from, int global)
-        {
-            this.lambda = lambda;
-            this.from = from;
-            this.global = global;
-            ice_initialize();
-        }
-
-        public for()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::and::for";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(lambda);
-            execPrxHelper.write(ostr_, from);
-            ostr_.writeInt(global);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            lambda = istr_.readInt();
-            from = execPrxHelper.read(istr_);
-            global = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::and::if")]
-    public partial interface if : exec, del
-    {
-    }
-
-    [Ice.SliceTypeId("::and::is")]
-    public partial class is : Ice.UserException
-    {
-        public int lambda;
-
-        public is(int lambda)
-        {
-            this.lambda = lambda;
-        }
-
-        public is()
-        {
-        }
-
-        public override string ice_id() => "::and::is";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::and::is", -1, true);
-            ostr_.writeInt(lambda);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            lambda = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::and::not")]
-    public partial class not : is
-    {
-        public int or;
-
-        public int pass;
-
-        public not(int lambda, int or, int pass) : base(lambda)
-        {
-            this.or = or;
-            this.pass = pass;
-        }
-
-        public not()
-        {
-        }
-
-        public override string ice_id() => "::and::not";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::and::not", -1, false);
-            ostr_.writeInt(or);
-            ostr_.writeInt(pass);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            or = istr_.readInt();
-            pass = istr_.readInt();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::and::print")]
-    public partial interface print : Ice.Object
-    {
-        assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
-    }
-
-    public abstract class lambda
-    {
-        public const int value = 0;
-    }
-
-    public enum EnumNone
-    {
-        None
-    }
-
-    public sealed class EnumNoneHelper
-    {
-        public static void write(Ice.OutputStream ostr, EnumNone v)
-        {
-            ostr.writeEnum((int)v, 0);
-        }
-
-        public static EnumNone read(Ice.InputStream istr)
-        {
-            EnumNone v;
-            v = (EnumNone)istr.readEnum(0);
-            return v;
-        }
-    }
-}
-
-namespace and
-{
     public interface delPrx : Ice.ObjectPrx
     {
         void elif(int else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -246,27 +80,6 @@ namespace and
         global::System.Threading.Tasks.Task<int> elifAsync(int else, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface execPrx : Ice.ObjectPrx
-    {
-        void finally(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task finallyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface ifPrx : execPrx, delPrx
-    {
-    }
-
-    public interface printPrx : Ice.ObjectPrx
-    {
-        assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<assert> raiseAsync(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace and
-{
     public sealed class delPrxHelper : Ice.ObjectPrxHelperBase, delPrx
     {
         public void elif(int else, out int except, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -365,6 +178,13 @@ namespace and
         }
     }
 
+    public interface execPrx : Ice.ObjectPrx
+    {
+        void finally(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task finallyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class execPrxHelper : Ice.ObjectPrxHelperBase, execPrx
     {
         public void finally(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -450,6 +270,56 @@ namespace and
             : base(reference)
         {
         }
+    }
+
+    [Ice.SliceTypeId("::and::for")]
+    public partial class for : Ice.Value
+    {
+        public int lambda;
+
+        public execPrx? from;
+
+        public int global;
+
+        partial void ice_initialize();
+
+        public for(int lambda, execPrx? from, int global)
+        {
+            this.lambda = lambda;
+            this.from = from;
+            this.global = global;
+            ice_initialize();
+        }
+
+        public for()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::and::for";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeInt(lambda);
+            execPrxHelper.write(ostr_, from);
+            ostr_.writeInt(global);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            lambda = istr_.readInt();
+            from = execPrxHelper.read(istr_);
+            global = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    public interface ifPrx : execPrx, delPrx
+    {
     }
 
     public sealed class ifPrxHelper : Ice.ObjectPrxHelperBase, ifPrx
@@ -658,6 +528,82 @@ namespace and
         }
     }
 
+    [Ice.SliceTypeId("::and::is")]
+    public partial class is : Ice.UserException
+    {
+        public int lambda;
+
+        public is(int lambda)
+        {
+            this.lambda = lambda;
+        }
+
+        public is()
+        {
+        }
+
+        public override string ice_id() => "::and::is";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::and::is", -1, true);
+            ostr_.writeInt(lambda);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            lambda = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::and::not")]
+    public partial class not : is
+    {
+        public int or;
+
+        public int pass;
+
+        public not(int lambda, int or, int pass) : base(lambda)
+        {
+            this.or = or;
+            this.pass = pass;
+        }
+
+        public not()
+        {
+        }
+
+        public override string ice_id() => "::and::not";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::and::not", -1, false);
+            ostr_.writeInt(or);
+            ostr_.writeInt(pass);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            or = istr_.readInt();
+            pass = istr_.readInt();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    public interface printPrx : Ice.ObjectPrx
+    {
+        assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<assert> raiseAsync(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class printPrxHelper : Ice.ObjectPrxHelperBase, printPrx
     {
         public assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -775,10 +721,61 @@ namespace and
         {
         }
     }
+
+    public abstract class lambda
+    {
+        public const int value = 0;
+    }
+
+    public enum EnumNone
+    {
+        None
+    }
+
+    public sealed class EnumNoneHelper
+    {
+        public static void write(Ice.OutputStream ostr, EnumNone v)
+        {
+            ostr.writeEnum((int)v, 0);
+        }
+
+        public static EnumNone read(Ice.InputStream istr)
+        {
+            EnumNone v;
+            v = (EnumNone)istr.readEnum(0);
+            return v;
+        }
+    }
 }
 
 namespace and
 {
+    [Ice.SliceTypeId("::and::del")]
+    public partial interface del : Ice.Object
+    {
+        global::System.Threading.Tasks.Task<int> elifAsync(int else, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_elifAsync(
+            del obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_else;
+            iceP_else = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.elifAsync(iceP_else, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, iceP_except) =>
+                {
+                    ostr.writeInt(iceP_except);
+                });
+        }
+    }
+
     public abstract class delDisp_ : Ice.ObjectImpl, del
     {
         public abstract global::System.Threading.Tasks.Task<int> elifAsync(int else, Ice.Current current);
@@ -799,6 +796,22 @@ namespace and
             };
     }
 
+    [Ice.SliceTypeId("::and::exec")]
+    public partial interface exec : Ice.Object
+    {
+        void finally(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_finallyAsync(
+            exec obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.finally(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class execDisp_ : Ice.ObjectImpl, exec
     {
         public abstract void finally(Ice.Current current);
@@ -817,6 +830,11 @@ namespace and
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::and::if")]
+    public partial interface if : exec, del
+    {
     }
 
     public abstract class ifDisp_ : Ice.ObjectImpl, if
@@ -842,71 +860,11 @@ namespace and
             };
     }
 
-    public abstract class printDisp_ : Ice.ObjectImpl, print
+    [Ice.SliceTypeId("::and::print")]
+    public partial interface print : Ice.Object
     {
-        public abstract assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
+        assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
 
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::and::print";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "raise" => print.iceD_raiseAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace and
-{
-    public partial interface del
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_elifAsync(
-            del obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_else;
-            iceP_else = istr.readInt();
-            istr.endEncapsulation();
-            var result = await obj.elifAsync(iceP_else, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, iceP_except) =>
-                {
-                    ostr.writeInt(iceP_except);
-                });
-        }
-    }
-
-    public partial interface exec
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_finallyAsync(
-            exec obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.finally(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface if
-    {
-    }
-
-    public partial interface print
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_raiseAsync(
             print obj,
             Ice.IncomingRequest request)
@@ -935,5 +893,25 @@ namespace and
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public abstract class printDisp_ : Ice.ObjectImpl, print
+    {
+        public abstract assert raise(continue else, for? return, delPrx? while, execPrx? yield, ifPrx? or, int global, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::and::print";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "raise" => print.iceD_raiseAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

@@ -24,6 +24,36 @@ namespace Test
 {
     namespace Common
     {
+        public sealed class BoolSeqHelper
+        {
+            public static void write(Ice.OutputStream ostr, bool[] v)
+            {
+                ostr.writeBoolSeq(v);
+            }
+
+            public static bool[] read(Ice.InputStream istr)
+            {
+                bool[] v;
+                v = istr.readBoolSeq();
+                return v;
+            }
+        }
+
+        public sealed class StringSeqHelper
+        {
+            public static void write(Ice.OutputStream ostr, string[] v)
+            {
+                ostr.writeStringSeq(v);
+            }
+
+            public static string[] read(Ice.InputStream istr)
+            {
+                string[] v;
+                v = istr.readStringSeq();
+                return v;
+            }
+        }
+
         [Ice.SliceTypeId("::Test::Common::Config")]
         public partial class Config : Ice.Value
         {
@@ -210,98 +240,6 @@ namespace Test
             }
         }
 
-        [Ice.SliceTypeId("::Test::Common::TestCase")]
-        public partial interface TestCase : Ice.Object
-        {
-            string startServerSide(Config? config, Ice.Current current);
-
-            string stopServerSide(bool success, Ice.Current current);
-
-            string runClientSide(string host, Config? config, Ice.Current current);
-
-            void destroy(Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::Common::Controller")]
-        public partial interface Controller : Ice.Object
-        {
-            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, Ice.Current current);
-
-            OptionOverrides? getOptionOverrides(Ice.Current current);
-
-            string[] getTestSuites(string mapping, Ice.Current current);
-
-            string getHost(string protocol, bool ipv6, Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::Common::ProcessFailedException")]
-        public partial class ProcessFailedException : Ice.UserException
-        {
-            public string reason = "";
-
-            public ProcessFailedException(string reason)
-            {
-                global::System.ArgumentNullException.ThrowIfNull(reason);
-                this.reason = reason;
-            }
-
-            public ProcessFailedException()
-            {
-            }
-
-            public override string ice_id() => "::Test::Common::ProcessFailedException";
-
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice("::Test::Common::ProcessFailedException", -1, true);
-                ostr_.writeString(reason);
-                ostr_.endSlice();
-            }
-
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                reason = istr_.readString();
-                istr_.endSlice();
-            }
-        }
-
-        [Ice.SliceTypeId("::Test::Common::Process")]
-        public partial interface Process : Ice.Object
-        {
-            void waitReady(int timeout, Ice.Current current);
-
-            int waitSuccess(int timeout, Ice.Current current);
-
-            string terminate(Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::Common::ProcessController")]
-        public partial interface ProcessController : Ice.Object
-        {
-            ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
-
-            string getHost(string protocol, bool ipv6, Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::Common::BrowserProcessController")]
-        public partial interface BrowserProcessController : ProcessController
-        {
-            void redirect(string url, Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::Common::ProcessControllerRegistry")]
-        public partial interface ProcessControllerRegistry : Ice.Object
-        {
-            void setProcessController(ProcessControllerPrx? controller, Ice.Current current);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace Common
-    {
         public interface TestCasePrx : Ice.ObjectPrx
         {
             string startServerSide(Config? config, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -319,101 +257,6 @@ namespace Test
             void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface ControllerPrx : Ice.ObjectPrx
-        {
-            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestCasePrx?> runTestCaseAsync(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            OptionOverrides? getOptionOverrides(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<OptionOverrides?> getOptionOverridesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] getTestSuites(string mapping, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string[]> getTestSuitesAsync(string mapping, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string getHost(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string> getHostAsync(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface ProcessPrx : Ice.ObjectPrx
-        {
-            void waitReady(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task waitReadyAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            int waitSuccess(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<int> waitSuccessAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string terminate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string> terminateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface ProcessControllerPrx : Ice.ObjectPrx
-        {
-            ProcessPrx? start(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<ProcessPrx?> startAsync(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string getHost(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string> getHostAsync(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface BrowserProcessControllerPrx : ProcessControllerPrx
-        {
-            void redirect(string url, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task redirectAsync(string url, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface ProcessControllerRegistryPrx : Ice.ObjectPrx
-        {
-            void setProcessController(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task setProcessControllerAsync(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace Common
-    {
-        public sealed class BoolSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, bool[] v)
-            {
-                ostr.writeBoolSeq(v);
-            }
-
-            public static bool[] read(Ice.InputStream istr)
-            {
-                bool[] v;
-                v = istr.readBoolSeq();
-                return v;
-            }
-        }
-
-        public sealed class StringSeqHelper
-        {
-            public static void write(Ice.OutputStream ostr, string[] v)
-            {
-                ostr.writeStringSeq(v);
-            }
-
-            public static string[] read(Ice.InputStream istr)
-            {
-                string[] v;
-                v = istr.readStringSeq();
-                return v;
-            }
         }
 
         public sealed class TestCasePrxHelper : Ice.ObjectPrxHelperBase, TestCasePrx
@@ -692,6 +535,25 @@ namespace Test
             }
         }
 
+        public interface ControllerPrx : Ice.ObjectPrx
+        {
+            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestCasePrx?> runTestCaseAsync(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            OptionOverrides? getOptionOverrides(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<OptionOverrides?> getOptionOverridesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] getTestSuites(string mapping, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string[]> getTestSuitesAsync(string mapping, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string getHost(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string> getHostAsync(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class ControllerPrxHelper : Ice.ObjectPrxHelperBase, ControllerPrx
         {
             public TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -949,6 +811,53 @@ namespace Test
             }
         }
 
+        [Ice.SliceTypeId("::Test::Common::ProcessFailedException")]
+        public partial class ProcessFailedException : Ice.UserException
+        {
+            public string reason = "";
+
+            public ProcessFailedException(string reason)
+            {
+                global::System.ArgumentNullException.ThrowIfNull(reason);
+                this.reason = reason;
+            }
+
+            public ProcessFailedException()
+            {
+            }
+
+            public override string ice_id() => "::Test::Common::ProcessFailedException";
+
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
+            {
+                ostr_.startSlice("::Test::Common::ProcessFailedException", -1, true);
+                ostr_.writeString(reason);
+                ostr_.endSlice();
+            }
+
+            protected override void iceReadImpl(Ice.InputStream istr_)
+            {
+                istr_.startSlice();
+                reason = istr_.readString();
+                istr_.endSlice();
+            }
+        }
+
+        public interface ProcessPrx : Ice.ObjectPrx
+        {
+            void waitReady(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task waitReadyAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            int waitSuccess(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<int> waitSuccessAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string terminate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string> terminateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class ProcessPrxHelper : Ice.ObjectPrxHelperBase, ProcessPrx
         {
             public void waitReady(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1161,6 +1070,17 @@ namespace Test
             }
         }
 
+        public interface ProcessControllerPrx : Ice.ObjectPrx
+        {
+            ProcessPrx? start(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<ProcessPrx?> startAsync(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string getHost(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string> getHostAsync(string protocol, bool ipv6, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class ProcessControllerPrxHelper : Ice.ObjectPrxHelperBase, ProcessControllerPrx
         {
             public ProcessPrx? start(string testsuite, string exe, string[] args, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1322,6 +1242,13 @@ namespace Test
                 : base(reference)
             {
             }
+        }
+
+        public interface BrowserProcessControllerPrx : ProcessControllerPrx
+        {
+            void redirect(string url, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task redirectAsync(string url, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class BrowserProcessControllerPrxHelper : Ice.ObjectPrxHelperBase, BrowserProcessControllerPrx
@@ -1529,6 +1456,13 @@ namespace Test
             }
         }
 
+        public interface ProcessControllerRegistryPrx : Ice.ObjectPrx
+        {
+            void setProcessController(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task setProcessControllerAsync(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class ProcessControllerRegistryPrxHelper : Ice.ObjectPrxHelperBase, ProcessControllerRegistryPrx
         {
             public void setProcessController(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1626,6 +1560,86 @@ namespace Test
 {
     namespace Common
     {
+        [Ice.SliceTypeId("::Test::Common::TestCase")]
+        public partial interface TestCase : Ice.Object
+        {
+            string startServerSide(Config? config, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startServerSideAsync(
+                TestCase obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                Config? iceP_config = null;
+                istr.readValue((Config? v) => { iceP_config = v; });
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var ret = obj.startServerSide(iceP_config, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string stopServerSide(bool success, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopServerSideAsync(
+                TestCase obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool iceP_success;
+                iceP_success = istr.readBool();
+                istr.endEncapsulation();
+                var ret = obj.stopServerSide(iceP_success, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string runClientSide(string host, Config? config, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_runClientSideAsync(
+                TestCase obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_host;
+                Config? iceP_config = null;
+                iceP_host = istr.readString();
+                istr.readValue((Config? v) => { iceP_config = v; });
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var ret = obj.runClientSide(iceP_host, iceP_config, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            void destroy(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
+                TestCase obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.destroy(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class TestCaseDisp_ : Ice.ObjectImpl, TestCase
         {
             public abstract string startServerSide(Config? config, Ice.Current current);
@@ -1653,6 +1667,95 @@ namespace Test
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::Common::Controller")]
+        public partial interface Controller : Ice.Object
+        {
+            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_runTestCaseAsync(
+                Controller obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_mapping;
+                string iceP_testsuite;
+                string iceP_testcase;
+                string iceP_cross;
+                iceP_mapping = istr.readString();
+                iceP_testsuite = istr.readString();
+                iceP_testcase = istr.readString();
+                iceP_cross = istr.readString();
+                istr.endEncapsulation();
+                var ret = obj.runTestCase(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                TestCasePrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            OptionOverrides? getOptionOverrides(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getOptionOverridesAsync(
+                Controller obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.getOptionOverrides(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeValue(ret);
+                ostr.writePendingValues();
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string[] getTestSuites(string mapping, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTestSuitesAsync(
+                Controller obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_mapping;
+                iceP_mapping = istr.readString();
+                istr.endEncapsulation();
+                var ret = obj.getTestSuites(iceP_mapping, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                StringSeqHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string getHost(string protocol, bool ipv6, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostAsync(
+                Controller obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_protocol;
+                bool iceP_ipv6;
+                iceP_protocol = istr.readString();
+                iceP_ipv6 = istr.readBool();
+                istr.endEncapsulation();
+                var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
         }
 
         public abstract class ControllerDisp_ : Ice.ObjectImpl, Controller
@@ -1684,6 +1787,62 @@ namespace Test
                 };
         }
 
+        [Ice.SliceTypeId("::Test::Common::Process")]
+        public partial interface Process : Ice.Object
+        {
+            void waitReady(int timeout, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitReadyAsync(
+                Process obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int iceP_timeout;
+                iceP_timeout = istr.readInt();
+                istr.endEncapsulation();
+                obj.waitReady(iceP_timeout, request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            int waitSuccess(int timeout, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitSuccessAsync(
+                Process obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int iceP_timeout;
+                iceP_timeout = istr.readInt();
+                istr.endEncapsulation();
+                var ret = obj.waitSuccess(iceP_timeout, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeInt(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string terminate(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_terminateAsync(
+                Process obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.terminate(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class ProcessDisp_ : Ice.ObjectImpl, Process
         {
             public abstract void waitReady(int timeout, Ice.Current current);
@@ -1710,6 +1869,56 @@ namespace Test
                 };
         }
 
+        [Ice.SliceTypeId("::Test::Common::ProcessController")]
+        public partial interface ProcessController : Ice.Object
+        {
+            ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startAsync(
+                ProcessController obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_testsuite;
+                string iceP_exe;
+                string[] iceP_args;
+                iceP_testsuite = istr.readString();
+                iceP_exe = istr.readString();
+                iceP_args = StringSeqHelper.read(istr);
+                istr.endEncapsulation();
+                var ret = obj.start(iceP_testsuite, iceP_exe, iceP_args, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ProcessPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            string getHost(string protocol, bool ipv6, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostAsync(
+                ProcessController obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_protocol;
+                bool iceP_ipv6;
+                iceP_protocol = istr.readString();
+                iceP_ipv6 = istr.readBool();
+                istr.endEncapsulation();
+                var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeString(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class ProcessControllerDisp_ : Ice.ObjectImpl, ProcessController
         {
             public abstract ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
@@ -1731,6 +1940,26 @@ namespace Test
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::Common::BrowserProcessController")]
+        public partial interface BrowserProcessController : ProcessController
+        {
+            void redirect(string url, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_redirectAsync(
+                BrowserProcessController obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_url;
+                iceP_url = istr.readString();
+                istr.endEncapsulation();
+                obj.redirect(iceP_url, request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
         }
 
         public abstract class BrowserProcessControllerDisp_ : Ice.ObjectImpl, BrowserProcessController
@@ -1759,6 +1988,26 @@ namespace Test
                 };
         }
 
+        [Ice.SliceTypeId("::Test::Common::ProcessControllerRegistry")]
+        public partial interface ProcessControllerRegistry : Ice.Object
+        {
+            void setProcessController(ProcessControllerPrx? controller, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setProcessControllerAsync(
+                ProcessControllerRegistry obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                ProcessControllerPrx? iceP_controller;
+                iceP_controller = ProcessControllerPrxHelper.read(istr);
+                istr.endEncapsulation();
+                obj.setProcessController(iceP_controller, request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class ProcessControllerRegistryDisp_ : Ice.ObjectImpl, ProcessControllerRegistry
         {
             public abstract void setProcessController(ProcessControllerPrx? controller, Ice.Current current);
@@ -1777,291 +2026,6 @@ namespace Test
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Test
-{
-    namespace Common
-    {
-        public partial interface TestCase
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startServerSideAsync(
-                TestCase obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                Config? iceP_config = null;
-                istr.readValue((Config? v) => { iceP_config = v; });
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var ret = obj.startServerSide(iceP_config, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopServerSideAsync(
-                TestCase obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool iceP_success;
-                iceP_success = istr.readBool();
-                istr.endEncapsulation();
-                var ret = obj.stopServerSide(iceP_success, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_runClientSideAsync(
-                TestCase obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_host;
-                Config? iceP_config = null;
-                iceP_host = istr.readString();
-                istr.readValue((Config? v) => { iceP_config = v; });
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var ret = obj.runClientSide(iceP_host, iceP_config, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
-                TestCase obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.destroy(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-        }
-
-        public partial interface Controller
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_runTestCaseAsync(
-                Controller obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_mapping;
-                string iceP_testsuite;
-                string iceP_testcase;
-                string iceP_cross;
-                iceP_mapping = istr.readString();
-                iceP_testsuite = istr.readString();
-                iceP_testcase = istr.readString();
-                iceP_cross = istr.readString();
-                istr.endEncapsulation();
-                var ret = obj.runTestCase(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                TestCasePrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getOptionOverridesAsync(
-                Controller obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var ret = obj.getOptionOverrides(request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeValue(ret);
-                ostr.writePendingValues();
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTestSuitesAsync(
-                Controller obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_mapping;
-                iceP_mapping = istr.readString();
-                istr.endEncapsulation();
-                var ret = obj.getTestSuites(iceP_mapping, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                StringSeqHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostAsync(
-                Controller obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_protocol;
-                bool iceP_ipv6;
-                iceP_protocol = istr.readString();
-                iceP_ipv6 = istr.readBool();
-                istr.endEncapsulation();
-                var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-
-        public partial interface Process
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitReadyAsync(
-                Process obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                int iceP_timeout;
-                iceP_timeout = istr.readInt();
-                istr.endEncapsulation();
-                obj.waitReady(iceP_timeout, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitSuccessAsync(
-                Process obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                int iceP_timeout;
-                iceP_timeout = istr.readInt();
-                istr.endEncapsulation();
-                var ret = obj.waitSuccess(iceP_timeout, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeInt(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_terminateAsync(
-                Process obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var ret = obj.terminate(request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-
-        public partial interface ProcessController
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startAsync(
-                ProcessController obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_testsuite;
-                string iceP_exe;
-                string[] iceP_args;
-                iceP_testsuite = istr.readString();
-                iceP_exe = istr.readString();
-                iceP_args = StringSeqHelper.read(istr);
-                istr.endEncapsulation();
-                var ret = obj.start(iceP_testsuite, iceP_exe, iceP_args, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ProcessPrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostAsync(
-                ProcessController obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_protocol;
-                bool iceP_ipv6;
-                iceP_protocol = istr.readString();
-                iceP_ipv6 = istr.readBool();
-                istr.endEncapsulation();
-                var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeString(ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-
-        public partial interface BrowserProcessController
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_redirectAsync(
-                BrowserProcessController obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_url;
-                iceP_url = istr.readString();
-                istr.endEncapsulation();
-                obj.redirect(iceP_url, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-        }
-
-        public partial interface ProcessControllerRegistry
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setProcessControllerAsync(
-                ProcessControllerRegistry obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                ProcessControllerPrx? iceP_controller;
-                iceP_controller = ProcessControllerPrxHelper.read(istr);
-                istr.endEncapsulation();
-                obj.setProcessController(iceP_controller, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

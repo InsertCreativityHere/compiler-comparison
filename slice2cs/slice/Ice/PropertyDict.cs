@@ -22,10 +22,6 @@
 
 namespace Ice
 {
-}
-
-namespace Ice
-{
     public sealed class PropertyDictHelper
     {
         public static void write(Ice.OutputStream ostr,

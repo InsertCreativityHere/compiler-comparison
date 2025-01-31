@@ -24,137 +24,13 @@ namespace Test
 {
     namespace MA
     {
-        [Ice.SliceTypeId("::Test::MA::IA")]
-        public partial interface IA : Ice.Object
-        {
-            IAPrx? iaop(IAPrx? p, Ice.Current current);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace MB
-    {
-        [Ice.SliceTypeId("::Test::MB::IB1")]
-        public partial interface IB1 : global::Test.MA.IA
-        {
-            IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::MB::IB2")]
-        public partial interface IB2 : global::Test.MA.IA
-        {
-            IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace MA
-    {
-        [Ice.SliceTypeId("::Test::MA::IC")]
-        public partial interface IC : global::Test.MB.IB1, global::Test.MB.IB2
-        {
-            ICPrx? icop(ICPrx? p, Ice.Current current);
-        }
-    }
-}
-
-namespace Test
-{
-    [Ice.SliceTypeId("::Test::Initial")]
-    public partial interface Initial : Ice.Object
-    {
-        void shutdown(Ice.Current current);
-
-        global::Test.MA.IAPrx? iaop(Ice.Current current);
-
-        global::Test.MB.IB1Prx? ib1op(Ice.Current current);
-
-        global::Test.MB.IB2Prx? ib2op(Ice.Current current);
-
-        global::Test.MA.ICPrx? icop(Ice.Current current);
-    }
-}
-
-namespace Test
-{
-    namespace MA
-    {
         public interface IAPrx : Ice.ObjectPrx
         {
             IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task<IAPrx?> iaopAsync(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
-    }
-}
 
-namespace Test
-{
-    namespace MB
-    {
-        public interface IB1Prx : global::Test.MA.IAPrx
-        {
-            IB1Prx? ib1op(IB1Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<IB1Prx?> ib1opAsync(IB1Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface IB2Prx : global::Test.MA.IAPrx
-        {
-            IB2Prx? ib2op(IB2Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<IB2Prx?> ib2opAsync(IB2Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace MA
-    {
-        public interface ICPrx : global::Test.MB.IB1Prx, global::Test.MB.IB2Prx
-        {
-            ICPrx? icop(ICPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<ICPrx?> icopAsync(ICPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Test
-{
-    public interface InitialPrx : Ice.ObjectPrx
-    {
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::Test.MA.IAPrx? iaop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> iaopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::Test.MB.IB1Prx? ib1op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<global::Test.MB.IB1Prx?> ib1opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::Test.MB.IB2Prx? ib2op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<global::Test.MB.IB2Prx?> ib2opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        global::Test.MA.ICPrx? icop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<global::Test.MA.ICPrx?> icopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
-    namespace MA
-    {
         public sealed class IAPrxHelper : Ice.ObjectPrxHelperBase, IAPrx
         {
             public IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -259,6 +135,13 @@ namespace Test
 {
     namespace MB
     {
+        public interface IB1Prx : global::Test.MA.IAPrx
+        {
+            IB1Prx? ib1op(IB1Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<IB1Prx?> ib1opAsync(IB1Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class IB1PrxHelper : Ice.ObjectPrxHelperBase, IB1Prx
         {
             public global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -404,6 +287,13 @@ namespace Test
                 : base(reference)
             {
             }
+        }
+
+        public interface IB2Prx : global::Test.MA.IAPrx
+        {
+            IB2Prx? ib2op(IB2Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<IB2Prx?> ib2opAsync(IB2Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class IB2PrxHelper : Ice.ObjectPrxHelperBase, IB2Prx
@@ -559,6 +449,13 @@ namespace Test
 {
     namespace MA
     {
+        public interface ICPrx : global::Test.MB.IB1Prx, global::Test.MB.IB2Prx
+        {
+            ICPrx? icop(ICPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<ICPrx?> icopAsync(ICPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class ICPrxHelper : Ice.ObjectPrxHelperBase, ICPrx
         {
             public IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -808,6 +705,29 @@ namespace Test
 
 namespace Test
 {
+    public interface InitialPrx : Ice.ObjectPrx
+    {
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        global::Test.MA.IAPrx? iaop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<global::Test.MA.IAPrx?> iaopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        global::Test.MB.IB1Prx? ib1op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<global::Test.MB.IB1Prx?> ib1opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        global::Test.MB.IB2Prx? ib2op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<global::Test.MB.IB2Prx?> ib2opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        global::Test.MA.ICPrx? icop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<global::Test.MA.ICPrx?> icopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
     {
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1076,6 +996,30 @@ namespace Test
 {
     namespace MA
     {
+        [Ice.SliceTypeId("::Test::MA::IA")]
+        public partial interface IA : Ice.Object
+        {
+            IAPrx? iaop(IAPrx? p, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_iaopAsync(
+                IA obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                IAPrx? iceP_p;
+                iceP_p = IAPrxHelper.read(istr);
+                istr.endEncapsulation();
+                var ret = obj.iaop(iceP_p, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                IAPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class IADisp_ : Ice.ObjectImpl, IA
         {
             public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
@@ -1102,6 +1046,30 @@ namespace Test
 {
     namespace MB
     {
+        [Ice.SliceTypeId("::Test::MB::IB1")]
+        public partial interface IB1 : global::Test.MA.IA
+        {
+            IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib1opAsync(
+                IB1 obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                IB1Prx? iceP_p;
+                iceP_p = IB1PrxHelper.read(istr);
+                istr.endEncapsulation();
+                var ret = obj.ib1op(iceP_p, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                IB1PrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class IB1Disp_ : Ice.ObjectImpl, IB1
         {
             public abstract global::Test.MA.IAPrx? iaop(global::Test.MA.IAPrx? p, Ice.Current current);
@@ -1123,6 +1091,30 @@ namespace Test
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::MB::IB2")]
+        public partial interface IB2 : global::Test.MA.IA
+        {
+            IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib2opAsync(
+                IB2 obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                IB2Prx? iceP_p;
+                iceP_p = IB2PrxHelper.read(istr);
+                istr.endEncapsulation();
+                var ret = obj.ib2op(iceP_p, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                IB2PrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
         }
 
         public abstract class IB2Disp_ : Ice.ObjectImpl, IB2
@@ -1154,6 +1146,30 @@ namespace Test
 {
     namespace MA
     {
+        [Ice.SliceTypeId("::Test::MA::IC")]
+        public partial interface IC : global::Test.MB.IB1, global::Test.MB.IB2
+        {
+            ICPrx? icop(ICPrx? p, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_icopAsync(
+                IC obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                ICPrx? iceP_p;
+                iceP_p = ICPrxHelper.read(istr);
+                istr.endEncapsulation();
+                var ret = obj.icop(iceP_p, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ICPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+        }
+
         public abstract class ICDisp_ : Ice.ObjectImpl, IC
         {
             public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
@@ -1187,6 +1203,86 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Initial")]
+    public partial interface Initial : Ice.Object
+    {
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        global::Test.MA.IAPrx? iaop(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_iaopAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.iaop(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Test.MA.IAPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::Test.MB.IB1Prx? ib1op(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib1opAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.ib1op(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Test.MB.IB1PrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::Test.MB.IB2Prx? ib2op(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib2opAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.ib2op(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Test.MB.IB2PrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::Test.MA.ICPrx? icop(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_icopAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.icop(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Test.MA.ICPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
     {
         public abstract void shutdown(Ice.Current current);
@@ -1217,179 +1313,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    namespace MA
-    {
-        public partial interface IA
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_iaopAsync(
-                IA obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                IAPrx? iceP_p;
-                iceP_p = IAPrxHelper.read(istr);
-                istr.endEncapsulation();
-                var ret = obj.iaop(iceP_p, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                IAPrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-    }
-}
-
-namespace Test
-{
-    namespace MB
-    {
-        public partial interface IB1
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib1opAsync(
-                IB1 obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                IB1Prx? iceP_p;
-                iceP_p = IB1PrxHelper.read(istr);
-                istr.endEncapsulation();
-                var ret = obj.ib1op(iceP_p, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                IB1PrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-
-        public partial interface IB2
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib2opAsync(
-                IB2 obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                IB2Prx? iceP_p;
-                iceP_p = IB2PrxHelper.read(istr);
-                istr.endEncapsulation();
-                var ret = obj.ib2op(iceP_p, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                IB2PrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-    }
-}
-
-namespace Test
-{
-    namespace MA
-    {
-        public partial interface IC
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_icopAsync(
-                IC obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                ICPrx? iceP_p;
-                iceP_p = ICPrxHelper.read(istr);
-                istr.endEncapsulation();
-                var ret = obj.icop(iceP_p, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ICPrxHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-        }
-    }
-}
-
-namespace Test
-{
-    public partial interface Initial
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_iaopAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.iaop(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Test.MA.IAPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib1opAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.ib1op(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Test.MB.IB1PrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_ib2opAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.ib2op(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Test.MB.IB2PrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_icopAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.icop(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Test.MA.ICPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

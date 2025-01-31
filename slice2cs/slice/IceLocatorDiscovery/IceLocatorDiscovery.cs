@@ -22,39 +22,6 @@
 
 namespace IceLocatorDiscovery
 {
-    [Ice.SliceTypeId("::IceLocatorDiscovery::LookupReply")]
-    public partial interface LookupReply : Ice.Object
-    {
-        /// <summary>
-        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        /// </summary>
-        /// <param name="prx">
-        /// The proxy of the locator.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void foundLocator(global::Ice.LocatorPrx? prx, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceLocatorDiscovery::Lookup")]
-    public partial interface Lookup : Ice.Object
-    {
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">
-        /// Restrict the search to Ice registries configured with the given instance name. If
-        /// empty, all the available registries will reply.
-        /// </param>
-        /// <param name="reply">
-        /// The reply object to use to send the reply.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void findLocator(string instanceName, LookupReplyPrx? reply, Ice.Current current);
-    }
-}
-
-namespace IceLocatorDiscovery
-{
     /// <summary>
     /// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
     /// implementations invoke on this interface to provide their locator proxy.
@@ -84,48 +51,6 @@ namespace IceLocatorDiscovery
         global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    /// <summary>
-    /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
-    /// available Ice locators on the network.
-    /// Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
-    /// Clients typically make a multicast findLocator request to find the locator proxy.
-    /// </summary>
-    /// <seealso cref="LookupReply" />
-    public interface LookupPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">
-        /// Restrict the search to Ice registries configured with the given instance name. If
-        /// empty, all the available registries will reply.
-        /// </param>
-        /// <param name="reply">
-        /// The reply object to use to send the reply.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void findLocator(string instanceName, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">
-        /// Restrict the search to Ice registries configured with the given instance name. If
-        /// empty, all the available registries will reply.
-        /// </param>
-        /// <param name="reply">
-        /// The reply object to use to send the reply.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceLocatorDiscovery
-{
     public sealed class LookupReplyPrxHelper : Ice.ObjectPrxHelperBase, LookupReplyPrx
     {
         public void foundLocator(global::Ice.LocatorPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -215,6 +140,45 @@ namespace IceLocatorDiscovery
             : base(reference)
         {
         }
+    }
+
+    /// <summary>
+    /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+    /// available Ice locators on the network.
+    /// Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
+    /// Clients typically make a multicast findLocator request to find the locator proxy.
+    /// </summary>
+    /// <seealso cref="LookupReply" />
+    public interface LookupPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Find a locator proxy with the given instance name.
+        /// </summary>
+        /// <param name="instanceName">
+        /// Restrict the search to Ice registries configured with the given instance name. If
+        /// empty, all the available registries will reply.
+        /// </param>
+        /// <param name="reply">
+        /// The reply object to use to send the reply.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void findLocator(string instanceName, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Find a locator proxy with the given instance name.
+        /// </summary>
+        /// <param name="instanceName">
+        /// Restrict the search to Ice registries configured with the given instance name. If
+        /// empty, all the available registries will reply.
+        /// </param>
+        /// <param name="reply">
+        /// The reply object to use to send the reply.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class LookupPrxHelper : Ice.ObjectPrxHelperBase, LookupPrx
@@ -312,6 +276,33 @@ namespace IceLocatorDiscovery
 
 namespace IceLocatorDiscovery
 {
+    [Ice.SliceTypeId("::IceLocatorDiscovery::LookupReply")]
+    public partial interface LookupReply : Ice.Object
+    {
+        /// <summary>
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+        /// </summary>
+        /// <param name="prx">
+        /// The proxy of the locator.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void foundLocator(global::Ice.LocatorPrx? prx, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_foundLocatorAsync(
+            LookupReply obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.LocatorPrx? iceP_prx;
+            iceP_prx = global::Ice.LocatorPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.foundLocator(iceP_prx, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class LookupReplyDisp_ : Ice.ObjectImpl, LookupReply
     {
         public abstract void foundLocator(global::Ice.LocatorPrx? prx, Ice.Current current);
@@ -332,6 +323,39 @@ namespace IceLocatorDiscovery
             };
     }
 
+    [Ice.SliceTypeId("::IceLocatorDiscovery::Lookup")]
+    public partial interface Lookup : Ice.Object
+    {
+        /// <summary>
+        /// Find a locator proxy with the given instance name.
+        /// </summary>
+        /// <param name="instanceName">
+        /// Restrict the search to Ice registries configured with the given instance name. If
+        /// empty, all the available registries will reply.
+        /// </param>
+        /// <param name="reply">
+        /// The reply object to use to send the reply.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void findLocator(string instanceName, LookupReplyPrx? reply, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_findLocatorAsync(
+            Lookup obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_instanceName;
+            LookupReplyPrx? iceP_reply;
+            iceP_instanceName = istr.readString();
+            iceP_reply = LookupReplyPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.findLocator(iceP_instanceName, iceP_reply, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class LookupDisp_ : Ice.ObjectImpl, Lookup
     {
         public abstract void findLocator(string instanceName, LookupReplyPrx? reply, Ice.Current current);
@@ -350,44 +374,5 @@ namespace IceLocatorDiscovery
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceLocatorDiscovery
-{
-    public partial interface LookupReply
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_foundLocatorAsync(
-            LookupReply obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::Ice.LocatorPrx? iceP_prx;
-            iceP_prx = global::Ice.LocatorPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.foundLocator(iceP_prx, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface Lookup
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_findLocatorAsync(
-            Lookup obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_instanceName;
-            LookupReplyPrx? iceP_reply;
-            iceP_instanceName = istr.readString();
-            iceP_reply = LookupReplyPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.findLocator(iceP_instanceName, iceP_reply, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

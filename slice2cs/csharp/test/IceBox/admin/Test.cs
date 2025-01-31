@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::TestFacet")]
-    public partial interface TestFacet : Ice.Object
-    {
-        global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface TestFacetPrx : Ice.ObjectPrx
     {
         global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getChangesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class TestFacetPrxHelper : Ice.ObjectPrxHelperBase, TestFacetPrx
     {
         public global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -138,6 +126,26 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::TestFacet")]
+    public partial interface TestFacet : Ice.Object
+    {
+        global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getChangesAsync(
+            TestFacet obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getChanges(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Ice.PropertyDictHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class TestFacetDisp_ : Ice.ObjectImpl, TestFacet
     {
         public abstract global::System.Collections.Generic.Dictionary<string, string> getChanges(Ice.Current current);
@@ -156,25 +164,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface TestFacet
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getChangesAsync(
-            TestFacet obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getChanges(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Ice.PropertyDictHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

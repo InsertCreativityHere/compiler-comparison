@@ -22,17 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Initial2")]
-    public partial interface Initial2 : Ice.Object
-    {
-        void opClassAndUnknownOptional(A? p, VarStruct? ovs, Ice.Current current);
-
-        void opVoid(int? a, string? v, Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface Initial2Prx : Ice.ObjectPrx
     {
         void opClassAndUnknownOptional(A? p, VarStruct? ovs, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -43,10 +32,7 @@ namespace Test
 
         global::System.Threading.Tasks.Task opVoidAsync(int? a, string? v, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class Initial2PrxHelper : Ice.ObjectPrxHelperBase, Initial2Prx
     {
         public void opClassAndUnknownOptional(A? p, VarStruct? ovs, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -190,34 +176,11 @@ namespace Test
 
 namespace Test
 {
-    public abstract class Initial2Disp_ : Ice.ObjectImpl, Initial2
+    [Ice.SliceTypeId("::Test::Initial2")]
+    public partial interface Initial2 : Ice.Object
     {
-        public abstract void opClassAndUnknownOptional(A? p, VarStruct? ovs, Ice.Current current);
+        void opClassAndUnknownOptional(A? p, VarStruct? ovs, Ice.Current current);
 
-        public abstract void opVoid(int? a, string? v, Ice.Current current);
-
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::Test::Initial2";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "opClassAndUnknownOptional" => Initial2.iceD_opClassAndUnknownOptionalAsync(this, request),
-                "opVoid" => Initial2.iceD_opVoidAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace Test
-{
-    public partial interface Initial2
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opClassAndUnknownOptionalAsync(
             Initial2 obj,
             Ice.IncomingRequest request)
@@ -245,6 +208,8 @@ namespace Test
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
+        void opVoid(int? a, string? v, Ice.Current current);
+
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVoidAsync(
             Initial2 obj,
             Ice.IncomingRequest request)
@@ -260,5 +225,28 @@ namespace Test
             obj.opVoid(iceP_a, iceP_v, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
+    }
+
+    public abstract class Initial2Disp_ : Ice.ObjectImpl, Initial2
+    {
+        public abstract void opClassAndUnknownOptional(A? p, VarStruct? ovs, Ice.Current current);
+
+        public abstract void opVoid(int? a, string? v, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::Test::Initial2";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "opClassAndUnknownOptional" => Initial2.iceD_opClassAndUnknownOptionalAsync(this, request),
+                "opVoid" => Initial2.iceD_opVoidAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

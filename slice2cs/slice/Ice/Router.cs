@@ -22,69 +22,6 @@
 
 namespace Ice
 {
-    [Ice.SliceTypeId("::Ice::Router")]
-    public partial interface Router : Ice.Object
-    {
-        /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// </summary>
-        /// <param name="hasRoutingTable">
-        /// Indicates whether or not the router supports a routing table. If it is supported, the
-        /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
-        /// starting with Ice 3.7.
-        /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The router's client proxy.
-        /// </returns>
-        Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
-
-        /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The router's server proxy.
-        /// </returns>
-        Ice.ObjectPrx? getServerProxy(Ice.Current current);
-
-        /// <summary>
-        /// Add new proxy information to the router's routing table.
-        /// </summary>
-        /// <param name="proxies">
-        /// The proxies to add. Adding a null proxy is an error.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// Proxies discarded by the router. These proxies are all non-null.
-        /// </returns>
-        Ice.ObjectPrx?[] addProxies(Ice.ObjectPrx?[] proxies, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Ice::RouterFinder")]
-    public partial interface RouterFinder : Ice.Object
-    {
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-        /// replicas. This proxy is never null.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The router proxy.
-        /// </returns>
-        RouterPrx? getRouter(Ice.Current current);
-    }
-}
-
-namespace Ice
-{
-    public record struct Router_GetClientProxyResult(Ice.ObjectPrx? returnValue, bool? hasRoutingTable);
-}
-
-namespace Ice
-{
     /// <summary>
     /// The Ice router interface. Routers can be set either globally though the Communicator, or with
     /// ice_router on specific proxies.
@@ -160,37 +97,6 @@ namespace Ice
         global::System.Threading.Tasks.Task<Ice.ObjectPrx?[]> addProxiesAsync(Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    /// <summary>
-    /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-    /// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
-    /// with just the endpoint information of the service.
-    /// </summary>
-    public interface RouterFinderPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-        /// replicas. This proxy is never null.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The router proxy.
-        /// </returns>
-        RouterPrx? getRouter(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-        /// replicas. This proxy is never null.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<RouterPrx?> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
     public sealed class RouterPrxHelper : Ice.ObjectPrxHelperBase, RouterPrx
     {
         public Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -383,6 +289,34 @@ namespace Ice
         }
     }
 
+    /// <summary>
+    /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+    /// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
+    /// with just the endpoint information of the service.
+    /// </summary>
+    public interface RouterFinderPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+        /// replicas. This proxy is never null.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The router proxy.
+        /// </returns>
+        RouterPrx? getRouter(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+        /// replicas. This proxy is never null.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<RouterPrx?> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class RouterFinderPrxHelper : Ice.ObjectPrxHelperBase, RouterFinderPrx
     {
         public RouterPrx? getRouter(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -480,6 +414,100 @@ namespace Ice
 
 namespace Ice
 {
+    public record struct Router_GetClientProxyResult(Ice.ObjectPrx? returnValue, bool? hasRoutingTable);
+}
+
+namespace Ice
+{
+    [Ice.SliceTypeId("::Ice::Router")]
+    public partial interface Router : Ice.Object
+    {
+        /// <summary>
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
+        /// </summary>
+        /// <param name="hasRoutingTable">
+        /// Indicates whether or not the router supports a routing table. If it is supported, the
+        /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+        /// starting with Ice 3.7.
+        /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The router's client proxy.
+        /// </returns>
+        Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getClientProxyAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            bool? iceP_hasRoutingTable;
+            var ret = obj.getClientProxy(out iceP_hasRoutingTable, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.writeBool(1, iceP_hasRoutingTable);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The router's server proxy.
+        /// </returns>
+        Ice.ObjectPrx? getServerProxy(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getServerProxyAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getServerProxy(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Add new proxy information to the router's routing table.
+        /// </summary>
+        /// <param name="proxies">
+        /// The proxies to add. Adding a null proxy is an error.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// Proxies discarded by the router. These proxies are all non-null.
+        /// </returns>
+        Ice.ObjectPrx?[] addProxies(Ice.ObjectPrx?[] proxies, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addProxiesAsync(
+            Router obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Ice.ObjectPrx?[] iceP_proxies;
+            iceP_proxies = ObjectProxySeqHelper.read(istr);
+            istr.endEncapsulation();
+            var ret = obj.addProxies(iceP_proxies, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ObjectProxySeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class RouterDisp_ : Ice.ObjectImpl, Router
     {
         public abstract Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
@@ -506,6 +534,34 @@ namespace Ice
             };
     }
 
+    [Ice.SliceTypeId("::Ice::RouterFinder")]
+    public partial interface RouterFinder : Ice.Object
+    {
+        /// <summary>
+        /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+        /// replicas. This proxy is never null.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The router proxy.
+        /// </returns>
+        RouterPrx? getRouter(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getRouterAsync(
+            RouterFinder obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getRouter(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            RouterPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class RouterFinderDisp_ : Ice.ObjectImpl, RouterFinder
     {
         public abstract RouterPrx? getRouter(Ice.Current current);
@@ -524,76 +580,5 @@ namespace Ice
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Ice
-{
-    public partial interface Router
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getClientProxyAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            bool? iceP_hasRoutingTable;
-            var ret = obj.getClientProxy(out iceP_hasRoutingTable, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.writeBool(1, iceP_hasRoutingTable);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getServerProxyAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getServerProxy(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addProxiesAsync(
-            Router obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Ice.ObjectPrx?[] iceP_proxies;
-            iceP_proxies = ObjectProxySeqHelper.read(istr);
-            istr.endEncapsulation();
-            var ret = obj.addProxies(iceP_proxies, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ObjectProxySeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-    }
-
-    public partial interface RouterFinder
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getRouterAsync(
-            RouterFinder obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getRouter(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            RouterPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

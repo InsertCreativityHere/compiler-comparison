@@ -57,66 +57,6 @@ namespace Glacier2
         }
     }
 
-    [Ice.SliceTypeId("::Glacier2::PermissionsVerifier")]
-    public partial interface PermissionsVerifier : Ice.Object
-    {
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="userId">
-        /// The user id for which to check permission.
-        /// </param>
-        /// <param name="password">
-        /// The user's password.
-        /// </param>
-        /// <param name="reason">
-        /// The reason why access was denied.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// True if access is granted, or false otherwise.
-        /// </returns>
-        /// <exception cref="Glacier2.PermissionDeniedException">
-        /// Raised if the user access is denied. This can be raised in place of
-        /// returning false with a reason set in the reason out parameter.
-        /// </exception>
-        bool checkPermissions(string userId, string password, out string reason, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Glacier2::SSLPermissionsVerifier")]
-    public partial interface SSLPermissionsVerifier : Ice.Object
-    {
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">
-        /// The SSL information.
-        /// </param>
-        /// <param name="reason">
-        /// The reason why access was denied.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// True if access is granted, or false otherwise.
-        /// </returns>
-        /// <exception cref="Glacier2.PermissionDeniedException">
-        /// Raised if the user access is denied. This can be raised in place of
-        /// returning false with a reason set in the reason out parameter.
-        /// </exception>
-        /// <seealso cref="SSLInfo" />
-        bool authorize(SSLInfo info, out string reason, Ice.Current current);
-    }
-}
-
-namespace Glacier2
-{
-    public record struct PermissionsVerifier_CheckPermissionsResult(bool returnValue, string reason);
-
-    public record struct SSLPermissionsVerifier_AuthorizeResult(bool returnValue, string reason);
-}
-
-namespace Glacier2
-{
     /// <summary>
     /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
     /// </summary>
@@ -165,53 +105,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    /// <summary>
-    /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
-    /// </summary>
-    /// <seealso cref="Router" />
-    public interface SSLPermissionsVerifierPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">
-        /// The SSL information.
-        /// </param>
-        /// <param name="reason">
-        /// The reason why access was denied.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// True if access is granted, or false otherwise.
-        /// </returns>
-        /// <exception cref="Glacier2.PermissionDeniedException">
-        /// Raised if the user access is denied. This can be raised in place of
-        /// returning false with a reason set in the reason out parameter.
-        /// </exception>
-        /// <seealso cref="SSLInfo" />
-        bool authorize(SSLInfo info, out string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">
-        /// The SSL information.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="Glacier2.PermissionDeniedException">
-        /// Raised if the user access is denied. This can be raised in place of
-        /// returning false with a reason set in the reason out parameter.
-        /// </exception>
-        /// <seealso cref="SSLInfo" />
-        global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Glacier2
-{
     public sealed class PermissionsVerifierPrxHelper : Ice.ObjectPrxHelperBase, PermissionsVerifierPrx
     {
         public bool checkPermissions(string userId, string password, out string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -326,6 +219,50 @@ namespace Glacier2
             : base(reference)
         {
         }
+    }
+
+    /// <summary>
+    /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
+    /// </summary>
+    /// <seealso cref="Router" />
+    public interface SSLPermissionsVerifierPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Check whether a user has permission to access the router.
+        /// </summary>
+        /// <param name="info">
+        /// The SSL information.
+        /// </param>
+        /// <param name="reason">
+        /// The reason why access was denied.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// True if access is granted, or false otherwise.
+        /// </returns>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user access is denied. This can be raised in place of
+        /// returning false with a reason set in the reason out parameter.
+        /// </exception>
+        /// <seealso cref="SSLInfo" />
+        bool authorize(SSLInfo info, out string reason, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Check whether a user has permission to access the router.
+        /// </summary>
+        /// <param name="info">
+        /// The SSL information.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user access is denied. This can be raised in place of
+        /// returning false with a reason set in the reason out parameter.
+        /// </exception>
+        /// <seealso cref="SSLInfo" />
+        global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class SSLPermissionsVerifierPrxHelper : Ice.ObjectPrxHelperBase, SSLPermissionsVerifierPrx
@@ -446,51 +383,38 @@ namespace Glacier2
 
 namespace Glacier2
 {
-    public abstract class PermissionsVerifierDisp_ : Ice.ObjectImpl, PermissionsVerifier
-    {
-        public abstract bool checkPermissions(string userId, string password, out string reason, Ice.Current current);
+    public record struct PermissionsVerifier_CheckPermissionsResult(bool returnValue, string reason);
 
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::Glacier2::PermissionsVerifier";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "checkPermissions" => PermissionsVerifier.iceD_checkPermissionsAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-
-    public abstract class SSLPermissionsVerifierDisp_ : Ice.ObjectImpl, SSLPermissionsVerifier
-    {
-        public abstract bool authorize(SSLInfo info, out string reason, Ice.Current current);
-
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::Glacier2::SSLPermissionsVerifier";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "authorize" => SSLPermissionsVerifier.iceD_authorizeAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
+    public record struct SSLPermissionsVerifier_AuthorizeResult(bool returnValue, string reason);
 }
 
 namespace Glacier2
 {
-    public partial interface PermissionsVerifier
+    [Ice.SliceTypeId("::Glacier2::PermissionsVerifier")]
+    public partial interface PermissionsVerifier : Ice.Object
     {
+        /// <summary>
+        /// Check whether a user has permission to access the router.
+        /// </summary>
+        /// <param name="userId">
+        /// The user id for which to check permission.
+        /// </param>
+        /// <param name="password">
+        /// The user's password.
+        /// </param>
+        /// <param name="reason">
+        /// The reason why access was denied.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// True if access is granted, or false otherwise.
+        /// </returns>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user access is denied. This can be raised in place of
+        /// returning false with a reason set in the reason out parameter.
+        /// </exception>
+        bool checkPermissions(string userId, string password, out string reason, Ice.Current current);
+
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPermissionsAsync(
             PermissionsVerifier obj,
             Ice.IncomingRequest request)
@@ -514,8 +438,49 @@ namespace Glacier2
         }
     }
 
-    public partial interface SSLPermissionsVerifier
+    public abstract class PermissionsVerifierDisp_ : Ice.ObjectImpl, PermissionsVerifier
     {
+        public abstract bool checkPermissions(string userId, string password, out string reason, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::Glacier2::PermissionsVerifier";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "checkPermissions" => PermissionsVerifier.iceD_checkPermissionsAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
+    }
+
+    [Ice.SliceTypeId("::Glacier2::SSLPermissionsVerifier")]
+    public partial interface SSLPermissionsVerifier : Ice.Object
+    {
+        /// <summary>
+        /// Check whether a user has permission to access the router.
+        /// </summary>
+        /// <param name="info">
+        /// The SSL information.
+        /// </param>
+        /// <param name="reason">
+        /// The reason why access was denied.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// True if access is granted, or false otherwise.
+        /// </returns>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user access is denied. This can be raised in place of
+        /// returning false with a reason set in the reason out parameter.
+        /// </exception>
+        /// <seealso cref="SSLInfo" />
+        bool authorize(SSLInfo info, out string reason, Ice.Current current);
+
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_authorizeAsync(
             SSLPermissionsVerifier obj,
             Ice.IncomingRequest request)
@@ -535,5 +500,25 @@ namespace Glacier2
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public abstract class SSLPermissionsVerifierDisp_ : Ice.ObjectImpl, SSLPermissionsVerifier
+    {
+        public abstract bool authorize(SSLInfo info, out string reason, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::Glacier2::SSLPermissionsVerifier";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "authorize" => SSLPermissionsVerifier.iceD_authorizeAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

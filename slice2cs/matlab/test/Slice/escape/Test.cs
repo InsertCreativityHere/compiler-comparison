@@ -226,6 +226,75 @@ namespace classdef
             }
         }
 
+        public sealed class parforHelper
+        {
+            public static void write(Ice.OutputStream ostr, bitor[] v)
+            {
+                if (v is null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Length);
+                    for(int ix = 0; ix < v.Length; ++ix)
+                    {
+                        v[ix].ice_writeMembers(ostr);
+                    }
+                }
+            }
+
+            public static bitor[] read(Ice.InputStream istr)
+            {
+                bitor[] v;
+                {
+                    int szx = istr.readAndCheckSeqSize(13);
+                    v = new bitor[szx];
+                    for(int ix = 0; ix < szx; ++ix)
+                    {
+                        v[ix] = new bitor(istr);
+                    }
+                }
+                return v;
+            }
+        }
+
+        public sealed class switchHelper
+        {
+            public static void write(Ice.OutputStream ostr,
+                                     global::System.Collections.Generic.Dictionary<int, bitor> v)
+            {
+                if(v == null)
+                {
+                    ostr.writeSize(0);
+                }
+                else
+                {
+                    ostr.writeSize(v.Count);
+                    foreach(global::System.Collections.Generic.KeyValuePair<int, bitor> e in v)
+                    {
+                        ostr.writeInt(e.Key);
+                        bitor.ice_write(ostr, e.Value);
+                    }
+                }
+            }
+
+            public static global::System.Collections.Generic.Dictionary<int, bitor> read(Ice.InputStream istr)
+            {
+                int sz = istr.readSize();
+                global::System.Collections.Generic.Dictionary<int, bitor> r = new global::System.Collections.Generic.Dictionary<int, bitor>();
+                for(int i = 0; i < sz; ++i)
+                {
+                    int k;
+                    k = istr.readInt();
+                    bitor v;
+                    v = new bitor(istr);
+                    r[k] = v;
+                }
+                return r;
+            }
+        }
+
         [Ice.SliceTypeId("::classdef::break::try")]
         public partial class try : Ice.Value
         {
@@ -433,29 +502,6 @@ namespace classdef
             }
         }
 
-        [Ice.SliceTypeId("::classdef::break::elseif")]
-        public partial interface elseif : Ice.Object
-        {
-            void events(Ice.Current current);
-
-            void function(Ice.Current current);
-
-            void delete(Ice.Current current);
-
-            void checkedCast(Ice.Current current);
-        }
-
-        public abstract class methods
-        {
-            public const int value = 1;
-        }
-    }
-}
-
-namespace classdef
-{
-    namespace break
-    {
         public interface elseifPrx : Ice.ObjectPrx
         {
             void events(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -473,81 +519,6 @@ namespace classdef
             void checkedCast(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task checkedCastAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace classdef
-{
-    namespace break
-    {
-        public sealed class parforHelper
-        {
-            public static void write(Ice.OutputStream ostr, bitor[] v)
-            {
-                if (v is null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        v[ix].ice_writeMembers(ostr);
-                    }
-                }
-            }
-
-            public static bitor[] read(Ice.InputStream istr)
-            {
-                bitor[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(13);
-                    v = new bitor[szx];
-                    for(int ix = 0; ix < szx; ++ix)
-                    {
-                        v[ix] = new bitor(istr);
-                    }
-                }
-                return v;
-            }
-        }
-
-        public sealed class switchHelper
-        {
-            public static void write(Ice.OutputStream ostr,
-                                     global::System.Collections.Generic.Dictionary<int, bitor> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    foreach(global::System.Collections.Generic.KeyValuePair<int, bitor> e in v)
-                    {
-                        ostr.writeInt(e.Key);
-                        bitor.ice_write(ostr, e.Value);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Dictionary<int, bitor> read(Ice.InputStream istr)
-            {
-                int sz = istr.readSize();
-                global::System.Collections.Generic.Dictionary<int, bitor> r = new global::System.Collections.Generic.Dictionary<int, bitor>();
-                for(int i = 0; i < sz; ++i)
-                {
-                    int k;
-                    k = istr.readInt();
-                    bitor v;
-                    v = new bitor(istr);
-                    r[k] = v;
-                }
-                return r;
-            }
         }
 
         public sealed class elseifPrxHelper : Ice.ObjectPrxHelperBase, elseifPrx
@@ -747,6 +718,11 @@ namespace classdef
             {
             }
         }
+
+        public abstract class methods
+        {
+            public const int value = 1;
+        }
     }
 }
 
@@ -754,6 +730,58 @@ namespace classdef
 {
     namespace break
     {
+        [Ice.SliceTypeId("::classdef::break::elseif")]
+        public partial interface elseif : Ice.Object
+        {
+            void events(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_eventsAsync(
+                elseif obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.events(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void function(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_functionAsync(
+                elseif obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.function(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void delete(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deleteAsync(
+                elseif obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.delete(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            void checkedCast(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkedCastAsync(
+                elseif obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.checkedCast(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class elseifDisp_ : Ice.ObjectImpl, elseif
         {
             public abstract void events(Ice.Current current);
@@ -781,55 +809,6 @@ namespace classdef
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace classdef
-{
-    namespace break
-    {
-        public partial interface elseif
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_eventsAsync(
-                elseif obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.events(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_functionAsync(
-                elseif obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.function(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_deleteAsync(
-                elseif obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.delete(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkedCastAsync(
-                elseif obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.checkedCast(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

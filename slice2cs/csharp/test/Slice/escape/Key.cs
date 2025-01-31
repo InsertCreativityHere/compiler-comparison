@@ -142,225 +142,6 @@ namespace cs_abstract
         }
     }
 
-    [Ice.SliceTypeId("::cs_abstract::case")]
-    public partial interface @case : Ice.Object
-    {
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> @catchAsync(int @checked, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::cs_abstract::decimal")]
-    public partial interface @decimal : Ice.Object
-    {
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="cs_abstract.@foreach">
-        /// make sure the link is correctly generated.
-        /// </exception>
-        void @default(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::cs_abstract::delegate")]
-    public partial class @delegate : Ice.Value
-    {
-        public int @if;
-
-        public @casePrx? @else;
-
-        partial void ice_initialize();
-
-        public @delegate(int @if, @casePrx? @else)
-        {
-            this.@if = @if;
-            this.@else = @else;
-            ice_initialize();
-        }
-
-        public @delegate()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::cs_abstract::delegate";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(@if);
-            @casePrxHelper.write(ostr_, @else);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            @if = istr_.readInt();
-            @else = @casePrxHelper.read(istr_);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::cs_abstract::explicit")]
-    public partial interface TotallyDifferent : @decimal, @case
-    {
-    }
-
-    [Ice.SliceTypeId("::cs_abstract::optionalMembers")]
-    public partial class optionalMembers : Ice.Value
-    {
-        public @break? @for;
-
-        public @as? @goto;
-
-        public TotallyDifferentPrx? @if;
-
-        public global::System.Collections.Generic.Dictionary<string, @break>? @internal;
-
-        public string? @namespace;
-
-        partial void ice_initialize();
-
-        public optionalMembers(@break? @for, @as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace)
-        {
-            this.@for = @for;
-            this.@goto = @goto;
-            this.@if = @if;
-            this.@internal = @internal;
-            this.@namespace = @namespace;
-            ice_initialize();
-        }
-
-        public optionalMembers()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::cs_abstract::optionalMembers";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            if (@for is not null && ostr_.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr_.writeSize(4);
-                @for.Value.ice_writeMembers(ostr_);
-            }
-            if (@goto is not null)
-            {
-                ostr_.writeEnum(2, (int)@goto.Value, 1);
-            }
-            ostr_.writeProxy(3, @if);
-            if (@internal is not null && ostr_.writeOptional(5, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr_.startSize();
-                @whileHelper.write(ostr_, @internal);
-                ostr_.endSize(pos);
-            }
-            ostr_.writeString(7, @namespace);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            if (istr_.readOptional(1, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                @break tmpVal;
-                tmpVal = new @break(istr_);
-                @for = tmpVal;
-            }
-            else
-            {
-                @for = null;
-            }
-            if (istr_.readOptional(2, Ice.OptionalFormat.Size))
-            {
-                @as tmpVal;
-                tmpVal = (@as)istr_.readEnum(0);
-                @goto = tmpVal;
-            }
-            else
-            {
-                @goto = null;
-            }
-            if (istr_.readOptional(3, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                @if = TotallyDifferentPrxHelper.read(istr_);
-            }
-            else
-            {
-                @if = null;
-            }
-            if (istr_.readOptional(5, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
-                tmpVal = @whileHelper.read(istr_);
-                @internal = tmpVal;
-            }
-            else
-            {
-                @internal = null;
-            }
-            @namespace = istr_.readString(7);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::cs_abstract::optionalParams")]
-    public partial interface optionalParams : Ice.Object
-    {
-        @break? @for(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
-
-        global::System.Threading.Tasks.Task<@break?> @continueAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
-
-        @break? @in(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, Ice.Current current);
-
-        global::System.Threading.Tasks.Task<optionalParams_ForeachResult> @foreachAsync(Ice.Current current);
-    }
-
-    public abstract class @protected
-    {
-        public const int value = 0;
-    }
-
-    public abstract class @struct
-    {
-        public const int value = 1;
-    }
-
-    namespace System
-    {
-        [Ice.SliceTypeId("::cs_abstract::System::Test")]
-        public partial interface Test : Ice.Object
-        {
-            void op(Ice.Current current);
-        }
-    }
-}
-
-namespace System
-{
-    [Ice.SliceTypeId("::System::Test")]
-    public partial interface Test : Ice.Object
-    {
-        void op(Ice.Current current);
-    }
-}
-
-namespace cs_abstract
-{
-    public record struct optionalParams_InResult(@break? returnValue, @as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context);
-
-    public record struct optionalParams_ForeachResult(@break? returnValue, @as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context);
-}
-
-namespace cs_abstract
-{
     public interface @casePrx : Ice.ObjectPrx
     {
         /// <param name="continue">
@@ -376,70 +157,6 @@ namespace cs_abstract
         global::System.Threading.Tasks.Task<int> @catchAsync(int @checked, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface @decimalPrx : Ice.ObjectPrx
-    {
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <exception cref="cs_abstract.@foreach">
-        /// make sure the link is correctly generated.
-        /// </exception>
-        void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="cs_abstract.@foreach">
-        /// make sure the link is correctly generated.
-        /// </exception>
-        global::System.Threading.Tasks.Task @defaultAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface TotallyDifferentPrx : @decimalPrx, @casePrx
-    {
-    }
-
-    public interface optionalParamsPrx : Ice.ObjectPrx
-    {
-        @break? @for(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
-
-        global::System.Threading.Tasks.Task<@break?> @forAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        @break? @continue(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
-
-        global::System.Threading.Tasks.Task<@break?> @continueAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        @break? @in(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
-
-        global::System.Threading.Tasks.Task<optionalParams_InResult> @inAsync(global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        @break? @foreach(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
-
-        global::System.Threading.Tasks.Task<optionalParams_ForeachResult> @foreachAsync(global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    namespace System
-    {
-        public interface TestPrx : Ice.ObjectPrx
-        {
-            void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace System
-{
-    public interface TestPrx : Ice.ObjectPrx
-    {
-        void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace cs_abstract
-{
     public sealed class @casePrxHelper : Ice.ObjectPrxHelperBase, @casePrx
     {
         public void @catch(int @checked, out int @continue, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -536,6 +253,24 @@ namespace cs_abstract
             : base(reference)
         {
         }
+    }
+
+    public interface @decimalPrx : Ice.ObjectPrx
+    {
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <exception cref="cs_abstract.@foreach">
+        /// make sure the link is correctly generated.
+        /// </exception>
+        void @default(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="cs_abstract.@foreach">
+        /// make sure the link is correctly generated.
+        /// </exception>
+        global::System.Threading.Tasks.Task @defaultAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class @decimalPrxHelper : Ice.ObjectPrxHelperBase, @decimalPrx
@@ -638,6 +373,51 @@ namespace cs_abstract
             : base(reference)
         {
         }
+    }
+
+    [Ice.SliceTypeId("::cs_abstract::delegate")]
+    public partial class @delegate : Ice.Value
+    {
+        public int @if;
+
+        public @casePrx? @else;
+
+        partial void ice_initialize();
+
+        public @delegate(int @if, @casePrx? @else)
+        {
+            this.@if = @if;
+            this.@else = @else;
+            ice_initialize();
+        }
+
+        public @delegate()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::cs_abstract::delegate";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeInt(@if);
+            @casePrxHelper.write(ostr_, @else);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            @if = istr_.readInt();
+            @else = @casePrxHelper.read(istr_);
+            istr_.endSlice();
+        }
+    }
+
+    public interface TotallyDifferentPrx : @decimalPrx, @casePrx
+    {
     }
 
     public sealed class TotallyDifferentPrxHelper : Ice.ObjectPrxHelperBase, TotallyDifferentPrx
@@ -826,6 +606,130 @@ namespace cs_abstract
             }
             return r;
         }
+    }
+
+    [Ice.SliceTypeId("::cs_abstract::optionalMembers")]
+    public partial class optionalMembers : Ice.Value
+    {
+        public @break? @for;
+
+        public @as? @goto;
+
+        public TotallyDifferentPrx? @if;
+
+        public global::System.Collections.Generic.Dictionary<string, @break>? @internal;
+
+        public string? @namespace;
+
+        partial void ice_initialize();
+
+        public optionalMembers(@break? @for, @as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace)
+        {
+            this.@for = @for;
+            this.@goto = @goto;
+            this.@if = @if;
+            this.@internal = @internal;
+            this.@namespace = @namespace;
+            ice_initialize();
+        }
+
+        public optionalMembers()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::cs_abstract::optionalMembers";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            if (@for is not null && ostr_.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr_.writeSize(4);
+                @for.Value.ice_writeMembers(ostr_);
+            }
+            if (@goto is not null)
+            {
+                ostr_.writeEnum(2, (int)@goto.Value, 1);
+            }
+            ostr_.writeProxy(3, @if);
+            if (@internal is not null && ostr_.writeOptional(5, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr_.startSize();
+                @whileHelper.write(ostr_, @internal);
+                ostr_.endSize(pos);
+            }
+            ostr_.writeString(7, @namespace);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            if (istr_.readOptional(1, Ice.OptionalFormat.VSize))
+            {
+                istr_.skipSize();
+                @break tmpVal;
+                tmpVal = new @break(istr_);
+                @for = tmpVal;
+            }
+            else
+            {
+                @for = null;
+            }
+            if (istr_.readOptional(2, Ice.OptionalFormat.Size))
+            {
+                @as tmpVal;
+                tmpVal = (@as)istr_.readEnum(0);
+                @goto = tmpVal;
+            }
+            else
+            {
+                @goto = null;
+            }
+            if (istr_.readOptional(3, Ice.OptionalFormat.FSize))
+            {
+                istr_.skip(4);
+                @if = TotallyDifferentPrxHelper.read(istr_);
+            }
+            else
+            {
+                @if = null;
+            }
+            if (istr_.readOptional(5, Ice.OptionalFormat.FSize))
+            {
+                istr_.skip(4);
+                global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
+                tmpVal = @whileHelper.read(istr_);
+                @internal = tmpVal;
+            }
+            else
+            {
+                @internal = null;
+            }
+            @namespace = istr_.readString(7);
+            istr_.endSlice();
+        }
+    }
+
+    public interface optionalParamsPrx : Ice.ObjectPrx
+    {
+        @break? @for(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
+
+        global::System.Threading.Tasks.Task<@break?> @forAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        @break? @continue(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
+
+        global::System.Threading.Tasks.Task<@break?> @continueAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        @break? @in(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
+
+        global::System.Threading.Tasks.Task<optionalParams_InResult> @inAsync(global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        @break? @foreach(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, global::System.Collections.Generic.Dictionary<string, string>? context_ = null);
+
+        global::System.Threading.Tasks.Task<optionalParams_ForeachResult> @foreachAsync(global::System.Collections.Generic.Dictionary<string, string>? context_ = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class optionalParamsPrxHelper : Ice.ObjectPrxHelperBase, optionalParamsPrx
@@ -1196,8 +1100,25 @@ namespace cs_abstract
         }
     }
 
+    public abstract class @protected
+    {
+        public const int value = 0;
+    }
+
+    public abstract class @struct
+    {
+        public const int value = 1;
+    }
+
     namespace System
     {
+        public interface TestPrx : Ice.ObjectPrx
+        {
+            void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
         public sealed class TestPrxHelper : Ice.ObjectPrxHelperBase, TestPrx
         {
             public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1289,6 +1210,13 @@ namespace cs_abstract
 
 namespace System
 {
+    public interface TestPrx : Ice.ObjectPrx
+    {
+        void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class TestPrxHelper : Ice.ObjectPrxHelperBase, TestPrx
     {
         public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1379,6 +1307,41 @@ namespace System
 
 namespace cs_abstract
 {
+    public record struct optionalParams_InResult(@break? returnValue, @as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context);
+
+    public record struct optionalParams_ForeachResult(@break? returnValue, @as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context);
+}
+
+namespace cs_abstract
+{
+    [Ice.SliceTypeId("::cs_abstract::case")]
+    public partial interface @case : Ice.Object
+    {
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<int> @catchAsync(int @checked, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_catchAsync(
+            @case obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_checked;
+            iceP_checked = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.@catchAsync(iceP_checked, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, iceP_continue) =>
+                {
+                    ostr.writeInt(iceP_continue);
+                });
+        }
+    }
+
     public abstract class @caseDisp_ : Ice.ObjectImpl, @case
     {
         public abstract global::System.Threading.Tasks.Task<int> @catchAsync(int @checked, Ice.Current current);
@@ -1399,6 +1362,26 @@ namespace cs_abstract
             };
     }
 
+    [Ice.SliceTypeId("::cs_abstract::decimal")]
+    public partial interface @decimal : Ice.Object
+    {
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="cs_abstract.@foreach">
+        /// make sure the link is correctly generated.
+        /// </exception>
+        void @default(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_defaultAsync(
+            @decimal obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.@default(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class @decimalDisp_ : Ice.ObjectImpl, @decimal
     {
         public abstract void @default(Ice.Current current);
@@ -1417,6 +1400,11 @@ namespace cs_abstract
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::cs_abstract::explicit")]
+    public partial interface TotallyDifferent : @decimal, @case
+    {
     }
 
     public abstract class TotallyDifferentDisp_ : Ice.ObjectImpl, TotallyDifferent
@@ -1442,126 +1430,11 @@ namespace cs_abstract
             };
     }
 
-    public abstract class optionalParamsDisp_ : Ice.ObjectImpl, optionalParams
+    [Ice.SliceTypeId("::cs_abstract::optionalParams")]
+    public partial interface optionalParams : Ice.Object
     {
-        public abstract @break? @for(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
+        @break? @for(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<@break?> @continueAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
-
-        public abstract @break? @in(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<optionalParams_ForeachResult> @foreachAsync(Ice.Current current);
-
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::cs_abstract::optionalParams";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "for" => optionalParams.iceD_forAsync(this, request),
-                "continue" => optionalParams.iceD_continueAsync(this, request),
-                "in" => optionalParams.iceD_inAsync(this, request),
-                "foreach" => optionalParams.iceD_foreachAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-
-    namespace System
-    {
-        public abstract class TestDisp_ : Ice.ObjectImpl, Test
-        {
-            public abstract void op(Ice.Current current);
-
-            public override string ice_id(Ice.Current current) => ice_staticId();
-
-            public static new string ice_staticId() => "::cs_abstract::System::Test";
-
-            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-                request.current.operation switch
-                {
-                    "op" => Test.iceD_opAsync(this, request),
-                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                    _ => throw new Ice.OperationNotExistException()
-                };
-        }
-    }
-}
-
-namespace System
-{
-    public abstract class TestDisp_ : Ice.ObjectImpl, Test
-    {
-        public abstract void op(Ice.Current current);
-
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::System::Test";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "op" => Test.iceD_opAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace cs_abstract
-{
-    public partial interface @case
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_catchAsync(
-            @case obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_checked;
-            iceP_checked = istr.readInt();
-            istr.endEncapsulation();
-            var result = await obj.@catchAsync(iceP_checked, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, iceP_continue) =>
-                {
-                    ostr.writeInt(iceP_continue);
-                });
-        }
-    }
-
-    public partial interface @decimal
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_defaultAsync(
-            @decimal obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.@default(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface TotallyDifferent
-    {
-    }
-
-    public partial interface optionalParams
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_forAsync(
             optionalParams obj,
             Ice.IncomingRequest request)
@@ -1616,6 +1489,8 @@ namespace cs_abstract
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+
+        global::System.Threading.Tasks.Task<@break?> @continueAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
 
         protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_continueAsync(
             optionalParams obj,
@@ -1674,6 +1549,8 @@ namespace cs_abstract
                 });
         }
 
+        @break? @in(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, Ice.Current current);
+
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_inAsync(
             optionalParams obj,
             Ice.IncomingRequest request)
@@ -1708,6 +1585,8 @@ namespace cs_abstract
             return new(new Ice.OutgoingResponse(ostr));
         }
 
+        global::System.Threading.Tasks.Task<optionalParams_ForeachResult> @foreachAsync(Ice.Current current);
+
         protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_foreachAsync(
             optionalParams obj,
             Ice.IncomingRequest request)
@@ -1741,10 +1620,42 @@ namespace cs_abstract
         }
     }
 
+    public abstract class optionalParamsDisp_ : Ice.ObjectImpl, optionalParams
+    {
+        public abstract @break? @for(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<@break?> @continueAsync(@as? @goto, TotallyDifferentPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? context, Ice.Current current);
+
+        public abstract @break? @in(out @as? @goto, out TotallyDifferentPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? context, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<optionalParams_ForeachResult> @foreachAsync(Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::cs_abstract::optionalParams";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "for" => optionalParams.iceD_forAsync(this, request),
+                "continue" => optionalParams.iceD_continueAsync(this, request),
+                "in" => optionalParams.iceD_inAsync(this, request),
+                "foreach" => optionalParams.iceD_foreachAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
+    }
+
     namespace System
     {
-        public partial interface Test
+        [Ice.SliceTypeId("::cs_abstract::System::Test")]
+        public partial interface Test : Ice.Object
         {
+            void op(Ice.Current current);
+
             protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
                 Test obj,
                 Ice.IncomingRequest request)
@@ -1755,13 +1666,36 @@ namespace cs_abstract
                 return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
         }
+
+        public abstract class TestDisp_ : Ice.ObjectImpl, Test
+        {
+            public abstract void op(Ice.Current current);
+
+            public override string ice_id(Ice.Current current) => ice_staticId();
+
+            public static new string ice_staticId() => "::cs_abstract::System::Test";
+
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+                request.current.operation switch
+                {
+                    "op" => Test.iceD_opAsync(this, request),
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
+                };
+        }
     }
 }
 
 namespace System
 {
-    public partial interface Test
+    [Ice.SliceTypeId("::System::Test")]
+    public partial interface Test : Ice.Object
     {
+        void op(Ice.Current current);
+
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
             Test obj,
             Ice.IncomingRequest request)
@@ -1771,5 +1705,25 @@ namespace System
             obj.op(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
+    }
+
+    public abstract class TestDisp_ : Ice.ObjectImpl, Test
+    {
+        public abstract void op(Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::System::Test";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "op" => Test.iceD_opAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

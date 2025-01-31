@@ -24,26 +24,6 @@ namespace Ice.proxy.AMD
 {
     namespace Test
     {
-        [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : Ice.Object
-        {
-            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(Ice.Current current);
-        }
-
-        [Ice.SliceTypeId("::Test::MyDerivedClass")]
-        public partial interface MyDerivedClass : MyClass
-        {
-            global::System.Threading.Tasks.Task<Ice.ObjectPrx?> echoAsync(Ice.ObjectPrx? obj, Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.proxy.AMD
-{
-    namespace Test
-    {
         public interface MyClassPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -55,19 +35,6 @@ namespace Ice.proxy.AMD
             global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
-        public interface MyDerivedClassPrx : MyClassPrx
-        {
-            Ice.ObjectPrx? echo(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<Ice.ObjectPrx?> echoAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.proxy.AMD
-{
-    namespace Test
-    {
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -197,6 +164,13 @@ namespace Ice.proxy.AMD
                 : base(reference)
             {
             }
+        }
+
+        public interface MyDerivedClassPrx : MyClassPrx
+        {
+            Ice.ObjectPrx? echo(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<Ice.ObjectPrx?> echoAsync(Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class MyDerivedClassPrxHelper : Ice.ObjectPrxHelperBase, MyDerivedClassPrx
@@ -385,6 +359,40 @@ namespace Ice.proxy.AMD
 {
     namespace Test
     {
+        [Ice.SliceTypeId("::Test::MyClass")]
+        public partial interface MyClass : Ice.Object
+        {
+            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.shutdownAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getContextAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.getContextAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        global::Ice.ContextHelper.write(ostr, ret);
+                    });
+            }
+        }
+
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
             public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
@@ -406,6 +414,32 @@ namespace Ice.proxy.AMD
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::MyDerivedClass")]
+        public partial interface MyDerivedClass : MyClass
+        {
+            global::System.Threading.Tasks.Task<Ice.ObjectPrx?> echoAsync(Ice.ObjectPrx? obj, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_echoAsync(
+                MyDerivedClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                Ice.ObjectPrx? iceP_obj;
+                iceP_obj = istr.readProxy();
+                istr.endEncapsulation();
+                var result = await obj.echoAsync(iceP_obj, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeProxy(ret);
+                    });
+            }
         }
 
         public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
@@ -432,64 +466,6 @@ namespace Ice.proxy.AMD
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.proxy.AMD
-{
-    namespace Test
-    {
-        public partial interface MyClass
-        {
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.shutdownAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getContextAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.getContextAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        global::Ice.ContextHelper.write(ostr, ret);
-                    });
-            }
-        }
-
-        public partial interface MyDerivedClass
-        {
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_echoAsync(
-                MyDerivedClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                Ice.ObjectPrx? iceP_obj;
-                iceP_obj = istr.readProxy();
-                istr.endEncapsulation();
-                var result = await obj.echoAsync(iceP_obj, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeProxy(ret);
-                    });
-            }
         }
     }
 }

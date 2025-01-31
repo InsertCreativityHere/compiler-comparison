@@ -74,6 +74,39 @@ namespace IceGrid
         }
     }
 
+    public sealed class InternalDbEnvDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, InternalDbEnvDescriptor?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static InternalDbEnvDescriptor?[] read(Ice.InputStream istr)
+        {
+            InternalDbEnvDescriptor?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new InternalDbEnvDescriptor?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<InternalDbEnvDescriptor>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
     [Ice.SliceTypeId("::IceGrid::InternalAdapterDescriptor")]
     public partial class InternalAdapterDescriptor : Ice.Value
     {
@@ -113,6 +146,75 @@ namespace IceGrid
             id = istr_.readString();
             serverLifetime = istr_.readBool();
             istr_.endSlice();
+        }
+    }
+
+    public sealed class InternalAdapterDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, InternalAdapterDescriptor?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static InternalAdapterDescriptor?[] read(Ice.InputStream istr)
+        {
+            InternalAdapterDescriptor?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new InternalAdapterDescriptor?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<InternalAdapterDescriptor>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class PropertyDescriptorSeqDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, PropertyDescriptor[]> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    PropertyDescriptorSeqHelper.write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> r = new global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                PropertyDescriptor[] v;
+                v = PropertyDescriptorSeqHelper.read(istr);
+                r[k] = v;
+            }
+            return r;
         }
     }
 
@@ -334,676 +436,6 @@ namespace IceGrid
         }
     }
 
-    [Ice.SliceTypeId("::IceGrid::Adapter")]
-    public partial interface Adapter : Ice.Object
-    {
-        /// <summary>
-        /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
-        /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
-        /// adapter is inactive or the adapter direct proxy it's active.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(Ice.Current current);
-
-        /// <summary>
-        /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
-        /// contains the last known adapter endpoints.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// A direct proxy containing the last known adapter endpoints if the adapter is already active.
-        /// </returns>
-        Ice.ObjectPrx? getDirectProxy(Ice.Current current);
-
-        /// <summary>
-        /// Set the direct proxy for this adapter.
-        /// </summary>
-        /// <param name="proxy">
-        /// The direct proxy. The direct proxy should be created with the object adapter and should contain the
-        /// object adapter endpoints.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceGrid.AdapterActiveException">
-        /// The adapter is already active. It's not possible to override the direct proxy of
-        /// an active adapter.
-        /// </exception>
-        void setDirectProxy(Ice.ObjectPrx? proxy, Ice.Current current);
-    }
-
-    /// <summary>
-    /// This exception is raised if an adapter with the same name already exists.
-    /// </summary>
-    [Ice.SliceTypeId("::IceGrid::AdapterExistsException")]
-    public partial class AdapterExistsException : Ice.UserException
-    {
-        public string id = "";
-
-        public AdapterExistsException(string id)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(id);
-            this.id = id;
-        }
-
-        public AdapterExistsException()
-        {
-        }
-
-        public override string ice_id() => "::IceGrid::AdapterExistsException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::IceGrid::AdapterExistsException", -1, true);
-            ostr_.writeString(id);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            id = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::IceGrid::FileReader")]
-    public partial interface FileReader : Ice.Object
-    {
-        /// <summary>
-        /// Count the number of given lines from the end of the file and return the file offset.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
-        /// <summary>
-        /// Read lines (or size bytes) at the specified position from the given file.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceGrid::Server")]
-    public partial interface Server : FileReader
-    {
-        /// <summary>
-        /// Start the server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task startAsync(Ice.Current current);
-
-        /// <summary>
-        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
-        /// configurable amount of time, it will be killed.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task stopAsync(Ice.Current current);
-
-        /// <summary>
-        /// Check if the given server can be loaded on this node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// True if the server is inactive.
-        /// </returns>
-        /// <exception cref="IceGrid.DeploymentException">
-        /// Raised if the server can't be updated.
-        /// </exception>
-        bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, Ice.Current current);
-
-        /// <summary>
-        /// Enable or disable the server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setEnabled(bool enable, Ice.Current current);
-
-        /// <summary>
-        /// Check if the server is enabled.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        bool isEnabled(Ice.Current current);
-
-        /// <summary>
-        /// Send signal to the server
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void sendSignal(string signal, Ice.Current current);
-
-        /// <summary>
-        /// Write message on servers' stdout or stderr.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void writeMessage(string message, int fd, Ice.Current current);
-
-        /// <summary>
-        /// Return the server state.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The server state.
-        /// </returns>
-        /// <seealso cref="ServerState" />
-        ServerState getState(Ice.Current current);
-
-        /// <summary>
-        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
-        /// it's the pid value returned by the fork() system call and converted to an integer.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        int getPid(Ice.Current current);
-
-        /// <summary>
-        /// Set the process proxy.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceGrid::ReplicaObserver")]
-    public partial interface ReplicaObserver : Ice.Object
-    {
-        /// <summary>
-        /// Initialization of the replica observer.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
-
-        /// <summary>
-        /// Notification that a replica has been added. The node should establish a session with this new replica.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
-
-        /// <summary>
-        /// Notification that a replica has been removed. The node should destroy the session to this replica.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceGrid::Node")]
-    public partial interface Node : FileReader, ReplicaObserver
-    {
-        /// <summary>
-        /// Load the given server. If the server resources weren't already created (database environment directories,
-        /// property files, etc), they will be created. The returned proxy is never null.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
-
-        /// <summary>
-        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
-        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
-        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
-
-        /// <summary>
-        /// Destroy the given server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, Ice.Current current);
-
-        /// <summary>
-        /// Destroy the server if it's not active.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, Ice.Current current);
-
-        /// <summary>
-        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        /// replicaAdded below).
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void registerWithReplica(InternalRegistryPrx? replica, Ice.Current current);
-
-        /// <summary>
-        /// Get the node name.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        string getName(Ice.Current current);
-
-        /// <summary>
-        /// Get the node hostname.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        string getHostname(Ice.Current current);
-
-        /// <summary>
-        /// Get the node load.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        LoadInfo getLoad(Ice.Current current);
-
-        /// <summary>
-        /// Get the number of processor sockets for the machine where this node is running.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        int getProcessorSocketCount(Ice.Current current);
-
-        /// <summary>
-        /// Shutdown the node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void shutdown(Ice.Current current);
-    }
-
-    /// <summary>
-    /// This exception is raised if a node is already registered and active.
-    /// </summary>
-    [Ice.SliceTypeId("::IceGrid::NodeActiveException")]
-    public partial class NodeActiveException : Ice.UserException
-    {
-        public override string ice_id() => "::IceGrid::NodeActiveException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::IceGrid::NodeActiveException", -1, true);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::IceGrid::NodeSession")]
-    public partial interface NodeSession : Ice.Object
-    {
-        /// <summary>
-        /// The node call this method to keep the session alive.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void keepAlive(LoadInfo load, Ice.Current current);
-
-        /// <summary>
-        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
-        /// It only calls this for the session with the master.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setReplicaObserver(ReplicaObserverPrx? observer, Ice.Current current);
-
-        /// <summary>
-        /// Return the node session timeout.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        int getTimeout(Ice.Current current);
-
-        /// <summary>
-        /// Return the node observer.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        NodeObserverPrx? getObserver(Ice.Current current);
-
-        /// <summary>
-        /// Ask the registry to load the servers on the node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task loadServersAsync(Ice.Current current);
-
-        /// <summary>
-        /// Get the name of the servers deployed on the node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        string[] getServers(Ice.Current current);
-
-        /// <summary>
-        /// Wait for the application update to complete (the application is completely updated once all the registry
-        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
-        /// replicas have the up-to-date descriptor of the server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, Ice.Current current);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void destroy(Ice.Current current);
-    }
-
-    /// <summary>
-    /// This exception is raised if a replica is already registered and active.
-    /// </summary>
-    [Ice.SliceTypeId("::IceGrid::ReplicaActiveException")]
-    public partial class ReplicaActiveException : Ice.UserException
-    {
-        public override string ice_id() => "::IceGrid::ReplicaActiveException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::IceGrid::ReplicaActiveException", -1, true);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.endSlice();
-        }
-    }
-
-    public enum TopicName
-    {
-        RegistryObserver,
-        NodeObserver,
-        ApplicationObserver,
-        AdapterObserver,
-        ObjectObserver
-    }
-
-    public sealed class TopicNameHelper
-    {
-        public static void write(Ice.OutputStream ostr, TopicName v)
-        {
-            ostr.writeEnum((int)v, 4);
-        }
-
-        public static TopicName read(Ice.InputStream istr)
-        {
-            TopicName v;
-            v = (TopicName)istr.readEnum(4);
-            return v;
-        }
-    }
-
-    [Ice.SliceTypeId("::IceGrid::DatabaseObserver")]
-    public partial interface DatabaseObserver : ApplicationObserver, ObjectObserver, AdapterObserver
-    {
-    }
-
-    [Ice.SliceTypeId("::IceGrid::ReplicaSession")]
-    public partial interface ReplicaSession : Ice.Object
-    {
-        /// <summary>
-        /// The replica call this method to keep the session alive.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void keepAlive(Ice.Current current);
-
-        /// <summary>
-        /// Return the replica session timeout.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        int getTimeout(Ice.Current current);
-
-        /// <summary>
-        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, Ice.Current current);
-
-        /// <summary>
-        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
-        /// for replicated objects (e.g.: IceGrid::Query object).
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, Ice.Current current);
-
-        /// <summary>
-        /// Registers the replica well-known objects with the master.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void registerWellKnownObjects(ObjectInfo[] objects, Ice.Current current);
-
-        /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
-        /// with the locator registry interface.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, Ice.Current current);
-
-        /// <summary>
-        /// Notify the master that an update was received. The master might wait for replication updates to be received by
-        /// all the replicas before to continue.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void receivedUpdate(TopicName name, int serial, string failure, Ice.Current current);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void destroy(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceGrid::InternalNodeInfo")]
-    public partial class InternalNodeInfo : Ice.Value
-    {
-        public string name = "";
-
-        public string os = "";
-
-        public string hostname = "";
-
-        public string release = "";
-
-        public string version = "";
-
-        public string machine = "";
-
-        public int nProcessors;
-
-        public string dataDir = "";
-
-        public string? iceSoVersion;
-
-        partial void ice_initialize();
-
-        public InternalNodeInfo(string name, string os, string hostname, string release, string version, string machine, int nProcessors, string dataDir, string? iceSoVersion)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(name);
-            this.name = name;
-            global::System.ArgumentNullException.ThrowIfNull(os);
-            this.os = os;
-            global::System.ArgumentNullException.ThrowIfNull(hostname);
-            this.hostname = hostname;
-            global::System.ArgumentNullException.ThrowIfNull(release);
-            this.release = release;
-            global::System.ArgumentNullException.ThrowIfNull(version);
-            this.version = version;
-            global::System.ArgumentNullException.ThrowIfNull(machine);
-            this.machine = machine;
-            this.nProcessors = nProcessors;
-            global::System.ArgumentNullException.ThrowIfNull(dataDir);
-            this.dataDir = dataDir;
-            this.iceSoVersion = iceSoVersion;
-            ice_initialize();
-        }
-
-        public InternalNodeInfo()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceGrid::InternalNodeInfo";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeString(name);
-            ostr_.writeString(os);
-            ostr_.writeString(hostname);
-            ostr_.writeString(release);
-            ostr_.writeString(version);
-            ostr_.writeString(machine);
-            ostr_.writeInt(nProcessors);
-            ostr_.writeString(dataDir);
-            ostr_.writeString(1, iceSoVersion);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            name = istr_.readString();
-            os = istr_.readString();
-            hostname = istr_.readString();
-            release = istr_.readString();
-            version = istr_.readString();
-            machine = istr_.readString();
-            nProcessors = istr_.readInt();
-            dataDir = istr_.readString();
-            iceSoVersion = istr_.readString(1);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::IceGrid::InternalReplicaInfo")]
-    public partial class InternalReplicaInfo : Ice.Value
-    {
-        public string name = "";
-
-        public string hostname = "";
-
-        partial void ice_initialize();
-
-        public InternalReplicaInfo(string name, string hostname)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(name);
-            this.name = name;
-            global::System.ArgumentNullException.ThrowIfNull(hostname);
-            this.hostname = hostname;
-            ice_initialize();
-        }
-
-        public InternalReplicaInfo()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceGrid::InternalReplicaInfo";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeString(name);
-            ostr_.writeString(hostname);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            name = istr_.readString();
-            hostname = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::IceGrid::InternalRegistry")]
-    public partial interface InternalRegistry : FileReader
-    {
-        /// <summary>
-        /// Register a node with the registry. If a node with the same name is already registered,
-        /// registerNode overrides the existing registration only when the previously
-        /// registered node is not active.
-        /// </summary>
-        /// <param name="info">
-        /// Some information on the node.
-        /// </param>
-        /// <param name="prx">
-        /// The proxy of the node.
-        /// </param>
-        /// <param name="loadInf">
-        /// The load information of the node.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The node session proxy.
-        /// </returns>
-        /// <exception cref="IceGrid.NodeActiveException">
-        /// Raised if the node is already registered and currently active.
-        /// </exception>
-        NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, Ice.Current current);
-
-        /// <summary>
-        /// Register a replica with the registry. If a replica with the same name is already registered,
-        /// registerReplica overrides the existing registration only when the previously
-        /// registered node is not active.
-        /// </summary>
-        /// <param name="info">
-        /// Some information on the replica.
-        /// </param>
-        /// <param name="prx">
-        /// The proxy of the replica.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The replica session proxy.
-        /// </returns>
-        /// <exception cref="IceGrid.ReplicaActiveException">
-        /// Raised if the replica is already registered and currently active.
-        /// </exception>
-        ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, Ice.Current current);
-
-        /// <summary>
-        /// Create a session with the given registry replica. This method returns only once the session creation has been
-        /// attempted.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void registerWithReplica(InternalRegistryPrx? prx, Ice.Current current);
-
-        /// <summary>
-        /// Return the proxies of all the nodes known by this registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        NodePrx?[] getNodes(Ice.Current current);
-
-        /// <summary>
-        /// Return the proxies of all the registry replicas known by this registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        InternalRegistryPrx?[] getReplicas(Ice.Current current);
-
-        /// <summary>
-        /// Return applications, adapters, objects from this replica.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        ApplicationInfo[] getApplications(out long serial, Ice.Current current);
-
-        AdapterInfo[] getAdapters(out long serial, Ice.Current current);
-
-        ObjectInfo[] getObjects(out long serial, Ice.Current current);
-
-        /// <summary>
-        /// Shutdown this registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace IceGrid
-{
-    public record struct FileReader_ReadResult(bool returnValue, long newPos, string[] lines);
-
-    public record struct Node_LoadServerResult(ServerPrx? returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, int activateTimeout, int deactivateTimeout);
-
-    public record struct Node_LoadServerWithoutRestartResult(ServerPrx? returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, int activateTimeout, int deactivateTimeout);
-
-    public record struct InternalRegistry_GetApplicationsResult(ApplicationInfo[] returnValue, long serial);
-
-    public record struct InternalRegistry_GetAdaptersResult(AdapterInfo[] returnValue, long serial);
-
-    public record struct InternalRegistry_GetObjectsResult(ObjectInfo[] returnValue, long serial);
-}
-
-namespace IceGrid
-{
     public interface AdapterPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -1075,960 +507,6 @@ namespace IceGrid
         /// an active adapter.
         /// </exception>
         global::System.Threading.Tasks.Task setDirectProxyAsync(Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface FileReaderPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Count the number of given lines from the end of the file and return the file offset.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        long getOffsetFromEnd(string filename, int lines, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Count the number of given lines from the end of the file and return the file offset.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<long> getOffsetFromEndAsync(string filename, int lines, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Read lines (or size bytes) at the specified position from the given file.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Read lines (or size bytes) at the specified position from the given file.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<FileReader_ReadResult> readAsync(string filename, long pos, int size, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface ServerPrx : FileReaderPrx
-    {
-        /// <summary>
-        /// Start the server.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void start(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Start the server.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task startAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
-        /// configurable amount of time, it will be killed.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
-        /// configurable amount of time, it will be killed.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Check if the given server can be loaded on this node.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// True if the server is inactive.
-        /// </returns>
-        /// <exception cref="IceGrid.DeploymentException">
-        /// Raised if the server can't be updated.
-        /// </exception>
-        bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Check if the given server can be loaded on this node.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceGrid.DeploymentException">
-        /// Raised if the server can't be updated.
-        /// </exception>
-        global::System.Threading.Tasks.Task<bool> checkUpdateAsync(InternalServerDescriptor? svr, bool noRestart, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Enable or disable the server.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void setEnabled(bool enable, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Enable or disable the server.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setEnabledAsync(bool enable, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Check if the server is enabled.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        bool isEnabled(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Check if the server is enabled.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<bool> isEnabledAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Send signal to the server
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void sendSignal(string signal, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Send signal to the server
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task sendSignalAsync(string signal, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Write message on servers' stdout or stderr.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Write message on servers' stdout or stderr.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return the server state.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The server state.
-        /// </returns>
-        /// <seealso cref="ServerState" />
-        ServerState getState(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return the server state.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <seealso cref="ServerState" />
-        global::System.Threading.Tasks.Task<ServerState> getStateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
-        /// it's the pid value returned by the fork() system call and converted to an integer.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        int getPid(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
-        /// it's the pid value returned by the fork() system call and converted to an integer.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> getPidAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Set the process proxy.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void setProcess(global::Ice.ProcessPrx? proc, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Set the process proxy.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface ReplicaObserverPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Initialization of the replica observer.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void replicaInit(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Initialization of the replica observer.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task replicaInitAsync(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Notification that a replica has been added. The node should establish a session with this new replica.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void replicaAdded(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Notification that a replica has been added. The node should establish a session with this new replica.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task replicaAddedAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Notification that a replica has been removed. The node should destroy the session to this replica.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void replicaRemoved(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Notification that a replica has been removed. The node should destroy the session to this replica.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task replicaRemovedAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface NodePrx : FileReaderPrx, ReplicaObserverPrx
-    {
-        /// <summary>
-        /// Load the given server. If the server resources weren't already created (database environment directories,
-        /// property files, etc), they will be created. The returned proxy is never null.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        ServerPrx? loadServer(InternalServerDescriptor? svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, out int activateTimeout, out int deactivateTimeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Load the given server. If the server resources weren't already created (database environment directories,
-        /// property files, etc), they will be created. The returned proxy is never null.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
-        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
-        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        ServerPrx? loadServerWithoutRestart(InternalServerDescriptor? svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, out int activateTimeout, out int deactivateTimeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
-        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
-        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Destroy the given server.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void destroyServer(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Destroy the given server.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Destroy the server if it's not active.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void destroyServerWithoutRestart(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Destroy the server if it's not active.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        /// replicaAdded below).
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void registerWithReplica(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        /// replicaAdded below).
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task registerWithReplicaAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the node name.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the node name.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the node hostname.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        string getHostname(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the node hostname.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string> getHostnameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the node load.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        LoadInfo getLoad(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the node load.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<LoadInfo> getLoadAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the number of processor sockets for the machine where this node is running.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        int getProcessorSocketCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the number of processor sockets for the machine where this node is running.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> getProcessorSocketCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Shutdown the node.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Shutdown the node.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface NodeSessionPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// The node call this method to keep the session alive.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void keepAlive(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// The node call this method to keep the session alive.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task keepAliveAsync(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
-        /// It only calls this for the session with the master.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void setReplicaObserver(ReplicaObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
-        /// It only calls this for the session with the master.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setReplicaObserverAsync(ReplicaObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return the node session timeout.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        int getTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return the node session timeout.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> getTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return the node observer.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        NodeObserverPrx? getObserver(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return the node observer.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<NodeObserverPrx?> getObserverAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Ask the registry to load the servers on the node.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void loadServers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Ask the registry to load the servers on the node.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task loadServersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the name of the servers deployed on the node.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        string[] getServers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the name of the servers deployed on the node.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string[]> getServersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Wait for the application update to complete (the application is completely updated once all the registry
-        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
-        /// replicas have the up-to-date descriptor of the server.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void waitForApplicationUpdate(string application, int revision, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Wait for the application update to complete (the application is completely updated once all the registry
-        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
-        /// replicas have the up-to-date descriptor of the server.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface DatabaseObserverPrx : ApplicationObserverPrx, ObjectObserverPrx, AdapterObserverPrx
-    {
-    }
-
-    public interface ReplicaSessionPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// The replica call this method to keep the session alive.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void keepAlive(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// The replica call this method to keep the session alive.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return the replica session timeout.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        int getTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return the replica session timeout.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> getTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
-        /// for replicated objects (e.g.: IceGrid::Query object).
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
-        /// for replicated objects (e.g.: IceGrid::Query object).
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Registers the replica well-known objects with the master.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void registerWellKnownObjects(ObjectInfo[] objects, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Registers the replica well-known objects with the master.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task registerWellKnownObjectsAsync(ObjectInfo[] objects, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
-        /// with the locator registry interface.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
-        /// with the locator registry interface.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Notify the master that an update was received. The master might wait for replication updates to be received by
-        /// all the replicas before to continue.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void receivedUpdate(TopicName name, int serial, string failure, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Notify the master that an update was received. The master might wait for replication updates to be received by
-        /// all the replicas before to continue.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task receivedUpdateAsync(TopicName name, int serial, string failure, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
-    public interface InternalRegistryPrx : FileReaderPrx
-    {
-        /// <summary>
-        /// Register a node with the registry. If a node with the same name is already registered,
-        /// registerNode overrides the existing registration only when the previously
-        /// registered node is not active.
-        /// </summary>
-        /// <param name="info">
-        /// Some information on the node.
-        /// </param>
-        /// <param name="prx">
-        /// The proxy of the node.
-        /// </param>
-        /// <param name="loadInf">
-        /// The load information of the node.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The node session proxy.
-        /// </returns>
-        /// <exception cref="IceGrid.NodeActiveException">
-        /// Raised if the node is already registered and currently active.
-        /// </exception>
-        NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Register a node with the registry. If a node with the same name is already registered,
-        /// registerNode overrides the existing registration only when the previously
-        /// registered node is not active.
-        /// </summary>
-        /// <param name="info">
-        /// Some information on the node.
-        /// </param>
-        /// <param name="prx">
-        /// The proxy of the node.
-        /// </param>
-        /// <param name="loadInf">
-        /// The load information of the node.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceGrid.NodeActiveException">
-        /// Raised if the node is already registered and currently active.
-        /// </exception>
-        global::System.Threading.Tasks.Task<NodeSessionPrx?> registerNodeAsync(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Register a replica with the registry. If a replica with the same name is already registered,
-        /// registerReplica overrides the existing registration only when the previously
-        /// registered node is not active.
-        /// </summary>
-        /// <param name="info">
-        /// Some information on the replica.
-        /// </param>
-        /// <param name="prx">
-        /// The proxy of the replica.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>
-        /// The replica session proxy.
-        /// </returns>
-        /// <exception cref="IceGrid.ReplicaActiveException">
-        /// Raised if the replica is already registered and currently active.
-        /// </exception>
-        ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Register a replica with the registry. If a replica with the same name is already registered,
-        /// registerReplica overrides the existing registration only when the previously
-        /// registered node is not active.
-        /// </summary>
-        /// <param name="info">
-        /// Some information on the replica.
-        /// </param>
-        /// <param name="prx">
-        /// The proxy of the replica.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceGrid.ReplicaActiveException">
-        /// Raised if the replica is already registered and currently active.
-        /// </exception>
-        global::System.Threading.Tasks.Task<ReplicaSessionPrx?> registerReplicaAsync(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Create a session with the given registry replica. This method returns only once the session creation has been
-        /// attempted.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void registerWithReplica(InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Create a session with the given registry replica. This method returns only once the session creation has been
-        /// attempted.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task registerWithReplicaAsync(InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return the proxies of all the nodes known by this registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        NodePrx?[] getNodes(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return the proxies of all the nodes known by this registry.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<NodePrx?[]> getNodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return the proxies of all the registry replicas known by this registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        InternalRegistryPrx?[] getReplicas(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return the proxies of all the registry replicas known by this registry.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<InternalRegistryPrx?[]> getReplicasAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Return applications, adapters, objects from this replica.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        ApplicationInfo[] getApplications(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Return applications, adapters, objects from this replica.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<InternalRegistry_GetApplicationsResult> getApplicationsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        AdapterInfo[] getAdapters(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<InternalRegistry_GetAdaptersResult> getAdaptersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        ObjectInfo[] getObjects(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<InternalRegistry_GetObjectsResult> getObjectsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Shutdown this registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Shutdown this registry.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    public sealed class InternalDbEnvDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, InternalDbEnvDescriptor?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static InternalDbEnvDescriptor?[] read(Ice.InputStream istr)
-        {
-            InternalDbEnvDescriptor?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new InternalDbEnvDescriptor?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<InternalDbEnvDescriptor>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class InternalAdapterDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, InternalAdapterDescriptor?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static InternalAdapterDescriptor?[] read(Ice.InputStream istr)
-        {
-            InternalAdapterDescriptor?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new InternalAdapterDescriptor?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<InternalAdapterDescriptor>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class PropertyDescriptorSeqDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, PropertyDescriptor[]> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    PropertyDescriptorSeqHelper.write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> r = new global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                PropertyDescriptor[] v;
-                v = PropertyDescriptorSeqHelper.read(istr);
-                r[k] = v;
-            }
-            return r;
-        }
     }
 
     public sealed class AdapterPrxHelper : Ice.ObjectPrxHelperBase, AdapterPrx
@@ -2239,6 +717,41 @@ namespace IceGrid
         }
     }
 
+    /// <summary>
+    /// This exception is raised if an adapter with the same name already exists.
+    /// </summary>
+    [Ice.SliceTypeId("::IceGrid::AdapterExistsException")]
+    public partial class AdapterExistsException : Ice.UserException
+    {
+        public string id = "";
+
+        public AdapterExistsException(string id)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(id);
+            this.id = id;
+        }
+
+        public AdapterExistsException()
+        {
+        }
+
+        public override string ice_id() => "::IceGrid::AdapterExistsException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::IceGrid::AdapterExistsException", -1, true);
+            ostr_.writeString(id);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            id = istr_.readString();
+            istr_.endSlice();
+        }
+    }
+
     public sealed class AdapterPrxDictHelper
     {
         public static void write(Ice.OutputStream ostr,
@@ -2273,6 +786,39 @@ namespace IceGrid
             }
             return r;
         }
+    }
+
+    public interface FileReaderPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Count the number of given lines from the end of the file and return the file offset.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        long getOffsetFromEnd(string filename, int lines, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Count the number of given lines from the end of the file and return the file offset.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<long> getOffsetFromEndAsync(string filename, int lines, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Read lines (or size bytes) at the specified position from the given file.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Read lines (or size bytes) at the specified position from the given file.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<FileReader_ReadResult> readAsync(string filename, long pos, int size, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class FileReaderPrxHelper : Ice.ObjectPrxHelperBase, FileReaderPrx
@@ -2455,6 +1001,177 @@ namespace IceGrid
             : base(reference)
         {
         }
+    }
+
+    public interface ServerPrx : FileReaderPrx
+    {
+        /// <summary>
+        /// Start the server.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void start(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Start the server.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task startAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// configurable amount of time, it will be killed.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// configurable amount of time, it will be killed.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Check if the given server can be loaded on this node.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// True if the server is inactive.
+        /// </returns>
+        /// <exception cref="IceGrid.DeploymentException">
+        /// Raised if the server can't be updated.
+        /// </exception>
+        bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Check if the given server can be loaded on this node.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.DeploymentException">
+        /// Raised if the server can't be updated.
+        /// </exception>
+        global::System.Threading.Tasks.Task<bool> checkUpdateAsync(InternalServerDescriptor? svr, bool noRestart, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Enable or disable the server.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void setEnabled(bool enable, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Enable or disable the server.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setEnabledAsync(bool enable, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Check if the server is enabled.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        bool isEnabled(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Check if the server is enabled.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<bool> isEnabledAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Send signal to the server
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void sendSignal(string signal, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Send signal to the server
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task sendSignalAsync(string signal, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Write message on servers' stdout or stderr.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Write message on servers' stdout or stderr.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return the server state.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The server state.
+        /// </returns>
+        /// <seealso cref="ServerState" />
+        ServerState getState(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return the server state.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="ServerState" />
+        global::System.Threading.Tasks.Task<ServerState> getStateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// it's the pid value returned by the fork() system call and converted to an integer.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        int getPid(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// it's the pid value returned by the fork() system call and converted to an integer.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<int> getPidAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Set the process proxy.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void setProcess(global::Ice.ProcessPrx? proc, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Set the process proxy.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class ServerPrxHelper : Ice.ObjectPrxHelperBase, ServerPrx
@@ -3153,6 +1870,54 @@ namespace IceGrid
         }
     }
 
+    public interface ReplicaObserverPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Initialization of the replica observer.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void replicaInit(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Initialization of the replica observer.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task replicaInitAsync(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Notification that a replica has been added. The node should establish a session with this new replica.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void replicaAdded(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Notification that a replica has been added. The node should establish a session with this new replica.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task replicaAddedAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Notification that a replica has been removed. The node should destroy the session to this replica.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void replicaRemoved(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Notification that a replica has been removed. The node should destroy the session to this replica.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task replicaRemovedAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class ReplicaObserverPrxHelper : Ice.ObjectPrxHelperBase, ReplicaObserverPrx
     {
         public void replicaInit(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -3324,6 +2089,167 @@ namespace IceGrid
             : base(reference)
         {
         }
+    }
+
+    public interface NodePrx : FileReaderPrx, ReplicaObserverPrx
+    {
+        /// <summary>
+        /// Load the given server. If the server resources weren't already created (database environment directories,
+        /// property files, etc), they will be created. The returned proxy is never null.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        ServerPrx? loadServer(InternalServerDescriptor? svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, out int activateTimeout, out int deactivateTimeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Load the given server. If the server resources weren't already created (database environment directories,
+        /// property files, etc), they will be created. The returned proxy is never null.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        ServerPrx? loadServerWithoutRestart(InternalServerDescriptor? svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, out int activateTimeout, out int deactivateTimeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Destroy the given server.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void destroyServer(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Destroy the given server.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Destroy the server if it's not active.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void destroyServerWithoutRestart(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Destroy the server if it's not active.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+        /// replicaAdded below).
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void registerWithReplica(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+        /// replicaAdded below).
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task registerWithReplicaAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the node name.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the node name.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the node hostname.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        string getHostname(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the node hostname.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<string> getHostnameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the node load.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        LoadInfo getLoad(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the node load.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<LoadInfo> getLoadAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the number of processor sockets for the machine where this node is running.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        int getProcessorSocketCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the number of processor sockets for the machine where this node is running.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<int> getProcessorSocketCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Shutdown the node.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Shutdown the node.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class NodePrxHelper : Ice.ObjectPrxHelperBase, NodePrx
@@ -4180,6 +3106,156 @@ namespace IceGrid
         }
     }
 
+    /// <summary>
+    /// This exception is raised if a node is already registered and active.
+    /// </summary>
+    [Ice.SliceTypeId("::IceGrid::NodeActiveException")]
+    public partial class NodeActiveException : Ice.UserException
+    {
+        public override string ice_id() => "::IceGrid::NodeActiveException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::IceGrid::NodeActiveException", -1, true);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.endSlice();
+        }
+    }
+
+    public interface NodeSessionPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// The node call this method to keep the session alive.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void keepAlive(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// The node call this method to keep the session alive.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task keepAliveAsync(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+        /// It only calls this for the session with the master.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void setReplicaObserver(ReplicaObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+        /// It only calls this for the session with the master.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setReplicaObserverAsync(ReplicaObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return the node session timeout.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        int getTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return the node session timeout.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<int> getTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return the node observer.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        NodeObserverPrx? getObserver(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return the node observer.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<NodeObserverPrx?> getObserverAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Ask the registry to load the servers on the node.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void loadServers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Ask the registry to load the servers on the node.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task loadServersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Get the name of the servers deployed on the node.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        string[] getServers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Get the name of the servers deployed on the node.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<string[]> getServersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Wait for the application update to complete (the application is completely updated once all the registry
+        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+        /// replicas have the up-to-date descriptor of the server.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void waitForApplicationUpdate(string application, int revision, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Wait for the application update to complete (the application is completely updated once all the registry
+        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+        /// replicas have the up-to-date descriptor of the server.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class NodeSessionPrxHelper : Ice.ObjectPrxHelperBase, NodeSessionPrx
     {
         public void keepAlive(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -4558,6 +3634,55 @@ namespace IceGrid
             : base(reference)
         {
         }
+    }
+
+    /// <summary>
+    /// This exception is raised if a replica is already registered and active.
+    /// </summary>
+    [Ice.SliceTypeId("::IceGrid::ReplicaActiveException")]
+    public partial class ReplicaActiveException : Ice.UserException
+    {
+        public override string ice_id() => "::IceGrid::ReplicaActiveException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::IceGrid::ReplicaActiveException", -1, true);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.endSlice();
+        }
+    }
+
+    public enum TopicName
+    {
+        RegistryObserver,
+        NodeObserver,
+        ApplicationObserver,
+        AdapterObserver,
+        ObjectObserver
+    }
+
+    public sealed class TopicNameHelper
+    {
+        public static void write(Ice.OutputStream ostr, TopicName v)
+        {
+            ostr.writeEnum((int)v, 4);
+        }
+
+        public static TopicName read(Ice.InputStream istr)
+        {
+            TopicName v;
+            v = (TopicName)istr.readEnum(4);
+            return v;
+        }
+    }
+
+    public interface DatabaseObserverPrx : ApplicationObserverPrx, ObjectObserverPrx, AdapterObserverPrx
+    {
     }
 
     public sealed class DatabaseObserverPrxHelper : Ice.ObjectPrxHelperBase, DatabaseObserverPrx
@@ -5148,6 +4273,135 @@ namespace IceGrid
         }
     }
 
+    public interface ReplicaSessionPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// The replica call this method to keep the session alive.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void keepAlive(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// The replica call this method to keep the session alive.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return the replica session timeout.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        int getTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return the replica session timeout.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<int> getTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+        /// for replicated objects (e.g.: IceGrid::Query object).
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+        /// for replicated objects (e.g.: IceGrid::Query object).
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Registers the replica well-known objects with the master.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void registerWellKnownObjects(ObjectInfo[] objects, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Registers the replica well-known objects with the master.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task registerWellKnownObjectsAsync(ObjectInfo[] objects, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+        /// with the locator registry interface.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+        /// with the locator registry interface.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Notify the master that an update was received. The master might wait for replication updates to be received by
+        /// all the replicas before to continue.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void receivedUpdate(TopicName name, int serial, string failure, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Notify the master that an update was received. The master might wait for replication updates to be received by
+        /// all the replicas before to continue.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task receivedUpdateAsync(TopicName name, int serial, string failure, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class ReplicaSessionPrxHelper : Ice.ObjectPrxHelperBase, ReplicaSessionPrx
     {
         public void keepAlive(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -5567,6 +4821,306 @@ namespace IceGrid
             : base(reference)
         {
         }
+    }
+
+    [Ice.SliceTypeId("::IceGrid::InternalNodeInfo")]
+    public partial class InternalNodeInfo : Ice.Value
+    {
+        public string name = "";
+
+        public string os = "";
+
+        public string hostname = "";
+
+        public string release = "";
+
+        public string version = "";
+
+        public string machine = "";
+
+        public int nProcessors;
+
+        public string dataDir = "";
+
+        public string? iceSoVersion;
+
+        partial void ice_initialize();
+
+        public InternalNodeInfo(string name, string os, string hostname, string release, string version, string machine, int nProcessors, string dataDir, string? iceSoVersion)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(name);
+            this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(os);
+            this.os = os;
+            global::System.ArgumentNullException.ThrowIfNull(hostname);
+            this.hostname = hostname;
+            global::System.ArgumentNullException.ThrowIfNull(release);
+            this.release = release;
+            global::System.ArgumentNullException.ThrowIfNull(version);
+            this.version = version;
+            global::System.ArgumentNullException.ThrowIfNull(machine);
+            this.machine = machine;
+            this.nProcessors = nProcessors;
+            global::System.ArgumentNullException.ThrowIfNull(dataDir);
+            this.dataDir = dataDir;
+            this.iceSoVersion = iceSoVersion;
+            ice_initialize();
+        }
+
+        public InternalNodeInfo()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceGrid::InternalNodeInfo";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeString(name);
+            ostr_.writeString(os);
+            ostr_.writeString(hostname);
+            ostr_.writeString(release);
+            ostr_.writeString(version);
+            ostr_.writeString(machine);
+            ostr_.writeInt(nProcessors);
+            ostr_.writeString(dataDir);
+            ostr_.writeString(1, iceSoVersion);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            name = istr_.readString();
+            os = istr_.readString();
+            hostname = istr_.readString();
+            release = istr_.readString();
+            version = istr_.readString();
+            machine = istr_.readString();
+            nProcessors = istr_.readInt();
+            dataDir = istr_.readString();
+            iceSoVersion = istr_.readString(1);
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::IceGrid::InternalReplicaInfo")]
+    public partial class InternalReplicaInfo : Ice.Value
+    {
+        public string name = "";
+
+        public string hostname = "";
+
+        partial void ice_initialize();
+
+        public InternalReplicaInfo(string name, string hostname)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(name);
+            this.name = name;
+            global::System.ArgumentNullException.ThrowIfNull(hostname);
+            this.hostname = hostname;
+            ice_initialize();
+        }
+
+        public InternalReplicaInfo()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceGrid::InternalReplicaInfo";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeString(name);
+            ostr_.writeString(hostname);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            name = istr_.readString();
+            hostname = istr_.readString();
+            istr_.endSlice();
+        }
+    }
+
+    public interface InternalRegistryPrx : FileReaderPrx
+    {
+        /// <summary>
+        /// Register a node with the registry. If a node with the same name is already registered,
+        /// registerNode overrides the existing registration only when the previously
+        /// registered node is not active.
+        /// </summary>
+        /// <param name="info">
+        /// Some information on the node.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the node.
+        /// </param>
+        /// <param name="loadInf">
+        /// The load information of the node.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The node session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.NodeActiveException">
+        /// Raised if the node is already registered and currently active.
+        /// </exception>
+        NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Register a node with the registry. If a node with the same name is already registered,
+        /// registerNode overrides the existing registration only when the previously
+        /// registered node is not active.
+        /// </summary>
+        /// <param name="info">
+        /// Some information on the node.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the node.
+        /// </param>
+        /// <param name="loadInf">
+        /// The load information of the node.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.NodeActiveException">
+        /// Raised if the node is already registered and currently active.
+        /// </exception>
+        global::System.Threading.Tasks.Task<NodeSessionPrx?> registerNodeAsync(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Register a replica with the registry. If a replica with the same name is already registered,
+        /// registerReplica overrides the existing registration only when the previously
+        /// registered node is not active.
+        /// </summary>
+        /// <param name="info">
+        /// Some information on the replica.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the replica.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>
+        /// The replica session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.ReplicaActiveException">
+        /// Raised if the replica is already registered and currently active.
+        /// </exception>
+        ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Register a replica with the registry. If a replica with the same name is already registered,
+        /// registerReplica overrides the existing registration only when the previously
+        /// registered node is not active.
+        /// </summary>
+        /// <param name="info">
+        /// Some information on the replica.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the replica.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.ReplicaActiveException">
+        /// Raised if the replica is already registered and currently active.
+        /// </exception>
+        global::System.Threading.Tasks.Task<ReplicaSessionPrx?> registerReplicaAsync(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Create a session with the given registry replica. This method returns only once the session creation has been
+        /// attempted.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void registerWithReplica(InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Create a session with the given registry replica. This method returns only once the session creation has been
+        /// attempted.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task registerWithReplicaAsync(InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return the proxies of all the nodes known by this registry.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        NodePrx?[] getNodes(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return the proxies of all the nodes known by this registry.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<NodePrx?[]> getNodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return the proxies of all the registry replicas known by this registry.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        InternalRegistryPrx?[] getReplicas(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return the proxies of all the registry replicas known by this registry.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<InternalRegistryPrx?[]> getReplicasAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Return applications, adapters, objects from this replica.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        ApplicationInfo[] getApplications(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Return applications, adapters, objects from this replica.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<InternalRegistry_GetApplicationsResult> getApplicationsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        AdapterInfo[] getAdapters(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<InternalRegistry_GetAdaptersResult> getAdaptersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        ObjectInfo[] getObjects(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<InternalRegistry_GetObjectsResult> getObjectsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Shutdown this registry.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Shutdown this registry.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class InternalRegistryPrxHelper : Ice.ObjectPrxHelperBase, InternalRegistryPrx
@@ -6200,6 +5754,102 @@ namespace IceGrid
 
 namespace IceGrid
 {
+    public record struct FileReader_ReadResult(bool returnValue, long newPos, string[] lines);
+
+    public record struct Node_LoadServerResult(ServerPrx? returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, int activateTimeout, int deactivateTimeout);
+
+    public record struct Node_LoadServerWithoutRestartResult(ServerPrx? returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, int activateTimeout, int deactivateTimeout);
+
+    public record struct InternalRegistry_GetApplicationsResult(ApplicationInfo[] returnValue, long serial);
+
+    public record struct InternalRegistry_GetAdaptersResult(AdapterInfo[] returnValue, long serial);
+
+    public record struct InternalRegistry_GetObjectsResult(ObjectInfo[] returnValue, long serial);
+}
+
+namespace IceGrid
+{
+    [Ice.SliceTypeId("::IceGrid::Adapter")]
+    public partial interface Adapter : Ice.Object
+    {
+        /// <summary>
+        /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+        /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+        /// adapter is inactive or the adapter direct proxy it's active.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_activateAsync(
+            Adapter obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.activateAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        /// <summary>
+        /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+        /// contains the last known adapter endpoints.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// A direct proxy containing the last known adapter endpoints if the adapter is already active.
+        /// </returns>
+        Ice.ObjectPrx? getDirectProxy(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getDirectProxyAsync(
+            Adapter obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getDirectProxy(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Set the direct proxy for this adapter.
+        /// </summary>
+        /// <param name="proxy">
+        /// The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceGrid.AdapterActiveException">
+        /// The adapter is already active. It's not possible to override the direct proxy of
+        /// an active adapter.
+        /// </exception>
+        void setDirectProxy(Ice.ObjectPrx? proxy, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setDirectProxyAsync(
+            Adapter obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Ice.ObjectPrx? iceP_proxy;
+            iceP_proxy = istr.readProxy();
+            istr.endEncapsulation();
+            obj.setDirectProxy(iceP_proxy, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class AdapterDisp_ : Ice.ObjectImpl, Adapter
     {
         public abstract global::System.Threading.Tasks.Task<Ice.ObjectPrx?> activateAsync(Ice.Current current);
@@ -6226,6 +5876,68 @@ namespace IceGrid
             };
     }
 
+    [Ice.SliceTypeId("::IceGrid::FileReader")]
+    public partial interface FileReader : Ice.Object
+    {
+        /// <summary>
+        /// Count the number of given lines from the end of the file and return the file offset.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        long getOffsetFromEnd(string filename, int lines, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getOffsetFromEndAsync(
+            FileReader obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_filename;
+            int iceP_lines;
+            iceP_filename = istr.readString();
+            iceP_lines = istr.readInt();
+            istr.endEncapsulation();
+            var ret = obj.getOffsetFromEnd(iceP_filename, iceP_lines, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Read lines (or size bytes) at the specified position from the given file.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_readAsync(
+            FileReader obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_filename;
+            long iceP_pos;
+            int iceP_size;
+            iceP_filename = istr.readString();
+            iceP_pos = istr.readLong();
+            iceP_size = istr.readInt();
+            istr.endEncapsulation();
+            long iceP_newPos;
+            string[] iceP_lines;
+            var ret = obj.read(iceP_filename, iceP_pos, iceP_size, out iceP_newPos, out iceP_lines, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(iceP_newPos);
+            global::Ice.StringSeqHelper.write(ostr, iceP_lines);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class FileReaderDisp_ : Ice.ObjectImpl, FileReader
     {
         public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
@@ -6247,6 +5959,226 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::IceGrid::Server")]
+    public partial interface Server : FileReader
+    {
+        /// <summary>
+        /// Start the server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task startAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.startAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        /// <summary>
+        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// configurable amount of time, it will be killed.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task stopAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.stopAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        /// <summary>
+        /// Check if the given server can be loaded on this node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// True if the server is inactive.
+        /// </returns>
+        /// <exception cref="IceGrid.DeploymentException">
+        /// Raised if the server can't be updated.
+        /// </exception>
+        bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkUpdateAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalServerDescriptor? iceP_svr = null;
+            bool iceP_noRestart;
+            istr.readValue((InternalServerDescriptor? v) => { iceP_svr = v; });
+            iceP_noRestart = istr.readBool();
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.checkUpdate(iceP_svr, iceP_noRestart, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Enable or disable the server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setEnabled(bool enable, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setEnabledAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool iceP_enable;
+            iceP_enable = istr.readBool();
+            istr.endEncapsulation();
+            obj.setEnabled(iceP_enable, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Check if the server is enabled.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        bool isEnabled(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_isEnabledAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.isEnabled(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Send signal to the server
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void sendSignal(string signal, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sendSignalAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_signal;
+            iceP_signal = istr.readString();
+            istr.endEncapsulation();
+            obj.sendSignal(iceP_signal, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Write message on servers' stdout or stderr.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void writeMessage(string message, int fd, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_writeMessageAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_message;
+            int iceP_fd;
+            iceP_message = istr.readString();
+            iceP_fd = istr.readInt();
+            istr.endEncapsulation();
+            obj.writeMessage(iceP_message, iceP_fd, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Return the server state.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The server state.
+        /// </returns>
+        /// <seealso cref="ServerState" />
+        ServerState getState(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getStateAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getState(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeEnum((int)ret, 6);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// it's the pid value returned by the fork() system call and converted to an integer.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        int getPid(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPidAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getPid(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Set the process proxy.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setProcessAsync(
+            Server obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.ProcessPrx? iceP_proc;
+            iceP_proc = global::Ice.ProcessPrxHelper.read(istr);
+            istr.endEncapsulation();
+            await obj.setProcessAsync(iceP_proc, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
     }
 
     public abstract class ServerDisp_ : Ice.ObjectImpl, Server
@@ -6302,6 +6234,70 @@ namespace IceGrid
             };
     }
 
+    [Ice.SliceTypeId("::IceGrid::ReplicaObserver")]
+    public partial interface ReplicaObserver : Ice.Object
+    {
+        /// <summary>
+        /// Initialization of the replica observer.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replicaInitAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalRegistryPrx?[] iceP_replicas;
+            iceP_replicas = InternalRegistryPrxSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.replicaInit(iceP_replicas, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Notification that a replica has been added. The node should establish a session with this new replica.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replicaAddedAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalRegistryPrx? iceP_replica;
+            iceP_replica = InternalRegistryPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.replicaAdded(iceP_replica, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Notification that a replica has been removed. The node should destroy the session to this replica.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replicaRemovedAsync(
+            ReplicaObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalRegistryPrx? iceP_replica;
+            iceP_replica = InternalRegistryPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.replicaRemoved(iceP_replica, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ReplicaObserverDisp_ : Ice.ObjectImpl, ReplicaObserver
     {
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
@@ -6326,6 +6322,250 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::IceGrid::Node")]
+    public partial interface Node : FileReader, ReplicaObserver
+    {
+        /// <summary>
+        /// Load the given server. If the server resources weren't already created (database environment directories,
+        /// property files, etc), they will be created. The returned proxy is never null.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_loadServerAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalServerDescriptor? iceP_svr = null;
+            string iceP_replicaName;
+            istr.readValue((InternalServerDescriptor? v) => { iceP_svr = v; });
+            iceP_replicaName = istr.readString();
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var result = await obj.loadServerAsync(iceP_svr, iceP_replicaName, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    AdapterPrxDictHelper.write(ostr, ret.adapters);
+                    ostr.writeInt(ret.activateTimeout);
+                    ostr.writeInt(ret.deactivateTimeout);
+                    ServerPrxHelper.write(ostr, ret.returnValue);
+                });
+        }
+
+        /// <summary>
+        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_loadServerWithoutRestartAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalServerDescriptor? iceP_svr = null;
+            string iceP_replicaName;
+            istr.readValue((InternalServerDescriptor? v) => { iceP_svr = v; });
+            iceP_replicaName = istr.readString();
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var result = await obj.loadServerWithoutRestartAsync(iceP_svr, iceP_replicaName, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    AdapterPrxDictHelper.write(ostr, ret.adapters);
+                    ostr.writeInt(ret.activateTimeout);
+                    ostr.writeInt(ret.deactivateTimeout);
+                    ServerPrxHelper.write(ostr, ret.returnValue);
+                });
+        }
+
+        /// <summary>
+        /// Destroy the given server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyServerAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_name;
+            string iceP_uuid;
+            int iceP_revision;
+            string iceP_replicaName;
+            iceP_name = istr.readString();
+            iceP_uuid = istr.readString();
+            iceP_revision = istr.readInt();
+            iceP_replicaName = istr.readString();
+            istr.endEncapsulation();
+            await obj.destroyServerAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        /// <summary>
+        /// Destroy the server if it's not active.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyServerWithoutRestartAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_name;
+            string iceP_uuid;
+            int iceP_revision;
+            string iceP_replicaName;
+            iceP_name = istr.readString();
+            iceP_uuid = istr.readString();
+            iceP_revision = istr.readInt();
+            iceP_replicaName = istr.readString();
+            istr.endEncapsulation();
+            await obj.destroyServerWithoutRestartAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        /// <summary>
+        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+        /// replicaAdded below).
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void registerWithReplica(InternalRegistryPrx? replica, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerWithReplicaAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalRegistryPrx? iceP_replica;
+            iceP_replica = InternalRegistryPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.registerWithReplica(iceP_replica, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Get the node name.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        string getName(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getName(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the node hostname.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        string getHostname(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostnameAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getHostname(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the node load.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        LoadInfo getLoad(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLoadAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getLoad(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ret.ice_writeMembers(ostr);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the number of processor sockets for the machine where this node is running.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        int getProcessorSocketCount(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getProcessorSocketCountAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getProcessorSocketCount(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Shutdown the node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Node obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 
     public abstract class NodeDisp_ : Ice.ObjectImpl, Node
@@ -6390,6 +6630,169 @@ namespace IceGrid
             };
     }
 
+    [Ice.SliceTypeId("::IceGrid::NodeSession")]
+    public partial interface NodeSession : Ice.Object
+    {
+        /// <summary>
+        /// The node call this method to keep the session alive.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void keepAlive(LoadInfo load, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_keepAliveAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LoadInfo iceP_load;
+            iceP_load = new LoadInfo(istr);
+            istr.endEncapsulation();
+            obj.keepAlive(iceP_load, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+        /// It only calls this for the session with the master.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setReplicaObserver(ReplicaObserverPrx? observer, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setReplicaObserverAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            ReplicaObserverPrx? iceP_observer;
+            iceP_observer = ReplicaObserverPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.setReplicaObserver(iceP_observer, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Return the node session timeout.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        int getTimeout(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTimeoutAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getTimeout(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Return the node observer.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        NodeObserverPrx? getObserver(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getObserverAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getObserver(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            NodeObserverPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Ask the registry to load the servers on the node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task loadServersAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_loadServersAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.loadServersAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        /// <summary>
+        /// Get the name of the servers deployed on the node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        string[] getServers(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getServersAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getServers(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Ice.StringSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Wait for the application update to complete (the application is completely updated once all the registry
+        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+        /// replicas have the up-to-date descriptor of the server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitForApplicationUpdateAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_application;
+            int iceP_revision;
+            iceP_application = istr.readString();
+            iceP_revision = istr.readInt();
+            istr.endEncapsulation();
+            await obj.waitForApplicationUpdateAsync(iceP_application, iceP_revision, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void destroy(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
+            NodeSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.destroy(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class NodeSessionDisp_ : Ice.ObjectImpl, NodeSession
     {
         public abstract void keepAlive(LoadInfo load, Ice.Current current);
@@ -6429,6 +6832,11 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::IceGrid::DatabaseObserver")]
+    public partial interface DatabaseObserver : ApplicationObserver, ObjectObserver, AdapterObserver
+    {
     }
 
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
@@ -6484,6 +6892,185 @@ namespace IceGrid
             };
     }
 
+    [Ice.SliceTypeId("::IceGrid::ReplicaSession")]
+    public partial interface ReplicaSession : Ice.Object
+    {
+        /// <summary>
+        /// The replica call this method to keep the session alive.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void keepAlive(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_keepAliveAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.keepAlive(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Return the replica session timeout.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        int getTimeout(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTimeoutAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getTimeout(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setDatabaseObserverAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            DatabaseObserverPrx? iceP_dbObs;
+            global::System.Collections.Generic.Dictionary<string, long>? iceP_serials;
+            iceP_dbObs = DatabaseObserverPrxHelper.read(istr);
+            if (istr.readOptional(1, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                global::System.Collections.Generic.Dictionary<string, long> tmpVal = new global::System.Collections.Generic.Dictionary<string, long>();
+                tmpVal = StringLongDictHelper.read(istr);
+                iceP_serials = tmpVal;
+            }
+            else
+            {
+                iceP_serials = null;
+            }
+            istr.endEncapsulation();
+            obj.setDatabaseObserver(iceP_dbObs, iceP_serials, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+        /// for replicated objects (e.g.: IceGrid::Query object).
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setEndpoints(global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> endpoints, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setEndpointsAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> iceP_endpoints;
+            iceP_endpoints = StringObjectProxyDictHelper.read(istr);
+            istr.endEncapsulation();
+            obj.setEndpoints(iceP_endpoints, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Registers the replica well-known objects with the master.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void registerWellKnownObjects(ObjectInfo[] objects, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerWellKnownObjectsAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            ObjectInfo[] iceP_objects;
+            iceP_objects = ObjectInfoSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.registerWellKnownObjects(iceP_objects, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+        /// with the locator registry interface.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void setAdapterDirectProxy(string adapterId, string replicaGroupId, Ice.ObjectPrx? proxy, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setAdapterDirectProxyAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_adapterId;
+            string iceP_replicaGroupId;
+            Ice.ObjectPrx? iceP_proxy;
+            iceP_adapterId = istr.readString();
+            iceP_replicaGroupId = istr.readString();
+            iceP_proxy = istr.readProxy();
+            istr.endEncapsulation();
+            obj.setAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Notify the master that an update was received. The master might wait for replication updates to be received by
+        /// all the replicas before to continue.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void receivedUpdate(TopicName name, int serial, string failure, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_receivedUpdateAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            TopicName iceP_name;
+            int iceP_serial;
+            string iceP_failure;
+            iceP_name = (TopicName)istr.readEnum(4);
+            iceP_serial = istr.readInt();
+            iceP_failure = istr.readString();
+            istr.endEncapsulation();
+            obj.receivedUpdate(iceP_name, iceP_serial, iceP_failure, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void destroy(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
+            ReplicaSession obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.destroy(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ReplicaSessionDisp_ : Ice.ObjectImpl, ReplicaSession
     {
         public abstract void keepAlive(Ice.Current current);
@@ -6523,6 +7110,233 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::IceGrid::InternalRegistry")]
+    public partial interface InternalRegistry : FileReader
+    {
+        /// <summary>
+        /// Register a node with the registry. If a node with the same name is already registered,
+        /// registerNode overrides the existing registration only when the previously
+        /// registered node is not active.
+        /// </summary>
+        /// <param name="info">
+        /// Some information on the node.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the node.
+        /// </param>
+        /// <param name="loadInf">
+        /// The load information of the node.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The node session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.NodeActiveException">
+        /// Raised if the node is already registered and currently active.
+        /// </exception>
+        NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerNodeAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalNodeInfo? iceP_info = null;
+            NodePrx? iceP_prx;
+            LoadInfo iceP_loadInf;
+            istr.readValue((InternalNodeInfo? v) => { iceP_info = v; });
+            iceP_prx = NodePrxHelper.read(istr);
+            iceP_loadInf = new LoadInfo(istr);
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.registerNode(iceP_info, iceP_prx, iceP_loadInf, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            NodeSessionPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Register a replica with the registry. If a replica with the same name is already registered,
+        /// registerReplica overrides the existing registration only when the previously
+        /// registered node is not active.
+        /// </summary>
+        /// <param name="info">
+        /// Some information on the replica.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the replica.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The replica session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.ReplicaActiveException">
+        /// Raised if the replica is already registered and currently active.
+        /// </exception>
+        ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerReplicaAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalReplicaInfo? iceP_info = null;
+            InternalRegistryPrx? iceP_prx;
+            istr.readValue((InternalReplicaInfo? v) => { iceP_info = v; });
+            iceP_prx = InternalRegistryPrxHelper.read(istr);
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.registerReplica(iceP_info, iceP_prx, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ReplicaSessionPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Create a session with the given registry replica. This method returns only once the session creation has been
+        /// attempted.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void registerWithReplica(InternalRegistryPrx? prx, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerWithReplicaAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            InternalRegistryPrx? iceP_prx;
+            iceP_prx = InternalRegistryPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.registerWithReplica(iceP_prx, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Return the proxies of all the nodes known by this registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        NodePrx?[] getNodes(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNodesAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getNodes(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            NodePrxSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Return the proxies of all the registry replicas known by this registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        InternalRegistryPrx?[] getReplicas(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getReplicasAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getReplicas(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            InternalRegistryPrxSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Return applications, adapters, objects from this replica.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        ApplicationInfo[] getApplications(out long serial, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getApplicationsAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            long iceP_serial;
+            var ret = obj.getApplications(out iceP_serial, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(iceP_serial);
+            ApplicationInfoSeqHelper.write(ostr, ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        AdapterInfo[] getAdapters(out long serial, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAdaptersAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            long iceP_serial;
+            var ret = obj.getAdapters(out iceP_serial, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(iceP_serial);
+            AdapterInfoSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        ObjectInfo[] getObjects(out long serial, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getObjectsAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            long iceP_serial;
+            var ret = obj.getObjects(out iceP_serial, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(iceP_serial);
+            ObjectInfoSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Shutdown this registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            InternalRegistry obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 
     public abstract class InternalRegistryDisp_ : Ice.ObjectImpl, InternalRegistry
@@ -6573,856 +7387,5 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceGrid
-{
-    public partial interface Adapter
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_activateAsync(
-            Adapter obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = await obj.activateAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getDirectProxyAsync(
-            Adapter obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getDirectProxy(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setDirectProxyAsync(
-            Adapter obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Ice.ObjectPrx? iceP_proxy;
-            iceP_proxy = istr.readProxy();
-            istr.endEncapsulation();
-            obj.setDirectProxy(iceP_proxy, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface FileReader
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getOffsetFromEndAsync(
-            FileReader obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_filename;
-            int iceP_lines;
-            iceP_filename = istr.readString();
-            iceP_lines = istr.readInt();
-            istr.endEncapsulation();
-            var ret = obj.getOffsetFromEnd(iceP_filename, iceP_lines, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_readAsync(
-            FileReader obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_filename;
-            long iceP_pos;
-            int iceP_size;
-            iceP_filename = istr.readString();
-            iceP_pos = istr.readLong();
-            iceP_size = istr.readInt();
-            istr.endEncapsulation();
-            long iceP_newPos;
-            string[] iceP_lines;
-            var ret = obj.read(iceP_filename, iceP_pos, iceP_size, out iceP_newPos, out iceP_lines, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(iceP_newPos);
-            global::Ice.StringSeqHelper.write(ostr, iceP_lines);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-    }
-
-    public partial interface Server
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.startAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.stopAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkUpdateAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalServerDescriptor? iceP_svr = null;
-            bool iceP_noRestart;
-            istr.readValue((InternalServerDescriptor? v) => { iceP_svr = v; });
-            iceP_noRestart = istr.readBool();
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.checkUpdate(iceP_svr, iceP_noRestart, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setEnabledAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool iceP_enable;
-            iceP_enable = istr.readBool();
-            istr.endEncapsulation();
-            obj.setEnabled(iceP_enable, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_isEnabledAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.isEnabled(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sendSignalAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_signal;
-            iceP_signal = istr.readString();
-            istr.endEncapsulation();
-            obj.sendSignal(iceP_signal, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_writeMessageAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_message;
-            int iceP_fd;
-            iceP_message = istr.readString();
-            iceP_fd = istr.readInt();
-            istr.endEncapsulation();
-            obj.writeMessage(iceP_message, iceP_fd, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getStateAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getState(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeEnum((int)ret, 6);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getPidAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getPid(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setProcessAsync(
-            Server obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::Ice.ProcessPrx? iceP_proc;
-            iceP_proc = global::Ice.ProcessPrxHelper.read(istr);
-            istr.endEncapsulation();
-            await obj.setProcessAsync(iceP_proc, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-    }
-
-    public partial interface ReplicaObserver
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replicaInitAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalRegistryPrx?[] iceP_replicas;
-            iceP_replicas = InternalRegistryPrxSeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.replicaInit(iceP_replicas, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replicaAddedAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalRegistryPrx? iceP_replica;
-            iceP_replica = InternalRegistryPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.replicaAdded(iceP_replica, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_replicaRemovedAsync(
-            ReplicaObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalRegistryPrx? iceP_replica;
-            iceP_replica = InternalRegistryPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.replicaRemoved(iceP_replica, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface Node
-    {
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_loadServerAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalServerDescriptor? iceP_svr = null;
-            string iceP_replicaName;
-            istr.readValue((InternalServerDescriptor? v) => { iceP_svr = v; });
-            iceP_replicaName = istr.readString();
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var result = await obj.loadServerAsync(iceP_svr, iceP_replicaName, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    AdapterPrxDictHelper.write(ostr, ret.adapters);
-                    ostr.writeInt(ret.activateTimeout);
-                    ostr.writeInt(ret.deactivateTimeout);
-                    ServerPrxHelper.write(ostr, ret.returnValue);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_loadServerWithoutRestartAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalServerDescriptor? iceP_svr = null;
-            string iceP_replicaName;
-            istr.readValue((InternalServerDescriptor? v) => { iceP_svr = v; });
-            iceP_replicaName = istr.readString();
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var result = await obj.loadServerWithoutRestartAsync(iceP_svr, iceP_replicaName, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    AdapterPrxDictHelper.write(ostr, ret.adapters);
-                    ostr.writeInt(ret.activateTimeout);
-                    ostr.writeInt(ret.deactivateTimeout);
-                    ServerPrxHelper.write(ostr, ret.returnValue);
-                });
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyServerAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_name;
-            string iceP_uuid;
-            int iceP_revision;
-            string iceP_replicaName;
-            iceP_name = istr.readString();
-            iceP_uuid = istr.readString();
-            iceP_revision = istr.readInt();
-            iceP_replicaName = istr.readString();
-            istr.endEncapsulation();
-            await obj.destroyServerAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyServerWithoutRestartAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_name;
-            string iceP_uuid;
-            int iceP_revision;
-            string iceP_replicaName;
-            iceP_name = istr.readString();
-            iceP_uuid = istr.readString();
-            iceP_revision = istr.readInt();
-            iceP_replicaName = istr.readString();
-            istr.endEncapsulation();
-            await obj.destroyServerWithoutRestartAsync(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerWithReplicaAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalRegistryPrx? iceP_replica;
-            iceP_replica = InternalRegistryPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.registerWithReplica(iceP_replica, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNameAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getName(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getHostnameAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getHostname(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLoadAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getLoad(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ret.ice_writeMembers(ostr);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getProcessorSocketCountAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getProcessorSocketCount(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Node obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface NodeSession
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_keepAliveAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LoadInfo iceP_load;
-            iceP_load = new LoadInfo(istr);
-            istr.endEncapsulation();
-            obj.keepAlive(iceP_load, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setReplicaObserverAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            ReplicaObserverPrx? iceP_observer;
-            iceP_observer = ReplicaObserverPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.setReplicaObserver(iceP_observer, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTimeoutAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getTimeout(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getObserverAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getObserver(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            NodeObserverPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_loadServersAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.loadServersAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getServersAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getServers(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Ice.StringSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_waitForApplicationUpdateAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_application;
-            int iceP_revision;
-            iceP_application = istr.readString();
-            iceP_revision = istr.readInt();
-            istr.endEncapsulation();
-            await obj.waitForApplicationUpdateAsync(iceP_application, iceP_revision, request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
-            NodeSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.destroy(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface DatabaseObserver
-    {
-    }
-
-    public partial interface ReplicaSession
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_keepAliveAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.keepAlive(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getTimeoutAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getTimeout(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setDatabaseObserverAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            DatabaseObserverPrx? iceP_dbObs;
-            global::System.Collections.Generic.Dictionary<string, long>? iceP_serials;
-            iceP_dbObs = DatabaseObserverPrxHelper.read(istr);
-            if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                global::System.Collections.Generic.Dictionary<string, long> tmpVal = new global::System.Collections.Generic.Dictionary<string, long>();
-                tmpVal = StringLongDictHelper.read(istr);
-                iceP_serials = tmpVal;
-            }
-            else
-            {
-                iceP_serials = null;
-            }
-            istr.endEncapsulation();
-            obj.setDatabaseObserver(iceP_dbObs, iceP_serials, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setEndpointsAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, Ice.ObjectPrx?> iceP_endpoints;
-            iceP_endpoints = StringObjectProxyDictHelper.read(istr);
-            istr.endEncapsulation();
-            obj.setEndpoints(iceP_endpoints, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerWellKnownObjectsAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            ObjectInfo[] iceP_objects;
-            iceP_objects = ObjectInfoSeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.registerWellKnownObjects(iceP_objects, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setAdapterDirectProxyAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_adapterId;
-            string iceP_replicaGroupId;
-            Ice.ObjectPrx? iceP_proxy;
-            iceP_adapterId = istr.readString();
-            iceP_replicaGroupId = istr.readString();
-            iceP_proxy = istr.readProxy();
-            istr.endEncapsulation();
-            obj.setAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_receivedUpdateAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            TopicName iceP_name;
-            int iceP_serial;
-            string iceP_failure;
-            iceP_name = (TopicName)istr.readEnum(4);
-            iceP_serial = istr.readInt();
-            iceP_failure = istr.readString();
-            istr.endEncapsulation();
-            obj.receivedUpdate(iceP_name, iceP_serial, iceP_failure, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_destroyAsync(
-            ReplicaSession obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.destroy(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface InternalRegistry
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerNodeAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalNodeInfo? iceP_info = null;
-            NodePrx? iceP_prx;
-            LoadInfo iceP_loadInf;
-            istr.readValue((InternalNodeInfo? v) => { iceP_info = v; });
-            iceP_prx = NodePrxHelper.read(istr);
-            iceP_loadInf = new LoadInfo(istr);
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.registerNode(iceP_info, iceP_prx, iceP_loadInf, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            NodeSessionPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerReplicaAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalReplicaInfo? iceP_info = null;
-            InternalRegistryPrx? iceP_prx;
-            istr.readValue((InternalReplicaInfo? v) => { iceP_info = v; });
-            iceP_prx = InternalRegistryPrxHelper.read(istr);
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.registerReplica(iceP_info, iceP_prx, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ReplicaSessionPrxHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_registerWithReplicaAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            InternalRegistryPrx? iceP_prx;
-            iceP_prx = InternalRegistryPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.registerWithReplica(iceP_prx, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getNodesAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getNodes(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            NodePrxSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getReplicasAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getReplicas(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            InternalRegistryPrxSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getApplicationsAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            long iceP_serial;
-            var ret = obj.getApplications(out iceP_serial, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(iceP_serial);
-            ApplicationInfoSeqHelper.write(ostr, ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getAdaptersAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            long iceP_serial;
-            var ret = obj.getAdapters(out iceP_serial, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(iceP_serial);
-            AdapterInfoSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getObjectsAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            long iceP_serial;
-            var ret = obj.getObjects(out iceP_serial, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(iceP_serial);
-            ObjectInfoSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            InternalRegistry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -74,10 +74,106 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::UnexpectedObjectExceptionTest")]
-    public partial interface UnexpectedObjectExceptionTest : Ice.Object
+    public interface UnexpectedObjectExceptionTestPrx : Ice.ObjectPrx
     {
-        Empty? op(Ice.Current current);
+        Empty? op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<Empty?> opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
+    public sealed class UnexpectedObjectExceptionTestPrxHelper : Ice.ObjectPrxHelperBase, UnexpectedObjectExceptionTestPrx
+    {
+        public Empty? op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                return _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Threading.Tasks.Task<Empty?> opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_opAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<Empty?> _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_op_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Empty?>(progress, cancel);
+            _iceI_op(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _op_name = "op";
+
+        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<Empty?>(completed);
+            outAsync.invoke(
+                _op_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous,
+                read: (Ice.InputStream istr) =>
+                {
+                    Empty? ret = null;
+                    istr.readValue((Empty? v) => {ret = v; });
+                    istr.readPendingValues();
+                    return ret;
+                });
+        }
+
+        public static UnexpectedObjectExceptionTestPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            new UnexpectedObjectExceptionTestPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+        public static UnexpectedObjectExceptionTestPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new UnexpectedObjectExceptionTestPrxHelper(b) : null;
+
+        public static UnexpectedObjectExceptionTestPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static UnexpectedObjectExceptionTestPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new UnexpectedObjectExceptionTestPrxHelper(b) : null;
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static UnexpectedObjectExceptionTestPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            uncheckedCast(b?.ice_facet(f));
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Test::UnexpectedObjectExceptionTest"
+        };
+
+        public static string ice_staticId() => "::Test::UnexpectedObjectExceptionTest";
+
+        public static void write(Ice.OutputStream ostr, UnexpectedObjectExceptionTestPrx? v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static UnexpectedObjectExceptionTestPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new UnexpectedObjectExceptionTestPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new UnexpectedObjectExceptionTestPrxHelper(reference);
+
+        private UnexpectedObjectExceptionTestPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
+        {
+        }
+
+        private UnexpectedObjectExceptionTestPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
+        }
     }
 
     [Ice.SliceTypeId("::Test::COneMember")]
@@ -310,114 +406,6 @@ namespace Test
 
         public static STwoMembers ice_read(Ice.InputStream istr) => new(istr);
     }
-}
-
-namespace Test
-{
-    public interface UnexpectedObjectExceptionTestPrx : Ice.ObjectPrx
-    {
-        Empty? op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<Empty?> opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
-    public sealed class UnexpectedObjectExceptionTestPrxHelper : Ice.ObjectPrxHelperBase, UnexpectedObjectExceptionTestPrx
-    {
-        public Empty? op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public global::System.Threading.Tasks.Task<Empty?> opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_opAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<Empty?> _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_op_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<Empty?>(progress, cancel);
-            _iceI_op(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _op_name = "op";
-
-        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<Empty?>(completed);
-            outAsync.invoke(
-                _op_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    Empty? ret = null;
-                    istr.readValue((Empty? v) => {ret = v; });
-                    istr.readPendingValues();
-                    return ret;
-                });
-        }
-
-        public static UnexpectedObjectExceptionTestPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            new UnexpectedObjectExceptionTestPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static UnexpectedObjectExceptionTestPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            b is not null && b.ice_isA(ice_staticId(), ctx) ? new UnexpectedObjectExceptionTestPrxHelper(b) : null;
-
-        public static UnexpectedObjectExceptionTestPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            checkedCast(b?.ice_facet(f), ctx);
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static UnexpectedObjectExceptionTestPrx? uncheckedCast(Ice.ObjectPrx? b) =>
-            b is not null ? new UnexpectedObjectExceptionTestPrxHelper(b) : null;
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static UnexpectedObjectExceptionTestPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            uncheckedCast(b?.ice_facet(f));
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::UnexpectedObjectExceptionTest"
-        };
-
-        public static string ice_staticId() => "::Test::UnexpectedObjectExceptionTest";
-
-        public static void write(Ice.OutputStream ostr, UnexpectedObjectExceptionTestPrx? v)
-        {
-            ostr.writeProxy(v);
-        }
-
-        public static UnexpectedObjectExceptionTestPrx? read(Ice.InputStream istr) =>
-            istr.readProxy() is Ice.ObjectPrx proxy ? new UnexpectedObjectExceptionTestPrxHelper(proxy) : null;
-
-        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new UnexpectedObjectExceptionTestPrxHelper(reference);
-
-        private UnexpectedObjectExceptionTestPrxHelper(Ice.ObjectPrx proxy)
-            : base(proxy)
-        {
-        }
-
-        private UnexpectedObjectExceptionTestPrxHelper(Ice.Internal.Reference reference)
-            : base(reference)
-        {
-        }
-    }
 
     public sealed class DOneMemberHelper
     {
@@ -490,6 +478,27 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::UnexpectedObjectExceptionTest")]
+    public partial interface UnexpectedObjectExceptionTest : Ice.Object
+    {
+        Empty? op(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
+            UnexpectedObjectExceptionTest obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.op(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class UnexpectedObjectExceptionTestDisp_ : Ice.ObjectImpl, UnexpectedObjectExceptionTest
     {
         public abstract Empty? op(Ice.Current current);
@@ -508,26 +517,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface UnexpectedObjectExceptionTest
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
-            UnexpectedObjectExceptionTest obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.op(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

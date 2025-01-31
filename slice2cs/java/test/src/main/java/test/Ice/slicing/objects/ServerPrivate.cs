@@ -184,6 +184,39 @@ namespace Test
         }
     }
 
+    public sealed class BSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, B?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static B?[] read(Ice.InputStream istr)
+        {
+            B?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new B?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<B>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
     [Ice.SliceTypeId("::Test::SS1")]
     public partial class SS1 : Ice.Value
     {
@@ -303,6 +336,40 @@ namespace Test
         public static SS3 ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class BDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, B?> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, B?> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    ostr.writeValue(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, B?> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, B?> r = new global::System.Collections.Generic.Dictionary<int, B?>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                istr.readValue((B? v) => { r[k] = v; });
+            }
+            return r;
+        }
+    }
+
     [Ice.SliceTypeId("::Test::BaseException")]
     public partial class BaseException : Ice.UserException
     {
@@ -417,6 +484,39 @@ namespace Test
             istr_.startSlice();
             pi = istr_.readInt();
             istr_.endSlice();
+        }
+    }
+
+    public sealed class PBaseSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, PBase?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static PBase?[] read(Ice.InputStream istr)
+        {
+            PBase?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new PBase?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<PBase>(v, ix));
+                }
+            }
+            return v;
         }
     }
 
@@ -590,544 +690,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : Ice.Object
-    {
-        Ice.Value? SBaseAsObject(Ice.Current current);
-
-        SBase? SBaseAsSBase(Ice.Current current);
-
-        SBase? SBSKnownDerivedAsSBase(Ice.Current current);
-
-        SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(Ice.Current current);
-
-        SBase? SBSUnknownDerivedAsSBase(Ice.Current current);
-
-        SBase? SBSUnknownDerivedAsSBaseCompact(Ice.Current current);
-
-        Ice.Value? SUnknownAsObject(Ice.Current current);
-
-        void checkSUnknown(Ice.Value? o, Ice.Current current);
-
-        B? oneElementCycle(Ice.Current current);
-
-        B? twoElementCycle(Ice.Current current);
-
-        B? D1AsB(Ice.Current current);
-
-        D1? D1AsD1(Ice.Current current);
-
-        B? D2AsB(Ice.Current current);
-
-        void paramTest1(out B? p1, out B? p2, Ice.Current current);
-
-        void paramTest2(out B? p2, out B? p1, Ice.Current current);
-
-        B? paramTest3(out B? p1, out B? p2, Ice.Current current);
-
-        B? paramTest4(out B? p, Ice.Current current);
-
-        B? returnTest1(out B? p1, out B? p2, Ice.Current current);
-
-        B? returnTest2(out B? p2, out B? p1, Ice.Current current);
-
-        B? returnTest3(B? p1, B? p2, Ice.Current current);
-
-        SS3 sequenceTest(SS1? p1, SS2? p2, Ice.Current current);
-
-        global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, Ice.Current current);
-
-        PBase? exchangePBase(PBase? pb, Ice.Current current);
-
-        Preserved? PBSUnknownAsPreserved(Ice.Current current);
-
-        void checkPBSUnknown(Preserved? p, Ice.Current current);
-
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(Ice.Current current);
-
-        void checkPBSUnknownWithGraph(Preserved? p, Ice.Current current);
-
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(Ice.Current current);
-
-        void checkPBSUnknown2WithGraph(Preserved? p, Ice.Current current);
-
-        PNode? exchangePNode(PNode? pn, Ice.Current current);
-
-        void throwBaseAsBase(Ice.Current current);
-
-        void throwDerivedAsBase(Ice.Current current);
-
-        void throwDerivedAsDerived(Ice.Current current);
-
-        void throwUnknownDerivedAsBase(Ice.Current current);
-
-        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(Ice.Current current);
-
-        void useForward(out Forward? f, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::Test::SBSUnknownDerived")]
-    public partial class SBSUnknownDerived : SBase
-    {
-        public string sbsud = "";
-
-        partial void ice_initialize();
-
-        public SBSUnknownDerived(string sb, string sbsud) : base(sb)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(sbsud);
-            this.sbsud = sbsud;
-            ice_initialize();
-        }
-
-        public SBSUnknownDerived()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::SBSUnknownDerived";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeString(sbsud);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            sbsud = istr_.readString();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::SUnknown")]
-    public partial class SUnknown : Ice.Value
-    {
-        public string su = "";
-
-        public SUnknown? cycle;
-
-        partial void ice_initialize();
-
-        public SUnknown(string su, SUnknown? cycle)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(su);
-            this.su = su;
-            this.cycle = cycle;
-            ice_initialize();
-        }
-
-        public SUnknown()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::SUnknown";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeString(su);
-            ostr_.writeValue(cycle);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            su = istr_.readString();
-            istr_.readValue((SUnknown? v) => { this.cycle = v; });
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::D2")]
-    public partial class D2 : B
-    {
-        public string sd2 = "";
-
-        public B? pd2;
-
-        partial void ice_initialize();
-
-        public D2(string sb, B? pb, string sd2, B? pd2) : base(sb, pb)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(sd2);
-            this.sd2 = sd2;
-            this.pd2 = pd2;
-            ice_initialize();
-        }
-
-        public D2()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::D2";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeString(sd2);
-            ostr_.writeValue(pd2);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            sd2 = istr_.readString();
-            istr_.readValue((B? v) => { this.pd2 = v; });
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::D4")]
-    public partial class D4 : B
-    {
-        public B? p1;
-
-        public B? p2;
-
-        partial void ice_initialize();
-
-        public D4(string sb, B? pb, B? p1, B? p2) : base(sb, pb)
-        {
-            this.p1 = p1;
-            this.p2 = p2;
-            ice_initialize();
-        }
-
-        public D4()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::D4";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeValue(p1);
-            ostr_.writeValue(p2);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((B? v) => { this.p1 = v; });
-            istr_.readValue((B? v) => { this.p2 = v; });
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::UnknownDerivedException")]
-    public partial class UnknownDerivedException : BaseException
-    {
-        public string sude = "";
-
-        public D2? pd2;
-
-        public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2) : base(sbe, pb)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(sude);
-            this.sude = sude;
-            this.pd2 = pd2;
-        }
-
-        public UnknownDerivedException()
-        {
-        }
-
-        public override string ice_id() => "::Test::UnknownDerivedException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::UnknownDerivedException", -1, false);
-            ostr_.writeString(sude);
-            ostr_.writeValue(pd2);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            sude = istr_.readString();
-            istr_.readValue((D2? v) => { this.pd2 = v; });
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::MyClass")]
-    public partial class MyClass : Ice.Value
-    {
-        public int i;
-
-        partial void ice_initialize();
-
-        public MyClass(int i)
-        {
-            this.i = i;
-            ice_initialize();
-        }
-
-        public MyClass()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::MyClass";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(i);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            i = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::PSUnknown")]
-    public partial class PSUnknown : Preserved
-    {
-        public string psu = "";
-
-        public PNode? graph;
-
-        public MyClass? cl;
-
-        partial void ice_initialize();
-
-        public PSUnknown(int pi, string ps, string psu, PNode? graph, MyClass? cl) : base(pi, ps)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(psu);
-            this.psu = psu;
-            this.graph = graph;
-            this.cl = cl;
-            ice_initialize();
-        }
-
-        public PSUnknown()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::PSUnknown";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeString(psu);
-            ostr_.writeValue(graph);
-            ostr_.writeValue(cl);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            psu = istr_.readString();
-            istr_.readValue((PNode? v) => { this.graph = v; });
-            istr_.readValue((MyClass? v) => { this.cl = v; });
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::PSUnknown2")]
-    public partial class PSUnknown2 : Preserved
-    {
-        public PBase? pb;
-
-        partial void ice_initialize();
-
-        public PSUnknown2(int pi, string ps, PBase? pb) : base(pi, ps)
-        {
-            this.pb = pb;
-            ice_initialize();
-        }
-
-        public PSUnknown2()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::PSUnknown2";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeValue(pb);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((PBase? v) => { this.pb = v; });
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::PSUnknownException")]
-    public partial class PSUnknownException : PreservedException
-    {
-        public PSUnknown2? p;
-
-        public PSUnknownException(PSUnknown2? p)
-        {
-            this.p = p;
-        }
-
-        public PSUnknownException()
-        {
-        }
-
-        public override string ice_id() => "::Test::PSUnknownException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::PSUnknownException", -1, false);
-            ostr_.writeValue(p);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((PSUnknown2? v) => { this.p = v; });
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-
-        public override bool iceUsesClasses()
-        {
-            return true;
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::Hidden")]
-    public partial class Hidden : Ice.Value
-    {
-        public Forward? f;
-
-        partial void ice_initialize();
-
-        public Hidden(Forward? f)
-        {
-            this.f = f;
-            ice_initialize();
-        }
-
-        public Hidden()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::Hidden";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(f);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((Forward? v) => { this.f = v; });
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::Forward")]
-    public partial class Forward : Ice.Value
-    {
-        public Hidden? h;
-
-        partial void ice_initialize();
-
-        public Forward(Hidden? h)
-        {
-            this.h = h;
-            ice_initialize();
-        }
-
-        public Forward()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::Forward";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(h);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((Hidden? v) => { this.h = v; });
-            istr_.endSlice();
-        }
-    }
-}
-
-namespace Test
-{
-    public record struct TestIntf_ParamTest1Result(B? p1, B? p2);
-
-    public record struct TestIntf_ParamTest2Result(B? p2, B? p1);
-
-    public record struct TestIntf_ParamTest3Result(B? returnValue, B? p1, B? p2);
-
-    public record struct TestIntf_ParamTest4Result(B? returnValue, B? p);
-
-    public record struct TestIntf_ReturnTest1Result(B? returnValue, B? p1, B? p2);
-
-    public record struct TestIntf_ReturnTest2Result(B? returnValue, B? p2, B? p1);
-
-    public record struct TestIntf_DictionaryTestResult(global::System.Collections.Generic.Dictionary<int, B?> returnValue, global::System.Collections.Generic.Dictionary<int, B?> bout);
-}
-
-namespace Test
-{
     public interface TestIntfPrx : Ice.ObjectPrx
     {
         Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1277,109 +839,6 @@ namespace Test
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
-    public sealed class BSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, B?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static B?[] read(Ice.InputStream istr)
-        {
-            B?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new B?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<B>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class BDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, B?> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, B?> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    ostr.writeValue(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, B?> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, B?> r = new global::System.Collections.Generic.Dictionary<int, B?>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                istr.readValue((B? v) => { r[k] = v; });
-            }
-            return r;
-        }
-    }
-
-    public sealed class PBaseSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, PBase?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static PBase?[] read(Ice.InputStream istr)
-        {
-            PBase?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new PBase?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<PBase>(v, ix));
-                }
-            }
-            return v;
-        }
     }
 
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
@@ -3165,10 +2624,1128 @@ namespace Test
         {
         }
     }
+
+    [Ice.SliceTypeId("::Test::SBSUnknownDerived")]
+    public partial class SBSUnknownDerived : SBase
+    {
+        public string sbsud = "";
+
+        partial void ice_initialize();
+
+        public SBSUnknownDerived(string sb, string sbsud) : base(sb)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(sbsud);
+            this.sbsud = sbsud;
+            ice_initialize();
+        }
+
+        public SBSUnknownDerived()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::SBSUnknownDerived";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeString(sbsud);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            sbsud = istr_.readString();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::SUnknown")]
+    public partial class SUnknown : Ice.Value
+    {
+        public string su = "";
+
+        public SUnknown? cycle;
+
+        partial void ice_initialize();
+
+        public SUnknown(string su, SUnknown? cycle)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(su);
+            this.su = su;
+            this.cycle = cycle;
+            ice_initialize();
+        }
+
+        public SUnknown()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::SUnknown";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeString(su);
+            ostr_.writeValue(cycle);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            su = istr_.readString();
+            istr_.readValue((SUnknown? v) => { this.cycle = v; });
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::D2")]
+    public partial class D2 : B
+    {
+        public string sd2 = "";
+
+        public B? pd2;
+
+        partial void ice_initialize();
+
+        public D2(string sb, B? pb, string sd2, B? pd2) : base(sb, pb)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(sd2);
+            this.sd2 = sd2;
+            this.pd2 = pd2;
+            ice_initialize();
+        }
+
+        public D2()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::D2";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeString(sd2);
+            ostr_.writeValue(pd2);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            sd2 = istr_.readString();
+            istr_.readValue((B? v) => { this.pd2 = v; });
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::D4")]
+    public partial class D4 : B
+    {
+        public B? p1;
+
+        public B? p2;
+
+        partial void ice_initialize();
+
+        public D4(string sb, B? pb, B? p1, B? p2) : base(sb, pb)
+        {
+            this.p1 = p1;
+            this.p2 = p2;
+            ice_initialize();
+        }
+
+        public D4()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::D4";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeValue(p1);
+            ostr_.writeValue(p2);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((B? v) => { this.p1 = v; });
+            istr_.readValue((B? v) => { this.p2 = v; });
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::UnknownDerivedException")]
+    public partial class UnknownDerivedException : BaseException
+    {
+        public string sude = "";
+
+        public D2? pd2;
+
+        public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2) : base(sbe, pb)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(sude);
+            this.sude = sude;
+            this.pd2 = pd2;
+        }
+
+        public UnknownDerivedException()
+        {
+        }
+
+        public override string ice_id() => "::Test::UnknownDerivedException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::UnknownDerivedException", -1, false);
+            ostr_.writeString(sude);
+            ostr_.writeValue(pd2);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            sude = istr_.readString();
+            istr_.readValue((D2? v) => { this.pd2 = v; });
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::MyClass")]
+    public partial class MyClass : Ice.Value
+    {
+        public int i;
+
+        partial void ice_initialize();
+
+        public MyClass(int i)
+        {
+            this.i = i;
+            ice_initialize();
+        }
+
+        public MyClass()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::MyClass";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeInt(i);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            i = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::PSUnknown")]
+    public partial class PSUnknown : Preserved
+    {
+        public string psu = "";
+
+        public PNode? graph;
+
+        public MyClass? cl;
+
+        partial void ice_initialize();
+
+        public PSUnknown(int pi, string ps, string psu, PNode? graph, MyClass? cl) : base(pi, ps)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(psu);
+            this.psu = psu;
+            this.graph = graph;
+            this.cl = cl;
+            ice_initialize();
+        }
+
+        public PSUnknown()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::PSUnknown";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeString(psu);
+            ostr_.writeValue(graph);
+            ostr_.writeValue(cl);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            psu = istr_.readString();
+            istr_.readValue((PNode? v) => { this.graph = v; });
+            istr_.readValue((MyClass? v) => { this.cl = v; });
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::PSUnknown2")]
+    public partial class PSUnknown2 : Preserved
+    {
+        public PBase? pb;
+
+        partial void ice_initialize();
+
+        public PSUnknown2(int pi, string ps, PBase? pb) : base(pi, ps)
+        {
+            this.pb = pb;
+            ice_initialize();
+        }
+
+        public PSUnknown2()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::PSUnknown2";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeValue(pb);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((PBase? v) => { this.pb = v; });
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::PSUnknownException")]
+    public partial class PSUnknownException : PreservedException
+    {
+        public PSUnknown2? p;
+
+        public PSUnknownException(PSUnknown2? p)
+        {
+            this.p = p;
+        }
+
+        public PSUnknownException()
+        {
+        }
+
+        public override string ice_id() => "::Test::PSUnknownException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::PSUnknownException", -1, false);
+            ostr_.writeValue(p);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((PSUnknown2? v) => { this.p = v; });
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+
+        public override bool iceUsesClasses()
+        {
+            return true;
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::Hidden")]
+    public partial class Hidden : Ice.Value
+    {
+        public Forward? f;
+
+        partial void ice_initialize();
+
+        public Hidden(Forward? f)
+        {
+            this.f = f;
+            ice_initialize();
+        }
+
+        public Hidden()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::Hidden";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeValue(f);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((Forward? v) => { this.f = v; });
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::Forward")]
+    public partial class Forward : Ice.Value
+    {
+        public Hidden? h;
+
+        partial void ice_initialize();
+
+        public Forward(Hidden? h)
+        {
+            this.h = h;
+            ice_initialize();
+        }
+
+        public Forward()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::Forward";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeValue(h);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((Hidden? v) => { this.h = v; });
+            istr_.endSlice();
+        }
+    }
 }
 
 namespace Test
 {
+    public record struct TestIntf_ParamTest1Result(B? p1, B? p2);
+
+    public record struct TestIntf_ParamTest2Result(B? p2, B? p1);
+
+    public record struct TestIntf_ParamTest3Result(B? returnValue, B? p1, B? p2);
+
+    public record struct TestIntf_ParamTest4Result(B? returnValue, B? p);
+
+    public record struct TestIntf_ReturnTest1Result(B? returnValue, B? p1, B? p2);
+
+    public record struct TestIntf_ReturnTest2Result(B? returnValue, B? p2, B? p1);
+
+    public record struct TestIntf_DictionaryTestResult(global::System.Collections.Generic.Dictionary<int, B?> returnValue, global::System.Collections.Generic.Dictionary<int, B?> bout);
+}
+
+namespace Test
+{
+    [Ice.SliceTypeId("::Test::TestIntf")]
+    public partial interface TestIntf : Ice.Object
+    {
+        Ice.Value? SBaseAsObject(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBaseAsObjectAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SBaseAsObject(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SBase? SBaseAsSBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBaseAsSBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SBaseAsSBase(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SBase? SBSKnownDerivedAsSBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSKnownDerivedAsSBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SBSKnownDerivedAsSBase(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSKnownDerivedAsSBSKnownDerivedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SBSKnownDerivedAsSBSKnownDerived(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SBase? SBSUnknownDerivedAsSBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSUnknownDerivedAsSBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SBSUnknownDerivedAsSBase(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SBase? SBSUnknownDerivedAsSBaseCompact(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSUnknownDerivedAsSBaseCompactAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SBSUnknownDerivedAsSBaseCompact(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.CompactFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        Ice.Value? SUnknownAsObject(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SUnknownAsObjectAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.SUnknownAsObject(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void checkSUnknown(Ice.Value? o, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkSUnknownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Ice.Value? iceP_o = null;
+            istr.readValue((Ice.Value? v) => { iceP_o = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            obj.checkSUnknown(iceP_o, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        B? oneElementCycle(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_oneElementCycleAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.oneElementCycle(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? twoElementCycle(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_twoElementCycleAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.twoElementCycle(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? D1AsB(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_D1AsBAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.D1AsB(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        D1? D1AsD1(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_D1AsD1Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.D1AsD1(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? D2AsB(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_D2AsBAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.D2AsB(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void paramTest1(out B? p1, out B? p2, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest1Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            B? iceP_p1;
+            B? iceP_p2;
+            obj.paramTest1(out iceP_p1, out iceP_p2, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_p1);
+            ostr.writeValue(iceP_p2);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void paramTest2(out B? p2, out B? p1, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest2Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            B? iceP_p2;
+            B? iceP_p1;
+            obj.paramTest2(out iceP_p2, out iceP_p1, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_p2);
+            ostr.writeValue(iceP_p1);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? paramTest3(out B? p1, out B? p2, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest3Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            B? iceP_p1;
+            B? iceP_p2;
+            var ret = obj.paramTest3(out iceP_p1, out iceP_p2, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_p1);
+            ostr.writeValue(iceP_p2);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? paramTest4(out B? p, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest4Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            B? iceP_p;
+            var ret = obj.paramTest4(out iceP_p, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_p);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? returnTest1(out B? p1, out B? p2, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_returnTest1Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            B? iceP_p1;
+            B? iceP_p2;
+            var ret = obj.returnTest1(out iceP_p1, out iceP_p2, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_p1);
+            ostr.writeValue(iceP_p2);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? returnTest2(out B? p2, out B? p1, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_returnTest2Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            B? iceP_p2;
+            B? iceP_p1;
+            var ret = obj.returnTest2(out iceP_p2, out iceP_p1, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_p2);
+            ostr.writeValue(iceP_p1);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        B? returnTest3(B? p1, B? p2, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_returnTest3Async(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            B? iceP_p1 = null;
+            B? iceP_p2 = null;
+            istr.readValue((B? v) => { iceP_p1 = v; });
+            istr.readValue((B? v) => { iceP_p2 = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.returnTest3(iceP_p1, iceP_p2, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SS3 sequenceTest(SS1? p1, SS2? p2, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sequenceTestAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            SS1? iceP_p1 = null;
+            SS2? iceP_p2 = null;
+            istr.readValue((SS1? v) => { iceP_p1 = v; });
+            istr.readValue((SS2? v) => { iceP_p2 = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.sequenceTest(iceP_p1, iceP_p2, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            SS3.ice_write(ostr, ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_dictionaryTestAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, B?> iceP_bin;
+            iceP_bin = BDictHelper.read(istr);
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, B?> iceP_bout;
+            var ret = obj.dictionaryTest(iceP_bin, out iceP_bout, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            BDictHelper.write(ostr, iceP_bout);
+            BDictHelper.write(ostr, ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        PBase? exchangePBase(PBase? pb, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_exchangePBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            PBase? iceP_pb = null;
+            istr.readValue((PBase? v) => { iceP_pb = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.exchangePBase(iceP_pb, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        Preserved? PBSUnknownAsPreserved(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_PBSUnknownAsPreservedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.PBSUnknownAsPreserved(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void checkPBSUnknown(Preserved? p, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPBSUnknownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Preserved? iceP_p = null;
+            istr.readValue((Preserved? v) => { iceP_p = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            obj.checkPBSUnknown(iceP_p, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_PBSUnknownAsPreservedWithGraphAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.PBSUnknownAsPreservedWithGraphAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeValue(ret);
+                    ostr.writePendingValues();
+                },
+                Ice.FormatType.SlicedFormat);
+        }
+
+        void checkPBSUnknownWithGraph(Preserved? p, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPBSUnknownWithGraphAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Preserved? iceP_p = null;
+            istr.readValue((Preserved? v) => { iceP_p = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            obj.checkPBSUnknownWithGraph(iceP_p, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_PBSUnknown2AsPreservedWithGraphAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.PBSUnknown2AsPreservedWithGraphAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeValue(ret);
+                    ostr.writePendingValues();
+                },
+                Ice.FormatType.SlicedFormat);
+        }
+
+        void checkPBSUnknown2WithGraph(Preserved? p, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPBSUnknown2WithGraphAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Preserved? iceP_p = null;
+            istr.readValue((Preserved? v) => { iceP_p = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            obj.checkPBSUnknown2WithGraph(iceP_p, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        PNode? exchangePNode(PNode? pn, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_exchangePNodeAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            PNode? iceP_pn = null;
+            istr.readValue((PNode? v) => { iceP_pn = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.exchangePNode(iceP_pn, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void throwBaseAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwBaseAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.throwBaseAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void throwDerivedAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.throwDerivedAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void throwDerivedAsDerived(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwDerivedAsDerivedAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.throwDerivedAsDerived(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void throwUnknownDerivedAsBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwUnknownDerivedAsBaseAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.throwUnknownDerivedAsBase(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(Ice.Current current);
+
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwPreservedExceptionAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.throwPreservedExceptionAsync(request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        void useForward(out Forward? f, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_useForwardAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            Forward? iceP_f;
+            obj.useForward(out iceP_f, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeValue(iceP_f);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
         public abstract Ice.Value? SBaseAsObject(Ice.Current current);
@@ -3295,594 +3872,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface TestIntf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBaseAsObjectAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SBaseAsObject(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBaseAsSBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SBaseAsSBase(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSKnownDerivedAsSBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SBSKnownDerivedAsSBase(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSKnownDerivedAsSBSKnownDerivedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SBSKnownDerivedAsSBSKnownDerived(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSUnknownDerivedAsSBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SBSUnknownDerivedAsSBase(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SBSUnknownDerivedAsSBaseCompactAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SBSUnknownDerivedAsSBaseCompact(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.CompactFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_SUnknownAsObjectAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.SUnknownAsObject(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkSUnknownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Ice.Value? iceP_o = null;
-            istr.readValue((Ice.Value? v) => { iceP_o = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            obj.checkSUnknown(iceP_o, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_oneElementCycleAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.oneElementCycle(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_twoElementCycleAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.twoElementCycle(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_D1AsBAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.D1AsB(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_D1AsD1Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.D1AsD1(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_D2AsBAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.D2AsB(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest1Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            B? iceP_p1;
-            B? iceP_p2;
-            obj.paramTest1(out iceP_p1, out iceP_p2, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_p1);
-            ostr.writeValue(iceP_p2);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest2Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            B? iceP_p2;
-            B? iceP_p1;
-            obj.paramTest2(out iceP_p2, out iceP_p1, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_p2);
-            ostr.writeValue(iceP_p1);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest3Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            B? iceP_p1;
-            B? iceP_p2;
-            var ret = obj.paramTest3(out iceP_p1, out iceP_p2, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_p1);
-            ostr.writeValue(iceP_p2);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_paramTest4Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            B? iceP_p;
-            var ret = obj.paramTest4(out iceP_p, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_p);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_returnTest1Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            B? iceP_p1;
-            B? iceP_p2;
-            var ret = obj.returnTest1(out iceP_p1, out iceP_p2, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_p1);
-            ostr.writeValue(iceP_p2);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_returnTest2Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            B? iceP_p2;
-            B? iceP_p1;
-            var ret = obj.returnTest2(out iceP_p2, out iceP_p1, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_p2);
-            ostr.writeValue(iceP_p1);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_returnTest3Async(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            B? iceP_p1 = null;
-            B? iceP_p2 = null;
-            istr.readValue((B? v) => { iceP_p1 = v; });
-            istr.readValue((B? v) => { iceP_p2 = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.returnTest3(iceP_p1, iceP_p2, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sequenceTestAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            SS1? iceP_p1 = null;
-            SS2? iceP_p2 = null;
-            istr.readValue((SS1? v) => { iceP_p1 = v; });
-            istr.readValue((SS2? v) => { iceP_p2 = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.sequenceTest(iceP_p1, iceP_p2, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            SS3.ice_write(ostr, ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_dictionaryTestAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, B?> iceP_bin;
-            iceP_bin = BDictHelper.read(istr);
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, B?> iceP_bout;
-            var ret = obj.dictionaryTest(iceP_bin, out iceP_bout, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            BDictHelper.write(ostr, iceP_bout);
-            BDictHelper.write(ostr, ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_exchangePBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            PBase? iceP_pb = null;
-            istr.readValue((PBase? v) => { iceP_pb = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.exchangePBase(iceP_pb, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_PBSUnknownAsPreservedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.PBSUnknownAsPreserved(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPBSUnknownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Preserved? iceP_p = null;
-            istr.readValue((Preserved? v) => { iceP_p = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            obj.checkPBSUnknown(iceP_p, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_PBSUnknownAsPreservedWithGraphAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = await obj.PBSUnknownAsPreservedWithGraphAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeValue(ret);
-                    ostr.writePendingValues();
-                },
-                Ice.FormatType.SlicedFormat);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPBSUnknownWithGraphAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Preserved? iceP_p = null;
-            istr.readValue((Preserved? v) => { iceP_p = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            obj.checkPBSUnknownWithGraph(iceP_p, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_PBSUnknown2AsPreservedWithGraphAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = await obj.PBSUnknown2AsPreservedWithGraphAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createOutgoingResponse(
-                request.current,
-                result,
-                static (ostr, ret) =>
-                {
-                    ostr.writeValue(ret);
-                    ostr.writePendingValues();
-                },
-                Ice.FormatType.SlicedFormat);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_checkPBSUnknown2WithGraphAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Preserved? iceP_p = null;
-            istr.readValue((Preserved? v) => { iceP_p = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            obj.checkPBSUnknown2WithGraph(iceP_p, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_exchangePNodeAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            PNode? iceP_pn = null;
-            istr.readValue((PNode? v) => { iceP_pn = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.exchangePNode(iceP_pn, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwBaseAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.throwBaseAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.throwDerivedAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwDerivedAsDerivedAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.throwDerivedAsDerived(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwUnknownDerivedAsBaseAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.throwUnknownDerivedAsBase(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwPreservedExceptionAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.throwPreservedExceptionAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_useForwardAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            Forward? iceP_f;
-            obj.useForward(out iceP_f, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeValue(iceP_f);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

@@ -22,6 +22,42 @@
 
 namespace IceMX
 {
+    public sealed class StringIntDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, int> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, int> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeInt(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, int> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                int v;
+                v = istr.readInt();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     [Ice.SliceTypeId("::IceMX::Metrics")]
     public partial class Metrics : Ice.Value
     {
@@ -124,6 +160,108 @@ namespace IceMX
         public static MetricsFailures ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class MetricsFailuresSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, MetricsFailures[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static MetricsFailures[] read(Ice.InputStream istr)
+        {
+            MetricsFailures[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(2);
+                v = new MetricsFailures[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new MetricsFailures(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class MetricsMapHelper
+    {
+        public static void write(Ice.OutputStream ostr, Metrics?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static Metrics?[] read(Ice.InputStream istr)
+        {
+            Metrics?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new Metrics?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<Metrics>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class MetricsViewHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, Metrics?[]> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, Metrics?[]> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    MetricsMapHelper.write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, Metrics?[]> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, Metrics?[]> r = new global::System.Collections.Generic.Dictionary<string, Metrics?[]>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                Metrics?[] v;
+                v = MetricsMapHelper.read(istr);
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     /// <summary>
     /// Raised if a metrics view cannot be found.
     /// </summary>
@@ -145,430 +283,6 @@ namespace IceMX
         }
     }
 
-    [Ice.SliceTypeId("::IceMX::MetricsAdmin")]
-    public partial interface MetricsAdmin : Ice.Object
-    {
-        /// <summary>
-        /// Get the names of enabled and disabled metrics.
-        /// </summary>
-        /// <param name="disabledViews">
-        /// The names of the disabled views.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The name of the enabled views.
-        /// </returns>
-        string[] getMetricsViewNames(out string[] disabledViews, Ice.Current current);
-
-        /// <summary>
-        /// Enables a metrics view.
-        /// </summary>
-        /// <param name="name">
-        /// The metrics view name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceMX.UnknownMetricsView">
-        /// Raised if the metrics view cannot be found.
-        /// </exception>
-        void enableMetricsView(string name, Ice.Current current);
-
-        /// <summary>
-        /// Disable a metrics view.
-        /// </summary>
-        /// <param name="name">
-        /// The metrics view name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceMX.UnknownMetricsView">
-        /// Raised if the metrics view cannot be found.
-        /// </exception>
-        void disableMetricsView(string name, Ice.Current current);
-
-        /// <summary>
-        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
-        /// dependent of the invocation latency for this operation.
-        /// </summary>
-        /// <param name="view">
-        /// The name of the metrics view.
-        /// </param>
-        /// <param name="timestamp">
-        /// The local time of the process when the metrics object were retrieved.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The metrics view data.
-        /// </returns>
-        /// <exception cref="IceMX.UnknownMetricsView">
-        /// Raised if the metrics view cannot be found.
-        /// </exception>
-        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, Ice.Current current);
-
-        /// <summary>
-        /// Get the metrics failures associated with the given view and map.
-        /// </summary>
-        /// <param name="view">
-        /// The name of the metrics view.
-        /// </param>
-        /// <param name="map">
-        /// The name of the metrics map.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The metrics failures associated with the map.
-        /// </returns>
-        /// <exception cref="IceMX.UnknownMetricsView">
-        /// Raised if the metrics view cannot be found.
-        /// </exception>
-        MetricsFailures[] getMapMetricsFailures(string view, string map, Ice.Current current);
-
-        /// <summary>
-        /// Get the metrics failure associated for the given metrics.
-        /// </summary>
-        /// <param name="view">
-        /// The name of the metrics view.
-        /// </param>
-        /// <param name="map">
-        /// The name of the metrics map.
-        /// </param>
-        /// <param name="id">
-        /// The ID of the metrics.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The metrics failures associated with the metrics.
-        /// </returns>
-        /// <exception cref="IceMX.UnknownMetricsView">
-        /// Raised if the metrics view cannot be found.
-        /// </exception>
-        MetricsFailures getMetricsFailures(string view, string map, string id, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceMX::ThreadMetrics")]
-    public partial class ThreadMetrics : Metrics
-    {
-        public int inUseForIO = 0;
-
-        public int inUseForUser = 0;
-
-        public int inUseForOther = 0;
-
-        partial void ice_initialize();
-
-        public ThreadMetrics(string id, long total, int current, long totalLifetime, int failures, int inUseForIO, int inUseForUser, int inUseForOther) : base(id, total, current, totalLifetime, failures)
-        {
-            this.inUseForIO = inUseForIO;
-            this.inUseForUser = inUseForUser;
-            this.inUseForOther = inUseForOther;
-            ice_initialize();
-        }
-
-        public ThreadMetrics()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::ThreadMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeInt(inUseForIO);
-            ostr_.writeInt(inUseForUser);
-            ostr_.writeInt(inUseForOther);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            inUseForIO = istr_.readInt();
-            inUseForUser = istr_.readInt();
-            inUseForOther = istr_.readInt();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::IceMX::DispatchMetrics")]
-    public partial class DispatchMetrics : Metrics
-    {
-        public int userException = 0;
-
-        public long size = 0L;
-
-        public long replySize = 0L;
-
-        partial void ice_initialize();
-
-        public DispatchMetrics(string id, long total, int current, long totalLifetime, int failures, int userException, long size, long replySize) : base(id, total, current, totalLifetime, failures)
-        {
-            this.userException = userException;
-            this.size = size;
-            this.replySize = replySize;
-            ice_initialize();
-        }
-
-        public DispatchMetrics()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::DispatchMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeInt(userException);
-            ostr_.writeLong(size);
-            ostr_.writeLong(replySize);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            userException = istr_.readInt();
-            size = istr_.readLong();
-            replySize = istr_.readLong();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::IceMX::ChildInvocationMetrics")]
-    public partial class ChildInvocationMetrics : Metrics
-    {
-        public long size = 0L;
-
-        public long replySize = 0L;
-
-        partial void ice_initialize();
-
-        public ChildInvocationMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures)
-        {
-            this.size = size;
-            this.replySize = replySize;
-            ice_initialize();
-        }
-
-        public ChildInvocationMetrics()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::ChildInvocationMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeLong(size);
-            ostr_.writeLong(replySize);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            size = istr_.readLong();
-            replySize = istr_.readLong();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::IceMX::CollocatedMetrics")]
-    public partial class CollocatedMetrics : ChildInvocationMetrics
-    {
-        partial void ice_initialize();
-
-        public CollocatedMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures, size, replySize)
-        {
-            ice_initialize();
-        }
-
-        public CollocatedMetrics()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::CollocatedMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::IceMX::RemoteMetrics")]
-    public partial class RemoteMetrics : ChildInvocationMetrics
-    {
-        partial void ice_initialize();
-
-        public RemoteMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures, size, replySize)
-        {
-            ice_initialize();
-        }
-
-        public RemoteMetrics()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::RemoteMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::IceMX::InvocationMetrics")]
-    public partial class InvocationMetrics : Metrics
-    {
-        public int retry = 0;
-
-        public int userException = 0;
-
-        public Metrics?[] remotes;
-
-        public Metrics?[] collocated;
-
-        partial void ice_initialize();
-
-        public InvocationMetrics(string id, long total, int current, long totalLifetime, int failures, int retry, int userException, Metrics?[] remotes, Metrics?[] collocated) : base(id, total, current, totalLifetime, failures)
-        {
-            this.retry = retry;
-            this.userException = userException;
-            global::System.ArgumentNullException.ThrowIfNull(remotes);
-            this.remotes = remotes;
-            global::System.ArgumentNullException.ThrowIfNull(collocated);
-            this.collocated = collocated;
-            ice_initialize();
-        }
-
-        public InvocationMetrics(Metrics?[] remotes, Metrics?[] collocated)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(remotes);
-            this.remotes = remotes;
-            global::System.ArgumentNullException.ThrowIfNull(collocated);
-            this.collocated = collocated;
-            ice_initialize();
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public InvocationMetrics()
-        {
-            this.remotes = null!;
-            this.collocated = null!;
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::InvocationMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeInt(retry);
-            ostr_.writeInt(userException);
-            MetricsMapHelper.write(ostr_, remotes);
-            MetricsMapHelper.write(ostr_, collocated);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            retry = istr_.readInt();
-            userException = istr_.readInt();
-            remotes = MetricsMapHelper.read(istr_);
-            collocated = MetricsMapHelper.read(istr_);
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::IceMX::ConnectionMetrics")]
-    public partial class ConnectionMetrics : Metrics
-    {
-        public long receivedBytes = 0L;
-
-        public long sentBytes = 0L;
-
-        partial void ice_initialize();
-
-        public ConnectionMetrics(string id, long total, int current, long totalLifetime, int failures, long receivedBytes, long sentBytes) : base(id, total, current, totalLifetime, failures)
-        {
-            this.receivedBytes = receivedBytes;
-            this.sentBytes = sentBytes;
-            ice_initialize();
-        }
-
-        public ConnectionMetrics()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::IceMX::ConnectionMetrics";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeLong(receivedBytes);
-            ostr_.writeLong(sentBytes);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            receivedBytes = istr_.readLong();
-            sentBytes = istr_.readLong();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-}
-
-namespace IceMX
-{
-    public record struct MetricsAdmin_GetMetricsViewNamesResult(string[] returnValue, string[] disabledViews);
-
-    public record struct MetricsAdmin_GetMetricsViewResult(global::System.Collections.Generic.Dictionary<string, Metrics?[]> returnValue, long timestamp);
-}
-
-namespace IceMX
-{
     /// <summary>
     /// The metrics administrative facet interface. This interface allows remote administrative clients to access
     /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
@@ -764,147 +478,6 @@ namespace IceMX
         /// Raised if the metrics view cannot be found.
         /// </exception>
         global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceMX
-{
-    public sealed class StringIntDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, int> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, int> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeInt(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, int> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                int v;
-                v = istr.readInt();
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class MetricsFailuresSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, MetricsFailures[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static MetricsFailures[] read(Ice.InputStream istr)
-        {
-            MetricsFailures[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(2);
-                v = new MetricsFailures[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new MetricsFailures(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class MetricsMapHelper
-    {
-        public static void write(Ice.OutputStream ostr, Metrics?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static Metrics?[] read(Ice.InputStream istr)
-        {
-            Metrics?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new Metrics?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<Metrics>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class MetricsViewHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, Metrics?[]> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, Metrics?[]> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    MetricsMapHelper.write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, Metrics?[]> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, Metrics?[]> r = new global::System.Collections.Generic.Dictionary<string, Metrics?[]>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                Metrics?[] v;
-                v = MetricsMapHelper.read(istr);
-                r[k] = v;
-            }
-            return r;
-        }
     }
 
     public sealed class MetricsAdminPrxHelper : Ice.ObjectPrxHelperBase, MetricsAdminPrx
@@ -1308,10 +881,538 @@ namespace IceMX
         {
         }
     }
+
+    [Ice.SliceTypeId("::IceMX::ThreadMetrics")]
+    public partial class ThreadMetrics : Metrics
+    {
+        public int inUseForIO = 0;
+
+        public int inUseForUser = 0;
+
+        public int inUseForOther = 0;
+
+        partial void ice_initialize();
+
+        public ThreadMetrics(string id, long total, int current, long totalLifetime, int failures, int inUseForIO, int inUseForUser, int inUseForOther) : base(id, total, current, totalLifetime, failures)
+        {
+            this.inUseForIO = inUseForIO;
+            this.inUseForUser = inUseForUser;
+            this.inUseForOther = inUseForOther;
+            ice_initialize();
+        }
+
+        public ThreadMetrics()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::ThreadMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeInt(inUseForIO);
+            ostr_.writeInt(inUseForUser);
+            ostr_.writeInt(inUseForOther);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            inUseForIO = istr_.readInt();
+            inUseForUser = istr_.readInt();
+            inUseForOther = istr_.readInt();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::IceMX::DispatchMetrics")]
+    public partial class DispatchMetrics : Metrics
+    {
+        public int userException = 0;
+
+        public long size = 0L;
+
+        public long replySize = 0L;
+
+        partial void ice_initialize();
+
+        public DispatchMetrics(string id, long total, int current, long totalLifetime, int failures, int userException, long size, long replySize) : base(id, total, current, totalLifetime, failures)
+        {
+            this.userException = userException;
+            this.size = size;
+            this.replySize = replySize;
+            ice_initialize();
+        }
+
+        public DispatchMetrics()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::DispatchMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeInt(userException);
+            ostr_.writeLong(size);
+            ostr_.writeLong(replySize);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            userException = istr_.readInt();
+            size = istr_.readLong();
+            replySize = istr_.readLong();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::IceMX::ChildInvocationMetrics")]
+    public partial class ChildInvocationMetrics : Metrics
+    {
+        public long size = 0L;
+
+        public long replySize = 0L;
+
+        partial void ice_initialize();
+
+        public ChildInvocationMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures)
+        {
+            this.size = size;
+            this.replySize = replySize;
+            ice_initialize();
+        }
+
+        public ChildInvocationMetrics()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::ChildInvocationMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeLong(size);
+            ostr_.writeLong(replySize);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            size = istr_.readLong();
+            replySize = istr_.readLong();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::IceMX::CollocatedMetrics")]
+    public partial class CollocatedMetrics : ChildInvocationMetrics
+    {
+        partial void ice_initialize();
+
+        public CollocatedMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures, size, replySize)
+        {
+            ice_initialize();
+        }
+
+        public CollocatedMetrics()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::CollocatedMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::IceMX::RemoteMetrics")]
+    public partial class RemoteMetrics : ChildInvocationMetrics
+    {
+        partial void ice_initialize();
+
+        public RemoteMetrics(string id, long total, int current, long totalLifetime, int failures, long size, long replySize) : base(id, total, current, totalLifetime, failures, size, replySize)
+        {
+            ice_initialize();
+        }
+
+        public RemoteMetrics()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::RemoteMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::IceMX::InvocationMetrics")]
+    public partial class InvocationMetrics : Metrics
+    {
+        public int retry = 0;
+
+        public int userException = 0;
+
+        public Metrics?[] remotes;
+
+        public Metrics?[] collocated;
+
+        partial void ice_initialize();
+
+        public InvocationMetrics(string id, long total, int current, long totalLifetime, int failures, int retry, int userException, Metrics?[] remotes, Metrics?[] collocated) : base(id, total, current, totalLifetime, failures)
+        {
+            this.retry = retry;
+            this.userException = userException;
+            global::System.ArgumentNullException.ThrowIfNull(remotes);
+            this.remotes = remotes;
+            global::System.ArgumentNullException.ThrowIfNull(collocated);
+            this.collocated = collocated;
+            ice_initialize();
+        }
+
+        public InvocationMetrics(Metrics?[] remotes, Metrics?[] collocated)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(remotes);
+            this.remotes = remotes;
+            global::System.ArgumentNullException.ThrowIfNull(collocated);
+            this.collocated = collocated;
+            ice_initialize();
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public InvocationMetrics()
+        {
+            this.remotes = null!;
+            this.collocated = null!;
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::InvocationMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeInt(retry);
+            ostr_.writeInt(userException);
+            MetricsMapHelper.write(ostr_, remotes);
+            MetricsMapHelper.write(ostr_, collocated);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            retry = istr_.readInt();
+            userException = istr_.readInt();
+            remotes = MetricsMapHelper.read(istr_);
+            collocated = MetricsMapHelper.read(istr_);
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::IceMX::ConnectionMetrics")]
+    public partial class ConnectionMetrics : Metrics
+    {
+        public long receivedBytes = 0L;
+
+        public long sentBytes = 0L;
+
+        partial void ice_initialize();
+
+        public ConnectionMetrics(string id, long total, int current, long totalLifetime, int failures, long receivedBytes, long sentBytes) : base(id, total, current, totalLifetime, failures)
+        {
+            this.receivedBytes = receivedBytes;
+            this.sentBytes = sentBytes;
+            ice_initialize();
+        }
+
+        public ConnectionMetrics()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::IceMX::ConnectionMetrics";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeLong(receivedBytes);
+            ostr_.writeLong(sentBytes);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            receivedBytes = istr_.readLong();
+            sentBytes = istr_.readLong();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
 }
 
 namespace IceMX
 {
+    public record struct MetricsAdmin_GetMetricsViewNamesResult(string[] returnValue, string[] disabledViews);
+
+    public record struct MetricsAdmin_GetMetricsViewResult(global::System.Collections.Generic.Dictionary<string, Metrics?[]> returnValue, long timestamp);
+}
+
+namespace IceMX
+{
+    [Ice.SliceTypeId("::IceMX::MetricsAdmin")]
+    public partial interface MetricsAdmin : Ice.Object
+    {
+        /// <summary>
+        /// Get the names of enabled and disabled metrics.
+        /// </summary>
+        /// <param name="disabledViews">
+        /// The names of the disabled views.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The name of the enabled views.
+        /// </returns>
+        string[] getMetricsViewNames(out string[] disabledViews, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsViewNamesAsync(
+            MetricsAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            string[] iceP_disabledViews;
+            var ret = obj.getMetricsViewNames(out iceP_disabledViews, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            global::Ice.StringSeqHelper.write(ostr, iceP_disabledViews);
+            global::Ice.StringSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Enables a metrics view.
+        /// </summary>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
+        void enableMetricsView(string name, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_enableMetricsViewAsync(
+            MetricsAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_name;
+            iceP_name = istr.readString();
+            istr.endEncapsulation();
+            obj.enableMetricsView(iceP_name, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Disable a metrics view.
+        /// </summary>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
+        void disableMetricsView(string name, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_disableMetricsViewAsync(
+            MetricsAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_name;
+            iceP_name = istr.readString();
+            istr.endEncapsulation();
+            obj.disableMetricsView(iceP_name, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
+        /// </summary>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="timestamp">
+        /// The local time of the process when the metrics object were retrieved.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The metrics view data.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
+        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsViewAsync(
+            MetricsAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_view;
+            iceP_view = istr.readString();
+            istr.endEncapsulation();
+            long iceP_timestamp;
+            var ret = obj.getMetricsView(iceP_view, out iceP_timestamp, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
+            ostr.writeLong(iceP_timestamp);
+            MetricsViewHelper.write(ostr, ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the metrics failures associated with the given view and map.
+        /// </summary>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The metrics failures associated with the map.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
+        MetricsFailures[] getMapMetricsFailures(string view, string map, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMapMetricsFailuresAsync(
+            MetricsAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_view;
+            string iceP_map;
+            iceP_view = istr.readString();
+            iceP_map = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getMapMetricsFailures(iceP_view, iceP_map, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            MetricsFailuresSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Get the metrics failure associated for the given metrics.
+        /// </summary>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
+        /// <param name="id">
+        /// The ID of the metrics.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The metrics failures associated with the metrics.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
+        MetricsFailures getMetricsFailures(string view, string map, string id, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsFailuresAsync(
+            MetricsAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_view;
+            string iceP_map;
+            string iceP_id;
+            iceP_view = istr.readString();
+            iceP_map = istr.readString();
+            iceP_id = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getMetricsFailures(iceP_view, iceP_map, iceP_id, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            MetricsFailures.ice_write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class MetricsAdminDisp_ : Ice.ObjectImpl, MetricsAdmin
     {
         public abstract string[] getMetricsViewNames(out string[] disabledViews, Ice.Current current);
@@ -1345,118 +1446,5 @@ namespace IceMX
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceMX
-{
-    public partial interface MetricsAdmin
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsViewNamesAsync(
-            MetricsAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            string[] iceP_disabledViews;
-            var ret = obj.getMetricsViewNames(out iceP_disabledViews, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            global::Ice.StringSeqHelper.write(ostr, iceP_disabledViews);
-            global::Ice.StringSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_enableMetricsViewAsync(
-            MetricsAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_name;
-            iceP_name = istr.readString();
-            istr.endEncapsulation();
-            obj.enableMetricsView(iceP_name, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_disableMetricsViewAsync(
-            MetricsAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_name;
-            iceP_name = istr.readString();
-            istr.endEncapsulation();
-            obj.disableMetricsView(iceP_name, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsViewAsync(
-            MetricsAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_view;
-            iceP_view = istr.readString();
-            istr.endEncapsulation();
-            long iceP_timestamp;
-            var ret = obj.getMetricsView(iceP_view, out iceP_timestamp, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.SlicedFormat);
-            ostr.writeLong(iceP_timestamp);
-            MetricsViewHelper.write(ostr, ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMapMetricsFailuresAsync(
-            MetricsAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_view;
-            string iceP_map;
-            iceP_view = istr.readString();
-            iceP_map = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.getMapMetricsFailures(iceP_view, iceP_map, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            MetricsFailuresSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getMetricsFailuresAsync(
-            MetricsAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_view;
-            string iceP_map;
-            string iceP_id;
-            iceP_view = istr.readString();
-            iceP_map = istr.readString();
-            iceP_id = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.getMetricsFailures(iceP_view, iceP_map, iceP_id, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            MetricsFailures.ice_write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

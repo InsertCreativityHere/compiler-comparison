@@ -60,6 +60,39 @@ namespace Ice
         }
     }
 
+    public sealed class LogMessageTypeSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, LogMessageType[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeEnum((int)v[ix], 3);
+                }
+            }
+        }
+
+        public static LogMessageType[] read(Ice.InputStream istr)
+        {
+            LogMessageType[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new LogMessageType[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = (LogMessageType)istr.readEnum(3);
+                }
+            }
+            return v;
+        }
+    }
+
     public sealed partial record class LogMessage
     {
         public LogMessageType type;
@@ -113,128 +146,39 @@ namespace Ice
         public static LogMessage ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    [Ice.SliceTypeId("::Ice::RemoteLogger")]
-    public partial interface RemoteLogger : Ice.Object
+    public sealed class LogMessageSeqHelper
     {
-        /// <summary>
-        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        /// </summary>
-        /// <param name="prefix">
-        /// The prefix of the associated local Logger.
-        /// </param>
-        /// <param name="logMessages">
-        /// Old log messages generated before "now".
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void init(string prefix, LogMessage[] logMessages, Ice.Current current);
-
-        /// <summary>
-        /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
-        /// </summary>
-        /// <param name="message">
-        /// The message to log.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void log(LogMessage message, Ice.Current current);
-    }
-
-    /// <summary>
-    /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
-    /// </summary>
-    [Ice.SliceTypeId("::Ice::RemoteLoggerAlreadyAttachedException")]
-    public partial class RemoteLoggerAlreadyAttachedException : Ice.UserException
-    {
-        public override string ice_id() => "::Ice::RemoteLoggerAlreadyAttachedException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        public static void write(Ice.OutputStream ostr, LogMessage[] v)
         {
-            ostr_.startSlice("::Ice::RemoteLoggerAlreadyAttachedException", -1, true);
-            ostr_.endSlice();
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
         }
 
-        protected override void iceReadImpl(Ice.InputStream istr_)
+        public static LogMessage[] read(Ice.InputStream istr)
         {
-            istr_.startSlice();
-            istr_.endSlice();
+            LogMessage[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(11);
+                v = new LogMessage[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new LogMessage(istr);
+                }
+            }
+            return v;
         }
     }
 
-    [Ice.SliceTypeId("::Ice::LoggerAdmin")]
-    public partial interface LoggerAdmin : Ice.Object
-    {
-        /// <summary>
-        /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
-        /// RemoteLogger proxy.
-        /// </summary>
-        /// <param name="prx">
-        /// A proxy to the remote logger.
-        /// </param>
-        /// <param name="messageTypes">
-        /// The list of message types that the remote logger wishes to receive. An empty list means
-        /// no filtering (send all message types).
-        /// </param>
-        /// <param name="traceCategories">
-        /// The categories of traces that the remote logger wishes to receive. This parameter is
-        /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        /// trace categories).
-        /// </param>
-        /// <param name="messageMax">
-        /// The maximum number of log messages (of all types) to be provided to init. A negative
-        /// value requests all messages available.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="Ice.RemoteLoggerAlreadyAttachedException">
-        /// Raised if this remote logger is already attached to this admin
-        /// object.
-        /// </exception>
-        void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Ice.Current current);
-
-        /// <summary>
-        /// Detaches a RemoteLogger object from the local logger.
-        /// </summary>
-        /// <param name="prx">
-        /// A proxy to the remote logger.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// True if the provided remote logger proxy was detached, and false otherwise.
-        /// </returns>
-        bool detachRemoteLogger(RemoteLoggerPrx? prx, Ice.Current current);
-
-        /// <summary>
-        /// Retrieves log messages recently logged.
-        /// </summary>
-        /// <param name="messageTypes">
-        /// The list of message types that the caller wishes to receive. An empty list means no
-        /// filtering (send all message types).
-        /// </param>
-        /// <param name="traceCategories">
-        /// The categories of traces that caller wish to receive. This parameter is ignored if
-        /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        /// categories).
-        /// </param>
-        /// <param name="messageMax">
-        /// The maximum number of log messages (of all types) to be returned. A negative value
-        /// requests all messages available.
-        /// </param>
-        /// <param name="prefix">
-        /// The prefix of the associated local logger.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The Log messages.
-        /// </returns>
-        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Ice.Current current);
-    }
-}
-
-namespace Ice
-{
-    public record struct LoggerAdmin_GetLogResult(LogMessage[] returnValue, string prefix);
-}
-
-namespace Ice
-{
     /// <summary>
     /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
     /// to the local  of another Ice application.
@@ -288,6 +232,160 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task logAsync(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
+    public sealed class RemoteLoggerPrxHelper : Ice.ObjectPrxHelperBase, RemoteLoggerPrx
+    {
+        public void init(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_initAsync(prefix, logMessages, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public void log(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_logAsync(message, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_initAsync(prefix, logMessages, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_initAsync(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_init(iceP_prefix, iceP_logMessages, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _init_name = "init";
+
+        private void _iceI_init(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _init_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous,
+                write: (Ice.OutputStream ostr) =>
+                {
+                    ostr.writeString(iceP_prefix);
+                    LogMessageSeqHelper.write(ostr, iceP_logMessages);
+                });
+        }
+
+        public global::System.Threading.Tasks.Task logAsync(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_logAsync(message, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_logAsync(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_log(iceP_message, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _log_name = "log";
+
+        private void _iceI_log(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _log_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous,
+                write: (Ice.OutputStream ostr) =>
+                {
+                    LogMessage.ice_write(ostr, iceP_message);
+                });
+        }
+
+        public static RemoteLoggerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            new RemoteLoggerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new RemoteLoggerPrxHelper(b) : null;
+
+        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new RemoteLoggerPrxHelper(b) : null;
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            uncheckedCast(b?.ice_facet(f));
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Ice::RemoteLogger"
+        };
+
+        public static string ice_staticId() => "::Ice::RemoteLogger";
+
+        public static void write(Ice.OutputStream ostr, RemoteLoggerPrx? v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static RemoteLoggerPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new RemoteLoggerPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new RemoteLoggerPrxHelper(reference);
+
+        private RemoteLoggerPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
+        {
+        }
+
+        private RemoteLoggerPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
+    /// </summary>
+    [Ice.SliceTypeId("::Ice::RemoteLoggerAlreadyAttachedException")]
+    public partial class RemoteLoggerAlreadyAttachedException : Ice.UserException
+    {
+        public override string ice_id() => "::Ice::RemoteLoggerAlreadyAttachedException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Ice::RemoteLoggerAlreadyAttachedException", -1, true);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.endSlice();
+        }
     }
 
     /// <summary>
@@ -423,208 +521,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
-    public sealed class LogMessageTypeSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, LogMessageType[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeEnum((int)v[ix], 3);
-                }
-            }
-        }
-
-        public static LogMessageType[] read(Ice.InputStream istr)
-        {
-            LogMessageType[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new LogMessageType[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = (LogMessageType)istr.readEnum(3);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class LogMessageSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, LogMessage[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static LogMessage[] read(Ice.InputStream istr)
-        {
-            LogMessage[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(11);
-                v = new LogMessage[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new LogMessage(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class RemoteLoggerPrxHelper : Ice.ObjectPrxHelperBase, RemoteLoggerPrx
-    {
-        public void init(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_initAsync(prefix, logMessages, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public void log(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_logAsync(message, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_initAsync(prefix, logMessages, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_initAsync(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_init(iceP_prefix, iceP_logMessages, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _init_name = "init";
-
-        private void _iceI_init(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _init_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_prefix);
-                    LogMessageSeqHelper.write(ostr, iceP_logMessages);
-                });
-        }
-
-        public global::System.Threading.Tasks.Task logAsync(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_logAsync(message, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_logAsync(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_log(iceP_message, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _log_name = "log";
-
-        private void _iceI_log(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _log_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    LogMessage.ice_write(ostr, iceP_message);
-                });
-        }
-
-        public static RemoteLoggerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            new RemoteLoggerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            b is not null && b.ice_isA(ice_staticId(), ctx) ? new RemoteLoggerPrxHelper(b) : null;
-
-        public static RemoteLoggerPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            checkedCast(b?.ice_facet(f), ctx);
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b) =>
-            b is not null ? new RemoteLoggerPrxHelper(b) : null;
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static RemoteLoggerPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            uncheckedCast(b?.ice_facet(f));
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Ice::RemoteLogger"
-        };
-
-        public static string ice_staticId() => "::Ice::RemoteLogger";
-
-        public static void write(Ice.OutputStream ostr, RemoteLoggerPrx? v)
-        {
-            ostr.writeProxy(v);
-        }
-
-        public static RemoteLoggerPrx? read(Ice.InputStream istr) =>
-            istr.readProxy() is Ice.ObjectPrx proxy ? new RemoteLoggerPrxHelper(proxy) : null;
-
-        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new RemoteLoggerPrxHelper(reference);
-
-        private RemoteLoggerPrxHelper(Ice.ObjectPrx proxy)
-            : base(proxy)
-        {
-        }
-
-        private RemoteLoggerPrxHelper(Ice.Internal.Reference reference)
-            : base(reference)
-        {
-        }
     }
 
     public sealed class LoggerAdminPrxHelper : Ice.ObjectPrxHelperBase, LoggerAdminPrx
@@ -840,6 +736,66 @@ namespace Ice
 
 namespace Ice
 {
+    public record struct LoggerAdmin_GetLogResult(LogMessage[] returnValue, string prefix);
+}
+
+namespace Ice
+{
+    [Ice.SliceTypeId("::Ice::RemoteLogger")]
+    public partial interface RemoteLogger : Ice.Object
+    {
+        /// <summary>
+        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+        /// </summary>
+        /// <param name="prefix">
+        /// The prefix of the associated local Logger.
+        /// </param>
+        /// <param name="logMessages">
+        /// Old log messages generated before "now".
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void init(string prefix, LogMessage[] logMessages, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_initAsync(
+            RemoteLogger obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_prefix;
+            LogMessage[] iceP_logMessages;
+            iceP_prefix = istr.readString();
+            iceP_logMessages = LogMessageSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.init(iceP_prefix, iceP_logMessages, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+        /// </summary>
+        /// <param name="message">
+        /// The message to log.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void log(LogMessage message, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_logAsync(
+            RemoteLogger obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogMessage iceP_message;
+            iceP_message = new LogMessage(istr);
+            istr.endEncapsulation();
+            obj.log(iceP_message, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class RemoteLoggerDisp_ : Ice.ObjectImpl, RemoteLogger
     {
         public abstract void init(string prefix, LogMessage[] logMessages, Ice.Current current);
@@ -861,6 +817,136 @@ namespace Ice
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::Ice::LoggerAdmin")]
+    public partial interface LoggerAdmin : Ice.Object
+    {
+        /// <summary>
+        /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+        /// RemoteLogger proxy.
+        /// </summary>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
+        /// <param name="messageTypes">
+        /// The list of message types that the remote logger wishes to receive. An empty list means
+        /// no filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that the remote logger wishes to receive. This parameter is
+        /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        /// trace categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be provided to init. A negative
+        /// value requests all messages available.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="Ice.RemoteLoggerAlreadyAttachedException">
+        /// Raised if this remote logger is already attached to this admin
+        /// object.
+        /// </exception>
+        void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_attachRemoteLoggerAsync(
+            LoggerAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RemoteLoggerPrx? iceP_prx;
+            LogMessageType[] iceP_messageTypes;
+            string[] iceP_traceCategories;
+            int iceP_messageMax;
+            iceP_prx = RemoteLoggerPrxHelper.read(istr);
+            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
+            iceP_traceCategories = StringSeqHelper.read(istr);
+            iceP_messageMax = istr.readInt();
+            istr.endEncapsulation();
+            obj.attachRemoteLogger(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Detaches a RemoteLogger object from the local logger.
+        /// </summary>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// True if the provided remote logger proxy was detached, and false otherwise.
+        /// </returns>
+        bool detachRemoteLogger(RemoteLoggerPrx? prx, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_detachRemoteLoggerAsync(
+            LoggerAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RemoteLoggerPrx? iceP_prx;
+            iceP_prx = RemoteLoggerPrxHelper.read(istr);
+            istr.endEncapsulation();
+            var ret = obj.detachRemoteLogger(iceP_prx, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        /// <summary>
+        /// Retrieves log messages recently logged.
+        /// </summary>
+        /// <param name="messageTypes">
+        /// The list of message types that the caller wishes to receive. An empty list means no
+        /// filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that caller wish to receive. This parameter is ignored if
+        /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        /// categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be returned. A negative value
+        /// requests all messages available.
+        /// </param>
+        /// <param name="prefix">
+        /// The prefix of the associated local logger.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The Log messages.
+        /// </returns>
+        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLogAsync(
+            LoggerAdmin obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogMessageType[] iceP_messageTypes;
+            string[] iceP_traceCategories;
+            int iceP_messageMax;
+            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
+            iceP_traceCategories = StringSeqHelper.read(istr);
+            iceP_messageMax = istr.readInt();
+            istr.endEncapsulation();
+            string iceP_prefix;
+            var ret = obj.getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, out iceP_prefix, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(iceP_prefix);
+            LogMessageSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
     }
 
     public abstract class LoggerAdminDisp_ : Ice.ObjectImpl, LoggerAdmin
@@ -887,106 +973,5 @@ namespace Ice
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Ice
-{
-    public partial interface RemoteLogger
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_initAsync(
-            RemoteLogger obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_prefix;
-            LogMessage[] iceP_logMessages;
-            iceP_prefix = istr.readString();
-            iceP_logMessages = LogMessageSeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.init(iceP_prefix, iceP_logMessages, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_logAsync(
-            RemoteLogger obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogMessage iceP_message;
-            iceP_message = new LogMessage(istr);
-            istr.endEncapsulation();
-            obj.log(iceP_message, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface LoggerAdmin
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_attachRemoteLoggerAsync(
-            LoggerAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            RemoteLoggerPrx? iceP_prx;
-            LogMessageType[] iceP_messageTypes;
-            string[] iceP_traceCategories;
-            int iceP_messageMax;
-            iceP_prx = RemoteLoggerPrxHelper.read(istr);
-            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
-            iceP_traceCategories = StringSeqHelper.read(istr);
-            iceP_messageMax = istr.readInt();
-            istr.endEncapsulation();
-            obj.attachRemoteLogger(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_detachRemoteLoggerAsync(
-            LoggerAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            RemoteLoggerPrx? iceP_prx;
-            iceP_prx = RemoteLoggerPrxHelper.read(istr);
-            istr.endEncapsulation();
-            var ret = obj.detachRemoteLogger(iceP_prx, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getLogAsync(
-            LoggerAdmin obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            LogMessageType[] iceP_messageTypes;
-            string[] iceP_traceCategories;
-            int iceP_messageMax;
-            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
-            iceP_traceCategories = StringSeqHelper.read(istr);
-            iceP_messageMax = istr.readInt();
-            istr.endEncapsulation();
-            string iceP_prefix;
-            var ret = obj.getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, out iceP_prefix, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(iceP_prefix);
-            LogMessageSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

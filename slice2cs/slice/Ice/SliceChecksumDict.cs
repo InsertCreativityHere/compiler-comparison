@@ -22,10 +22,6 @@
 
 namespace Ice
 {
-}
-
-namespace Ice
-{
     public sealed class SliceChecksumDictHelper
     {
         public static void write(Ice.OutputStream ostr,

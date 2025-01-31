@@ -61,10 +61,7 @@ namespace DataStorm
             return v;
         }
     }
-}
 
-namespace DataStorm
-{
     public sealed class SampleEventSeqHelper
     {
         public static void write(Ice.OutputStream ostr, SampleEvent[] v)

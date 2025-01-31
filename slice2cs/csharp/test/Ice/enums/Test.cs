@@ -94,184 +94,6 @@ namespace Ice.enums
             }
         }
 
-        public enum ShortEnum
-        {
-            senum1 = 3,
-            senum2 = 4,
-            senum3 = 10,
-            senum4 = 11,
-            senum5 = 20,
-            senum6 = 21,
-            senum7 = 30,
-            senum8 = 31,
-            senum9 = 40,
-            senum10 = 41,
-            senum11 = 32766
-        }
-
-        public sealed class ShortEnumHelper
-        {
-            public static void write(Ice.OutputStream ostr, ShortEnum v)
-            {
-                ostr.writeEnum((int)v, 32766);
-            }
-
-            public static ShortEnum read(Ice.InputStream istr)
-            {
-                ShortEnum v;
-                v = (ShortEnum)istr.readEnum(32766);
-                return v;
-            }
-        }
-
-        public enum IntEnum
-        {
-            ienum1 = 0,
-            ienum2 = 1,
-            ienum3 = 10,
-            ienum4 = 11,
-            ienum5 = 20,
-            ienum6 = 21,
-            ienum7 = 30,
-            ienum8 = 31,
-            ienum9 = 40,
-            ienum10 = 41,
-            ienum11 = 2147483647,
-            ienum12 = 2147483646
-        }
-
-        public sealed class IntEnumHelper
-        {
-            public static void write(Ice.OutputStream ostr, IntEnum v)
-            {
-                ostr.writeEnum((int)v, 2147483647);
-            }
-
-            public static IntEnum read(Ice.InputStream istr)
-            {
-                IntEnum v;
-                v = (IntEnum)istr.readEnum(2147483647);
-                return v;
-            }
-        }
-
-        public enum SimpleEnum
-        {
-            red,
-            green,
-            blue
-        }
-
-        public sealed class SimpleEnumHelper
-        {
-            public static void write(Ice.OutputStream ostr, SimpleEnum v)
-            {
-                ostr.writeEnum((int)v, 2);
-            }
-
-            public static SimpleEnum read(Ice.InputStream istr)
-            {
-                SimpleEnum v;
-                v = (SimpleEnum)istr.readEnum(2);
-                return v;
-            }
-        }
-
-        [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : Ice.Object
-        {
-            ByteEnum opByte(ByteEnum b1, out ByteEnum b2, Ice.Current current);
-
-            ShortEnum opShort(ShortEnum s1, out ShortEnum s2, Ice.Current current);
-
-            IntEnum opInt(IntEnum i1, out IntEnum i2, Ice.Current current);
-
-            SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, Ice.Current current);
-
-            ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, Ice.Current current);
-
-            ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, Ice.Current current);
-
-            IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, Ice.Current current);
-
-            SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, Ice.Current current);
-
-            void shutdown(Ice.Current current);
-        }
-    }
-}
-
-namespace Ice.enums
-{
-    namespace Test
-    {
-        public record struct TestIntf_OpByteResult(ByteEnum returnValue, ByteEnum b2);
-
-        public record struct TestIntf_OpShortResult(ShortEnum returnValue, ShortEnum s2);
-
-        public record struct TestIntf_OpIntResult(IntEnum returnValue, IntEnum i2);
-
-        public record struct TestIntf_OpSimpleResult(SimpleEnum returnValue, SimpleEnum s2);
-
-        public record struct TestIntf_OpByteSeqResult(ByteEnum[] returnValue, ByteEnum[] b2);
-
-        public record struct TestIntf_OpShortSeqResult(ShortEnum[] returnValue, ShortEnum[] s2);
-
-        public record struct TestIntf_OpIntSeqResult(IntEnum[] returnValue, IntEnum[] i2);
-
-        public record struct TestIntf_OpSimpleSeqResult(SimpleEnum[] returnValue, SimpleEnum[] s2);
-    }
-}
-
-namespace Ice.enums
-{
-    namespace Test
-    {
-        public interface TestIntfPrx : Ice.ObjectPrx
-        {
-            ByteEnum opByte(ByteEnum b1, out ByteEnum b2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpByteResult> opByteAsync(ByteEnum b1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            ShortEnum opShort(ShortEnum s1, out ShortEnum s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpShortResult> opShortAsync(ShortEnum s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            IntEnum opInt(IntEnum i1, out IntEnum i2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpIntResult> opIntAsync(IntEnum i1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpSimpleResult> opSimpleAsync(SimpleEnum s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(ByteEnum[] b1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(ShortEnum[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(IntEnum[] i1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<TestIntf_OpSimpleSeqResult> opSimpleSeqAsync(SimpleEnum[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.enums
-{
-    namespace Test
-    {
         public sealed class ByteEnumSeqHelper
         {
             public static void write(Ice.OutputStream ostr, ByteEnum[] v)
@@ -301,6 +123,36 @@ namespace Ice.enums
                         v[ix] = (ByteEnum)istr.readEnum(126);
                     }
                 }
+                return v;
+            }
+        }
+
+        public enum ShortEnum
+        {
+            senum1 = 3,
+            senum2 = 4,
+            senum3 = 10,
+            senum4 = 11,
+            senum5 = 20,
+            senum6 = 21,
+            senum7 = 30,
+            senum8 = 31,
+            senum9 = 40,
+            senum10 = 41,
+            senum11 = 32766
+        }
+
+        public sealed class ShortEnumHelper
+        {
+            public static void write(Ice.OutputStream ostr, ShortEnum v)
+            {
+                ostr.writeEnum((int)v, 32766);
+            }
+
+            public static ShortEnum read(Ice.InputStream istr)
+            {
+                ShortEnum v;
+                v = (ShortEnum)istr.readEnum(32766);
                 return v;
             }
         }
@@ -338,6 +190,37 @@ namespace Ice.enums
             }
         }
 
+        public enum IntEnum
+        {
+            ienum1 = 0,
+            ienum2 = 1,
+            ienum3 = 10,
+            ienum4 = 11,
+            ienum5 = 20,
+            ienum6 = 21,
+            ienum7 = 30,
+            ienum8 = 31,
+            ienum9 = 40,
+            ienum10 = 41,
+            ienum11 = 2147483647,
+            ienum12 = 2147483646
+        }
+
+        public sealed class IntEnumHelper
+        {
+            public static void write(Ice.OutputStream ostr, IntEnum v)
+            {
+                ostr.writeEnum((int)v, 2147483647);
+            }
+
+            public static IntEnum read(Ice.InputStream istr)
+            {
+                IntEnum v;
+                v = (IntEnum)istr.readEnum(2147483647);
+                return v;
+            }
+        }
+
         public sealed class IntEnumSeqHelper
         {
             public static void write(Ice.OutputStream ostr, IntEnum[] v)
@@ -367,6 +250,28 @@ namespace Ice.enums
                         v[ix] = (IntEnum)istr.readEnum(2147483647);
                     }
                 }
+                return v;
+            }
+        }
+
+        public enum SimpleEnum
+        {
+            red,
+            green,
+            blue
+        }
+
+        public sealed class SimpleEnumHelper
+        {
+            public static void write(Ice.OutputStream ostr, SimpleEnum v)
+            {
+                ostr.writeEnum((int)v, 2);
+            }
+
+            public static SimpleEnum read(Ice.InputStream istr)
+            {
+                SimpleEnum v;
+                v = (SimpleEnum)istr.readEnum(2);
                 return v;
             }
         }
@@ -402,6 +307,45 @@ namespace Ice.enums
                 }
                 return v;
             }
+        }
+
+        public interface TestIntfPrx : Ice.ObjectPrx
+        {
+            ByteEnum opByte(ByteEnum b1, out ByteEnum b2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpByteResult> opByteAsync(ByteEnum b1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            ShortEnum opShort(ShortEnum s1, out ShortEnum s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpShortResult> opShortAsync(ShortEnum s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            IntEnum opInt(IntEnum i1, out IntEnum i2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpIntResult> opIntAsync(IntEnum i1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpSimpleResult> opSimpleAsync(SimpleEnum s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(ByteEnum[] b1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(ShortEnum[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(IntEnum[] i1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<TestIntf_OpSimpleSeqResult> opSimpleSeqAsync(SimpleEnum[] s1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
@@ -905,6 +849,220 @@ namespace Ice.enums
 {
     namespace Test
     {
+        public record struct TestIntf_OpByteResult(ByteEnum returnValue, ByteEnum b2);
+
+        public record struct TestIntf_OpShortResult(ShortEnum returnValue, ShortEnum s2);
+
+        public record struct TestIntf_OpIntResult(IntEnum returnValue, IntEnum i2);
+
+        public record struct TestIntf_OpSimpleResult(SimpleEnum returnValue, SimpleEnum s2);
+
+        public record struct TestIntf_OpByteSeqResult(ByteEnum[] returnValue, ByteEnum[] b2);
+
+        public record struct TestIntf_OpShortSeqResult(ShortEnum[] returnValue, ShortEnum[] s2);
+
+        public record struct TestIntf_OpIntSeqResult(IntEnum[] returnValue, IntEnum[] i2);
+
+        public record struct TestIntf_OpSimpleSeqResult(SimpleEnum[] returnValue, SimpleEnum[] s2);
+    }
+}
+
+namespace Ice.enums
+{
+    namespace Test
+    {
+        [Ice.SliceTypeId("::Test::TestIntf")]
+        public partial interface TestIntf : Ice.Object
+        {
+            ByteEnum opByte(ByteEnum b1, out ByteEnum b2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                ByteEnum iceP_b1;
+                iceP_b1 = (ByteEnum)istr.readEnum(126);
+                istr.endEncapsulation();
+                ByteEnum iceP_b2;
+                var ret = obj.opByte(iceP_b1, out iceP_b2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeEnum((int)iceP_b2, 126);
+                ostr.writeEnum((int)ret, 126);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            ShortEnum opShort(ShortEnum s1, out ShortEnum s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                ShortEnum iceP_s1;
+                iceP_s1 = (ShortEnum)istr.readEnum(32766);
+                istr.endEncapsulation();
+                ShortEnum iceP_s2;
+                var ret = obj.opShort(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeEnum((int)iceP_s2, 32766);
+                ostr.writeEnum((int)ret, 32766);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            IntEnum opInt(IntEnum i1, out IntEnum i2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                IntEnum iceP_i1;
+                iceP_i1 = (IntEnum)istr.readEnum(2147483647);
+                istr.endEncapsulation();
+                IntEnum iceP_i2;
+                var ret = obj.opInt(iceP_i1, out iceP_i2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeEnum((int)iceP_i2, 2147483647);
+                ostr.writeEnum((int)ret, 2147483647);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            SimpleEnum opSimple(SimpleEnum s1, out SimpleEnum s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSimpleAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                SimpleEnum iceP_s1;
+                iceP_s1 = (SimpleEnum)istr.readEnum(2);
+                istr.endEncapsulation();
+                SimpleEnum iceP_s2;
+                var ret = obj.opSimple(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeEnum((int)iceP_s2, 2);
+                ostr.writeEnum((int)ret, 2);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            ByteEnum[] opByteSeq(ByteEnum[] b1, out ByteEnum[] b2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                ByteEnum[] iceP_b1;
+                iceP_b1 = ByteEnumSeqHelper.read(istr);
+                istr.endEncapsulation();
+                ByteEnum[] iceP_b2;
+                var ret = obj.opByteSeq(iceP_b1, out iceP_b2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ByteEnumSeqHelper.write(ostr, iceP_b2);
+                ByteEnumSeqHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            ShortEnum[] opShortSeq(ShortEnum[] s1, out ShortEnum[] s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                ShortEnum[] iceP_s1;
+                iceP_s1 = ShortEnumSeqHelper.read(istr);
+                istr.endEncapsulation();
+                ShortEnum[] iceP_s2;
+                var ret = obj.opShortSeq(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ShortEnumSeqHelper.write(ostr, iceP_s2);
+                ShortEnumSeqHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            IntEnum[] opIntSeq(IntEnum[] i1, out IntEnum[] i2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                IntEnum[] iceP_i1;
+                iceP_i1 = IntEnumSeqHelper.read(istr);
+                istr.endEncapsulation();
+                IntEnum[] iceP_i2;
+                var ret = obj.opIntSeq(iceP_i1, out iceP_i2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                IntEnumSeqHelper.write(ostr, iceP_i2);
+                IntEnumSeqHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            SimpleEnum[] opSimpleSeq(SimpleEnum[] s1, out SimpleEnum[] s2, Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSimpleSeqAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                SimpleEnum[] iceP_s1;
+                iceP_s1 = SimpleEnumSeqHelper.read(istr);
+                istr.endEncapsulation();
+                SimpleEnum[] iceP_s2;
+                var ret = obj.opSimpleSeq(iceP_s1, out iceP_s2, request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                SimpleEnumSeqHelper.write(ostr, iceP_s2);
+                SimpleEnumSeqHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            void shutdown(Ice.Current current);
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
         public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
             public abstract ByteEnum opByte(ByteEnum b1, out ByteEnum b2, Ice.Current current);
@@ -947,185 +1105,6 @@ namespace Ice.enums
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.enums
-{
-    namespace Test
-    {
-        public partial interface TestIntf
-        {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                ByteEnum iceP_b1;
-                iceP_b1 = (ByteEnum)istr.readEnum(126);
-                istr.endEncapsulation();
-                ByteEnum iceP_b2;
-                var ret = obj.opByte(iceP_b1, out iceP_b2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeEnum((int)iceP_b2, 126);
-                ostr.writeEnum((int)ret, 126);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                ShortEnum iceP_s1;
-                iceP_s1 = (ShortEnum)istr.readEnum(32766);
-                istr.endEncapsulation();
-                ShortEnum iceP_s2;
-                var ret = obj.opShort(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeEnum((int)iceP_s2, 32766);
-                ostr.writeEnum((int)ret, 32766);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                IntEnum iceP_i1;
-                iceP_i1 = (IntEnum)istr.readEnum(2147483647);
-                istr.endEncapsulation();
-                IntEnum iceP_i2;
-                var ret = obj.opInt(iceP_i1, out iceP_i2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeEnum((int)iceP_i2, 2147483647);
-                ostr.writeEnum((int)ret, 2147483647);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSimpleAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                SimpleEnum iceP_s1;
-                iceP_s1 = (SimpleEnum)istr.readEnum(2);
-                istr.endEncapsulation();
-                SimpleEnum iceP_s2;
-                var ret = obj.opSimple(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeEnum((int)iceP_s2, 2);
-                ostr.writeEnum((int)ret, 2);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                ByteEnum[] iceP_b1;
-                iceP_b1 = ByteEnumSeqHelper.read(istr);
-                istr.endEncapsulation();
-                ByteEnum[] iceP_b2;
-                var ret = obj.opByteSeq(iceP_b1, out iceP_b2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ByteEnumSeqHelper.write(ostr, iceP_b2);
-                ByteEnumSeqHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                ShortEnum[] iceP_s1;
-                iceP_s1 = ShortEnumSeqHelper.read(istr);
-                istr.endEncapsulation();
-                ShortEnum[] iceP_s2;
-                var ret = obj.opShortSeq(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                ShortEnumSeqHelper.write(ostr, iceP_s2);
-                ShortEnumSeqHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                IntEnum[] iceP_i1;
-                iceP_i1 = IntEnumSeqHelper.read(istr);
-                istr.endEncapsulation();
-                IntEnum[] iceP_i2;
-                var ret = obj.opIntSeq(iceP_i1, out iceP_i2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                IntEnumSeqHelper.write(ostr, iceP_i2);
-                IntEnumSeqHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSimpleSeqAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                SimpleEnum[] iceP_s1;
-                iceP_s1 = SimpleEnumSeqHelper.read(istr);
-                istr.endEncapsulation();
-                SimpleEnum[] iceP_s2;
-                var ret = obj.opSimpleSeq(iceP_s1, out iceP_s2, request.current);
-                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, null);
-                SimpleEnumSeqHelper.write(ostr, iceP_s2);
-                SimpleEnumSeqHelper.write(ostr, ret);
-                ostr.endEncapsulation();
-                return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                TestIntf obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                obj.shutdown(request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-            }
         }
     }
 }

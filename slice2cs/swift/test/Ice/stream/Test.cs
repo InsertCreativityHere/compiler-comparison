@@ -177,483 +177,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::MyClass")]
-    public partial class MyClass : Ice.Value
-    {
-        public MyClass? c;
-
-        public Ice.Value? o;
-
-        public LargeStruct s;
-
-        public bool[] seq1;
-
-        public byte[] seq2;
-
-        public short[] seq3;
-
-        public int[] seq4;
-
-        public long[] seq5;
-
-        public float[] seq6;
-
-        public double[] seq7;
-
-        public string[] seq8;
-
-        public MyEnum[] seq9;
-
-        public MyClass?[] seq10;
-
-        public global::System.Collections.Generic.Dictionary<string, MyClass?> d;
-
-        partial void ice_initialize();
-
-        public MyClass(MyClass? c, Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
-        {
-            this.c = c;
-            this.o = o;
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(seq1);
-            this.seq1 = seq1;
-            global::System.ArgumentNullException.ThrowIfNull(seq2);
-            this.seq2 = seq2;
-            global::System.ArgumentNullException.ThrowIfNull(seq3);
-            this.seq3 = seq3;
-            global::System.ArgumentNullException.ThrowIfNull(seq4);
-            this.seq4 = seq4;
-            global::System.ArgumentNullException.ThrowIfNull(seq5);
-            this.seq5 = seq5;
-            global::System.ArgumentNullException.ThrowIfNull(seq6);
-            this.seq6 = seq6;
-            global::System.ArgumentNullException.ThrowIfNull(seq7);
-            this.seq7 = seq7;
-            global::System.ArgumentNullException.ThrowIfNull(seq8);
-            this.seq8 = seq8;
-            global::System.ArgumentNullException.ThrowIfNull(seq9);
-            this.seq9 = seq9;
-            global::System.ArgumentNullException.ThrowIfNull(seq10);
-            this.seq10 = seq10;
-            global::System.ArgumentNullException.ThrowIfNull(d);
-            this.d = d;
-            ice_initialize();
-        }
-
-        public MyClass(LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(seq1);
-            this.seq1 = seq1;
-            global::System.ArgumentNullException.ThrowIfNull(seq2);
-            this.seq2 = seq2;
-            global::System.ArgumentNullException.ThrowIfNull(seq3);
-            this.seq3 = seq3;
-            global::System.ArgumentNullException.ThrowIfNull(seq4);
-            this.seq4 = seq4;
-            global::System.ArgumentNullException.ThrowIfNull(seq5);
-            this.seq5 = seq5;
-            global::System.ArgumentNullException.ThrowIfNull(seq6);
-            this.seq6 = seq6;
-            global::System.ArgumentNullException.ThrowIfNull(seq7);
-            this.seq7 = seq7;
-            global::System.ArgumentNullException.ThrowIfNull(seq8);
-            this.seq8 = seq8;
-            global::System.ArgumentNullException.ThrowIfNull(seq9);
-            this.seq9 = seq9;
-            global::System.ArgumentNullException.ThrowIfNull(seq10);
-            this.seq10 = seq10;
-            global::System.ArgumentNullException.ThrowIfNull(d);
-            this.d = d;
-            ice_initialize();
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public MyClass()
-        {
-            this.s = null!;
-            this.seq1 = null!;
-            this.seq2 = null!;
-            this.seq3 = null!;
-            this.seq4 = null!;
-            this.seq5 = null!;
-            this.seq6 = null!;
-            this.seq7 = null!;
-            this.seq8 = null!;
-            this.seq9 = null!;
-            this.seq10 = null!;
-            this.d = null!;
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::MyClass";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(c);
-            ostr_.writeValue(o);
-            LargeStruct.ice_write(ostr_, s);
-            global::Ice.BoolSeqHelper.write(ostr_, seq1);
-            global::Ice.ByteSeqHelper.write(ostr_, seq2);
-            global::Ice.ShortSeqHelper.write(ostr_, seq3);
-            global::Ice.IntSeqHelper.write(ostr_, seq4);
-            global::Ice.LongSeqHelper.write(ostr_, seq5);
-            global::Ice.FloatSeqHelper.write(ostr_, seq6);
-            global::Ice.DoubleSeqHelper.write(ostr_, seq7);
-            global::Ice.StringSeqHelper.write(ostr_, seq8);
-            MyEnumSHelper.write(ostr_, seq9);
-            MyClassSHelper.write(ostr_, seq10);
-            StringMyClassDHelper.write(ostr_, d);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((MyClass? v) => { this.c = v; });
-            istr_.readValue((Ice.Value? v) => { this.o = v; });
-            s = new LargeStruct(istr_);
-            seq1 = global::Ice.BoolSeqHelper.read(istr_);
-            seq2 = global::Ice.ByteSeqHelper.read(istr_);
-            seq3 = global::Ice.ShortSeqHelper.read(istr_);
-            seq4 = global::Ice.IntSeqHelper.read(istr_);
-            seq5 = global::Ice.LongSeqHelper.read(istr_);
-            seq6 = global::Ice.FloatSeqHelper.read(istr_);
-            seq7 = global::Ice.DoubleSeqHelper.read(istr_);
-            seq8 = global::Ice.StringSeqHelper.read(istr_);
-            seq9 = MyEnumSHelper.read(istr_);
-            seq10 = MyClassSHelper.read(istr_);
-            d = StringMyClassDHelper.read(istr_);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::MyInterface")]
-    public partial interface MyInterface : Ice.Object
-    {
-    }
-
-    [Ice.SliceTypeId("::Test::MyException")]
-    public partial class MyException : Ice.UserException
-    {
-        public MyClass? c;
-
-        public MyException(MyClass? c)
-        {
-            this.c = c;
-        }
-
-        public MyException()
-        {
-        }
-
-        public override string ice_id() => "::Test::MyException";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::MyException", -1, true);
-            ostr_.writeValue(c);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((MyClass? v) => { this.c = v; });
-            istr_.endSlice();
-        }
-
-        public override bool iceUsesClasses()
-        {
-            return true;
-        }
-    }
-
-    namespace Sub
-    {
-        public enum NestedEnum
-        {
-            nestedEnum1,
-            nestedEnum2,
-            nestedEnum3
-        }
-
-        public sealed class NestedEnumHelper
-        {
-            public static void write(Ice.OutputStream ostr, NestedEnum v)
-            {
-                ostr.writeEnum((int)v, 2);
-            }
-
-            public static NestedEnum read(Ice.InputStream istr)
-            {
-                NestedEnum v;
-                v = (NestedEnum)istr.readEnum(2);
-                return v;
-            }
-        }
-
-        public sealed partial record class NestedStruct
-        {
-            public bool bo;
-
-            public byte by;
-
-            public short sh;
-
-            public int i;
-
-            public long l;
-
-            public float f;
-
-            public double d;
-
-            public string str = "";
-
-            public NestedEnum e;
-
-            partial void ice_initialize();
-
-            public NestedStruct()
-            {
-                ice_initialize();
-            }
-
-            public NestedStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, NestedEnum e)
-            {
-                this.bo = bo;
-                this.by = by;
-                this.sh = sh;
-                this.i = i;
-                this.l = l;
-                this.f = f;
-                this.d = d;
-                global::System.ArgumentNullException.ThrowIfNull(str);
-                this.str = str;
-                this.e = e;
-                ice_initialize();
-            }
-
-            public NestedStruct(Ice.InputStream istr)
-            {
-                this.bo = istr.readBool();
-                this.by = istr.readByte();
-                this.sh = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.e = (NestedEnum)istr.readEnum(2);
-                ice_initialize();
-            }
-
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeBool(this.bo);
-                ostr.writeByte(this.by);
-                ostr.writeShort(this.sh);
-                ostr.writeInt(this.i);
-                ostr.writeLong(this.l);
-                ostr.writeFloat(this.f);
-                ostr.writeDouble(this.d);
-                ostr.writeString(this.str);
-                ostr.writeEnum((int)this.e, 2);
-            }
-
-            public static void ice_write(Ice.OutputStream ostr, NestedStruct v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            public static NestedStruct ice_read(Ice.InputStream istr) => new(istr);
-        }
-
-        [Ice.SliceTypeId("::Test::Sub::NestedException")]
-        public partial class NestedException : Ice.UserException
-        {
-            public string str = "";
-
-            public NestedException(string str)
-            {
-                global::System.ArgumentNullException.ThrowIfNull(str);
-                this.str = str;
-            }
-
-            public NestedException()
-            {
-            }
-
-            public override string ice_id() => "::Test::Sub::NestedException";
-
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice("::Test::Sub::NestedException", -1, true);
-                ostr_.writeString(str);
-                ostr_.endSlice();
-            }
-
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                str = istr_.readString();
-                istr_.endSlice();
-            }
-        }
-    }
-}
-
-namespace Test2
-{
-    namespace Sub2
-    {
-        public enum NestedEnum2
-        {
-            nestedEnum4,
-            nestedEnum5,
-            nestedEnum6
-        }
-
-        public sealed class NestedEnum2Helper
-        {
-            public static void write(Ice.OutputStream ostr, NestedEnum2 v)
-            {
-                ostr.writeEnum((int)v, 2);
-            }
-
-            public static NestedEnum2 read(Ice.InputStream istr)
-            {
-                NestedEnum2 v;
-                v = (NestedEnum2)istr.readEnum(2);
-                return v;
-            }
-        }
-
-        public sealed partial record class NestedStruct2
-        {
-            public bool bo;
-
-            public byte by;
-
-            public short sh;
-
-            public int i;
-
-            public long l;
-
-            public float f;
-
-            public double d;
-
-            public string str = "";
-
-            public NestedEnum2 e;
-
-            partial void ice_initialize();
-
-            public NestedStruct2()
-            {
-                ice_initialize();
-            }
-
-            public NestedStruct2(bool bo, byte by, short sh, int i, long l, float f, double d, string str, NestedEnum2 e)
-            {
-                this.bo = bo;
-                this.by = by;
-                this.sh = sh;
-                this.i = i;
-                this.l = l;
-                this.f = f;
-                this.d = d;
-                global::System.ArgumentNullException.ThrowIfNull(str);
-                this.str = str;
-                this.e = e;
-                ice_initialize();
-            }
-
-            public NestedStruct2(Ice.InputStream istr)
-            {
-                this.bo = istr.readBool();
-                this.by = istr.readByte();
-                this.sh = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.e = (NestedEnum2)istr.readEnum(2);
-                ice_initialize();
-            }
-
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeBool(this.bo);
-                ostr.writeByte(this.by);
-                ostr.writeShort(this.sh);
-                ostr.writeInt(this.i);
-                ostr.writeLong(this.l);
-                ostr.writeFloat(this.f);
-                ostr.writeDouble(this.d);
-                ostr.writeString(this.str);
-                ostr.writeEnum((int)this.e, 2);
-            }
-
-            public static void ice_write(Ice.OutputStream ostr, NestedStruct2 v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            public static NestedStruct2 ice_read(Ice.InputStream istr) => new(istr);
-        }
-
-        [Ice.SliceTypeId("::Test2::Sub2::NestedException2")]
-        public partial class NestedException2 : Ice.UserException
-        {
-            public string str = "";
-
-            public NestedException2(string str)
-            {
-                global::System.ArgumentNullException.ThrowIfNull(str);
-                this.str = str;
-            }
-
-            public NestedException2()
-            {
-            }
-
-            public override string ice_id() => "::Test2::Sub2::NestedException2";
-
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice("::Test2::Sub2::NestedException2", -1, true);
-                ostr_.writeString(str);
-                ostr_.endSlice();
-            }
-
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                str = istr_.readString();
-                istr_.endSlice();
-            }
-        }
-    }
-}
-
-namespace Test
-{
-    public interface MyInterfacePrx : Ice.ObjectPrx
-    {
-    }
-}
-
-namespace Test
-{
     public sealed class MyEnumSHelper
     {
         public static void write(Ice.OutputStream ostr, MyEnum[] v)
@@ -1294,6 +817,165 @@ namespace Test
         }
     }
 
+    [Ice.SliceTypeId("::Test::MyClass")]
+    public partial class MyClass : Ice.Value
+    {
+        public MyClass? c;
+
+        public Ice.Value? o;
+
+        public LargeStruct s;
+
+        public bool[] seq1;
+
+        public byte[] seq2;
+
+        public short[] seq3;
+
+        public int[] seq4;
+
+        public long[] seq5;
+
+        public float[] seq6;
+
+        public double[] seq7;
+
+        public string[] seq8;
+
+        public MyEnum[] seq9;
+
+        public MyClass?[] seq10;
+
+        public global::System.Collections.Generic.Dictionary<string, MyClass?> d;
+
+        partial void ice_initialize();
+
+        public MyClass(MyClass? c, Ice.Value? o, LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        {
+            this.c = c;
+            this.o = o;
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
+            this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
+            this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
+            this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
+            this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(seq5);
+            this.seq5 = seq5;
+            global::System.ArgumentNullException.ThrowIfNull(seq6);
+            this.seq6 = seq6;
+            global::System.ArgumentNullException.ThrowIfNull(seq7);
+            this.seq7 = seq7;
+            global::System.ArgumentNullException.ThrowIfNull(seq8);
+            this.seq8 = seq8;
+            global::System.ArgumentNullException.ThrowIfNull(seq9);
+            this.seq9 = seq9;
+            global::System.ArgumentNullException.ThrowIfNull(seq10);
+            this.seq10 = seq10;
+            global::System.ArgumentNullException.ThrowIfNull(d);
+            this.d = d;
+            ice_initialize();
+        }
+
+        public MyClass(LargeStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
+            this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
+            this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
+            this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
+            this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(seq5);
+            this.seq5 = seq5;
+            global::System.ArgumentNullException.ThrowIfNull(seq6);
+            this.seq6 = seq6;
+            global::System.ArgumentNullException.ThrowIfNull(seq7);
+            this.seq7 = seq7;
+            global::System.ArgumentNullException.ThrowIfNull(seq8);
+            this.seq8 = seq8;
+            global::System.ArgumentNullException.ThrowIfNull(seq9);
+            this.seq9 = seq9;
+            global::System.ArgumentNullException.ThrowIfNull(seq10);
+            this.seq10 = seq10;
+            global::System.ArgumentNullException.ThrowIfNull(d);
+            this.d = d;
+            ice_initialize();
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public MyClass()
+        {
+            this.s = null!;
+            this.seq1 = null!;
+            this.seq2 = null!;
+            this.seq3 = null!;
+            this.seq4 = null!;
+            this.seq5 = null!;
+            this.seq6 = null!;
+            this.seq7 = null!;
+            this.seq8 = null!;
+            this.seq9 = null!;
+            this.seq10 = null!;
+            this.d = null!;
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::MyClass";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeValue(c);
+            ostr_.writeValue(o);
+            LargeStruct.ice_write(ostr_, s);
+            global::Ice.BoolSeqHelper.write(ostr_, seq1);
+            global::Ice.ByteSeqHelper.write(ostr_, seq2);
+            global::Ice.ShortSeqHelper.write(ostr_, seq3);
+            global::Ice.IntSeqHelper.write(ostr_, seq4);
+            global::Ice.LongSeqHelper.write(ostr_, seq5);
+            global::Ice.FloatSeqHelper.write(ostr_, seq6);
+            global::Ice.DoubleSeqHelper.write(ostr_, seq7);
+            global::Ice.StringSeqHelper.write(ostr_, seq8);
+            MyEnumSHelper.write(ostr_, seq9);
+            MyClassSHelper.write(ostr_, seq10);
+            StringMyClassDHelper.write(ostr_, d);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((MyClass? v) => { this.c = v; });
+            istr_.readValue((Ice.Value? v) => { this.o = v; });
+            s = new LargeStruct(istr_);
+            seq1 = global::Ice.BoolSeqHelper.read(istr_);
+            seq2 = global::Ice.ByteSeqHelper.read(istr_);
+            seq3 = global::Ice.ShortSeqHelper.read(istr_);
+            seq4 = global::Ice.IntSeqHelper.read(istr_);
+            seq5 = global::Ice.LongSeqHelper.read(istr_);
+            seq6 = global::Ice.FloatSeqHelper.read(istr_);
+            seq7 = global::Ice.DoubleSeqHelper.read(istr_);
+            seq8 = global::Ice.StringSeqHelper.read(istr_);
+            seq9 = MyEnumSHelper.read(istr_);
+            seq10 = MyClassSHelper.read(istr_);
+            d = StringMyClassDHelper.read(istr_);
+            istr_.endSlice();
+        }
+    }
+
+    public interface MyInterfacePrx : Ice.ObjectPrx
+    {
+    }
+
     public sealed class MyInterfacePrxHelper : Ice.ObjectPrxHelperBase, MyInterfacePrx
     {
         public static MyInterfacePrx createProxy(Ice.Communicator communicator, string proxyString) =>
@@ -1343,18 +1025,326 @@ namespace Test
         {
         }
     }
+
+    [Ice.SliceTypeId("::Test::MyException")]
+    public partial class MyException : Ice.UserException
+    {
+        public MyClass? c;
+
+        public MyException(MyClass? c)
+        {
+            this.c = c;
+        }
+
+        public MyException()
+        {
+        }
+
+        public override string ice_id() => "::Test::MyException";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::MyException", -1, true);
+            ostr_.writeValue(c);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((MyClass? v) => { this.c = v; });
+            istr_.endSlice();
+        }
+
+        public override bool iceUsesClasses()
+        {
+            return true;
+        }
+    }
+
+    namespace Sub
+    {
+        public enum NestedEnum
+        {
+            nestedEnum1,
+            nestedEnum2,
+            nestedEnum3
+        }
+
+        public sealed class NestedEnumHelper
+        {
+            public static void write(Ice.OutputStream ostr, NestedEnum v)
+            {
+                ostr.writeEnum((int)v, 2);
+            }
+
+            public static NestedEnum read(Ice.InputStream istr)
+            {
+                NestedEnum v;
+                v = (NestedEnum)istr.readEnum(2);
+                return v;
+            }
+        }
+
+        public sealed partial record class NestedStruct
+        {
+            public bool bo;
+
+            public byte by;
+
+            public short sh;
+
+            public int i;
+
+            public long l;
+
+            public float f;
+
+            public double d;
+
+            public string str = "";
+
+            public NestedEnum e;
+
+            partial void ice_initialize();
+
+            public NestedStruct()
+            {
+                ice_initialize();
+            }
+
+            public NestedStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, NestedEnum e)
+            {
+                this.bo = bo;
+                this.by = by;
+                this.sh = sh;
+                this.i = i;
+                this.l = l;
+                this.f = f;
+                this.d = d;
+                global::System.ArgumentNullException.ThrowIfNull(str);
+                this.str = str;
+                this.e = e;
+                ice_initialize();
+            }
+
+            public NestedStruct(Ice.InputStream istr)
+            {
+                this.bo = istr.readBool();
+                this.by = istr.readByte();
+                this.sh = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.e = (NestedEnum)istr.readEnum(2);
+                ice_initialize();
+            }
+
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeBool(this.bo);
+                ostr.writeByte(this.by);
+                ostr.writeShort(this.sh);
+                ostr.writeInt(this.i);
+                ostr.writeLong(this.l);
+                ostr.writeFloat(this.f);
+                ostr.writeDouble(this.d);
+                ostr.writeString(this.str);
+                ostr.writeEnum((int)this.e, 2);
+            }
+
+            public static void ice_write(Ice.OutputStream ostr, NestedStruct v)
+            {
+                v.ice_writeMembers(ostr);
+            }
+
+            public static NestedStruct ice_read(Ice.InputStream istr) => new(istr);
+        }
+
+        [Ice.SliceTypeId("::Test::Sub::NestedException")]
+        public partial class NestedException : Ice.UserException
+        {
+            public string str = "";
+
+            public NestedException(string str)
+            {
+                global::System.ArgumentNullException.ThrowIfNull(str);
+                this.str = str;
+            }
+
+            public NestedException()
+            {
+            }
+
+            public override string ice_id() => "::Test::Sub::NestedException";
+
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
+            {
+                ostr_.startSlice("::Test::Sub::NestedException", -1, true);
+                ostr_.writeString(str);
+                ostr_.endSlice();
+            }
+
+            protected override void iceReadImpl(Ice.InputStream istr_)
+            {
+                istr_.startSlice();
+                str = istr_.readString();
+                istr_.endSlice();
+            }
+        }
+    }
+}
+
+namespace Test2
+{
+    namespace Sub2
+    {
+        public enum NestedEnum2
+        {
+            nestedEnum4,
+            nestedEnum5,
+            nestedEnum6
+        }
+
+        public sealed class NestedEnum2Helper
+        {
+            public static void write(Ice.OutputStream ostr, NestedEnum2 v)
+            {
+                ostr.writeEnum((int)v, 2);
+            }
+
+            public static NestedEnum2 read(Ice.InputStream istr)
+            {
+                NestedEnum2 v;
+                v = (NestedEnum2)istr.readEnum(2);
+                return v;
+            }
+        }
+
+        public sealed partial record class NestedStruct2
+        {
+            public bool bo;
+
+            public byte by;
+
+            public short sh;
+
+            public int i;
+
+            public long l;
+
+            public float f;
+
+            public double d;
+
+            public string str = "";
+
+            public NestedEnum2 e;
+
+            partial void ice_initialize();
+
+            public NestedStruct2()
+            {
+                ice_initialize();
+            }
+
+            public NestedStruct2(bool bo, byte by, short sh, int i, long l, float f, double d, string str, NestedEnum2 e)
+            {
+                this.bo = bo;
+                this.by = by;
+                this.sh = sh;
+                this.i = i;
+                this.l = l;
+                this.f = f;
+                this.d = d;
+                global::System.ArgumentNullException.ThrowIfNull(str);
+                this.str = str;
+                this.e = e;
+                ice_initialize();
+            }
+
+            public NestedStruct2(Ice.InputStream istr)
+            {
+                this.bo = istr.readBool();
+                this.by = istr.readByte();
+                this.sh = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.e = (NestedEnum2)istr.readEnum(2);
+                ice_initialize();
+            }
+
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeBool(this.bo);
+                ostr.writeByte(this.by);
+                ostr.writeShort(this.sh);
+                ostr.writeInt(this.i);
+                ostr.writeLong(this.l);
+                ostr.writeFloat(this.f);
+                ostr.writeDouble(this.d);
+                ostr.writeString(this.str);
+                ostr.writeEnum((int)this.e, 2);
+            }
+
+            public static void ice_write(Ice.OutputStream ostr, NestedStruct2 v)
+            {
+                v.ice_writeMembers(ostr);
+            }
+
+            public static NestedStruct2 ice_read(Ice.InputStream istr) => new(istr);
+        }
+
+        [Ice.SliceTypeId("::Test2::Sub2::NestedException2")]
+        public partial class NestedException2 : Ice.UserException
+        {
+            public string str = "";
+
+            public NestedException2(string str)
+            {
+                global::System.ArgumentNullException.ThrowIfNull(str);
+                this.str = str;
+            }
+
+            public NestedException2()
+            {
+            }
+
+            public override string ice_id() => "::Test2::Sub2::NestedException2";
+
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
+            {
+                ostr_.startSlice("::Test2::Sub2::NestedException2", -1, true);
+                ostr_.writeString(str);
+                ostr_.endSlice();
+            }
+
+            protected override void iceReadImpl(Ice.InputStream istr_)
+            {
+                istr_.startSlice();
+                str = istr_.readString();
+                istr_.endSlice();
+            }
+        }
+    }
 }
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::MyInterface")]
+    public partial interface MyInterface : Ice.Object
+    {
+    }
+
     public abstract class MyInterfaceDisp_ : Ice.ObjectImpl, MyInterface
     {
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::MyInterface";
     }
-}
-
-namespace Test
-{
 }

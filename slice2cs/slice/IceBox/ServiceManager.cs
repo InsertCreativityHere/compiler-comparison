@@ -85,80 +85,6 @@ namespace IceBox
         }
     }
 
-    [Ice.SliceTypeId("::IceBox::ServiceObserver")]
-    public partial interface ServiceObserver : Ice.Object
-    {
-        /// <summary>
-        /// Receives the names of the services that were started.
-        /// </summary>
-        /// <param name="services">
-        /// The names of the services.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void servicesStarted(string[] services, Ice.Current current);
-
-        /// <summary>
-        /// Receives the names of the services that were stopped.
-        /// </summary>
-        /// <param name="services">
-        /// The names of the services.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void servicesStopped(string[] services, Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::IceBox::ServiceManager")]
-    public partial interface ServiceManager : Ice.Object
-    {
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">
-        /// The service name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceBox.AlreadyStartedException">
-        /// If the service is already running.
-        /// </exception>
-        /// <exception cref="IceBox.NoSuchServiceException">
-        /// If no service could be found with the given name.
-        /// </exception>
-        void startService(string service, Ice.Current current);
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">
-        /// The service name.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceBox.AlreadyStoppedException">
-        /// If the service is already stopped.
-        /// </exception>
-        /// <exception cref="IceBox.NoSuchServiceException">
-        /// If no service could be found with the given name.
-        /// </exception>
-        void stopService(string service, Ice.Current current);
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">
-        /// The new observer
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void addObserver(ServiceObserverPrx? observer, Ice.Current current);
-
-        /// <summary>
-        /// Shut down all services. This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace IceBox
-{
     /// <summary>
     /// An Observer interface implemented by admin clients interested in the status of services.
     /// </summary>
@@ -208,118 +134,6 @@ namespace IceBox
         global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    /// <summary>
-    /// Administers a set of IceBox Service instances.
-    /// </summary>
-    /// <seealso cref="Service" />
-    public interface ServiceManagerPrx : Ice.ObjectPrx
-    {
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">
-        /// The service name.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <exception cref="IceBox.AlreadyStartedException">
-        /// If the service is already running.
-        /// </exception>
-        /// <exception cref="IceBox.NoSuchServiceException">
-        /// If no service could be found with the given name.
-        /// </exception>
-        void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">
-        /// The service name.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceBox.AlreadyStartedException">
-        /// If the service is already running.
-        /// </exception>
-        /// <exception cref="IceBox.NoSuchServiceException">
-        /// If no service could be found with the given name.
-        /// </exception>
-        global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">
-        /// The service name.
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <exception cref="IceBox.AlreadyStoppedException">
-        /// If the service is already stopped.
-        /// </exception>
-        /// <exception cref="IceBox.NoSuchServiceException">
-        /// If no service could be found with the given name.
-        /// </exception>
-        void stopService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">
-        /// The service name.
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceBox.AlreadyStoppedException">
-        /// If the service is already stopped.
-        /// </exception>
-        /// <exception cref="IceBox.NoSuchServiceException">
-        /// If no service could be found with the given name.
-        /// </exception>
-        global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">
-        /// The new observer
-        /// </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void addObserver(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">
-        /// The new observer
-        /// </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Shut down all services. This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Shut down all services. This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceBox
-{
     public sealed class ServiceObserverPrxHelper : Ice.ObjectPrxHelperBase, ServiceObserverPrx
     {
         public void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -450,6 +264,115 @@ namespace IceBox
             : base(reference)
         {
         }
+    }
+
+    /// <summary>
+    /// Administers a set of IceBox Service instances.
+    /// </summary>
+    /// <seealso cref="Service" />
+    public interface ServiceManagerPrx : Ice.ObjectPrx
+    {
+        /// <summary>
+        /// Start an individual service.
+        /// </summary>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <exception cref="IceBox.AlreadyStartedException">
+        /// If the service is already running.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
+        void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Start an individual service.
+        /// </summary>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceBox.AlreadyStartedException">
+        /// If the service is already running.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
+        global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Stop an individual service.
+        /// </summary>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <exception cref="IceBox.AlreadyStoppedException">
+        /// If the service is already stopped.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
+        void stopService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Stop an individual service.
+        /// </summary>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceBox.AlreadyStoppedException">
+        /// If the service is already stopped.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
+        global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Registers a new observer with the ServiceManager.
+        /// </summary>
+        /// <param name="observer">
+        /// The new observer
+        /// </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void addObserver(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Registers a new observer with the ServiceManager.
+        /// </summary>
+        /// <param name="observer">
+        /// The new observer
+        /// </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Shut down all services. This causes stop to be invoked on all configured services.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Shut down all services. This causes stop to be invoked on all configured services.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class ServiceManagerPrxHelper : Ice.ObjectPrxHelperBase, ServiceManagerPrx
@@ -703,6 +626,56 @@ namespace IceBox
 
 namespace IceBox
 {
+    [Ice.SliceTypeId("::IceBox::ServiceObserver")]
+    public partial interface ServiceObserver : Ice.Object
+    {
+        /// <summary>
+        /// Receives the names of the services that were started.
+        /// </summary>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void servicesStarted(string[] services, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_servicesStartedAsync(
+            ServiceObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[] iceP_services;
+            iceP_services = global::Ice.StringSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.servicesStarted(iceP_services, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Receives the names of the services that were stopped.
+        /// </summary>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void servicesStopped(string[] services, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_servicesStoppedAsync(
+            ServiceObserver obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[] iceP_services;
+            iceP_services = global::Ice.StringSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.servicesStopped(iceP_services, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ServiceObserverDisp_ : Ice.ObjectImpl, ServiceObserver
     {
         public abstract void servicesStarted(string[] services, Ice.Current current);
@@ -724,6 +697,107 @@ namespace IceBox
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::IceBox::ServiceManager")]
+    public partial interface ServiceManager : Ice.Object
+    {
+        /// <summary>
+        /// Start an individual service.
+        /// </summary>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceBox.AlreadyStartedException">
+        /// If the service is already running.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
+        void startService(string service, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startServiceAsync(
+            ServiceManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_service;
+            iceP_service = istr.readString();
+            istr.endEncapsulation();
+            obj.startService(iceP_service, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Stop an individual service.
+        /// </summary>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <exception cref="IceBox.AlreadyStoppedException">
+        /// If the service is already stopped.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
+        void stopService(string service, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopServiceAsync(
+            ServiceManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_service;
+            iceP_service = istr.readString();
+            istr.endEncapsulation();
+            obj.stopService(iceP_service, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Registers a new observer with the ServiceManager.
+        /// </summary>
+        /// <param name="observer">
+        /// The new observer
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void addObserver(ServiceObserverPrx? observer, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addObserverAsync(
+            ServiceManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            ServiceObserverPrx? iceP_observer;
+            iceP_observer = ServiceObserverPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.addObserver(iceP_observer, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Shut down all services. This causes stop to be invoked on all configured services.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            ServiceManager obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 
     public abstract class ServiceManagerDisp_ : Ice.ObjectImpl, ServiceManager
@@ -753,94 +827,5 @@ namespace IceBox
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceBox
-{
-    public partial interface ServiceObserver
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_servicesStartedAsync(
-            ServiceObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[] iceP_services;
-            iceP_services = global::Ice.StringSeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.servicesStarted(iceP_services, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_servicesStoppedAsync(
-            ServiceObserver obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[] iceP_services;
-            iceP_services = global::Ice.StringSeqHelper.read(istr);
-            istr.endEncapsulation();
-            obj.servicesStopped(iceP_services, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface ServiceManager
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startServiceAsync(
-            ServiceManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_service;
-            iceP_service = istr.readString();
-            istr.endEncapsulation();
-            obj.startService(iceP_service, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopServiceAsync(
-            ServiceManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_service;
-            iceP_service = istr.readString();
-            istr.endEncapsulation();
-            obj.stopService(iceP_service, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_addObserverAsync(
-            ServiceManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            ServiceObserverPrx? iceP_observer;
-            iceP_observer = ServiceObserverPrxHelper.read(istr);
-            istr.endEncapsulation();
-            obj.addObserver(iceP_observer, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            ServiceManager obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

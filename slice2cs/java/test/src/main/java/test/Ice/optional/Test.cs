@@ -58,10 +58,98 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::MyInterface")]
-    public partial interface MyInterface : Ice.Object
+    public interface MyInterfacePrx : Ice.ObjectPrx
     {
-        void op(Ice.Current current);
+        void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
+    public sealed class MyInterfacePrxHelper : Ice.ObjectPrxHelperBase, MyInterfacePrx
+    {
+        public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_opAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_op(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _op_name = "op";
+
+        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _op_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous);
+        }
+
+        public static MyInterfacePrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            new MyInterfacePrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+        public static MyInterfacePrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyInterfacePrxHelper(b) : null;
+
+        public static MyInterfacePrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyInterfacePrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new MyInterfacePrxHelper(b) : null;
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyInterfacePrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            uncheckedCast(b?.ice_facet(f));
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Test::MyInterface"
+        };
+
+        public static string ice_staticId() => "::Test::MyInterface";
+
+        public static void write(Ice.OutputStream ostr, MyInterfacePrx? v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static MyInterfacePrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new MyInterfacePrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyInterfacePrxHelper(reference);
+
+        private MyInterfacePrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
+        {
+        }
+
+        private MyInterfacePrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
+        }
     }
 
     public enum MyEnum
@@ -181,6 +269,588 @@ namespace Test
         }
 
         public static VarStruct ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class ByteSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, byte[] v)
+        {
+            ostr.writeByteSeq(v);
+        }
+
+        public static byte[] read(Ice.InputStream istr)
+        {
+            byte[] v;
+            v = istr.readByteSeq();
+            return v;
+        }
+    }
+
+    public sealed class BoolSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, bool[] v)
+        {
+            ostr.writeBoolSeq(v);
+        }
+
+        public static bool[] read(Ice.InputStream istr)
+        {
+            bool[] v;
+            v = istr.readBoolSeq();
+            return v;
+        }
+    }
+
+    public sealed class ShortSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, short[] v)
+        {
+            ostr.writeShortSeq(v);
+        }
+
+        public static short[] read(Ice.InputStream istr)
+        {
+            short[] v;
+            v = istr.readShortSeq();
+            return v;
+        }
+    }
+
+    public sealed class IntSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, int[] v)
+        {
+            ostr.writeIntSeq(v);
+        }
+
+        public static int[] read(Ice.InputStream istr)
+        {
+            int[] v;
+            v = istr.readIntSeq();
+            return v;
+        }
+    }
+
+    public sealed class LongSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, long[] v)
+        {
+            ostr.writeLongSeq(v);
+        }
+
+        public static long[] read(Ice.InputStream istr)
+        {
+            long[] v;
+            v = istr.readLongSeq();
+            return v;
+        }
+    }
+
+    public sealed class FloatSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, float[] v)
+        {
+            ostr.writeFloatSeq(v);
+        }
+
+        public static float[] read(Ice.InputStream istr)
+        {
+            float[] v;
+            v = istr.readFloatSeq();
+            return v;
+        }
+    }
+
+    public sealed class DoubleSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, double[] v)
+        {
+            ostr.writeDoubleSeq(v);
+        }
+
+        public static double[] read(Ice.InputStream istr)
+        {
+            double[] v;
+            v = istr.readDoubleSeq();
+            return v;
+        }
+    }
+
+    public sealed class StringSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, string[] v)
+        {
+            ostr.writeStringSeq(v);
+        }
+
+        public static string[] read(Ice.InputStream istr)
+        {
+            string[] v;
+            v = istr.readStringSeq();
+            return v;
+        }
+    }
+
+    public sealed class MyEnumSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, MyEnum[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeEnum((int)v[ix], 0);
+                }
+            }
+        }
+
+        public static MyEnum[] read(Ice.InputStream istr)
+        {
+            MyEnum[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new MyEnum[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = (MyEnum)istr.readEnum(0);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class SmallStructSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, SmallStruct[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static SmallStruct[] read(Ice.InputStream istr)
+        {
+            SmallStruct[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new SmallStruct[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new SmallStruct(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class SmallStructListHelper
+    {
+        public static void write(Ice.OutputStream ostr, SmallStruct[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static SmallStruct[] read(Ice.InputStream istr)
+        {
+            SmallStruct[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new SmallStruct[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new SmallStruct(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class FixedStructSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, FixedStruct[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static FixedStruct[] read(Ice.InputStream istr)
+        {
+            FixedStruct[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(4);
+                v = new FixedStruct[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new FixedStruct(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class FixedStructListHelper
+    {
+        public static void write(Ice.OutputStream ostr, FixedStruct[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static FixedStruct[] read(Ice.InputStream istr)
+        {
+            FixedStruct[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(4);
+                v = new FixedStruct[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new FixedStruct(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class VarStructSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, VarStruct[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static VarStruct[] read(Ice.InputStream istr)
+        {
+            VarStruct[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new VarStruct[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new VarStruct(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class MyInterfacePrxSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, MyInterfacePrx?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    MyInterfacePrxHelper.write(ostr, v[ix]);
+                }
+            }
+        }
+
+        public static MyInterfacePrx?[] read(Ice.InputStream istr)
+        {
+            MyInterfacePrx?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(2);
+                v = new MyInterfacePrx?[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = MyInterfacePrxHelper.read(istr);
+                }
+            }
+            return v;
+        }
+    }
+
+    public sealed class SerializableHelper
+    {
+        public static void write(Ice.OutputStream ostr, byte[] v)
+        {
+            ostr.writeByteSeq(v);
+        }
+
+        public static byte[] read(Ice.InputStream istr)
+        {
+            byte[] v;
+            v = istr.readByteSeq();
+            return v;
+        }
+    }
+
+    public sealed class IntIntDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, int> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, int> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    ostr.writeInt(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, int> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, int> r = new global::System.Collections.Generic.Dictionary<int, int>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                int v;
+                v = istr.readInt();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class StringIntDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, int> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, int> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeInt(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, int> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                int v;
+                v = istr.readInt();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class IntEnumDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, MyEnum> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, MyEnum> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    ostr.writeEnum((int)e.Value, 0);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, MyEnum> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, MyEnum> r = new global::System.Collections.Generic.Dictionary<int, MyEnum>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                MyEnum v;
+                v = (MyEnum)istr.readEnum(0);
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class IntFixedStructDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, FixedStruct> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, FixedStruct> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    e.Value.ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, FixedStruct> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, FixedStruct> r = new global::System.Collections.Generic.Dictionary<int, FixedStruct>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                FixedStruct v;
+                v = new FixedStruct(istr);
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class IntVarStructDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, VarStruct> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, VarStruct> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    VarStruct.ice_write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, VarStruct> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, VarStruct> r = new global::System.Collections.Generic.Dictionary<int, VarStruct>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                VarStruct v;
+                v = new VarStruct(istr);
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
+    public sealed class IntMyInterfacePrxDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<int, MyInterfacePrx?> e in v)
+                {
+                    ostr.writeInt(e.Key);
+                    MyInterfacePrxHelper.write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?> r = new global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>();
+            for(int i = 0; i < sz; ++i)
+            {
+                int k;
+                k = istr.readInt();
+                MyInterfacePrx? v;
+                v = MyInterfacePrxHelper.read(istr);
+                r[k] = v;
+            }
+            return r;
+        }
     }
 
     [Ice.SliceTypeId("::Test::MultiOptional")]
@@ -1138,299 +1808,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::Initial")]
-    public partial interface Initial : Ice.Object
-    {
-        void shutdown(Ice.Current current);
-
-        Ice.Value? pingPong(Ice.Value? o, Ice.Current current);
-
-        void opOptionalException(int? a, string? b, Ice.Current current);
-
-        void opDerivedException(int? a, string? b, Ice.Current current);
-
-        void opRequiredException(int? a, string? b, Ice.Current current);
-
-        byte? opByte(byte? p1, out byte? p3, Ice.Current current);
-
-        bool? opBool(bool? p1, out bool? p3, Ice.Current current);
-
-        short? opShort(short? p1, out short? p3, Ice.Current current);
-
-        int? opInt(int? p1, out int? p3, Ice.Current current);
-
-        long? opLong(long? p1, out long? p3, Ice.Current current);
-
-        float? opFloat(float? p1, out float? p3, Ice.Current current);
-
-        double? opDouble(double? p1, out double? p3, Ice.Current current);
-
-        string? opString(string? p1, out string? p3, Ice.Current current);
-
-        MyEnum? opMyEnum(MyEnum? p1, out MyEnum? p3, Ice.Current current);
-
-        SmallStruct? opSmallStruct(SmallStruct? p1, out SmallStruct? p3, Ice.Current current);
-
-        FixedStruct? opFixedStruct(FixedStruct? p1, out FixedStruct? p3, Ice.Current current);
-
-        VarStruct? opVarStruct(VarStruct? p1, out VarStruct? p3, Ice.Current current);
-
-        MyInterfacePrx? opMyInterfaceProxy(MyInterfacePrx? p1, out MyInterfacePrx? p3, Ice.Current current);
-
-        OneOptional? opOneOptional(OneOptional? p1, out OneOptional? p3, Ice.Current current);
-
-        byte[]? opByteSeq(byte[]? p1, out byte[]? p3, Ice.Current current);
-
-        bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, Ice.Current current);
-
-        short[]? opShortSeq(short[]? p1, out short[]? p3, Ice.Current current);
-
-        int[]? opIntSeq(int[]? p1, out int[]? p3, Ice.Current current);
-
-        long[]? opLongSeq(long[]? p1, out long[]? p3, Ice.Current current);
-
-        float[]? opFloatSeq(float[]? p1, out float[]? p3, Ice.Current current);
-
-        double[]? opDoubleSeq(double[]? p1, out double[]? p3, Ice.Current current);
-
-        string[]? opStringSeq(string[]? p1, out string[]? p3, Ice.Current current);
-
-        SmallStruct[]? opSmallStructSeq(SmallStruct[]? p1, out SmallStruct[]? p3, Ice.Current current);
-
-        SmallStruct[]? opSmallStructList(SmallStruct[]? p1, out SmallStruct[]? p3, Ice.Current current);
-
-        FixedStruct[]? opFixedStructSeq(FixedStruct[]? p1, out FixedStruct[]? p3, Ice.Current current);
-
-        FixedStruct[]? opFixedStructList(FixedStruct[]? p1, out FixedStruct[]? p3, Ice.Current current);
-
-        VarStruct[]? opVarStructSeq(VarStruct[]? p1, out VarStruct[]? p3, Ice.Current current);
-
-        byte[]? opSerializable(byte[]? p1, out byte[]? p3, Ice.Current current);
-
-        global::System.Collections.Generic.Dictionary<int, int>? opIntIntDict(global::System.Collections.Generic.Dictionary<int, int>? p1, out global::System.Collections.Generic.Dictionary<int, int>? p3, Ice.Current current);
-
-        global::System.Collections.Generic.Dictionary<string, int>? opStringIntDict(global::System.Collections.Generic.Dictionary<string, int>? p1, out global::System.Collections.Generic.Dictionary<string, int>? p3, Ice.Current current);
-
-        void opClassAndUnknownOptional(A? p, Ice.Current current);
-
-        G? opG(G? g, Ice.Current current);
-
-        void opVoid(Ice.Current current);
-
-        Initial_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
-
-        Initial_OpMStruct2MarshaledResult opMStruct2(SmallStruct? p1, Ice.Current current);
-
-        Initial_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        Initial_OpMSeq2MarshaledResult opMSeq2(string[]? p1, Ice.Current current);
-
-        Initial_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, Ice.Current current);
-
-        bool supportsJavaSerializable(Ice.Current current);
-    }
-}
-
-namespace Test
-{
-    public record struct Initial_OpByteResult(byte? returnValue, byte? p3);
-
-    public record struct Initial_OpBoolResult(bool? returnValue, bool? p3);
-
-    public record struct Initial_OpShortResult(short? returnValue, short? p3);
-
-    public record struct Initial_OpIntResult(int? returnValue, int? p3);
-
-    public record struct Initial_OpLongResult(long? returnValue, long? p3);
-
-    public record struct Initial_OpFloatResult(float? returnValue, float? p3);
-
-    public record struct Initial_OpDoubleResult(double? returnValue, double? p3);
-
-    public record struct Initial_OpStringResult(string? returnValue, string? p3);
-
-    public record struct Initial_OpMyEnumResult(MyEnum? returnValue, MyEnum? p3);
-
-    public record struct Initial_OpSmallStructResult(SmallStruct? returnValue, SmallStruct? p3);
-
-    public record struct Initial_OpFixedStructResult(FixedStruct? returnValue, FixedStruct? p3);
-
-    public record struct Initial_OpVarStructResult(VarStruct? returnValue, VarStruct? p3);
-
-    public record struct Initial_OpMyInterfaceProxyResult(MyInterfacePrx? returnValue, MyInterfacePrx? p3);
-
-    public record struct Initial_OpOneOptionalResult(OneOptional? returnValue, OneOptional? p3);
-
-    public record struct Initial_OpByteSeqResult(byte[]? returnValue, byte[]? p3);
-
-    public record struct Initial_OpBoolSeqResult(bool[]? returnValue, bool[]? p3);
-
-    public record struct Initial_OpShortSeqResult(short[]? returnValue, short[]? p3);
-
-    public record struct Initial_OpIntSeqResult(int[]? returnValue, int[]? p3);
-
-    public record struct Initial_OpLongSeqResult(long[]? returnValue, long[]? p3);
-
-    public record struct Initial_OpFloatSeqResult(float[]? returnValue, float[]? p3);
-
-    public record struct Initial_OpDoubleSeqResult(double[]? returnValue, double[]? p3);
-
-    public record struct Initial_OpStringSeqResult(string[]? returnValue, string[]? p3);
-
-    public record struct Initial_OpSmallStructSeqResult(SmallStruct[]? returnValue, SmallStruct[]? p3);
-
-    public record struct Initial_OpSmallStructListResult(SmallStruct[]? returnValue, SmallStruct[]? p3);
-
-    public record struct Initial_OpFixedStructSeqResult(FixedStruct[]? returnValue, FixedStruct[]? p3);
-
-    public record struct Initial_OpFixedStructListResult(FixedStruct[]? returnValue, FixedStruct[]? p3);
-
-    public record struct Initial_OpVarStructSeqResult(VarStruct[]? returnValue, VarStruct[]? p3);
-
-    public record struct Initial_OpSerializableResult(byte[]? returnValue, byte[]? p3);
-
-    public record struct Initial_OpIntIntDictResult(global::System.Collections.Generic.Dictionary<int, int>? returnValue, global::System.Collections.Generic.Dictionary<int, int>? p3);
-
-    public record struct Initial_OpStringIntDictResult(global::System.Collections.Generic.Dictionary<string, int>? returnValue, global::System.Collections.Generic.Dictionary<string, int>? p3);
-
-    public readonly record struct Initial_OpMStruct1MarshaledResult : Ice.MarshaledResult
-    {
-        public Initial_OpMStruct1MarshaledResult(SmallStruct? ret, Ice.Current current)
-        {
-            _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, null);
-            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                _ostr.writeSize(1);
-                ret.Value.ice_writeMembers(_ostr);
-            }
-            _ostr.endEncapsulation();
-        }
-
-        public Ice.OutputStream outputStream => _ostr;
-
-        private readonly Ice.OutputStream _ostr;
-    }
-
-    public record struct Initial_OpMStruct2Result(SmallStruct? returnValue, SmallStruct? p2);
-
-    public readonly record struct Initial_OpMStruct2MarshaledResult : Ice.MarshaledResult
-    {
-        public Initial_OpMStruct2MarshaledResult(SmallStruct? ret, SmallStruct? p2, Ice.Current current)
-        {
-            _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, null);
-            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                _ostr.writeSize(1);
-                ret.Value.ice_writeMembers(_ostr);
-            }
-            if (p2 is not null && _ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                _ostr.writeSize(1);
-                p2.Value.ice_writeMembers(_ostr);
-            }
-            _ostr.endEncapsulation();
-        }
-
-        public Ice.OutputStream outputStream => _ostr;
-
-        private readonly Ice.OutputStream _ostr;
-    }
-
-    public readonly record struct Initial_OpMSeq1MarshaledResult : Ice.MarshaledResult
-    {
-        public Initial_OpMSeq1MarshaledResult(string[]? ret, Ice.Current current)
-        {
-            _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, null);
-            _ostr.writeStringSeq(1, ret);
-            _ostr.endEncapsulation();
-        }
-
-        public Ice.OutputStream outputStream => _ostr;
-
-        private readonly Ice.OutputStream _ostr;
-    }
-
-    public record struct Initial_OpMSeq2Result(string[]? returnValue, string[]? p2);
-
-    public readonly record struct Initial_OpMSeq2MarshaledResult : Ice.MarshaledResult
-    {
-        public Initial_OpMSeq2MarshaledResult(string[]? ret, string[]? p2, Ice.Current current)
-        {
-            _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, null);
-            _ostr.writeStringSeq(1, ret);
-            _ostr.writeStringSeq(3, p2);
-            _ostr.endEncapsulation();
-        }
-
-        public Ice.OutputStream outputStream => _ostr;
-
-        private readonly Ice.OutputStream _ostr;
-    }
-
-    public readonly record struct Initial_OpMDict1MarshaledResult : Ice.MarshaledResult
-    {
-        public Initial_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, Ice.Current current)
-        {
-            _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, null);
-            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = _ostr.startSize();
-                StringIntDictHelper.write(_ostr, ret);
-                _ostr.endSize(pos);
-            }
-            _ostr.endEncapsulation();
-        }
-
-        public Ice.OutputStream outputStream => _ostr;
-
-        private readonly Ice.OutputStream _ostr;
-    }
-
-    public record struct Initial_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, int>? returnValue, global::System.Collections.Generic.Dictionary<string, int>? p2);
-
-    public readonly record struct Initial_OpMDict2MarshaledResult : Ice.MarshaledResult
-    {
-        public Initial_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, global::System.Collections.Generic.Dictionary<string, int>? p2, Ice.Current current)
-        {
-            _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, null);
-            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = _ostr.startSize();
-                StringIntDictHelper.write(_ostr, ret);
-                _ostr.endSize(pos);
-            }
-            if (p2 is not null && _ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = _ostr.startSize();
-                StringIntDictHelper.write(_ostr, p2);
-                _ostr.endSize(pos);
-            }
-            _ostr.endEncapsulation();
-        }
-
-        public Ice.OutputStream outputStream => _ostr;
-
-        private readonly Ice.OutputStream _ostr;
-    }
-}
-
-namespace Test
-{
-    public interface MyInterfacePrx : Ice.ObjectPrx
-    {
-        void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-
     public interface InitialPrx : Ice.ObjectPrx
     {
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1612,678 +1989,6 @@ namespace Test
         bool supportsJavaSerializable(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
-    public sealed class MyInterfacePrxHelper : Ice.ObjectPrxHelperBase, MyInterfacePrx
-    {
-        public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_opAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_op(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _op_name = "op";
-
-        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _op_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous);
-        }
-
-        public static MyInterfacePrx createProxy(Ice.Communicator communicator, string proxyString) =>
-            new MyInterfacePrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
-
-        public static MyInterfacePrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            b is not null && b.ice_isA(ice_staticId(), ctx) ? new MyInterfacePrxHelper(b) : null;
-
-        public static MyInterfacePrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
-            checkedCast(b?.ice_facet(f), ctx);
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static MyInterfacePrx? uncheckedCast(Ice.ObjectPrx? b) =>
-            b is not null ? new MyInterfacePrxHelper(b) : null;
-
-        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
-
-        public static MyInterfacePrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
-            uncheckedCast(b?.ice_facet(f));
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::MyInterface"
-        };
-
-        public static string ice_staticId() => "::Test::MyInterface";
-
-        public static void write(Ice.OutputStream ostr, MyInterfacePrx? v)
-        {
-            ostr.writeProxy(v);
-        }
-
-        public static MyInterfacePrx? read(Ice.InputStream istr) =>
-            istr.readProxy() is Ice.ObjectPrx proxy ? new MyInterfacePrxHelper(proxy) : null;
-
-        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new MyInterfacePrxHelper(reference);
-
-        private MyInterfacePrxHelper(Ice.ObjectPrx proxy)
-            : base(proxy)
-        {
-        }
-
-        private MyInterfacePrxHelper(Ice.Internal.Reference reference)
-            : base(reference)
-        {
-        }
-    }
-
-    public sealed class ByteSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, byte[] v)
-        {
-            ostr.writeByteSeq(v);
-        }
-
-        public static byte[] read(Ice.InputStream istr)
-        {
-            byte[] v;
-            v = istr.readByteSeq();
-            return v;
-        }
-    }
-
-    public sealed class BoolSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, bool[] v)
-        {
-            ostr.writeBoolSeq(v);
-        }
-
-        public static bool[] read(Ice.InputStream istr)
-        {
-            bool[] v;
-            v = istr.readBoolSeq();
-            return v;
-        }
-    }
-
-    public sealed class ShortSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, short[] v)
-        {
-            ostr.writeShortSeq(v);
-        }
-
-        public static short[] read(Ice.InputStream istr)
-        {
-            short[] v;
-            v = istr.readShortSeq();
-            return v;
-        }
-    }
-
-    public sealed class IntSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, int[] v)
-        {
-            ostr.writeIntSeq(v);
-        }
-
-        public static int[] read(Ice.InputStream istr)
-        {
-            int[] v;
-            v = istr.readIntSeq();
-            return v;
-        }
-    }
-
-    public sealed class LongSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, long[] v)
-        {
-            ostr.writeLongSeq(v);
-        }
-
-        public static long[] read(Ice.InputStream istr)
-        {
-            long[] v;
-            v = istr.readLongSeq();
-            return v;
-        }
-    }
-
-    public sealed class FloatSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, float[] v)
-        {
-            ostr.writeFloatSeq(v);
-        }
-
-        public static float[] read(Ice.InputStream istr)
-        {
-            float[] v;
-            v = istr.readFloatSeq();
-            return v;
-        }
-    }
-
-    public sealed class DoubleSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, double[] v)
-        {
-            ostr.writeDoubleSeq(v);
-        }
-
-        public static double[] read(Ice.InputStream istr)
-        {
-            double[] v;
-            v = istr.readDoubleSeq();
-            return v;
-        }
-    }
-
-    public sealed class StringSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, string[] v)
-        {
-            ostr.writeStringSeq(v);
-        }
-
-        public static string[] read(Ice.InputStream istr)
-        {
-            string[] v;
-            v = istr.readStringSeq();
-            return v;
-        }
-    }
-
-    public sealed class MyEnumSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, MyEnum[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeEnum((int)v[ix], 0);
-                }
-            }
-        }
-
-        public static MyEnum[] read(Ice.InputStream istr)
-        {
-            MyEnum[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new MyEnum[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = (MyEnum)istr.readEnum(0);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class SmallStructSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, SmallStruct[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static SmallStruct[] read(Ice.InputStream istr)
-        {
-            SmallStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new SmallStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new SmallStruct(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class SmallStructListHelper
-    {
-        public static void write(Ice.OutputStream ostr, SmallStruct[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static SmallStruct[] read(Ice.InputStream istr)
-        {
-            SmallStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new SmallStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new SmallStruct(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class FixedStructSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, FixedStruct[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static FixedStruct[] read(Ice.InputStream istr)
-        {
-            FixedStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(4);
-                v = new FixedStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new FixedStruct(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class FixedStructListHelper
-    {
-        public static void write(Ice.OutputStream ostr, FixedStruct[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static FixedStruct[] read(Ice.InputStream istr)
-        {
-            FixedStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(4);
-                v = new FixedStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new FixedStruct(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class VarStructSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, VarStruct[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static VarStruct[] read(Ice.InputStream istr)
-        {
-            VarStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new VarStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new VarStruct(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class MyInterfacePrxSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, MyInterfacePrx?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    MyInterfacePrxHelper.write(ostr, v[ix]);
-                }
-            }
-        }
-
-        public static MyInterfacePrx?[] read(Ice.InputStream istr)
-        {
-            MyInterfacePrx?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(2);
-                v = new MyInterfacePrx?[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = MyInterfacePrxHelper.read(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class SerializableHelper
-    {
-        public static void write(Ice.OutputStream ostr, byte[] v)
-        {
-            ostr.writeByteSeq(v);
-        }
-
-        public static byte[] read(Ice.InputStream istr)
-        {
-            byte[] v;
-            v = istr.readByteSeq();
-            return v;
-        }
-    }
-
-    public sealed class IntIntDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, int> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, int> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    ostr.writeInt(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, int> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, int> r = new global::System.Collections.Generic.Dictionary<int, int>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                int v;
-                v = istr.readInt();
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class StringIntDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, int> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, int> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeInt(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, int> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                int v;
-                v = istr.readInt();
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class IntEnumDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, MyEnum> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, MyEnum> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    ostr.writeEnum((int)e.Value, 0);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, MyEnum> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, MyEnum> r = new global::System.Collections.Generic.Dictionary<int, MyEnum>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                MyEnum v;
-                v = (MyEnum)istr.readEnum(0);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class IntFixedStructDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, FixedStruct> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, FixedStruct> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    e.Value.ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, FixedStruct> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, FixedStruct> r = new global::System.Collections.Generic.Dictionary<int, FixedStruct>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                FixedStruct v;
-                v = new FixedStruct(istr);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class IntVarStructDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, VarStruct> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, VarStruct> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    VarStruct.ice_write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, VarStruct> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, VarStruct> r = new global::System.Collections.Generic.Dictionary<int, VarStruct>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                VarStruct v;
-                v = new VarStruct(istr);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class IntMyInterfacePrxDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, MyInterfacePrx?> e in v)
-                {
-                    ostr.writeInt(e.Key);
-                    MyInterfacePrxHelper.write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?> r = new global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>();
-            for(int i = 0; i < sz; ++i)
-            {
-                int k;
-                k = istr.readInt();
-                MyInterfacePrx? v;
-                v = MyInterfacePrxHelper.read(istr);
-                r[k] = v;
-            }
-            return r;
-        }
     }
 
     public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
@@ -4942,6 +4647,211 @@ namespace Test
 
 namespace Test
 {
+    public record struct Initial_OpByteResult(byte? returnValue, byte? p3);
+
+    public record struct Initial_OpBoolResult(bool? returnValue, bool? p3);
+
+    public record struct Initial_OpShortResult(short? returnValue, short? p3);
+
+    public record struct Initial_OpIntResult(int? returnValue, int? p3);
+
+    public record struct Initial_OpLongResult(long? returnValue, long? p3);
+
+    public record struct Initial_OpFloatResult(float? returnValue, float? p3);
+
+    public record struct Initial_OpDoubleResult(double? returnValue, double? p3);
+
+    public record struct Initial_OpStringResult(string? returnValue, string? p3);
+
+    public record struct Initial_OpMyEnumResult(MyEnum? returnValue, MyEnum? p3);
+
+    public record struct Initial_OpSmallStructResult(SmallStruct? returnValue, SmallStruct? p3);
+
+    public record struct Initial_OpFixedStructResult(FixedStruct? returnValue, FixedStruct? p3);
+
+    public record struct Initial_OpVarStructResult(VarStruct? returnValue, VarStruct? p3);
+
+    public record struct Initial_OpMyInterfaceProxyResult(MyInterfacePrx? returnValue, MyInterfacePrx? p3);
+
+    public record struct Initial_OpOneOptionalResult(OneOptional? returnValue, OneOptional? p3);
+
+    public record struct Initial_OpByteSeqResult(byte[]? returnValue, byte[]? p3);
+
+    public record struct Initial_OpBoolSeqResult(bool[]? returnValue, bool[]? p3);
+
+    public record struct Initial_OpShortSeqResult(short[]? returnValue, short[]? p3);
+
+    public record struct Initial_OpIntSeqResult(int[]? returnValue, int[]? p3);
+
+    public record struct Initial_OpLongSeqResult(long[]? returnValue, long[]? p3);
+
+    public record struct Initial_OpFloatSeqResult(float[]? returnValue, float[]? p3);
+
+    public record struct Initial_OpDoubleSeqResult(double[]? returnValue, double[]? p3);
+
+    public record struct Initial_OpStringSeqResult(string[]? returnValue, string[]? p3);
+
+    public record struct Initial_OpSmallStructSeqResult(SmallStruct[]? returnValue, SmallStruct[]? p3);
+
+    public record struct Initial_OpSmallStructListResult(SmallStruct[]? returnValue, SmallStruct[]? p3);
+
+    public record struct Initial_OpFixedStructSeqResult(FixedStruct[]? returnValue, FixedStruct[]? p3);
+
+    public record struct Initial_OpFixedStructListResult(FixedStruct[]? returnValue, FixedStruct[]? p3);
+
+    public record struct Initial_OpVarStructSeqResult(VarStruct[]? returnValue, VarStruct[]? p3);
+
+    public record struct Initial_OpSerializableResult(byte[]? returnValue, byte[]? p3);
+
+    public record struct Initial_OpIntIntDictResult(global::System.Collections.Generic.Dictionary<int, int>? returnValue, global::System.Collections.Generic.Dictionary<int, int>? p3);
+
+    public record struct Initial_OpStringIntDictResult(global::System.Collections.Generic.Dictionary<string, int>? returnValue, global::System.Collections.Generic.Dictionary<string, int>? p3);
+
+    public readonly record struct Initial_OpMStruct1MarshaledResult : Ice.MarshaledResult
+    {
+        public Initial_OpMStruct1MarshaledResult(SmallStruct? ret, Ice.Current current)
+        {
+            _ostr = Ice.CurrentExtensions.startReplyStream(current);
+            _ostr.startEncapsulation(current.encoding, null);
+            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                _ostr.writeSize(1);
+                ret.Value.ice_writeMembers(_ostr);
+            }
+            _ostr.endEncapsulation();
+        }
+
+        public Ice.OutputStream outputStream => _ostr;
+
+        private readonly Ice.OutputStream _ostr;
+    }
+
+    public record struct Initial_OpMStruct2Result(SmallStruct? returnValue, SmallStruct? p2);
+
+    public readonly record struct Initial_OpMStruct2MarshaledResult : Ice.MarshaledResult
+    {
+        public Initial_OpMStruct2MarshaledResult(SmallStruct? ret, SmallStruct? p2, Ice.Current current)
+        {
+            _ostr = Ice.CurrentExtensions.startReplyStream(current);
+            _ostr.startEncapsulation(current.encoding, null);
+            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                _ostr.writeSize(1);
+                ret.Value.ice_writeMembers(_ostr);
+            }
+            if (p2 is not null && _ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                _ostr.writeSize(1);
+                p2.Value.ice_writeMembers(_ostr);
+            }
+            _ostr.endEncapsulation();
+        }
+
+        public Ice.OutputStream outputStream => _ostr;
+
+        private readonly Ice.OutputStream _ostr;
+    }
+
+    public readonly record struct Initial_OpMSeq1MarshaledResult : Ice.MarshaledResult
+    {
+        public Initial_OpMSeq1MarshaledResult(string[]? ret, Ice.Current current)
+        {
+            _ostr = Ice.CurrentExtensions.startReplyStream(current);
+            _ostr.startEncapsulation(current.encoding, null);
+            _ostr.writeStringSeq(1, ret);
+            _ostr.endEncapsulation();
+        }
+
+        public Ice.OutputStream outputStream => _ostr;
+
+        private readonly Ice.OutputStream _ostr;
+    }
+
+    public record struct Initial_OpMSeq2Result(string[]? returnValue, string[]? p2);
+
+    public readonly record struct Initial_OpMSeq2MarshaledResult : Ice.MarshaledResult
+    {
+        public Initial_OpMSeq2MarshaledResult(string[]? ret, string[]? p2, Ice.Current current)
+        {
+            _ostr = Ice.CurrentExtensions.startReplyStream(current);
+            _ostr.startEncapsulation(current.encoding, null);
+            _ostr.writeStringSeq(1, ret);
+            _ostr.writeStringSeq(3, p2);
+            _ostr.endEncapsulation();
+        }
+
+        public Ice.OutputStream outputStream => _ostr;
+
+        private readonly Ice.OutputStream _ostr;
+    }
+
+    public readonly record struct Initial_OpMDict1MarshaledResult : Ice.MarshaledResult
+    {
+        public Initial_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, Ice.Current current)
+        {
+            _ostr = Ice.CurrentExtensions.startReplyStream(current);
+            _ostr.startEncapsulation(current.encoding, null);
+            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = _ostr.startSize();
+                StringIntDictHelper.write(_ostr, ret);
+                _ostr.endSize(pos);
+            }
+            _ostr.endEncapsulation();
+        }
+
+        public Ice.OutputStream outputStream => _ostr;
+
+        private readonly Ice.OutputStream _ostr;
+    }
+
+    public record struct Initial_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, int>? returnValue, global::System.Collections.Generic.Dictionary<string, int>? p2);
+
+    public readonly record struct Initial_OpMDict2MarshaledResult : Ice.MarshaledResult
+    {
+        public Initial_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, global::System.Collections.Generic.Dictionary<string, int>? p2, Ice.Current current)
+        {
+            _ostr = Ice.CurrentExtensions.startReplyStream(current);
+            _ostr.startEncapsulation(current.encoding, null);
+            if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = _ostr.startSize();
+                StringIntDictHelper.write(_ostr, ret);
+                _ostr.endSize(pos);
+            }
+            if (p2 is not null && _ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = _ostr.startSize();
+                StringIntDictHelper.write(_ostr, p2);
+                _ostr.endSize(pos);
+            }
+            _ostr.endEncapsulation();
+        }
+
+        public Ice.OutputStream outputStream => _ostr;
+
+        private readonly Ice.OutputStream _ostr;
+    }
+}
+
+namespace Test
+{
+    [Ice.SliceTypeId("::Test::MyInterface")]
+    public partial interface MyInterface : Ice.Object
+    {
+        void op(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
+            MyInterface obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.op(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class MyInterfaceDisp_ : Ice.ObjectImpl, MyInterface
     {
         public abstract void op(Ice.Current current);
@@ -4960,6 +4870,1134 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::Test::Initial")]
+    public partial interface Initial : Ice.Object
+    {
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        Ice.Value? pingPong(Ice.Value? o, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingPongAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Ice.Value? iceP_o = null;
+            istr.readValue((Ice.Value? v) => { iceP_o = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.pingPong(iceP_o, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void opOptionalException(int? a, string? b, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalExceptionAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int? iceP_a;
+            string? iceP_b;
+            iceP_a = istr.readInt(1);
+            iceP_b = istr.readString(2);
+            istr.endEncapsulation();
+            obj.opOptionalException(iceP_a, iceP_b, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void opDerivedException(int? a, string? b, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDerivedExceptionAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int? iceP_a;
+            string? iceP_b;
+            iceP_a = istr.readInt(1);
+            iceP_b = istr.readString(2);
+            istr.endEncapsulation();
+            obj.opDerivedException(iceP_a, iceP_b, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void opRequiredException(int? a, string? b, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opRequiredExceptionAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int? iceP_a;
+            string? iceP_b;
+            iceP_a = istr.readInt(1);
+            iceP_b = istr.readString(2);
+            istr.endEncapsulation();
+            obj.opRequiredException(iceP_a, iceP_b, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        byte? opByte(byte? p1, out byte? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte? iceP_p1;
+            iceP_p1 = istr.readByte(2);
+            istr.endEncapsulation();
+            byte? iceP_p3;
+            var ret = obj.opByte(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeByte(1, ret);
+            ostr.writeByte(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        bool? opBool(bool? p1, out bool? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool? iceP_p1;
+            iceP_p1 = istr.readBool(2);
+            istr.endEncapsulation();
+            bool? iceP_p3;
+            var ret = obj.opBool(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(1, ret);
+            ostr.writeBool(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short? opShort(short? p1, out short? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short? iceP_p1;
+            iceP_p1 = istr.readShort(2);
+            istr.endEncapsulation();
+            short? iceP_p3;
+            var ret = obj.opShort(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeShort(1, ret);
+            ostr.writeShort(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        int? opInt(int? p1, out int? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int? iceP_p1;
+            iceP_p1 = istr.readInt(2);
+            istr.endEncapsulation();
+            int? iceP_p3;
+            var ret = obj.opInt(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeInt(1, ret);
+            ostr.writeInt(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        long? opLong(long? p1, out long? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            long? iceP_p1;
+            iceP_p1 = istr.readLong(1);
+            istr.endEncapsulation();
+            long? iceP_p3;
+            var ret = obj.opLong(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLong(2, iceP_p3);
+            ostr.writeLong(3, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        float? opFloat(float? p1, out float? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            float? iceP_p1;
+            iceP_p1 = istr.readFloat(2);
+            istr.endEncapsulation();
+            float? iceP_p3;
+            var ret = obj.opFloat(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeFloat(1, ret);
+            ostr.writeFloat(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        double? opDouble(double? p1, out double? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            double? iceP_p1;
+            iceP_p1 = istr.readDouble(2);
+            istr.endEncapsulation();
+            double? iceP_p3;
+            var ret = obj.opDouble(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeDouble(1, ret);
+            ostr.writeDouble(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string? opString(string? p1, out string? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string? iceP_p1;
+            iceP_p1 = istr.readString(2);
+            istr.endEncapsulation();
+            string? iceP_p3;
+            var ret = obj.opString(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(1, ret);
+            ostr.writeString(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        MyEnum? opMyEnum(MyEnum? p1, out MyEnum? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            MyEnum? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.Size))
+            {
+                MyEnum tmpVal;
+                tmpVal = (MyEnum)istr.readEnum(0);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            MyEnum? iceP_p3;
+            var ret = obj.opMyEnum(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null)
+            {
+                ostr.writeEnum(1, (int)ret.Value, 1);
+            }
+            if (iceP_p3 is not null)
+            {
+                ostr.writeEnum(3, (int)iceP_p3.Value, 1);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SmallStruct? opSmallStruct(SmallStruct? p1, out SmallStruct? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSmallStructAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            SmallStruct? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                SmallStruct tmpVal;
+                tmpVal = new SmallStruct(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            SmallStruct? iceP_p3;
+            var ret = obj.opSmallStruct(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(1);
+                ret.Value.ice_writeMembers(ostr);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(1);
+                iceP_p3.Value.ice_writeMembers(ostr);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        FixedStruct? opFixedStruct(FixedStruct? p1, out FixedStruct? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFixedStructAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            FixedStruct? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                FixedStruct tmpVal;
+                tmpVal = new FixedStruct(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            FixedStruct? iceP_p3;
+            var ret = obj.opFixedStruct(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(4);
+                ret.Value.ice_writeMembers(ostr);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(4);
+                iceP_p3.Value.ice_writeMembers(ostr);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        VarStruct? opVarStruct(VarStruct? p1, out VarStruct? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVarStructAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            VarStruct? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                VarStruct tmpVal;
+                tmpVal = new VarStruct(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            VarStruct? iceP_p3;
+            var ret = obj.opVarStruct(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                VarStruct.ice_write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                VarStruct.ice_write(ostr, iceP_p3);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        MyInterfacePrx? opMyInterfaceProxy(MyInterfacePrx? p1, out MyInterfacePrx? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyInterfaceProxyAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            MyInterfacePrx? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                iceP_p1 = MyInterfacePrxHelper.read(istr);
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            MyInterfacePrx? iceP_p3;
+            var ret = obj.opMyInterfaceProxy(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeProxy(1, ret);
+            ostr.writeProxy(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        OneOptional? opOneOptional(OneOptional? p1, out OneOptional? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOneOptionalAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            OneOptional? iceP_p1 = null;
+            istr.readValue((OneOptional? v) => { iceP_p1 = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            OneOptional? iceP_p3;
+            var ret = obj.opOneOptional(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeValue(iceP_p3);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[]? opByteSeq(byte[]? p1, out byte[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[]? iceP_p1;
+            iceP_p1 = istr.readByteSeq(2);
+            istr.endEncapsulation();
+            byte[]? iceP_p3;
+            var ret = obj.opByteSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeByteSeq(1, ret);
+            ostr.writeByteSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            bool[]? iceP_p1;
+            iceP_p1 = istr.readBoolSeq(2);
+            istr.endEncapsulation();
+            bool[]? iceP_p3;
+            var ret = obj.opBoolSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBoolSeq(1, ret);
+            ostr.writeBoolSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[]? opShortSeq(short[]? p1, out short[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[]? iceP_p1;
+            iceP_p1 = istr.readShortSeq(2);
+            istr.endEncapsulation();
+            short[]? iceP_p3;
+            var ret = obj.opShortSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeShortSeq(1, ret);
+            ostr.writeShortSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        int[]? opIntSeq(int[]? p1, out int[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int[]? iceP_p1;
+            iceP_p1 = istr.readIntSeq(2);
+            istr.endEncapsulation();
+            int[]? iceP_p3;
+            var ret = obj.opIntSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeIntSeq(1, ret);
+            ostr.writeIntSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        long[]? opLongSeq(long[]? p1, out long[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            long[]? iceP_p1;
+            iceP_p1 = istr.readLongSeq(2);
+            istr.endEncapsulation();
+            long[]? iceP_p3;
+            var ret = obj.opLongSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeLongSeq(1, ret);
+            ostr.writeLongSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        float[]? opFloatSeq(float[]? p1, out float[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            float[]? iceP_p1;
+            iceP_p1 = istr.readFloatSeq(2);
+            istr.endEncapsulation();
+            float[]? iceP_p3;
+            var ret = obj.opFloatSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeFloatSeq(1, ret);
+            ostr.writeFloatSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        double[]? opDoubleSeq(double[]? p1, out double[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            double[]? iceP_p1;
+            iceP_p1 = istr.readDoubleSeq(2);
+            istr.endEncapsulation();
+            double[]? iceP_p3;
+            var ret = obj.opDoubleSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeDoubleSeq(1, ret);
+            ostr.writeDoubleSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[]? opStringSeq(string[]? p1, out string[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[]? iceP_p1;
+            iceP_p1 = istr.readStringSeq(2);
+            istr.endEncapsulation();
+            string[]? iceP_p3;
+            var ret = obj.opStringSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeStringSeq(1, ret);
+            ostr.writeStringSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SmallStruct[]? opSmallStructSeq(SmallStruct[]? p1, out SmallStruct[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSmallStructSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            SmallStruct[]? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                SmallStruct[] tmpVal;
+                tmpVal = SmallStructSeqHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            SmallStruct[]? iceP_p3;
+            var ret = obj.opSmallStructSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                SmallStructSeqHelper.write(ostr, ret);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                SmallStructSeqHelper.write(ostr, iceP_p3);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        SmallStruct[]? opSmallStructList(SmallStruct[]? p1, out SmallStruct[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSmallStructListAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            SmallStruct[]? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                SmallStruct[] tmpVal;
+                tmpVal = SmallStructListHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            SmallStruct[]? iceP_p3;
+            var ret = obj.opSmallStructList(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                SmallStructListHelper.write(ostr, ret);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                SmallStructListHelper.write(ostr, iceP_p3);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        FixedStruct[]? opFixedStructSeq(FixedStruct[]? p1, out FixedStruct[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFixedStructSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            FixedStruct[]? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                FixedStruct[] tmpVal;
+                tmpVal = FixedStructSeqHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            FixedStruct[]? iceP_p3;
+            var ret = obj.opFixedStructSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                FixedStructSeqHelper.write(ostr, ret);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(iceP_p3.Length * 4 + (iceP_p3.Length > 254 ? 5 : 1));
+                FixedStructSeqHelper.write(ostr, iceP_p3);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        FixedStruct[]? opFixedStructList(FixedStruct[]? p1, out FixedStruct[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFixedStructListAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            FixedStruct[]? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                FixedStruct[] tmpVal;
+                tmpVal = FixedStructListHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            FixedStruct[]? iceP_p3;
+            var ret = obj.opFixedStructList(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
+                FixedStructListHelper.write(ostr, ret);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(iceP_p3.Length * 4 + (iceP_p3.Length > 254 ? 5 : 1));
+                FixedStructListHelper.write(ostr, iceP_p3);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        VarStruct[]? opVarStructSeq(VarStruct[]? p1, out VarStruct[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVarStructSeqAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            VarStruct[]? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                VarStruct[] tmpVal;
+                tmpVal = VarStructSeqHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            VarStruct[]? iceP_p3;
+            var ret = obj.opVarStructSeq(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                VarStructSeqHelper.write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                VarStructSeqHelper.write(ostr, iceP_p3);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[]? opSerializable(byte[]? p1, out byte[]? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerializableAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[]? iceP_p1;
+            iceP_p1 = istr.readByteSeq(2);
+            istr.endEncapsulation();
+            byte[]? iceP_p3;
+            var ret = obj.opSerializable(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeByteSeq(1, ret);
+            ostr.writeByteSeq(3, iceP_p3);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::System.Collections.Generic.Dictionary<int, int>? opIntIntDict(global::System.Collections.Generic.Dictionary<int, int>? p1, out global::System.Collections.Generic.Dictionary<int, int>? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntIntDictAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, int>? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                global::System.Collections.Generic.Dictionary<int, int> tmpVal = new global::System.Collections.Generic.Dictionary<int, int>();
+                tmpVal = IntIntDictHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            global::System.Collections.Generic.Dictionary<int, int>? iceP_p3;
+            var ret = obj.opIntIntDict(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(ret.Count * 8 + (ret.Count > 254 ? 5 : 1));
+                IntIntDictHelper.write(ostr, ret);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
+            {
+                ostr.writeSize(iceP_p3.Count * 8 + (iceP_p3.Count > 254 ? 5 : 1));
+                IntIntDictHelper.write(ostr, iceP_p3);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        global::System.Collections.Generic.Dictionary<string, int>? opStringIntDict(global::System.Collections.Generic.Dictionary<string, int>? p1, out global::System.Collections.Generic.Dictionary<string, int>? p3, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringIntDictAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, int>? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                global::System.Collections.Generic.Dictionary<string, int> tmpVal = new global::System.Collections.Generic.Dictionary<string, int>();
+                tmpVal = StringIntDictHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, int>? iceP_p3;
+            var ret = obj.opStringIntDict(iceP_p1, out iceP_p3, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                StringIntDictHelper.write(ostr, ret);
+                ostr.endSize(pos);
+            }
+            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr.startSize();
+                StringIntDictHelper.write(ostr, iceP_p3);
+                ostr.endSize(pos);
+            }
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void opClassAndUnknownOptional(A? p, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opClassAndUnknownOptionalAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            A? iceP_p = null;
+            istr.readValue((A? v) => { iceP_p = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            obj.opClassAndUnknownOptional(iceP_p, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        G? opG(G? g, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opGAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            G? iceP_g = null;
+            istr.readValue((G? v) => { iceP_g = v; });
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.opG(iceP_g, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeValue(ret);
+            ostr.writePendingValues();
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void opVoid(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVoidAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.opVoid(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        Initial_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct1Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = obj.opMStruct1(request.current);
+            return new (new Ice.OutgoingResponse(result.outputStream));
+        }
+
+        Initial_OpMStruct2MarshaledResult opMStruct2(SmallStruct? p1, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct2Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            SmallStruct? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
+            {
+                istr.skipSize();
+                SmallStruct tmpVal;
+                tmpVal = new SmallStruct(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            var result = obj.opMStruct2(iceP_p1, request.current);
+            return new (new Ice.OutgoingResponse(result.outputStream));
+        }
+
+        Initial_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq1Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = obj.opMSeq1(request.current);
+            return new (new Ice.OutgoingResponse(result.outputStream));
+        }
+
+        Initial_OpMSeq2MarshaledResult opMSeq2(string[]? p1, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq2Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[]? iceP_p1;
+            iceP_p1 = istr.readStringSeq(2);
+            istr.endEncapsulation();
+            var result = obj.opMSeq2(iceP_p1, request.current);
+            return new (new Ice.OutgoingResponse(result.outputStream));
+        }
+
+        Initial_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict1Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = obj.opMDict1(request.current);
+            return new (new Ice.OutgoingResponse(result.outputStream));
+        }
+
+        Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict2Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, int>? iceP_p1;
+            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
+            {
+                istr.skip(4);
+                global::System.Collections.Generic.Dictionary<string, int> tmpVal = new global::System.Collections.Generic.Dictionary<string, int>();
+                tmpVal = StringIntDictHelper.read(istr);
+                iceP_p1 = tmpVal;
+            }
+            else
+            {
+                iceP_p1 = null;
+            }
+            istr.endEncapsulation();
+            var result = obj.opMDict2(iceP_p1, request.current);
+            return new (new Ice.OutgoingResponse(result.outputStream));
+        }
+
+        bool supportsJavaSerializable(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsJavaSerializableAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.supportsJavaSerializable(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
     }
 
     public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
@@ -5112,1058 +6150,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface MyInterface
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opAsync(
-            MyInterface obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.op(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface Initial
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingPongAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            Ice.Value? iceP_o = null;
-            istr.readValue((Ice.Value? v) => { iceP_o = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.pingPong(iceP_o, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalExceptionAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int? iceP_a;
-            string? iceP_b;
-            iceP_a = istr.readInt(1);
-            iceP_b = istr.readString(2);
-            istr.endEncapsulation();
-            obj.opOptionalException(iceP_a, iceP_b, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDerivedExceptionAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int? iceP_a;
-            string? iceP_b;
-            iceP_a = istr.readInt(1);
-            iceP_b = istr.readString(2);
-            istr.endEncapsulation();
-            obj.opDerivedException(iceP_a, iceP_b, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opRequiredExceptionAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int? iceP_a;
-            string? iceP_b;
-            iceP_a = istr.readInt(1);
-            iceP_b = istr.readString(2);
-            istr.endEncapsulation();
-            obj.opRequiredException(iceP_a, iceP_b, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte? iceP_p1;
-            iceP_p1 = istr.readByte(2);
-            istr.endEncapsulation();
-            byte? iceP_p3;
-            var ret = obj.opByte(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeByte(1, ret);
-            ostr.writeByte(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool? iceP_p1;
-            iceP_p1 = istr.readBool(2);
-            istr.endEncapsulation();
-            bool? iceP_p3;
-            var ret = obj.opBool(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(1, ret);
-            ostr.writeBool(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short? iceP_p1;
-            iceP_p1 = istr.readShort(2);
-            istr.endEncapsulation();
-            short? iceP_p3;
-            var ret = obj.opShort(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeShort(1, ret);
-            ostr.writeShort(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int? iceP_p1;
-            iceP_p1 = istr.readInt(2);
-            istr.endEncapsulation();
-            int? iceP_p3;
-            var ret = obj.opInt(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(1, ret);
-            ostr.writeInt(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            long? iceP_p1;
-            iceP_p1 = istr.readLong(1);
-            istr.endEncapsulation();
-            long? iceP_p3;
-            var ret = obj.opLong(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLong(2, iceP_p3);
-            ostr.writeLong(3, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            float? iceP_p1;
-            iceP_p1 = istr.readFloat(2);
-            istr.endEncapsulation();
-            float? iceP_p3;
-            var ret = obj.opFloat(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeFloat(1, ret);
-            ostr.writeFloat(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            double? iceP_p1;
-            iceP_p1 = istr.readDouble(2);
-            istr.endEncapsulation();
-            double? iceP_p3;
-            var ret = obj.opDouble(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeDouble(1, ret);
-            ostr.writeDouble(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string? iceP_p1;
-            iceP_p1 = istr.readString(2);
-            istr.endEncapsulation();
-            string? iceP_p3;
-            var ret = obj.opString(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(1, ret);
-            ostr.writeString(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            MyEnum? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.Size))
-            {
-                MyEnum tmpVal;
-                tmpVal = (MyEnum)istr.readEnum(0);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            MyEnum? iceP_p3;
-            var ret = obj.opMyEnum(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null)
-            {
-                ostr.writeEnum(1, (int)ret.Value, 1);
-            }
-            if (iceP_p3 is not null)
-            {
-                ostr.writeEnum(3, (int)iceP_p3.Value, 1);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSmallStructAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            SmallStruct? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                SmallStruct tmpVal;
-                tmpVal = new SmallStruct(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            SmallStruct? iceP_p3;
-            var ret = obj.opSmallStruct(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(1);
-                ret.Value.ice_writeMembers(ostr);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(1);
-                iceP_p3.Value.ice_writeMembers(ostr);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFixedStructAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            FixedStruct? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                FixedStruct tmpVal;
-                tmpVal = new FixedStruct(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            FixedStruct? iceP_p3;
-            var ret = obj.opFixedStruct(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(4);
-                ret.Value.ice_writeMembers(ostr);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(4);
-                iceP_p3.Value.ice_writeMembers(ostr);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVarStructAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            VarStruct? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                VarStruct tmpVal;
-                tmpVal = new VarStruct(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            VarStruct? iceP_p3;
-            var ret = obj.opVarStruct(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                VarStruct.ice_write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                VarStruct.ice_write(ostr, iceP_p3);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyInterfaceProxyAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            MyInterfacePrx? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                iceP_p1 = MyInterfacePrxHelper.read(istr);
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            MyInterfacePrx? iceP_p3;
-            var ret = obj.opMyInterfaceProxy(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeProxy(1, ret);
-            ostr.writeProxy(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOneOptionalAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            OneOptional? iceP_p1 = null;
-            istr.readValue((OneOptional? v) => { iceP_p1 = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            OneOptional? iceP_p3;
-            var ret = obj.opOneOptional(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeValue(iceP_p3);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[]? iceP_p1;
-            iceP_p1 = istr.readByteSeq(2);
-            istr.endEncapsulation();
-            byte[]? iceP_p3;
-            var ret = obj.opByteSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeByteSeq(1, ret);
-            ostr.writeByteSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            bool[]? iceP_p1;
-            iceP_p1 = istr.readBoolSeq(2);
-            istr.endEncapsulation();
-            bool[]? iceP_p3;
-            var ret = obj.opBoolSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBoolSeq(1, ret);
-            ostr.writeBoolSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[]? iceP_p1;
-            iceP_p1 = istr.readShortSeq(2);
-            istr.endEncapsulation();
-            short[]? iceP_p3;
-            var ret = obj.opShortSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeShortSeq(1, ret);
-            ostr.writeShortSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int[]? iceP_p1;
-            iceP_p1 = istr.readIntSeq(2);
-            istr.endEncapsulation();
-            int[]? iceP_p3;
-            var ret = obj.opIntSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeIntSeq(1, ret);
-            ostr.writeIntSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            long[]? iceP_p1;
-            iceP_p1 = istr.readLongSeq(2);
-            istr.endEncapsulation();
-            long[]? iceP_p3;
-            var ret = obj.opLongSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeLongSeq(1, ret);
-            ostr.writeLongSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            float[]? iceP_p1;
-            iceP_p1 = istr.readFloatSeq(2);
-            istr.endEncapsulation();
-            float[]? iceP_p3;
-            var ret = obj.opFloatSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeFloatSeq(1, ret);
-            ostr.writeFloatSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            double[]? iceP_p1;
-            iceP_p1 = istr.readDoubleSeq(2);
-            istr.endEncapsulation();
-            double[]? iceP_p3;
-            var ret = obj.opDoubleSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeDoubleSeq(1, ret);
-            ostr.writeDoubleSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[]? iceP_p1;
-            iceP_p1 = istr.readStringSeq(2);
-            istr.endEncapsulation();
-            string[]? iceP_p3;
-            var ret = obj.opStringSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeStringSeq(1, ret);
-            ostr.writeStringSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSmallStructSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            SmallStruct[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                SmallStruct[] tmpVal;
-                tmpVal = SmallStructSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            SmallStruct[]? iceP_p3;
-            var ret = obj.opSmallStructSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                SmallStructSeqHelper.write(ostr, ret);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                SmallStructSeqHelper.write(ostr, iceP_p3);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSmallStructListAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            SmallStruct[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                SmallStruct[] tmpVal;
-                tmpVal = SmallStructListHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            SmallStruct[]? iceP_p3;
-            var ret = obj.opSmallStructList(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                SmallStructListHelper.write(ostr, ret);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                SmallStructListHelper.write(ostr, iceP_p3);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFixedStructSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            FixedStruct[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                FixedStruct[] tmpVal;
-                tmpVal = FixedStructSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            FixedStruct[]? iceP_p3;
-            var ret = obj.opFixedStructSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
-                FixedStructSeqHelper.write(ostr, ret);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(iceP_p3.Length * 4 + (iceP_p3.Length > 254 ? 5 : 1));
-                FixedStructSeqHelper.write(ostr, iceP_p3);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFixedStructListAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            FixedStruct[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                FixedStruct[] tmpVal;
-                tmpVal = FixedStructListHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            FixedStruct[]? iceP_p3;
-            var ret = obj.opFixedStructList(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
-                FixedStructListHelper.write(ostr, ret);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(iceP_p3.Length * 4 + (iceP_p3.Length > 254 ? 5 : 1));
-                FixedStructListHelper.write(ostr, iceP_p3);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVarStructSeqAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            VarStruct[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                VarStruct[] tmpVal;
-                tmpVal = VarStructSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            VarStruct[]? iceP_p3;
-            var ret = obj.opVarStructSeq(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                VarStructSeqHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                VarStructSeqHelper.write(ostr, iceP_p3);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opSerializableAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[]? iceP_p1;
-            iceP_p1 = istr.readByteSeq(2);
-            istr.endEncapsulation();
-            byte[]? iceP_p3;
-            var ret = obj.opSerializable(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeByteSeq(1, ret);
-            ostr.writeByteSeq(3, iceP_p3);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntIntDictAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, int>? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                global::System.Collections.Generic.Dictionary<int, int> tmpVal = new global::System.Collections.Generic.Dictionary<int, int>();
-                tmpVal = IntIntDictHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<int, int>? iceP_p3;
-            var ret = obj.opIntIntDict(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(ret.Count * 8 + (ret.Count > 254 ? 5 : 1));
-                IntIntDictHelper.write(ostr, ret);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.VSize))
-            {
-                ostr.writeSize(iceP_p3.Count * 8 + (iceP_p3.Count > 254 ? 5 : 1));
-                IntIntDictHelper.write(ostr, iceP_p3);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringIntDictAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, int>? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                global::System.Collections.Generic.Dictionary<string, int> tmpVal = new global::System.Collections.Generic.Dictionary<string, int>();
-                tmpVal = StringIntDictHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, int>? iceP_p3;
-            var ret = obj.opStringIntDict(iceP_p1, out iceP_p3, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                StringIntDictHelper.write(ostr, ret);
-                ostr.endSize(pos);
-            }
-            if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                StringIntDictHelper.write(ostr, iceP_p3);
-                ostr.endSize(pos);
-            }
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opClassAndUnknownOptionalAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            A? iceP_p = null;
-            istr.readValue((A? v) => { iceP_p = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            obj.opClassAndUnknownOptional(iceP_p, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opGAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            G? iceP_g = null;
-            istr.readValue((G? v) => { iceP_g = v; });
-            istr.readPendingValues();
-            istr.endEncapsulation();
-            var ret = obj.opG(iceP_g, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVoidAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.opVoid(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct1Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = obj.opMStruct1(request.current);
-            return new (new Ice.OutgoingResponse(result.outputStream));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct2Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            SmallStruct? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                SmallStruct tmpVal;
-                tmpVal = new SmallStruct(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            var result = obj.opMStruct2(iceP_p1, request.current);
-            return new (new Ice.OutgoingResponse(result.outputStream));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq1Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = obj.opMSeq1(request.current);
-            return new (new Ice.OutgoingResponse(result.outputStream));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq2Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[]? iceP_p1;
-            iceP_p1 = istr.readStringSeq(2);
-            istr.endEncapsulation();
-            var result = obj.opMSeq2(iceP_p1, request.current);
-            return new (new Ice.OutgoingResponse(result.outputStream));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict1Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var result = obj.opMDict1(request.current);
-            return new (new Ice.OutgoingResponse(result.outputStream));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict2Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            global::System.Collections.Generic.Dictionary<string, int>? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                global::System.Collections.Generic.Dictionary<string, int> tmpVal = new global::System.Collections.Generic.Dictionary<string, int>();
-                tmpVal = StringIntDictHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
-            istr.endEncapsulation();
-            var result = obj.opMDict2(iceP_p1, request.current);
-            return new (new Ice.OutgoingResponse(result.outputStream));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsJavaSerializableAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.supportsJavaSerializable(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

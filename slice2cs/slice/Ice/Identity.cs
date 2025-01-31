@@ -64,10 +64,7 @@ namespace Ice
 
         public static Identity ice_read(Ice.InputStream istr) => new(istr);
     }
-}
 
-namespace Ice
-{
     public sealed class IdentitySeqHelper
     {
         public static void write(Ice.OutputStream ostr, Identity[] v)

@@ -22,76 +22,6 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::TestIntf")]
-    public partial interface TestIntf : Ice.Object
-    {
-        byte[] opByteSpan(byte[] dataIn, out byte[] dataOut, Ice.Current current);
-
-        short[] opShortSpan(short[] dataIn, out short[] dataOut, Ice.Current current);
-
-        string[] opStringSpan(string[] dataIn, out string[] dataOut, Ice.Current current);
-
-        byte[]? opOptionalByteSpan(byte[]? dataIn, out byte[]? dataOut, Ice.Current current);
-
-        short[]? opOptionalShortSpan(short[]? dataIn, out short[]? dataOut, Ice.Current current);
-
-        string[]? opOptionalStringSpan(string[]? dataIn, out string[]? dataOut, Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace Test
-{
-    public record struct TestIntf_OpByteSpanResult(byte[] returnValue, byte[] dataOut);
-
-    public record struct TestIntf_OpShortSpanResult(short[] returnValue, short[] dataOut);
-
-    public record struct TestIntf_OpStringSpanResult(string[] returnValue, string[] dataOut);
-
-    public record struct TestIntf_OpOptionalByteSpanResult(byte[]? returnValue, byte[]? dataOut);
-
-    public record struct TestIntf_OpOptionalShortSpanResult(short[]? returnValue, short[]? dataOut);
-
-    public record struct TestIntf_OpOptionalStringSpanResult(string[]? returnValue, string[]? dataOut);
-}
-
-namespace Test
-{
-    public interface TestIntfPrx : Ice.ObjectPrx
-    {
-        byte[] opByteSpan(byte[] dataIn, out byte[] dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpByteSpanResult> opByteSpanAsync(byte[] dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        short[] opShortSpan(short[] dataIn, out short[] dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpShortSpanResult> opShortSpanAsync(short[] dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        string[] opStringSpan(string[] dataIn, out string[] dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpStringSpanResult> opStringSpanAsync(string[] dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[]? opOptionalByteSpan(byte[]? dataIn, out byte[]? dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> opOptionalByteSpanAsync(byte[]? dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        short[]? opOptionalShortSpan(short[]? dataIn, out short[]? dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> opOptionalShortSpanAsync(short[]? dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        string[]? opOptionalStringSpan(string[]? dataIn, out string[]? dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> opOptionalStringSpanAsync(string[]? dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class ByteSeqHelper
     {
         public static void write(Ice.OutputStream ostr, byte[] v)
@@ -135,6 +65,37 @@ namespace Test
             v = istr.readStringSeq();
             return v;
         }
+    }
+
+    public interface TestIntfPrx : Ice.ObjectPrx
+    {
+        byte[] opByteSpan(byte[] dataIn, out byte[] dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpByteSpanResult> opByteSpanAsync(byte[] dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        short[] opShortSpan(short[] dataIn, out short[] dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpShortSpanResult> opShortSpanAsync(short[] dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        string[] opStringSpan(string[] dataIn, out string[] dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpStringSpanResult> opStringSpanAsync(string[] dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[]? opOptionalByteSpan(byte[]? dataIn, out byte[]? dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> opOptionalByteSpanAsync(byte[]? dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        short[]? opOptionalShortSpan(short[]? dataIn, out short[]? dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> opOptionalShortSpanAsync(short[]? dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        string[]? opOptionalStringSpan(string[]? dataIn, out string[]? dataOut, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> opOptionalStringSpanAsync(string[]? dataIn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
@@ -533,6 +494,169 @@ namespace Test
 
 namespace Test
 {
+    public record struct TestIntf_OpByteSpanResult(byte[] returnValue, byte[] dataOut);
+
+    public record struct TestIntf_OpShortSpanResult(short[] returnValue, short[] dataOut);
+
+    public record struct TestIntf_OpStringSpanResult(string[] returnValue, string[] dataOut);
+
+    public record struct TestIntf_OpOptionalByteSpanResult(byte[]? returnValue, byte[]? dataOut);
+
+    public record struct TestIntf_OpOptionalShortSpanResult(short[]? returnValue, short[]? dataOut);
+
+    public record struct TestIntf_OpOptionalStringSpanResult(string[]? returnValue, string[]? dataOut);
+}
+
+namespace Test
+{
+    [Ice.SliceTypeId("::Test::TestIntf")]
+    public partial interface TestIntf : Ice.Object
+    {
+        byte[] opByteSpan(byte[] dataIn, out byte[] dataOut, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSpanAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[] iceP_dataIn;
+            iceP_dataIn = ByteSeqHelper.read(istr);
+            istr.endEncapsulation();
+            byte[] iceP_dataOut;
+            var ret = obj.opByteSpan(iceP_dataIn, out iceP_dataOut, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ByteSeqHelper.write(ostr, iceP_dataOut);
+            ByteSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[] opShortSpan(short[] dataIn, out short[] dataOut, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSpanAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[] iceP_dataIn;
+            iceP_dataIn = ShortSeqHelper.read(istr);
+            istr.endEncapsulation();
+            short[] iceP_dataOut;
+            var ret = obj.opShortSpan(iceP_dataIn, out iceP_dataOut, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ShortSeqHelper.write(ostr, iceP_dataOut);
+            ShortSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[] opStringSpan(string[] dataIn, out string[] dataOut, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSpanAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[] iceP_dataIn;
+            iceP_dataIn = StringSeqHelper.read(istr);
+            istr.endEncapsulation();
+            string[] iceP_dataOut;
+            var ret = obj.opStringSpan(iceP_dataIn, out iceP_dataOut, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            StringSeqHelper.write(ostr, iceP_dataOut);
+            StringSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[]? opOptionalByteSpan(byte[]? dataIn, out byte[]? dataOut, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalByteSpanAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            byte[]? iceP_dataIn;
+            iceP_dataIn = istr.readByteSeq(1);
+            istr.endEncapsulation();
+            byte[]? iceP_dataOut;
+            var ret = obj.opOptionalByteSpan(iceP_dataIn, out iceP_dataOut, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeByteSeq(10, ret);
+            ostr.writeByteSeq(11, iceP_dataOut);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        short[]? opOptionalShortSpan(short[]? dataIn, out short[]? dataOut, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalShortSpanAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            short[]? iceP_dataIn;
+            iceP_dataIn = istr.readShortSeq(1);
+            istr.endEncapsulation();
+            short[]? iceP_dataOut;
+            var ret = obj.opOptionalShortSpan(iceP_dataIn, out iceP_dataOut, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeShortSeq(10, ret);
+            ostr.writeShortSeq(11, iceP_dataOut);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        string[]? opOptionalStringSpan(string[]? dataIn, out string[]? dataOut, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalStringSpanAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string[]? iceP_dataIn;
+            iceP_dataIn = istr.readStringSeq(1);
+            istr.endEncapsulation();
+            string[]? iceP_dataOut;
+            var ret = obj.opOptionalStringSpan(iceP_dataIn, out iceP_dataOut, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeStringSeq(10, ret);
+            ostr.writeStringSeq(11, iceP_dataOut);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
         public abstract byte[] opByteSpan(byte[] dataIn, out byte[] dataOut, Ice.Current current);
@@ -569,141 +693,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface TestIntf
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSpanAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[] iceP_dataIn;
-            iceP_dataIn = ByteSeqHelper.read(istr);
-            istr.endEncapsulation();
-            byte[] iceP_dataOut;
-            var ret = obj.opByteSpan(iceP_dataIn, out iceP_dataOut, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ByteSeqHelper.write(ostr, iceP_dataOut);
-            ByteSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortSpanAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[] iceP_dataIn;
-            iceP_dataIn = ShortSeqHelper.read(istr);
-            istr.endEncapsulation();
-            short[] iceP_dataOut;
-            var ret = obj.opShortSpan(iceP_dataIn, out iceP_dataOut, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ShortSeqHelper.write(ostr, iceP_dataOut);
-            ShortSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSpanAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[] iceP_dataIn;
-            iceP_dataIn = StringSeqHelper.read(istr);
-            istr.endEncapsulation();
-            string[] iceP_dataOut;
-            var ret = obj.opStringSpan(iceP_dataIn, out iceP_dataOut, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            StringSeqHelper.write(ostr, iceP_dataOut);
-            StringSeqHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalByteSpanAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            byte[]? iceP_dataIn;
-            iceP_dataIn = istr.readByteSeq(1);
-            istr.endEncapsulation();
-            byte[]? iceP_dataOut;
-            var ret = obj.opOptionalByteSpan(iceP_dataIn, out iceP_dataOut, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeByteSeq(10, ret);
-            ostr.writeByteSeq(11, iceP_dataOut);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalShortSpanAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            short[]? iceP_dataIn;
-            iceP_dataIn = istr.readShortSeq(1);
-            istr.endEncapsulation();
-            short[]? iceP_dataOut;
-            var ret = obj.opOptionalShortSpan(iceP_dataIn, out iceP_dataOut, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeShortSeq(10, ret);
-            ostr.writeShortSeq(11, iceP_dataOut);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opOptionalStringSpanAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string[]? iceP_dataIn;
-            iceP_dataIn = istr.readStringSeq(1);
-            istr.endEncapsulation();
-            string[]? iceP_dataOut;
-            var ret = obj.opOptionalStringSpan(iceP_dataIn, out iceP_dataOut, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeStringSeq(10, ret);
-            ostr.writeStringSeq(11, iceP_dataOut);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

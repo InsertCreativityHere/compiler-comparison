@@ -57,31 +57,6 @@ namespace IceGrid
         }
     }
 
-    [Ice.SliceTypeId("::IceGrid::FileParser")]
-    public partial interface FileParser : Ice.Object
-    {
-        /// <summary>
-        /// Parse a file.
-        /// </summary>
-        /// <param name="xmlFile">
-        /// Full pathname to the file.
-        /// </param>
-        /// <param name="adminProxy">
-        /// An Admin proxy, used only to retrieve default templates when needed. May be null.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The application descriptor.
-        /// </returns>
-        /// <exception cref="IceGrid.ParseException">
-        /// Raised if an error occurred during parsing.
-        /// </exception>
-        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
-    }
-}
-
-namespace IceGrid
-{
     /// <summary>
     /// icegridadmin provides a  object to transform XML files into
     /// objects.
@@ -124,10 +99,7 @@ namespace IceGrid
         /// </exception>
         global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace IceGrid
-{
     public sealed class FileParserPrxHelper : Ice.ObjectPrxHelperBase, FileParserPrx
     {
         public ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -245,31 +217,27 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    public abstract class FileParserDisp_ : Ice.ObjectImpl, FileParser
+    [Ice.SliceTypeId("::IceGrid::FileParser")]
+    public partial interface FileParser : Ice.Object
     {
-        public abstract ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
+        /// <summary>
+        /// Parse a file.
+        /// </summary>
+        /// <param name="xmlFile">
+        /// Full pathname to the file.
+        /// </param>
+        /// <param name="adminProxy">
+        /// An Admin proxy, used only to retrieve default templates when needed. May be null.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The application descriptor.
+        /// </returns>
+        /// <exception cref="IceGrid.ParseException">
+        /// Raised if an error occurred during parsing.
+        /// </exception>
+        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
 
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::IceGrid::FileParser";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "parse" => FileParser.iceD_parseAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace IceGrid
-{
-    public partial interface FileParser
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_parseAsync(
             FileParser obj,
             Ice.IncomingRequest request)
@@ -290,5 +258,25 @@ namespace IceGrid
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public abstract class FileParserDisp_ : Ice.ObjectImpl, FileParser
+    {
+        public abstract ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::IceGrid::FileParser";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "parse" => FileParser.iceD_parseAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }

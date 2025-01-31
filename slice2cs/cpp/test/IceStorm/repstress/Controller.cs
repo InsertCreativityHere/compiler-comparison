@@ -22,25 +22,13 @@
 
 namespace Test
 {
-    [Ice.SliceTypeId("::Test::Controller")]
-    public partial interface Controller : Ice.Object
-    {
-        void stop(Ice.Current current);
-    }
-}
-
-namespace Test
-{
     public interface ControllerPrx : Ice.ObjectPrx
     {
         void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Test
-{
     public sealed class ControllerPrxHelper : Ice.ObjectPrxHelperBase, ControllerPrx
     {
         public void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -131,6 +119,22 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Controller")]
+    public partial interface Controller : Ice.Object
+    {
+        void stop(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopAsync(
+            Controller obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.stop(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ControllerDisp_ : Ice.ObjectImpl, Controller
     {
         public abstract void stop(Ice.Current current);
@@ -149,21 +153,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Controller
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopAsync(
-            Controller obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.stop(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

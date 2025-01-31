@@ -22,6 +22,72 @@
 
 namespace Test
 {
+    public sealed class StringSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, string[] v)
+        {
+            ostr.writeStringSeq(v);
+        }
+
+        public static string[] read(Ice.InputStream istr)
+        {
+            string[] v;
+            v = istr.readStringSeq();
+            return v;
+        }
+    }
+
+    public sealed class IntListHelper
+    {
+        public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
+        {
+            ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
+        }
+
+        public static global::System.Collections.Generic.List<int> read(Ice.InputStream istr)
+        {
+            global::System.Collections.Generic.List<int> v;
+            istr.readIntSeq(out v);
+            return v;
+        }
+    }
+
+    public sealed class StringDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, string> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeString(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                string v;
+                v = istr.readString();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     [Ice.SliceTypeId("::Test::C")]
     public partial class C : Ice.Value
     {
@@ -207,74 +273,5 @@ namespace Test
         }
 
         public static S2 ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace Test
-{
-    public sealed class StringSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, string[] v)
-        {
-            ostr.writeStringSeq(v);
-        }
-
-        public static string[] read(Ice.InputStream istr)
-        {
-            string[] v;
-            v = istr.readStringSeq();
-            return v;
-        }
-    }
-
-    public sealed class IntListHelper
-    {
-        public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
-        {
-            ostr.writeIntSeq(v == null ? 0 : v.Count, v!);
-        }
-
-        public static global::System.Collections.Generic.List<int> read(Ice.InputStream istr)
-        {
-            global::System.Collections.Generic.List<int> v;
-            istr.readIntSeq(out v);
-            return v;
-        }
-    }
-
-    public sealed class StringDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, string> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeString(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                string v;
-                v = istr.readString();
-                r[k] = v;
-            }
-            return r;
-        }
     }
 }

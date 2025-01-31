@@ -132,946 +132,6 @@ namespace Ice.operations.AMD
             public static Structure ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        public partial record struct MyStruct
-        {
-            public int i;
-
-            public int j;
-
-            partial void ice_initialize();
-
-            public MyStruct(int i, int j)
-            {
-                this.i = i;
-                this.j = j;
-                ice_initialize();
-            }
-
-            public MyStruct(Ice.InputStream istr)
-            {
-                this.i = istr.readInt();
-                this.j = istr.readInt();
-                ice_initialize();
-            }
-
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeInt(this.i);
-                ostr.writeInt(this.j);
-            }
-
-            public static void ice_write(Ice.OutputStream ostr, MyStruct v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            public static MyStruct ice_read(Ice.InputStream istr) => new(istr);
-        }
-
-        [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : Ice.Object
-        {
-            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task opVoidAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx? p1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
-
-            global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
-
-            global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-        }
-
-        public sealed partial record class MyStruct1
-        {
-            public string tesT = "";
-
-            public MyClassPrx? myClass;
-
-            public string myStruct1 = "";
-
-            partial void ice_initialize();
-
-            public MyStruct1()
-            {
-                ice_initialize();
-            }
-
-            public MyStruct1(string tesT, MyClassPrx? myClass, string myStruct1)
-            {
-                global::System.ArgumentNullException.ThrowIfNull(tesT);
-                this.tesT = tesT;
-                this.myClass = myClass;
-                global::System.ArgumentNullException.ThrowIfNull(myStruct1);
-                this.myStruct1 = myStruct1;
-                ice_initialize();
-            }
-
-            public MyStruct1(Ice.InputStream istr)
-            {
-                this.tesT = istr.readString();
-                this.myClass = MyClassPrxHelper.read(istr);
-                this.myStruct1 = istr.readString();
-                ice_initialize();
-            }
-
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeString(this.tesT);
-                MyClassPrxHelper.write(ostr, this.myClass);
-                ostr.writeString(this.myStruct1);
-            }
-
-            public static void ice_write(Ice.OutputStream ostr, MyStruct1 v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            public static MyStruct1 ice_read(Ice.InputStream istr) => new(istr);
-        }
-
-        [Ice.SliceTypeId("::Test::MyClass1")]
-        public partial class MyClass1 : Ice.Value
-        {
-            public string tesT = "";
-
-            public MyClassPrx? myClass;
-
-            public string myClass1 = "";
-
-            partial void ice_initialize();
-
-            public MyClass1(string tesT, MyClassPrx? myClass, string myClass1)
-            {
-                global::System.ArgumentNullException.ThrowIfNull(tesT);
-                this.tesT = tesT;
-                this.myClass = myClass;
-                global::System.ArgumentNullException.ThrowIfNull(myClass1);
-                this.myClass1 = myClass1;
-                ice_initialize();
-            }
-
-            public MyClass1()
-            {
-                ice_initialize();
-            }
-
-            public static new string ice_staticId() => "::Test::MyClass1";
-            public override string ice_id() => ice_staticId();
-
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeString(tesT);
-                MyClassPrxHelper.write(ostr_, myClass);
-                ostr_.writeString(myClass1);
-                ostr_.endSlice();
-            }
-
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                tesT = istr_.readString();
-                myClass = MyClassPrxHelper.read(istr_);
-                myClass1 = istr_.readString();
-                istr_.endSlice();
-            }
-        }
-
-        [Ice.SliceTypeId("::Test::MyDerivedClass")]
-        public partial interface MyDerivedClass : MyClass
-        {
-            global::System.Threading.Tasks.Task opDerivedAsync(Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyClass1?> opMyClass1Async(MyClass1? opMyClass1, Ice.Current current);
-
-            global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
-        }
-
-        public abstract class s0
-        {
-            public const string value = "\\";
-        }
-
-        public abstract class s1
-        {
-            public const string value = "A";
-        }
-
-        public abstract class s2
-        {
-            public const string value = "Ice";
-        }
-
-        public abstract class s3
-        {
-            public const string value = "A21";
-        }
-
-        public abstract class s4
-        {
-            public const string value = "\\u0041 \\U00000041";
-        }
-
-        public abstract class s5
-        {
-            public const string value = "\u00FF";
-        }
-
-        public abstract class s6
-        {
-            public const string value = "\u03FF";
-        }
-
-        public abstract class s7
-        {
-            public const string value = "\u05F0";
-        }
-
-        public abstract class s8
-        {
-            public const string value = "\U00010000";
-        }
-
-        public abstract class s9
-        {
-            public const string value = "\U0001F34C";
-        }
-
-        public abstract class s10
-        {
-            public const string value = "\u0DA7";
-        }
-
-        public abstract class sw0
-        {
-            public const string value = "\\";
-        }
-
-        public abstract class sw1
-        {
-            public const string value = "A";
-        }
-
-        public abstract class sw2
-        {
-            public const string value = "Ice";
-        }
-
-        public abstract class sw3
-        {
-            public const string value = "A21";
-        }
-
-        public abstract class sw4
-        {
-            public const string value = "\\u0041 \\U00000041";
-        }
-
-        public abstract class sw5
-        {
-            public const string value = "\U000000FF";
-        }
-
-        public abstract class sw6
-        {
-            public const string value = "\U000003FF";
-        }
-
-        public abstract class sw7
-        {
-            public const string value = "\U000005F0";
-        }
-
-        public abstract class sw8
-        {
-            public const string value = "\U00010000";
-        }
-
-        public abstract class sw9
-        {
-            public const string value = "\U0001F34C";
-        }
-
-        public abstract class sw10
-        {
-            public const string value = "\U00000DA7";
-        }
-
-        public abstract class ss0
-        {
-            public const string value = "'\"?\\\a\b\f\n\r\t\v\u0006";
-        }
-
-        public abstract class ss1
-        {
-            public const string value = "'\"?\\\a\b\f\n\r\t\v\u0006";
-        }
-
-        public abstract class ss2
-        {
-            public const string value = "'\"?\\\a\b\f\n\r\t\v\u0006";
-        }
-
-        public abstract class ss3
-        {
-            public const string value = "\\\\U\\u\\";
-        }
-
-        public abstract class ss4
-        {
-            public const string value = "\\A\\";
-        }
-
-        public abstract class ss5
-        {
-            public const string value = "\\u0041\\";
-        }
-
-        public abstract class su0
-        {
-            public const string value = "\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";
-        }
-
-        public abstract class su1
-        {
-            public const string value = "\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
-        }
-
-        public abstract class su2
-        {
-            public const string value = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
-        }
-    }
-}
-
-namespace Ice.operations.AMD
-{
-    namespace Test
-    {
-        public record struct MyClass_OpByteResult(byte returnValue, byte p3);
-
-        public record struct MyClass_OpBoolResult(bool returnValue, bool p3);
-
-        public record struct MyClass_OpShortIntLongResult(long returnValue, short p4, int p5, long p6);
-
-        public record struct MyClass_OpFloatDoubleResult(double returnValue, float p3, double p4);
-
-        public record struct MyClass_OpStringResult(string returnValue, string p3);
-
-        public record struct MyClass_OpMyEnumResult(MyEnum returnValue, MyEnum p2);
-
-        public record struct MyClass_OpMyClassResult(MyClassPrx? returnValue, MyClassPrx? p2, MyClassPrx? p3);
-
-        public record struct MyClass_OpStructResult(Structure returnValue, Structure p3);
-
-        public record struct MyClass_OpByteSResult(byte[] returnValue, byte[] p3);
-
-        public record struct MyClass_OpBoolSResult(bool[] returnValue, bool[] p3);
-
-        public record struct MyClass_OpShortIntLongSResult(long[] returnValue, short[] p4, int[] p5, long[] p6);
-
-        public record struct MyClass_OpFloatDoubleSResult(double[] returnValue, float[] p3, double[] p4);
-
-        public record struct MyClass_OpStringSResult(string[] returnValue, string[] p3);
-
-        public record struct MyClass_OpByteSSResult(byte[][] returnValue, byte[][] p3);
-
-        public record struct MyClass_OpBoolSSResult(bool[][] returnValue, bool[][] p3);
-
-        public record struct MyClass_OpShortIntLongSSResult(long[][] returnValue, short[][] p4, int[][] p5, long[][] p6);
-
-        public record struct MyClass_OpFloatDoubleSSResult(double[][] returnValue, float[][] p3, double[][] p4);
-
-        public record struct MyClass_OpStringSSResult(string[][] returnValue, string[][] p3);
-
-        public record struct MyClass_OpStringSSSResult(string[][][] returnValue, string[][][] p3);
-
-        public record struct MyClass_OpByteBoolDResult(global::System.Collections.Generic.Dictionary<byte, bool> returnValue, global::System.Collections.Generic.Dictionary<byte, bool> p3);
-
-        public record struct MyClass_OpShortIntDResult(global::System.Collections.Generic.Dictionary<short, int> returnValue, global::System.Collections.Generic.Dictionary<short, int> p3);
-
-        public record struct MyClass_OpLongFloatDResult(global::System.Collections.Generic.Dictionary<long, float> returnValue, global::System.Collections.Generic.Dictionary<long, float> p3);
-
-        public record struct MyClass_OpStringStringDResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p3);
-
-        public record struct MyClass_OpStringMyEnumDResult(global::System.Collections.Generic.Dictionary<string, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum> p3);
-
-        public record struct MyClass_OpMyEnumStringDResult(global::System.Collections.Generic.Dictionary<MyEnum, string> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string> p3);
-
-        public record struct MyClass_OpMyStructMyEnumDResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3);
-
-        public record struct MyClass_OpByteBoolDSResult(global::System.Collections.Generic.Dictionary<byte, bool>[] returnValue, global::System.Collections.Generic.Dictionary<byte, bool>[] p3);
-
-        public record struct MyClass_OpShortIntDSResult(global::System.Collections.Generic.Dictionary<short, int>[] returnValue, global::System.Collections.Generic.Dictionary<short, int>[] p3);
-
-        public record struct MyClass_OpLongFloatDSResult(global::System.Collections.Generic.Dictionary<long, float>[] returnValue, global::System.Collections.Generic.Dictionary<long, float>[] p3);
-
-        public record struct MyClass_OpStringStringDSResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] p3);
-
-        public record struct MyClass_OpStringMyEnumDSResult(global::System.Collections.Generic.Dictionary<string, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3);
-
-        public record struct MyClass_OpMyEnumStringDSResult(global::System.Collections.Generic.Dictionary<MyEnum, string>[] returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3);
-
-        public record struct MyClass_OpMyStructMyEnumDSResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3);
-
-        public record struct MyClass_OpByteByteSDResult(global::System.Collections.Generic.Dictionary<byte, byte[]> returnValue, global::System.Collections.Generic.Dictionary<byte, byte[]> p3);
-
-        public record struct MyClass_OpBoolBoolSDResult(global::System.Collections.Generic.Dictionary<bool, bool[]> returnValue, global::System.Collections.Generic.Dictionary<bool, bool[]> p3);
-
-        public record struct MyClass_OpShortShortSDResult(global::System.Collections.Generic.Dictionary<short, short[]> returnValue, global::System.Collections.Generic.Dictionary<short, short[]> p3);
-
-        public record struct MyClass_OpIntIntSDResult(global::System.Collections.Generic.Dictionary<int, int[]> returnValue, global::System.Collections.Generic.Dictionary<int, int[]> p3);
-
-        public record struct MyClass_OpLongLongSDResult(global::System.Collections.Generic.Dictionary<long, long[]> returnValue, global::System.Collections.Generic.Dictionary<long, long[]> p3);
-
-        public record struct MyClass_OpStringFloatSDResult(global::System.Collections.Generic.Dictionary<string, float[]> returnValue, global::System.Collections.Generic.Dictionary<string, float[]> p3);
-
-        public record struct MyClass_OpStringDoubleSDResult(global::System.Collections.Generic.Dictionary<string, double[]> returnValue, global::System.Collections.Generic.Dictionary<string, double[]> p3);
-
-        public record struct MyClass_OpStringStringSDResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> p3);
-
-        public record struct MyClass_OpMyEnumMyEnumSDResult(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3);
-
-        public readonly record struct MyClass_OpMStruct1MarshaledResult : Ice.MarshaledResult
-        {
-            public MyClass_OpMStruct1MarshaledResult(Structure ret, Ice.Current current)
-            {
-                _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, null);
-                Structure.ice_write(_ostr, ret);
-                _ostr.endEncapsulation();
-            }
-
-            public Ice.OutputStream outputStream => _ostr;
-
-            private readonly Ice.OutputStream _ostr;
-        }
-
-        public record struct MyClass_OpMStruct2Result(Structure returnValue, Structure p2);
-
-        public readonly record struct MyClass_OpMStruct2MarshaledResult : Ice.MarshaledResult
-        {
-            public MyClass_OpMStruct2MarshaledResult(Structure ret, Structure p2, Ice.Current current)
-            {
-                _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, null);
-                Structure.ice_write(_ostr, p2);
-                Structure.ice_write(_ostr, ret);
-                _ostr.endEncapsulation();
-            }
-
-            public Ice.OutputStream outputStream => _ostr;
-
-            private readonly Ice.OutputStream _ostr;
-        }
-
-        public readonly record struct MyClass_OpMSeq1MarshaledResult : Ice.MarshaledResult
-        {
-            public MyClass_OpMSeq1MarshaledResult(string[] ret, Ice.Current current)
-            {
-                _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, null);
-                StringSHelper.write(_ostr, ret);
-                _ostr.endEncapsulation();
-            }
-
-            public Ice.OutputStream outputStream => _ostr;
-
-            private readonly Ice.OutputStream _ostr;
-        }
-
-        public record struct MyClass_OpMSeq2Result(string[] returnValue, string[] p2);
-
-        public readonly record struct MyClass_OpMSeq2MarshaledResult : Ice.MarshaledResult
-        {
-            public MyClass_OpMSeq2MarshaledResult(string[] ret, string[] p2, Ice.Current current)
-            {
-                _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, null);
-                StringSHelper.write(_ostr, p2);
-                StringSHelper.write(_ostr, ret);
-                _ostr.endEncapsulation();
-            }
-
-            public Ice.OutputStream outputStream => _ostr;
-
-            private readonly Ice.OutputStream _ostr;
-        }
-
-        public readonly record struct MyClass_OpMDict1MarshaledResult : Ice.MarshaledResult
-        {
-            public MyClass_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, Ice.Current current)
-            {
-                _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, null);
-                StringStringDHelper.write(_ostr, ret);
-                _ostr.endEncapsulation();
-            }
-
-            public Ice.OutputStream outputStream => _ostr;
-
-            private readonly Ice.OutputStream _ostr;
-        }
-
-        public record struct MyClass_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p2);
-
-        public readonly record struct MyClass_OpMDict2MarshaledResult : Ice.MarshaledResult
-        {
-            public MyClass_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current)
-            {
-                _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, null);
-                StringStringDHelper.write(_ostr, p2);
-                StringStringDHelper.write(_ostr, ret);
-                _ostr.endEncapsulation();
-            }
-
-            public Ice.OutputStream outputStream => _ostr;
-
-            private readonly Ice.OutputStream _ostr;
-        }
-    }
-}
-
-namespace Ice.operations.AMD
-{
-    namespace Test
-    {
-        public interface MyClassPrx : Ice.ObjectPrx
-        {
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            bool supportsCompress(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void opVoid(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task opVoidAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            byte opByte(byte p1, byte p2, out byte p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            bool opBool(bool p1, bool p2, out bool p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            double opFloatDouble(float p1, double p2, out float p3, out double p4, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string opString(string p1, string p2, out string p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            Structure opStruct(Structure p1, Structure p2, out Structure p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opStringS(string[] p1, string[] p2, out string[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            int[] opIntS(int[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void opByteSOneway(byte[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            int opByteSOnewayCallCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string> opContext(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void opDoubleMarshaling(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            void opIdempotent(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            byte opByte1(byte opByte1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            short opShort1(short opShort1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            int opInt1(int opInt1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            long opLong1(long opLong1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            float opFloat1(float opFloat1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            double opDouble1(double opDouble1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string opString1(string opString1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opStringS1(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opStringS2(string[] stringS, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opStringLiterals(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opWStringLiterals(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            Structure opMStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            Structure opMStruct2(Structure p1, out Structure p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opMSeq1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            string[] opMSeq2(string[] p1, out string[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-
-        public interface MyDerivedClassPrx : MyClassPrx
-        {
-            void opDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            MyClass1? opMyClass1(MyClass1? opMyClass1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyClass1?> opMyClass1Async(MyClass1? opMyClass1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.operations.AMD
-{
-    namespace Test
-    {
         public sealed class ByteSHelper
         {
             public static void write(Ice.OutputStream ostr, byte[] v)
@@ -1619,6 +679,42 @@ namespace Ice.operations.AMD
                 }
                 return v;
             }
+        }
+
+        public partial record struct MyStruct
+        {
+            public int i;
+
+            public int j;
+
+            partial void ice_initialize();
+
+            public MyStruct(int i, int j)
+            {
+                this.i = i;
+                this.j = j;
+                ice_initialize();
+            }
+
+            public MyStruct(Ice.InputStream istr)
+            {
+                this.i = istr.readInt();
+                this.j = istr.readInt();
+                ice_initialize();
+            }
+
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeInt(this.i);
+                ostr.writeInt(this.j);
+            }
+
+            public static void ice_write(Ice.OutputStream ostr, MyStruct v)
+            {
+                v.ice_writeMembers(ostr);
+            }
+
+            public static MyStruct ice_read(Ice.InputStream istr) => new(istr);
         }
 
         public sealed class ByteBoolDHelper
@@ -2426,6 +1522,289 @@ namespace Ice.operations.AMD
                 }
                 return r;
             }
+        }
+
+        public interface MyClassPrx : Ice.ObjectPrx
+        {
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            bool supportsCompress(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void opVoid(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task opVoidAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            byte opByte(byte p1, byte p2, out byte p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            bool opBool(bool p1, bool p2, out bool p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            double opFloatDouble(float p1, double p2, out float p3, out double p4, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string opString(string p1, string p2, out string p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            Structure opStruct(Structure p1, Structure p2, out Structure p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opStringS(string[] p1, string[] p2, out string[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            int[] opIntS(int[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void opByteSOneway(byte[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            int opByteSOnewayCallCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string> opContext(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void opDoubleMarshaling(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void opIdempotent(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            byte opByte1(byte opByte1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            short opShort1(short opShort1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            int opInt1(int opInt1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            long opLong1(long opLong1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            float opFloat1(float opFloat1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            double opDouble1(double opDouble1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string opString1(string opString1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opStringS1(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opStringS2(string[] stringS, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opStringLiterals(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opWStringLiterals(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            Structure opMStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            Structure opMStruct2(Structure p1, out Structure p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opMSeq1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            string[] opMSeq2(string[] p1, out string[] p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
@@ -5956,6 +5335,117 @@ namespace Ice.operations.AMD
                 : base(reference)
             {
             }
+        }
+
+        public sealed partial record class MyStruct1
+        {
+            public string tesT = "";
+
+            public MyClassPrx? myClass;
+
+            public string myStruct1 = "";
+
+            partial void ice_initialize();
+
+            public MyStruct1()
+            {
+                ice_initialize();
+            }
+
+            public MyStruct1(string tesT, MyClassPrx? myClass, string myStruct1)
+            {
+                global::System.ArgumentNullException.ThrowIfNull(tesT);
+                this.tesT = tesT;
+                this.myClass = myClass;
+                global::System.ArgumentNullException.ThrowIfNull(myStruct1);
+                this.myStruct1 = myStruct1;
+                ice_initialize();
+            }
+
+            public MyStruct1(Ice.InputStream istr)
+            {
+                this.tesT = istr.readString();
+                this.myClass = MyClassPrxHelper.read(istr);
+                this.myStruct1 = istr.readString();
+                ice_initialize();
+            }
+
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeString(this.tesT);
+                MyClassPrxHelper.write(ostr, this.myClass);
+                ostr.writeString(this.myStruct1);
+            }
+
+            public static void ice_write(Ice.OutputStream ostr, MyStruct1 v)
+            {
+                v.ice_writeMembers(ostr);
+            }
+
+            public static MyStruct1 ice_read(Ice.InputStream istr) => new(istr);
+        }
+
+        [Ice.SliceTypeId("::Test::MyClass1")]
+        public partial class MyClass1 : Ice.Value
+        {
+            public string tesT = "";
+
+            public MyClassPrx? myClass;
+
+            public string myClass1 = "";
+
+            partial void ice_initialize();
+
+            public MyClass1(string tesT, MyClassPrx? myClass, string myClass1)
+            {
+                global::System.ArgumentNullException.ThrowIfNull(tesT);
+                this.tesT = tesT;
+                this.myClass = myClass;
+                global::System.ArgumentNullException.ThrowIfNull(myClass1);
+                this.myClass1 = myClass1;
+                ice_initialize();
+            }
+
+            public MyClass1()
+            {
+                ice_initialize();
+            }
+
+            public static new string ice_staticId() => "::Test::MyClass1";
+            public override string ice_id() => ice_staticId();
+
+            protected override void iceWriteImpl(Ice.OutputStream ostr_)
+            {
+                ostr_.startSlice(ice_staticId(), -1, true);
+                ostr_.writeString(tesT);
+                MyClassPrxHelper.write(ostr_, myClass);
+                ostr_.writeString(myClass1);
+                ostr_.endSlice();
+            }
+
+            protected override void iceReadImpl(Ice.InputStream istr_)
+            {
+                istr_.startSlice();
+                tesT = istr_.readString();
+                myClass = MyClassPrxHelper.read(istr_);
+                myClass1 = istr_.readString();
+                istr_.endSlice();
+            }
+        }
+
+        public interface MyDerivedClassPrx : MyClassPrx
+        {
+            void opDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            MyClass1? opMyClass1(MyClass1? opMyClass1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyClass1?> opMyClass1Async(MyClass1? opMyClass1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         public sealed class MyDerivedClassPrxHelper : Ice.ObjectPrxHelperBase, MyDerivedClassPrx
@@ -9623,6 +9113,161 @@ namespace Ice.operations.AMD
             {
             }
         }
+
+        public abstract class s0
+        {
+            public const string value = "\\";
+        }
+
+        public abstract class s1
+        {
+            public const string value = "A";
+        }
+
+        public abstract class s2
+        {
+            public const string value = "Ice";
+        }
+
+        public abstract class s3
+        {
+            public const string value = "A21";
+        }
+
+        public abstract class s4
+        {
+            public const string value = "\\u0041 \\U00000041";
+        }
+
+        public abstract class s5
+        {
+            public const string value = "\u00FF";
+        }
+
+        public abstract class s6
+        {
+            public const string value = "\u03FF";
+        }
+
+        public abstract class s7
+        {
+            public const string value = "\u05F0";
+        }
+
+        public abstract class s8
+        {
+            public const string value = "\U00010000";
+        }
+
+        public abstract class s9
+        {
+            public const string value = "\U0001F34C";
+        }
+
+        public abstract class s10
+        {
+            public const string value = "\u0DA7";
+        }
+
+        public abstract class sw0
+        {
+            public const string value = "\\";
+        }
+
+        public abstract class sw1
+        {
+            public const string value = "A";
+        }
+
+        public abstract class sw2
+        {
+            public const string value = "Ice";
+        }
+
+        public abstract class sw3
+        {
+            public const string value = "A21";
+        }
+
+        public abstract class sw4
+        {
+            public const string value = "\\u0041 \\U00000041";
+        }
+
+        public abstract class sw5
+        {
+            public const string value = "\U000000FF";
+        }
+
+        public abstract class sw6
+        {
+            public const string value = "\U000003FF";
+        }
+
+        public abstract class sw7
+        {
+            public const string value = "\U000005F0";
+        }
+
+        public abstract class sw8
+        {
+            public const string value = "\U00010000";
+        }
+
+        public abstract class sw9
+        {
+            public const string value = "\U0001F34C";
+        }
+
+        public abstract class sw10
+        {
+            public const string value = "\U00000DA7";
+        }
+
+        public abstract class ss0
+        {
+            public const string value = "'\"?\\\a\b\f\n\r\t\v\u0006";
+        }
+
+        public abstract class ss1
+        {
+            public const string value = "'\"?\\\a\b\f\n\r\t\v\u0006";
+        }
+
+        public abstract class ss2
+        {
+            public const string value = "'\"?\\\a\b\f\n\r\t\v\u0006";
+        }
+
+        public abstract class ss3
+        {
+            public const string value = "\\\\U\\u\\";
+        }
+
+        public abstract class ss4
+        {
+            public const string value = "\\A\\";
+        }
+
+        public abstract class ss5
+        {
+            public const string value = "\\u0041\\";
+        }
+
+        public abstract class su0
+        {
+            public const string value = "\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";
+        }
+
+        public abstract class su1
+        {
+            public const string value = "\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+        }
+
+        public abstract class su2
+        {
+            public const string value = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+        }
     }
 }
 
@@ -9630,6 +9275,1769 @@ namespace Ice.operations.AMD
 {
     namespace Test
     {
+        public record struct MyClass_OpByteResult(byte returnValue, byte p3);
+
+        public record struct MyClass_OpBoolResult(bool returnValue, bool p3);
+
+        public record struct MyClass_OpShortIntLongResult(long returnValue, short p4, int p5, long p6);
+
+        public record struct MyClass_OpFloatDoubleResult(double returnValue, float p3, double p4);
+
+        public record struct MyClass_OpStringResult(string returnValue, string p3);
+
+        public record struct MyClass_OpMyEnumResult(MyEnum returnValue, MyEnum p2);
+
+        public record struct MyClass_OpMyClassResult(MyClassPrx? returnValue, MyClassPrx? p2, MyClassPrx? p3);
+
+        public record struct MyClass_OpStructResult(Structure returnValue, Structure p3);
+
+        public record struct MyClass_OpByteSResult(byte[] returnValue, byte[] p3);
+
+        public record struct MyClass_OpBoolSResult(bool[] returnValue, bool[] p3);
+
+        public record struct MyClass_OpShortIntLongSResult(long[] returnValue, short[] p4, int[] p5, long[] p6);
+
+        public record struct MyClass_OpFloatDoubleSResult(double[] returnValue, float[] p3, double[] p4);
+
+        public record struct MyClass_OpStringSResult(string[] returnValue, string[] p3);
+
+        public record struct MyClass_OpByteSSResult(byte[][] returnValue, byte[][] p3);
+
+        public record struct MyClass_OpBoolSSResult(bool[][] returnValue, bool[][] p3);
+
+        public record struct MyClass_OpShortIntLongSSResult(long[][] returnValue, short[][] p4, int[][] p5, long[][] p6);
+
+        public record struct MyClass_OpFloatDoubleSSResult(double[][] returnValue, float[][] p3, double[][] p4);
+
+        public record struct MyClass_OpStringSSResult(string[][] returnValue, string[][] p3);
+
+        public record struct MyClass_OpStringSSSResult(string[][][] returnValue, string[][][] p3);
+
+        public record struct MyClass_OpByteBoolDResult(global::System.Collections.Generic.Dictionary<byte, bool> returnValue, global::System.Collections.Generic.Dictionary<byte, bool> p3);
+
+        public record struct MyClass_OpShortIntDResult(global::System.Collections.Generic.Dictionary<short, int> returnValue, global::System.Collections.Generic.Dictionary<short, int> p3);
+
+        public record struct MyClass_OpLongFloatDResult(global::System.Collections.Generic.Dictionary<long, float> returnValue, global::System.Collections.Generic.Dictionary<long, float> p3);
+
+        public record struct MyClass_OpStringStringDResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p3);
+
+        public record struct MyClass_OpStringMyEnumDResult(global::System.Collections.Generic.Dictionary<string, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum> p3);
+
+        public record struct MyClass_OpMyEnumStringDResult(global::System.Collections.Generic.Dictionary<MyEnum, string> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string> p3);
+
+        public record struct MyClass_OpMyStructMyEnumDResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3);
+
+        public record struct MyClass_OpByteBoolDSResult(global::System.Collections.Generic.Dictionary<byte, bool>[] returnValue, global::System.Collections.Generic.Dictionary<byte, bool>[] p3);
+
+        public record struct MyClass_OpShortIntDSResult(global::System.Collections.Generic.Dictionary<short, int>[] returnValue, global::System.Collections.Generic.Dictionary<short, int>[] p3);
+
+        public record struct MyClass_OpLongFloatDSResult(global::System.Collections.Generic.Dictionary<long, float>[] returnValue, global::System.Collections.Generic.Dictionary<long, float>[] p3);
+
+        public record struct MyClass_OpStringStringDSResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] p3);
+
+        public record struct MyClass_OpStringMyEnumDSResult(global::System.Collections.Generic.Dictionary<string, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3);
+
+        public record struct MyClass_OpMyEnumStringDSResult(global::System.Collections.Generic.Dictionary<MyEnum, string>[] returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3);
+
+        public record struct MyClass_OpMyStructMyEnumDSResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3);
+
+        public record struct MyClass_OpByteByteSDResult(global::System.Collections.Generic.Dictionary<byte, byte[]> returnValue, global::System.Collections.Generic.Dictionary<byte, byte[]> p3);
+
+        public record struct MyClass_OpBoolBoolSDResult(global::System.Collections.Generic.Dictionary<bool, bool[]> returnValue, global::System.Collections.Generic.Dictionary<bool, bool[]> p3);
+
+        public record struct MyClass_OpShortShortSDResult(global::System.Collections.Generic.Dictionary<short, short[]> returnValue, global::System.Collections.Generic.Dictionary<short, short[]> p3);
+
+        public record struct MyClass_OpIntIntSDResult(global::System.Collections.Generic.Dictionary<int, int[]> returnValue, global::System.Collections.Generic.Dictionary<int, int[]> p3);
+
+        public record struct MyClass_OpLongLongSDResult(global::System.Collections.Generic.Dictionary<long, long[]> returnValue, global::System.Collections.Generic.Dictionary<long, long[]> p3);
+
+        public record struct MyClass_OpStringFloatSDResult(global::System.Collections.Generic.Dictionary<string, float[]> returnValue, global::System.Collections.Generic.Dictionary<string, float[]> p3);
+
+        public record struct MyClass_OpStringDoubleSDResult(global::System.Collections.Generic.Dictionary<string, double[]> returnValue, global::System.Collections.Generic.Dictionary<string, double[]> p3);
+
+        public record struct MyClass_OpStringStringSDResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> p3);
+
+        public record struct MyClass_OpMyEnumMyEnumSDResult(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3);
+
+        public readonly record struct MyClass_OpMStruct1MarshaledResult : Ice.MarshaledResult
+        {
+            public MyClass_OpMStruct1MarshaledResult(Structure ret, Ice.Current current)
+            {
+                _ostr = Ice.CurrentExtensions.startReplyStream(current);
+                _ostr.startEncapsulation(current.encoding, null);
+                Structure.ice_write(_ostr, ret);
+                _ostr.endEncapsulation();
+            }
+
+            public Ice.OutputStream outputStream => _ostr;
+
+            private readonly Ice.OutputStream _ostr;
+        }
+
+        public record struct MyClass_OpMStruct2Result(Structure returnValue, Structure p2);
+
+        public readonly record struct MyClass_OpMStruct2MarshaledResult : Ice.MarshaledResult
+        {
+            public MyClass_OpMStruct2MarshaledResult(Structure ret, Structure p2, Ice.Current current)
+            {
+                _ostr = Ice.CurrentExtensions.startReplyStream(current);
+                _ostr.startEncapsulation(current.encoding, null);
+                Structure.ice_write(_ostr, p2);
+                Structure.ice_write(_ostr, ret);
+                _ostr.endEncapsulation();
+            }
+
+            public Ice.OutputStream outputStream => _ostr;
+
+            private readonly Ice.OutputStream _ostr;
+        }
+
+        public readonly record struct MyClass_OpMSeq1MarshaledResult : Ice.MarshaledResult
+        {
+            public MyClass_OpMSeq1MarshaledResult(string[] ret, Ice.Current current)
+            {
+                _ostr = Ice.CurrentExtensions.startReplyStream(current);
+                _ostr.startEncapsulation(current.encoding, null);
+                StringSHelper.write(_ostr, ret);
+                _ostr.endEncapsulation();
+            }
+
+            public Ice.OutputStream outputStream => _ostr;
+
+            private readonly Ice.OutputStream _ostr;
+        }
+
+        public record struct MyClass_OpMSeq2Result(string[] returnValue, string[] p2);
+
+        public readonly record struct MyClass_OpMSeq2MarshaledResult : Ice.MarshaledResult
+        {
+            public MyClass_OpMSeq2MarshaledResult(string[] ret, string[] p2, Ice.Current current)
+            {
+                _ostr = Ice.CurrentExtensions.startReplyStream(current);
+                _ostr.startEncapsulation(current.encoding, null);
+                StringSHelper.write(_ostr, p2);
+                StringSHelper.write(_ostr, ret);
+                _ostr.endEncapsulation();
+            }
+
+            public Ice.OutputStream outputStream => _ostr;
+
+            private readonly Ice.OutputStream _ostr;
+        }
+
+        public readonly record struct MyClass_OpMDict1MarshaledResult : Ice.MarshaledResult
+        {
+            public MyClass_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, Ice.Current current)
+            {
+                _ostr = Ice.CurrentExtensions.startReplyStream(current);
+                _ostr.startEncapsulation(current.encoding, null);
+                StringStringDHelper.write(_ostr, ret);
+                _ostr.endEncapsulation();
+            }
+
+            public Ice.OutputStream outputStream => _ostr;
+
+            private readonly Ice.OutputStream _ostr;
+        }
+
+        public record struct MyClass_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p2);
+
+        public readonly record struct MyClass_OpMDict2MarshaledResult : Ice.MarshaledResult
+        {
+            public MyClass_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current)
+            {
+                _ostr = Ice.CurrentExtensions.startReplyStream(current);
+                _ostr.startEncapsulation(current.encoding, null);
+                StringStringDHelper.write(_ostr, p2);
+                StringStringDHelper.write(_ostr, ret);
+                _ostr.endEncapsulation();
+            }
+
+            public Ice.OutputStream outputStream => _ostr;
+
+            private readonly Ice.OutputStream _ostr;
+        }
+    }
+}
+
+namespace Ice.operations.AMD
+{
+    namespace Test
+    {
+        [Ice.SliceTypeId("::Test::MyClass")]
+        public partial interface MyClass : Ice.Object
+        {
+            global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.shutdownAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsCompressAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.supportsCompressAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeBool(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task opVoidAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVoidAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.opVoidAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte iceP_p1;
+                byte iceP_p2;
+                iceP_p1 = istr.readByte();
+                iceP_p2 = istr.readByte();
+                istr.endEncapsulation();
+                var result = await obj.opByteAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeByte(ret.p3);
+                        ostr.writeByte(ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool iceP_p1;
+                bool iceP_p2;
+                iceP_p1 = istr.readBool();
+                iceP_p2 = istr.readBool();
+                istr.endEncapsulation();
+                var result = await obj.opBoolAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeBool(ret.p3);
+                        ostr.writeBool(ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntLongAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                short iceP_p1;
+                int iceP_p2;
+                long iceP_p3;
+                iceP_p1 = istr.readShort();
+                iceP_p2 = istr.readInt();
+                iceP_p3 = istr.readLong();
+                istr.endEncapsulation();
+                var result = await obj.opShortIntLongAsync(iceP_p1, iceP_p2, iceP_p3, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeShort(ret.p4);
+                        ostr.writeInt(ret.p5);
+                        ostr.writeLong(ret.p6);
+                        ostr.writeLong(ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatDoubleAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                float iceP_p1;
+                double iceP_p2;
+                iceP_p1 = istr.readFloat();
+                iceP_p2 = istr.readDouble();
+                istr.endEncapsulation();
+                var result = await obj.opFloatDoubleAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeFloat(ret.p3);
+                        ostr.writeDouble(ret.p4);
+                        ostr.writeDouble(ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_p1;
+                string iceP_p2;
+                iceP_p1 = istr.readString();
+                iceP_p2 = istr.readString();
+                istr.endEncapsulation();
+                var result = await obj.opStringAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeString(ret.p3);
+                        ostr.writeString(ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                MyEnum iceP_p1;
+                iceP_p1 = (MyEnum)istr.readEnum(2);
+                istr.endEncapsulation();
+                var result = await obj.opMyEnumAsync(iceP_p1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeEnum((int)ret.p2, 2);
+                        ostr.writeEnum((int)ret.returnValue, 2);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx? p1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyClassAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                MyClassPrx? iceP_p1;
+                iceP_p1 = MyClassPrxHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyClassAsync(iceP_p1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyClassPrxHelper.write(ostr, ret.p2);
+                        MyClassPrxHelper.write(ostr, ret.p3);
+                        MyClassPrxHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStructAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                Structure iceP_p1;
+                Structure iceP_p2;
+                iceP_p1 = new Structure(istr);
+                iceP_p2 = new Structure(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStructAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        Structure.ice_write(ostr, ret.p3);
+                        Structure.ice_write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte[] iceP_p1;
+                byte[] iceP_p2;
+                iceP_p1 = ByteSHelper.read(istr);
+                iceP_p2 = ByteSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteSHelper.write(ostr, ret.p3);
+                        ByteSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool[] iceP_p1;
+                bool[] iceP_p2;
+                iceP_p1 = BoolSHelper.read(istr);
+                iceP_p2 = BoolSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opBoolSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        BoolSHelper.write(ostr, ret.p3);
+                        BoolSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntLongSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                short[] iceP_p1;
+                int[] iceP_p2;
+                long[] iceP_p3;
+                iceP_p1 = ShortSHelper.read(istr);
+                iceP_p2 = IntSHelper.read(istr);
+                iceP_p3 = LongSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opShortIntLongSAsync(iceP_p1, iceP_p2, iceP_p3, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ShortSHelper.write(ostr, ret.p4);
+                        IntSHelper.write(ostr, ret.p5);
+                        LongSHelper.write(ostr, ret.p6);
+                        LongSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatDoubleSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                float[] iceP_p1;
+                double[] iceP_p2;
+                iceP_p1 = FloatSHelper.read(istr);
+                iceP_p2 = DoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opFloatDoubleSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        FloatSHelper.write(ostr, ret.p3);
+                        DoubleSHelper.write(ostr, ret.p4);
+                        DoubleSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[] iceP_p1;
+                string[] iceP_p2;
+                iceP_p1 = StringSHelper.read(istr);
+                iceP_p2 = StringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSHelper.write(ostr, ret.p3);
+                        StringSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte[][] iceP_p1;
+                byte[][] iceP_p2;
+                iceP_p1 = ByteSSHelper.read(istr);
+                iceP_p2 = ByteSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteSSHelper.write(ostr, ret.p3);
+                        ByteSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                bool[][] iceP_p1;
+                bool[][] iceP_p2;
+                iceP_p1 = BoolSSHelper.read(istr);
+                iceP_p2 = BoolSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opBoolSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        BoolSSHelper.write(ostr, ret.p3);
+                        BoolSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntLongSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                short[][] iceP_p1;
+                int[][] iceP_p2;
+                long[][] iceP_p3;
+                iceP_p1 = ShortSSHelper.read(istr);
+                iceP_p2 = IntSSHelper.read(istr);
+                iceP_p3 = LongSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opShortIntLongSSAsync(iceP_p1, iceP_p2, iceP_p3, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ShortSSHelper.write(ostr, ret.p4);
+                        IntSSHelper.write(ostr, ret.p5);
+                        LongSSHelper.write(ostr, ret.p6);
+                        LongSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatDoubleSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                float[][] iceP_p1;
+                double[][] iceP_p2;
+                iceP_p1 = FloatSSHelper.read(istr);
+                iceP_p2 = DoubleSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opFloatDoubleSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        FloatSSHelper.write(ostr, ret.p3);
+                        DoubleSSHelper.write(ostr, ret.p4);
+                        DoubleSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[][] iceP_p1;
+                string[][] iceP_p2;
+                iceP_p1 = StringSSHelper.read(istr);
+                iceP_p2 = StringSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSSHelper.write(ostr, ret.p3);
+                        StringSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSSSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[][][] iceP_p1;
+                string[][][] iceP_p2;
+                iceP_p1 = StringSSSHelper.read(istr);
+                iceP_p2 = StringSSSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringSSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSSSHelper.write(ostr, ret.p3);
+                        StringSSSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1;
+                global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2;
+                iceP_p1 = ByteBoolDHelper.read(istr);
+                iceP_p2 = ByteBoolDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteBoolDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteBoolDHelper.write(ostr, ret.p3);
+                        ByteBoolDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<short, int> iceP_p1;
+                global::System.Collections.Generic.Dictionary<short, int> iceP_p2;
+                iceP_p1 = ShortIntDHelper.read(istr);
+                iceP_p2 = ShortIntDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opShortIntDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ShortIntDHelper.write(ostr, ret.p3);
+                        ShortIntDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongFloatDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<long, float> iceP_p1;
+                global::System.Collections.Generic.Dictionary<long, float> iceP_p2;
+                iceP_p1 = LongFloatDHelper.read(istr);
+                iceP_p2 = LongFloatDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLongFloatDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LongFloatDHelper.write(ostr, ret.p3);
+                        LongFloatDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringStringDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, string> iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, string> iceP_p2;
+                iceP_p1 = StringStringDHelper.read(istr);
+                iceP_p2 = StringStringDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringStringDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringStringDHelper.write(ostr, ret.p3);
+                        StringStringDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringMyEnumDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p2;
+                iceP_p1 = StringMyEnumDHelper.read(istr);
+                iceP_p2 = StringMyEnumDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringMyEnumDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringMyEnumDHelper.write(ostr, ret.p3);
+                        StringMyEnumDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumStringDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p1;
+                global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p2;
+                iceP_p1 = MyEnumStringDHelper.read(istr);
+                iceP_p2 = MyEnumStringDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyEnumStringDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyEnumStringDHelper.write(ostr, ret.p3);
+                        MyEnumStringDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyStructMyEnumDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p1;
+                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p2;
+                iceP_p1 = MyStructMyEnumDHelper.read(istr);
+                iceP_p2 = MyStructMyEnumDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyStructMyEnumDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyStructMyEnumDHelper.write(ostr, ret.p3);
+                        MyStructMyEnumDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2;
+                iceP_p1 = ByteBoolDSHelper.read(istr);
+                iceP_p2 = ByteBoolDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteBoolDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteBoolDSHelper.write(ostr, ret.p3);
+                        ByteBoolDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2;
+                iceP_p1 = ShortIntDSHelper.read(istr);
+                iceP_p2 = ShortIntDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opShortIntDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ShortIntDSHelper.write(ostr, ret.p3);
+                        ShortIntDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongFloatDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2;
+                iceP_p1 = LongFloatDSHelper.read(istr);
+                iceP_p2 = LongFloatDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLongFloatDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LongFloatDSHelper.write(ostr, ret.p3);
+                        LongFloatDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringStringDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2;
+                iceP_p1 = StringStringDSHelper.read(istr);
+                iceP_p2 = StringStringDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringStringDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringStringDSHelper.write(ostr, ret.p3);
+                        StringStringDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringMyEnumDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p2;
+                iceP_p1 = StringMyEnumDSHelper.read(istr);
+                iceP_p2 = StringMyEnumDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringMyEnumDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringMyEnumDSHelper.write(ostr, ret.p3);
+                        StringMyEnumDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumStringDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p2;
+                iceP_p1 = MyEnumStringDSHelper.read(istr);
+                iceP_p2 = MyEnumStringDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyEnumStringDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyEnumStringDSHelper.write(ostr, ret.p3);
+                        MyEnumStringDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyStructMyEnumDSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p1;
+                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p2;
+                iceP_p1 = MyStructMyEnumDSHelper.read(istr);
+                iceP_p2 = MyStructMyEnumDSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyStructMyEnumDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyStructMyEnumDSHelper.write(ostr, ret.p3);
+                        MyStructMyEnumDSHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteByteSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2;
+                iceP_p1 = ByteByteSDHelper.read(istr);
+                iceP_p2 = ByteByteSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteByteSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteByteSDHelper.write(ostr, ret.p3);
+                        ByteByteSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolBoolSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2;
+                iceP_p1 = BoolBoolSDHelper.read(istr);
+                iceP_p2 = BoolBoolSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opBoolBoolSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        BoolBoolSDHelper.write(ostr, ret.p3);
+                        BoolBoolSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortShortSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2;
+                iceP_p1 = ShortShortSDHelper.read(istr);
+                iceP_p2 = ShortShortSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opShortShortSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ShortShortSDHelper.write(ostr, ret.p3);
+                        ShortShortSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntIntSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2;
+                iceP_p1 = IntIntSDHelper.read(istr);
+                iceP_p2 = IntIntSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opIntIntSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        IntIntSDHelper.write(ostr, ret.p3);
+                        IntIntSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongLongSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2;
+                iceP_p1 = LongLongSDHelper.read(istr);
+                iceP_p2 = LongLongSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opLongLongSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        LongLongSDHelper.write(ostr, ret.p3);
+                        LongLongSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringFloatSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2;
+                iceP_p1 = StringFloatSDHelper.read(istr);
+                iceP_p2 = StringFloatSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringFloatSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringFloatSDHelper.write(ostr, ret.p3);
+                        StringFloatSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringDoubleSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2;
+                iceP_p1 = StringDoubleSDHelper.read(istr);
+                iceP_p2 = StringDoubleSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringDoubleSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringDoubleSDHelper.write(ostr, ret.p3);
+                        StringDoubleSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringStringSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2;
+                iceP_p1 = StringStringSDHelper.read(istr);
+                iceP_p2 = StringStringSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringStringSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringStringSDHelper.write(ostr, ret.p3);
+                        StringStringSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumMyEnumSDAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p1;
+                global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p2;
+                iceP_p1 = MyEnumMyEnumSDHelper.read(istr);
+                iceP_p2 = MyEnumMyEnumSDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyEnumMyEnumSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyEnumMyEnumSDHelper.write(ostr, ret.p3);
+                        MyEnumMyEnumSDHelper.write(ostr, ret.returnValue);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int[] iceP_s;
+                iceP_s = IntSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opIntSAsync(iceP_s, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        IntSHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSOnewayAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte[] iceP_s;
+                iceP_s = ByteSHelper.read(istr);
+                istr.endEncapsulation();
+                await obj.opByteSOnewayAsync(iceP_s, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSOnewayCallCountAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opByteSOnewayCallCountAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeInt(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opContextAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opContextAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        global::Ice.ContextHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleMarshalingAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                double iceP_p1;
+                double[] iceP_p2;
+                iceP_p1 = istr.readDouble();
+                iceP_p2 = DoubleSHelper.read(istr);
+                istr.endEncapsulation();
+                await obj.opDoubleMarshalingAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIdempotentAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.opIdempotentAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByte1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte iceP_opByte1;
+                iceP_opByte1 = istr.readByte();
+                istr.endEncapsulation();
+                var result = await obj.opByte1Async(iceP_opByte1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeByte(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShort1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                short iceP_opShort1;
+                iceP_opShort1 = istr.readShort();
+                istr.endEncapsulation();
+                var result = await obj.opShort1Async(iceP_opShort1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeShort(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opInt1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int iceP_opInt1;
+                iceP_opInt1 = istr.readInt();
+                istr.endEncapsulation();
+                var result = await obj.opInt1Async(iceP_opInt1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeInt(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLong1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                long iceP_opLong1;
+                iceP_opLong1 = istr.readLong();
+                istr.endEncapsulation();
+                var result = await obj.opLong1Async(iceP_opLong1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeLong(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloat1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                float iceP_opFloat1;
+                iceP_opFloat1 = istr.readFloat();
+                istr.endEncapsulation();
+                var result = await obj.opFloat1Async(iceP_opFloat1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeFloat(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDouble1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                double iceP_opDouble1;
+                iceP_opDouble1 = istr.readDouble();
+                istr.endEncapsulation();
+                var result = await obj.opDouble1Async(iceP_opDouble1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeDouble(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opString1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string iceP_opString1;
+                iceP_opString1 = istr.readString();
+                istr.endEncapsulation();
+                var result = await obj.opString1Async(iceP_opString1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeString(ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringS1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[] iceP_opStringS1;
+                iceP_opStringS1 = StringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringS1Async(iceP_opStringS1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolD1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1;
+                iceP_opByteBoolD1 = ByteBoolDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteBoolD1Async(iceP_opByteBoolD1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteBoolDHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringS2Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[] iceP_stringS;
+                iceP_stringS = StringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opStringS2Async(iceP_stringS, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolD2Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD;
+                iceP_byteBoolD = ByteBoolDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opByteBoolD2Async(iceP_byteBoolD, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ByteBoolDHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringLiteralsAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opStringLiteralsAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opWStringLiteralsAsync(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opWStringLiteralsAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        StringSHelper.write(ostr, ret);
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opMStruct1Async(request.current).ConfigureAwait(false);
+                return new Ice.OutgoingResponse(result.outputStream);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct2Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                Structure iceP_p1;
+                iceP_p1 = new Structure(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMStruct2Async(iceP_p1, request.current).ConfigureAwait(false);
+                return new Ice.OutgoingResponse(result.outputStream);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opMSeq1Async(request.current).ConfigureAwait(false);
+                return new Ice.OutgoingResponse(result.outputStream);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq2Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                string[] iceP_p1;
+                iceP_p1 = StringSHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMSeq2Async(iceP_p1, request.current).ConfigureAwait(false);
+                return new Ice.OutgoingResponse(result.outputStream);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict1Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.opMDict1Async(request.current).ConfigureAwait(false);
+                return new Ice.OutgoingResponse(result.outputStream);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict2Async(
+                MyClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                global::System.Collections.Generic.Dictionary<string, string> iceP_p1;
+                iceP_p1 = StringStringDHelper.read(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMDict2Async(iceP_p1, request.current).ConfigureAwait(false);
+                return new Ice.OutgoingResponse(result.outputStream);
+            }
+        }
+
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
             public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
@@ -9855,6 +11263,68 @@ namespace Ice.operations.AMD
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
+        }
+
+        [Ice.SliceTypeId("::Test::MyDerivedClass")]
+        public partial interface MyDerivedClass : MyClass
+        {
+            global::System.Threading.Tasks.Task opDerivedAsync(Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDerivedAsync(
+                MyDerivedClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.opDerivedAsync(request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            global::System.Threading.Tasks.Task<MyClass1?> opMyClass1Async(MyClass1? opMyClass1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyClass1Async(
+                MyDerivedClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                MyClass1? iceP_opMyClass1 = null;
+                istr.readValue((MyClass1? v) => { iceP_opMyClass1 = v; });
+                istr.readPendingValues();
+                istr.endEncapsulation();
+                var result = await obj.opMyClass1Async(iceP_opMyClass1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        ostr.writeValue(ret);
+                        ostr.writePendingValues();
+                    });
+            }
+
+            global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
+
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyStruct1Async(
+                MyDerivedClass obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                MyStruct1 iceP_opMyStruct1;
+                iceP_opMyStruct1 = new MyStruct1(istr);
+                istr.endEncapsulation();
+                var result = await obj.opMyStruct1Async(iceP_opMyStruct1, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        MyStruct1.ice_write(ostr, ret);
+                    });
+            }
         }
 
         public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
@@ -10091,1500 +11561,6 @@ namespace Ice.operations.AMD
                     "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                     _ => throw new Ice.OperationNotExistException()
                 };
-        }
-    }
-}
-
-namespace Ice.operations.AMD
-{
-    namespace Test
-    {
-        public partial interface MyClass
-        {
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.shutdownAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsCompressAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.supportsCompressAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeBool(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opVoidAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.opVoidAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                byte iceP_p1;
-                byte iceP_p2;
-                iceP_p1 = istr.readByte();
-                iceP_p2 = istr.readByte();
-                istr.endEncapsulation();
-                var result = await obj.opByteAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeByte(ret.p3);
-                        ostr.writeByte(ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool iceP_p1;
-                bool iceP_p2;
-                iceP_p1 = istr.readBool();
-                iceP_p2 = istr.readBool();
-                istr.endEncapsulation();
-                var result = await obj.opBoolAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeBool(ret.p3);
-                        ostr.writeBool(ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntLongAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                short iceP_p1;
-                int iceP_p2;
-                long iceP_p3;
-                iceP_p1 = istr.readShort();
-                iceP_p2 = istr.readInt();
-                iceP_p3 = istr.readLong();
-                istr.endEncapsulation();
-                var result = await obj.opShortIntLongAsync(iceP_p1, iceP_p2, iceP_p3, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeShort(ret.p4);
-                        ostr.writeInt(ret.p5);
-                        ostr.writeLong(ret.p6);
-                        ostr.writeLong(ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatDoubleAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                float iceP_p1;
-                double iceP_p2;
-                iceP_p1 = istr.readFloat();
-                iceP_p2 = istr.readDouble();
-                istr.endEncapsulation();
-                var result = await obj.opFloatDoubleAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeFloat(ret.p3);
-                        ostr.writeDouble(ret.p4);
-                        ostr.writeDouble(ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_p1;
-                string iceP_p2;
-                iceP_p1 = istr.readString();
-                iceP_p2 = istr.readString();
-                istr.endEncapsulation();
-                var result = await obj.opStringAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeString(ret.p3);
-                        ostr.writeString(ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                MyEnum iceP_p1;
-                iceP_p1 = (MyEnum)istr.readEnum(2);
-                istr.endEncapsulation();
-                var result = await obj.opMyEnumAsync(iceP_p1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeEnum((int)ret.p2, 2);
-                        ostr.writeEnum((int)ret.returnValue, 2);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyClassAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                MyClassPrx? iceP_p1;
-                iceP_p1 = MyClassPrxHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyClassAsync(iceP_p1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyClassPrxHelper.write(ostr, ret.p2);
-                        MyClassPrxHelper.write(ostr, ret.p3);
-                        MyClassPrxHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStructAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                Structure iceP_p1;
-                Structure iceP_p2;
-                iceP_p1 = new Structure(istr);
-                iceP_p2 = new Structure(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStructAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        Structure.ice_write(ostr, ret.p3);
-                        Structure.ice_write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                byte[] iceP_p1;
-                byte[] iceP_p2;
-                iceP_p1 = ByteSHelper.read(istr);
-                iceP_p2 = ByteSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteSHelper.write(ostr, ret.p3);
-                        ByteSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool[] iceP_p1;
-                bool[] iceP_p2;
-                iceP_p1 = BoolSHelper.read(istr);
-                iceP_p2 = BoolSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opBoolSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        BoolSHelper.write(ostr, ret.p3);
-                        BoolSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntLongSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                short[] iceP_p1;
-                int[] iceP_p2;
-                long[] iceP_p3;
-                iceP_p1 = ShortSHelper.read(istr);
-                iceP_p2 = IntSHelper.read(istr);
-                iceP_p3 = LongSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opShortIntLongSAsync(iceP_p1, iceP_p2, iceP_p3, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ShortSHelper.write(ostr, ret.p4);
-                        IntSHelper.write(ostr, ret.p5);
-                        LongSHelper.write(ostr, ret.p6);
-                        LongSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatDoubleSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                float[] iceP_p1;
-                double[] iceP_p2;
-                iceP_p1 = FloatSHelper.read(istr);
-                iceP_p2 = DoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opFloatDoubleSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        FloatSHelper.write(ostr, ret.p3);
-                        DoubleSHelper.write(ostr, ret.p4);
-                        DoubleSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[] iceP_p1;
-                string[] iceP_p2;
-                iceP_p1 = StringSHelper.read(istr);
-                iceP_p2 = StringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSHelper.write(ostr, ret.p3);
-                        StringSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                byte[][] iceP_p1;
-                byte[][] iceP_p2;
-                iceP_p1 = ByteSSHelper.read(istr);
-                iceP_p2 = ByteSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteSSHelper.write(ostr, ret.p3);
-                        ByteSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                bool[][] iceP_p1;
-                bool[][] iceP_p2;
-                iceP_p1 = BoolSSHelper.read(istr);
-                iceP_p2 = BoolSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opBoolSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        BoolSSHelper.write(ostr, ret.p3);
-                        BoolSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntLongSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                short[][] iceP_p1;
-                int[][] iceP_p2;
-                long[][] iceP_p3;
-                iceP_p1 = ShortSSHelper.read(istr);
-                iceP_p2 = IntSSHelper.read(istr);
-                iceP_p3 = LongSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opShortIntLongSSAsync(iceP_p1, iceP_p2, iceP_p3, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ShortSSHelper.write(ostr, ret.p4);
-                        IntSSHelper.write(ostr, ret.p5);
-                        LongSSHelper.write(ostr, ret.p6);
-                        LongSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloatDoubleSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                float[][] iceP_p1;
-                double[][] iceP_p2;
-                iceP_p1 = FloatSSHelper.read(istr);
-                iceP_p2 = DoubleSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opFloatDoubleSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        FloatSSHelper.write(ostr, ret.p3);
-                        DoubleSSHelper.write(ostr, ret.p4);
-                        DoubleSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[][] iceP_p1;
-                string[][] iceP_p2;
-                iceP_p1 = StringSSHelper.read(istr);
-                iceP_p2 = StringSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSSHelper.write(ostr, ret.p3);
-                        StringSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringSSSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[][][] iceP_p1;
-                string[][][] iceP_p2;
-                iceP_p1 = StringSSSHelper.read(istr);
-                iceP_p2 = StringSSSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringSSSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSSSHelper.write(ostr, ret.p3);
-                        StringSSSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1;
-                global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2;
-                iceP_p1 = ByteBoolDHelper.read(istr);
-                iceP_p2 = ByteBoolDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteBoolDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteBoolDHelper.write(ostr, ret.p3);
-                        ByteBoolDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<short, int> iceP_p1;
-                global::System.Collections.Generic.Dictionary<short, int> iceP_p2;
-                iceP_p1 = ShortIntDHelper.read(istr);
-                iceP_p2 = ShortIntDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opShortIntDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ShortIntDHelper.write(ostr, ret.p3);
-                        ShortIntDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongFloatDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<long, float> iceP_p1;
-                global::System.Collections.Generic.Dictionary<long, float> iceP_p2;
-                iceP_p1 = LongFloatDHelper.read(istr);
-                iceP_p2 = LongFloatDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLongFloatDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LongFloatDHelper.write(ostr, ret.p3);
-                        LongFloatDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringStringDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, string> iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, string> iceP_p2;
-                iceP_p1 = StringStringDHelper.read(istr);
-                iceP_p2 = StringStringDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringStringDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringStringDHelper.write(ostr, ret.p3);
-                        StringStringDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringMyEnumDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p2;
-                iceP_p1 = StringMyEnumDHelper.read(istr);
-                iceP_p2 = StringMyEnumDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringMyEnumDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringMyEnumDHelper.write(ostr, ret.p3);
-                        StringMyEnumDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumStringDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p1;
-                global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p2;
-                iceP_p1 = MyEnumStringDHelper.read(istr);
-                iceP_p2 = MyEnumStringDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyEnumStringDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyEnumStringDHelper.write(ostr, ret.p3);
-                        MyEnumStringDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyStructMyEnumDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p1;
-                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p2;
-                iceP_p1 = MyStructMyEnumDHelper.read(istr);
-                iceP_p2 = MyStructMyEnumDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyStructMyEnumDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyStructMyEnumDHelper.write(ostr, ret.p3);
-                        MyStructMyEnumDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2;
-                iceP_p1 = ByteBoolDSHelper.read(istr);
-                iceP_p2 = ByteBoolDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteBoolDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteBoolDSHelper.write(ostr, ret.p3);
-                        ByteBoolDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortIntDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2;
-                iceP_p1 = ShortIntDSHelper.read(istr);
-                iceP_p2 = ShortIntDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opShortIntDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ShortIntDSHelper.write(ostr, ret.p3);
-                        ShortIntDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongFloatDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2;
-                iceP_p1 = LongFloatDSHelper.read(istr);
-                iceP_p2 = LongFloatDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLongFloatDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LongFloatDSHelper.write(ostr, ret.p3);
-                        LongFloatDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringStringDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2;
-                iceP_p1 = StringStringDSHelper.read(istr);
-                iceP_p2 = StringStringDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringStringDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringStringDSHelper.write(ostr, ret.p3);
-                        StringStringDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringMyEnumDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p2;
-                iceP_p1 = StringMyEnumDSHelper.read(istr);
-                iceP_p2 = StringMyEnumDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringMyEnumDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringMyEnumDSHelper.write(ostr, ret.p3);
-                        StringMyEnumDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumStringDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p2;
-                iceP_p1 = MyEnumStringDSHelper.read(istr);
-                iceP_p2 = MyEnumStringDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyEnumStringDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyEnumStringDSHelper.write(ostr, ret.p3);
-                        MyEnumStringDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyStructMyEnumDSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p1;
-                global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p2;
-                iceP_p1 = MyStructMyEnumDSHelper.read(istr);
-                iceP_p2 = MyStructMyEnumDSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyStructMyEnumDSAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyStructMyEnumDSHelper.write(ostr, ret.p3);
-                        MyStructMyEnumDSHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteByteSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2;
-                iceP_p1 = ByteByteSDHelper.read(istr);
-                iceP_p2 = ByteByteSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteByteSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteByteSDHelper.write(ostr, ret.p3);
-                        ByteByteSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opBoolBoolSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2;
-                iceP_p1 = BoolBoolSDHelper.read(istr);
-                iceP_p2 = BoolBoolSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opBoolBoolSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        BoolBoolSDHelper.write(ostr, ret.p3);
-                        BoolBoolSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShortShortSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2;
-                iceP_p1 = ShortShortSDHelper.read(istr);
-                iceP_p2 = ShortShortSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opShortShortSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ShortShortSDHelper.write(ostr, ret.p3);
-                        ShortShortSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntIntSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2;
-                iceP_p1 = IntIntSDHelper.read(istr);
-                iceP_p2 = IntIntSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opIntIntSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        IntIntSDHelper.write(ostr, ret.p3);
-                        IntIntSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLongLongSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2;
-                iceP_p1 = LongLongSDHelper.read(istr);
-                iceP_p2 = LongLongSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opLongLongSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        LongLongSDHelper.write(ostr, ret.p3);
-                        LongLongSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringFloatSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2;
-                iceP_p1 = StringFloatSDHelper.read(istr);
-                iceP_p2 = StringFloatSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringFloatSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringFloatSDHelper.write(ostr, ret.p3);
-                        StringFloatSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringDoubleSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2;
-                iceP_p1 = StringDoubleSDHelper.read(istr);
-                iceP_p2 = StringDoubleSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringDoubleSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringDoubleSDHelper.write(ostr, ret.p3);
-                        StringDoubleSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringStringSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2;
-                iceP_p1 = StringStringSDHelper.read(istr);
-                iceP_p2 = StringStringSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringStringSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringStringSDHelper.write(ostr, ret.p3);
-                        StringStringSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyEnumMyEnumSDAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p1;
-                global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p2;
-                iceP_p1 = MyEnumMyEnumSDHelper.read(istr);
-                iceP_p2 = MyEnumMyEnumSDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyEnumMyEnumSDAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyEnumMyEnumSDHelper.write(ostr, ret.p3);
-                        MyEnumMyEnumSDHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIntSAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                int[] iceP_s;
-                iceP_s = IntSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opIntSAsync(iceP_s, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        IntSHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSOnewayAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                byte[] iceP_s;
-                iceP_s = ByteSHelper.read(istr);
-                istr.endEncapsulation();
-                await obj.opByteSOnewayAsync(iceP_s, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteSOnewayCallCountAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opByteSOnewayCallCountAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeInt(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opContextAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opContextAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        global::Ice.ContextHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDoubleMarshalingAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                double iceP_p1;
-                double[] iceP_p2;
-                iceP_p1 = istr.readDouble();
-                iceP_p2 = DoubleSHelper.read(istr);
-                istr.endEncapsulation();
-                await obj.opDoubleMarshalingAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opIdempotentAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.opIdempotentAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByte1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                byte iceP_opByte1;
-                iceP_opByte1 = istr.readByte();
-                istr.endEncapsulation();
-                var result = await obj.opByte1Async(iceP_opByte1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeByte(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opShort1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                short iceP_opShort1;
-                iceP_opShort1 = istr.readShort();
-                istr.endEncapsulation();
-                var result = await obj.opShort1Async(iceP_opShort1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeShort(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opInt1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                int iceP_opInt1;
-                iceP_opInt1 = istr.readInt();
-                istr.endEncapsulation();
-                var result = await obj.opInt1Async(iceP_opInt1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeInt(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opLong1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                long iceP_opLong1;
-                iceP_opLong1 = istr.readLong();
-                istr.endEncapsulation();
-                var result = await obj.opLong1Async(iceP_opLong1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeLong(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opFloat1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                float iceP_opFloat1;
-                iceP_opFloat1 = istr.readFloat();
-                istr.endEncapsulation();
-                var result = await obj.opFloat1Async(iceP_opFloat1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeFloat(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDouble1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                double iceP_opDouble1;
-                iceP_opDouble1 = istr.readDouble();
-                istr.endEncapsulation();
-                var result = await obj.opDouble1Async(iceP_opDouble1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeDouble(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opString1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string iceP_opString1;
-                iceP_opString1 = istr.readString();
-                istr.endEncapsulation();
-                var result = await obj.opString1Async(iceP_opString1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeString(ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringS1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[] iceP_opStringS1;
-                iceP_opStringS1 = StringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringS1Async(iceP_opStringS1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolD1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1;
-                iceP_opByteBoolD1 = ByteBoolDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteBoolD1Async(iceP_opByteBoolD1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteBoolDHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringS2Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[] iceP_stringS;
-                iceP_stringS = StringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opStringS2Async(iceP_stringS, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opByteBoolD2Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD;
-                iceP_byteBoolD = ByteBoolDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opByteBoolD2Async(iceP_byteBoolD, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ByteBoolDHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opStringLiteralsAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opStringLiteralsAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opWStringLiteralsAsync(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opWStringLiteralsAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        StringSHelper.write(ostr, ret);
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opMStruct1Async(request.current).ConfigureAwait(false);
-                return new Ice.OutgoingResponse(result.outputStream);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMStruct2Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                Structure iceP_p1;
-                iceP_p1 = new Structure(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMStruct2Async(iceP_p1, request.current).ConfigureAwait(false);
-                return new Ice.OutgoingResponse(result.outputStream);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opMSeq1Async(request.current).ConfigureAwait(false);
-                return new Ice.OutgoingResponse(result.outputStream);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMSeq2Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                string[] iceP_p1;
-                iceP_p1 = StringSHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMSeq2Async(iceP_p1, request.current).ConfigureAwait(false);
-                return new Ice.OutgoingResponse(result.outputStream);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict1Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                var result = await obj.opMDict1Async(request.current).ConfigureAwait(false);
-                return new Ice.OutgoingResponse(result.outputStream);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMDict2Async(
-                MyClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                global::System.Collections.Generic.Dictionary<string, string> iceP_p1;
-                iceP_p1 = StringStringDHelper.read(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMDict2Async(iceP_p1, request.current).ConfigureAwait(false);
-                return new Ice.OutgoingResponse(result.outputStream);
-            }
-        }
-
-        public partial interface MyDerivedClass
-        {
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opDerivedAsync(
-                MyDerivedClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                request.inputStream.skipEmptyEncapsulation();
-                await obj.opDerivedAsync(request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyClass1Async(
-                MyDerivedClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                MyClass1? iceP_opMyClass1 = null;
-                istr.readValue((MyClass1? v) => { iceP_opMyClass1 = v; });
-                istr.readPendingValues();
-                istr.endEncapsulation();
-                var result = await obj.opMyClass1Async(iceP_opMyClass1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        ostr.writeValue(ret);
-                        ostr.writePendingValues();
-                    });
-            }
-
-            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_opMyStruct1Async(
-                MyDerivedClass obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                MyStruct1 iceP_opMyStruct1;
-                iceP_opMyStruct1 = new MyStruct1(istr);
-                istr.endEncapsulation();
-                var result = await obj.opMyStruct1Async(iceP_opMyStruct1, request.current).ConfigureAwait(false);
-                return Ice.CurrentExtensions.createOutgoingResponse(
-                    request.current,
-                    result,
-                    static (ostr, ret) =>
-                    {
-                        MyStruct1.ice_write(ostr, ret);
-                    });
-            }
         }
     }
 }

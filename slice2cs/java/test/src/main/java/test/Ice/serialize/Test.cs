@@ -126,265 +126,6 @@ namespace Test
         public static Struct1 ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    [Ice.SliceTypeId("::Test::Base")]
-    public partial class Base : Ice.Value
-    {
-        public Base? b;
-
-        public Ice.Value? o;
-
-        public Struct1 s;
-
-        public byte[] seq1;
-
-        public int[] seq2;
-
-        public MyEnum[] seq3;
-
-        public Base?[] seq4;
-
-        public global::System.Collections.Generic.Dictionary<byte, bool> d1;
-
-        public global::System.Collections.Generic.Dictionary<short, int> d2;
-
-        public global::System.Collections.Generic.Dictionary<string, MyEnum> d3;
-
-        public global::System.Collections.Generic.Dictionary<string, Base?> d4;
-
-        partial void ice_initialize();
-
-        public Base(Base? b, Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
-        {
-            this.b = b;
-            this.o = o;
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(seq1);
-            this.seq1 = seq1;
-            global::System.ArgumentNullException.ThrowIfNull(seq2);
-            this.seq2 = seq2;
-            global::System.ArgumentNullException.ThrowIfNull(seq3);
-            this.seq3 = seq3;
-            global::System.ArgumentNullException.ThrowIfNull(seq4);
-            this.seq4 = seq4;
-            global::System.ArgumentNullException.ThrowIfNull(d1);
-            this.d1 = d1;
-            global::System.ArgumentNullException.ThrowIfNull(d2);
-            this.d2 = d2;
-            global::System.ArgumentNullException.ThrowIfNull(d3);
-            this.d3 = d3;
-            global::System.ArgumentNullException.ThrowIfNull(d4);
-            this.d4 = d4;
-            ice_initialize();
-        }
-
-        public Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            global::System.ArgumentNullException.ThrowIfNull(seq1);
-            this.seq1 = seq1;
-            global::System.ArgumentNullException.ThrowIfNull(seq2);
-            this.seq2 = seq2;
-            global::System.ArgumentNullException.ThrowIfNull(seq3);
-            this.seq3 = seq3;
-            global::System.ArgumentNullException.ThrowIfNull(seq4);
-            this.seq4 = seq4;
-            global::System.ArgumentNullException.ThrowIfNull(d1);
-            this.d1 = d1;
-            global::System.ArgumentNullException.ThrowIfNull(d2);
-            this.d2 = d2;
-            global::System.ArgumentNullException.ThrowIfNull(d3);
-            this.d3 = d3;
-            global::System.ArgumentNullException.ThrowIfNull(d4);
-            this.d4 = d4;
-            ice_initialize();
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Base()
-        {
-            this.s = null!;
-            this.seq1 = null!;
-            this.seq2 = null!;
-            this.seq3 = null!;
-            this.seq4 = null!;
-            this.d1 = null!;
-            this.d2 = null!;
-            this.d3 = null!;
-            this.d4 = null!;
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::Base";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(b);
-            ostr_.writeValue(o);
-            Struct1.ice_write(ostr_, s);
-            ByteSHelper.write(ostr_, seq1);
-            IntSHelper.write(ostr_, seq2);
-            MyEnumSHelper.write(ostr_, seq3);
-            BaseSHelper.write(ostr_, seq4);
-            ByteBoolDHelper.write(ostr_, d1);
-            ShortIntDHelper.write(ostr_, d2);
-            StringMyEnumDHelper.write(ostr_, d3);
-            StringBaseDHelper.write(ostr_, d4);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((Base? v) => { this.b = v; });
-            istr_.readValue((Ice.Value? v) => { this.o = v; });
-            s = new Struct1(istr_);
-            seq1 = ByteSHelper.read(istr_);
-            seq2 = IntSHelper.read(istr_);
-            seq3 = MyEnumSHelper.read(istr_);
-            seq4 = BaseSHelper.read(istr_);
-            d1 = ByteBoolDHelper.read(istr_);
-            d2 = ShortIntDHelper.read(istr_);
-            d3 = StringMyEnumDHelper.read(istr_);
-            d4 = StringBaseDHelper.read(istr_);
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::Derived")]
-    public partial class Derived : Base
-    {
-        public Ice.ObjectPrx? p;
-
-        partial void ice_initialize();
-
-        public Derived(Base? b, Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4, Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
-        {
-            this.p = p;
-            ice_initialize();
-        }
-
-        public Derived(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4) : base(s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
-        {
-            ice_initialize();
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Derived()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::Derived";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeProxy(p);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            p = istr_.readProxy();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::Ex")]
-    public partial class Ex : Ice.UserException
-    {
-        public Struct1 s;
-
-        public Base? b;
-
-        public Ex(Struct1 s, Base? b)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            this.b = b;
-        }
-
-        public Ex(Struct1 s)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Ex()
-        {
-            this.s = null!;
-        }
-
-        public override string ice_id() => "::Test::Ex";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::Ex", -1, true);
-            Struct1.ice_write(ostr_, s);
-            ostr_.writeValue(b);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            s = new Struct1(istr_);
-            istr_.readValue((Base? v) => { this.b = v; });
-            istr_.endSlice();
-        }
-
-        public override bool iceUsesClasses()
-        {
-            return true;
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::Initial")]
-    public partial interface Initial : Ice.Object
-    {
-        byte[] getStruct1(Ice.Current current);
-
-        byte[] getBase(Ice.Current current);
-
-        byte[] getEx(Ice.Current current);
-
-        void shutdown(Ice.Current current);
-    }
-}
-
-namespace Test
-{
-    public interface InitialPrx : Ice.ObjectPrx
-    {
-        byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] getBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<byte[]> getBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        byte[] getEx(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<byte[]> getExAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Test
-{
     public sealed class ByteSHelper
     {
         public static void write(Ice.OutputStream ostr, byte[] v)
@@ -623,6 +364,247 @@ namespace Test
         }
     }
 
+    [Ice.SliceTypeId("::Test::Base")]
+    public partial class Base : Ice.Value
+    {
+        public Base? b;
+
+        public Ice.Value? o;
+
+        public Struct1 s;
+
+        public byte[] seq1;
+
+        public int[] seq2;
+
+        public MyEnum[] seq3;
+
+        public Base?[] seq4;
+
+        public global::System.Collections.Generic.Dictionary<byte, bool> d1;
+
+        public global::System.Collections.Generic.Dictionary<short, int> d2;
+
+        public global::System.Collections.Generic.Dictionary<string, MyEnum> d3;
+
+        public global::System.Collections.Generic.Dictionary<string, Base?> d4;
+
+        partial void ice_initialize();
+
+        public Base(Base? b, Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
+        {
+            this.b = b;
+            this.o = o;
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
+            this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
+            this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
+            this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
+            this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(d1);
+            this.d1 = d1;
+            global::System.ArgumentNullException.ThrowIfNull(d2);
+            this.d2 = d2;
+            global::System.ArgumentNullException.ThrowIfNull(d3);
+            this.d3 = d3;
+            global::System.ArgumentNullException.ThrowIfNull(d4);
+            this.d4 = d4;
+            ice_initialize();
+        }
+
+        public Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            global::System.ArgumentNullException.ThrowIfNull(seq1);
+            this.seq1 = seq1;
+            global::System.ArgumentNullException.ThrowIfNull(seq2);
+            this.seq2 = seq2;
+            global::System.ArgumentNullException.ThrowIfNull(seq3);
+            this.seq3 = seq3;
+            global::System.ArgumentNullException.ThrowIfNull(seq4);
+            this.seq4 = seq4;
+            global::System.ArgumentNullException.ThrowIfNull(d1);
+            this.d1 = d1;
+            global::System.ArgumentNullException.ThrowIfNull(d2);
+            this.d2 = d2;
+            global::System.ArgumentNullException.ThrowIfNull(d3);
+            this.d3 = d3;
+            global::System.ArgumentNullException.ThrowIfNull(d4);
+            this.d4 = d4;
+            ice_initialize();
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Base()
+        {
+            this.s = null!;
+            this.seq1 = null!;
+            this.seq2 = null!;
+            this.seq3 = null!;
+            this.seq4 = null!;
+            this.d1 = null!;
+            this.d2 = null!;
+            this.d3 = null!;
+            this.d4 = null!;
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::Base";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeValue(b);
+            ostr_.writeValue(o);
+            Struct1.ice_write(ostr_, s);
+            ByteSHelper.write(ostr_, seq1);
+            IntSHelper.write(ostr_, seq2);
+            MyEnumSHelper.write(ostr_, seq3);
+            BaseSHelper.write(ostr_, seq4);
+            ByteBoolDHelper.write(ostr_, d1);
+            ShortIntDHelper.write(ostr_, d2);
+            StringMyEnumDHelper.write(ostr_, d3);
+            StringBaseDHelper.write(ostr_, d4);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            istr_.readValue((Base? v) => { this.b = v; });
+            istr_.readValue((Ice.Value? v) => { this.o = v; });
+            s = new Struct1(istr_);
+            seq1 = ByteSHelper.read(istr_);
+            seq2 = IntSHelper.read(istr_);
+            seq3 = MyEnumSHelper.read(istr_);
+            seq4 = BaseSHelper.read(istr_);
+            d1 = ByteBoolDHelper.read(istr_);
+            d2 = ShortIntDHelper.read(istr_);
+            d3 = StringMyEnumDHelper.read(istr_);
+            d4 = StringBaseDHelper.read(istr_);
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::Derived")]
+    public partial class Derived : Base
+    {
+        public Ice.ObjectPrx? p;
+
+        partial void ice_initialize();
+
+        public Derived(Base? b, Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4, Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        {
+            this.p = p;
+            ice_initialize();
+        }
+
+        public Derived(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4) : base(s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        {
+            ice_initialize();
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Derived()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::Test::Derived";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeProxy(p);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            p = istr_.readProxy();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    [Ice.SliceTypeId("::Test::Ex")]
+    public partial class Ex : Ice.UserException
+    {
+        public Struct1 s;
+
+        public Base? b;
+
+        public Ex(Struct1 s, Base? b)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+            this.b = b;
+        }
+
+        public Ex(Struct1 s)
+        {
+            global::System.ArgumentNullException.ThrowIfNull(s);
+            this.s = s;
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Ex()
+        {
+            this.s = null!;
+        }
+
+        public override string ice_id() => "::Test::Ex";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::Test::Ex", -1, true);
+            Struct1.ice_write(ostr_, s);
+            ostr_.writeValue(b);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            s = new Struct1(istr_);
+            istr_.readValue((Base? v) => { this.b = v; });
+            istr_.endSlice();
+        }
+
+        public override bool iceUsesClasses()
+        {
+            return true;
+        }
+    }
+
+    public interface InitialPrx : Ice.ObjectPrx
+    {
+        byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] getBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<byte[]> getBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        byte[] getEx(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<byte[]> getExAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
     {
         public byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -845,6 +827,70 @@ namespace Test
 
 namespace Test
 {
+    [Ice.SliceTypeId("::Test::Initial")]
+    public partial interface Initial : Ice.Object
+    {
+        byte[] getStruct1(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getStruct1Async(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getStruct1(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ByteSHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[] getBase(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getBaseAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getBase(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ByteSHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        byte[] getEx(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getExAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getEx(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ByteSHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Initial obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
     {
         public abstract byte[] getStruct1(Ice.Current current);
@@ -872,63 +918,5 @@ namespace Test
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Test
-{
-    public partial interface Initial
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getStruct1Async(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getStruct1(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ByteSHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getBaseAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getBase(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ByteSHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getExAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getEx(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ByteSHelper.write(ostr, ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

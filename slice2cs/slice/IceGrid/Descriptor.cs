@@ -22,6 +22,42 @@
 
 namespace IceGrid
 {
+    public sealed class StringStringDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, string> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    ostr.writeString(e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                string v;
+                v = istr.readString();
+                r[k] = v;
+            }
+            return r;
+        }
+    }
+
     public sealed partial record class PropertyDescriptor
     {
         public string name = "";
@@ -65,6 +101,39 @@ namespace IceGrid
         public static PropertyDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class PropertyDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, PropertyDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static PropertyDescriptor[] read(Ice.InputStream istr)
+        {
+            PropertyDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(2);
+                v = new PropertyDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new PropertyDescriptor(istr);
+                }
+            }
+            return v;
+        }
+    }
+
     public sealed partial record class PropertySetDescriptor
     {
         public string[] references;
@@ -101,6 +170,42 @@ namespace IceGrid
         }
 
         public static PropertySetDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class PropertySetDescriptorDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, PropertySetDescriptor> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    PropertySetDescriptor.ice_write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> r = new global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                PropertySetDescriptor v;
+                v = new PropertySetDescriptor(istr);
+                r[k] = v;
+            }
+            return r;
+        }
     }
 
     public sealed partial record class ObjectDescriptor
@@ -152,6 +257,39 @@ namespace IceGrid
         }
 
         public static ObjectDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class ObjectDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ObjectDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static ObjectDescriptor[] read(Ice.InputStream istr)
+        {
+            ObjectDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(4);
+                v = new ObjectDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new ObjectDescriptor(istr);
+                }
+            }
+            return v;
+        }
     }
 
     public sealed partial record class AdapterDescriptor
@@ -239,6 +377,39 @@ namespace IceGrid
         }
 
         public static AdapterDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class AdapterDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, AdapterDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static AdapterDescriptor[] read(Ice.InputStream istr)
+        {
+            AdapterDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(9);
+                v = new AdapterDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new AdapterDescriptor(istr);
+                }
+            }
+            return v;
+        }
     }
 
     [Ice.SliceTypeId("::IceGrid::CommunicatorDescriptor")]
@@ -480,6 +651,39 @@ namespace IceGrid
         }
     }
 
+    public sealed class ServerDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ServerDescriptor?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static ServerDescriptor?[] read(Ice.InputStream istr)
+        {
+            ServerDescriptor?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new ServerDescriptor?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
     [Ice.SliceTypeId("::IceGrid::ServiceDescriptor")]
     public partial class ServiceDescriptor : CommunicatorDescriptor
     {
@@ -528,6 +732,39 @@ namespace IceGrid
             entry = istr_.readString();
             istr_.endSlice();
             base.iceReadImpl(istr_);
+        }
+    }
+
+    public sealed class ServiceDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ServiceDescriptor?[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static ServiceDescriptor?[] read(Ice.InputStream istr)
+        {
+            ServiceDescriptor?[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new ServiceDescriptor?[szx];
+                for (int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
+                }
+            }
+            return v;
         }
     }
 
@@ -592,6 +829,39 @@ namespace IceGrid
         public static ServerInstanceDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class ServerInstanceDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ServerInstanceDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static ServerInstanceDescriptor[] read(Ice.InputStream istr)
+        {
+            ServerInstanceDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(5);
+                v = new ServerInstanceDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new ServerInstanceDescriptor(istr);
+                }
+            }
+            return v;
+        }
+    }
+
     public sealed partial record class TemplateDescriptor
     {
         public CommunicatorDescriptor? descriptor;
@@ -642,6 +912,42 @@ namespace IceGrid
         }
 
         public static TemplateDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class TemplateDescriptorDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, TemplateDescriptor> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    TemplateDescriptor.ice_write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> r = new global::System.Collections.Generic.Dictionary<string, TemplateDescriptor>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                TemplateDescriptor v;
+                v = new TemplateDescriptor(istr);
+                r[k] = v;
+            }
+            return r;
+        }
     }
 
     public sealed partial record class ServiceInstanceDescriptor
@@ -700,6 +1006,39 @@ namespace IceGrid
         }
 
         public static ServiceInstanceDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class ServiceInstanceDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ServiceInstanceDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static ServiceInstanceDescriptor[] read(Ice.InputStream istr)
+        {
+            ServiceInstanceDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(5);
+                v = new ServiceInstanceDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new ServiceInstanceDescriptor(istr);
+                }
+            }
+            return v;
+        }
     }
 
     [Ice.SliceTypeId("::IceGrid::IceBoxDescriptor")]
@@ -823,6 +1162,42 @@ namespace IceGrid
         }
 
         public static NodeDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class NodeDescriptorDictHelper
+    {
+        public static void write(Ice.OutputStream ostr,
+                                 global::System.Collections.Generic.Dictionary<string, NodeDescriptor> v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Count);
+                foreach(global::System.Collections.Generic.KeyValuePair<string, NodeDescriptor> e in v)
+                {
+                    ostr.writeString(e.Key);
+                    NodeDescriptor.ice_write(ostr, e.Value);
+                }
+            }
+        }
+
+        public static global::System.Collections.Generic.Dictionary<string, NodeDescriptor> read(Ice.InputStream istr)
+        {
+            int sz = istr.readSize();
+            global::System.Collections.Generic.Dictionary<string, NodeDescriptor> r = new global::System.Collections.Generic.Dictionary<string, NodeDescriptor>();
+            for(int i = 0; i < sz; ++i)
+            {
+                string k;
+                k = istr.readString();
+                NodeDescriptor v;
+                v = new NodeDescriptor(istr);
+                r[k] = v;
+            }
+            return r;
+        }
     }
 
     [Ice.SliceTypeId("::IceGrid::LoadBalancingPolicy")]
@@ -1068,6 +1443,39 @@ namespace IceGrid
         public static ReplicaGroupDescriptor ice_read(Ice.InputStream istr) => new(istr);
     }
 
+    public sealed class ReplicaGroupDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ReplicaGroupDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static ReplicaGroupDescriptor[] read(Ice.InputStream istr)
+        {
+            ReplicaGroupDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(6);
+                v = new ReplicaGroupDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new ReplicaGroupDescriptor(istr);
+                }
+            }
+            return v;
+        }
+    }
+
     public sealed partial record class ApplicationDescriptor
     {
         public string name = "";
@@ -1165,6 +1573,39 @@ namespace IceGrid
         }
 
         public static ApplicationDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class ApplicationDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, ApplicationDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static ApplicationDescriptor[] read(Ice.InputStream istr)
+        {
+            ApplicationDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(10);
+                v = new ApplicationDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new ApplicationDescriptor(istr);
+                }
+            }
+            return v;
+        }
     }
 
     [Ice.SliceTypeId("::IceGrid::BoxedString")]
@@ -1305,6 +1746,39 @@ namespace IceGrid
         }
 
         public static NodeUpdateDescriptor ice_read(Ice.InputStream istr) => new(istr);
+    }
+
+    public sealed class NodeUpdateDescriptorSeqHelper
+    {
+        public static void write(Ice.OutputStream ostr, NodeUpdateDescriptor[] v)
+        {
+            if (v is null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    v[ix].ice_writeMembers(ostr);
+                }
+            }
+        }
+
+        public static NodeUpdateDescriptor[] read(Ice.InputStream istr)
+        {
+            NodeUpdateDescriptor[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(10);
+                v = new NodeUpdateDescriptor[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = new NodeUpdateDescriptor(istr);
+                }
+            }
+            return v;
+        }
     }
 
     [Ice.SliceTypeId("::IceGrid::BoxedDistributionDescriptor")]
@@ -1487,482 +1961,5 @@ namespace IceGrid
         }
 
         public static ApplicationUpdateDescriptor ice_read(Ice.InputStream istr) => new(istr);
-    }
-}
-
-namespace IceGrid
-{
-    public sealed class StringStringDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, string> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeString(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, string> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                string v;
-                v = istr.readString();
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class PropertyDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, PropertyDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static PropertyDescriptor[] read(Ice.InputStream istr)
-        {
-            PropertyDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(2);
-                v = new PropertyDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new PropertyDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class PropertySetDescriptorDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, PropertySetDescriptor> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    PropertySetDescriptor.ice_write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> r = new global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                PropertySetDescriptor v;
-                v = new PropertySetDescriptor(istr);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class ObjectDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ObjectDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ObjectDescriptor[] read(Ice.InputStream istr)
-        {
-            ObjectDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(4);
-                v = new ObjectDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new ObjectDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class AdapterDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, AdapterDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static AdapterDescriptor[] read(Ice.InputStream istr)
-        {
-            AdapterDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(9);
-                v = new AdapterDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new AdapterDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class ServerDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ServerDescriptor?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static ServerDescriptor?[] read(Ice.InputStream istr)
-        {
-            ServerDescriptor?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new ServerDescriptor?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class ServiceDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ServiceDescriptor?[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static ServiceDescriptor?[] read(Ice.InputStream istr)
-        {
-            ServiceDescriptor?[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new ServiceDescriptor?[szx];
-                for (int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class ServerInstanceDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ServerInstanceDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ServerInstanceDescriptor[] read(Ice.InputStream istr)
-        {
-            ServerInstanceDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(5);
-                v = new ServerInstanceDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new ServerInstanceDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class TemplateDescriptorDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, TemplateDescriptor> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    TemplateDescriptor.ice_write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> r = new global::System.Collections.Generic.Dictionary<string, TemplateDescriptor>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                TemplateDescriptor v;
-                v = new TemplateDescriptor(istr);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class ServiceInstanceDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ServiceInstanceDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ServiceInstanceDescriptor[] read(Ice.InputStream istr)
-        {
-            ServiceInstanceDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(5);
-                v = new ServiceInstanceDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new ServiceInstanceDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class NodeDescriptorDictHelper
-    {
-        public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, NodeDescriptor> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, NodeDescriptor> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    NodeDescriptor.ice_write(ostr, e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, NodeDescriptor> read(Ice.InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, NodeDescriptor> r = new global::System.Collections.Generic.Dictionary<string, NodeDescriptor>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                NodeDescriptor v;
-                v = new NodeDescriptor(istr);
-                r[k] = v;
-            }
-            return r;
-        }
-    }
-
-    public sealed class ReplicaGroupDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ReplicaGroupDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ReplicaGroupDescriptor[] read(Ice.InputStream istr)
-        {
-            ReplicaGroupDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(6);
-                v = new ReplicaGroupDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new ReplicaGroupDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class ApplicationDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, ApplicationDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ApplicationDescriptor[] read(Ice.InputStream istr)
-        {
-            ApplicationDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(10);
-                v = new ApplicationDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new ApplicationDescriptor(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    public sealed class NodeUpdateDescriptorSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, NodeUpdateDescriptor[] v)
-        {
-            if (v is null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static NodeUpdateDescriptor[] read(Ice.InputStream istr)
-        {
-            NodeUpdateDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(10);
-                v = new NodeUpdateDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new NodeUpdateDescriptor(istr);
-                }
-            }
-            return v;
-        }
     }
 }

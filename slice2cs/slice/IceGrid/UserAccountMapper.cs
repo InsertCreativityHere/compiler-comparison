@@ -43,31 +43,6 @@ namespace IceGrid
         }
     }
 
-    [Ice.SliceTypeId("::IceGrid::UserAccountMapper")]
-    public partial interface UserAccountMapper : Ice.Object
-    {
-        /// <summary>
-        /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-        /// account to use to run servers.
-        /// </summary>
-        /// <param name="user">
-        /// The value of the server descriptor's user attribute. If this attribute is not
-        /// defined, and the server's activation mode is session, the default value of user
-        /// is the session identifier.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>
-        /// The user account name.
-        /// </returns>
-        /// <exception cref="IceGrid.UserAccountNotFoundException">
-        /// Raised if no user account is found for the given user.
-        /// </exception>
-        string getUserAccount(string user, Ice.Current current);
-    }
-}
-
-namespace IceGrid
-{
     /// <summary>
     /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
     /// </summary>
@@ -109,10 +84,7 @@ namespace IceGrid
         /// </exception>
         global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace IceGrid
-{
     public sealed class UserAccountMapperPrxHelper : Ice.ObjectPrxHelperBase, UserAccountMapperPrx
     {
         public string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -228,6 +200,46 @@ namespace IceGrid
 
 namespace IceGrid
 {
+    [Ice.SliceTypeId("::IceGrid::UserAccountMapper")]
+    public partial interface UserAccountMapper : Ice.Object
+    {
+        /// <summary>
+        /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+        /// account to use to run servers.
+        /// </summary>
+        /// <param name="user">
+        /// The value of the server descriptor's user attribute. If this attribute is not
+        /// defined, and the server's activation mode is session, the default value of user
+        /// is the session identifier.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>
+        /// The user account name.
+        /// </returns>
+        /// <exception cref="IceGrid.UserAccountNotFoundException">
+        /// Raised if no user account is found for the given user.
+        /// </exception>
+        string getUserAccount(string user, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getUserAccountAsync(
+            UserAccountMapper obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_user;
+            iceP_user = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getUserAccount(iceP_user, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+    }
+
     public abstract class UserAccountMapperDisp_ : Ice.ObjectImpl, UserAccountMapper
     {
         public abstract string getUserAccount(string user, Ice.Current current);
@@ -246,29 +258,5 @@ namespace IceGrid
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace IceGrid
-{
-    public partial interface UserAccountMapper
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getUserAccountAsync(
-            UserAccountMapper obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_user;
-            iceP_user = istr.readString();
-            istr.endEncapsulation();
-            var ret = obj.getUserAccount(iceP_user, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeString(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
     }
 }

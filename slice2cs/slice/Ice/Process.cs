@@ -22,32 +22,6 @@
 
 namespace Ice
 {
-    [Ice.SliceTypeId("::Ice::Process")]
-    public partial interface Process : Ice.Object
-    {
-        /// <summary>
-        /// Initiate a graceful shut-down.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <seealso cref="Communicator.shutdown" />
-        void shutdown(Ice.Current current);
-
-        /// <summary>
-        /// Write a message on the process' stdout or stderr.
-        /// </summary>
-        /// <param name="message">
-        /// The message.
-        /// </param>
-        /// <param name="fd">
-        /// 1 for stdout, 2 for stderr.
-        /// </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        void writeMessage(string message, int fd, Ice.Current current);
-    }
-}
-
-namespace Ice
-{
     /// <summary>
     /// An administrative interface for process management. Managed servers must implement this interface.
     /// A servant implementing this interface is a potential target for denial-of-service attacks,
@@ -100,10 +74,7 @@ namespace Ice
         /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
-}
 
-namespace Ice
-{
     public sealed class ProcessPrxHelper : Ice.ObjectPrxHelperBase, ProcessPrx
     {
         public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -236,6 +207,55 @@ namespace Ice
 
 namespace Ice
 {
+    [Ice.SliceTypeId("::Ice::Process")]
+    public partial interface Process : Ice.Object
+    {
+        /// <summary>
+        /// Initiate a graceful shut-down.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <seealso cref="Communicator.shutdown" />
+        void shutdown(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
+            Process obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        /// <summary>
+        /// Write a message on the process' stdout or stderr.
+        /// </summary>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        /// <param name="fd">
+        /// 1 for stdout, 2 for stderr.
+        /// </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        void writeMessage(string message, int fd, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_writeMessageAsync(
+            Process obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_message;
+            int iceP_fd;
+            iceP_message = istr.readString();
+            iceP_fd = istr.readInt();
+            istr.endEncapsulation();
+            obj.writeMessage(iceP_message, iceP_fd, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class ProcessDisp_ : Ice.ObjectImpl, Process
     {
         public abstract void shutdown(Ice.Current current);
@@ -257,37 +277,5 @@ namespace Ice
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
-    }
-}
-
-namespace Ice
-{
-    public partial interface Process
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
-            Process obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.shutdown(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_writeMessageAsync(
-            Process obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            string iceP_message;
-            int iceP_fd;
-            iceP_message = istr.readString();
-            iceP_fd = istr.readInt();
-            istr.endEncapsulation();
-            obj.writeMessage(iceP_message, iceP_fd, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
     }
 }

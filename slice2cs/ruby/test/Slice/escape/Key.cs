@@ -73,157 +73,6 @@ namespace BEGIN
         public static and ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    [Ice.SliceTypeId("::BEGIN::break")]
-    public partial interface break : Ice.Object
-    {
-        void case(int clone, int def, Ice.Current current);
-
-        void to_a(Ice.Current current);
-
-        void instance_variable_set(Ice.Current current);
-
-        void instance_variables(Ice.Current current);
-    }
-
-    [Ice.SliceTypeId("::BEGIN::display")]
-    public partial class display : Ice.Value
-    {
-        public int when;
-
-        public int do;
-
-        public breakPrx? dup;
-
-        public int else;
-
-        partial void ice_initialize();
-
-        public display(int when, int do, breakPrx? dup, int else)
-        {
-            this.when = when;
-            this.do = do;
-            this.dup = dup;
-            this.else = else;
-            ice_initialize();
-        }
-
-        public display()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::BEGIN::display";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(when);
-            ostr_.writeInt(do);
-            breakPrxHelper.write(ostr_, dup);
-            ostr_.writeInt(else);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            when = istr_.readInt();
-            do = istr_.readInt();
-            dup = breakPrxHelper.read(istr_);
-            else = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::BEGIN::elsif")]
-    public partial interface elsif : break
-    {
-    }
-
-    [Ice.SliceTypeId("::BEGIN::next")]
-    public partial class next : Ice.UserException
-    {
-        public int new;
-
-        public next(int new)
-        {
-            this.new = new;
-        }
-
-        public next()
-        {
-        }
-
-        public override string ice_id() => "::BEGIN::next";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::BEGIN::next", -1, true);
-            ostr_.writeInt(new);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            new = istr_.readInt();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::BEGIN::nil")]
-    public partial class nil : next
-    {
-        public int not;
-
-        public int or;
-
-        public nil(int new, int not, int or) : base(new)
-        {
-            this.not = not;
-            this.or = or;
-        }
-
-        public nil()
-        {
-        }
-
-        public override string ice_id() => "::BEGIN::nil";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::BEGIN::nil", -1, false);
-            ostr_.writeInt(not);
-            ostr_.writeInt(or);
-            ostr_.endSlice();
-            base.iceWriteImpl(ostr_);
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            not = istr_.readInt();
-            or = istr_.readInt();
-            istr_.endSlice();
-            base.iceReadImpl(istr_);
-        }
-    }
-
-    [Ice.SliceTypeId("::BEGIN::extend")]
-    public partial interface extend : Ice.Object
-    {
-        END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
-    }
-
-    public abstract class redo
-    {
-        public const int value = 1;
-    }
-}
-
-namespace BEGIN
-{
     public interface breakPrx : Ice.ObjectPrx
     {
         void case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -243,20 +92,6 @@ namespace BEGIN
         global::System.Threading.Tasks.Task instance_variablesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    public interface elsifPrx : breakPrx
-    {
-    }
-
-    public interface extendPrx : Ice.ObjectPrx
-    {
-        END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<END> forAsync(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace BEGIN
-{
     public sealed class breakPrxHelper : Ice.ObjectPrxHelperBase, breakPrx
     {
         public void case(int clone, int def, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -458,6 +293,61 @@ namespace BEGIN
             : base(reference)
         {
         }
+    }
+
+    [Ice.SliceTypeId("::BEGIN::display")]
+    public partial class display : Ice.Value
+    {
+        public int when;
+
+        public int do;
+
+        public breakPrx? dup;
+
+        public int else;
+
+        partial void ice_initialize();
+
+        public display(int when, int do, breakPrx? dup, int else)
+        {
+            this.when = when;
+            this.do = do;
+            this.dup = dup;
+            this.else = else;
+            ice_initialize();
+        }
+
+        public display()
+        {
+            ice_initialize();
+        }
+
+        public static new string ice_staticId() => "::BEGIN::display";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeInt(when);
+            ostr_.writeInt(do);
+            breakPrxHelper.write(ostr_, dup);
+            ostr_.writeInt(else);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            when = istr_.readInt();
+            do = istr_.readInt();
+            dup = breakPrxHelper.read(istr_);
+            else = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    public interface elsifPrx : breakPrx
+    {
     }
 
     public sealed class elsifPrxHelper : Ice.ObjectPrxHelperBase, elsifPrx
@@ -733,6 +623,82 @@ namespace BEGIN
         }
     }
 
+    [Ice.SliceTypeId("::BEGIN::next")]
+    public partial class next : Ice.UserException
+    {
+        public int new;
+
+        public next(int new)
+        {
+            this.new = new;
+        }
+
+        public next()
+        {
+        }
+
+        public override string ice_id() => "::BEGIN::next";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::BEGIN::next", -1, true);
+            ostr_.writeInt(new);
+            ostr_.endSlice();
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            new = istr_.readInt();
+            istr_.endSlice();
+        }
+    }
+
+    [Ice.SliceTypeId("::BEGIN::nil")]
+    public partial class nil : next
+    {
+        public int not;
+
+        public int or;
+
+        public nil(int new, int not, int or) : base(new)
+        {
+            this.not = not;
+            this.or = or;
+        }
+
+        public nil()
+        {
+        }
+
+        public override string ice_id() => "::BEGIN::nil";
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice("::BEGIN::nil", -1, false);
+            ostr_.writeInt(not);
+            ostr_.writeInt(or);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        protected override void iceReadImpl(Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            not = istr_.readInt();
+            or = istr_.readInt();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+    }
+
+    public interface extendPrx : Ice.ObjectPrx
+    {
+        END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<END> forAsync(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+    }
+
     public sealed class extendPrxHelper : Ice.ObjectPrxHelperBase, extendPrx
     {
         public END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -850,10 +816,73 @@ namespace BEGIN
         {
         }
     }
+
+    public abstract class redo
+    {
+        public const int value = 1;
+    }
 }
 
 namespace BEGIN
 {
+    [Ice.SliceTypeId("::BEGIN::break")]
+    public partial interface break : Ice.Object
+    {
+        void case(int clone, int def, Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_caseAsync(
+            break obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_clone;
+            int iceP_def;
+            iceP_clone = istr.readInt();
+            iceP_def = istr.readInt();
+            istr.endEncapsulation();
+            obj.case(iceP_clone, iceP_def, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void to_a(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_to_aAsync(
+            break obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.to_a(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void instance_variable_set(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_instance_variable_setAsync(
+            break obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.instance_variable_set(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        void instance_variables(Ice.Current current);
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_instance_variablesAsync(
+            break obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.instance_variables(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
     public abstract class breakDisp_ : Ice.ObjectImpl, break
     {
         public abstract void case(int clone, int def, Ice.Current current);
@@ -881,6 +910,11 @@ namespace BEGIN
                 "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
                 _ => throw new Ice.OperationNotExistException()
             };
+    }
+
+    [Ice.SliceTypeId("::BEGIN::elsif")]
+    public partial interface elsif : break
+    {
     }
 
     public abstract class elsifDisp_ : Ice.ObjectImpl, elsif
@@ -912,84 +946,11 @@ namespace BEGIN
             };
     }
 
-    public abstract class extendDisp_ : Ice.ObjectImpl, extend
+    [Ice.SliceTypeId("::BEGIN::extend")]
+    public partial interface extend : Ice.Object
     {
-        public abstract END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
+        END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
 
-        public override string ice_id(Ice.Current current) => ice_staticId();
-
-        public static new string ice_staticId() => "::BEGIN::extend";
-
-        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
-            request.current.operation switch
-            {
-                "for" => extend.iceD_forAsync(this, request),
-                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
-                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
-                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
-                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
-                _ => throw new Ice.OperationNotExistException()
-            };
-    }
-}
-
-namespace BEGIN
-{
-    public partial interface break
-    {
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_caseAsync(
-            break obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_clone;
-            int iceP_def;
-            iceP_clone = istr.readInt();
-            iceP_def = istr.readInt();
-            istr.endEncapsulation();
-            obj.case(iceP_clone, iceP_def, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_to_aAsync(
-            break obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.to_a(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_instance_variable_setAsync(
-            break obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.instance_variable_set(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_instance_variablesAsync(
-            break obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            obj.instance_variables(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-    }
-
-    public partial interface elsif
-    {
-    }
-
-    public partial interface extend
-    {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_forAsync(
             extend obj,
             Ice.IncomingRequest request)
@@ -1018,5 +979,25 @@ namespace BEGIN
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
         }
+    }
+
+    public abstract class extendDisp_ : Ice.ObjectImpl, extend
+    {
+        public abstract END for(display? freeze, elsifPrx? hash, breakPrx? if, display? inspect, elsifPrx? method, int methods, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::BEGIN::extend";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "for" => extend.iceD_forAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
     }
 }
