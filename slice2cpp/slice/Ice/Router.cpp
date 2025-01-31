@@ -268,7 +268,7 @@ Ice::Router::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
     static constexpr std::array<std::string_view, 7> allOperations{"addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -362,7 +362,7 @@ Ice::RouterFinder::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
     static constexpr std::array<std::string_view, 5> allOperations{"getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

@@ -822,7 +822,7 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 18> allOperations{"getTest1C2AsC1", "getTest1C2AsC2", "getTest2C2AsC1", "getTest2C2AsC2", "getTest3C2AsC1", "getTest3C2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwTest1Def", "throwTest1E2AsE1", "throwTest1E2AsE2", "throwTest2E2AsE1", "throwTest2E2AsE2", "throwTest3E2AsE1", "throwTest3E2AsE2"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

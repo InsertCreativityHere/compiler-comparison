@@ -1658,7 +1658,7 @@ Test::Custom::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
     static constexpr std::array<std::string_view, 29> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBogusArrayNoCallableFactory", "opBogusArrayNoneFactory", "opBogusArrayNotExistsFactory", "opBogusArraySignatureFactory", "opBogusArrayThrowFactory", "opBogusArrayType", "opBoolSeq", "opByteList1", "opByteList2", "opByteSeq", "opByteString1", "opByteString2", "opD", "opDoubleSeq", "opFloatSeq", "opIntSeq", "opLongSeq", "opShortSeq", "opStringList1", "opStringList2", "opStringTuple1", "opStringTuple2", "sendC", "sendS", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

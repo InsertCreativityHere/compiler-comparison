@@ -604,7 +604,7 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 14> allOperations{"getNoNamespaceC2AsC1", "getNoNamespaceC2AsC2", "getWithNamespaceC2AsC1", "getWithNamespaceC2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwNoNamespaceE2AsE1", "throwNoNamespaceE2AsE2", "throwNoNamespaceNotify", "throwWithNamespaceE2AsE1", "throwWithNamespaceE2AsE2"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

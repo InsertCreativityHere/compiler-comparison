@@ -748,7 +748,7 @@ Clash::Intf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
     static constexpr std::array<std::string_view, 16> allOperations{"context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

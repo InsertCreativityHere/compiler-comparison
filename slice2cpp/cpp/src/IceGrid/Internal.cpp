@@ -2544,7 +2544,7 @@ IceGrid::Adapter::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
     static constexpr std::array<std::string_view, 7> allOperations{"activate", "getDirectProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setDirectProxy"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -2668,7 +2668,7 @@ IceGrid::FileReader::dispatch(Ice::IncomingRequest& request, std::function<void(
     static constexpr std::array<std::string_view, 6> allOperations{"getOffsetFromEnd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "read"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -2930,7 +2930,7 @@ IceGrid::Server::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
     static constexpr std::array<std::string_view, 16> allOperations{"checkUpdate", "getOffsetFromEnd", "getPid", "getState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "isEnabled", "read", "sendSignal", "setEnabled", "setProcess", "start", "stop", "writeMessage"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -3103,7 +3103,7 @@ IceGrid::ReplicaObserver::dispatch(Ice::IncomingRequest& request, std::function<
     static constexpr std::array<std::string_view, 7> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "replicaAdded", "replicaInit", "replicaRemoved"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -3400,7 +3400,7 @@ IceGrid::Node::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 19> allOperations{"destroyServer", "destroyServerWithoutRestart", "getHostname", "getLoad", "getName", "getOffsetFromEnd", "getProcessorSocketCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "loadServer", "loadServerWithoutRestart", "read", "registerWithReplica", "replicaAdded", "replicaInit", "replicaRemoved", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -3680,7 +3680,7 @@ IceGrid::NodeSession::dispatch(Ice::IncomingRequest& request, std::function<void
     static constexpr std::array<std::string_view, 12> allOperations{"destroy", "getObserver", "getServers", "getTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "loadServers", "setReplicaObserver", "waitForApplicationUpdate"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -3782,7 +3782,7 @@ IceGrid::DatabaseObserver::dispatch(Ice::IncomingRequest& request, std::function
     static constexpr std::array<std::string_view, 16> allOperations{"adapterAdded", "adapterInit", "adapterRemoved", "adapterUpdated", "applicationAdded", "applicationInit", "applicationRemoved", "applicationUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping", "objectAdded", "objectInit", "objectRemoved", "objectUpdated"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -4038,7 +4038,7 @@ IceGrid::ReplicaSession::dispatch(Ice::IncomingRequest& request, std::function<v
     static constexpr std::array<std::string_view, 12> allOperations{"destroy", "getTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "receivedUpdate", "registerWellKnownObjects", "setAdapterDirectProxy", "setDatabaseObserver", "setEndpoints"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -4306,7 +4306,7 @@ IceGrid::InternalRegistry::dispatch(Ice::IncomingRequest& request, std::function
     static constexpr std::array<std::string_view, 15> allOperations{"getAdapters", "getApplications", "getNodes", "getObjects", "getOffsetFromEnd", "getReplicas", "ice_id", "ice_ids", "ice_isA", "ice_ping", "read", "registerNode", "registerReplica", "registerWithReplica", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

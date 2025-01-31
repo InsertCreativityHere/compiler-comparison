@@ -403,7 +403,7 @@ and::del::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoi
     static constexpr std::array<std::string_view, 5> allOperations{"elif", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -483,7 +483,7 @@ and::exec::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgo
     static constexpr std::array<std::string_view, 5> allOperations{"finally", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -550,7 +550,7 @@ and::if::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
     static constexpr std::array<std::string_view, 6> allOperations{"elif", "finally", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -649,7 +649,7 @@ and::print::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
     static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "raise"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

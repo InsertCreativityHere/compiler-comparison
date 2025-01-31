@@ -2778,7 +2778,7 @@ Test::MyInterface::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
     static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -3806,7 +3806,7 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 49> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsJavaSerializable"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -4145,7 +4145,7 @@ Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
     static constexpr std::array<std::string_view, 8> allOperations{"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

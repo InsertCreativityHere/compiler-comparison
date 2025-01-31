@@ -634,7 +634,7 @@ Ice::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
     static constexpr std::array<std::string_view, 7> allOperations{"findAdapterById", "findObjectById", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -787,7 +787,7 @@ Ice::LocatorRegistry::dispatch(Ice::IncomingRequest& request, std::function<void
     static constexpr std::array<std::string_view, 7> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -881,7 +881,7 @@ Ice::LocatorFinder::dispatch(Ice::IncomingRequest& request, std::function<void(I
     static constexpr std::array<std::string_view, 5> allOperations{"getLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

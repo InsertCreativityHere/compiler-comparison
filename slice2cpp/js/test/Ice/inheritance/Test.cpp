@@ -1556,7 +1556,7 @@ Test::MA::IA::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
     static constexpr std::array<std::string_view, 5> allOperations{"iaop", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1644,7 +1644,7 @@ Test::MB::IB1::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 6> allOperations{"iaop", "ib1op", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1737,7 +1737,7 @@ Test::MB::IB2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 6> allOperations{"iaop", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1830,7 +1830,7 @@ Test::MA::IC::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
     static constexpr std::array<std::string_view, 8> allOperations{"iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1993,7 +1993,7 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 9> allOperations{"iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -2132,7 +2132,7 @@ Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
     static constexpr std::array<std::string_view, 8> allOperations{"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

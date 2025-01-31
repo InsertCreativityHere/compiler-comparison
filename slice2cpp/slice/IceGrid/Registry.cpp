@@ -634,7 +634,7 @@ IceGrid::Query::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
     static constexpr std::array<std::string_view, 9> allOperations{"findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -816,7 +816,7 @@ IceGrid::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
     static constexpr std::array<std::string_view, 9> allOperations{"createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -937,7 +937,7 @@ IceGrid::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
     static constexpr std::array<std::string_view, 9> allOperations{"findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

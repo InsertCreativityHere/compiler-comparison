@@ -161,7 +161,7 @@ Ice::Process::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
     static constexpr std::array<std::string_view, 6> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "writeMessage"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

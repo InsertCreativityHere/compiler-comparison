@@ -869,7 +869,7 @@ IceMX::MetricsAdmin::dispatch(Ice::IncomingRequest& request, std::function<void(
     static constexpr std::array<std::string_view, 10> allOperations{"disableMetricsView", "enableMetricsView", "getMapMetricsFailures", "getMetricsFailures", "getMetricsView", "getMetricsViewNames", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

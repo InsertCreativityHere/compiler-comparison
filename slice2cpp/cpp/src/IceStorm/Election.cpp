@@ -816,7 +816,7 @@ IceStormElection::ReplicaObserver::dispatch(Ice::IncomingRequest& request, std::
     static constexpr std::array<std::string_view, 9> allOperations{"addSubscriber", "createTopic", "destroyTopic", "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "removeSubscriber"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -922,7 +922,7 @@ IceStormElection::TopicManagerSync::dispatch(Ice::IncomingRequest& request, std:
     static constexpr std::array<std::string_view, 5> allOperations{"getContent", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1140,7 +1140,7 @@ IceStormElection::Node::dispatch(Ice::IncomingRequest& request, std::function<vo
     static constexpr std::array<std::string_view, 12> allOperations{"accept", "areYouCoordinator", "areYouThere", "ice_id", "ice_ids", "ice_isA", "ice_ping", "invitation", "nodes", "query", "ready", "sync"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

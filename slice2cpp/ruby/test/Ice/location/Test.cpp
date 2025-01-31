@@ -313,7 +313,7 @@ Test::TestLocatorRegistry::dispatch(Ice::IncomingRequest& request, std::function
     static constexpr std::array<std::string_view, 8> allOperations{"addObject", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -421,7 +421,7 @@ Test::ServerManager::dispatch(Ice::IncomingRequest& request, std::function<void(
     static constexpr std::array<std::string_view, 6> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startServer"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -506,7 +506,7 @@ Test::Hello::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
     static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "sayHello"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -616,7 +616,7 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
     static constexpr std::array<std::string_view, 7> allOperations{"getHello", "ice_id", "ice_ids", "ice_isA", "ice_ping", "migrateHello", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

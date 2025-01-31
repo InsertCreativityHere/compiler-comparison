@@ -5263,7 +5263,7 @@ Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 74> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opDoubleMarshaling", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "opWStringLiterals", "shutdown", "supportsCompress"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -5761,7 +5761,7 @@ Test::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<void
     static constexpr std::array<std::string_view, 77> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDerived", "opDouble1", "opDoubleMarshaling", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyClass1", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStruct1", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "opWStringLiterals", "shutdown", "supportsCompress"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

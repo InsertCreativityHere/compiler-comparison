@@ -291,7 +291,7 @@ IceStorm::TopicLink::dispatch(Ice::IncomingRequest& request, std::function<void(
     static constexpr std::array<std::string_view, 5> allOperations{"forward", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -392,7 +392,7 @@ IceStorm::TopicInternal::dispatch(Ice::IncomingRequest& request, std::function<v
     static constexpr std::array<std::string_view, 16> allOperations{"destroy", "getLinkInfoSeq", "getLinkProxy", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "reap", "subscribeAndGetPublisher", "unlink", "unsubscribe"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -531,7 +531,7 @@ IceStorm::TopicManagerInternal::dispatch(Ice::IncomingRequest& request, std::fun
     static constexpr std::array<std::string_view, 8> allOperations{"create", "getReplicaNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

@@ -6008,7 +6008,7 @@ Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
     static constexpr std::array<std::string_view, 80> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opABoolS", "opAByteS", "opACRS", "opACVS", "opADoubleS", "opAEnS", "opAFloatS", "opAIPrxS", "opAIntS", "opALongS", "opAObjectPrxS", "opAObjectS", "opAShortS", "opAStringS", "opAStructS", "opAStructSD", "opCustomCVS", "opCustomCVSS", "opCustomIntS", "opCustomIntSS", "opKBoolS", "opKByteS", "opKDoubleS", "opKEnS", "opKFloatS", "opKIPrxS", "opKIntS", "opKLongS", "opKObjectPrxS", "opKShortS", "opKStringS", "opKStructS", "opKStructSD", "opLBoolS", "opLByteS", "opLCRS", "opLCVS", "opLDoubleS", "opLEnS", "opLFloatS", "opLIPrxS", "opLIntS", "opLLongS", "opLObjectPrxS", "opLObjectS", "opLShortS", "opLStringS", "opLStructS", "opLStructSD", "opQBoolS", "opQByteS", "opQDoubleS", "opQEnS", "opQFloatS", "opQIPrxS", "opQIntS", "opQLongS", "opQObjectPrxS", "opQShortS", "opQStringS", "opQStructS", "opQStructSD", "opSBoolS", "opSByteS", "opSDoubleS", "opSEnS", "opSFloatS", "opSIPrxS", "opSIntS", "opSLongS", "opSObjectPrxS", "opSShortS", "opSStringS", "opSStructS", "opSStructSD", "shutdown"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

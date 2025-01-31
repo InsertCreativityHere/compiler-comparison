@@ -1065,7 +1065,7 @@ DataStormContract::Session::dispatch(Ice::IncomingRequest& request, std::functio
     static constexpr std::array<std::string_view, 15> allOperations{"announceElements", "announceTopics", "attachElements", "attachElementsAck", "attachTags", "attachTopic", "detachElements", "detachTags", "detachTopic", "disconnected", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initSamples"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1182,7 +1182,7 @@ DataStormContract::PublisherSession::dispatch(Ice::IncomingRequest& request, std
     static constexpr std::array<std::string_view, 15> allOperations{"announceElements", "announceTopics", "attachElements", "attachElementsAck", "attachTags", "attachTopic", "detachElements", "detachTags", "detachTopic", "disconnected", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initSamples"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1318,7 +1318,7 @@ DataStormContract::SubscriberSession::dispatch(Ice::IncomingRequest& request, st
     static constexpr std::array<std::string_view, 16> allOperations{"announceElements", "announceTopics", "attachElements", "attachElementsAck", "attachTags", "attachTopic", "detachElements", "detachTags", "detachTopic", "disconnected", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initSamples", "s"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1494,7 +1494,7 @@ DataStormContract::Node::dispatch(Ice::IncomingRequest& request, std::function<v
     static constexpr std::array<std::string_view, 7> allOperations{"confirmCreateSession", "createSession", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initiateCreateSession"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1647,7 +1647,7 @@ DataStormContract::Lookup::dispatch(Ice::IncomingRequest& request, std::function
     static constexpr std::array<std::string_view, 8> allOperations{"announceTopicReader", "announceTopicWriter", "announceTopics", "createSession", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

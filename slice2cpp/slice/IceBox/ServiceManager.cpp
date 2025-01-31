@@ -436,7 +436,7 @@ IceBox::ServiceObserver::dispatch(Ice::IncomingRequest& request, std::function<v
     static constexpr std::array<std::string_view, 6> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "servicesStarted", "servicesStopped"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -572,7 +572,7 @@ IceBox::ServiceManager::dispatch(Ice::IncomingRequest& request, std::function<vo
     static constexpr std::array<std::string_view, 8> allOperations{"addObserver", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startService", "stopService"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

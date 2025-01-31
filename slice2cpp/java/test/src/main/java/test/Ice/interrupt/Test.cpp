@@ -478,7 +478,7 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
     static constexpr std::array<std::string_view, 9> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opWithPayload", "shutdown", "sleep"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -604,7 +604,7 @@ Test::TestIntfController::dispatch(Ice::IncomingRequest& request, std::function<
     static constexpr std::array<std::string_view, 7> allOperations{"holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "interrupt", "resumeAdapter"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

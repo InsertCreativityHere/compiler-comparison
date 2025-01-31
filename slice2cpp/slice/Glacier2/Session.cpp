@@ -614,7 +614,7 @@ Glacier2::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
     static constexpr std::array<std::string_view, 5> allOperations{"destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -732,7 +732,7 @@ Glacier2::StringSet::dispatch(Ice::IncomingRequest& request, std::function<void(
     static constexpr std::array<std::string_view, 7> allOperations{"add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -860,7 +860,7 @@ Glacier2::IdentitySet::dispatch(Ice::IncomingRequest& request, std::function<voi
     static constexpr std::array<std::string_view, 7> allOperations{"add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1018,7 +1018,7 @@ Glacier2::SessionControl::dispatch(Ice::IncomingRequest& request, std::function<
     static constexpr std::array<std::string_view, 9> allOperations{"adapterIds", "categories", "destroy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "identities"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1127,7 +1127,7 @@ Glacier2::SessionManager::dispatch(Ice::IncomingRequest& request, std::function<
     static constexpr std::array<std::string_view, 5> allOperations{"create", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1216,7 +1216,7 @@ Glacier2::SSLSessionManager::dispatch(Ice::IncomingRequest& request, std::functi
     static constexpr std::array<std::string_view, 5> allOperations{"create", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));

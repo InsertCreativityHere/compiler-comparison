@@ -945,7 +945,7 @@ Test::PingReply::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
     static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "reply"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1393,7 +1393,7 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
     static constexpr std::array<std::string_view, 26> allOperations{"abortConnection", "closeConnection", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opBool", "opByte", "opDouble", "opFloat", "opInt", "opLong", "opShort", "opWithPayload", "opWithResult", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsFunctionalTests", "waitForBatch"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1591,7 +1591,7 @@ Test::TestIntfController::dispatch(Ice::IncomingRequest& request, std::function<
     static constexpr std::array<std::string_view, 6> allOperations{"holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resumeAdapter"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1685,7 +1685,7 @@ Test::Outer::Inner::TestIntf::dispatch(Ice::IncomingRequest& request, std::funct
     static constexpr std::array<std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const Ice::Current& current = request.current();
-    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    auto r = std::equal_range(allOperations.begin(), allOperations.end(), current.operation); // NOLINT(modernize-use-ranges)
     if (r.first == r.second)
     {
         sendResponse(Ice::makeOutgoingResponse(std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
