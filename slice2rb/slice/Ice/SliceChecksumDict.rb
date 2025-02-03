@@ -13,8 +13,7 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::T_SliceChecksumDict)
-        T_SliceChecksumDict = ::Ice::__defineDictionary('::Ice::SliceChecksumDict', ::Ice::T_string, ::Ice::T_string)
+        T_SliceChecksumDict = Ice::__defineDictionary('::Ice::SliceChecksumDict', Ice::T_string, Ice::T_string)
     end
 end

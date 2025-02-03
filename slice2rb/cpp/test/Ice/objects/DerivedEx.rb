@@ -15,7 +15,6 @@ require_relative 'Test.rb'
 require_relative 'Forward.rb'
 
 module ::Test
-
     if not defined?(::Test::DerivedEx)
         class DerivedEx < ::Test::BaseEx
             def to_s
@@ -23,6 +22,6 @@ module ::Test
             end
         end
 
-        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [])
+        T_DerivedEx = Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [])
     end
 end

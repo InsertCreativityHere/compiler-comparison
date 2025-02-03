@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Ice
-
     TCPEndpointType = 1
 
     SSLEndpointType = 2

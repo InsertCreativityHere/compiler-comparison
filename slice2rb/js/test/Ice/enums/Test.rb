@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     ByteConst1 = 10
 
     ShortConst1 = 20
@@ -85,7 +84,7 @@ module ::Test
             private_class_method :new
         end
 
-        T_ByteEnum = ::Ice::__defineEnum('::Test::ByteEnum', ByteEnum, ByteEnum::_enumerators)
+        T_ByteEnum = Ice::__defineEnum('::Test::ByteEnum', ByteEnum, ByteEnum::_enumerators)
     end
 
     if not defined?(::Test::ShortEnum)
@@ -143,7 +142,7 @@ module ::Test
             private_class_method :new
         end
 
-        T_ShortEnum = ::Ice::__defineEnum('::Test::ShortEnum', ShortEnum, ShortEnum::_enumerators)
+        T_ShortEnum = Ice::__defineEnum('::Test::ShortEnum', ShortEnum, ShortEnum::_enumerators)
     end
 
     if not defined?(::Test::IntEnum)
@@ -202,7 +201,7 @@ module ::Test
             private_class_method :new
         end
 
-        T_IntEnum = ::Ice::__defineEnum('::Test::IntEnum', IntEnum, IntEnum::_enumerators)
+        T_IntEnum = Ice::__defineEnum('::Test::IntEnum', IntEnum, IntEnum::_enumerators)
     end
 
     if not defined?(::Test::SimpleEnum)
@@ -252,16 +251,15 @@ module ::Test
             private_class_method :new
         end
 
-        T_SimpleEnum = ::Ice::__defineEnum('::Test::SimpleEnum', SimpleEnum, SimpleEnum::_enumerators)
+        T_SimpleEnum = Ice::__defineEnum('::Test::SimpleEnum', SimpleEnum, SimpleEnum::_enumerators)
     end
 
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def opByte(b1, context=nil)
                 TestIntfPrx_mixin::OP_opByte.invoke(self, [b1], context)
             end
@@ -283,17 +281,17 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteEnum, false, 0]], [[::Test::T_ByteEnum, false, 0]], [::Test::T_ByteEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, nil, [[::Test::T_ShortEnum, false, 0]], [[::Test::T_ShortEnum, false, 0]], [::Test::T_ShortEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, nil, [[::Test::T_IntEnum, false, 0]], [[::Test::T_IntEnum, false, 0]], [::Test::T_IntEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opSimple = ::Ice::__defineOperation('opSimple', ::Ice::OperationMode::Normal, nil, [[::Test::T_SimpleEnum, false, 0]], [[::Test::T_SimpleEnum, false, 0]], [::Test::T_SimpleEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_opByte = Ice::__defineOperation('opByte', Ice::OperationMode::Normal, nil, [[::Test::T_ByteEnum, false, 0]], [[::Test::T_ByteEnum, false, 0]], [::Test::T_ByteEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opShort = Ice::__defineOperation('opShort', Ice::OperationMode::Normal, nil, [[::Test::T_ShortEnum, false, 0]], [[::Test::T_ShortEnum, false, 0]], [::Test::T_ShortEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opInt = Ice::__defineOperation('opInt', Ice::OperationMode::Normal, nil, [[::Test::T_IntEnum, false, 0]], [[::Test::T_IntEnum, false, 0]], [::Test::T_IntEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opSimple = Ice::__defineOperation('opSimple', Ice::OperationMode::Normal, nil, [[::Test::T_SimpleEnum, false, 0]], [[::Test::T_SimpleEnum, false, 0]], [::Test::T_SimpleEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

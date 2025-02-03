@@ -14,48 +14,45 @@ require 'Ice'
 require 'Ice/Locator.rb'
 
 module ::IceLocatorDiscovery
-
     if not defined?(::IceLocatorDiscovery::T_LookupReplyPrx)
-        T_LookupReplyPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::LookupReply')
+        T_LookupReplyPrx = Ice::__declareProxy('::IceLocatorDiscovery::LookupReply')
     end
 
     if not defined?(::IceLocatorDiscovery::LookupReplyPrx)
         module LookupReplyPrx_mixin
-
             def foundLocator(prx, context=nil)
                 LookupReplyPrx_mixin::OP_foundLocator.invoke(self, [prx], context)
             end
         end
 
-        class LookupReplyPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class LookupReplyPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include LookupReplyPrx_mixin
         end
 
         T_LookupReplyPrx.defineProxy(LookupReplyPrx, nil, [])
 
-        LookupReplyPrx_mixin::OP_foundLocator = ::Ice::__defineOperation('foundLocator', ::Ice::OperationMode::Normal, nil, [[::Ice::T_LocatorPrx, false, 0]], [], nil, [])
+        LookupReplyPrx_mixin::OP_foundLocator = Ice::__defineOperation('foundLocator', Ice::OperationMode::Normal, nil, [[::Ice::T_LocatorPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::IceLocatorDiscovery::T_LookupPrx)
-        T_LookupPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::Lookup')
+        T_LookupPrx = Ice::__declareProxy('::IceLocatorDiscovery::Lookup')
     end
 
     if not defined?(::IceLocatorDiscovery::LookupPrx)
         module LookupPrx_mixin
-
             def findLocator(instanceName, reply, context=nil)
                 LookupPrx_mixin::OP_findLocator.invoke(self, [instanceName, reply], context)
             end
         end
 
-        class LookupPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class LookupPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include LookupPrx_mixin
         end
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 
-        LookupPrx_mixin::OP_findLocator = ::Ice::__defineOperation('findLocator', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::IceLocatorDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_findLocator = Ice::__defineOperation('findLocator', Ice::OperationMode::Idempotent, nil, [[Ice::T_string, false, 0], [::IceLocatorDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
     end
 end

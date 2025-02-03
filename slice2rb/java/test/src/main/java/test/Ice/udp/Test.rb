@@ -14,40 +14,37 @@ require 'Ice'
 require 'Ice/Identity.rb'
 
 module ::Test
-
     if not defined?(::Test::T_PingReplyPrx)
-        T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
+        T_PingReplyPrx = Ice::__declareProxy('::Test::PingReply')
     end
 
     if not defined?(::Test::PingReplyPrx)
         module PingReplyPrx_mixin
-
             def reply(context=nil)
                 PingReplyPrx_mixin::OP_reply.invoke(self, [], context)
             end
         end
 
-        class PingReplyPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class PingReplyPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include PingReplyPrx_mixin
         end
 
         T_PingReplyPrx.defineProxy(PingReplyPrx, nil, [])
 
-        PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        PingReplyPrx_mixin::OP_reply = Ice::__defineOperation('reply', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_ByteSeq)
-        T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
+        T_ByteSeq = Ice::__defineSequence('::Test::ByteSeq', Ice::T_byte)
     end
 
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def ping(reply, context=nil)
                 TestIntfPrx_mixin::OP_ping.invoke(self, [reply], context)
             end
@@ -65,16 +62,16 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_sendByteSeq = ::Ice::__defineOperation('sendByteSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0], [::Test::T_PingReplyPrx, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_ping = Ice::__defineOperation('ping', Ice::OperationMode::Normal, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_sendByteSeq = Ice::__defineOperation('sendByteSeq', Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0], [::Test::T_PingReplyPrx, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_pingBiDir = Ice::__defineOperation('pingBiDir', Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

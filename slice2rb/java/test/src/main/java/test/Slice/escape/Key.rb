@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Abstract
-
     if not defined?(::Abstract::Assert)
         class Assert
             include Comparable
@@ -59,12 +58,12 @@ module ::Abstract
             private_class_method :new
         end
 
-        T_Assert = ::Ice::__defineEnum('::abstract::assert', Assert, Assert::_enumerators)
+        T_Assert = Ice::__defineEnum('::abstract::assert', Assert, Assert::_enumerators)
     end
 
     if not defined?(::Abstract::Break)
         class Break
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(_case=0)
                 @_case = _case
             end
@@ -88,55 +87,53 @@ module ::Abstract
             attr_accessor :_case
         end
 
-        T_Break = ::Ice::__defineStruct('::abstract::break', Break, [["_case", ::Ice::T_int]])
+        T_Break = Ice::__defineStruct('::abstract::break', Break, [["_case", Ice::T_int]])
     end
 
     if not defined?(::Abstract::T_CatchPrx)
-        T_CatchPrx = ::Ice::__declareProxy('::abstract::catch')
+        T_CatchPrx = Ice::__declareProxy('::abstract::catch')
     end
 
     if not defined?(::Abstract::CatchPrx)
         module CatchPrx_mixin
-
             def _checkedCast(_clone, context=nil)
                 CatchPrx_mixin::OP_checkedCast.invoke(self, [_clone], context)
             end
         end
 
-        class CatchPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class CatchPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include CatchPrx_mixin
         end
 
         T_CatchPrx.defineProxy(CatchPrx, nil, [])
 
-        CatchPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        CatchPrx_mixin::OP_checkedCast = Ice::__defineOperation('checkedCast', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [[Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::Abstract::T_DefaultPrx)
-        T_DefaultPrx = ::Ice::__declareProxy('::abstract::default')
+        T_DefaultPrx = Ice::__declareProxy('::abstract::default')
     end
 
     if not defined?(::Abstract::DefaultPrx)
         module DefaultPrx_mixin
-
             def _do(context=nil)
                 DefaultPrx_mixin::OP_do.invoke(self, [], context)
             end
         end
 
-        class DefaultPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class DefaultPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include DefaultPrx_mixin
         end
 
         T_DefaultPrx.defineProxy(DefaultPrx, nil, [])
 
-        DefaultPrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        DefaultPrx_mixin::OP_do = Ice::__defineOperation('do', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Abstract::T_Else)
-        T_Else = ::Ice::__declareClass('::abstract::else')
+        T_Else = Ice::__declareClass('::abstract::else')
     end
 
     if not defined?(::Abstract::Else)
@@ -152,14 +149,14 @@ module ::Abstract
         end
 
         T_Else.defineClass(Else, -1, false, nil, [
-            ['_if', ::Ice::T_int, false, 0],
+            ['_if', Ice::T_int, false, 0],
             ['equals', ::Abstract::T_DefaultPrx, false, 0],
-            ['final', ::Ice::T_int, false, 0]
+            ['final', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::Abstract::T_FinalizePrx)
-        T_FinalizePrx = ::Ice::__declareProxy('::abstract::finalize')
+        T_FinalizePrx = Ice::__declareProxy('::abstract::finalize')
     end
 
     if not defined?(::Abstract::FinalizePrx)
@@ -168,8 +165,8 @@ module ::Abstract
             include ::Abstract::CatchPrx_mixin
         end
 
-        class FinalizePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class FinalizePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include FinalizePrx_mixin
         end
 
@@ -177,11 +174,11 @@ module ::Abstract
     end
 
     if not defined?(::Abstract::T_For)
-        T_For = ::Ice::__defineSequence('::abstract::for', ::Abstract::T_Assert)
+        T_For = Ice::__defineSequence('::abstract::for', ::Abstract::T_Assert)
     end
 
     if not defined?(::Abstract::T_Goto)
-        T_Goto = ::Ice::__defineDictionary('::abstract::goto', ::Ice::T_string, ::Abstract::T_Assert)
+        T_Goto = Ice::__defineDictionary('::abstract::goto', Ice::T_string, ::Abstract::T_Assert)
     end
 
     if not defined?(::Abstract::HashCode)
@@ -193,7 +190,7 @@ module ::Abstract
             attr_accessor :_if
         end
 
-        T_HashCode = ::Ice::__defineException('::abstract::hashCode', HashCode, nil, [["_if", ::Ice::T_int, false, 0]])
+        T_HashCode = Ice::__defineException('::abstract::hashCode', HashCode, nil, [["_if", Ice::T_int, false, 0]])
     end
 
     if not defined?(::Abstract::Import)
@@ -205,32 +202,31 @@ module ::Abstract
             attr_accessor :instanceof, :native
         end
 
-        T_Import = ::Ice::__defineException('::abstract::import', Import, ::Abstract::T_HashCode, [
-            ["instanceof", ::Ice::T_int, false, 0],
-            ["native", ::Ice::T_int, false, 0]
+        T_Import = Ice::__defineException('::abstract::import', Import, ::Abstract::T_HashCode, [
+            ["instanceof", Ice::T_int, false, 0],
+            ["native", Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::Abstract::T_NewPrx)
-        T_NewPrx = ::Ice::__declareProxy('::abstract::new')
+        T_NewPrx = Ice::__declareProxy('::abstract::new')
     end
 
     if not defined?(::Abstract::NewPrx)
         module NewPrx_mixin
-
             def notify(notifyAll, null, package, public, _return, static, strictfp, _super, context=nil)
                 NewPrx_mixin::OP_notify.invoke(self, [notifyAll, null, package, public, _return, static, strictfp, _super], context)
             end
         end
 
-        class NewPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class NewPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include NewPrx_mixin
         end
 
         T_NewPrx.defineProxy(NewPrx, nil, [])
 
-        NewPrx_mixin::OP_notify = ::Ice::__defineOperation('notify', ::Ice::OperationMode::Normal, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Else, false, 0], [::Abstract::T_FinalizePrx, false, 0], [::Abstract::T_CatchPrx, false, 0], [::Abstract::T_DefaultPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_Assert, false, 0], [::Abstract::T_HashCode, ::Abstract::T_Import])
+        NewPrx_mixin::OP_notify = Ice::__defineOperation('notify', Ice::OperationMode::Normal, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Else, false, 0], [::Abstract::T_FinalizePrx, false, 0], [::Abstract::T_CatchPrx, false, 0], [::Abstract::T_DefaultPrx, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], [::Abstract::T_Assert, false, 0], [::Abstract::T_HashCode, ::Abstract::T_Import])
     end
 
     Switch = 0

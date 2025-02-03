@@ -13,26 +13,24 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_BackendPrx)
-        T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
+        T_BackendPrx = Ice::__declareProxy('::Test::Backend')
     end
 
     if not defined?(::Test::BackendPrx)
         module BackendPrx_mixin
-
             def shutdown(context=nil)
                 BackendPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
         end
 
-        class BackendPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BackendPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BackendPrx_mixin
         end
 
         T_BackendPrx.defineProxy(BackendPrx, nil, [])
 
-        BackendPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BackendPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

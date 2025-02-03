@@ -13,26 +13,24 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_MyObjectPrx)
-        T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
+        T_MyObjectPrx = Ice::__declareProxy('::Test::MyObject')
     end
 
     if not defined?(::Test::MyObjectPrx)
         module MyObjectPrx_mixin
-
             def getName(context=nil)
                 MyObjectPrx_mixin::OP_getName.invoke(self, [], context)
             end
         end
 
-        class MyObjectPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyObjectPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyObjectPrx_mixin
         end
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
-        MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        MyObjectPrx_mixin::OP_getName = Ice::__defineOperation('getName', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 end

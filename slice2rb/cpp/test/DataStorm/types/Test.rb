@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::StructValue)
         class StructValue
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(firstName='', lastName='', age=0)
                 @firstName = firstName
                 @lastName = lastName
@@ -46,15 +45,15 @@ module ::Test
             attr_accessor :firstName, :lastName, :age
         end
 
-        T_StructValue = ::Ice::__defineStruct('::Test::StructValue', StructValue, [
-            ["firstName", ::Ice::T_string],
-            ["lastName", ::Ice::T_string],
-            ["age", ::Ice::T_int]
+        T_StructValue = Ice::__defineStruct('::Test::StructValue', StructValue, [
+            ["firstName", Ice::T_string],
+            ["lastName", Ice::T_string],
+            ["age", Ice::T_int]
         ])
     end
 
     if not defined?(::Test::T_Base)
-        T_Base = ::Ice::__declareClass('::Test::Base')
+        T_Base = Ice::__declareClass('::Test::Base')
     end
 
     if not defined?(::Test::Base)
@@ -67,11 +66,11 @@ module ::Test
             attr_accessor :b
         end
 
-        T_Base.defineClass(Base, -1, false, nil, [['b', ::Ice::T_string, false, 0]])
+        T_Base.defineClass(Base, -1, false, nil, [['b', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_Extended)
-        T_Extended = ::Ice::__declareClass('::Test::Extended')
+        T_Extended = Ice::__declareClass('::Test::Extended')
     end
 
     if not defined?(::Test::Extended)
@@ -85,6 +84,6 @@ module ::Test
             attr_accessor :e
         end
 
-        T_Extended.defineClass(Extended, -1, false, ::Test::T_Base, [['e', ::Ice::T_int, false, 0]])
+        T_Extended.defineClass(Extended, -1, false, ::Test::T_Base, [['e', Ice::T_int, false, 0]])
     end
 end

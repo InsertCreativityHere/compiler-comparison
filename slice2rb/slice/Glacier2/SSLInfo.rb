@@ -14,10 +14,9 @@ require 'Ice'
 require 'Ice/BuiltinSequences.rb'
 
 module ::Glacier2
-
     if not defined?(::Glacier2::SSLInfo)
         class SSLInfo
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(remoteHost='', remotePort=0, localHost='', localPort=0, cipher='', certs=nil)
                 @remoteHost = remoteHost
                 @remotePort = remotePort
@@ -56,12 +55,12 @@ module ::Glacier2
             attr_accessor :remoteHost, :remotePort, :localHost, :localPort, :cipher, :certs
         end
 
-        T_SSLInfo = ::Ice::__defineStruct('::Glacier2::SSLInfo', SSLInfo, [
-            ["remoteHost", ::Ice::T_string],
-            ["remotePort", ::Ice::T_int],
-            ["localHost", ::Ice::T_string],
-            ["localPort", ::Ice::T_int],
-            ["cipher", ::Ice::T_string],
+        T_SSLInfo = Ice::__defineStruct('::Glacier2::SSLInfo', SSLInfo, [
+            ["remoteHost", Ice::T_string],
+            ["remotePort", Ice::T_int],
+            ["localHost", Ice::T_string],
+            ["localPort", Ice::T_int],
+            ["cipher", Ice::T_string],
             ["certs", ::Ice::T_StringSeq]
         ])
     end

@@ -14,14 +14,12 @@ require 'Ice'
 require 'Ice/PropertyDict.rb'
 
 module ::Test
-
     if not defined?(::Test::T_RemoteCommunicatorPrx)
-        T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
+        T_RemoteCommunicatorPrx = Ice::__declareProxy('::Test::RemoteCommunicator')
     end
 
     if not defined?(::Test::RemoteCommunicatorPrx)
         module RemoteCommunicatorPrx_mixin
-
             def getAdmin(context=nil)
                 RemoteCommunicatorPrx_mixin::OP_getAdmin.invoke(self, [], context)
             end
@@ -43,27 +41,26 @@ module ::Test
             end
         end
 
-        class RemoteCommunicatorPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class RemoteCommunicatorPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include RemoteCommunicatorPrx_mixin
         end
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
-        RemoteCommunicatorPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_waitForShutdown = ::Ice::__defineOperation('waitForShutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_getAdmin = Ice::__defineOperation('getAdmin', Ice::OperationMode::Normal, nil, [], [], [Ice::T_ObjectPrx, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_getChanges = Ice::__defineOperation('getChanges', Ice::OperationMode::Normal, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_waitForShutdown = Ice::__defineOperation('waitForShutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_destroy = Ice::__defineOperation('destroy', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_RemoteCommunicatorFactoryPrx)
-        T_RemoteCommunicatorFactoryPrx = ::Ice::__declareProxy('::Test::RemoteCommunicatorFactory')
+        T_RemoteCommunicatorFactoryPrx = Ice::__declareProxy('::Test::RemoteCommunicatorFactory')
     end
 
     if not defined?(::Test::RemoteCommunicatorFactoryPrx)
         module RemoteCommunicatorFactoryPrx_mixin
-
             def createCommunicator(props, context=nil)
                 RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator.invoke(self, [props], context)
             end
@@ -73,36 +70,35 @@ module ::Test
             end
         end
 
-        class RemoteCommunicatorFactoryPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class RemoteCommunicatorFactoryPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include RemoteCommunicatorFactoryPrx_mixin
         end
 
         T_RemoteCommunicatorFactoryPrx.defineProxy(RemoteCommunicatorFactoryPrx, nil, [])
 
-        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
-        RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = Ice::__defineOperation('createCommunicator', Ice::OperationMode::Normal, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_TestFacetPrx)
-        T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
+        T_TestFacetPrx = Ice::__declareProxy('::Test::TestFacet')
     end
 
     if not defined?(::Test::TestFacetPrx)
         module TestFacetPrx_mixin
-
             def op(context=nil)
                 TestFacetPrx_mixin::OP_op.invoke(self, [], context)
             end
         end
 
-        class TestFacetPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestFacetPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestFacetPrx_mixin
         end
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 
-        TestFacetPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestFacetPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

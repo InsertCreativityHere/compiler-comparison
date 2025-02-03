@@ -14,14 +14,12 @@ require 'Ice'
 require 'Ice/Identity.rb'
 
 module ::IceDiscovery
-
     if not defined?(::IceDiscovery::T_LookupReplyPrx)
-        T_LookupReplyPrx = ::Ice::__declareProxy('::IceDiscovery::LookupReply')
+        T_LookupReplyPrx = Ice::__declareProxy('::IceDiscovery::LookupReply')
     end
 
     if not defined?(::IceDiscovery::LookupReplyPrx)
         module LookupReplyPrx_mixin
-
             def foundObjectById(id, prx, context=nil)
                 LookupReplyPrx_mixin::OP_foundObjectById.invoke(self, [id, prx], context)
             end
@@ -31,24 +29,23 @@ module ::IceDiscovery
             end
         end
 
-        class LookupReplyPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class LookupReplyPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include LookupReplyPrx_mixin
         end
 
         T_LookupReplyPrx.defineProxy(LookupReplyPrx, nil, [])
 
-        LookupReplyPrx_mixin::OP_foundObjectById = ::Ice::__defineOperation('foundObjectById', ::Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [])
-        LookupReplyPrx_mixin::OP_foundAdapterById = ::Ice::__defineOperation('foundAdapterById', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
+        LookupReplyPrx_mixin::OP_foundObjectById = Ice::__defineOperation('foundObjectById', Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0], [Ice::T_ObjectPrx, false, 0]], [], nil, [])
+        LookupReplyPrx_mixin::OP_foundAdapterById = Ice::__defineOperation('foundAdapterById', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_ObjectPrx, false, 0], [Ice::T_bool, false, 0]], [], nil, [])
     end
 
     if not defined?(::IceDiscovery::T_LookupPrx)
-        T_LookupPrx = ::Ice::__declareProxy('::IceDiscovery::Lookup')
+        T_LookupPrx = Ice::__declareProxy('::IceDiscovery::Lookup')
     end
 
     if not defined?(::IceDiscovery::LookupPrx)
         module LookupPrx_mixin
-
             def findObjectById(domainId, id, reply, context=nil)
                 LookupPrx_mixin::OP_findObjectById.invoke(self, [domainId, id, reply], context)
             end
@@ -58,14 +55,14 @@ module ::IceDiscovery
             end
         end
 
-        class LookupPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class LookupPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include LookupPrx_mixin
         end
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 
-        LookupPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_Identity, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_findAdapterById = ::Ice::__defineOperation('findAdapterById', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_findObjectById = Ice::__defineOperation('findObjectById', Ice::OperationMode::Idempotent, nil, [[Ice::T_string, false, 0], [::Ice::T_Identity, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_findAdapterById = Ice::__defineOperation('findAdapterById', Ice::OperationMode::Idempotent, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
     end
 end

@@ -13,26 +13,24 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_SinglePrx)
-        T_SinglePrx = ::Ice::__declareProxy('::Test::Single')
+        T_SinglePrx = Ice::__declareProxy('::Test::Single')
     end
 
     if not defined?(::Test::SinglePrx)
         module SinglePrx_mixin
-
             def event(i, context=nil)
                 SinglePrx_mixin::OP_event.invoke(self, [i], context)
             end
         end
 
-        class SinglePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class SinglePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include SinglePrx_mixin
         end
 
         T_SinglePrx.defineProxy(SinglePrx, nil, [])
 
-        SinglePrx_mixin::OP_event = ::Ice::__defineOperation('event', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        SinglePrx_mixin::OP_event = Ice::__defineOperation('event', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [], nil, [])
     end
 end

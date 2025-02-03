@@ -15,10 +15,9 @@ require 'Ice/Identity.rb'
 require 'IceStorm/IceStorm.rb'
 
 module ::IceStorm
-
     if not defined?(::IceStorm::SubscriberRecordKey)
         class SubscriberRecordKey
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(topic=::Ice::Identity.new, id=::Ice::Identity.new)
                 @topic = topic
                 @id = id
@@ -45,7 +44,7 @@ module ::IceStorm
             attr_accessor :topic, :id
         end
 
-        T_SubscriberRecordKey = ::Ice::__defineStruct('::IceStorm::SubscriberRecordKey', SubscriberRecordKey, [
+        T_SubscriberRecordKey = Ice::__defineStruct('::IceStorm::SubscriberRecordKey', SubscriberRecordKey, [
             ["topic", ::Ice::T_Identity],
             ["id", ::Ice::T_Identity]
         ])
@@ -53,7 +52,7 @@ module ::IceStorm
 
     if not defined?(::IceStorm::SubscriberRecord)
         class SubscriberRecord
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(topicName='', id=::Ice::Identity.new, link=false, obj=nil, theQoS=nil, cost=0, theTopic=nil)
                 @topicName = topicName
                 @id = id
@@ -95,18 +94,18 @@ module ::IceStorm
             attr_accessor :topicName, :id, :link, :obj, :theQoS, :cost, :theTopic
         end
 
-        T_SubscriberRecord = ::Ice::__defineStruct('::IceStorm::SubscriberRecord', SubscriberRecord, [
-            ["topicName", ::Ice::T_string],
+        T_SubscriberRecord = Ice::__defineStruct('::IceStorm::SubscriberRecord', SubscriberRecord, [
+            ["topicName", Ice::T_string],
             ["id", ::Ice::T_Identity],
-            ["link", ::Ice::T_bool],
-            ["obj", ::Ice::T_ObjectPrx],
+            ["link", Ice::T_bool],
+            ["obj", Ice::T_ObjectPrx],
             ["theQoS", ::IceStorm::T_QoS],
-            ["cost", ::Ice::T_int],
+            ["cost", Ice::T_int],
             ["theTopic", ::IceStorm::T_TopicPrx]
         ])
     end
 
     if not defined?(::IceStorm::T_SubscriberRecordSeq)
-        T_SubscriberRecordSeq = ::Ice::__defineSequence('::IceStorm::SubscriberRecordSeq', ::IceStorm::T_SubscriberRecord)
+        T_SubscriberRecordSeq = Ice::__defineSequence('::IceStorm::SubscriberRecordSeq', ::IceStorm::T_SubscriberRecord)
     end
 end

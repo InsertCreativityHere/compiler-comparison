@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::And
-
     if not defined?(::And::Assert)
         class Assert
             include Comparable
@@ -59,12 +58,12 @@ module ::And
             private_class_method :new
         end
 
-        T_Assert = ::Ice::__defineEnum('::and::assert', Assert, Assert::_enumerators)
+        T_Assert = Ice::__defineEnum('::and::assert', Assert, Assert::_enumerators)
     end
 
     if not defined?(::And::Continue)
         class Continue
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(_def=0)
                 @_def = _def
             end
@@ -88,55 +87,53 @@ module ::And
             attr_accessor :_def
         end
 
-        T_Continue = ::Ice::__defineStruct('::and::continue', Continue, [["_def", ::Ice::T_int]])
+        T_Continue = Ice::__defineStruct('::and::continue', Continue, [["_def", Ice::T_int]])
     end
 
     if not defined?(::And::T_DelPrx)
-        T_DelPrx = ::Ice::__declareProxy('::and::del')
+        T_DelPrx = Ice::__declareProxy('::and::del')
     end
 
     if not defined?(::And::DelPrx)
         module DelPrx_mixin
-
             def elif(_else, context=nil)
                 DelPrx_mixin::OP_elif.invoke(self, [_else], context)
             end
         end
 
-        class DelPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class DelPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include DelPrx_mixin
         end
 
         T_DelPrx.defineProxy(DelPrx, nil, [])
 
-        DelPrx_mixin::OP_elif = ::Ice::__defineOperation('elif', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        DelPrx_mixin::OP_elif = Ice::__defineOperation('elif', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [[Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::T_ExecPrx)
-        T_ExecPrx = ::Ice::__declareProxy('::and::exec')
+        T_ExecPrx = Ice::__declareProxy('::and::exec')
     end
 
     if not defined?(::And::ExecPrx)
         module ExecPrx_mixin
-
             def finally(context=nil)
                 ExecPrx_mixin::OP_finally.invoke(self, [], context)
             end
         end
 
-        class ExecPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ExecPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ExecPrx_mixin
         end
 
         T_ExecPrx.defineProxy(ExecPrx, nil, [])
 
-        ExecPrx_mixin::OP_finally = ::Ice::__defineOperation('finally', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ExecPrx_mixin::OP_finally = Ice::__defineOperation('finally', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::And::T_For)
-        T_For = ::Ice::__declareClass('::and::for')
+        T_For = Ice::__declareClass('::and::for')
     end
 
     if not defined?(::And::For)
@@ -152,14 +149,14 @@ module ::And
         end
 
         T_For.defineClass(For, -1, false, nil, [
-            ['lambda', ::Ice::T_int, false, 0],
+            ['lambda', Ice::T_int, false, 0],
             ['from', ::And::T_ExecPrx, false, 0],
-            ['global', ::Ice::T_int, false, 0]
+            ['global', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::And::T_IfPrx)
-        T_IfPrx = ::Ice::__declareProxy('::and::if')
+        T_IfPrx = Ice::__declareProxy('::and::if')
     end
 
     if not defined?(::And::IfPrx)
@@ -168,8 +165,8 @@ module ::And
             include ::And::DelPrx_mixin
         end
 
-        class IfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class IfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include IfPrx_mixin
         end
 
@@ -177,11 +174,11 @@ module ::And
     end
 
     if not defined?(::And::T_Import)
-        T_Import = ::Ice::__defineSequence('::and::import', ::And::T_Assert)
+        T_Import = Ice::__defineSequence('::and::import', ::And::T_Assert)
     end
 
     if not defined?(::And::T_In)
-        T_In = ::Ice::__defineDictionary('::and::in', ::Ice::T_string, ::And::T_Assert)
+        T_In = Ice::__defineDictionary('::and::in', Ice::T_string, ::And::T_Assert)
     end
 
     if not defined?(::And::Is)
@@ -193,7 +190,7 @@ module ::And
             attr_accessor :lambda
         end
 
-        T_Is = ::Ice::__defineException('::and::is', Is, nil, [["lambda", ::Ice::T_int, false, 0]])
+        T_Is = Ice::__defineException('::and::is', Is, nil, [["lambda", Ice::T_int, false, 0]])
     end
 
     if not defined?(::And::Not)
@@ -205,32 +202,31 @@ module ::And
             attr_accessor :_or, :pass
         end
 
-        T_Not = ::Ice::__defineException('::and::not', Not, ::And::T_Is, [
-            ["_or", ::Ice::T_int, false, 0],
-            ["pass", ::Ice::T_int, false, 0]
+        T_Not = Ice::__defineException('::and::not', Not, ::And::T_Is, [
+            ["_or", Ice::T_int, false, 0],
+            ["pass", Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::And::T_PrintPrx)
-        T_PrintPrx = ::Ice::__declareProxy('::and::print')
+        T_PrintPrx = Ice::__declareProxy('::and::print')
     end
 
     if not defined?(::And::PrintPrx)
         module PrintPrx_mixin
-
             def raise(_else, _return, _while, _yield, _or, global, context=nil)
                 PrintPrx_mixin::OP_raise.invoke(self, [_else, _return, _while, _yield, _or, global], context)
             end
         end
 
-        class PrintPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class PrintPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include PrintPrx_mixin
         end
 
         T_PrintPrx.defineProxy(PrintPrx, nil, [])
 
-        PrintPrx_mixin::OP_raise = ::Ice::__defineOperation('raise', ::Ice::OperationMode::Normal, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::And::T_IfPrx, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
+        PrintPrx_mixin::OP_raise = Ice::__defineOperation('raise', Ice::OperationMode::Normal, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::And::T_IfPrx, false, 0], [Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
     end
 
     Lambda = 0
@@ -280,6 +276,6 @@ module ::And
             private_class_method :new
         end
 
-        T_EnumNone = ::Ice::__defineEnum('::and::EnumNone', EnumNone, EnumNone::_enumerators)
+        T_EnumNone = Ice::__defineEnum('::and::EnumNone', EnumNone, EnumNone::_enumerators)
     end
 end

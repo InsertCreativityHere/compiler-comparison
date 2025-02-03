@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::Test1
-
     if not defined?(::Test1::T_C1)
-        T_C1 = ::Ice::__declareClass('::Test1::C1')
+        T_C1 = Ice::__declareClass('::Test1::C1')
     end
 
     if not defined?(::Test1::C1)
@@ -28,11 +27,11 @@ module ::Test1
             attr_accessor :i
         end
 
-        T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test1::T_C2)
-        T_C2 = ::Ice::__declareClass('::Test1::C2')
+        T_C2 = Ice::__declareClass('::Test1::C2')
     end
 
     if not defined?(::Test1::C2)
@@ -46,7 +45,7 @@ module ::Test1
             attr_accessor :l
         end
 
-        T_C2.defineClass(C2, -1, false, ::Test1::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, ::Test1::T_C1, [['l', Ice::T_long, false, 0]])
     end
 
     if not defined?(::Test1::E1)
@@ -58,7 +57,7 @@ module ::Test1
             attr_accessor :i
         end
 
-        T_E1 = ::Ice::__defineException('::Test1::E1', E1, nil, [["i", ::Ice::T_int, false, 0]])
+        T_E1 = Ice::__defineException('::Test1::E1', E1, nil, [["i", Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test1::E2)
@@ -70,7 +69,7 @@ module ::Test1
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::Test1::E2', E2, ::Test1::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = Ice::__defineException('::Test1::E2', E2, ::Test1::T_E1, [["l", Ice::T_long, false, 0]])
     end
 
     if not defined?(::Test1::Notify)
@@ -82,6 +81,6 @@ module ::Test1
             attr_accessor :i
         end
 
-        T_Notify = ::Ice::__defineException('::Test1::notify', Notify, nil, [["i", ::Ice::T_int, false, 0]])
+        T_Notify = Ice::__defineException('::Test1::notify', Notify, nil, [["i", Ice::T_int, false, 0]])
     end
 end

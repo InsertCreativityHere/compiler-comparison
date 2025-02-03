@@ -14,9 +14,8 @@ require 'Ice'
 require_relative 'TestAMD.rb'
 
 module ::Test
-
     if not defined?(::Test::T_SBSUnknownDerived)
-        T_SBSUnknownDerived = ::Ice::__declareClass('::Test::SBSUnknownDerived')
+        T_SBSUnknownDerived = Ice::__declareClass('::Test::SBSUnknownDerived')
     end
 
     if not defined?(::Test::SBSUnknownDerived)
@@ -30,11 +29,11 @@ module ::Test
             attr_accessor :sbsud
         end
 
-        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
+        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, ::Test::T_SBase, [['sbsud', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_SUnknown)
-        T_SUnknown = ::Ice::__declareClass('::Test::SUnknown')
+        T_SUnknown = Ice::__declareClass('::Test::SUnknown')
     end
 
     if not defined?(::Test::SUnknown)
@@ -49,13 +48,13 @@ module ::Test
         end
 
         T_SUnknown.defineClass(SUnknown, -1, false, nil, [
-            ['su', ::Ice::T_string, false, 0],
+            ['su', Ice::T_string, false, 0],
             ['cycle', ::Test::T_SUnknown, false, 0]
         ])
     end
 
     if not defined?(::Test::T_D2)
-        T_D2 = ::Ice::__declareClass('::Test::D2')
+        T_D2 = Ice::__declareClass('::Test::D2')
     end
 
     if not defined?(::Test::D2)
@@ -71,13 +70,13 @@ module ::Test
         end
 
         T_D2.defineClass(D2, -1, false, ::Test::T_B, [
-            ['sd2', ::Ice::T_string, false, 0],
+            ['sd2', Ice::T_string, false, 0],
             ['pd2', ::Test::T_B, false, 0]
         ])
     end
 
     if not defined?(::Test::T_D4)
-        T_D4 = ::Ice::__declareClass('::Test::D4')
+        T_D4 = Ice::__declareClass('::Test::D4')
     end
 
     if not defined?(::Test::D4)
@@ -107,14 +106,14 @@ module ::Test
             attr_accessor :sude, :pd2
         end
 
-        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, ::Test::T_BaseException, [
-            ["sude", ::Ice::T_string, false, 0],
+        T_UnknownDerivedException = Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, ::Test::T_BaseException, [
+            ["sude", Ice::T_string, false, 0],
             ["pd2", ::Test::T_D2, false, 0]
         ])
     end
 
     if not defined?(::Test::T_MyClass)
-        T_MyClass = ::Ice::__declareClass('::Test::MyClass')
+        T_MyClass = Ice::__declareClass('::Test::MyClass')
     end
 
     if not defined?(::Test::MyClass)
@@ -127,11 +126,11 @@ module ::Test
             attr_accessor :i
         end
 
-        T_MyClass.defineClass(MyClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_MyClass.defineClass(MyClass, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::T_PSUnknown)
-        T_PSUnknown = ::Ice::__declareClass('::Test::PSUnknown')
+        T_PSUnknown = Ice::__declareClass('::Test::PSUnknown')
     end
 
     if not defined?(::Test::PSUnknown)
@@ -148,14 +147,14 @@ module ::Test
         end
 
         T_PSUnknown.defineClass(PSUnknown, -1, false, ::Test::T_Preserved, [
-            ['psu', ::Ice::T_string, false, 0],
+            ['psu', Ice::T_string, false, 0],
             ['graph', ::Test::T_PNode, false, 0],
             ['cl', ::Test::T_MyClass, false, 0]
         ])
     end
 
     if not defined?(::Test::T_PSUnknown2)
-        T_PSUnknown2 = ::Ice::__declareClass('::Test::PSUnknown2')
+        T_PSUnknown2 = Ice::__declareClass('::Test::PSUnknown2')
     end
 
     if not defined?(::Test::PSUnknown2)
@@ -181,6 +180,6 @@ module ::Test
             attr_accessor :p
         end
 
-        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
+        T_PSUnknownException = Ice::__defineException('::Test::PSUnknownException', PSUnknownException, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
     end
 end

@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_Stock)
-        T_Stock = ::Ice::__declareClass('::Test::Stock')
+        T_Stock = Ice::__declareClass('::Test::Stock')
     end
 
     if not defined?(::Test::Stock)
@@ -31,9 +30,9 @@ module ::Test
         end
 
         T_Stock.defineClass(Stock, -1, false, nil, [
-            ['price', ::Ice::T_float, false, 0],
-            ['lastBid', ::Ice::T_float, false, 0],
-            ['lastAsk', ::Ice::T_float, false, 0]
+            ['price', Ice::T_float, false, 0],
+            ['lastBid', Ice::T_float, false, 0],
+            ['lastAsk', Ice::T_float, false, 0]
         ])
     end
 end

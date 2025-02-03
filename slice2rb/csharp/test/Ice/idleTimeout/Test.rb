@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def sleep(ms, context=nil)
                 TestIntfPrx_mixin::OP_sleep.invoke(self, [ms], context)
             end
@@ -30,14 +28,14 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_sleep = Ice::__defineOperation('sleep', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

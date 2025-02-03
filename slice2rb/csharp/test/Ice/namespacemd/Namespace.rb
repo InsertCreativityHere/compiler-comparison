@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::WithNamespace
-
     if not defined?(::WithNamespace::T_C1)
-        T_C1 = ::Ice::__declareClass('::WithNamespace::C1')
+        T_C1 = Ice::__declareClass('::WithNamespace::C1')
     end
 
     if not defined?(::WithNamespace::C1)
@@ -28,11 +27,11 @@ module ::WithNamespace
             attr_accessor :i
         end
 
-        T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::WithNamespace::T_C2)
-        T_C2 = ::Ice::__declareClass('::WithNamespace::C2')
+        T_C2 = Ice::__declareClass('::WithNamespace::C2')
     end
 
     if not defined?(::WithNamespace::C2)
@@ -46,7 +45,7 @@ module ::WithNamespace
             attr_accessor :l
         end
 
-        T_C2.defineClass(C2, -1, false, ::WithNamespace::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, ::WithNamespace::T_C1, [['l', Ice::T_long, false, 0]])
     end
 
     if not defined?(::WithNamespace::E1)
@@ -58,7 +57,7 @@ module ::WithNamespace
             attr_accessor :i
         end
 
-        T_E1 = ::Ice::__defineException('::WithNamespace::E1', E1, nil, [["i", ::Ice::T_int, false, 0]])
+        T_E1 = Ice::__defineException('::WithNamespace::E1', E1, nil, [["i", Ice::T_int, false, 0]])
     end
 
     if not defined?(::WithNamespace::E2)
@@ -70,6 +69,6 @@ module ::WithNamespace
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::WithNamespace::E2', E2, ::WithNamespace::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = Ice::__defineException('::WithNamespace::E2', E2, ::WithNamespace::T_E1, [["l", Ice::T_long, false, 0]])
     end
 end

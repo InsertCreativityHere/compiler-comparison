@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::And
-
     if not defined?(::And::Array)
         class Array
             include Comparable
@@ -59,12 +58,12 @@ module ::And
             private_class_method :new
         end
 
-        T_Array = ::Ice::__defineEnum('::and::array', Array, Array::_enumerators)
+        T_Array = Ice::__defineEnum('::and::array', Array, Array::_enumerators)
     end
 
     if not defined?(::And::Xor)
         class Xor
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(abstract=0, _clone=0, private=0, protected=0, public=0, this=0, throw=0, use=0, var=0)
                 @abstract = abstract
                 @_clone = _clone
@@ -112,87 +111,84 @@ module ::And
             attr_accessor :abstract, :_clone, :private, :protected, :public, :this, :throw, :use, :var
         end
 
-        T_Xor = ::Ice::__defineStruct('::and::xor', Xor, [
-            ["abstract", ::Ice::T_int],
-            ["_clone", ::Ice::T_int],
-            ["private", ::Ice::T_int],
-            ["protected", ::Ice::T_int],
-            ["public", ::Ice::T_int],
-            ["this", ::Ice::T_int],
-            ["throw", ::Ice::T_int],
-            ["use", ::Ice::T_int],
-            ["var", ::Ice::T_int]
+        T_Xor = Ice::__defineStruct('::and::xor', Xor, [
+            ["abstract", Ice::T_int],
+            ["_clone", Ice::T_int],
+            ["private", Ice::T_int],
+            ["protected", Ice::T_int],
+            ["public", Ice::T_int],
+            ["this", Ice::T_int],
+            ["throw", Ice::T_int],
+            ["use", Ice::T_int],
+            ["var", Ice::T_int]
         ])
     end
 
     if not defined?(::And::T_BreakPrx)
-        T_BreakPrx = ::Ice::__declareProxy('::and::break')
+        T_BreakPrx = Ice::__declareProxy('::and::break')
     end
 
     if not defined?(::And::BreakPrx)
         module BreakPrx_mixin
-
             def _case(catch, context=nil)
                 BreakPrx_mixin::OP_case.invoke(self, [catch], context)
             end
         end
 
-        class BreakPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BreakPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BreakPrx_mixin
         end
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        BreakPrx_mixin::OP_case = Ice::__defineOperation('case', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [[Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::T_FunctionPrx)
-        T_FunctionPrx = ::Ice::__declareProxy('::and::function')
+        T_FunctionPrx = Ice::__declareProxy('::and::function')
     end
 
     if not defined?(::And::FunctionPrx)
         module FunctionPrx_mixin
-
             def continue(declare, default, context=nil)
                 FunctionPrx_mixin::OP_continue.invoke(self, [declare, default], context)
             end
         end
 
-        class FunctionPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class FunctionPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include FunctionPrx_mixin
         end
 
         T_FunctionPrx.defineProxy(FunctionPrx, nil, [])
 
-        FunctionPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        FunctionPrx_mixin::OP_continue = Ice::__defineOperation('continue', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], nil, [])
     end
 
     if not defined?(::And::T_DiePrx)
-        T_DiePrx = ::Ice::__declareProxy('::and::die')
+        T_DiePrx = Ice::__declareProxy('::and::die')
     end
 
     if not defined?(::And::DiePrx)
         module DiePrx_mixin
-
             def _do(context=nil)
                 DiePrx_mixin::OP_do.invoke(self, [], context)
             end
         end
 
-        class DiePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class DiePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include DiePrx_mixin
         end
 
         T_DiePrx.defineProxy(DiePrx, nil, [])
 
-        DiePrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        DiePrx_mixin::OP_do = Ice::__defineOperation('do', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::And::T_Echo)
-        T_Echo = ::Ice::__declareClass('::and::echo')
+        T_Echo = Ice::__declareClass('::and::echo')
     end
 
     if not defined?(::And::Echo)
@@ -209,15 +205,15 @@ module ::And
         end
 
         T_Echo.defineClass(Echo, -1, false, nil, [
-            ['_if', ::Ice::T_int, false, 0],
-            ['_else', ::Ice::T_int, false, 0],
+            ['_if', Ice::T_int, false, 0],
+            ['_else', Ice::T_int, false, 0],
             ['elseif', ::And::T_DiePrx, false, 0],
-            ['empty', ::Ice::T_int, false, 0]
+            ['empty', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::And::T_EnddeclarePrx)
-        T_EnddeclarePrx = ::Ice::__declareProxy('::and::enddeclare')
+        T_EnddeclarePrx = Ice::__declareProxy('::and::enddeclare')
     end
 
     if not defined?(::And::EnddeclarePrx)
@@ -226,8 +222,8 @@ module ::And
             include ::And::FunctionPrx_mixin
         end
 
-        class EnddeclarePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EnddeclarePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EnddeclarePrx_mixin
         end
 
@@ -235,11 +231,11 @@ module ::And
     end
 
     if not defined?(::And::T_Endfor)
-        T_Endfor = ::Ice::__defineSequence('::and::endfor', ::And::T_Array)
+        T_Endfor = Ice::__defineSequence('::and::endfor', ::And::T_Array)
     end
 
     if not defined?(::And::T_Endforeach)
-        T_Endforeach = ::Ice::__defineDictionary('::and::endforeach', ::Ice::T_string, ::And::T_Array)
+        T_Endforeach = Ice::__defineDictionary('::and::endforeach', Ice::T_string, ::And::T_Array)
     end
 
     if not defined?(::And::Endif)
@@ -251,7 +247,7 @@ module ::And
             attr_accessor :endswitch
         end
 
-        T_Endif = ::Ice::__defineException('::and::endif', Endif, nil, [["endswitch", ::Ice::T_int, false, 0]])
+        T_Endif = Ice::__defineException('::and::endif', Endif, nil, [["endswitch", Ice::T_int, false, 0]])
     end
 
     if not defined?(::And::Endwhile)
@@ -263,32 +259,31 @@ module ::And
             attr_accessor :eval, :exit
         end
 
-        T_Endwhile = ::Ice::__defineException('::and::endwhile', Endwhile, ::And::T_Endif, [
-            ["eval", ::Ice::T_int, false, 0],
-            ["exit", ::Ice::T_int, false, 0]
+        T_Endwhile = Ice::__defineException('::and::endwhile', Endwhile, ::And::T_Endif, [
+            ["eval", Ice::T_int, false, 0],
+            ["exit", Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::And::T_ForPrx)
-        T_ForPrx = ::Ice::__declareProxy('::and::for')
+        T_ForPrx = Ice::__declareProxy('::and::for')
     end
 
     if not defined?(::And::ForPrx)
         module ForPrx_mixin
-
             def foreach(_if, global, include, _return, list, _new, static, context=nil)
                 ForPrx_mixin::OP_foreach.invoke(self, [_if, global, include, _return, list, _new, static], context)
             end
         end
 
-        class ForPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ForPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ForPrx_mixin
         end
 
         T_ForPrx.defineProxy(ForPrx, nil, [])
 
-        ForPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, nil, [[::And::T_BreakPrx, false, 0], [::And::T_Echo, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
+        ForPrx_mixin::OP_foreach = Ice::__defineOperation('foreach', Ice::OperationMode::Normal, nil, [[::And::T_BreakPrx, false, 0], [::And::T_Echo, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
     end
 
     Or = 0

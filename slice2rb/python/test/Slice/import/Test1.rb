@@ -17,7 +17,6 @@ module ::Test
     module SubA
 
         module SubSubA1
-
             Value1 = 10
         end
     end

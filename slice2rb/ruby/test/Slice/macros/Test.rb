@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_Default)
-        T_Default = ::Ice::__declareClass('::Test::Default')
+        T_Default = Ice::__declareClass('::Test::Default')
     end
 
     if not defined?(::Test::Default)
@@ -30,13 +29,13 @@ module ::Test
         end
 
         T_Default.defineClass(Default, -1, false, nil, [
-            ['x', ::Ice::T_int, false, 0],
-            ['y', ::Ice::T_int, false, 0]
+            ['x', Ice::T_int, false, 0],
+            ['y', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::Test::T_NoDefault)
-        T_NoDefault = ::Ice::__declareClass('::Test::NoDefault')
+        T_NoDefault = Ice::__declareClass('::Test::NoDefault')
     end
 
     if not defined?(::Test::NoDefault)
@@ -51,13 +50,13 @@ module ::Test
         end
 
         T_NoDefault.defineClass(NoDefault, -1, false, nil, [
-            ['x', ::Ice::T_int, false, 0],
-            ['y', ::Ice::T_int, false, 0]
+            ['x', Ice::T_int, false, 0],
+            ['y', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::Test::T_RubyOnly)
-        T_RubyOnly = ::Ice::__declareClass('::Test::RubyOnly')
+        T_RubyOnly = Ice::__declareClass('::Test::RubyOnly')
     end
 
     if not defined?(::Test::RubyOnly)
@@ -72,8 +71,8 @@ module ::Test
         end
 
         T_RubyOnly.defineClass(RubyOnly, -1, false, nil, [
-            ['lang', ::Ice::T_string, false, 0],
-            ['version', ::Ice::T_int, false, 0]
+            ['lang', Ice::T_string, false, 0],
+            ['version', Ice::T_int, false, 0]
         ])
     end
 end

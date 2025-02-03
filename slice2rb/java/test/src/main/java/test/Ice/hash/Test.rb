@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::PointF)
         class PointF
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(x=0.0, y=0.0, z=0.0)
                 @x = x
                 @y = y
@@ -46,16 +45,16 @@ module ::Test
             attr_accessor :x, :y, :z
         end
 
-        T_PointF = ::Ice::__defineStruct('::Test::PointF', PointF, [
-            ["x", ::Ice::T_float],
-            ["y", ::Ice::T_float],
-            ["z", ::Ice::T_float]
+        T_PointF = Ice::__defineStruct('::Test::PointF', PointF, [
+            ["x", Ice::T_float],
+            ["y", Ice::T_float],
+            ["z", Ice::T_float]
         ])
     end
 
     if not defined?(::Test::PointD)
         class PointD
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(x=0.0, y=0.0, z=0.0)
                 @x = x
                 @y = y
@@ -85,16 +84,16 @@ module ::Test
             attr_accessor :x, :y, :z
         end
 
-        T_PointD = ::Ice::__defineStruct('::Test::PointD', PointD, [
-            ["x", ::Ice::T_double],
-            ["y", ::Ice::T_double],
-            ["z", ::Ice::T_double]
+        T_PointD = Ice::__defineStruct('::Test::PointD', PointD, [
+            ["x", Ice::T_double],
+            ["y", Ice::T_double],
+            ["z", Ice::T_double]
         ])
     end
 
     if not defined?(::Test::Point)
         class Point
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(x=0, y=0)
                 @x = x
                 @y = y
@@ -121,19 +120,19 @@ module ::Test
             attr_accessor :x, :y
         end
 
-        T_Point = ::Ice::__defineStruct('::Test::Point', Point, [
-            ["x", ::Ice::T_int],
-            ["y", ::Ice::T_int]
+        T_Point = Ice::__defineStruct('::Test::Point', Point, [
+            ["x", Ice::T_int],
+            ["y", Ice::T_int]
         ])
     end
 
     if not defined?(::Test::T_Points)
-        T_Points = ::Ice::__defineSequence('::Test::Points', ::Test::T_Point)
+        T_Points = Ice::__defineSequence('::Test::Points', ::Test::T_Point)
     end
 
     if not defined?(::Test::Polyline)
         class Polyline
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(vertices=nil)
                 @vertices = vertices
             end
@@ -157,12 +156,12 @@ module ::Test
             attr_accessor :vertices
         end
 
-        T_Polyline = ::Ice::__defineStruct('::Test::Polyline', Polyline, [["vertices", ::Test::T_Points]])
+        T_Polyline = Ice::__defineStruct('::Test::Polyline', Polyline, [["vertices", ::Test::T_Points]])
     end
 
     if not defined?(::Test::Color)
         class Color
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(r=0, g=0, b=0, a=0)
                 @r = r
                 @g = g
@@ -195,21 +194,21 @@ module ::Test
             attr_accessor :r, :g, :b, :a
         end
 
-        T_Color = ::Ice::__defineStruct('::Test::Color', Color, [
-            ["r", ::Ice::T_int],
-            ["g", ::Ice::T_int],
-            ["b", ::Ice::T_int],
-            ["a", ::Ice::T_int]
+        T_Color = Ice::__defineStruct('::Test::Color', Color, [
+            ["r", Ice::T_int],
+            ["g", Ice::T_int],
+            ["b", Ice::T_int],
+            ["a", Ice::T_int]
         ])
     end
 
     if not defined?(::Test::T_StringColorMap)
-        T_StringColorMap = ::Ice::__defineDictionary('::Test::StringColorMap', ::Ice::T_int, ::Test::T_Color)
+        T_StringColorMap = Ice::__defineDictionary('::Test::StringColorMap', Ice::T_int, ::Test::T_Color)
     end
 
     if not defined?(::Test::ColorPalette)
         class ColorPalette
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(colors=nil)
                 @colors = colors
             end
@@ -233,11 +232,11 @@ module ::Test
             attr_accessor :colors
         end
 
-        T_ColorPalette = ::Ice::__defineStruct('::Test::ColorPalette', ColorPalette, [["colors", ::Test::T_StringColorMap]])
+        T_ColorPalette = Ice::__defineStruct('::Test::ColorPalette', ColorPalette, [["colors", ::Test::T_StringColorMap]])
     end
 
     if not defined?(::Test::T_Pen)
-        T_Pen = ::Ice::__declareClass('::Test::Pen')
+        T_Pen = Ice::__declareClass('::Test::Pen')
     end
 
     if not defined?(::Test::Pen)
@@ -252,14 +251,14 @@ module ::Test
         end
 
         T_Pen.defineClass(Pen, -1, false, nil, [
-            ['thickness', ::Ice::T_int, false, 0],
+            ['thickness', Ice::T_int, false, 0],
             ['color', ::Test::T_Color, false, 0]
         ])
     end
 
     if not defined?(::Test::Draw)
         class Draw
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(backgroundColor=::Test::Color.new, pen=nil, shared=false)
                 @backgroundColor = backgroundColor
                 @pen = pen
@@ -289,10 +288,10 @@ module ::Test
             attr_accessor :backgroundColor, :pen, :shared
         end
 
-        T_Draw = ::Ice::__defineStruct('::Test::Draw', Draw, [
+        T_Draw = Ice::__defineStruct('::Test::Draw', Draw, [
             ["backgroundColor", ::Test::T_Color],
             ["pen", ::Test::T_Pen],
-            ["shared", ::Ice::T_bool]
+            ["shared", Ice::T_bool]
         ])
     end
 end

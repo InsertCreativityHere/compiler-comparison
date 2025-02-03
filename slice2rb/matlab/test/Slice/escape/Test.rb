@@ -15,7 +15,6 @@ require 'Ice'
 module ::Classdef
 
     module Break
-
         if not defined?(::Classdef::Break::Bitand)
             class Bitand
                 include Comparable
@@ -92,12 +91,12 @@ module ::Classdef
                 private_class_method :new
             end
 
-            T_Bitand = ::Ice::__defineEnum('::classdef::break::bitand', Bitand, Bitand::_enumerators)
+            T_Bitand = Ice::__defineEnum('::classdef::break::bitand', Bitand, Bitand::_enumerators)
         end
 
         if not defined?(::Classdef::Break::Bitor)
             class Bitor
-                include ::Ice::Inspect_mixin
+                include Ice::Inspect_mixin
                 def initialize(_case=::Classdef::Break::Bitand::Catch, continue=1, eq=2, ne=3)
                     @_case = _case
                     @continue = continue
@@ -130,16 +129,16 @@ module ::Classdef
                 attr_accessor :_case, :continue, :eq, :ne
             end
 
-            T_Bitor = ::Ice::__defineStruct('::classdef::break::bitor', Bitor, [
+            T_Bitor = Ice::__defineStruct('::classdef::break::bitor', Bitor, [
                 ["_case", ::Classdef::Break::T_Bitand],
-                ["continue", ::Ice::T_int],
-                ["eq", ::Ice::T_int],
-                ["ne", ::Ice::T_int]
+                ["continue", Ice::T_int],
+                ["eq", Ice::T_int],
+                ["ne", Ice::T_int]
             ])
         end
 
         if not defined?(::Classdef::Break::T_Logical)
-            T_Logical = ::Ice::__declareClass('::classdef::break::logical')
+            T_Logical = Ice::__declareClass('::classdef::break::logical')
         end
 
         if not defined?(::Classdef::Break::Logical)
@@ -157,12 +156,12 @@ module ::Classdef
             T_Logical.defineClass(Logical, -1, false, nil, [
                 ['_else', ::Classdef::Break::T_Bitand, false, 0],
                 ['_for', ::Classdef::Break::T_Bitor, false, 0],
-                ['int64', ::Ice::T_bool, false, 0]
+                ['int64', Ice::T_bool, false, 0]
             ])
         end
 
         if not defined?(::Classdef::Break::T_Xor)
-            T_Xor = ::Ice::__declareClass('::classdef::break::xor')
+            T_Xor = Ice::__declareClass('::classdef::break::xor')
         end
 
         if not defined?(::Classdef::Break::Xor)
@@ -176,19 +175,19 @@ module ::Classdef
                 attr_accessor :_return
             end
 
-            T_Xor.defineClass(Xor, -1, false, ::Classdef::Break::T_Logical, [['_return', ::Ice::T_int, false, 0]])
+            T_Xor.defineClass(Xor, -1, false, ::Classdef::Break::T_Logical, [['_return', Ice::T_int, false, 0]])
         end
 
         if not defined?(::Classdef::Break::T_Parfor)
-            T_Parfor = ::Ice::__defineSequence('::classdef::break::parfor', ::Classdef::Break::T_Bitor)
+            T_Parfor = Ice::__defineSequence('::classdef::break::parfor', ::Classdef::Break::T_Bitor)
         end
 
         if not defined?(::Classdef::Break::T_Switch)
-            T_Switch = ::Ice::__defineDictionary('::classdef::break::switch', ::Ice::T_int, ::Classdef::Break::T_Bitor)
+            T_Switch = Ice::__defineDictionary('::classdef::break::switch', Ice::T_int, ::Classdef::Break::T_Bitor)
         end
 
         if not defined?(::Classdef::Break::T_Try)
-            T_Try = ::Ice::__declareClass('::classdef::break::try')
+            T_Try = Ice::__declareClass('::classdef::break::try')
         end
 
         if not defined?(::Classdef::Break::Try)
@@ -203,13 +202,13 @@ module ::Classdef
             end
 
             T_Try.defineClass(Try, -1, false, nil, [
-                ['_while', ::Ice::T_int, false, 0],
-                ['delete', ::Ice::T_int, false, 0]
+                ['_while', Ice::T_int, false, 0],
+                ['delete', Ice::T_int, false, 0]
             ])
         end
 
         if not defined?(::Classdef::Break::T_Properties)
-            T_Properties = ::Ice::__declareClass('::classdef::break::properties')
+            T_Properties = Ice::__declareClass('::classdef::break::properties')
         end
 
         if not defined?(::Classdef::Break::Properties)
@@ -227,7 +226,7 @@ module ::Classdef
             end
 
             T_Properties.defineClass(Properties, -1, false, ::Classdef::Break::T_Try, [
-                ['_if', ::Ice::T_int, false, 0],
+                ['_if', Ice::T_int, false, 0],
                 ['catch', ::Classdef::Break::T_Xor, false, 0],
                 ['spmd', ::Classdef::Break::T_Parfor, false, 0],
                 ['otherwise', ::Classdef::Break::T_Switch, false, 0]
@@ -243,12 +242,12 @@ module ::Classdef
                 attr_accessor :identifier, :message, :stack, :cause, :type, :_end
             end
 
-            T_Persistent = ::Ice::__defineException('::classdef::break::persistent', Persistent, nil, [
-                ["identifier", ::Ice::T_string, false, 0],
-                ["message", ::Ice::T_string, false, 0],
-                ["stack", ::Ice::T_string, false, 0],
-                ["cause", ::Ice::T_string, false, 0],
-                ["type", ::Ice::T_string, false, 0],
+            T_Persistent = Ice::__defineException('::classdef::break::persistent', Persistent, nil, [
+                ["identifier", Ice::T_string, false, 0],
+                ["message", Ice::T_string, false, 0],
+                ["stack", Ice::T_string, false, 0],
+                ["cause", Ice::T_string, false, 0],
+                ["type", Ice::T_string, false, 0],
                 ["_end", ::Classdef::Break::T_Logical, false, 0]
             ])
         end
@@ -262,16 +261,15 @@ module ::Classdef
                 attr_accessor :enumeration
             end
 
-            T_Global = ::Ice::__defineException('::classdef::break::global', Global, ::Classdef::Break::T_Persistent, [["enumeration", ::Ice::T_int, false, 0]])
+            T_Global = Ice::__defineException('::classdef::break::global', Global, ::Classdef::Break::T_Persistent, [["enumeration", Ice::T_int, false, 0]])
         end
 
         if not defined?(::Classdef::Break::T_ElseifPrx)
-            T_ElseifPrx = ::Ice::__declareProxy('::classdef::break::elseif')
+            T_ElseifPrx = Ice::__declareProxy('::classdef::break::elseif')
         end
 
         if not defined?(::Classdef::Break::ElseifPrx)
             module ElseifPrx_mixin
-
                 def events(context=nil)
                     ElseifPrx_mixin::OP_events.invoke(self, [], context)
                 end
@@ -289,17 +287,17 @@ module ::Classdef
                 end
             end
 
-            class ElseifPrx < ::Ice::ObjectPrx
-                include ::Ice::Proxy_mixin
+            class ElseifPrx < Ice::ObjectPrx
+                include Ice::Proxy_mixin
                 include ElseifPrx_mixin
             end
 
             T_ElseifPrx.defineProxy(ElseifPrx, nil, [])
 
-            ElseifPrx_mixin::OP_events = ::Ice::__defineOperation('events', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-            ElseifPrx_mixin::OP_function = ::Ice::__defineOperation('function', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-            ElseifPrx_mixin::OP_delete = ::Ice::__defineOperation('delete', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-            ElseifPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_events = Ice::__defineOperation('events', Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_function = Ice::__defineOperation('function', Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_delete = Ice::__defineOperation('delete', Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_checkedCast = Ice::__defineOperation('checkedCast', Ice::OperationMode::Normal, nil, [], [], nil, [])
         end
 
         Methods = 1

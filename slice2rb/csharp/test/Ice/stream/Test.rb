@@ -14,7 +14,6 @@ require 'Ice'
 require 'Ice/BuiltinSequences.rb'
 
 module ::Test
-
     if not defined?(::Test::MyEnum)
         class MyEnum
             include Comparable
@@ -62,20 +61,20 @@ module ::Test
             private_class_method :new
         end
 
-        T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
+        T_MyEnum = Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
     if not defined?(::Test::T_MyClass)
-        T_MyClass = ::Ice::__declareClass('::Test::MyClass')
+        T_MyClass = Ice::__declareClass('::Test::MyClass')
     end
 
     if not defined?(::Test::T_MyInterfacePrx)
-        T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
+        T_MyInterfacePrx = Ice::__declareProxy('::Test::MyInterface')
     end
 
     if not defined?(::Test::LargeStruct)
         class LargeStruct
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::MyEnum::Enum1, p=nil)
                 @bo = bo
                 @by = by
@@ -126,28 +125,28 @@ module ::Test
             attr_accessor :bo, :by, :sh, :i, :l, :f, :d, :str, :e, :p
         end
 
-        T_LargeStruct = ::Ice::__defineStruct('::Test::LargeStruct', LargeStruct, [
-            ["bo", ::Ice::T_bool],
-            ["by", ::Ice::T_byte],
-            ["sh", ::Ice::T_short],
-            ["i", ::Ice::T_int],
-            ["l", ::Ice::T_long],
-            ["f", ::Ice::T_float],
-            ["d", ::Ice::T_double],
-            ["str", ::Ice::T_string],
+        T_LargeStruct = Ice::__defineStruct('::Test::LargeStruct', LargeStruct, [
+            ["bo", Ice::T_bool],
+            ["by", Ice::T_byte],
+            ["sh", Ice::T_short],
+            ["i", Ice::T_int],
+            ["l", Ice::T_long],
+            ["f", Ice::T_float],
+            ["d", Ice::T_double],
+            ["str", Ice::T_string],
             ["e", ::Test::T_MyEnum],
             ["p", ::Test::T_MyInterfacePrx]
         ])
     end
 
     if not defined?(::Test::T_OptionalClass)
-        T_OptionalClass = ::Ice::__declareClass('::Test::OptionalClass')
+        T_OptionalClass = Ice::__declareClass('::Test::OptionalClass')
     end
 
     if not defined?(::Test::OptionalClass)
         class OptionalClass < Ice::Value
 
-            def initialize(bo=false, by=0, sh=::Ice::Unset, i=::Ice::Unset)
+            def initialize(bo=false, by=0, sh=Ice::Unset, i=Ice::Unset)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -158,167 +157,167 @@ module ::Test
         end
 
         T_OptionalClass.defineClass(OptionalClass, -1, false, nil, [
-            ['bo', ::Ice::T_bool, false, 0],
-            ['by', ::Ice::T_byte, false, 0],
-            ['sh', ::Ice::T_short, true, 1],
-            ['i', ::Ice::T_int, true, 2]
+            ['bo', Ice::T_bool, false, 0],
+            ['by', Ice::T_byte, false, 0],
+            ['sh', Ice::T_short, true, 1],
+            ['i', Ice::T_int, true, 2]
         ])
     end
 
     if not defined?(::Test::T_MyEnumS)
-        T_MyEnumS = ::Ice::__defineSequence('::Test::MyEnumS', ::Test::T_MyEnum)
+        T_MyEnumS = Ice::__defineSequence('::Test::MyEnumS', ::Test::T_MyEnum)
     end
 
     if not defined?(::Test::T_MyClassS)
-        T_MyClassS = ::Ice::__defineSequence('::Test::MyClassS', ::Test::T_MyClass)
+        T_MyClassS = Ice::__defineSequence('::Test::MyClassS', ::Test::T_MyClass)
     end
 
     if not defined?(::Test::T_BoolSS)
-        T_BoolSS = ::Ice::__defineSequence('::Test::BoolSS', ::Ice::T_BoolSeq)
+        T_BoolSS = Ice::__defineSequence('::Test::BoolSS', ::Ice::T_BoolSeq)
     end
 
     if not defined?(::Test::T_ByteSS)
-        T_ByteSS = ::Ice::__defineSequence('::Test::ByteSS', ::Ice::T_ByteSeq)
+        T_ByteSS = Ice::__defineSequence('::Test::ByteSS', ::Ice::T_ByteSeq)
     end
 
     if not defined?(::Test::T_ShortSS)
-        T_ShortSS = ::Ice::__defineSequence('::Test::ShortSS', ::Ice::T_ShortSeq)
+        T_ShortSS = Ice::__defineSequence('::Test::ShortSS', ::Ice::T_ShortSeq)
     end
 
     if not defined?(::Test::T_IntSS)
-        T_IntSS = ::Ice::__defineSequence('::Test::IntSS', ::Ice::T_IntSeq)
+        T_IntSS = Ice::__defineSequence('::Test::IntSS', ::Ice::T_IntSeq)
     end
 
     if not defined?(::Test::T_LongSS)
-        T_LongSS = ::Ice::__defineSequence('::Test::LongSS', ::Ice::T_LongSeq)
+        T_LongSS = Ice::__defineSequence('::Test::LongSS', ::Ice::T_LongSeq)
     end
 
     if not defined?(::Test::T_FloatSS)
-        T_FloatSS = ::Ice::__defineSequence('::Test::FloatSS', ::Ice::T_FloatSeq)
+        T_FloatSS = Ice::__defineSequence('::Test::FloatSS', ::Ice::T_FloatSeq)
     end
 
     if not defined?(::Test::T_DoubleSS)
-        T_DoubleSS = ::Ice::__defineSequence('::Test::DoubleSS', ::Ice::T_DoubleSeq)
+        T_DoubleSS = Ice::__defineSequence('::Test::DoubleSS', ::Ice::T_DoubleSeq)
     end
 
     if not defined?(::Test::T_StringSS)
-        T_StringSS = ::Ice::__defineSequence('::Test::StringSS', ::Ice::T_StringSeq)
+        T_StringSS = Ice::__defineSequence('::Test::StringSS', ::Ice::T_StringSeq)
     end
 
     if not defined?(::Test::T_MyEnumSS)
-        T_MyEnumSS = ::Ice::__defineSequence('::Test::MyEnumSS', ::Test::T_MyEnumS)
+        T_MyEnumSS = Ice::__defineSequence('::Test::MyEnumSS', ::Test::T_MyEnumS)
     end
 
     if not defined?(::Test::T_MyClassSS)
-        T_MyClassSS = ::Ice::__defineSequence('::Test::MyClassSS', ::Test::T_MyClassS)
+        T_MyClassSS = Ice::__defineSequence('::Test::MyClassSS', ::Test::T_MyClassS)
     end
 
     if not defined?(::Test::T_ByteBoolD)
-        T_ByteBoolD = ::Ice::__defineDictionary('::Test::ByteBoolD', ::Ice::T_byte, ::Ice::T_bool)
+        T_ByteBoolD = Ice::__defineDictionary('::Test::ByteBoolD', Ice::T_byte, Ice::T_bool)
     end
 
     if not defined?(::Test::T_ShortIntD)
-        T_ShortIntD = ::Ice::__defineDictionary('::Test::ShortIntD', ::Ice::T_short, ::Ice::T_int)
+        T_ShortIntD = Ice::__defineDictionary('::Test::ShortIntD', Ice::T_short, Ice::T_int)
     end
 
     if not defined?(::Test::T_LongFloatD)
-        T_LongFloatD = ::Ice::__defineDictionary('::Test::LongFloatD', ::Ice::T_long, ::Ice::T_float)
+        T_LongFloatD = Ice::__defineDictionary('::Test::LongFloatD', Ice::T_long, Ice::T_float)
     end
 
     if not defined?(::Test::T_StringStringD)
-        T_StringStringD = ::Ice::__defineDictionary('::Test::StringStringD', ::Ice::T_string, ::Ice::T_string)
+        T_StringStringD = Ice::__defineDictionary('::Test::StringStringD', Ice::T_string, Ice::T_string)
     end
 
     if not defined?(::Test::T_StringMyClassD)
-        T_StringMyClassD = ::Ice::__defineDictionary('::Test::StringMyClassD', ::Ice::T_string, ::Test::T_MyClass)
+        T_StringMyClassD = Ice::__defineDictionary('::Test::StringMyClassD', Ice::T_string, ::Test::T_MyClass)
     end
 
     if not defined?(::Test::T_BoolList)
-        T_BoolList = ::Ice::__defineSequence('::Test::BoolList', ::Ice::T_bool)
+        T_BoolList = Ice::__defineSequence('::Test::BoolList', Ice::T_bool)
     end
 
     if not defined?(::Test::T_ByteList)
-        T_ByteList = ::Ice::__defineSequence('::Test::ByteList', ::Ice::T_byte)
+        T_ByteList = Ice::__defineSequence('::Test::ByteList', Ice::T_byte)
     end
 
     if not defined?(::Test::T_MyEnumList)
-        T_MyEnumList = ::Ice::__defineSequence('::Test::MyEnumList', ::Test::T_MyEnum)
+        T_MyEnumList = Ice::__defineSequence('::Test::MyEnumList', ::Test::T_MyEnum)
     end
 
     if not defined?(::Test::T_LargeStructList)
-        T_LargeStructList = ::Ice::__defineSequence('::Test::LargeStructList', ::Test::T_LargeStruct)
+        T_LargeStructList = Ice::__defineSequence('::Test::LargeStructList', ::Test::T_LargeStruct)
     end
 
     if not defined?(::Test::T_MyClassList)
-        T_MyClassList = ::Ice::__defineSequence('::Test::MyClassList', ::Test::T_MyClass)
+        T_MyClassList = Ice::__defineSequence('::Test::MyClassList', ::Test::T_MyClass)
     end
 
     if not defined?(::Test::T_MyInterfaceProxyList)
-        T_MyInterfaceProxyList = ::Ice::__defineSequence('::Test::MyInterfaceProxyList', ::Test::T_MyInterfacePrx)
+        T_MyInterfaceProxyList = Ice::__defineSequence('::Test::MyInterfaceProxyList', ::Test::T_MyInterfacePrx)
     end
 
     if not defined?(::Test::T_ShortLinkedList)
-        T_ShortLinkedList = ::Ice::__defineSequence('::Test::ShortLinkedList', ::Ice::T_short)
+        T_ShortLinkedList = Ice::__defineSequence('::Test::ShortLinkedList', Ice::T_short)
     end
 
     if not defined?(::Test::T_IntLinkedList)
-        T_IntLinkedList = ::Ice::__defineSequence('::Test::IntLinkedList', ::Ice::T_int)
+        T_IntLinkedList = Ice::__defineSequence('::Test::IntLinkedList', Ice::T_int)
     end
 
     if not defined?(::Test::T_MyEnumLinkedList)
-        T_MyEnumLinkedList = ::Ice::__defineSequence('::Test::MyEnumLinkedList', ::Test::T_MyEnum)
+        T_MyEnumLinkedList = Ice::__defineSequence('::Test::MyEnumLinkedList', ::Test::T_MyEnum)
     end
 
     if not defined?(::Test::T_LargeStructLinkedList)
-        T_LargeStructLinkedList = ::Ice::__defineSequence('::Test::LargeStructLinkedList', ::Test::T_LargeStruct)
+        T_LargeStructLinkedList = Ice::__defineSequence('::Test::LargeStructLinkedList', ::Test::T_LargeStruct)
     end
 
     if not defined?(::Test::T_LongStack)
-        T_LongStack = ::Ice::__defineSequence('::Test::LongStack', ::Ice::T_long)
+        T_LongStack = Ice::__defineSequence('::Test::LongStack', Ice::T_long)
     end
 
     if not defined?(::Test::T_FloatStack)
-        T_FloatStack = ::Ice::__defineSequence('::Test::FloatStack', ::Ice::T_float)
+        T_FloatStack = Ice::__defineSequence('::Test::FloatStack', Ice::T_float)
     end
 
     if not defined?(::Test::T_LargeStructStack)
-        T_LargeStructStack = ::Ice::__defineSequence('::Test::LargeStructStack', ::Test::T_LargeStruct)
+        T_LargeStructStack = Ice::__defineSequence('::Test::LargeStructStack', ::Test::T_LargeStruct)
     end
 
     if not defined?(::Test::T_MyInterfaceProxyStack)
-        T_MyInterfaceProxyStack = ::Ice::__defineSequence('::Test::MyInterfaceProxyStack', ::Test::T_MyInterfacePrx)
+        T_MyInterfaceProxyStack = Ice::__defineSequence('::Test::MyInterfaceProxyStack', ::Test::T_MyInterfacePrx)
     end
 
     if not defined?(::Test::T_ObjectStack)
-        T_ObjectStack = ::Ice::__defineSequence('::Test::ObjectStack', ::Ice::T_Value)
+        T_ObjectStack = Ice::__defineSequence('::Test::ObjectStack', Ice::T_Value)
     end
 
     if not defined?(::Test::T_MyClassStack)
-        T_MyClassStack = ::Ice::__defineSequence('::Test::MyClassStack', ::Test::T_MyClass)
+        T_MyClassStack = Ice::__defineSequence('::Test::MyClassStack', ::Test::T_MyClass)
     end
 
     if not defined?(::Test::T_DoubleQueue)
-        T_DoubleQueue = ::Ice::__defineSequence('::Test::DoubleQueue', ::Ice::T_double)
+        T_DoubleQueue = Ice::__defineSequence('::Test::DoubleQueue', Ice::T_double)
     end
 
     if not defined?(::Test::T_StringQueue)
-        T_StringQueue = ::Ice::__defineSequence('::Test::StringQueue', ::Ice::T_string)
+        T_StringQueue = Ice::__defineSequence('::Test::StringQueue', Ice::T_string)
     end
 
     if not defined?(::Test::T_LargeStructQueue)
-        T_LargeStructQueue = ::Ice::__defineSequence('::Test::LargeStructQueue', ::Test::T_LargeStruct)
+        T_LargeStructQueue = Ice::__defineSequence('::Test::LargeStructQueue', ::Test::T_LargeStruct)
     end
 
     if not defined?(::Test::T_StringSList)
-        T_StringSList = ::Ice::__defineSequence('::Test::StringSList', ::Ice::T_StringSeq)
+        T_StringSList = Ice::__defineSequence('::Test::StringSList', ::Ice::T_StringSeq)
     end
 
     if not defined?(::Test::T_StringSStack)
-        T_StringSStack = ::Ice::__defineSequence('::Test::StringSStack', ::Ice::T_StringSeq)
+        T_StringSStack = Ice::__defineSequence('::Test::StringSStack', ::Ice::T_StringSeq)
     end
 
     if not defined?(::Test::T_SortedStringStringD)
-        T_SortedStringStringD = ::Ice::__defineDictionary('::Test::SortedStringStringD', ::Ice::T_string, ::Ice::T_string)
+        T_SortedStringStringD = Ice::__defineDictionary('::Test::SortedStringStringD', Ice::T_string, Ice::T_string)
     end
 
     if not defined?(::Test::MyClass)
@@ -346,7 +345,7 @@ module ::Test
 
         T_MyClass.defineClass(MyClass, -1, false, nil, [
             ['c', ::Test::T_MyClass, false, 0],
-            ['o', ::Ice::T_Value, false, 0],
+            ['o', Ice::T_Value, false, 0],
             ['s', ::Test::T_LargeStruct, false, 0],
             ['seq1', ::Ice::T_BoolSeq, false, 0],
             ['seq2', ::Ice::T_ByteSeq, false, 0],
@@ -371,15 +370,15 @@ module ::Test
             attr_accessor :c
         end
 
-        T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [["c", ::Test::T_MyClass, false, 0]])
+        T_MyException = Ice::__defineException('::Test::MyException', MyException, nil, [["c", ::Test::T_MyClass, false, 0]])
     end
 
     if not defined?(::Test::MyInterfacePrx)
         module MyInterfacePrx_mixin
         end
 
-        class MyInterfacePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyInterfacePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyInterfacePrx_mixin
         end
 

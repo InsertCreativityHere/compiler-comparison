@@ -15,19 +15,17 @@ require 'Glacier2/Session.rb'
 require_relative 'Exception.rb'
 
 module ::IceGrid
-
     if not defined?(::IceGrid::T_RegistryPrx)
-        T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
+        T_RegistryPrx = Ice::__declareProxy('::IceGrid::Registry')
     end
 
     if not defined?(::IceGrid::T_SessionPrx)
-        T_SessionPrx = ::Ice::__declareProxy('::IceGrid::Session')
+        T_SessionPrx = Ice::__declareProxy('::IceGrid::Session')
     end
 
     if not defined?(::IceGrid::SessionPrx)
         module SessionPrx_mixin
             include ::Glacier2::SessionPrx_mixin
-
             def keepAlive(context=nil)
                 SessionPrx_mixin::OP_keepAlive.invoke(self, [], context)
             end
@@ -49,18 +47,18 @@ module ::IceGrid
             end
         end
 
-        class SessionPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class SessionPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include SessionPrx_mixin
         end
 
         T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
-        SessionPrx_mixin::OP_keepAlive = ::Ice::__defineOperation('keepAlive', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_keepAlive = Ice::__defineOperation('keepAlive', Ice::OperationMode::Idempotent, nil, [], [], nil, [])
         SessionPrx_mixin::OP_keepAlive.deprecate("")
-        SessionPrx_mixin::OP_allocateObjectById = ::Ice::__defineOperation('allocateObjectById', ::Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_ObjectNotRegisteredException, ::IceGrid::T_AllocationException])
-        SessionPrx_mixin::OP_allocateObjectByType = ::Ice::__defineOperation('allocateObjectByType', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_AllocationException])
-        SessionPrx_mixin::OP_releaseObject = ::Ice::__defineOperation('releaseObject', ::Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0]], [], nil, [::IceGrid::T_ObjectNotRegisteredException, ::IceGrid::T_AllocationException])
-        SessionPrx_mixin::OP_setAllocationTimeout = ::Ice::__defineOperation('setAllocationTimeout', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_allocateObjectById = Ice::__defineOperation('allocateObjectById', Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0]], [], [Ice::T_ObjectPrx, false, 0], [::IceGrid::T_ObjectNotRegisteredException, ::IceGrid::T_AllocationException])
+        SessionPrx_mixin::OP_allocateObjectByType = Ice::__defineOperation('allocateObjectByType', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], [Ice::T_ObjectPrx, false, 0], [::IceGrid::T_AllocationException])
+        SessionPrx_mixin::OP_releaseObject = Ice::__defineOperation('releaseObject', Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0]], [], nil, [::IceGrid::T_ObjectNotRegisteredException, ::IceGrid::T_AllocationException])
+        SessionPrx_mixin::OP_setAllocationTimeout = Ice::__defineOperation('setAllocationTimeout', Ice::OperationMode::Idempotent, nil, [[Ice::T_int, false, 0]], [], nil, [])
     end
 end

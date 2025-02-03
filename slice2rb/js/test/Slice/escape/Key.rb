@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Await
-
     if not defined?(::Await::Var)
         class Var
             include Comparable
@@ -59,12 +58,12 @@ module ::Await
             private_class_method :new
         end
 
-        T_Var = ::Ice::__defineEnum('::await::var', Var, Var::_enumerators)
+        T_Var = Ice::__defineEnum('::await::var', Var, Var::_enumerators)
     end
 
     if not defined?(::Await::Break)
         class Break
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(_while=0, _clone='', equals='', hashCode='', constructor='')
                 @_while = _while
                 @_clone = _clone
@@ -100,61 +99,59 @@ module ::Await
             attr_accessor :_while, :_clone, :equals, :hashCode, :constructor
         end
 
-        T_Break = ::Ice::__defineStruct('::await::break', Break, [
-            ["_while", ::Ice::T_int],
-            ["_clone", ::Ice::T_string],
-            ["equals", ::Ice::T_string],
-            ["hashCode", ::Ice::T_string],
-            ["constructor", ::Ice::T_string]
+        T_Break = Ice::__defineStruct('::await::break', Break, [
+            ["_while", Ice::T_int],
+            ["_clone", Ice::T_string],
+            ["equals", Ice::T_string],
+            ["hashCode", Ice::T_string],
+            ["constructor", Ice::T_string]
         ])
     end
 
     if not defined?(::Await::T_CasePrx)
-        T_CasePrx = ::Ice::__declareProxy('::await::case')
+        T_CasePrx = Ice::__declareProxy('::await::case')
     end
 
     if not defined?(::Await::CasePrx)
         module CasePrx_mixin
-
             def catch(checked, context=nil)
                 CasePrx_mixin::OP_catch.invoke(self, [checked], context)
             end
         end
 
-        class CasePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class CasePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include CasePrx_mixin
         end
 
         T_CasePrx.defineProxy(CasePrx, nil, [])
 
-        CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        CasePrx_mixin::OP_catch = Ice::__defineOperation('catch', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [[Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::Await::T_TypeofPrx)
-        T_TypeofPrx = ::Ice::__declareProxy('::await::typeof')
+        T_TypeofPrx = Ice::__declareProxy('::await::typeof')
     end
 
     if not defined?(::Await::TypeofPrx)
         module TypeofPrx_mixin
-
             def default(context=nil)
                 TypeofPrx_mixin::OP_default.invoke(self, [], context)
             end
         end
 
-        class TypeofPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TypeofPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TypeofPrx_mixin
         end
 
         T_TypeofPrx.defineProxy(TypeofPrx, nil, [])
 
-        TypeofPrx_mixin::OP_default = ::Ice::__defineOperation('default', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TypeofPrx_mixin::OP_default = Ice::__defineOperation('default', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Await::T_Delete)
-        T_Delete = ::Ice::__declareClass('::await::delete')
+        T_Delete = Ice::__declareClass('::await::delete')
     end
 
     if not defined?(::Await::Delete)
@@ -174,18 +171,18 @@ module ::Await
         end
 
         T_Delete.defineClass(Delete, -1, false, nil, [
-            ['_if', ::Ice::T_int, false, 0],
+            ['_if', Ice::T_int, false, 0],
             ['_else', ::Await::T_CasePrx, false, 0],
-            ['export', ::Ice::T_int, false, 0],
-            ['_clone', ::Ice::T_string, false, 0],
-            ['equals', ::Ice::T_string, false, 0],
-            ['hashCode', ::Ice::T_string, false, 0],
-            ['constructor', ::Ice::T_string, false, 0]
+            ['export', Ice::T_int, false, 0],
+            ['_clone', Ice::T_string, false, 0],
+            ['equals', Ice::T_string, false, 0],
+            ['hashCode', Ice::T_string, false, 0],
+            ['constructor', Ice::T_string, false, 0]
         ])
     end
 
     if not defined?(::Await::T_ExplicitPrx)
-        T_ExplicitPrx = ::Ice::__declareProxy('::await::explicit')
+        T_ExplicitPrx = Ice::__declareProxy('::await::explicit')
     end
 
     if not defined?(::Await::ExplicitPrx)
@@ -194,8 +191,8 @@ module ::Await
             include ::Await::CasePrx_mixin
         end
 
-        class ExplicitPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ExplicitPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ExplicitPrx_mixin
         end
 
@@ -203,17 +200,17 @@ module ::Await
     end
 
     if not defined?(::Await::T_While)
-        T_While = ::Ice::__defineDictionary('::await::while', ::Ice::T_string, ::Await::T_Break)
+        T_While = Ice::__defineDictionary('::await::while', Ice::T_string, ::Await::T_Break)
     end
 
     if not defined?(::Await::T_Package)
-        T_Package = ::Ice::__declareClass('::await::package')
+        T_Package = Ice::__declareClass('::await::package')
     end
 
     if not defined?(::Await::Package)
         class Package < Ice::Value
 
-            def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, debugger=::Ice::Unset, null=::Ice::Unset)
+            def initialize(_for=Ice::Unset, goto=Ice::Unset, _if=Ice::Unset, internal=Ice::Unset, debugger=Ice::Unset, null=Ice::Unset)
                 @_for = _for
                 @goto = goto
                 @_if = _if
@@ -230,18 +227,17 @@ module ::Await
             ['goto', ::Await::T_Var, true, 2],
             ['_if', ::Await::T_ExplicitPrx, true, 3],
             ['internal', ::Await::T_While, true, 5],
-            ['debugger', ::Ice::T_string, true, 7],
+            ['debugger', Ice::T_string, true, 7],
             ['null', ::Await::T_ExplicitPrx, true, 8]
         ])
     end
 
     if not defined?(::Await::T_OptionalParamsPrx)
-        T_OptionalParamsPrx = ::Ice::__declareProxy('::await::optionalParams')
+        T_OptionalParamsPrx = Ice::__declareProxy('::await::optionalParams')
     end
 
     if not defined?(::Await::OptionalParamsPrx)
         module OptionalParamsPrx_mixin
-
             def _for(goto, _if, internal, namespace, null, context=nil)
                 OptionalParamsPrx_mixin::OP_for.invoke(self, [goto, _if, internal, namespace, null], context)
             end
@@ -259,17 +255,17 @@ module ::Await
             end
         end
 
-        class OptionalParamsPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class OptionalParamsPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include OptionalParamsPrx_mixin
         end
 
         T_OptionalParamsPrx.defineProxy(OptionalParamsPrx, nil, [])
 
-        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_for = Ice::__defineOperation('for', Ice::OperationMode::Normal, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_continue = Ice::__defineOperation('continue', Ice::OperationMode::Normal, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_in = Ice::__defineOperation('in', Ice::OperationMode::Normal, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_foreach = Ice::__defineOperation('foreach', Ice::OperationMode::Normal, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
     end
 
     if not defined?(::Await::Fixed)
@@ -281,7 +277,7 @@ module ::Await
             attr_accessor :_for
         end
 
-        T_Fixed = ::Ice::__defineException('::await::fixed', Fixed, nil, [["_for", ::Ice::T_int, false, 0]])
+        T_Fixed = Ice::__defineException('::await::fixed', Fixed, nil, [["_for", Ice::T_int, false, 0]])
     end
 
     if not defined?(::Await::Foreach)
@@ -293,32 +289,31 @@ module ::Await
             attr_accessor :goto, :_if
         end
 
-        T_Foreach = ::Ice::__defineException('::await::foreach', Foreach, ::Await::T_Fixed, [
-            ["goto", ::Ice::T_int, false, 0],
-            ["_if", ::Ice::T_int, false, 0]
+        T_Foreach = Ice::__defineException('::await::foreach', Foreach, ::Await::T_Fixed, [
+            ["goto", Ice::T_int, false, 0],
+            ["_if", Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::Await::T_ImplicitPrx)
-        T_ImplicitPrx = ::Ice::__declareProxy('::await::implicit')
+        T_ImplicitPrx = Ice::__declareProxy('::await::implicit')
     end
 
     if not defined?(::Await::ImplicitPrx)
         module ImplicitPrx_mixin
-
             def _in(internal, is, lock, namespace, _new, null, operator, override, params, private, context=nil)
                 ImplicitPrx_mixin::OP_in.invoke(self, [internal, is, lock, namespace, _new, null, operator, override, params, private], context)
             end
         end
 
-        class ImplicitPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ImplicitPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ImplicitPrx_mixin
         end
 
         T_ImplicitPrx.defineProxy(ImplicitPrx, nil, [])
 
-        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, nil, [[::Await::T_Break, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Await::T_CasePrx, false, 0], [::Await::T_TypeofPrx, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Await::T_Var, false, 0], [::Await::T_Fixed, ::Await::T_Foreach])
+        ImplicitPrx_mixin::OP_in = Ice::__defineOperation('in', Ice::OperationMode::Normal, nil, [[::Await::T_Break, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Await::T_CasePrx, false, 0], [::Await::T_TypeofPrx, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], [::Await::T_Var, false, 0], [::Await::T_Fixed, ::Await::T_Foreach])
     end
 
     Protected = 0
@@ -328,25 +323,24 @@ module ::Await
     module System
 
         if not defined?(::Await::System::T_TestPrx)
-            T_TestPrx = ::Ice::__declareProxy('::await::System::Test')
+            T_TestPrx = Ice::__declareProxy('::await::System::Test')
         end
 
         if not defined?(::Await::System::TestPrx)
             module TestPrx_mixin
-
                 def op(context=nil)
                     TestPrx_mixin::OP_op.invoke(self, [], context)
                 end
             end
 
-            class TestPrx < ::Ice::ObjectPrx
-                include ::Ice::Proxy_mixin
+            class TestPrx < Ice::ObjectPrx
+                include Ice::Proxy_mixin
                 include TestPrx_mixin
             end
 
             T_TestPrx.defineProxy(TestPrx, nil, [])
 
-            TestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+            TestPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
         end
     end
 end
@@ -354,24 +348,23 @@ end
 module ::System
 
     if not defined?(::System::T_TestPrx)
-        T_TestPrx = ::Ice::__declareProxy('::System::Test')
+        T_TestPrx = Ice::__declareProxy('::System::Test')
     end
 
     if not defined?(::System::TestPrx)
         module TestPrx_mixin
-
             def op(context=nil)
                 TestPrx_mixin::OP_op.invoke(self, [], context)
             end
         end
 
-        class TestPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestPrx_mixin
         end
 
         T_TestPrx.defineProxy(TestPrx, nil, [])
 
-        TestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

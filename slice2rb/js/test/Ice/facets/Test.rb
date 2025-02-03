@@ -13,17 +13,16 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_EmptyPrx)
-        T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
+        T_EmptyPrx = Ice::__declareProxy('::Test::Empty')
     end
 
     if not defined?(::Test::EmptyPrx)
         module EmptyPrx_mixin
         end
 
-        class EmptyPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EmptyPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EmptyPrx_mixin
         end
 
@@ -31,149 +30,142 @@ module ::Test
     end
 
     if not defined?(::Test::T_APrx)
-        T_APrx = ::Ice::__declareProxy('::Test::A')
+        T_APrx = Ice::__declareProxy('::Test::A')
     end
 
     if not defined?(::Test::APrx)
         module APrx_mixin
-
             def callA(context=nil)
                 APrx_mixin::OP_callA.invoke(self, [], context)
             end
         end
 
-        class APrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class APrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include APrx_mixin
         end
 
         T_APrx.defineProxy(APrx, nil, [])
 
-        APrx_mixin::OP_callA = ::Ice::__defineOperation('callA', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        APrx_mixin::OP_callA = Ice::__defineOperation('callA', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_BPrx)
-        T_BPrx = ::Ice::__declareProxy('::Test::B')
+        T_BPrx = Ice::__declareProxy('::Test::B')
     end
 
     if not defined?(::Test::BPrx)
         module BPrx_mixin
             include ::Test::APrx_mixin
-
             def callB(context=nil)
                 BPrx_mixin::OP_callB.invoke(self, [], context)
             end
         end
 
-        class BPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BPrx_mixin
         end
 
         T_BPrx.defineProxy(BPrx, nil, [::Test::T_APrx])
 
-        BPrx_mixin::OP_callB = ::Ice::__defineOperation('callB', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        BPrx_mixin::OP_callB = Ice::__defineOperation('callB', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_CPrx)
-        T_CPrx = ::Ice::__declareProxy('::Test::C')
+        T_CPrx = Ice::__declareProxy('::Test::C')
     end
 
     if not defined?(::Test::CPrx)
         module CPrx_mixin
             include ::Test::APrx_mixin
-
             def callC(context=nil)
                 CPrx_mixin::OP_callC.invoke(self, [], context)
             end
         end
 
-        class CPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class CPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include CPrx_mixin
         end
 
         T_CPrx.defineProxy(CPrx, nil, [::Test::T_APrx])
 
-        CPrx_mixin::OP_callC = ::Ice::__defineOperation('callC', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        CPrx_mixin::OP_callC = Ice::__defineOperation('callC', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_DPrx)
-        T_DPrx = ::Ice::__declareProxy('::Test::D')
+        T_DPrx = Ice::__declareProxy('::Test::D')
     end
 
     if not defined?(::Test::DPrx)
         module DPrx_mixin
             include ::Test::BPrx_mixin
             include ::Test::CPrx_mixin
-
             def callD(context=nil)
                 DPrx_mixin::OP_callD.invoke(self, [], context)
             end
         end
 
-        class DPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class DPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include DPrx_mixin
         end
 
         T_DPrx.defineProxy(DPrx, nil, [::Test::T_BPrx, ::Test::T_CPrx])
 
-        DPrx_mixin::OP_callD = ::Ice::__defineOperation('callD', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        DPrx_mixin::OP_callD = Ice::__defineOperation('callD', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_EPrx)
-        T_EPrx = ::Ice::__declareProxy('::Test::E')
+        T_EPrx = Ice::__declareProxy('::Test::E')
     end
 
     if not defined?(::Test::EPrx)
         module EPrx_mixin
-
             def callE(context=nil)
                 EPrx_mixin::OP_callE.invoke(self, [], context)
             end
         end
 
-        class EPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EPrx_mixin
         end
 
         T_EPrx.defineProxy(EPrx, nil, [])
 
-        EPrx_mixin::OP_callE = ::Ice::__defineOperation('callE', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        EPrx_mixin::OP_callE = Ice::__defineOperation('callE', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_FPrx)
-        T_FPrx = ::Ice::__declareProxy('::Test::F')
+        T_FPrx = Ice::__declareProxy('::Test::F')
     end
 
     if not defined?(::Test::FPrx)
         module FPrx_mixin
             include ::Test::EPrx_mixin
-
             def callF(context=nil)
                 FPrx_mixin::OP_callF.invoke(self, [], context)
             end
         end
 
-        class FPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class FPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include FPrx_mixin
         end
 
         T_FPrx.defineProxy(FPrx, nil, [::Test::T_EPrx])
 
-        FPrx_mixin::OP_callF = ::Ice::__defineOperation('callF', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        FPrx_mixin::OP_callF = Ice::__defineOperation('callF', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_GPrx)
-        T_GPrx = ::Ice::__declareProxy('::Test::G')
+        T_GPrx = Ice::__declareProxy('::Test::G')
     end
 
     if not defined?(::Test::GPrx)
         module GPrx_mixin
-
             def shutdown(context=nil)
                 GPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -183,47 +175,45 @@ module ::Test
             end
         end
 
-        class GPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class GPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include GPrx_mixin
         end
 
         T_GPrx.defineProxy(GPrx, nil, [])
 
-        GPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        GPrx_mixin::OP_callG = ::Ice::__defineOperation('callG', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        GPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        GPrx_mixin::OP_callG = Ice::__defineOperation('callG', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_HPrx)
-        T_HPrx = ::Ice::__declareProxy('::Test::H')
+        T_HPrx = Ice::__declareProxy('::Test::H')
     end
 
     if not defined?(::Test::HPrx)
         module HPrx_mixin
             include ::Test::GPrx_mixin
-
             def callH(context=nil)
                 HPrx_mixin::OP_callH.invoke(self, [], context)
             end
         end
 
-        class HPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class HPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include HPrx_mixin
         end
 
         T_HPrx.defineProxy(HPrx, nil, [::Test::T_GPrx])
 
-        HPrx_mixin::OP_callH = ::Ice::__defineOperation('callH', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        HPrx_mixin::OP_callH = Ice::__defineOperation('callH', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_EchoPrx)
-        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
+        T_EchoPrx = Ice::__declareProxy('::Test::Echo')
     end
 
     if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
-
             def setConnection(context=nil)
                 EchoPrx_mixin::OP_setConnection.invoke(self, [], context)
             end
@@ -241,16 +231,16 @@ module ::Test
             end
         end
 
-        class EchoPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EchoPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EchoPrx_mixin
         end
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
-        EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_setConnection = Ice::__defineOperation('setConnection', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_startBatch = Ice::__defineOperation('startBatch', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_flushBatch = Ice::__defineOperation('flushBatch', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

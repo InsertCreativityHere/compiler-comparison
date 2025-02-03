@@ -14,26 +14,24 @@ require 'Ice'
 require 'Ice/PropertyDict.rb'
 
 module ::Test
-
     if not defined?(::Test::T_TestFacetPrx)
-        T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
+        T_TestFacetPrx = Ice::__declareProxy('::Test::TestFacet')
     end
 
     if not defined?(::Test::TestFacetPrx)
         module TestFacetPrx_mixin
-
             def getChanges(context=nil)
                 TestFacetPrx_mixin::OP_getChanges.invoke(self, [], context)
             end
         end
 
-        class TestFacetPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestFacetPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestFacetPrx_mixin
         end
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 
-        TestFacetPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
+        TestFacetPrx_mixin::OP_getChanges = Ice::__defineOperation('getChanges', Ice::OperationMode::Normal, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
     end
 end

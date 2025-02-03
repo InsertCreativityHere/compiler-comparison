@@ -13,34 +13,32 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_Interface1Prx)
-        T_Interface1Prx = ::Ice::__declareProxy('::Test::Interface1')
+        T_Interface1Prx = Ice::__declareProxy('::Test::Interface1')
     end
 
     if not defined?(::Test::Interface1Prx)
         module Interface1Prx_mixin
-
             def _method(context=nil)
                 Interface1Prx_mixin::OP_method.invoke(self, [], context)
             end
         end
 
-        class Interface1Prx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class Interface1Prx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include Interface1Prx_mixin
         end
 
         T_Interface1Prx.defineProxy(Interface1Prx, nil, [])
 
-        Interface1Prx_mixin::OP_method = ::Ice::__defineOperation('method', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        Interface1Prx_mixin::OP_method = Ice::__defineOperation('method', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end
 
 module ::Test2
 
     if not defined?(::Test2::T_Class1)
-        T_Class1 = ::Ice::__declareClass('::Test2::Class1')
+        T_Class1 = Ice::__declareClass('::Test2::Class1')
     end
 
     if not defined?(::Test2::Class1)

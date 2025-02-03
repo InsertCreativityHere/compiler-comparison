@@ -13,17 +13,16 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 

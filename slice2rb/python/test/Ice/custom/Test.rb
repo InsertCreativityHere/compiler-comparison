@@ -13,82 +13,81 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_ByteString)
-        T_ByteString = ::Ice::__defineSequence('::Test::ByteString', ::Ice::T_byte)
+        T_ByteString = Ice::__defineSequence('::Test::ByteString', Ice::T_byte)
     end
 
     if not defined?(::Test::T_ByteList)
-        T_ByteList = ::Ice::__defineSequence('::Test::ByteList', ::Ice::T_byte)
+        T_ByteList = Ice::__defineSequence('::Test::ByteList', Ice::T_byte)
     end
 
     if not defined?(::Test::T_StringList)
-        T_StringList = ::Ice::__defineSequence('::Test::StringList', ::Ice::T_string)
+        T_StringList = Ice::__defineSequence('::Test::StringList', Ice::T_string)
     end
 
     if not defined?(::Test::T_StringTuple)
-        T_StringTuple = ::Ice::__defineSequence('::Test::StringTuple', ::Ice::T_string)
+        T_StringTuple = Ice::__defineSequence('::Test::StringTuple', Ice::T_string)
     end
 
     if not defined?(::Test::T_BoolSeq1)
-        T_BoolSeq1 = ::Ice::__defineSequence('::Test::BoolSeq1', ::Ice::T_bool)
+        T_BoolSeq1 = Ice::__defineSequence('::Test::BoolSeq1', Ice::T_bool)
     end
 
     if not defined?(::Test::T_BoolSeq2)
-        T_BoolSeq2 = ::Ice::__defineSequence('::Test::BoolSeq2', ::Ice::T_bool)
+        T_BoolSeq2 = Ice::__defineSequence('::Test::BoolSeq2', Ice::T_bool)
     end
 
     if not defined?(::Test::T_ByteSeq1)
-        T_ByteSeq1 = ::Ice::__defineSequence('::Test::ByteSeq1', ::Ice::T_byte)
+        T_ByteSeq1 = Ice::__defineSequence('::Test::ByteSeq1', Ice::T_byte)
     end
 
     if not defined?(::Test::T_ByteSeq2)
-        T_ByteSeq2 = ::Ice::__defineSequence('::Test::ByteSeq2', ::Ice::T_byte)
+        T_ByteSeq2 = Ice::__defineSequence('::Test::ByteSeq2', Ice::T_byte)
     end
 
     if not defined?(::Test::T_ShortSeq1)
-        T_ShortSeq1 = ::Ice::__defineSequence('::Test::ShortSeq1', ::Ice::T_short)
+        T_ShortSeq1 = Ice::__defineSequence('::Test::ShortSeq1', Ice::T_short)
     end
 
     if not defined?(::Test::T_ShortSeq2)
-        T_ShortSeq2 = ::Ice::__defineSequence('::Test::ShortSeq2', ::Ice::T_short)
+        T_ShortSeq2 = Ice::__defineSequence('::Test::ShortSeq2', Ice::T_short)
     end
 
     if not defined?(::Test::T_IntSeq1)
-        T_IntSeq1 = ::Ice::__defineSequence('::Test::IntSeq1', ::Ice::T_int)
+        T_IntSeq1 = Ice::__defineSequence('::Test::IntSeq1', Ice::T_int)
     end
 
     if not defined?(::Test::T_IntSeq2)
-        T_IntSeq2 = ::Ice::__defineSequence('::Test::IntSeq2', ::Ice::T_int)
+        T_IntSeq2 = Ice::__defineSequence('::Test::IntSeq2', Ice::T_int)
     end
 
     if not defined?(::Test::T_LongSeq1)
-        T_LongSeq1 = ::Ice::__defineSequence('::Test::LongSeq1', ::Ice::T_long)
+        T_LongSeq1 = Ice::__defineSequence('::Test::LongSeq1', Ice::T_long)
     end
 
     if not defined?(::Test::T_LongSeq2)
-        T_LongSeq2 = ::Ice::__defineSequence('::Test::LongSeq2', ::Ice::T_long)
+        T_LongSeq2 = Ice::__defineSequence('::Test::LongSeq2', Ice::T_long)
     end
 
     if not defined?(::Test::T_FloatSeq1)
-        T_FloatSeq1 = ::Ice::__defineSequence('::Test::FloatSeq1', ::Ice::T_float)
+        T_FloatSeq1 = Ice::__defineSequence('::Test::FloatSeq1', Ice::T_float)
     end
 
     if not defined?(::Test::T_FloatSeq2)
-        T_FloatSeq2 = ::Ice::__defineSequence('::Test::FloatSeq2', ::Ice::T_float)
+        T_FloatSeq2 = Ice::__defineSequence('::Test::FloatSeq2', Ice::T_float)
     end
 
     if not defined?(::Test::T_DoubleSeq1)
-        T_DoubleSeq1 = ::Ice::__defineSequence('::Test::DoubleSeq1', ::Ice::T_double)
+        T_DoubleSeq1 = Ice::__defineSequence('::Test::DoubleSeq1', Ice::T_double)
     end
 
     if not defined?(::Test::T_DoubleSeq2)
-        T_DoubleSeq2 = ::Ice::__defineSequence('::Test::DoubleSeq2', ::Ice::T_double)
+        T_DoubleSeq2 = Ice::__defineSequence('::Test::DoubleSeq2', Ice::T_double)
     end
 
     if not defined?(::Test::S)
         class S
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(b1=nil, b2=nil, b3=nil, b4=nil, s1=nil, s2=nil, s3=nil, s4=nil)
                 @b1 = b1
                 @b2 = b2
@@ -133,7 +132,7 @@ module ::Test
             attr_accessor :b1, :b2, :b3, :b4, :s1, :s2, :s3, :s4
         end
 
-        T_S = ::Ice::__defineStruct('::Test::S', S, [
+        T_S = Ice::__defineStruct('::Test::S', S, [
             ["b1", ::Test::T_ByteString],
             ["b2", ::Test::T_ByteString],
             ["b3", ::Test::T_ByteList],
@@ -146,7 +145,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_C)
-        T_C = ::Ice::__declareClass('::Test::C')
+        T_C = Ice::__declareClass('::Test::C')
     end
 
     if not defined?(::Test::C)
@@ -179,13 +178,13 @@ module ::Test
     end
 
     if not defined?(::Test::T_D)
-        T_D = ::Ice::__declareClass('::Test::D')
+        T_D = Ice::__declareClass('::Test::D')
     end
 
     if not defined?(::Test::D)
         class D < Ice::Value
 
-            def initialize(boolSeq=::Ice::Unset, byteSeq=::Ice::Unset, shortSeq=::Ice::Unset, intSeq=::Ice::Unset, longSeq=::Ice::Unset, floatSeq=::Ice::Unset, doubleSeq=::Ice::Unset)
+            def initialize(boolSeq=Ice::Unset, byteSeq=Ice::Unset, shortSeq=Ice::Unset, intSeq=Ice::Unset, longSeq=Ice::Unset, floatSeq=Ice::Unset, doubleSeq=Ice::Unset)
                 @boolSeq = boolSeq
                 @byteSeq = byteSeq
                 @shortSeq = shortSeq
@@ -210,12 +209,11 @@ module ::Test
     end
 
     if not defined?(::Test::T_CustomPrx)
-        T_CustomPrx = ::Ice::__declareProxy('::Test::Custom')
+        T_CustomPrx = Ice::__declareProxy('::Test::Custom')
     end
 
     if not defined?(::Test::CustomPrx)
         module CustomPrx_mixin
-
             def opByteString1(b1, context=nil)
                 CustomPrx_mixin::OP_opByteString1.invoke(self, [b1], context)
             end
@@ -317,37 +315,37 @@ module ::Test
             end
         end
 
-        class CustomPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class CustomPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include CustomPrx_mixin
         end
 
         T_CustomPrx.defineProxy(CustomPrx, nil, [])
 
-        CustomPrx_mixin::OP_opByteString1 = ::Ice::__defineOperation('opByteString1', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteString, false, 0]], [[::Test::T_ByteString, false, 0]], [::Test::T_ByteString, false, 0], [])
-        CustomPrx_mixin::OP_opByteString2 = ::Ice::__defineOperation('opByteString2', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteString, false, 0]], [[::Test::T_ByteString, false, 0]], [::Test::T_ByteString, false, 0], [])
-        CustomPrx_mixin::OP_opByteList1 = ::Ice::__defineOperation('opByteList1', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
-        CustomPrx_mixin::OP_opByteList2 = ::Ice::__defineOperation('opByteList2', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
-        CustomPrx_mixin::OP_opStringList1 = ::Ice::__defineOperation('opStringList1', ::Ice::OperationMode::Normal, nil, [[::Test::T_StringList, false, 0]], [[::Test::T_StringList, false, 0]], [::Test::T_StringList, false, 0], [])
-        CustomPrx_mixin::OP_opStringList2 = ::Ice::__defineOperation('opStringList2', ::Ice::OperationMode::Normal, nil, [[::Test::T_StringList, false, 0]], [[::Test::T_StringList, false, 0]], [::Test::T_StringList, false, 0], [])
-        CustomPrx_mixin::OP_opStringTuple1 = ::Ice::__defineOperation('opStringTuple1', ::Ice::OperationMode::Normal, nil, [[::Test::T_StringTuple, false, 0]], [[::Test::T_StringTuple, false, 0]], [::Test::T_StringTuple, false, 0], [])
-        CustomPrx_mixin::OP_opStringTuple2 = ::Ice::__defineOperation('opStringTuple2', ::Ice::OperationMode::Normal, nil, [[::Test::T_StringTuple, false, 0]], [[::Test::T_StringTuple, false, 0]], [::Test::T_StringTuple, false, 0], [])
-        CustomPrx_mixin::OP_sendS = ::Ice::__defineOperation('sendS', ::Ice::OperationMode::Normal, nil, [[::Test::T_S, false, 0]], [], nil, [])
-        CustomPrx_mixin::OP_sendC = ::Ice::__defineOperation('sendC', ::Ice::OperationMode::Normal, nil, [[::Test::T_C, false, 0]], [], nil, [])
-        CustomPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_BoolSeq1, false, 0]], [[::Test::T_BoolSeq2, false, 0]], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq1, false, 0]], [[::Test::T_ByteSeq2, false, 0]], [::Test::T_ByteSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_ShortSeq1, false, 0]], [[::Test::T_ShortSeq2, false, 0]], [::Test::T_ShortSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_IntSeq1, false, 0]], [[::Test::T_IntSeq2, false, 0]], [::Test::T_IntSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opLongSeq = ::Ice::__defineOperation('opLongSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_LongSeq1, false, 0]], [[::Test::T_LongSeq2, false, 0]], [::Test::T_LongSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opFloatSeq = ::Ice::__defineOperation('opFloatSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_FloatSeq1, false, 0]], [[::Test::T_FloatSeq2, false, 0]], [::Test::T_FloatSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opDoubleSeq = ::Ice::__defineOperation('opDoubleSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_DoubleSeq1, false, 0]], [[::Test::T_DoubleSeq2, false, 0]], [::Test::T_DoubleSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opBogusArrayNotExistsFactory = ::Ice::__defineOperation('opBogusArrayNotExistsFactory', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opBogusArrayThrowFactory = ::Ice::__defineOperation('opBogusArrayThrowFactory', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opBogusArrayType = ::Ice::__defineOperation('opBogusArrayType', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opBogusArrayNoneFactory = ::Ice::__defineOperation('opBogusArrayNoneFactory', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opBogusArraySignatureFactory = ::Ice::__defineOperation('opBogusArraySignatureFactory', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opBogusArrayNoCallableFactory = ::Ice::__defineOperation('opBogusArrayNoCallableFactory', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
-        CustomPrx_mixin::OP_opD = ::Ice::__defineOperation('opD', ::Ice::OperationMode::Normal, nil, [[::Test::T_D, false, 0]], [], [::Test::T_D, false, 0], [])
-        CustomPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        CustomPrx_mixin::OP_opByteString1 = Ice::__defineOperation('opByteString1', Ice::OperationMode::Normal, nil, [[::Test::T_ByteString, false, 0]], [[::Test::T_ByteString, false, 0]], [::Test::T_ByteString, false, 0], [])
+        CustomPrx_mixin::OP_opByteString2 = Ice::__defineOperation('opByteString2', Ice::OperationMode::Normal, nil, [[::Test::T_ByteString, false, 0]], [[::Test::T_ByteString, false, 0]], [::Test::T_ByteString, false, 0], [])
+        CustomPrx_mixin::OP_opByteList1 = Ice::__defineOperation('opByteList1', Ice::OperationMode::Normal, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
+        CustomPrx_mixin::OP_opByteList2 = Ice::__defineOperation('opByteList2', Ice::OperationMode::Normal, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
+        CustomPrx_mixin::OP_opStringList1 = Ice::__defineOperation('opStringList1', Ice::OperationMode::Normal, nil, [[::Test::T_StringList, false, 0]], [[::Test::T_StringList, false, 0]], [::Test::T_StringList, false, 0], [])
+        CustomPrx_mixin::OP_opStringList2 = Ice::__defineOperation('opStringList2', Ice::OperationMode::Normal, nil, [[::Test::T_StringList, false, 0]], [[::Test::T_StringList, false, 0]], [::Test::T_StringList, false, 0], [])
+        CustomPrx_mixin::OP_opStringTuple1 = Ice::__defineOperation('opStringTuple1', Ice::OperationMode::Normal, nil, [[::Test::T_StringTuple, false, 0]], [[::Test::T_StringTuple, false, 0]], [::Test::T_StringTuple, false, 0], [])
+        CustomPrx_mixin::OP_opStringTuple2 = Ice::__defineOperation('opStringTuple2', Ice::OperationMode::Normal, nil, [[::Test::T_StringTuple, false, 0]], [[::Test::T_StringTuple, false, 0]], [::Test::T_StringTuple, false, 0], [])
+        CustomPrx_mixin::OP_sendS = Ice::__defineOperation('sendS', Ice::OperationMode::Normal, nil, [[::Test::T_S, false, 0]], [], nil, [])
+        CustomPrx_mixin::OP_sendC = Ice::__defineOperation('sendC', Ice::OperationMode::Normal, nil, [[::Test::T_C, false, 0]], [], nil, [])
+        CustomPrx_mixin::OP_opBoolSeq = Ice::__defineOperation('opBoolSeq', Ice::OperationMode::Normal, nil, [[::Test::T_BoolSeq1, false, 0]], [[::Test::T_BoolSeq2, false, 0]], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opByteSeq = Ice::__defineOperation('opByteSeq', Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq1, false, 0]], [[::Test::T_ByteSeq2, false, 0]], [::Test::T_ByteSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opShortSeq = Ice::__defineOperation('opShortSeq', Ice::OperationMode::Normal, nil, [[::Test::T_ShortSeq1, false, 0]], [[::Test::T_ShortSeq2, false, 0]], [::Test::T_ShortSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opIntSeq = Ice::__defineOperation('opIntSeq', Ice::OperationMode::Normal, nil, [[::Test::T_IntSeq1, false, 0]], [[::Test::T_IntSeq2, false, 0]], [::Test::T_IntSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opLongSeq = Ice::__defineOperation('opLongSeq', Ice::OperationMode::Normal, nil, [[::Test::T_LongSeq1, false, 0]], [[::Test::T_LongSeq2, false, 0]], [::Test::T_LongSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opFloatSeq = Ice::__defineOperation('opFloatSeq', Ice::OperationMode::Normal, nil, [[::Test::T_FloatSeq1, false, 0]], [[::Test::T_FloatSeq2, false, 0]], [::Test::T_FloatSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opDoubleSeq = Ice::__defineOperation('opDoubleSeq', Ice::OperationMode::Normal, nil, [[::Test::T_DoubleSeq1, false, 0]], [[::Test::T_DoubleSeq2, false, 0]], [::Test::T_DoubleSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opBogusArrayNotExistsFactory = Ice::__defineOperation('opBogusArrayNotExistsFactory', Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opBogusArrayThrowFactory = Ice::__defineOperation('opBogusArrayThrowFactory', Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opBogusArrayType = Ice::__defineOperation('opBogusArrayType', Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opBogusArrayNoneFactory = Ice::__defineOperation('opBogusArrayNoneFactory', Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opBogusArraySignatureFactory = Ice::__defineOperation('opBogusArraySignatureFactory', Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opBogusArrayNoCallableFactory = Ice::__defineOperation('opBogusArrayNoCallableFactory', Ice::OperationMode::Normal, nil, [], [], [::Test::T_BoolSeq1, false, 0], [])
+        CustomPrx_mixin::OP_opD = Ice::__defineOperation('opD', Ice::OperationMode::Normal, nil, [[::Test::T_D, false, 0]], [], [::Test::T_D, false, 0], [])
+        CustomPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

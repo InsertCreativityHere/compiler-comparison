@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_PriorityPrx)
-        T_PriorityPrx = ::Ice::__declareProxy('::Test::Priority')
+        T_PriorityPrx = Ice::__declareProxy('::Test::Priority')
     end
 
     if not defined?(::Test::PriorityPrx)
         module PriorityPrx_mixin
-
             def shutdown(context=nil)
                 PriorityPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -30,14 +28,14 @@ module ::Test
             end
         end
 
-        class PriorityPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class PriorityPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include PriorityPrx_mixin
         end
 
         T_PriorityPrx.defineProxy(PriorityPrx, nil, [])
 
-        PriorityPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        PriorityPrx_mixin::OP_getPriority = ::Ice::__defineOperation('getPriority', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+        PriorityPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        PriorityPrx_mixin::OP_getPriority = Ice::__defineOperation('getPriority', Ice::OperationMode::Normal, nil, [], [], [Ice::T_int, false, 0], [])
     end
 end

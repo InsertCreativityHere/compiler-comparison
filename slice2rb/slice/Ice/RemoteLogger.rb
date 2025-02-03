@@ -14,7 +14,6 @@ require 'Ice'
 require_relative 'BuiltinSequences.rb'
 
 module ::Ice
-
     if not defined?(::Ice::LogMessageType)
         class LogMessageType
             include Comparable
@@ -63,16 +62,16 @@ module ::Ice
             private_class_method :new
         end
 
-        T_LogMessageType = ::Ice::__defineEnum('::Ice::LogMessageType', LogMessageType, LogMessageType::_enumerators)
+        T_LogMessageType = Ice::__defineEnum('::Ice::LogMessageType', LogMessageType, LogMessageType::_enumerators)
     end
 
     if not defined?(::Ice::T_LogMessageTypeSeq)
-        T_LogMessageTypeSeq = ::Ice::__defineSequence('::Ice::LogMessageTypeSeq', ::Ice::T_LogMessageType)
+        T_LogMessageTypeSeq = Ice::__defineSequence('::Ice::LogMessageTypeSeq', ::Ice::T_LogMessageType)
     end
 
     if not defined?(::Ice::LogMessage)
         class LogMessage
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(type=::Ice::LogMessageType::PrintMessage, timestamp=0, traceCategory='', message='')
                 @type = type
                 @timestamp = timestamp
@@ -105,25 +104,24 @@ module ::Ice
             attr_accessor :type, :timestamp, :traceCategory, :message
         end
 
-        T_LogMessage = ::Ice::__defineStruct('::Ice::LogMessage', LogMessage, [
+        T_LogMessage = Ice::__defineStruct('::Ice::LogMessage', LogMessage, [
             ["type", ::Ice::T_LogMessageType],
-            ["timestamp", ::Ice::T_long],
-            ["traceCategory", ::Ice::T_string],
-            ["message", ::Ice::T_string]
+            ["timestamp", Ice::T_long],
+            ["traceCategory", Ice::T_string],
+            ["message", Ice::T_string]
         ])
     end
 
     if not defined?(::Ice::T_LogMessageSeq)
-        T_LogMessageSeq = ::Ice::__defineSequence('::Ice::LogMessageSeq', ::Ice::T_LogMessage)
+        T_LogMessageSeq = Ice::__defineSequence('::Ice::LogMessageSeq', ::Ice::T_LogMessage)
     end
 
     if not defined?(::Ice::T_RemoteLoggerPrx)
-        T_RemoteLoggerPrx = ::Ice::__declareProxy('::Ice::RemoteLogger')
+        T_RemoteLoggerPrx = Ice::__declareProxy('::Ice::RemoteLogger')
     end
 
     if not defined?(::Ice::RemoteLoggerPrx)
         module RemoteLoggerPrx_mixin
-
             def init(prefix, logMessages, context=nil)
                 RemoteLoggerPrx_mixin::OP_init.invoke(self, [prefix, logMessages], context)
             end
@@ -133,15 +131,15 @@ module ::Ice
             end
         end
 
-        class RemoteLoggerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class RemoteLoggerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include RemoteLoggerPrx_mixin
         end
 
         T_RemoteLoggerPrx.defineProxy(RemoteLoggerPrx, nil, [])
 
-        RemoteLoggerPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_LogMessageSeq, false, 0]], [], nil, [])
-        RemoteLoggerPrx_mixin::OP_log = ::Ice::__defineOperation('log', ::Ice::OperationMode::Normal, nil, [[::Ice::T_LogMessage, false, 0]], [], nil, [])
+        RemoteLoggerPrx_mixin::OP_init = Ice::__defineOperation('init', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [::Ice::T_LogMessageSeq, false, 0]], [], nil, [])
+        RemoteLoggerPrx_mixin::OP_log = Ice::__defineOperation('log', Ice::OperationMode::Normal, nil, [[::Ice::T_LogMessage, false, 0]], [], nil, [])
     end
 
     if not defined?(::Ice::RemoteLoggerAlreadyAttachedException)
@@ -151,16 +149,15 @@ module ::Ice
             end
         end
 
-        T_RemoteLoggerAlreadyAttachedException = ::Ice::__defineException('::Ice::RemoteLoggerAlreadyAttachedException', RemoteLoggerAlreadyAttachedException, nil, [])
+        T_RemoteLoggerAlreadyAttachedException = Ice::__defineException('::Ice::RemoteLoggerAlreadyAttachedException', RemoteLoggerAlreadyAttachedException, nil, [])
     end
 
     if not defined?(::Ice::T_LoggerAdminPrx)
-        T_LoggerAdminPrx = ::Ice::__declareProxy('::Ice::LoggerAdmin')
+        T_LoggerAdminPrx = Ice::__declareProxy('::Ice::LoggerAdmin')
     end
 
     if not defined?(::Ice::LoggerAdminPrx)
         module LoggerAdminPrx_mixin
-
             def attachRemoteLogger(prx, messageTypes, traceCategories, messageMax, context=nil)
                 LoggerAdminPrx_mixin::OP_attachRemoteLogger.invoke(self, [prx, messageTypes, traceCategories, messageMax], context)
             end
@@ -174,15 +171,15 @@ module ::Ice
             end
         end
 
-        class LoggerAdminPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class LoggerAdminPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include LoggerAdminPrx_mixin
         end
 
         T_LoggerAdminPrx.defineProxy(LoggerAdminPrx, nil, [])
 
-        LoggerAdminPrx_mixin::OP_attachRemoteLogger = ::Ice::__defineOperation('attachRemoteLogger', ::Ice::OperationMode::Normal, nil, [[::Ice::T_RemoteLoggerPrx, false, 0], [::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Ice::T_RemoteLoggerAlreadyAttachedException])
-        LoggerAdminPrx_mixin::OP_detachRemoteLogger = ::Ice::__defineOperation('detachRemoteLogger', ::Ice::OperationMode::Normal, nil, [[::Ice::T_RemoteLoggerPrx, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        LoggerAdminPrx_mixin::OP_getLog = ::Ice::__defineOperation('getLog', ::Ice::OperationMode::Normal, nil, [[::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::Ice::T_int, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_LogMessageSeq, false, 0], [])
+        LoggerAdminPrx_mixin::OP_attachRemoteLogger = Ice::__defineOperation('attachRemoteLogger', Ice::OperationMode::Normal, nil, [[::Ice::T_RemoteLoggerPrx, false, 0], [::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [Ice::T_int, false, 0]], [], nil, [::Ice::T_RemoteLoggerAlreadyAttachedException])
+        LoggerAdminPrx_mixin::OP_detachRemoteLogger = Ice::__defineOperation('detachRemoteLogger', Ice::OperationMode::Normal, nil, [[::Ice::T_RemoteLoggerPrx, false, 0]], [], [Ice::T_bool, false, 0], [])
+        LoggerAdminPrx_mixin::OP_getLog = Ice::__defineOperation('getLog', Ice::OperationMode::Normal, nil, [[::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [Ice::T_int, false, 0]], [[Ice::T_string, false, 0]], [::Ice::T_LogMessageSeq, false, 0], [])
     end
 end

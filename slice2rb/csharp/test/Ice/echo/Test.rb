@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_EchoPrx)
-        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
+        T_EchoPrx = Ice::__declareProxy('::Test::Echo')
     end
 
     if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
-
             def startBatch(context=nil)
                 EchoPrx_mixin::OP_startBatch.invoke(self, [], context)
             end
@@ -34,15 +32,15 @@ module ::Test
             end
         end
 
-        class EchoPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EchoPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EchoPrx_mixin
         end
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
-        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_startBatch = Ice::__defineOperation('startBatch', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_flushBatch = Ice::__defineOperation('flushBatch', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

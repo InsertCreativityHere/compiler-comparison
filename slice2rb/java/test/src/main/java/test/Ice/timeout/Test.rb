@@ -13,18 +13,16 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_ByteSeq)
-        T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
+        T_ByteSeq = Ice::__defineSequence('::Test::ByteSeq', Ice::T_byte)
     end
 
     if not defined?(::Test::T_TimeoutPrx)
-        T_TimeoutPrx = ::Ice::__declareProxy('::Test::Timeout')
+        T_TimeoutPrx = Ice::__declareProxy('::Test::Timeout')
     end
 
     if not defined?(::Test::TimeoutPrx)
         module TimeoutPrx_mixin
-
             def op(context=nil)
                 TimeoutPrx_mixin::OP_op.invoke(self, [], context)
             end
@@ -38,25 +36,24 @@ module ::Test
             end
         end
 
-        class TimeoutPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TimeoutPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TimeoutPrx_mixin
         end
 
         T_TimeoutPrx.defineProxy(TimeoutPrx, nil, [])
 
-        TimeoutPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TimeoutPrx_mixin::OP_sendData = ::Ice::__defineOperation('sendData', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
-        TimeoutPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        TimeoutPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TimeoutPrx_mixin::OP_sendData = Ice::__defineOperation('sendData', Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
+        TimeoutPrx_mixin::OP_sleep = Ice::__defineOperation('sleep', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::T_ControllerPrx)
-        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
+        T_ControllerPrx = Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
-
             def holdAdapter(to, context=nil)
                 ControllerPrx_mixin::OP_holdAdapter.invoke(self, [to], context)
             end
@@ -70,15 +67,15 @@ module ::Test
             end
         end
 
-        class ControllerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ControllerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ControllerPrx_mixin
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
-        ControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        ControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        ControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_holdAdapter = Ice::__defineOperation('holdAdapter', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [], nil, [])
+        ControllerPrx_mixin::OP_resumeAdapter = Ice::__defineOperation('resumeAdapter', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

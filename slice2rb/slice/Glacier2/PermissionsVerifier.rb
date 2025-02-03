@@ -14,7 +14,6 @@ require 'Ice'
 require_relative 'SSLInfo.rb'
 
 module ::Glacier2
-
     if not defined?(::Glacier2::PermissionDeniedException)
         class PermissionDeniedException < Ice::UserException
             def to_s
@@ -24,50 +23,48 @@ module ::Glacier2
             attr_accessor :reason
         end
 
-        T_PermissionDeniedException = ::Ice::__defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_PermissionDeniedException = Ice::__defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, nil, [["reason", Ice::T_string, false, 0]])
     end
 
     if not defined?(::Glacier2::T_PermissionsVerifierPrx)
-        T_PermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::PermissionsVerifier')
+        T_PermissionsVerifierPrx = Ice::__declareProxy('::Glacier2::PermissionsVerifier')
     end
 
     if not defined?(::Glacier2::PermissionsVerifierPrx)
         module PermissionsVerifierPrx_mixin
-
             def checkPermissions(userId, password, context=nil)
                 PermissionsVerifierPrx_mixin::OP_checkPermissions.invoke(self, [userId, password], context)
             end
         end
 
-        class PermissionsVerifierPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class PermissionsVerifierPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include PermissionsVerifierPrx_mixin
         end
 
         T_PermissionsVerifierPrx.defineProxy(PermissionsVerifierPrx, nil, [])
 
-        PermissionsVerifierPrx_mixin::OP_checkPermissions = ::Ice::__defineOperation('checkPermissions', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
+        PermissionsVerifierPrx_mixin::OP_checkPermissions = Ice::__defineOperation('checkPermissions', Ice::OperationMode::Idempotent, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0]], [[Ice::T_string, false, 0]], [Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
     end
 
     if not defined?(::Glacier2::T_SSLPermissionsVerifierPrx)
-        T_SSLPermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::SSLPermissionsVerifier')
+        T_SSLPermissionsVerifierPrx = Ice::__declareProxy('::Glacier2::SSLPermissionsVerifier')
     end
 
     if not defined?(::Glacier2::SSLPermissionsVerifierPrx)
         module SSLPermissionsVerifierPrx_mixin
-
             def authorize(info, context=nil)
                 SSLPermissionsVerifierPrx_mixin::OP_authorize.invoke(self, [info], context)
             end
         end
 
-        class SSLPermissionsVerifierPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class SSLPermissionsVerifierPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include SSLPermissionsVerifierPrx_mixin
         end
 
         T_SSLPermissionsVerifierPrx.defineProxy(SSLPermissionsVerifierPrx, nil, [])
 
-        SSLPermissionsVerifierPrx_mixin::OP_authorize = ::Ice::__defineOperation('authorize', ::Ice::OperationMode::Idempotent, nil, [[::Glacier2::T_SSLInfo, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
+        SSLPermissionsVerifierPrx_mixin::OP_authorize = Ice::__defineOperation('authorize', Ice::OperationMode::Idempotent, nil, [[::Glacier2::T_SSLInfo, false, 0]], [[Ice::T_string, false, 0]], [Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
     end
 end

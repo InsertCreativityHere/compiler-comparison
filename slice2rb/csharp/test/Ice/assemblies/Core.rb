@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Core
-
     if not defined?(::Core::ArgumentException)
         class ArgumentException < Ice::UserException
             def to_s
@@ -21,6 +20,6 @@ module ::Core
             end
         end
 
-        T_ArgumentException = ::Ice::__defineException('::Core::ArgumentException', ArgumentException, nil, [])
+        T_ArgumentException = Ice::__defineException('::Core::ArgumentException', ArgumentException, nil, [])
     end
 end

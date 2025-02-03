@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::Test2
-
     if not defined?(::Test2::T_C1)
-        T_C1 = ::Ice::__declareClass('::Test2::C1')
+        T_C1 = Ice::__declareClass('::Test2::C1')
     end
 
     if not defined?(::Test2::C1)
@@ -28,11 +27,11 @@ module ::Test2
             attr_accessor :i
         end
 
-        T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test2::T_C2)
-        T_C2 = ::Ice::__declareClass('::Test2::C2')
+        T_C2 = Ice::__declareClass('::Test2::C2')
     end
 
     if not defined?(::Test2::C2)
@@ -46,7 +45,7 @@ module ::Test2
             attr_accessor :l
         end
 
-        T_C2.defineClass(C2, -1, false, ::Test2::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, ::Test2::T_C1, [['l', Ice::T_long, false, 0]])
     end
 
     if not defined?(::Test2::E1)
@@ -58,7 +57,7 @@ module ::Test2
             attr_accessor :i
         end
 
-        T_E1 = ::Ice::__defineException('::Test2::E1', E1, nil, [["i", ::Ice::T_int, false, 0]])
+        T_E1 = Ice::__defineException('::Test2::E1', E1, nil, [["i", Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test2::E2)
@@ -70,14 +69,14 @@ module ::Test2
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::Test2::E2', E2, ::Test2::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = Ice::__defineException('::Test2::E2', E2, ::Test2::T_E1, [["l", Ice::T_long, false, 0]])
     end
 end
 
 module ::Test3
 
     if not defined?(::Test3::T_C1)
-        T_C1 = ::Ice::__declareClass('::Test3::C1')
+        T_C1 = Ice::__declareClass('::Test3::C1')
     end
 
     if not defined?(::Test3::C1)
@@ -90,11 +89,11 @@ module ::Test3
             attr_accessor :i
         end
 
-        T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test3::T_C2)
-        T_C2 = ::Ice::__declareClass('::Test3::C2')
+        T_C2 = Ice::__declareClass('::Test3::C2')
     end
 
     if not defined?(::Test3::C2)
@@ -108,7 +107,7 @@ module ::Test3
             attr_accessor :l
         end
 
-        T_C2.defineClass(C2, -1, false, ::Test3::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, ::Test3::T_C1, [['l', Ice::T_long, false, 0]])
     end
 
     if not defined?(::Test3::E1)
@@ -120,7 +119,7 @@ module ::Test3
             attr_accessor :i
         end
 
-        T_E1 = ::Ice::__defineException('::Test3::E1', E1, nil, [["i", ::Ice::T_int, false, 0]])
+        T_E1 = Ice::__defineException('::Test3::E1', E1, nil, [["i", Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test3::E2)
@@ -132,6 +131,6 @@ module ::Test3
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::Test3::E2', E2, ::Test3::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = Ice::__defineException('::Test3::E2', E2, ::Test3::T_E1, [["l", Ice::T_long, false, 0]])
     end
 end

@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::S)
         class S
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(str='')
                 @str = str
             end
@@ -40,11 +39,11 @@ module ::Test
             attr_accessor :str
         end
 
-        T_S = ::Ice::__defineStruct('::Test::S', S, [["str", ::Ice::T_string]])
+        T_S = Ice::__defineStruct('::Test::S', S, [["str", Ice::T_string]])
     end
 
     if not defined?(::Test::T_Base)
-        T_Base = ::Ice::__declareClass('::Test::Base')
+        T_Base = Ice::__declareClass('::Test::Base')
     end
 
     if not defined?(::Test::Base)
@@ -60,20 +59,20 @@ module ::Test
 
         T_Base.defineClass(Base, -1, false, nil, [
             ['theS', ::Test::T_S, false, 0],
-            ['str', ::Ice::T_string, false, 0]
+            ['str', Ice::T_string, false, 0]
         ])
     end
 
     if not defined?(::Test::T_B)
-        T_B = ::Ice::__declareClass('::Test::B')
+        T_B = Ice::__declareClass('::Test::B')
     end
 
     if not defined?(::Test::T_C)
-        T_C = ::Ice::__declareClass('::Test::C')
+        T_C = Ice::__declareClass('::Test::C')
     end
 
     if not defined?(::Test::T_A)
-        T_A = ::Ice::__declareClass('::Test::A')
+        T_A = Ice::__declareClass('::Test::A')
     end
 
     if not defined?(::Test::A)
@@ -92,8 +91,8 @@ module ::Test
         T_A.defineClass(A, -1, false, nil, [
             ['theB', ::Test::T_B, false, 0],
             ['theC', ::Test::T_C, false, 0],
-            ['preMarshalInvoked', ::Ice::T_bool, false, 0],
-            ['postUnmarshalInvoked', ::Ice::T_bool, false, 0]
+            ['preMarshalInvoked', Ice::T_bool, false, 0],
+            ['postUnmarshalInvoked', Ice::T_bool, false, 0]
         ])
     end
 
@@ -125,13 +124,13 @@ module ::Test
 
         T_C.defineClass(C, -1, false, nil, [
             ['theB', ::Test::T_B, false, 0],
-            ['preMarshalInvoked', ::Ice::T_bool, false, 0],
-            ['postUnmarshalInvoked', ::Ice::T_bool, false, 0]
+            ['preMarshalInvoked', Ice::T_bool, false, 0],
+            ['postUnmarshalInvoked', Ice::T_bool, false, 0]
         ])
     end
 
     if not defined?(::Test::T_D)
-        T_D = ::Ice::__declareClass('::Test::D')
+        T_D = Ice::__declareClass('::Test::D')
     end
 
     if not defined?(::Test::D)
@@ -152,13 +151,13 @@ module ::Test
             ['theA', ::Test::T_A, false, 0],
             ['theB', ::Test::T_B, false, 0],
             ['theC', ::Test::T_C, false, 0],
-            ['preMarshalInvoked', ::Ice::T_bool, false, 0],
-            ['postUnmarshalInvoked', ::Ice::T_bool, false, 0]
+            ['preMarshalInvoked', Ice::T_bool, false, 0],
+            ['postUnmarshalInvoked', Ice::T_bool, false, 0]
         ])
     end
 
     if not defined?(::Test::T_G)
-        T_G = ::Ice::__declareClass('::Test::G')
+        T_G = Ice::__declareClass('::Test::G')
     end
 
     if not defined?(::Test::G)
@@ -173,15 +172,15 @@ module ::Test
     end
 
     if not defined?(::Test::T_BaseSeq)
-        T_BaseSeq = ::Ice::__defineSequence('::Test::BaseSeq', ::Test::T_Base)
+        T_BaseSeq = Ice::__defineSequence('::Test::BaseSeq', ::Test::T_Base)
     end
 
     if not defined?(::Test::T_CompactExt)
-        T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
+        T_CompactExt = Ice::__declareClass('::Test::CompactExt')
     end
 
     if not defined?(::Test::T_Compact)
-        T_Compact = ::Ice::__declareClass('::Test::Compact')
+        T_Compact = Ice::__declareClass('::Test::Compact')
     end
 
     if not defined?(::Test::Compact)
@@ -203,7 +202,7 @@ module ::Test
     module Inner
 
         if not defined?(::Test::Inner::T_A)
-            T_A = ::Ice::__declareClass('::Test::Inner::A')
+            T_A = Ice::__declareClass('::Test::Inner::A')
         end
 
         if not defined?(::Test::Inner::A)
@@ -228,13 +227,13 @@ module ::Test
                 attr_accessor :reason
             end
 
-            T_Ex = ::Ice::__defineException('::Test::Inner::Ex', Ex, nil, [["reason", ::Ice::T_string, false, 0]])
+            T_Ex = Ice::__defineException('::Test::Inner::Ex', Ex, nil, [["reason", Ice::T_string, false, 0]])
         end
 
         module Sub
 
             if not defined?(::Test::Inner::Sub::T_A)
-                T_A = ::Ice::__declareClass('::Test::Inner::Sub::A')
+                T_A = Ice::__declareClass('::Test::Inner::Sub::A')
             end
 
             if not defined?(::Test::Inner::Sub::A)
@@ -259,13 +258,13 @@ module ::Test
                     attr_accessor :reason
                 end
 
-                T_Ex = ::Ice::__defineException('::Test::Inner::Sub::Ex', Ex, nil, [["reason", ::Ice::T_string, false, 0]])
+                T_Ex = Ice::__defineException('::Test::Inner::Sub::Ex', Ex, nil, [["reason", Ice::T_string, false, 0]])
             end
         end
     end
 
     if not defined?(::Test::T_A1)
-        T_A1 = ::Ice::__declareClass('::Test::A1')
+        T_A1 = Ice::__declareClass('::Test::A1')
     end
 
     if not defined?(::Test::A1)
@@ -278,11 +277,11 @@ module ::Test
             attr_accessor :name
         end
 
-        T_A1.defineClass(A1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
+        T_A1.defineClass(A1, -1, false, nil, [['name', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_B1)
-        T_B1 = ::Ice::__declareClass('::Test::B1')
+        T_B1 = Ice::__declareClass('::Test::B1')
     end
 
     if not defined?(::Test::B1)
@@ -303,7 +302,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_D1)
-        T_D1 = ::Ice::__declareClass('::Test::D1')
+        T_D1 = Ice::__declareClass('::Test::D1')
     end
 
     if not defined?(::Test::D1)
@@ -333,7 +332,7 @@ module ::Test
             attr_accessor :a1, :a2
         end
 
-        T_EBase = ::Ice::__defineException('::Test::EBase', EBase, nil, [
+        T_EBase = Ice::__defineException('::Test::EBase', EBase, nil, [
             ["a1", ::Test::T_A1, false, 0],
             ["a2", ::Test::T_A1, false, 0]
         ])
@@ -348,14 +347,14 @@ module ::Test
             attr_accessor :a3, :a4
         end
 
-        T_EDerived = ::Ice::__defineException('::Test::EDerived', EDerived, ::Test::T_EBase, [
+        T_EDerived = Ice::__defineException('::Test::EDerived', EDerived, ::Test::T_EBase, [
             ["a3", ::Test::T_A1, false, 0],
             ["a4", ::Test::T_A1, false, 0]
         ])
     end
 
     if not defined?(::Test::T_Recursive)
-        T_Recursive = ::Ice::__declareClass('::Test::Recursive')
+        T_Recursive = Ice::__declareClass('::Test::Recursive')
     end
 
     if not defined?(::Test::Recursive)
@@ -372,7 +371,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_K)
-        T_K = ::Ice::__declareClass('::Test::K')
+        T_K = Ice::__declareClass('::Test::K')
     end
 
     if not defined?(::Test::K)
@@ -385,11 +384,11 @@ module ::Test
             attr_accessor :value
         end
 
-        T_K.defineClass(K, -1, false, nil, [['value', ::Ice::T_Value, false, 0]])
+        T_K.defineClass(K, -1, false, nil, [['value', Ice::T_Value, false, 0]])
     end
 
     if not defined?(::Test::T_L)
-        T_L = ::Ice::__declareClass('::Test::L')
+        T_L = Ice::__declareClass('::Test::L')
     end
 
     if not defined?(::Test::L)
@@ -402,20 +401,20 @@ module ::Test
             attr_accessor :data
         end
 
-        T_L.defineClass(L, -1, false, nil, [['data', ::Ice::T_string, false, 0]])
+        T_L.defineClass(L, -1, false, nil, [['data', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_ValueSeq)
-        T_ValueSeq = ::Ice::__defineSequence('::Test::ValueSeq', ::Ice::T_Value)
+        T_ValueSeq = Ice::__defineSequence('::Test::ValueSeq', Ice::T_Value)
     end
 
     if not defined?(::Test::T_ValueMap)
-        T_ValueMap = ::Ice::__defineDictionary('::Test::ValueMap', ::Ice::T_string, ::Ice::T_Value)
+        T_ValueMap = Ice::__defineDictionary('::Test::ValueMap', Ice::T_string, Ice::T_Value)
     end
 
     if not defined?(::Test::StructKey)
         class StructKey
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(i=0, s='')
                 @i = i
                 @s = s
@@ -442,18 +441,18 @@ module ::Test
             attr_accessor :i, :s
         end
 
-        T_StructKey = ::Ice::__defineStruct('::Test::StructKey', StructKey, [
-            ["i", ::Ice::T_int],
-            ["s", ::Ice::T_string]
+        T_StructKey = Ice::__defineStruct('::Test::StructKey', StructKey, [
+            ["i", Ice::T_int],
+            ["s", Ice::T_string]
         ])
     end
 
     if not defined?(::Test::T_LMap)
-        T_LMap = ::Ice::__defineDictionary('::Test::LMap', ::Test::T_StructKey, ::Test::T_L)
+        T_LMap = Ice::__defineDictionary('::Test::LMap', ::Test::T_StructKey, ::Test::T_L)
     end
 
     if not defined?(::Test::T_M)
-        T_M = ::Ice::__declareClass('::Test::M')
+        T_M = Ice::__declareClass('::Test::M')
     end
 
     if not defined?(::Test::M)
@@ -470,15 +469,15 @@ module ::Test
     end
 
     if not defined?(::Test::T_F1)
-        T_F1 = ::Ice::__declareClass('::Test::F1')
+        T_F1 = Ice::__declareClass('::Test::F1')
     end
 
     if not defined?(::Test::T_F2Prx)
-        T_F2Prx = ::Ice::__declareProxy('::Test::F2')
+        T_F2Prx = Ice::__declareProxy('::Test::F2')
     end
 
     if not defined?(::Test::T_F3)
-        T_F3 = ::Ice::__declareClass('::Test::F3')
+        T_F3 = Ice::__declareClass('::Test::F3')
     end
 
     if not defined?(::Test::F3)
@@ -499,12 +498,11 @@ module ::Test
     end
 
     if not defined?(::Test::T_InitialPrx)
-        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
+        T_InitialPrx = Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
-
             def shutdown(context=nil)
                 InitialPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -622,46 +620,46 @@ module ::Test
             end
         end
 
-        class InitialPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class InitialPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include InitialPrx_mixin
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        InitialPrx_mixin::OP_getB1 = ::Ice::__defineOperation('getB1', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
-        InitialPrx_mixin::OP_getB2 = ::Ice::__defineOperation('getB2', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
-        InitialPrx_mixin::OP_getC = ::Ice::__defineOperation('getC', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_C, false, 0], [])
-        InitialPrx_mixin::OP_getD = ::Ice::__defineOperation('getD', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_D, false, 0], [])
-        InitialPrx_mixin::OP_setRecursive = ::Ice::__defineOperation('setRecursive', ::Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_setCycle = ::Ice::__defineOperation('setCycle', ::Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_acceptsClassCycles = ::Ice::__defineOperation('acceptsClassCycles', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_getMB = ::Ice::__defineOperation('getMB', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
-        InitialPrx_mixin::OP_getAMDMB = ::Ice::__defineOperation('getAMDMB', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
-        InitialPrx_mixin::OP_getAll = ::Ice::__defineOperation('getAll', ::Ice::OperationMode::Normal, nil, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0], [::Test::T_C, false, 0], [::Test::T_D, false, 0]], nil, [])
-        InitialPrx_mixin::OP_getK = ::Ice::__defineOperation('getK', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_K, false, 0], [])
-        InitialPrx_mixin::OP_opValue = ::Ice::__defineOperation('opValue', ::Ice::OperationMode::Normal, nil, [[::Ice::T_Value, false, 0]], [[::Ice::T_Value, false, 0]], [::Ice::T_Value, false, 0], [])
-        InitialPrx_mixin::OP_opValueSeq = ::Ice::__defineOperation('opValueSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_ValueSeq, false, 0]], [[::Test::T_ValueSeq, false, 0]], [::Test::T_ValueSeq, false, 0], [])
-        InitialPrx_mixin::OP_opValueMap = ::Ice::__defineOperation('opValueMap', ::Ice::OperationMode::Normal, nil, [[::Test::T_ValueMap, false, 0]], [[::Test::T_ValueMap, false, 0]], [::Test::T_ValueMap, false, 0], [])
-        InitialPrx_mixin::OP_getD1 = ::Ice::__defineOperation('getD1', ::Ice::OperationMode::Normal, nil, [[::Test::T_D1, false, 0]], [], [::Test::T_D1, false, 0], [])
-        InitialPrx_mixin::OP_throwEDerived = ::Ice::__defineOperation('throwEDerived', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_EDerived])
-        InitialPrx_mixin::OP_setG = ::Ice::__defineOperation('setG', ::Ice::OperationMode::Normal, nil, [[::Test::T_G, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_opBaseSeq = ::Ice::__defineOperation('opBaseSeq', ::Ice::OperationMode::Normal, nil, [[::Test::T_BaseSeq, false, 0]], [[::Test::T_BaseSeq, false, 0]], [::Test::T_BaseSeq, false, 0], [])
-        InitialPrx_mixin::OP_getCompact = ::Ice::__defineOperation('getCompact', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_Compact, false, 0], [])
-        InitialPrx_mixin::OP_getInnerA = ::Ice::__defineOperation('getInnerA', ::Ice::OperationMode::Normal, nil, [], [], [::Test::Inner::T_A, false, 0], [])
-        InitialPrx_mixin::OP_getInnerSubA = ::Ice::__defineOperation('getInnerSubA', ::Ice::OperationMode::Normal, nil, [], [], [::Test::Inner::Sub::T_A, false, 0], [])
-        InitialPrx_mixin::OP_throwInnerEx = ::Ice::__defineOperation('throwInnerEx', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::Inner::T_Ex])
-        InitialPrx_mixin::OP_throwInnerSubEx = ::Ice::__defineOperation('throwInnerSubEx', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::Inner::Sub::T_Ex])
-        InitialPrx_mixin::OP_opM = ::Ice::__defineOperation('opM', ::Ice::OperationMode::Normal, nil, [[::Test::T_M, false, 0]], [[::Test::T_M, false, 0]], [::Test::T_M, false, 0], [])
-        InitialPrx_mixin::OP_opF1 = ::Ice::__defineOperation('opF1', ::Ice::OperationMode::Normal, nil, [[::Test::T_F1, false, 0]], [[::Test::T_F1, false, 0]], [::Test::T_F1, false, 0], [])
-        InitialPrx_mixin::OP_opF2 = ::Ice::__defineOperation('opF2', ::Ice::OperationMode::Normal, nil, [[::Test::T_F2Prx, false, 0]], [[::Test::T_F2Prx, false, 0]], [::Test::T_F2Prx, false, 0], [])
-        InitialPrx_mixin::OP_opF3 = ::Ice::__defineOperation('opF3', ::Ice::OperationMode::Normal, nil, [[::Test::T_F3, false, 0]], [[::Test::T_F3, false, 0]], [::Test::T_F3, false, 0], [])
-        InitialPrx_mixin::OP_hasF3 = ::Ice::__defineOperation('hasF3', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+        InitialPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        InitialPrx_mixin::OP_getB1 = Ice::__defineOperation('getB1', Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
+        InitialPrx_mixin::OP_getB2 = Ice::__defineOperation('getB2', Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
+        InitialPrx_mixin::OP_getC = Ice::__defineOperation('getC', Ice::OperationMode::Normal, nil, [], [], [::Test::T_C, false, 0], [])
+        InitialPrx_mixin::OP_getD = Ice::__defineOperation('getD', Ice::OperationMode::Normal, nil, [], [], [::Test::T_D, false, 0], [])
+        InitialPrx_mixin::OP_setRecursive = Ice::__defineOperation('setRecursive', Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
+        InitialPrx_mixin::OP_setCycle = Ice::__defineOperation('setCycle', Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
+        InitialPrx_mixin::OP_acceptsClassCycles = Ice::__defineOperation('acceptsClassCycles', Ice::OperationMode::Normal, nil, [], [], [Ice::T_bool, false, 0], [])
+        InitialPrx_mixin::OP_getMB = Ice::__defineOperation('getMB', Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
+        InitialPrx_mixin::OP_getAMDMB = Ice::__defineOperation('getAMDMB', Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
+        InitialPrx_mixin::OP_getAll = Ice::__defineOperation('getAll', Ice::OperationMode::Normal, nil, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0], [::Test::T_C, false, 0], [::Test::T_D, false, 0]], nil, [])
+        InitialPrx_mixin::OP_getK = Ice::__defineOperation('getK', Ice::OperationMode::Normal, nil, [], [], [::Test::T_K, false, 0], [])
+        InitialPrx_mixin::OP_opValue = Ice::__defineOperation('opValue', Ice::OperationMode::Normal, nil, [[Ice::T_Value, false, 0]], [[Ice::T_Value, false, 0]], [Ice::T_Value, false, 0], [])
+        InitialPrx_mixin::OP_opValueSeq = Ice::__defineOperation('opValueSeq', Ice::OperationMode::Normal, nil, [[::Test::T_ValueSeq, false, 0]], [[::Test::T_ValueSeq, false, 0]], [::Test::T_ValueSeq, false, 0], [])
+        InitialPrx_mixin::OP_opValueMap = Ice::__defineOperation('opValueMap', Ice::OperationMode::Normal, nil, [[::Test::T_ValueMap, false, 0]], [[::Test::T_ValueMap, false, 0]], [::Test::T_ValueMap, false, 0], [])
+        InitialPrx_mixin::OP_getD1 = Ice::__defineOperation('getD1', Ice::OperationMode::Normal, nil, [[::Test::T_D1, false, 0]], [], [::Test::T_D1, false, 0], [])
+        InitialPrx_mixin::OP_throwEDerived = Ice::__defineOperation('throwEDerived', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_EDerived])
+        InitialPrx_mixin::OP_setG = Ice::__defineOperation('setG', Ice::OperationMode::Normal, nil, [[::Test::T_G, false, 0]], [], nil, [])
+        InitialPrx_mixin::OP_opBaseSeq = Ice::__defineOperation('opBaseSeq', Ice::OperationMode::Normal, nil, [[::Test::T_BaseSeq, false, 0]], [[::Test::T_BaseSeq, false, 0]], [::Test::T_BaseSeq, false, 0], [])
+        InitialPrx_mixin::OP_getCompact = Ice::__defineOperation('getCompact', Ice::OperationMode::Normal, nil, [], [], [::Test::T_Compact, false, 0], [])
+        InitialPrx_mixin::OP_getInnerA = Ice::__defineOperation('getInnerA', Ice::OperationMode::Normal, nil, [], [], [::Test::Inner::T_A, false, 0], [])
+        InitialPrx_mixin::OP_getInnerSubA = Ice::__defineOperation('getInnerSubA', Ice::OperationMode::Normal, nil, [], [], [::Test::Inner::Sub::T_A, false, 0], [])
+        InitialPrx_mixin::OP_throwInnerEx = Ice::__defineOperation('throwInnerEx', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::Inner::T_Ex])
+        InitialPrx_mixin::OP_throwInnerSubEx = Ice::__defineOperation('throwInnerSubEx', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::Inner::Sub::T_Ex])
+        InitialPrx_mixin::OP_opM = Ice::__defineOperation('opM', Ice::OperationMode::Normal, nil, [[::Test::T_M, false, 0]], [[::Test::T_M, false, 0]], [::Test::T_M, false, 0], [])
+        InitialPrx_mixin::OP_opF1 = Ice::__defineOperation('opF1', Ice::OperationMode::Normal, nil, [[::Test::T_F1, false, 0]], [[::Test::T_F1, false, 0]], [::Test::T_F1, false, 0], [])
+        InitialPrx_mixin::OP_opF2 = Ice::__defineOperation('opF2', Ice::OperationMode::Normal, nil, [[::Test::T_F2Prx, false, 0]], [[::Test::T_F2Prx, false, 0]], [::Test::T_F2Prx, false, 0], [])
+        InitialPrx_mixin::OP_opF3 = Ice::__defineOperation('opF3', Ice::OperationMode::Normal, nil, [[::Test::T_F3, false, 0]], [[::Test::T_F3, false, 0]], [::Test::T_F3, false, 0], [])
+        InitialPrx_mixin::OP_hasF3 = Ice::__defineOperation('hasF3', Ice::OperationMode::Normal, nil, [], [], [Ice::T_bool, false, 0], [])
     end
 
     if not defined?(::Test::T_Empty)
-        T_Empty = ::Ice::__declareClass('::Test::Empty')
+        T_Empty = Ice::__declareClass('::Test::Empty')
     end
 
     if not defined?(::Test::Empty)
@@ -672,7 +670,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_AlsoEmpty)
-        T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
+        T_AlsoEmpty = Ice::__declareClass('::Test::AlsoEmpty')
     end
 
     if not defined?(::Test::AlsoEmpty)
@@ -683,29 +681,28 @@ module ::Test
     end
 
     if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
-        T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
+        T_UnexpectedObjectExceptionTestPrx = Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
     end
 
     if not defined?(::Test::UnexpectedObjectExceptionTestPrx)
         module UnexpectedObjectExceptionTestPrx_mixin
-
             def op(context=nil)
                 UnexpectedObjectExceptionTestPrx_mixin::OP_op.invoke(self, [], context)
             end
         end
 
-        class UnexpectedObjectExceptionTestPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class UnexpectedObjectExceptionTestPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include UnexpectedObjectExceptionTestPrx_mixin
         end
 
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 
-        UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_Empty, false, 0], [])
+        UnexpectedObjectExceptionTestPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], [::Test::T_Empty, false, 0], [])
     end
 
     if not defined?(::Test::T_COneMember)
-        T_COneMember = ::Ice::__declareClass('::Test::COneMember')
+        T_COneMember = Ice::__declareClass('::Test::COneMember')
     end
 
     if not defined?(::Test::COneMember)
@@ -722,7 +719,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_CTwoMembers)
-        T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
+        T_CTwoMembers = Ice::__declareClass('::Test::CTwoMembers')
     end
 
     if not defined?(::Test::CTwoMembers)
@@ -751,7 +748,7 @@ module ::Test
             attr_accessor :e
         end
 
-        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, nil, [["e", ::Test::T_Empty, false, 0]])
+        T_EOneMember = Ice::__defineException('::Test::EOneMember', EOneMember, nil, [["e", ::Test::T_Empty, false, 0]])
     end
 
     if not defined?(::Test::ETwoMembers)
@@ -763,7 +760,7 @@ module ::Test
             attr_accessor :e1, :e2
         end
 
-        T_ETwoMembers = ::Ice::__defineException('::Test::ETwoMembers', ETwoMembers, nil, [
+        T_ETwoMembers = Ice::__defineException('::Test::ETwoMembers', ETwoMembers, nil, [
             ["e1", ::Test::T_Empty, false, 0],
             ["e2", ::Test::T_Empty, false, 0]
         ])
@@ -771,7 +768,7 @@ module ::Test
 
     if not defined?(::Test::SOneMember)
         class SOneMember
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(e=nil)
                 @e = e
             end
@@ -795,12 +792,12 @@ module ::Test
             attr_accessor :e
         end
 
-        T_SOneMember = ::Ice::__defineStruct('::Test::SOneMember', SOneMember, [["e", ::Test::T_Empty]])
+        T_SOneMember = Ice::__defineStruct('::Test::SOneMember', SOneMember, [["e", ::Test::T_Empty]])
     end
 
     if not defined?(::Test::STwoMembers)
         class STwoMembers
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(e1=nil, e2=nil)
                 @e1 = e1
                 @e2 = e2
@@ -827,17 +824,17 @@ module ::Test
             attr_accessor :e1, :e2
         end
 
-        T_STwoMembers = ::Ice::__defineStruct('::Test::STwoMembers', STwoMembers, [
+        T_STwoMembers = Ice::__defineStruct('::Test::STwoMembers', STwoMembers, [
             ["e1", ::Test::T_Empty],
             ["e2", ::Test::T_Empty]
         ])
     end
 
     if not defined?(::Test::T_DOneMember)
-        T_DOneMember = ::Ice::__defineDictionary('::Test::DOneMember', ::Ice::T_int, ::Test::T_COneMember)
+        T_DOneMember = Ice::__defineDictionary('::Test::DOneMember', Ice::T_int, ::Test::T_COneMember)
     end
 
     if not defined?(::Test::T_DTwoMembers)
-        T_DTwoMembers = ::Ice::__defineDictionary('::Test::DTwoMembers', ::Ice::T_int, ::Test::T_CTwoMembers)
+        T_DTwoMembers = Ice::__defineDictionary('::Test::DTwoMembers', Ice::T_int, ::Test::T_CTwoMembers)
     end
 end

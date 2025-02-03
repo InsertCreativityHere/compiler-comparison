@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::MyException)
         class MyException < Ice::UserException
             def to_s
@@ -21,16 +20,15 @@ module ::Test
             end
         end
 
-        T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [])
+        T_MyException = Ice::__defineException('::Test::MyException', MyException, nil, [])
     end
 
     if not defined?(::Test::T_MyClassPrx)
-        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
+        T_MyClassPrx = Ice::__declareProxy('::Test::MyClass')
     end
 
     if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
-
             def opOneway(context=nil)
                 MyClassPrx_mixin::OP_opOneway.invoke(self, [], context)
             end
@@ -48,16 +46,16 @@ module ::Test
             end
         end
 
-        class MyClassPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyClassPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyClassPrx_mixin
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_opOneway = ::Ice::__defineOperation('opOneway', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        MyClassPrx_mixin::OP_opException = ::Ice::__defineOperation('opException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_MyException])
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_opOneway = Ice::__defineOperation('opOneway', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_opString = Ice::__defineOperation('opString', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [[Ice::T_string, false, 0]], [Ice::T_string, false, 0], [])
+        MyClassPrx_mixin::OP_opException = Ice::__defineOperation('opException', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_MyException])
+        MyClassPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

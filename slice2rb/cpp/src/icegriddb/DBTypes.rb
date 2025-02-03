@@ -14,14 +14,13 @@ require 'Ice'
 require 'IceGrid/Admin.rb'
 
 module ::IceGrid
-
     if not defined?(::IceGrid::T_StringLongDict)
-        T_StringLongDict = ::Ice::__defineDictionary('::IceGrid::StringLongDict', ::Ice::T_string, ::Ice::T_long)
+        T_StringLongDict = Ice::__defineDictionary('::IceGrid::StringLongDict', Ice::T_string, Ice::T_long)
     end
 
     if not defined?(::IceGrid::AllData)
         class AllData
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(applications=nil, adapters=nil, objects=nil, internalObjects=nil, serials=nil)
                 @applications = applications
                 @adapters = adapters
@@ -57,7 +56,7 @@ module ::IceGrid
             attr_accessor :applications, :adapters, :objects, :internalObjects, :serials
         end
 
-        T_AllData = ::Ice::__defineStruct('::IceGrid::AllData', AllData, [
+        T_AllData = Ice::__defineStruct('::IceGrid::AllData', AllData, [
             ["applications", ::IceGrid::T_ApplicationInfoSeq],
             ["adapters", ::IceGrid::T_AdapterInfoSeq],
             ["objects", ::IceGrid::T_ObjectInfoSeq],

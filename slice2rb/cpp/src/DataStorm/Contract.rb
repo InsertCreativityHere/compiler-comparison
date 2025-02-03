@@ -16,7 +16,6 @@ require 'Ice/BuiltinSequences.rb'
 require 'DataStorm/Sample.rb'
 
 module ::DataStormContract
-
     if not defined?(::DataStormContract::ClearHistoryPolicy)
         class ClearHistoryPolicy
             include Comparable
@@ -66,16 +65,16 @@ module ::DataStormContract
             private_class_method :new
         end
 
-        T_ClearHistoryPolicy = ::Ice::__defineEnum('::DataStormContract::ClearHistoryPolicy', ClearHistoryPolicy, ClearHistoryPolicy::_enumerators)
+        T_ClearHistoryPolicy = Ice::__defineEnum('::DataStormContract::ClearHistoryPolicy', ClearHistoryPolicy, ClearHistoryPolicy::_enumerators)
     end
 
     if not defined?(::DataStormContract::T_LongLongDict)
-        T_LongLongDict = ::Ice::__defineDictionary('::DataStormContract::LongLongDict', ::Ice::T_long, ::Ice::T_long)
+        T_LongLongDict = Ice::__defineDictionary('::DataStormContract::LongLongDict', Ice::T_long, Ice::T_long)
     end
 
     if not defined?(::DataStormContract::DataSample)
         class DataSample
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(id=0, keyId=0, keyValue=nil, timestamp=0, tag=0, event=::DataStorm::SampleEvent::Add, value=nil)
                 @id = id
                 @keyId = keyId
@@ -117,24 +116,24 @@ module ::DataStormContract
             attr_accessor :id, :keyId, :keyValue, :timestamp, :tag, :event, :value
         end
 
-        T_DataSample = ::Ice::__defineStruct('::DataStormContract::DataSample', DataSample, [
-            ["id", ::Ice::T_long],
-            ["keyId", ::Ice::T_long],
+        T_DataSample = Ice::__defineStruct('::DataStormContract::DataSample', DataSample, [
+            ["id", Ice::T_long],
+            ["keyId", Ice::T_long],
             ["keyValue", ::Ice::T_ByteSeq],
-            ["timestamp", ::Ice::T_long],
-            ["tag", ::Ice::T_long],
+            ["timestamp", Ice::T_long],
+            ["tag", Ice::T_long],
             ["event", ::DataStorm::T_SampleEvent],
             ["value", ::Ice::T_ByteSeq]
         ])
     end
 
     if not defined?(::DataStormContract::T_DataSampleSeq)
-        T_DataSampleSeq = ::Ice::__defineSequence('::DataStormContract::DataSampleSeq', ::DataStormContract::T_DataSample)
+        T_DataSampleSeq = Ice::__defineSequence('::DataStormContract::DataSampleSeq', ::DataStormContract::T_DataSample)
     end
 
     if not defined?(::DataStormContract::DataSamples)
         class DataSamples
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(id=0, samples=nil)
                 @id = id
                 @samples = samples
@@ -161,19 +160,19 @@ module ::DataStormContract
             attr_accessor :id, :samples
         end
 
-        T_DataSamples = ::Ice::__defineStruct('::DataStormContract::DataSamples', DataSamples, [
-            ["id", ::Ice::T_long],
+        T_DataSamples = Ice::__defineStruct('::DataStormContract::DataSamples', DataSamples, [
+            ["id", Ice::T_long],
             ["samples", ::DataStormContract::T_DataSampleSeq]
         ])
     end
 
     if not defined?(::DataStormContract::T_DataSamplesSeq)
-        T_DataSamplesSeq = ::Ice::__defineSequence('::DataStormContract::DataSamplesSeq', ::DataStormContract::T_DataSamples)
+        T_DataSamplesSeq = Ice::__defineSequence('::DataStormContract::DataSamplesSeq', ::DataStormContract::T_DataSamples)
     end
 
     if not defined?(::DataStormContract::ElementInfo)
         class ElementInfo
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(id=0, name='', value=nil)
                 @id = id
                 @name = name
@@ -203,20 +202,20 @@ module ::DataStormContract
             attr_accessor :id, :name, :value
         end
 
-        T_ElementInfo = ::Ice::__defineStruct('::DataStormContract::ElementInfo', ElementInfo, [
-            ["id", ::Ice::T_long],
-            ["name", ::Ice::T_string],
+        T_ElementInfo = Ice::__defineStruct('::DataStormContract::ElementInfo', ElementInfo, [
+            ["id", Ice::T_long],
+            ["name", Ice::T_string],
             ["value", ::Ice::T_ByteSeq]
         ])
     end
 
     if not defined?(::DataStormContract::T_ElementInfoSeq)
-        T_ElementInfoSeq = ::Ice::__defineSequence('::DataStormContract::ElementInfoSeq', ::DataStormContract::T_ElementInfo)
+        T_ElementInfoSeq = Ice::__defineSequence('::DataStormContract::ElementInfoSeq', ::DataStormContract::T_ElementInfo)
     end
 
     if not defined?(::DataStormContract::TopicInfo)
         class TopicInfo
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(name='', ids=nil)
                 @name = name
                 @ids = ids
@@ -243,19 +242,19 @@ module ::DataStormContract
             attr_accessor :name, :ids
         end
 
-        T_TopicInfo = ::Ice::__defineStruct('::DataStormContract::TopicInfo', TopicInfo, [
-            ["name", ::Ice::T_string],
+        T_TopicInfo = Ice::__defineStruct('::DataStormContract::TopicInfo', TopicInfo, [
+            ["name", Ice::T_string],
             ["ids", ::Ice::T_LongSeq]
         ])
     end
 
     if not defined?(::DataStormContract::T_TopicInfoSeq)
-        T_TopicInfoSeq = ::Ice::__defineSequence('::DataStormContract::TopicInfoSeq', ::DataStormContract::T_TopicInfo)
+        T_TopicInfoSeq = Ice::__defineSequence('::DataStormContract::TopicInfoSeq', ::DataStormContract::T_TopicInfo)
     end
 
     if not defined?(::DataStormContract::TopicSpec)
         class TopicSpec
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(id=0, name='', elements=nil, tags=nil)
                 @id = id
                 @name = name
@@ -288,9 +287,9 @@ module ::DataStormContract
             attr_accessor :id, :name, :elements, :tags
         end
 
-        T_TopicSpec = ::Ice::__defineStruct('::DataStormContract::TopicSpec', TopicSpec, [
-            ["id", ::Ice::T_long],
-            ["name", ::Ice::T_string],
+        T_TopicSpec = Ice::__defineStruct('::DataStormContract::TopicSpec', TopicSpec, [
+            ["id", Ice::T_long],
+            ["name", Ice::T_string],
             ["elements", ::DataStormContract::T_ElementInfoSeq],
             ["tags", ::DataStormContract::T_ElementInfoSeq]
         ])
@@ -298,7 +297,7 @@ module ::DataStormContract
 
     if not defined?(::DataStormContract::FilterInfo)
         class FilterInfo
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(name='', criteria=nil)
                 @name = name
                 @criteria = criteria
@@ -325,20 +324,20 @@ module ::DataStormContract
             attr_accessor :name, :criteria
         end
 
-        T_FilterInfo = ::Ice::__defineStruct('::DataStormContract::FilterInfo', FilterInfo, [
-            ["name", ::Ice::T_string],
+        T_FilterInfo = Ice::__defineStruct('::DataStormContract::FilterInfo', FilterInfo, [
+            ["name", Ice::T_string],
             ["criteria", ::Ice::T_ByteSeq]
         ])
     end
 
     if not defined?(::DataStormContract::T_ElementConfig)
-        T_ElementConfig = ::Ice::__declareClass('::DataStormContract::ElementConfig')
+        T_ElementConfig = Ice::__declareClass('::DataStormContract::ElementConfig')
     end
 
     if not defined?(::DataStormContract::ElementConfig)
         class ElementConfig < Ice::Value
 
-            def initialize(facet=::Ice::Unset, sampleFilter=::Ice::Unset, name=::Ice::Unset, priority=::Ice::Unset, sampleCount=::Ice::Unset, sampleLifetime=::Ice::Unset, clearHistory=::Ice::Unset)
+            def initialize(facet=Ice::Unset, sampleFilter=Ice::Unset, name=Ice::Unset, priority=Ice::Unset, sampleCount=Ice::Unset, sampleLifetime=Ice::Unset, clearHistory=Ice::Unset)
                 @facet = facet
                 @sampleFilter = sampleFilter
                 @name = name
@@ -352,19 +351,19 @@ module ::DataStormContract
         end
 
         T_ElementConfig.defineClass(ElementConfig, 1, false, nil, [
-            ['facet', ::Ice::T_string, true, 1],
+            ['facet', Ice::T_string, true, 1],
             ['sampleFilter', ::DataStormContract::T_FilterInfo, true, 2],
-            ['name', ::Ice::T_string, true, 3],
-            ['priority', ::Ice::T_int, true, 4],
-            ['sampleCount', ::Ice::T_int, true, 10],
-            ['sampleLifetime', ::Ice::T_int, true, 11],
+            ['name', Ice::T_string, true, 3],
+            ['priority', Ice::T_int, true, 4],
+            ['sampleCount', Ice::T_int, true, 10],
+            ['sampleLifetime', Ice::T_int, true, 11],
             ['clearHistory', ::DataStormContract::T_ClearHistoryPolicy, true, 12]
         ])
     end
 
     if not defined?(::DataStormContract::ElementData)
         class ElementData
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(id=0, config=nil, lastIds=nil)
                 @id = id
                 @config = config
@@ -394,20 +393,20 @@ module ::DataStormContract
             attr_accessor :id, :config, :lastIds
         end
 
-        T_ElementData = ::Ice::__defineStruct('::DataStormContract::ElementData', ElementData, [
-            ["id", ::Ice::T_long],
+        T_ElementData = Ice::__defineStruct('::DataStormContract::ElementData', ElementData, [
+            ["id", Ice::T_long],
             ["config", ::DataStormContract::T_ElementConfig],
             ["lastIds", ::DataStormContract::T_LongLongDict]
         ])
     end
 
     if not defined?(::DataStormContract::T_ElementDataSeq)
-        T_ElementDataSeq = ::Ice::__defineSequence('::DataStormContract::ElementDataSeq', ::DataStormContract::T_ElementData)
+        T_ElementDataSeq = Ice::__defineSequence('::DataStormContract::ElementDataSeq', ::DataStormContract::T_ElementData)
     end
 
     if not defined?(::DataStormContract::ElementSpec)
         class ElementSpec
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(elements=nil, id=0, name='', value=nil, peerId=0, peerName='')
                 @elements = elements
                 @id = id
@@ -446,23 +445,23 @@ module ::DataStormContract
             attr_accessor :elements, :id, :name, :value, :peerId, :peerName
         end
 
-        T_ElementSpec = ::Ice::__defineStruct('::DataStormContract::ElementSpec', ElementSpec, [
+        T_ElementSpec = Ice::__defineStruct('::DataStormContract::ElementSpec', ElementSpec, [
             ["elements", ::DataStormContract::T_ElementDataSeq],
-            ["id", ::Ice::T_long],
-            ["name", ::Ice::T_string],
+            ["id", Ice::T_long],
+            ["name", Ice::T_string],
             ["value", ::Ice::T_ByteSeq],
-            ["peerId", ::Ice::T_long],
-            ["peerName", ::Ice::T_string]
+            ["peerId", Ice::T_long],
+            ["peerName", Ice::T_string]
         ])
     end
 
     if not defined?(::DataStormContract::T_ElementSpecSeq)
-        T_ElementSpecSeq = ::Ice::__defineSequence('::DataStormContract::ElementSpecSeq', ::DataStormContract::T_ElementSpec)
+        T_ElementSpecSeq = Ice::__defineSequence('::DataStormContract::ElementSpecSeq', ::DataStormContract::T_ElementSpec)
     end
 
     if not defined?(::DataStormContract::ElementDataAck)
         class ElementDataAck
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(id=0, config=nil, lastIds=nil, samples=nil, peerId=0)
                 @id = id
                 @config = config
@@ -498,22 +497,22 @@ module ::DataStormContract
             attr_accessor :id, :config, :lastIds, :samples, :peerId
         end
 
-        T_ElementDataAck = ::Ice::__defineStruct('::DataStormContract::ElementDataAck', ElementDataAck, [
-            ["id", ::Ice::T_long],
+        T_ElementDataAck = Ice::__defineStruct('::DataStormContract::ElementDataAck', ElementDataAck, [
+            ["id", Ice::T_long],
             ["config", ::DataStormContract::T_ElementConfig],
             ["lastIds", ::DataStormContract::T_LongLongDict],
             ["samples", ::DataStormContract::T_DataSampleSeq],
-            ["peerId", ::Ice::T_long]
+            ["peerId", Ice::T_long]
         ])
     end
 
     if not defined?(::DataStormContract::T_ElementDataAckSeq)
-        T_ElementDataAckSeq = ::Ice::__defineSequence('::DataStormContract::ElementDataAckSeq', ::DataStormContract::T_ElementDataAck)
+        T_ElementDataAckSeq = Ice::__defineSequence('::DataStormContract::ElementDataAckSeq', ::DataStormContract::T_ElementDataAck)
     end
 
     if not defined?(::DataStormContract::ElementSpecAck)
         class ElementSpecAck
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(elements=nil, id=0, name='', value=nil, peerId=0, peerName='')
                 @elements = elements
                 @id = id
@@ -552,27 +551,26 @@ module ::DataStormContract
             attr_accessor :elements, :id, :name, :value, :peerId, :peerName
         end
 
-        T_ElementSpecAck = ::Ice::__defineStruct('::DataStormContract::ElementSpecAck', ElementSpecAck, [
+        T_ElementSpecAck = Ice::__defineStruct('::DataStormContract::ElementSpecAck', ElementSpecAck, [
             ["elements", ::DataStormContract::T_ElementDataAckSeq],
-            ["id", ::Ice::T_long],
-            ["name", ::Ice::T_string],
+            ["id", Ice::T_long],
+            ["name", Ice::T_string],
             ["value", ::Ice::T_ByteSeq],
-            ["peerId", ::Ice::T_long],
-            ["peerName", ::Ice::T_string]
+            ["peerId", Ice::T_long],
+            ["peerName", Ice::T_string]
         ])
     end
 
     if not defined?(::DataStormContract::T_ElementSpecAckSeq)
-        T_ElementSpecAckSeq = ::Ice::__defineSequence('::DataStormContract::ElementSpecAckSeq', ::DataStormContract::T_ElementSpecAck)
+        T_ElementSpecAckSeq = Ice::__defineSequence('::DataStormContract::ElementSpecAckSeq', ::DataStormContract::T_ElementSpecAck)
     end
 
     if not defined?(::DataStormContract::T_SessionPrx)
-        T_SessionPrx = ::Ice::__declareProxy('::DataStormContract::Session')
+        T_SessionPrx = Ice::__declareProxy('::DataStormContract::Session')
     end
 
     if not defined?(::DataStormContract::SessionPrx)
         module SessionPrx_mixin
-
             def announceTopics(topics, initialize, context=nil)
                 SessionPrx_mixin::OP_announceTopics.invoke(self, [topics, initialize], context)
             end
@@ -618,28 +616,28 @@ module ::DataStormContract
             end
         end
 
-        class SessionPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class SessionPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include SessionPrx_mixin
         end
 
         T_SessionPrx.defineProxy(SessionPrx, nil, [])
 
-        SessionPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachTopic = ::Ice::__defineOperation('attachTopic', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicSpec, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachTopic = ::Ice::__defineOperation('detachTopic', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachTags = ::Ice::__defineOperation('attachTags', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachTags = ::Ice::__defineOperation('detachTags', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_announceElements = ::Ice::__defineOperation('announceElements', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachElements = ::Ice::__defineOperation('attachElements', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachElementsAck = ::Ice::__defineOperation('attachElementsAck', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecAckSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachElements = ::Ice::__defineOperation('detachElements', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_initSamples = ::Ice::__defineOperation('initSamples', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_DataSamplesSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_disconnected = ::Ice::__defineOperation('disconnected', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_announceTopics = Ice::__defineOperation('announceTopics', Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicInfoSeq, false, 0], [Ice::T_bool, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachTopic = Ice::__defineOperation('attachTopic', Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicSpec, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachTopic = Ice::__defineOperation('detachTopic', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachTags = Ice::__defineOperation('attachTags', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0], [Ice::T_bool, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachTags = Ice::__defineOperation('detachTags', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_announceElements = Ice::__defineOperation('announceElements', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachElements = Ice::__defineOperation('attachElements', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecSeq, false, 0], [Ice::T_bool, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachElementsAck = Ice::__defineOperation('attachElementsAck', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecAckSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachElements = Ice::__defineOperation('detachElements', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_initSamples = Ice::__defineOperation('initSamples', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [::DataStormContract::T_DataSamplesSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_disconnected = Ice::__defineOperation('disconnected', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::DataStormContract::T_PublisherSessionPrx)
-        T_PublisherSessionPrx = ::Ice::__declareProxy('::DataStormContract::PublisherSession')
+        T_PublisherSessionPrx = Ice::__declareProxy('::DataStormContract::PublisherSession')
     end
 
     if not defined?(::DataStormContract::PublisherSessionPrx)
@@ -647,8 +645,8 @@ module ::DataStormContract
             include ::DataStormContract::SessionPrx_mixin
         end
 
-        class PublisherSessionPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class PublisherSessionPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include PublisherSessionPrx_mixin
         end
 
@@ -656,35 +654,33 @@ module ::DataStormContract
     end
 
     if not defined?(::DataStormContract::T_SubscriberSessionPrx)
-        T_SubscriberSessionPrx = ::Ice::__declareProxy('::DataStormContract::SubscriberSession')
+        T_SubscriberSessionPrx = Ice::__declareProxy('::DataStormContract::SubscriberSession')
     end
 
     if not defined?(::DataStormContract::SubscriberSessionPrx)
         module SubscriberSessionPrx_mixin
             include ::DataStormContract::SessionPrx_mixin
-
             def s(topicId, elementId, sample, context=nil)
                 SubscriberSessionPrx_mixin::OP_s.invoke(self, [topicId, elementId, sample], context)
             end
         end
 
-        class SubscriberSessionPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class SubscriberSessionPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include SubscriberSessionPrx_mixin
         end
 
         T_SubscriberSessionPrx.defineProxy(SubscriberSessionPrx, nil, [::DataStormContract::T_SessionPrx])
 
-        SubscriberSessionPrx_mixin::OP_s = ::Ice::__defineOperation('s', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_long, false, 0], [::DataStormContract::T_DataSample, false, 0]], [], nil, [])
+        SubscriberSessionPrx_mixin::OP_s = Ice::__defineOperation('s', Ice::OperationMode::Normal, nil, [[Ice::T_long, false, 0], [Ice::T_long, false, 0], [::DataStormContract::T_DataSample, false, 0]], [], nil, [])
     end
 
     if not defined?(::DataStormContract::T_NodePrx)
-        T_NodePrx = ::Ice::__declareProxy('::DataStormContract::Node')
+        T_NodePrx = Ice::__declareProxy('::DataStormContract::Node')
     end
 
     if not defined?(::DataStormContract::NodePrx)
         module NodePrx_mixin
-
             def initiateCreateSession(publisher, context=nil)
                 NodePrx_mixin::OP_initiateCreateSession.invoke(self, [publisher], context)
             end
@@ -698,25 +694,24 @@ module ::DataStormContract
             end
         end
 
-        class NodePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class NodePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include NodePrx_mixin
         end
 
         T_NodePrx.defineProxy(NodePrx, nil, [])
 
-        NodePrx_mixin::OP_initiateCreateSession = ::Ice::__defineOperation('initiateCreateSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_SubscriberSessionPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_confirmCreateSession = ::Ice::__defineOperation('confirmCreateSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_PublisherSessionPrx, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_initiateCreateSession = Ice::__defineOperation('initiateCreateSession', Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_createSession = Ice::__defineOperation('createSession', Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_SubscriberSessionPrx, false, 0], [Ice::T_bool, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_confirmCreateSession = Ice::__defineOperation('confirmCreateSession', Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_PublisherSessionPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::DataStormContract::T_LookupPrx)
-        T_LookupPrx = ::Ice::__declareProxy('::DataStormContract::Lookup')
+        T_LookupPrx = Ice::__declareProxy('::DataStormContract::Lookup')
     end
 
     if not defined?(::DataStormContract::LookupPrx)
         module LookupPrx_mixin
-
             def announceTopicReader(topic, subscriber, context=nil)
                 LookupPrx_mixin::OP_announceTopicReader.invoke(self, [topic, subscriber], context)
             end
@@ -734,16 +729,16 @@ module ::DataStormContract
             end
         end
 
-        class LookupPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class LookupPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include LookupPrx_mixin
         end
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 
-        LookupPrx_mixin::OP_announceTopicReader = ::Ice::__defineOperation('announceTopicReader', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_announceTopicWriter = ::Ice::__defineOperation('announceTopicWriter', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_StringSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], [::DataStormContract::T_NodePrx, false, 0], [])
+        LookupPrx_mixin::OP_announceTopicReader = Ice::__defineOperation('announceTopicReader', Ice::OperationMode::Idempotent, nil, [[Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_announceTopicWriter = Ice::__defineOperation('announceTopicWriter', Ice::OperationMode::Idempotent, nil, [[Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_announceTopics = Ice::__defineOperation('announceTopics', Ice::OperationMode::Idempotent, nil, [[::Ice::T_StringSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_createSession = Ice::__defineOperation('createSession', Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], [::DataStormContract::T_NodePrx, false, 0], [])
     end
 end

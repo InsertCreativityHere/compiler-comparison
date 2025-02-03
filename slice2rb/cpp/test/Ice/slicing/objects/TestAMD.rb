@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_SBase)
-        T_SBase = ::Ice::__declareClass('::Test::SBase')
+        T_SBase = Ice::__declareClass('::Test::SBase')
     end
 
     if not defined?(::Test::SBase)
@@ -28,11 +27,11 @@ module ::Test
             attr_accessor :sb
         end
 
-        T_SBase.defineClass(SBase, -1, false, nil, [['sb', ::Ice::T_string, false, 0]])
+        T_SBase.defineClass(SBase, -1, false, nil, [['sb', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_SBSKnownDerived)
-        T_SBSKnownDerived = ::Ice::__declareClass('::Test::SBSKnownDerived')
+        T_SBSKnownDerived = Ice::__declareClass('::Test::SBSKnownDerived')
     end
 
     if not defined?(::Test::SBSKnownDerived)
@@ -46,11 +45,11 @@ module ::Test
             attr_accessor :sbskd
         end
 
-        T_SBSKnownDerived.defineClass(SBSKnownDerived, -1, false, ::Test::T_SBase, [['sbskd', ::Ice::T_string, false, 0]])
+        T_SBSKnownDerived.defineClass(SBSKnownDerived, -1, false, ::Test::T_SBase, [['sbskd', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_B)
-        T_B = ::Ice::__declareClass('::Test::B')
+        T_B = Ice::__declareClass('::Test::B')
     end
 
     if not defined?(::Test::B)
@@ -65,13 +64,13 @@ module ::Test
         end
 
         T_B.defineClass(B, -1, false, nil, [
-            ['sb', ::Ice::T_string, false, 0],
+            ['sb', Ice::T_string, false, 0],
             ['pb', ::Test::T_B, false, 0]
         ])
     end
 
     if not defined?(::Test::T_D1)
-        T_D1 = ::Ice::__declareClass('::Test::D1')
+        T_D1 = Ice::__declareClass('::Test::D1')
     end
 
     if not defined?(::Test::D1)
@@ -87,17 +86,17 @@ module ::Test
         end
 
         T_D1.defineClass(D1, -1, false, ::Test::T_B, [
-            ['sd1', ::Ice::T_string, false, 0],
+            ['sd1', Ice::T_string, false, 0],
             ['pd1', ::Test::T_B, false, 0]
         ])
     end
 
     if not defined?(::Test::T_BSeq)
-        T_BSeq = ::Ice::__defineSequence('::Test::BSeq', ::Test::T_B)
+        T_BSeq = Ice::__defineSequence('::Test::BSeq', ::Test::T_B)
     end
 
     if not defined?(::Test::T_SS1)
-        T_SS1 = ::Ice::__declareClass('::Test::SS1')
+        T_SS1 = Ice::__declareClass('::Test::SS1')
     end
 
     if not defined?(::Test::SS1)
@@ -114,7 +113,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_SS2)
-        T_SS2 = ::Ice::__declareClass('::Test::SS2')
+        T_SS2 = Ice::__declareClass('::Test::SS2')
     end
 
     if not defined?(::Test::SS2)
@@ -132,7 +131,7 @@ module ::Test
 
     if not defined?(::Test::SS3)
         class SS3
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(c1=nil, c2=nil)
                 @c1 = c1
                 @c2 = c2
@@ -159,14 +158,14 @@ module ::Test
             attr_accessor :c1, :c2
         end
 
-        T_SS3 = ::Ice::__defineStruct('::Test::SS3', SS3, [
+        T_SS3 = Ice::__defineStruct('::Test::SS3', SS3, [
             ["c1", ::Test::T_SS1],
             ["c2", ::Test::T_SS2]
         ])
     end
 
     if not defined?(::Test::T_BDict)
-        T_BDict = ::Ice::__defineDictionary('::Test::BDict', ::Ice::T_int, ::Test::T_B)
+        T_BDict = Ice::__defineDictionary('::Test::BDict', Ice::T_int, ::Test::T_B)
     end
 
     if not defined?(::Test::BaseException)
@@ -178,8 +177,8 @@ module ::Test
             attr_accessor :sbe, :pb
         end
 
-        T_BaseException = ::Ice::__defineException('::Test::BaseException', BaseException, nil, [
-            ["sbe", ::Ice::T_string, false, 0],
+        T_BaseException = Ice::__defineException('::Test::BaseException', BaseException, nil, [
+            ["sbe", Ice::T_string, false, 0],
             ["pb", ::Test::T_B, false, 0]
         ])
     end
@@ -193,18 +192,18 @@ module ::Test
             attr_accessor :sde, :pd1
         end
 
-        T_DerivedException = ::Ice::__defineException('::Test::DerivedException', DerivedException, ::Test::T_BaseException, [
-            ["sde", ::Ice::T_string, false, 0],
+        T_DerivedException = Ice::__defineException('::Test::DerivedException', DerivedException, ::Test::T_BaseException, [
+            ["sde", Ice::T_string, false, 0],
             ["pd1", ::Test::T_D1, false, 0]
         ])
     end
 
     if not defined?(::Test::T_Forward)
-        T_Forward = ::Ice::__declareClass('::Test::Forward')
+        T_Forward = Ice::__declareClass('::Test::Forward')
     end
 
     if not defined?(::Test::T_PBase)
-        T_PBase = ::Ice::__declareClass('::Test::PBase')
+        T_PBase = Ice::__declareClass('::Test::PBase')
     end
 
     if not defined?(::Test::PBase)
@@ -217,15 +216,15 @@ module ::Test
             attr_accessor :pi
         end
 
-        T_PBase.defineClass(PBase, -1, false, nil, [['pi', ::Ice::T_int, false, 0]])
+        T_PBase.defineClass(PBase, -1, false, nil, [['pi', Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::T_PBaseSeq)
-        T_PBaseSeq = ::Ice::__defineSequence('::Test::PBaseSeq', ::Test::T_PBase)
+        T_PBaseSeq = Ice::__defineSequence('::Test::PBaseSeq', ::Test::T_PBase)
     end
 
     if not defined?(::Test::T_Preserved)
-        T_Preserved = ::Ice::__declareClass('::Test::Preserved')
+        T_Preserved = Ice::__declareClass('::Test::Preserved')
     end
 
     if not defined?(::Test::Preserved)
@@ -239,11 +238,11 @@ module ::Test
             attr_accessor :ps
         end
 
-        T_Preserved.defineClass(Preserved, -1, false, ::Test::T_PBase, [['ps', ::Ice::T_string, false, 0]])
+        T_Preserved.defineClass(Preserved, -1, false, ::Test::T_PBase, [['ps', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_PDerived)
-        T_PDerived = ::Ice::__declareClass('::Test::PDerived')
+        T_PDerived = Ice::__declareClass('::Test::PDerived')
     end
 
     if not defined?(::Test::PDerived)
@@ -261,7 +260,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_PNode)
-        T_PNode = ::Ice::__declareClass('::Test::PNode')
+        T_PNode = Ice::__declareClass('::Test::PNode')
     end
 
     if not defined?(::Test::PNode)
@@ -278,12 +277,11 @@ module ::Test
     end
 
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def SBaseAsObject(context=nil)
                 TestIntfPrx_mixin::OP_SBaseAsObject.invoke(self, [], context)
             end
@@ -429,53 +427,53 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_SBaseAsObject = ::Ice::__defineOperation('SBaseAsObject', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Ice::T_Value, false, 0], [])
-        TestIntfPrx_mixin::OP_SBaseAsSBase = ::Ice::__defineOperation('SBaseAsSBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBase, false, 0], [])
-        TestIntfPrx_mixin::OP_SBSKnownDerivedAsSBase = ::Ice::__defineOperation('SBSKnownDerivedAsSBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBase, false, 0], [])
-        TestIntfPrx_mixin::OP_SBSKnownDerivedAsSBSKnownDerived = ::Ice::__defineOperation('SBSKnownDerivedAsSBSKnownDerived', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBSKnownDerived, false, 0], [])
-        TestIntfPrx_mixin::OP_SBSUnknownDerivedAsSBase = ::Ice::__defineOperation('SBSUnknownDerivedAsSBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBase, false, 0], [])
-        TestIntfPrx_mixin::OP_SBSUnknownDerivedAsSBaseCompact = ::Ice::__defineOperation('SBSUnknownDerivedAsSBaseCompact', ::Ice::OperationMode::Normal, ::Ice::FormatType::CompactFormat, [], [], [::Test::T_SBase, false, 0], [])
-        TestIntfPrx_mixin::OP_SUnknownAsObject = ::Ice::__defineOperation('SUnknownAsObject', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Ice::T_Value, false, 0], [])
-        TestIntfPrx_mixin::OP_checkSUnknown = ::Ice::__defineOperation('checkSUnknown', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Ice::T_Value, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_oneElementCycle = ::Ice::__defineOperation('oneElementCycle', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_twoElementCycle = ::Ice::__defineOperation('twoElementCycle', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_D1AsB = ::Ice::__defineOperation('D1AsB', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_D1AsD1 = ::Ice::__defineOperation('D1AsD1', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_D1, false, 0], [])
-        TestIntfPrx_mixin::OP_D2AsB = ::Ice::__defineOperation('D2AsB', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_paramTest1 = ::Ice::__defineOperation('paramTest1', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], nil, [])
-        TestIntfPrx_mixin::OP_paramTest2 = ::Ice::__defineOperation('paramTest2', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], nil, [])
-        TestIntfPrx_mixin::OP_paramTest3 = ::Ice::__defineOperation('paramTest3', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_paramTest4 = ::Ice::__defineOperation('paramTest4', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_returnTest1 = ::Ice::__defineOperation('returnTest1', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_returnTest2 = ::Ice::__defineOperation('returnTest2', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_returnTest3 = ::Ice::__defineOperation('returnTest3', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [], [::Test::T_B, false, 0], [])
-        TestIntfPrx_mixin::OP_sequenceTest = ::Ice::__defineOperation('sequenceTest', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_SS1, false, 0], [::Test::T_SS2, false, 0]], [], [::Test::T_SS3, false, 0], [])
-        TestIntfPrx_mixin::OP_dictionaryTest = ::Ice::__defineOperation('dictionaryTest', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_BDict, false, 0]], [[::Test::T_BDict, false, 0]], [::Test::T_BDict, false, 0], [])
-        TestIntfPrx_mixin::OP_exchangePBase = ::Ice::__defineOperation('exchangePBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_PBase, false, 0]], [], [::Test::T_PBase, false, 0], [])
-        TestIntfPrx_mixin::OP_PBSUnknownAsPreserved = ::Ice::__defineOperation('PBSUnknownAsPreserved', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_Preserved, false, 0], [])
-        TestIntfPrx_mixin::OP_checkPBSUnknown = ::Ice::__defineOperation('checkPBSUnknown', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_Preserved, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_PBSUnknownAsPreservedWithGraph = ::Ice::__defineOperation('PBSUnknownAsPreservedWithGraph', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_Preserved, false, 0], [])
-        TestIntfPrx_mixin::OP_checkPBSUnknownWithGraph = ::Ice::__defineOperation('checkPBSUnknownWithGraph', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_Preserved, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_PBSUnknown2AsPreservedWithGraph = ::Ice::__defineOperation('PBSUnknown2AsPreservedWithGraph', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Test::T_Preserved, false, 0], [])
-        TestIntfPrx_mixin::OP_checkPBSUnknown2WithGraph = ::Ice::__defineOperation('checkPBSUnknown2WithGraph', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_Preserved, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_exchangePNode = ::Ice::__defineOperation('exchangePNode', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Test::T_PNode, false, 0]], [], [::Test::T_PNode, false, 0], [])
-        TestIntfPrx_mixin::OP_throwBaseAsBase = ::Ice::__defineOperation('throwBaseAsBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_BaseException])
-        TestIntfPrx_mixin::OP_throwDerivedAsBase = ::Ice::__defineOperation('throwDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_BaseException])
-        TestIntfPrx_mixin::OP_throwDerivedAsDerived = ::Ice::__defineOperation('throwDerivedAsDerived', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_DerivedException])
-        TestIntfPrx_mixin::OP_throwUnknownDerivedAsBase = ::Ice::__defineOperation('throwUnknownDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_BaseException])
-        TestIntfPrx_mixin::OP_useForward = ::Ice::__defineOperation('useForward', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [[::Test::T_Forward, false, 0]], nil, [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], nil, [])
+        TestIntfPrx_mixin::OP_SBaseAsObject = Ice::__defineOperation('SBaseAsObject', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [Ice::T_Value, false, 0], [])
+        TestIntfPrx_mixin::OP_SBaseAsSBase = Ice::__defineOperation('SBaseAsSBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBase, false, 0], [])
+        TestIntfPrx_mixin::OP_SBSKnownDerivedAsSBase = Ice::__defineOperation('SBSKnownDerivedAsSBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBase, false, 0], [])
+        TestIntfPrx_mixin::OP_SBSKnownDerivedAsSBSKnownDerived = Ice::__defineOperation('SBSKnownDerivedAsSBSKnownDerived', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBSKnownDerived, false, 0], [])
+        TestIntfPrx_mixin::OP_SBSUnknownDerivedAsSBase = Ice::__defineOperation('SBSUnknownDerivedAsSBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_SBase, false, 0], [])
+        TestIntfPrx_mixin::OP_SBSUnknownDerivedAsSBaseCompact = Ice::__defineOperation('SBSUnknownDerivedAsSBaseCompact', Ice::OperationMode::Normal, Ice::FormatType::CompactFormat, [], [], [::Test::T_SBase, false, 0], [])
+        TestIntfPrx_mixin::OP_SUnknownAsObject = Ice::__defineOperation('SUnknownAsObject', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [Ice::T_Value, false, 0], [])
+        TestIntfPrx_mixin::OP_checkSUnknown = Ice::__defineOperation('checkSUnknown', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[Ice::T_Value, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_oneElementCycle = Ice::__defineOperation('oneElementCycle', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_twoElementCycle = Ice::__defineOperation('twoElementCycle', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_D1AsB = Ice::__defineOperation('D1AsB', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_D1AsD1 = Ice::__defineOperation('D1AsD1', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_D1, false, 0], [])
+        TestIntfPrx_mixin::OP_D2AsB = Ice::__defineOperation('D2AsB', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_paramTest1 = Ice::__defineOperation('paramTest1', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], nil, [])
+        TestIntfPrx_mixin::OP_paramTest2 = Ice::__defineOperation('paramTest2', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], nil, [])
+        TestIntfPrx_mixin::OP_paramTest3 = Ice::__defineOperation('paramTest3', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_paramTest4 = Ice::__defineOperation('paramTest4', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_returnTest1 = Ice::__defineOperation('returnTest1', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_returnTest2 = Ice::__defineOperation('returnTest2', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_returnTest3 = Ice::__defineOperation('returnTest3', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_B, false, 0], [::Test::T_B, false, 0]], [], [::Test::T_B, false, 0], [])
+        TestIntfPrx_mixin::OP_sequenceTest = Ice::__defineOperation('sequenceTest', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_SS1, false, 0], [::Test::T_SS2, false, 0]], [], [::Test::T_SS3, false, 0], [])
+        TestIntfPrx_mixin::OP_dictionaryTest = Ice::__defineOperation('dictionaryTest', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_BDict, false, 0]], [[::Test::T_BDict, false, 0]], [::Test::T_BDict, false, 0], [])
+        TestIntfPrx_mixin::OP_exchangePBase = Ice::__defineOperation('exchangePBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_PBase, false, 0]], [], [::Test::T_PBase, false, 0], [])
+        TestIntfPrx_mixin::OP_PBSUnknownAsPreserved = Ice::__defineOperation('PBSUnknownAsPreserved', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_Preserved, false, 0], [])
+        TestIntfPrx_mixin::OP_checkPBSUnknown = Ice::__defineOperation('checkPBSUnknown', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_Preserved, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_PBSUnknownAsPreservedWithGraph = Ice::__defineOperation('PBSUnknownAsPreservedWithGraph', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_Preserved, false, 0], [])
+        TestIntfPrx_mixin::OP_checkPBSUnknownWithGraph = Ice::__defineOperation('checkPBSUnknownWithGraph', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_Preserved, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_PBSUnknown2AsPreservedWithGraph = Ice::__defineOperation('PBSUnknown2AsPreservedWithGraph', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], [::Test::T_Preserved, false, 0], [])
+        TestIntfPrx_mixin::OP_checkPBSUnknown2WithGraph = Ice::__defineOperation('checkPBSUnknown2WithGraph', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_Preserved, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_exchangePNode = Ice::__defineOperation('exchangePNode', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [[::Test::T_PNode, false, 0]], [], [::Test::T_PNode, false, 0], [])
+        TestIntfPrx_mixin::OP_throwBaseAsBase = Ice::__defineOperation('throwBaseAsBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_BaseException])
+        TestIntfPrx_mixin::OP_throwDerivedAsBase = Ice::__defineOperation('throwDerivedAsBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_BaseException])
+        TestIntfPrx_mixin::OP_throwDerivedAsDerived = Ice::__defineOperation('throwDerivedAsDerived', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_DerivedException])
+        TestIntfPrx_mixin::OP_throwUnknownDerivedAsBase = Ice::__defineOperation('throwUnknownDerivedAsBase', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_BaseException])
+        TestIntfPrx_mixin::OP_useForward = Ice::__defineOperation('useForward', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [[::Test::T_Forward, false, 0]], nil, [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, Ice::FormatType::SlicedFormat, [], [], nil, [])
     end
 
     if not defined?(::Test::T_Hidden)
-        T_Hidden = ::Ice::__declareClass('::Test::Hidden')
+        T_Hidden = Ice::__declareClass('::Test::Hidden')
     end
 
     if not defined?(::Test::Hidden)

@@ -14,15 +14,13 @@ require 'Ice'
 require 'Glacier2/Session.rb'
 
 module ::Test
-
     if not defined?(::Test::T_SessionPrx)
-        T_SessionPrx = ::Ice::__declareProxy('::Test::Session')
+        T_SessionPrx = Ice::__declareProxy('::Test::Session')
     end
 
     if not defined?(::Test::SessionPrx)
         module SessionPrx_mixin
             include ::Glacier2::SessionPrx_mixin
-
             def destroyFromClient(context=nil)
                 SessionPrx_mixin::OP_destroyFromClient.invoke(self, [], context)
             end
@@ -32,14 +30,14 @@ module ::Test
             end
         end
 
-        class SessionPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class SessionPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include SessionPrx_mixin
         end
 
         T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
-        SessionPrx_mixin::OP_destroyFromClient = ::Ice::__defineOperation('destroyFromClient', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        SessionPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_destroyFromClient = Ice::__defineOperation('destroyFromClient', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

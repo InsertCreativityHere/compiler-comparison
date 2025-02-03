@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::NoNamespace
-
     if not defined?(::NoNamespace::T_C1)
-        T_C1 = ::Ice::__declareClass('::NoNamespace::C1')
+        T_C1 = Ice::__declareClass('::NoNamespace::C1')
     end
 
     if not defined?(::NoNamespace::C1)
@@ -28,11 +27,11 @@ module ::NoNamespace
             attr_accessor :i
         end
 
-        T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::NoNamespace::T_C2)
-        T_C2 = ::Ice::__declareClass('::NoNamespace::C2')
+        T_C2 = Ice::__declareClass('::NoNamespace::C2')
     end
 
     if not defined?(::NoNamespace::C2)
@@ -46,7 +45,7 @@ module ::NoNamespace
             attr_accessor :l
         end
 
-        T_C2.defineClass(C2, -1, false, ::NoNamespace::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, ::NoNamespace::T_C1, [['l', Ice::T_long, false, 0]])
     end
 
     if not defined?(::NoNamespace::E1)
@@ -58,7 +57,7 @@ module ::NoNamespace
             attr_accessor :i
         end
 
-        T_E1 = ::Ice::__defineException('::NoNamespace::E1', E1, nil, [["i", ::Ice::T_int, false, 0]])
+        T_E1 = Ice::__defineException('::NoNamespace::E1', E1, nil, [["i", Ice::T_int, false, 0]])
     end
 
     if not defined?(::NoNamespace::E2)
@@ -70,7 +69,7 @@ module ::NoNamespace
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::NoNamespace::E2', E2, ::NoNamespace::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = Ice::__defineException('::NoNamespace::E2', E2, ::NoNamespace::T_E1, [["l", Ice::T_long, false, 0]])
     end
 
     if not defined?(::NoNamespace::Notify)
@@ -82,6 +81,6 @@ module ::NoNamespace
             attr_accessor :i
         end
 
-        T_Notify = ::Ice::__defineException('::NoNamespace::notify', Notify, nil, [["i", ::Ice::T_int, false, 0]])
+        T_Notify = Ice::__defineException('::NoNamespace::notify', Notify, nil, [["i", Ice::T_int, false, 0]])
     end
 end

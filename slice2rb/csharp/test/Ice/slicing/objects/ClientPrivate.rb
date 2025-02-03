@@ -14,9 +14,8 @@ require 'Ice'
 require_relative 'Test.rb'
 
 module ::Test
-
     if not defined?(::Test::T_D3)
-        T_D3 = ::Ice::__declareClass('::Test::D3')
+        T_D3 = Ice::__declareClass('::Test::D3')
     end
 
     if not defined?(::Test::D3)
@@ -32,13 +31,13 @@ module ::Test
         end
 
         T_D3.defineClass(D3, -1, false, ::Test::T_B, [
-            ['sd3', ::Ice::T_string, false, 0],
+            ['sd3', Ice::T_string, false, 0],
             ['pd3', ::Test::T_B, false, 0]
         ])
     end
 
     if not defined?(::Test::T_PCUnknown)
-        T_PCUnknown = ::Ice::__declareClass('::Test::PCUnknown')
+        T_PCUnknown = Ice::__declareClass('::Test::PCUnknown')
     end
 
     if not defined?(::Test::PCUnknown)
@@ -52,11 +51,11 @@ module ::Test
             attr_accessor :pu
         end
 
-        T_PCUnknown.defineClass(PCUnknown, -1, false, ::Test::T_PBase, [['pu', ::Ice::T_string, false, 0]])
+        T_PCUnknown.defineClass(PCUnknown, -1, false, ::Test::T_PBase, [['pu', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_PCDerived)
-        T_PCDerived = ::Ice::__declareClass('::Test::PCDerived')
+        T_PCDerived = Ice::__declareClass('::Test::PCDerived')
     end
 
     if not defined?(::Test::PCDerived)
@@ -74,7 +73,7 @@ module ::Test
     end
 
     if not defined?(::Test::T_PCDerived2)
-        T_PCDerived2 = ::Ice::__declareClass('::Test::PCDerived2')
+        T_PCDerived2 = Ice::__declareClass('::Test::PCDerived2')
     end
 
     if not defined?(::Test::PCDerived2)
@@ -88,11 +87,11 @@ module ::Test
             attr_accessor :pcd2
         end
 
-        T_PCDerived2.defineClass(PCDerived2, -1, false, ::Test::T_PCDerived, [['pcd2', ::Ice::T_int, false, 0]])
+        T_PCDerived2.defineClass(PCDerived2, -1, false, ::Test::T_PCDerived, [['pcd2', Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::T_PCDerived3)
-        T_PCDerived3 = ::Ice::__declareClass('::Test::PCDerived3')
+        T_PCDerived3 = Ice::__declareClass('::Test::PCDerived3')
     end
 
     if not defined?(::Test::PCDerived3)
@@ -106,11 +105,11 @@ module ::Test
             attr_accessor :pcd3
         end
 
-        T_PCDerived3.defineClass(PCDerived3, -1, false, ::Test::T_PCDerived2, [['pcd3', ::Ice::T_Value, false, 0]])
+        T_PCDerived3.defineClass(PCDerived3, -1, false, ::Test::T_PCDerived2, [['pcd3', Ice::T_Value, false, 0]])
     end
 
     if not defined?(::Test::T_CompactPCDerived)
-        T_CompactPCDerived = ::Ice::__declareClass('::Test::CompactPCDerived')
+        T_CompactPCDerived = Ice::__declareClass('::Test::CompactPCDerived')
     end
 
     if not defined?(::Test::CompactPCDerived)

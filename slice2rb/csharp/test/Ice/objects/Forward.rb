@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_F1)
-        T_F1 = ::Ice::__declareClass('::Test::F1')
+        T_F1 = Ice::__declareClass('::Test::F1')
     end
 
     if not defined?(::Test::F1)
@@ -28,28 +27,27 @@ module ::Test
             attr_accessor :name
         end
 
-        T_F1.defineClass(F1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
+        T_F1.defineClass(F1, -1, false, nil, [['name', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_F2Prx)
-        T_F2Prx = ::Ice::__declareProxy('::Test::F2')
+        T_F2Prx = Ice::__declareProxy('::Test::F2')
     end
 
     if not defined?(::Test::F2Prx)
         module F2Prx_mixin
-
             def op(context=nil)
                 F2Prx_mixin::OP_op.invoke(self, [], context)
             end
         end
 
-        class F2Prx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class F2Prx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include F2Prx_mixin
         end
 
         T_F2Prx.defineProxy(F2Prx, nil, [])
 
-        F2Prx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        F2Prx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

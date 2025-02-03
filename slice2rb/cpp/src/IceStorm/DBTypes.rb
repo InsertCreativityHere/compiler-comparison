@@ -15,21 +15,20 @@ require_relative 'SubscriberRecord.rb'
 require_relative 'LLURecord.rb'
 
 module ::IceStormElection
-
     if not defined?(::IceStormElection::T_StringLogUpdateDict)
-        T_StringLogUpdateDict = ::Ice::__defineDictionary('::IceStormElection::StringLogUpdateDict', ::Ice::T_string, ::IceStormElection::T_LogUpdate)
+        T_StringLogUpdateDict = Ice::__defineDictionary('::IceStormElection::StringLogUpdateDict', Ice::T_string, ::IceStormElection::T_LogUpdate)
     end
 end
 
 module ::IceStorm
 
     if not defined?(::IceStorm::T_SubscriberRecordDict)
-        T_SubscriberRecordDict = ::Ice::__defineDictionary('::IceStorm::SubscriberRecordDict', ::IceStorm::T_SubscriberRecordKey, ::IceStorm::T_SubscriberRecord)
+        T_SubscriberRecordDict = Ice::__defineDictionary('::IceStorm::SubscriberRecordDict', ::IceStorm::T_SubscriberRecordKey, ::IceStorm::T_SubscriberRecord)
     end
 
     if not defined?(::IceStorm::AllData)
         class AllData
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(llus=nil, subscribers=nil)
                 @llus = llus
                 @subscribers = subscribers
@@ -56,7 +55,7 @@ module ::IceStorm
             attr_accessor :llus, :subscribers
         end
 
-        T_AllData = ::Ice::__defineStruct('::IceStorm::AllData', AllData, [
+        T_AllData = Ice::__defineStruct('::IceStorm::AllData', AllData, [
             ["llus", ::IceStormElection::T_StringLogUpdateDict],
             ["subscribers", ::IceStorm::T_SubscriberRecordDict]
         ])

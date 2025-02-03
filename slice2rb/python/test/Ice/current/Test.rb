@@ -15,14 +15,12 @@ require 'Ice/Context.rb'
 require 'Ice/Identity.rb'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def getAdapterName(context=nil)
                 TestIntfPrx_mixin::OP_getAdapterName.invoke(self, [], context)
             end
@@ -64,22 +62,22 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getConnection = ::Ice::__defineOperation('getConnection', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getIdentity = ::Ice::__defineOperation('getIdentity', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Identity, false, 0], [])
-        TestIntfPrx_mixin::OP_getFacet = ::Ice::__defineOperation('getFacet', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getOperation = ::Ice::__defineOperation('getOperation', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getMode = ::Ice::__defineOperation('getMode', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
-        TestIntfPrx_mixin::OP_getRequestId = ::Ice::__defineOperation('getRequestId', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_getEncoding = ::Ice::__defineOperation('getEncoding', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_getAdapterName = Ice::__defineOperation('getAdapterName', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getConnection = Ice::__defineOperation('getConnection', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getIdentity = Ice::__defineOperation('getIdentity', Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Identity, false, 0], [])
+        TestIntfPrx_mixin::OP_getFacet = Ice::__defineOperation('getFacet', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getOperation = Ice::__defineOperation('getOperation', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getMode = Ice::__defineOperation('getMode', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getContext = Ice::__defineOperation('getContext', Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
+        TestIntfPrx_mixin::OP_getRequestId = Ice::__defineOperation('getRequestId', Ice::OperationMode::Normal, nil, [], [], [Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_getEncoding = Ice::__defineOperation('getEncoding', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

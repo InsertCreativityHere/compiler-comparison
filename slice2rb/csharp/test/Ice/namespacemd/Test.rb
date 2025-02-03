@@ -15,14 +15,12 @@ require_relative 'Namespace.rb'
 require_relative 'NoNamespace.rb'
 
 module ::Test
-
     if not defined?(::Test::T_InitialPrx)
-        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
+        T_InitialPrx = Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
-
             def getNoNamespaceC2AsC1(context=nil)
                 InitialPrx_mixin::OP_getNoNamespaceC2AsC1.invoke(self, [], context)
             end
@@ -64,22 +62,22 @@ module ::Test
             end
         end
 
-        class InitialPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class InitialPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include InitialPrx_mixin
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_getNoNamespaceC2AsC1 = ::Ice::__defineOperation('getNoNamespaceC2AsC1', ::Ice::OperationMode::Normal, nil, [], [], [::NoNamespace::T_C1, false, 0], [])
-        InitialPrx_mixin::OP_getNoNamespaceC2AsC2 = ::Ice::__defineOperation('getNoNamespaceC2AsC2', ::Ice::OperationMode::Normal, nil, [], [], [::NoNamespace::T_C2, false, 0], [])
-        InitialPrx_mixin::OP_throwNoNamespaceE2AsE1 = ::Ice::__defineOperation('throwNoNamespaceE2AsE1', ::Ice::OperationMode::Normal, nil, [], [], nil, [::NoNamespace::T_E1])
-        InitialPrx_mixin::OP_throwNoNamespaceE2AsE2 = ::Ice::__defineOperation('throwNoNamespaceE2AsE2', ::Ice::OperationMode::Normal, nil, [], [], nil, [::NoNamespace::T_E2])
-        InitialPrx_mixin::OP_throwNoNamespaceNotify = ::Ice::__defineOperation('throwNoNamespaceNotify', ::Ice::OperationMode::Normal, nil, [], [], nil, [::NoNamespace::T_Notify])
-        InitialPrx_mixin::OP_getWithNamespaceC2AsC1 = ::Ice::__defineOperation('getWithNamespaceC2AsC1', ::Ice::OperationMode::Normal, nil, [], [], [::WithNamespace::T_C1, false, 0], [])
-        InitialPrx_mixin::OP_getWithNamespaceC2AsC2 = ::Ice::__defineOperation('getWithNamespaceC2AsC2', ::Ice::OperationMode::Normal, nil, [], [], [::WithNamespace::T_C2, false, 0], [])
-        InitialPrx_mixin::OP_throwWithNamespaceE2AsE1 = ::Ice::__defineOperation('throwWithNamespaceE2AsE1', ::Ice::OperationMode::Normal, nil, [], [], nil, [::WithNamespace::T_E1])
-        InitialPrx_mixin::OP_throwWithNamespaceE2AsE2 = ::Ice::__defineOperation('throwWithNamespaceE2AsE2', ::Ice::OperationMode::Normal, nil, [], [], nil, [::WithNamespace::T_E2])
-        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        InitialPrx_mixin::OP_getNoNamespaceC2AsC1 = Ice::__defineOperation('getNoNamespaceC2AsC1', Ice::OperationMode::Normal, nil, [], [], [::NoNamespace::T_C1, false, 0], [])
+        InitialPrx_mixin::OP_getNoNamespaceC2AsC2 = Ice::__defineOperation('getNoNamespaceC2AsC2', Ice::OperationMode::Normal, nil, [], [], [::NoNamespace::T_C2, false, 0], [])
+        InitialPrx_mixin::OP_throwNoNamespaceE2AsE1 = Ice::__defineOperation('throwNoNamespaceE2AsE1', Ice::OperationMode::Normal, nil, [], [], nil, [::NoNamespace::T_E1])
+        InitialPrx_mixin::OP_throwNoNamespaceE2AsE2 = Ice::__defineOperation('throwNoNamespaceE2AsE2', Ice::OperationMode::Normal, nil, [], [], nil, [::NoNamespace::T_E2])
+        InitialPrx_mixin::OP_throwNoNamespaceNotify = Ice::__defineOperation('throwNoNamespaceNotify', Ice::OperationMode::Normal, nil, [], [], nil, [::NoNamespace::T_Notify])
+        InitialPrx_mixin::OP_getWithNamespaceC2AsC1 = Ice::__defineOperation('getWithNamespaceC2AsC1', Ice::OperationMode::Normal, nil, [], [], [::WithNamespace::T_C1, false, 0], [])
+        InitialPrx_mixin::OP_getWithNamespaceC2AsC2 = Ice::__defineOperation('getWithNamespaceC2AsC2', Ice::OperationMode::Normal, nil, [], [], [::WithNamespace::T_C2, false, 0], [])
+        InitialPrx_mixin::OP_throwWithNamespaceE2AsE1 = Ice::__defineOperation('throwWithNamespaceE2AsE1', Ice::OperationMode::Normal, nil, [], [], nil, [::WithNamespace::T_E1])
+        InitialPrx_mixin::OP_throwWithNamespaceE2AsE2 = Ice::__defineOperation('throwWithNamespaceE2AsE2', Ice::OperationMode::Normal, nil, [], [], nil, [::WithNamespace::T_E2])
+        InitialPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

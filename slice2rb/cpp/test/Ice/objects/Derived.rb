@@ -15,9 +15,8 @@ require_relative 'Test.rb'
 require_relative 'Forward.rb'
 
 module ::Test
-
     if not defined?(::Test::T_Derived)
-        T_Derived = ::Ice::__declareClass('::Test::Derived')
+        T_Derived = Ice::__declareClass('::Test::Derived')
     end
 
     if not defined?(::Test::Derived)
@@ -31,6 +30,6 @@ module ::Test
             attr_accessor :b
         end
 
-        T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [['b', ::Ice::T_string, false, 0]])
+        T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [['b', Ice::T_string, false, 0]])
     end
 end

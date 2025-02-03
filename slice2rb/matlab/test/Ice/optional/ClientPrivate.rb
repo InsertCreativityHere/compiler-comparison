@@ -14,14 +14,12 @@ require 'Ice'
 require_relative 'Test.rb'
 
 module ::Test
-
     if not defined?(::Test::T_Initial2Prx)
-        T_Initial2Prx = ::Ice::__declareProxy('::Test::Initial2')
+        T_Initial2Prx = Ice::__declareProxy('::Test::Initial2')
     end
 
     if not defined?(::Test::Initial2Prx)
         module Initial2Prx_mixin
-
             def opClassAndUnknownOptional(p, ovs, context=nil)
                 Initial2Prx_mixin::OP_opClassAndUnknownOptional.invoke(self, [p, ovs], context)
             end
@@ -31,14 +29,14 @@ module ::Test
             end
         end
 
-        class Initial2Prx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class Initial2Prx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include Initial2Prx_mixin
         end
 
         T_Initial2Prx.defineProxy(Initial2Prx, nil, [])
 
-        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, nil, [[::Test::T_A, false, 0], [::Test::T_VarStruct, true, 1]], [], nil, [])
-        Initial2Prx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [])
+        Initial2Prx_mixin::OP_opClassAndUnknownOptional = Ice::__defineOperation('opClassAndUnknownOptional', Ice::OperationMode::Normal, nil, [[::Test::T_A, false, 0], [::Test::T_VarStruct, true, 1]], [], nil, [])
+        Initial2Prx_mixin::OP_opVoid = Ice::__defineOperation('opVoid', Ice::OperationMode::Normal, nil, [[Ice::T_int, true, 1], [Ice::T_string, true, 2]], [], nil, [])
     end
 end

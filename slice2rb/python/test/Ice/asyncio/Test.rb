@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::TestException)
         class TestException < Ice::UserException
             def to_s
@@ -21,16 +20,15 @@ module ::Test
             end
         end
 
-        T_TestException = ::Ice::__defineException('::Test::TestException', TestException, nil, [])
+        T_TestException = Ice::__defineException('::Test::TestException', TestException, nil, [])
     end
 
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def op(context=nil)
                 TestIntfPrx_mixin::OP_op.invoke(self, [], context)
             end
@@ -64,20 +62,20 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_callOpOn = ::Ice::__defineOperation('callOpOn', ::Ice::OperationMode::Normal, nil, [[::Test::T_TestIntfPrx, false, 0]], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_throwUserException1 = ::Ice::__defineOperation('throwUserException1', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestException])
-        TestIntfPrx_mixin::OP_throwUserException2 = ::Ice::__defineOperation('throwUserException2', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestException])
-        TestIntfPrx_mixin::OP_throwUnhandledException1 = ::Ice::__defineOperation('throwUnhandledException1', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_throwUnhandledException2 = ::Ice::__defineOperation('throwUnhandledException2', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], [Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_callOpOn = Ice::__defineOperation('callOpOn', Ice::OperationMode::Normal, nil, [[::Test::T_TestIntfPrx, false, 0]], [], [Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_throwUserException1 = Ice::__defineOperation('throwUserException1', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestException])
+        TestIntfPrx_mixin::OP_throwUserException2 = Ice::__defineOperation('throwUserException2', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestException])
+        TestIntfPrx_mixin::OP_throwUnhandledException1 = Ice::__defineOperation('throwUnhandledException1', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_throwUnhandledException2 = Ice::__defineOperation('throwUnhandledException2', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_sleep = Ice::__defineOperation('sleep', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

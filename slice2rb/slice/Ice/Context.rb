@@ -13,8 +13,7 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::T_Context)
-        T_Context = ::Ice::__defineDictionary('::Ice::Context', ::Ice::T_string, ::Ice::T_string)
+        T_Context = Ice::__defineDictionary('::Ice::Context', Ice::T_string, Ice::T_string)
     end
 end

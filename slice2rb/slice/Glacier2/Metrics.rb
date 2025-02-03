@@ -14,9 +14,8 @@ require 'Ice'
 require 'Ice/Metrics.rb'
 
 module ::IceMX
-
     if not defined?(::IceMX::T_SessionMetrics)
-        T_SessionMetrics = ::Ice::__declareClass('::IceMX::SessionMetrics')
+        T_SessionMetrics = Ice::__declareClass('::IceMX::SessionMetrics')
     end
 
     if not defined?(::IceMX::SessionMetrics)
@@ -37,13 +36,13 @@ module ::IceMX
         end
 
         T_SessionMetrics.defineClass(SessionMetrics, -1, false, ::IceMX::T_Metrics, [
-            ['forwardedClient', ::Ice::T_int, false, 0],
-            ['forwardedServer', ::Ice::T_int, false, 0],
-            ['routingTableSize', ::Ice::T_int, false, 0],
-            ['queuedClient', ::Ice::T_int, false, 0],
-            ['queuedServer', ::Ice::T_int, false, 0],
-            ['overriddenClient', ::Ice::T_int, false, 0],
-            ['overriddenServer', ::Ice::T_int, false, 0]
+            ['forwardedClient', Ice::T_int, false, 0],
+            ['forwardedServer', Ice::T_int, false, 0],
+            ['routingTableSize', Ice::T_int, false, 0],
+            ['queuedClient', Ice::T_int, false, 0],
+            ['queuedServer', Ice::T_int, false, 0],
+            ['overriddenClient', Ice::T_int, false, 0],
+            ['overriddenServer', Ice::T_int, false, 0]
         ])
     end
 end

@@ -13,26 +13,24 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_EventPrx)
-        T_EventPrx = ::Ice::__declareProxy('::Test::Event')
+        T_EventPrx = Ice::__declareProxy('::Test::Event')
     end
 
     if not defined?(::Test::EventPrx)
         module EventPrx_mixin
-
             def pub(data, context=nil)
                 EventPrx_mixin::OP_pub.invoke(self, [data], context)
             end
         end
 
-        class EventPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EventPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EventPrx_mixin
         end
 
         T_EventPrx.defineProxy(EventPrx, nil, [])
 
-        EventPrx_mixin::OP_pub = ::Ice::__defineOperation('pub', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        EventPrx_mixin::OP_pub = Ice::__defineOperation('pub', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], nil, [])
     end
 end

@@ -15,7 +15,6 @@ require 'Ice/Identity.rb'
 require 'Ice/BuiltinSequences.rb'
 
 module ::IceGrid
-
     if not defined?(::IceGrid::ApplicationNotExistException)
         class ApplicationNotExistException < Ice::UserException
             def to_s
@@ -25,7 +24,7 @@ module ::IceGrid
             attr_accessor :name
         end
 
-        T_ApplicationNotExistException = ::Ice::__defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, nil, [["name", ::Ice::T_string, false, 0]])
+        T_ApplicationNotExistException = Ice::__defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, nil, [["name", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::ServerNotExistException)
@@ -37,7 +36,7 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ServerNotExistException = ::Ice::__defineException('::IceGrid::ServerNotExistException', ServerNotExistException, nil, [["id", ::Ice::T_string, false, 0]])
+        T_ServerNotExistException = Ice::__defineException('::IceGrid::ServerNotExistException', ServerNotExistException, nil, [["id", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::ServerStartException)
@@ -49,9 +48,9 @@ module ::IceGrid
             attr_accessor :id, :reason
         end
 
-        T_ServerStartException = ::Ice::__defineException('::IceGrid::ServerStartException', ServerStartException, nil, [
-            ["id", ::Ice::T_string, false, 0],
-            ["reason", ::Ice::T_string, false, 0]
+        T_ServerStartException = Ice::__defineException('::IceGrid::ServerStartException', ServerStartException, nil, [
+            ["id", Ice::T_string, false, 0],
+            ["reason", Ice::T_string, false, 0]
         ])
     end
 
@@ -64,9 +63,9 @@ module ::IceGrid
             attr_accessor :id, :reason
         end
 
-        T_ServerStopException = ::Ice::__defineException('::IceGrid::ServerStopException', ServerStopException, nil, [
-            ["id", ::Ice::T_string, false, 0],
-            ["reason", ::Ice::T_string, false, 0]
+        T_ServerStopException = Ice::__defineException('::IceGrid::ServerStopException', ServerStopException, nil, [
+            ["id", Ice::T_string, false, 0],
+            ["reason", Ice::T_string, false, 0]
         ])
     end
 
@@ -79,7 +78,7 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_AdapterNotExistException = ::Ice::__defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, nil, [["id", ::Ice::T_string, false, 0]])
+        T_AdapterNotExistException = Ice::__defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, nil, [["id", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::ObjectExistsException)
@@ -91,7 +90,7 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ObjectExistsException = ::Ice::__defineException('::IceGrid::ObjectExistsException', ObjectExistsException, nil, [["id", ::Ice::T_Identity, false, 0]])
+        T_ObjectExistsException = Ice::__defineException('::IceGrid::ObjectExistsException', ObjectExistsException, nil, [["id", ::Ice::T_Identity, false, 0]])
     end
 
     if not defined?(::IceGrid::ObjectNotRegisteredException)
@@ -103,7 +102,7 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ObjectNotRegisteredException = ::Ice::__defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, nil, [["id", ::Ice::T_Identity, false, 0]])
+        T_ObjectNotRegisteredException = Ice::__defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, nil, [["id", ::Ice::T_Identity, false, 0]])
     end
 
     if not defined?(::IceGrid::NodeNotExistException)
@@ -115,7 +114,7 @@ module ::IceGrid
             attr_accessor :name
         end
 
-        T_NodeNotExistException = ::Ice::__defineException('::IceGrid::NodeNotExistException', NodeNotExistException, nil, [["name", ::Ice::T_string, false, 0]])
+        T_NodeNotExistException = Ice::__defineException('::IceGrid::NodeNotExistException', NodeNotExistException, nil, [["name", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::RegistryNotExistException)
@@ -127,7 +126,7 @@ module ::IceGrid
             attr_accessor :name
         end
 
-        T_RegistryNotExistException = ::Ice::__defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, nil, [["name", ::Ice::T_string, false, 0]])
+        T_RegistryNotExistException = Ice::__defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, nil, [["name", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::DeploymentException)
@@ -139,7 +138,7 @@ module ::IceGrid
             attr_accessor :reason
         end
 
-        T_DeploymentException = ::Ice::__defineException('::IceGrid::DeploymentException', DeploymentException, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_DeploymentException = Ice::__defineException('::IceGrid::DeploymentException', DeploymentException, nil, [["reason", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::NodeUnreachableException)
@@ -151,9 +150,9 @@ module ::IceGrid
             attr_accessor :name, :reason
         end
 
-        T_NodeUnreachableException = ::Ice::__defineException('::IceGrid::NodeUnreachableException', NodeUnreachableException, nil, [
-            ["name", ::Ice::T_string, false, 0],
-            ["reason", ::Ice::T_string, false, 0]
+        T_NodeUnreachableException = Ice::__defineException('::IceGrid::NodeUnreachableException', NodeUnreachableException, nil, [
+            ["name", Ice::T_string, false, 0],
+            ["reason", Ice::T_string, false, 0]
         ])
     end
 
@@ -166,9 +165,9 @@ module ::IceGrid
             attr_accessor :name, :reason
         end
 
-        T_ServerUnreachableException = ::Ice::__defineException('::IceGrid::ServerUnreachableException', ServerUnreachableException, nil, [
-            ["name", ::Ice::T_string, false, 0],
-            ["reason", ::Ice::T_string, false, 0]
+        T_ServerUnreachableException = Ice::__defineException('::IceGrid::ServerUnreachableException', ServerUnreachableException, nil, [
+            ["name", Ice::T_string, false, 0],
+            ["reason", Ice::T_string, false, 0]
         ])
     end
 
@@ -181,9 +180,9 @@ module ::IceGrid
             attr_accessor :name, :reason
         end
 
-        T_RegistryUnreachableException = ::Ice::__defineException('::IceGrid::RegistryUnreachableException', RegistryUnreachableException, nil, [
-            ["name", ::Ice::T_string, false, 0],
-            ["reason", ::Ice::T_string, false, 0]
+        T_RegistryUnreachableException = Ice::__defineException('::IceGrid::RegistryUnreachableException', RegistryUnreachableException, nil, [
+            ["name", Ice::T_string, false, 0],
+            ["reason", Ice::T_string, false, 0]
         ])
     end
 
@@ -196,7 +195,7 @@ module ::IceGrid
             attr_accessor :reason
         end
 
-        T_BadSignalException = ::Ice::__defineException('::IceGrid::BadSignalException', BadSignalException, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_BadSignalException = Ice::__defineException('::IceGrid::BadSignalException', BadSignalException, nil, [["reason", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::AccessDeniedException)
@@ -208,7 +207,7 @@ module ::IceGrid
             attr_accessor :lockUserId
         end
 
-        T_AccessDeniedException = ::Ice::__defineException('::IceGrid::AccessDeniedException', AccessDeniedException, nil, [["lockUserId", ::Ice::T_string, false, 0]])
+        T_AccessDeniedException = Ice::__defineException('::IceGrid::AccessDeniedException', AccessDeniedException, nil, [["lockUserId", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::AllocationException)
@@ -220,7 +219,7 @@ module ::IceGrid
             attr_accessor :reason
         end
 
-        T_AllocationException = ::Ice::__defineException('::IceGrid::AllocationException', AllocationException, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_AllocationException = Ice::__defineException('::IceGrid::AllocationException', AllocationException, nil, [["reason", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::AllocationTimeoutException)
@@ -230,7 +229,7 @@ module ::IceGrid
             end
         end
 
-        T_AllocationTimeoutException = ::Ice::__defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, ::IceGrid::T_AllocationException, [])
+        T_AllocationTimeoutException = Ice::__defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, ::IceGrid::T_AllocationException, [])
     end
 
     if not defined?(::IceGrid::PermissionDeniedException)
@@ -242,7 +241,7 @@ module ::IceGrid
             attr_accessor :reason
         end
 
-        T_PermissionDeniedException = ::Ice::__defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_PermissionDeniedException = Ice::__defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, nil, [["reason", Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::ObserverAlreadyRegisteredException)
@@ -254,7 +253,7 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ObserverAlreadyRegisteredException = ::Ice::__defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, nil, [["id", ::Ice::T_Identity, false, 0]])
+        T_ObserverAlreadyRegisteredException = Ice::__defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, nil, [["id", ::Ice::T_Identity, false, 0]])
     end
 
     if not defined?(::IceGrid::FileNotAvailableException)
@@ -266,6 +265,6 @@ module ::IceGrid
             attr_accessor :reason
         end
 
-        T_FileNotAvailableException = ::Ice::__defineException('::IceGrid::FileNotAvailableException', FileNotAvailableException, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_FileNotAvailableException = Ice::__defineException('::IceGrid::FileNotAvailableException', FileNotAvailableException, nil, [["reason", Ice::T_string, false, 0]])
     end
 end

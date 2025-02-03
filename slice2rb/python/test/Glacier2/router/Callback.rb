@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::CallbackException)
         class CallbackException < Ice::UserException
             def to_s
@@ -23,19 +22,18 @@ module ::Test
             attr_accessor :someValue, :someString
         end
 
-        T_CallbackException = ::Ice::__defineException('::Test::CallbackException', CallbackException, nil, [
-            ["someValue", ::Ice::T_double, false, 0],
-            ["someString", ::Ice::T_string, false, 0]
+        T_CallbackException = Ice::__defineException('::Test::CallbackException', CallbackException, nil, [
+            ["someValue", Ice::T_double, false, 0],
+            ["someString", Ice::T_string, false, 0]
         ])
     end
 
     if not defined?(::Test::T_CallbackReceiverPrx)
-        T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
+        T_CallbackReceiverPrx = Ice::__declareProxy('::Test::CallbackReceiver')
     end
 
     if not defined?(::Test::CallbackReceiverPrx)
         module CallbackReceiverPrx_mixin
-
             def callback(context=nil)
                 CallbackReceiverPrx_mixin::OP_callback.invoke(self, [], context)
             end
@@ -45,24 +43,23 @@ module ::Test
             end
         end
 
-        class CallbackReceiverPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class CallbackReceiverPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include CallbackReceiverPrx_mixin
         end
 
         T_CallbackReceiverPrx.defineProxy(CallbackReceiverPrx, nil, [])
 
-        CallbackReceiverPrx_mixin::OP_callback = ::Ice::__defineOperation('callback', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        CallbackReceiverPrx_mixin::OP_callbackEx = ::Ice::__defineOperation('callbackEx', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_CallbackException])
+        CallbackReceiverPrx_mixin::OP_callback = Ice::__defineOperation('callback', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        CallbackReceiverPrx_mixin::OP_callbackEx = Ice::__defineOperation('callbackEx', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_CallbackException])
     end
 
     if not defined?(::Test::T_CallbackPrx)
-        T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
+        T_CallbackPrx = Ice::__declareProxy('::Test::Callback')
     end
 
     if not defined?(::Test::CallbackPrx)
         module CallbackPrx_mixin
-
             def initiateCallback(proxy, context=nil)
                 CallbackPrx_mixin::OP_initiateCallback.invoke(self, [proxy], context)
             end
@@ -76,15 +73,15 @@ module ::Test
             end
         end
 
-        class CallbackPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class CallbackPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include CallbackPrx_mixin
         end
 
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])
 
-        CallbackPrx_mixin::OP_initiateCallback = ::Ice::__defineOperation('initiateCallback', ::Ice::OperationMode::Normal, nil, [[::Test::T_CallbackReceiverPrx, false, 0]], [], nil, [])
-        CallbackPrx_mixin::OP_initiateCallbackEx = ::Ice::__defineOperation('initiateCallbackEx', ::Ice::OperationMode::Normal, nil, [[::Test::T_CallbackReceiverPrx, false, 0]], [], nil, [::Test::T_CallbackException])
-        CallbackPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        CallbackPrx_mixin::OP_initiateCallback = Ice::__defineOperation('initiateCallback', Ice::OperationMode::Normal, nil, [[::Test::T_CallbackReceiverPrx, false, 0]], [], nil, [])
+        CallbackPrx_mixin::OP_initiateCallbackEx = Ice::__defineOperation('initiateCallbackEx', Ice::OperationMode::Normal, nil, [[::Test::T_CallbackReceiverPrx, false, 0]], [], nil, [::Test::T_CallbackException])
+        CallbackPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

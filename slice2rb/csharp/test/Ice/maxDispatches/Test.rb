@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def op(context=nil)
                 TestIntfPrx_mixin::OP_op.invoke(self, [], context)
             end
@@ -34,25 +32,24 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_resetMaxConcurrentDispatches = ::Ice::__defineOperation('resetMaxConcurrentDispatches', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_resetMaxConcurrentDispatches = Ice::__defineOperation('resetMaxConcurrentDispatches', Ice::OperationMode::Normal, nil, [], [], [Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_ResponderPrx)
-        T_ResponderPrx = ::Ice::__declareProxy('::Test::Responder')
+        T_ResponderPrx = Ice::__declareProxy('::Test::Responder')
     end
 
     if not defined?(::Test::ResponderPrx)
         module ResponderPrx_mixin
-
             def start(context=nil)
                 ResponderPrx_mixin::OP_start.invoke(self, [], context)
             end
@@ -66,15 +63,15 @@ module ::Test
             end
         end
 
-        class ResponderPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ResponderPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ResponderPrx_mixin
         end
 
         T_ResponderPrx.defineProxy(ResponderPrx, nil, [])
 
-        ResponderPrx_mixin::OP_start = ::Ice::__defineOperation('start', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        ResponderPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        ResponderPrx_mixin::OP_pendingResponseCount = ::Ice::__defineOperation('pendingResponseCount', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+        ResponderPrx_mixin::OP_start = Ice::__defineOperation('start', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ResponderPrx_mixin::OP_stop = Ice::__defineOperation('stop', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ResponderPrx_mixin::OP_pendingResponseCount = Ice::__defineOperation('pendingResponseCount', Ice::OperationMode::Normal, nil, [], [], [Ice::T_int, false, 0], [])
     end
 end

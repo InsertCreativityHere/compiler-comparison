@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::UE)
         class UE < Ice::UserException
             def to_s
@@ -21,16 +20,15 @@ module ::Test
             end
         end
 
-        T_UE = ::Ice::__defineException('::Test::UE', UE, nil, [])
+        T_UE = Ice::__defineException('::Test::UE', UE, nil, [])
     end
 
     if not defined?(::Test::T_HelloPrx)
-        T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
+        T_HelloPrx = Ice::__declareProxy('::Test::Hello')
     end
 
     if not defined?(::Test::HelloPrx)
         module HelloPrx_mixin
-
             def sayHello(delay, context=nil)
                 HelloPrx_mixin::OP_sayHello.invoke(self, [delay], context)
             end
@@ -48,16 +46,16 @@ module ::Test
             end
         end
 
-        class HelloPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class HelloPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include HelloPrx_mixin
         end
 
         T_HelloPrx.defineProxy(HelloPrx, nil, [])
 
-        HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        HelloPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        HelloPrx_mixin::OP_raiseUE = ::Ice::__defineOperation('raiseUE', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_UE])
-        HelloPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        HelloPrx_mixin::OP_sayHello = Ice::__defineOperation('sayHello', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [], nil, [])
+        HelloPrx_mixin::OP_add = Ice::__defineOperation('add', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], [Ice::T_int, false, 0], [])
+        HelloPrx_mixin::OP_raiseUE = Ice::__defineOperation('raiseUE', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_UE])
+        HelloPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

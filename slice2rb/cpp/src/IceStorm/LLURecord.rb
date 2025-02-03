@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::IceStormElection
-
     if not defined?(::IceStormElection::LogUpdate)
         class LogUpdate
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(generation=0, iteration=0)
                 @generation = generation
                 @iteration = iteration
@@ -43,9 +42,9 @@ module ::IceStormElection
             attr_accessor :generation, :iteration
         end
 
-        T_LogUpdate = ::Ice::__defineStruct('::IceStormElection::LogUpdate', LogUpdate, [
-            ["generation", ::Ice::T_long],
-            ["iteration", ::Ice::T_long]
+        T_LogUpdate = Ice::__defineStruct('::IceStormElection::LogUpdate', LogUpdate, [
+            ["generation", Ice::T_long],
+            ["iteration", Ice::T_long]
         ])
     end
 end

@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::OperationMode)
         class OperationMode
             include Comparable
@@ -61,6 +60,6 @@ module ::Ice
             private_class_method :new
         end
 
-        T_OperationMode = ::Ice::__defineEnum('::Ice::OperationMode', OperationMode, OperationMode::_enumerators)
+        T_OperationMode = Ice::__defineEnum('::Ice::OperationMode', OperationMode, OperationMode::_enumerators)
     end
 end

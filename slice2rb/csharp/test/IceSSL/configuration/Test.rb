@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_ServerPrx)
-        T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
+        T_ServerPrx = Ice::__declareProxy('::Test::Server')
     end
 
     if not defined?(::Test::ServerPrx)
         module ServerPrx_mixin
-
             def noCert(context=nil)
                 ServerPrx_mixin::OP_noCert.invoke(self, [], context)
             end
@@ -34,29 +32,28 @@ module ::Test
             end
         end
 
-        class ServerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ServerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ServerPrx_mixin
         end
 
         T_ServerPrx.defineProxy(ServerPrx, nil, [])
 
-        ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        ServerPrx_mixin::OP_checkCert = ::Ice::__defineOperation('checkCert', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ServerPrx_mixin::OP_checkCipher = ::Ice::__defineOperation('checkCipher', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        ServerPrx_mixin::OP_noCert = Ice::__defineOperation('noCert', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ServerPrx_mixin::OP_checkCert = Ice::__defineOperation('checkCert', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0]], [], nil, [])
+        ServerPrx_mixin::OP_checkCipher = Ice::__defineOperation('checkCipher', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::T_Properties)
-        T_Properties = ::Ice::__defineDictionary('::Test::Properties', ::Ice::T_string, ::Ice::T_string)
+        T_Properties = Ice::__defineDictionary('::Test::Properties', Ice::T_string, Ice::T_string)
     end
 
     if not defined?(::Test::T_ServerFactoryPrx)
-        T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
+        T_ServerFactoryPrx = Ice::__declareProxy('::Test::ServerFactory')
     end
 
     if not defined?(::Test::ServerFactoryPrx)
         module ServerFactoryPrx_mixin
-
             def createServer(props, context=nil)
                 ServerFactoryPrx_mixin::OP_createServer.invoke(self, [props], context)
             end
@@ -70,37 +67,36 @@ module ::Test
             end
         end
 
-        class ServerFactoryPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ServerFactoryPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ServerFactoryPrx_mixin
         end
 
         T_ServerFactoryPrx.defineProxy(ServerFactoryPrx, nil, [])
 
-        ServerFactoryPrx_mixin::OP_createServer = ::Ice::__defineOperation('createServer', ::Ice::OperationMode::Normal, nil, [[::Test::T_Properties, false, 0]], [], [::Test::T_ServerPrx, false, 0], [])
-        ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
-        ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ServerFactoryPrx_mixin::OP_createServer = Ice::__defineOperation('createServer', Ice::OperationMode::Normal, nil, [[::Test::T_Properties, false, 0]], [], [::Test::T_ServerPrx, false, 0], [])
+        ServerFactoryPrx_mixin::OP_destroyServer = Ice::__defineOperation('destroyServer', Ice::OperationMode::Normal, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
+        ServerFactoryPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_PingablePrx)
-        T_PingablePrx = ::Ice::__declareProxy('::Test::Pingable')
+        T_PingablePrx = Ice::__declareProxy('::Test::Pingable')
     end
 
     if not defined?(::Test::PingablePrx)
         module PingablePrx_mixin
-
             def ping(context=nil)
                 PingablePrx_mixin::OP_ping.invoke(self, [], context)
             end
         end
 
-        class PingablePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class PingablePrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include PingablePrx_mixin
         end
 
         T_PingablePrx.defineProxy(PingablePrx, nil, [])
 
-        PingablePrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        PingablePrx_mixin::OP_ping = Ice::__defineOperation('ping', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

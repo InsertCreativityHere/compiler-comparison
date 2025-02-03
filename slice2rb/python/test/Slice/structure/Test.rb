@@ -13,18 +13,17 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_IntSeq)
-        T_IntSeq = ::Ice::__defineSequence('::Test::IntSeq', ::Ice::T_int)
+        T_IntSeq = Ice::__defineSequence('::Test::IntSeq', Ice::T_int)
     end
 
     if not defined?(::Test::T_StringDict)
-        T_StringDict = ::Ice::__defineDictionary('::Test::StringDict', ::Ice::T_string, ::Ice::T_string)
+        T_StringDict = Ice::__defineDictionary('::Test::StringDict', Ice::T_string, Ice::T_string)
     end
 
     if not defined?(::Test::S1)
         class S1
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(name='')
                 @name = name
             end
@@ -48,12 +47,12 @@ module ::Test
             attr_accessor :name
         end
 
-        T_S1 = ::Ice::__defineStruct('::Test::S1', S1, [["name", ::Ice::T_string]])
+        T_S1 = Ice::__defineStruct('::Test::S1', S1, [["name", Ice::T_string]])
     end
 
     if not defined?(::Test::S2)
         class S2
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(bo=false, by=0, sh=0, i=0, l=0, str='', seq=nil, s=::Test::S1.new)
                 @bo = bo
                 @by = by
@@ -98,20 +97,20 @@ module ::Test
             attr_accessor :bo, :by, :sh, :i, :l, :str, :seq, :s
         end
 
-        T_S2 = ::Ice::__defineStruct('::Test::S2', S2, [
-            ["bo", ::Ice::T_bool],
-            ["by", ::Ice::T_byte],
-            ["sh", ::Ice::T_short],
-            ["i", ::Ice::T_int],
-            ["l", ::Ice::T_long],
-            ["str", ::Ice::T_string],
+        T_S2 = Ice::__defineStruct('::Test::S2', S2, [
+            ["bo", Ice::T_bool],
+            ["by", Ice::T_byte],
+            ["sh", Ice::T_short],
+            ["i", Ice::T_int],
+            ["l", Ice::T_long],
+            ["str", Ice::T_string],
             ["seq", ::Test::T_IntSeq],
             ["s", ::Test::T_S1]
         ])
     end
 
     if not defined?(::Test::T_C)
-        T_C = ::Ice::__declareClass('::Test::C')
+        T_C = Ice::__declareClass('::Test::C')
     end
 
     if not defined?(::Test::C)
@@ -124,12 +123,12 @@ module ::Test
             attr_accessor :name
         end
 
-        T_C.defineClass(C, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
+        T_C.defineClass(C, -1, false, nil, [['name', Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::S3)
         class S3
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(obj=nil, sd=nil, prx=nil)
                 @obj = obj
                 @sd = sd
@@ -159,10 +158,10 @@ module ::Test
             attr_accessor :obj, :sd, :prx
         end
 
-        T_S3 = ::Ice::__defineStruct('::Test::S3', S3, [
+        T_S3 = Ice::__defineStruct('::Test::S3', S3, [
             ["obj", ::Test::T_C],
             ["sd", ::Test::T_StringDict],
-            ["prx", ::Ice::T_ObjectPrx]
+            ["prx", Ice::T_ObjectPrx]
         ])
     end
 end

@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_RetryPrx)
-        T_RetryPrx = ::Ice::__declareProxy('::Test::Retry')
+        T_RetryPrx = Ice::__declareProxy('::Test::Retry')
     end
 
     if not defined?(::Test::RetryPrx)
         module RetryPrx_mixin
-
             def op(kill, context=nil)
                 RetryPrx_mixin::OP_op.invoke(self, [kill], context)
             end
@@ -42,17 +40,17 @@ module ::Test
             end
         end
 
-        class RetryPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class RetryPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include RetryPrx_mixin
         end
 
         T_RetryPrx.defineProxy(RetryPrx, nil, [])
 
-        RetryPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        RetryPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        RetryPrx_mixin::OP_opNotIdempotent = ::Ice::__defineOperation('opNotIdempotent', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        RetryPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        RetryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
+        RetryPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
+        RetryPrx_mixin::OP_opIdempotent = Ice::__defineOperation('opIdempotent', Ice::OperationMode::Idempotent, nil, [[Ice::T_int, false, 0]], [], [Ice::T_int, false, 0], [])
+        RetryPrx_mixin::OP_opNotIdempotent = Ice::__defineOperation('opNotIdempotent', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        RetryPrx_mixin::OP_sleep = Ice::__defineOperation('sleep', Ice::OperationMode::Idempotent, nil, [[Ice::T_int, false, 0]], [], nil, [])
+        RetryPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Idempotent, nil, [], [], nil, [])
     end
 end

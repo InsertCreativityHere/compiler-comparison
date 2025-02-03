@@ -14,14 +14,12 @@ require 'Ice'
 require 'Ice/Context.rb'
 
 module ::Test
-
     if not defined?(::Test::T_MyClassPrx)
-        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
+        T_MyClassPrx = Ice::__declareProxy('::Test::MyClass')
     end
 
     if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
-
             def shutdown(context=nil)
                 MyClassPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -31,37 +29,36 @@ module ::Test
             end
         end
 
-        class MyClassPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyClassPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyClassPrx_mixin
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
+        MyClassPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_getContext = Ice::__defineOperation('getContext', Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
     end
 
     if not defined?(::Test::T_MyDerivedClassPrx)
-        T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
+        T_MyDerivedClassPrx = Ice::__declareProxy('::Test::MyDerivedClass')
     end
 
     if not defined?(::Test::MyDerivedClassPrx)
         module MyDerivedClassPrx_mixin
             include ::Test::MyClassPrx_mixin
-
             def echo(obj, context=nil)
                 MyDerivedClassPrx_mixin::OP_echo.invoke(self, [obj], context)
             end
         end
 
-        class MyDerivedClassPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyDerivedClassPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyDerivedClassPrx_mixin
         end
 
         T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
 
-        MyDerivedClassPrx_mixin::OP_echo = ::Ice::__defineOperation('echo', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
+        MyDerivedClassPrx_mixin::OP_echo = Ice::__defineOperation('echo', Ice::OperationMode::Normal, nil, [[Ice::T_ObjectPrx, false, 0]], [], [Ice::T_ObjectPrx, false, 0], [])
     end
 end

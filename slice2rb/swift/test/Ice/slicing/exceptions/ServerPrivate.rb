@@ -14,7 +14,6 @@ require 'Ice'
 require_relative 'Test.rb'
 
 module ::Test
-
     if not defined?(::Test::UnknownDerived)
         class UnknownDerived < ::Test::Base
             def to_s
@@ -24,7 +23,7 @@ module ::Test
             attr_accessor :ud
         end
 
-        T_UnknownDerived = ::Ice::__defineException('::Test::UnknownDerived', UnknownDerived, ::Test::T_Base, [["ud", ::Ice::T_string, false, 0]])
+        T_UnknownDerived = Ice::__defineException('::Test::UnknownDerived', UnknownDerived, ::Test::T_Base, [["ud", Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::UnknownIntermediate)
@@ -36,7 +35,7 @@ module ::Test
             attr_accessor :ui
         end
 
-        T_UnknownIntermediate = ::Ice::__defineException('::Test::UnknownIntermediate', UnknownIntermediate, ::Test::T_Base, [["ui", ::Ice::T_string, false, 0]])
+        T_UnknownIntermediate = Ice::__defineException('::Test::UnknownIntermediate', UnknownIntermediate, ::Test::T_Base, [["ui", Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::UnknownMostDerived1)
@@ -48,7 +47,7 @@ module ::Test
             attr_accessor :umd1
         end
 
-        T_UnknownMostDerived1 = ::Ice::__defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, ::Test::T_KnownIntermediate, [["umd1", ::Ice::T_string, false, 0]])
+        T_UnknownMostDerived1 = Ice::__defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, ::Test::T_KnownIntermediate, [["umd1", Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::UnknownMostDerived2)
@@ -60,6 +59,6 @@ module ::Test
             attr_accessor :umd2
         end
 
-        T_UnknownMostDerived2 = ::Ice::__defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, ::Test::T_UnknownIntermediate, [["umd2", ::Ice::T_string, false, 0]])
+        T_UnknownMostDerived2 = Ice::__defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, ::Test::T_UnknownIntermediate, [["umd2", Ice::T_string, false, 0]])
     end
 end

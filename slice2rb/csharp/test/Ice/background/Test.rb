@@ -14,14 +14,12 @@ require 'Ice'
 require 'Ice/BuiltinSequences.rb'
 
 module ::Test
-
     if not defined?(::Test::T_BackgroundPrx)
-        T_BackgroundPrx = ::Ice::__declareProxy('::Test::Background')
+        T_BackgroundPrx = Ice::__declareProxy('::Test::Background')
     end
 
     if not defined?(::Test::BackgroundPrx)
         module BackgroundPrx_mixin
-
             def op(context=nil)
                 BackgroundPrx_mixin::OP_op.invoke(self, [], context)
             end
@@ -35,25 +33,24 @@ module ::Test
             end
         end
 
-        class BackgroundPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BackgroundPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BackgroundPrx_mixin
         end
 
         T_BackgroundPrx.defineProxy(BackgroundPrx, nil, [])
 
-        BackgroundPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        BackgroundPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
-        BackgroundPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BackgroundPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BackgroundPrx_mixin::OP_opWithPayload = Ice::__defineOperation('opWithPayload', Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
+        BackgroundPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_BackgroundControllerPrx)
-        T_BackgroundControllerPrx = ::Ice::__declareProxy('::Test::BackgroundController')
+        T_BackgroundControllerPrx = Ice::__declareProxy('::Test::BackgroundController')
     end
 
     if not defined?(::Test::BackgroundControllerPrx)
         module BackgroundControllerPrx_mixin
-
             def pauseCall(call, context=nil)
                 BackgroundControllerPrx_mixin::OP_pauseCall.invoke(self, [call], context)
             end
@@ -95,22 +92,22 @@ module ::Test
             end
         end
 
-        class BackgroundControllerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BackgroundControllerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BackgroundControllerPrx_mixin
         end
 
         T_BackgroundControllerPrx.defineProxy(BackgroundControllerPrx, nil, [])
 
-        BackgroundControllerPrx_mixin::OP_pauseCall = ::Ice::__defineOperation('pauseCall', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_resumeCall = ::Ice::__defineOperation('resumeCall', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_initializeException = ::Ice::__defineOperation('initializeException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_readReady = ::Ice::__defineOperation('readReady', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_readException = ::Ice::__defineOperation('readException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_writeReady = ::Ice::__defineOperation('writeReady', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_writeException = ::Ice::__defineOperation('writeException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        BackgroundControllerPrx_mixin::OP_buffered = ::Ice::__defineOperation('buffered', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_pauseCall = Ice::__defineOperation('pauseCall', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_resumeCall = Ice::__defineOperation('resumeCall', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_holdAdapter = Ice::__defineOperation('holdAdapter', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_resumeAdapter = Ice::__defineOperation('resumeAdapter', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_initializeException = Ice::__defineOperation('initializeException', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_readReady = Ice::__defineOperation('readReady', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_readException = Ice::__defineOperation('readException', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_writeReady = Ice::__defineOperation('writeReady', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_writeException = Ice::__defineOperation('writeException', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
+        BackgroundControllerPrx_mixin::OP_buffered = Ice::__defineOperation('buffered', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
     end
 end

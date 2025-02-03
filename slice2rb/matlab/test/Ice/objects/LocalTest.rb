@@ -13,9 +13,8 @@
 require 'Ice'
 
 module ::LocalTest
-
     if not defined?(::LocalTest::T_C1)
-        T_C1 = ::Ice::__declareClass('::LocalTest::C1')
+        T_C1 = Ice::__declareClass('::LocalTest::C1')
     end
 
     if not defined?(::LocalTest::C1)
@@ -28,12 +27,12 @@ module ::LocalTest
             attr_accessor :i
         end
 
-        T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['i', Ice::T_int, false, 0]])
     end
 
     if not defined?(::LocalTest::S1)
         class S1
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(c1=nil)
                 @c1 = c1
             end
@@ -57,36 +56,36 @@ module ::LocalTest
             attr_accessor :c1
         end
 
-        T_S1 = ::Ice::__defineStruct('::LocalTest::S1', S1, [["c1", ::LocalTest::T_C1]])
+        T_S1 = Ice::__defineStruct('::LocalTest::S1', S1, [["c1", ::LocalTest::T_C1]])
     end
 
     if not defined?(::LocalTest::T_C1Seq)
-        T_C1Seq = ::Ice::__defineSequence('::LocalTest::C1Seq', ::LocalTest::T_C1)
+        T_C1Seq = Ice::__defineSequence('::LocalTest::C1Seq', ::LocalTest::T_C1)
     end
 
     if not defined?(::LocalTest::T_S1Seq)
-        T_S1Seq = ::Ice::__defineSequence('::LocalTest::S1Seq', ::LocalTest::T_S1)
+        T_S1Seq = Ice::__defineSequence('::LocalTest::S1Seq', ::LocalTest::T_S1)
     end
 
     if not defined?(::LocalTest::T_C1Dict)
-        T_C1Dict = ::Ice::__defineDictionary('::LocalTest::C1Dict', ::Ice::T_int, ::LocalTest::T_C1)
+        T_C1Dict = Ice::__defineDictionary('::LocalTest::C1Dict', Ice::T_int, ::LocalTest::T_C1)
     end
 
     if not defined?(::LocalTest::T_S1Dict)
-        T_S1Dict = ::Ice::__defineDictionary('::LocalTest::S1Dict', ::Ice::T_int, ::LocalTest::T_S1)
+        T_S1Dict = Ice::__defineDictionary('::LocalTest::S1Dict', Ice::T_int, ::LocalTest::T_S1)
     end
 
     if not defined?(::LocalTest::T_C1SeqSeq)
-        T_C1SeqSeq = ::Ice::__defineSequence('::LocalTest::C1SeqSeq', ::LocalTest::T_C1Seq)
+        T_C1SeqSeq = Ice::__defineSequence('::LocalTest::C1SeqSeq', ::LocalTest::T_C1Seq)
     end
 
     if not defined?(::LocalTest::T_S1SeqSeq)
-        T_S1SeqSeq = ::Ice::__defineSequence('::LocalTest::S1SeqSeq', ::LocalTest::T_S1Seq)
+        T_S1SeqSeq = Ice::__defineSequence('::LocalTest::S1SeqSeq', ::LocalTest::T_S1Seq)
     end
 
     if not defined?(::LocalTest::S2)
         class S2
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(s1=::LocalTest::S1.new)
                 @s1 = s1
             end
@@ -110,12 +109,12 @@ module ::LocalTest
             attr_accessor :s1
         end
 
-        T_S2 = ::Ice::__defineStruct('::LocalTest::S2', S2, [["s1", ::LocalTest::T_S1]])
+        T_S2 = Ice::__defineStruct('::LocalTest::S2', S2, [["s1", ::LocalTest::T_S1]])
     end
 
     if not defined?(::LocalTest::S3)
         class S3
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(c1seq=nil)
                 @c1seq = c1seq
             end
@@ -139,12 +138,12 @@ module ::LocalTest
             attr_accessor :c1seq
         end
 
-        T_S3 = ::Ice::__defineStruct('::LocalTest::S3', S3, [["c1seq", ::LocalTest::T_C1Seq]])
+        T_S3 = Ice::__defineStruct('::LocalTest::S3', S3, [["c1seq", ::LocalTest::T_C1Seq]])
     end
 
     if not defined?(::LocalTest::S4)
         class S4
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(s1seq=nil)
                 @s1seq = s1seq
             end
@@ -168,12 +167,12 @@ module ::LocalTest
             attr_accessor :s1seq
         end
 
-        T_S4 = ::Ice::__defineStruct('::LocalTest::S4', S4, [["s1seq", ::LocalTest::T_S1Seq]])
+        T_S4 = Ice::__defineStruct('::LocalTest::S4', S4, [["s1seq", ::LocalTest::T_S1Seq]])
     end
 
     if not defined?(::LocalTest::S5)
         class S5
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(c1dict=nil)
                 @c1dict = c1dict
             end
@@ -197,12 +196,12 @@ module ::LocalTest
             attr_accessor :c1dict
         end
 
-        T_S5 = ::Ice::__defineStruct('::LocalTest::S5', S5, [["c1dict", ::LocalTest::T_C1Dict]])
+        T_S5 = Ice::__defineStruct('::LocalTest::S5', S5, [["c1dict", ::LocalTest::T_C1Dict]])
     end
 
     if not defined?(::LocalTest::S6)
         class S6
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(s1dict=nil)
                 @s1dict = s1dict
             end
@@ -226,12 +225,12 @@ module ::LocalTest
             attr_accessor :s1dict
         end
 
-        T_S6 = ::Ice::__defineStruct('::LocalTest::S6', S6, [["s1dict", ::LocalTest::T_S1Dict]])
+        T_S6 = Ice::__defineStruct('::LocalTest::S6', S6, [["s1dict", ::LocalTest::T_S1Dict]])
     end
 
     if not defined?(::LocalTest::S7)
         class S7
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(c1seqseq=nil)
                 @c1seqseq = c1seqseq
             end
@@ -255,12 +254,12 @@ module ::LocalTest
             attr_accessor :c1seqseq
         end
 
-        T_S7 = ::Ice::__defineStruct('::LocalTest::S7', S7, [["c1seqseq", ::LocalTest::T_C1SeqSeq]])
+        T_S7 = Ice::__defineStruct('::LocalTest::S7', S7, [["c1seqseq", ::LocalTest::T_C1SeqSeq]])
     end
 
     if not defined?(::LocalTest::S8)
         class S8
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(s1seqseq=nil)
                 @s1seqseq = s1seqseq
             end
@@ -284,11 +283,11 @@ module ::LocalTest
             attr_accessor :s1seqseq
         end
 
-        T_S8 = ::Ice::__defineStruct('::LocalTest::S8', S8, [["s1seqseq", ::LocalTest::T_S1SeqSeq]])
+        T_S8 = Ice::__defineStruct('::LocalTest::S8', S8, [["s1seqseq", ::LocalTest::T_S1SeqSeq]])
     end
 
     if not defined?(::LocalTest::T_CB1)
-        T_CB1 = ::Ice::__declareClass('::LocalTest::CB1')
+        T_CB1 = Ice::__declareClass('::LocalTest::CB1')
     end
 
     if not defined?(::LocalTest::CB1)
@@ -305,7 +304,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB2)
-        T_CB2 = ::Ice::__declareClass('::LocalTest::CB2')
+        T_CB2 = Ice::__declareClass('::LocalTest::CB2')
     end
 
     if not defined?(::LocalTest::CB2)
@@ -322,7 +321,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB3)
-        T_CB3 = ::Ice::__declareClass('::LocalTest::CB3')
+        T_CB3 = Ice::__declareClass('::LocalTest::CB3')
     end
 
     if not defined?(::LocalTest::CB3)
@@ -339,7 +338,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB4)
-        T_CB4 = ::Ice::__declareClass('::LocalTest::CB4')
+        T_CB4 = Ice::__declareClass('::LocalTest::CB4')
     end
 
     if not defined?(::LocalTest::CB4)
@@ -356,7 +355,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB5)
-        T_CB5 = ::Ice::__declareClass('::LocalTest::CB5')
+        T_CB5 = Ice::__declareClass('::LocalTest::CB5')
     end
 
     if not defined?(::LocalTest::CB5)
@@ -373,7 +372,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB6)
-        T_CB6 = ::Ice::__declareClass('::LocalTest::CB6')
+        T_CB6 = Ice::__declareClass('::LocalTest::CB6')
     end
 
     if not defined?(::LocalTest::CB6)
@@ -390,7 +389,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB7)
-        T_CB7 = ::Ice::__declareClass('::LocalTest::CB7')
+        T_CB7 = Ice::__declareClass('::LocalTest::CB7')
     end
 
     if not defined?(::LocalTest::CB7)
@@ -407,7 +406,7 @@ module ::LocalTest
     end
 
     if not defined?(::LocalTest::T_CB8)
-        T_CB8 = ::Ice::__declareClass('::LocalTest::CB8')
+        T_CB8 = Ice::__declareClass('::LocalTest::CB8')
     end
 
     if not defined?(::LocalTest::CB8)
@@ -431,7 +430,7 @@ module ::LocalTest
 
     if not defined?(::LocalTest::StructKey)
         class StructKey
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(i=0, j=0)
                 @i = i
                 @j = j
@@ -458,25 +457,25 @@ module ::LocalTest
             attr_accessor :i, :j
         end
 
-        T_StructKey = ::Ice::__defineStruct('::LocalTest::StructKey', StructKey, [
-            ["i", ::Ice::T_int],
-            ["j", ::Ice::T_int]
+        T_StructKey = Ice::__defineStruct('::LocalTest::StructKey', StructKey, [
+            ["i", Ice::T_int],
+            ["j", Ice::T_int]
         ])
     end
 
     if not defined?(::LocalTest::T_StructDict1)
-        T_StructDict1 = ::Ice::__defineDictionary('::LocalTest::StructDict1', ::LocalTest::T_StructKey, ::LocalTest::T_C1)
+        T_StructDict1 = Ice::__defineDictionary('::LocalTest::StructDict1', ::LocalTest::T_StructKey, ::LocalTest::T_C1)
     end
 
     if not defined?(::LocalTest::T_StructDict2)
-        T_StructDict2 = ::Ice::__defineDictionary('::LocalTest::StructDict2', ::LocalTest::T_StructKey, ::LocalTest::T_S1)
+        T_StructDict2 = Ice::__defineDictionary('::LocalTest::StructDict2', ::LocalTest::T_StructKey, ::LocalTest::T_S1)
     end
 
     if not defined?(::LocalTest::T_C1DictDict)
-        T_C1DictDict = ::Ice::__defineDictionary('::LocalTest::C1DictDict', ::Ice::T_int, ::LocalTest::T_C1Dict)
+        T_C1DictDict = Ice::__defineDictionary('::LocalTest::C1DictDict', Ice::T_int, ::LocalTest::T_C1Dict)
     end
 
     if not defined?(::LocalTest::T_S1DictDict)
-        T_S1DictDict = ::Ice::__defineDictionary('::LocalTest::S1DictDict', ::Ice::T_int, ::LocalTest::T_S1Dict)
+        T_S1DictDict = Ice::__defineDictionary('::LocalTest::S1DictDict', Ice::T_int, ::LocalTest::T_S1Dict)
     end
 end

@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::StructKey)
         class StructKey
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(value=0)
                 @value = value
             end
@@ -40,11 +39,11 @@ module ::Test
             attr_accessor :value
         end
 
-        T_StructKey = ::Ice::__defineStruct('::Test::StructKey', StructKey, [["value", ::Ice::T_int]])
+        T_StructKey = Ice::__defineStruct('::Test::StructKey', StructKey, [["value", Ice::T_int]])
     end
 
     if not defined?(::Test::T_ClassKey)
-        T_ClassKey = ::Ice::__declareClass('::Test::ClassKey')
+        T_ClassKey = Ice::__declareClass('::Test::ClassKey')
     end
 
     if not defined?(::Test::ClassKey)
@@ -57,6 +56,6 @@ module ::Test
             attr_accessor :value
         end
 
-        T_ClassKey.defineClass(ClassKey, -1, false, nil, [['value', ::Ice::T_int, false, 0]])
+        T_ClassKey.defineClass(ClassKey, -1, false, nil, [['value', Ice::T_int, false, 0]])
     end
 end

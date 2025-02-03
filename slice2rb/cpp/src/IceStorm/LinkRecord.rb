@@ -15,10 +15,9 @@ require 'Ice/Identity.rb'
 require_relative 'IceStormInternal.rb'
 
 module ::IceStorm
-
     if not defined?(::IceStorm::LinkRecord)
         class LinkRecord
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(obj=nil, cost=0, theTopic=nil)
                 @obj = obj
                 @cost = cost
@@ -48,9 +47,9 @@ module ::IceStorm
             attr_accessor :obj, :cost, :theTopic
         end
 
-        T_LinkRecord = ::Ice::__defineStruct('::IceStorm::LinkRecord', LinkRecord, [
+        T_LinkRecord = Ice::__defineStruct('::IceStorm::LinkRecord', LinkRecord, [
             ["obj", ::IceStorm::T_TopicLinkPrx],
-            ["cost", ::Ice::T_int],
+            ["cost", Ice::T_int],
             ["theTopic", ::IceStorm::T_TopicPrx]
         ])
     end

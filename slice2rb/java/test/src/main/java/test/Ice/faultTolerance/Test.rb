@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def shutdown(context=nil)
                 TestIntfPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -38,16 +36,16 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_abort = ::Ice::__defineOperation('abort', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_idempotentAbort = ::Ice::__defineOperation('idempotentAbort', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_abort = Ice::__defineOperation('abort', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_idempotentAbort = Ice::__defineOperation('idempotentAbort', Ice::OperationMode::Idempotent, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_pid = Ice::__defineOperation('pid', Ice::OperationMode::Idempotent, nil, [], [], [Ice::T_int, false, 0], [])
     end
 end

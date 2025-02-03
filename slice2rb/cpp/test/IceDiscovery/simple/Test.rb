@@ -13,36 +13,33 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def getAdapterId(context=nil)
                 TestIntfPrx_mixin::OP_getAdapterId.invoke(self, [], context)
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getAdapterId = ::Ice::__defineOperation('getAdapterId', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getAdapterId = Ice::__defineOperation('getAdapterId', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::T_ControllerPrx)
-        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
+        T_ControllerPrx = Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
-
             def activateObjectAdapter(name, adapterId, replicaGroupId, context=nil)
                 ControllerPrx_mixin::OP_activateObjectAdapter.invoke(self, [name, adapterId, replicaGroupId], context)
             end
@@ -64,17 +61,17 @@ module ::Test
             end
         end
 
-        class ControllerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ControllerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ControllerPrx_mixin
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
-        ControllerPrx_mixin::OP_activateObjectAdapter = ::Ice::__defineOperation('activateObjectAdapter', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ControllerPrx_mixin::OP_deactivateObjectAdapter = ::Ice::__defineOperation('deactivateObjectAdapter', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        ControllerPrx_mixin::OP_addObject = ::Ice::__defineOperation('addObject', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ControllerPrx_mixin::OP_removeObject = ::Ice::__defineOperation('removeObject', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_activateObjectAdapter = Ice::__defineOperation('activateObjectAdapter', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0]], [], nil, [])
+        ControllerPrx_mixin::OP_deactivateObjectAdapter = Ice::__defineOperation('deactivateObjectAdapter', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], nil, [])
+        ControllerPrx_mixin::OP_addObject = Ice::__defineOperation('addObject', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0]], [], nil, [])
+        ControllerPrx_mixin::OP_removeObject = Ice::__defineOperation('removeObject', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0]], [], nil, [])
+        ControllerPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::BadEncodingException)
         class BadEncodingException < Ice::UserException
             def to_s
@@ -21,16 +20,15 @@ module ::Test
             end
         end
 
-        T_BadEncodingException = ::Ice::__defineException('::Test::BadEncodingException', BadEncodingException, nil, [])
+        T_BadEncodingException = Ice::__defineException('::Test::BadEncodingException', BadEncodingException, nil, [])
     end
 
     if not defined?(::Test::T_MyObjectPrx)
-        T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
+        T_MyObjectPrx = Ice::__declareProxy('::Test::MyObject')
     end
 
     if not defined?(::Test::MyObjectPrx)
         module MyObjectPrx_mixin
-
             def widen(msg, context=nil)
                 MyObjectPrx_mixin::OP_widen.invoke(self, [msg], context)
             end
@@ -44,15 +42,15 @@ module ::Test
             end
         end
 
-        class MyObjectPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyObjectPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyObjectPrx_mixin
         end
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
-        MyObjectPrx_mixin::OP_widen = ::Ice::__defineOperation('widen', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::Test::T_BadEncodingException])
-        MyObjectPrx_mixin::OP_narrow = ::Ice::__defineOperation('narrow', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])
-        MyObjectPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyObjectPrx_mixin::OP_widen = Ice::__defineOperation('widen', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], [Ice::T_string, false, 0], [::Test::T_BadEncodingException])
+        MyObjectPrx_mixin::OP_narrow = Ice::__defineOperation('narrow', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], [Ice::T_string, false, 0], [])
+        MyObjectPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

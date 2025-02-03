@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Clash
-
     if not defined?(::Clash::T_IntfPrx)
-        T_IntfPrx = ::Ice::__declareProxy('::Clash::Intf')
+        T_IntfPrx = Ice::__declareProxy('::Clash::Intf')
     end
 
     if not defined?(::Clash::IntfPrx)
         module IntfPrx_mixin
-
             def context(context=nil)
                 IntfPrx_mixin::OP_context.invoke(self, [], context)
             end
@@ -70,35 +68,35 @@ module ::Clash
             end
         end
 
-        class IntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class IntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include IntfPrx_mixin
         end
 
         T_IntfPrx.defineProxy(IntfPrx, nil, [])
 
-        IntfPrx_mixin::OP_context = ::Ice::__defineOperation('context', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_current = ::Ice::__defineOperation('current', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_response = ::Ice::__defineOperation('response', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_upCast = ::Ice::__defineOperation('upCast', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_typeId = ::Ice::__defineOperation('typeId', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_del = ::Ice::__defineOperation('del', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_cookie = ::Ice::__defineOperation('cookie', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_sync = ::Ice::__defineOperation('sync', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_inS = ::Ice::__defineOperation('inS', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_istr = ::Ice::__defineOperation('istr', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        IntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, true, 1]], [], nil, [])
-        IntfPrx_mixin::OP_opOut = ::Ice::__defineOperation('opOut', ::Ice::OperationMode::Normal, nil, [], [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, true, 1]], nil, [])
+        IntfPrx_mixin::OP_context = Ice::__defineOperation('context', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_current = Ice::__defineOperation('current', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_response = Ice::__defineOperation('response', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_upCast = Ice::__defineOperation('upCast', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_typeId = Ice::__defineOperation('typeId', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_del = Ice::__defineOperation('del', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_cookie = Ice::__defineOperation('cookie', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_sync = Ice::__defineOperation('sync', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_inS = Ice::__defineOperation('inS', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_istr = Ice::__defineOperation('istr', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        IntfPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, true, 1]], [], nil, [])
+        IntfPrx_mixin::OP_opOut = Ice::__defineOperation('opOut', Ice::OperationMode::Normal, nil, [], [[Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, false, 0], [Ice::T_string, true, 1]], nil, [])
     end
 
     if not defined?(::Clash::T_Cls)
-        T_Cls = ::Ice::__declareClass('::Clash::Cls')
+        T_Cls = Ice::__declareClass('::Clash::Cls')
     end
 
     if not defined?(::Clash::Cls)
         class Cls < Ice::Value
 
-            def initialize(s=nil, context='', current=0, response=0, upCast='', typeId=0, del=0, cookie=::Ice::Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy='')
+            def initialize(s=nil, context='', current=0, response=0, upCast='', typeId=0, del=0, cookie=Ice::Unset, ex='', result=0, istr='', ostr='', inS='', _in='', proxy='')
                 @s = s
                 @context = context
                 @current = current
@@ -121,26 +119,26 @@ module ::Clash
 
         T_Cls.defineClass(Cls, -1, false, nil, [
             ['s', ::Clash::T_IntfPrx, false, 0],
-            ['context', ::Ice::T_string, false, 0],
-            ['current', ::Ice::T_int, false, 0],
-            ['response', ::Ice::T_short, false, 0],
-            ['upCast', ::Ice::T_string, false, 0],
-            ['typeId', ::Ice::T_int, false, 0],
-            ['del', ::Ice::T_short, false, 0],
-            ['cookie', ::Ice::T_short, true, 1],
-            ['ex', ::Ice::T_string, false, 0],
-            ['result', ::Ice::T_int, false, 0],
-            ['istr', ::Ice::T_string, false, 0],
-            ['ostr', ::Ice::T_string, false, 0],
-            ['inS', ::Ice::T_string, false, 0],
-            ['_in', ::Ice::T_string, false, 0],
-            ['proxy', ::Ice::T_string, false, 0]
+            ['context', Ice::T_string, false, 0],
+            ['current', Ice::T_int, false, 0],
+            ['response', Ice::T_short, false, 0],
+            ['upCast', Ice::T_string, false, 0],
+            ['typeId', Ice::T_int, false, 0],
+            ['del', Ice::T_short, false, 0],
+            ['cookie', Ice::T_short, true, 1],
+            ['ex', Ice::T_string, false, 0],
+            ['result', Ice::T_int, false, 0],
+            ['istr', Ice::T_string, false, 0],
+            ['ostr', Ice::T_string, false, 0],
+            ['inS', Ice::T_string, false, 0],
+            ['_in', Ice::T_string, false, 0],
+            ['proxy', Ice::T_string, false, 0]
         ])
     end
 
     if not defined?(::Clash::St)
         class St
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(v='', istr=0, ostr=0, rhs=0)
                 @v = v
                 @istr = istr
@@ -173,11 +171,11 @@ module ::Clash
             attr_accessor :v, :istr, :ostr, :rhs
         end
 
-        T_St = ::Ice::__defineStruct('::Clash::St', St, [
-            ["v", ::Ice::T_string],
-            ["istr", ::Ice::T_short],
-            ["ostr", ::Ice::T_int],
-            ["rhs", ::Ice::T_int]
+        T_St = Ice::__defineStruct('::Clash::St', St, [
+            ["v", Ice::T_string],
+            ["istr", Ice::T_short],
+            ["ostr", Ice::T_int],
+            ["rhs", Ice::T_int]
         ])
     end
 
@@ -190,9 +188,9 @@ module ::Clash
             attr_accessor :istr, :ostr
         end
 
-        T_Ex = ::Ice::__defineException('::Clash::Ex', Ex, nil, [
-            ["istr", ::Ice::T_short, false, 0],
-            ["ostr", ::Ice::T_int, false, 0]
+        T_Ex = Ice::__defineException('::Clash::Ex', Ex, nil, [
+            ["istr", Ice::T_short, false, 0],
+            ["ostr", Ice::T_int, false, 0]
         ])
     end
 end

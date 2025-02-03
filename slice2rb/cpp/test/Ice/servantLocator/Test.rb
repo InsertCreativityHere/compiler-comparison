@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::TestIntfUserException)
         class TestIntfUserException < Ice::UserException
             def to_s
@@ -21,7 +20,7 @@ module ::Test
             end
         end
 
-        T_TestIntfUserException = ::Ice::__defineException('::Test::TestIntfUserException', TestIntfUserException, nil, [])
+        T_TestIntfUserException = Ice::__defineException('::Test::TestIntfUserException', TestIntfUserException, nil, [])
     end
 
     if not defined?(::Test::TestImpossibleException)
@@ -31,16 +30,15 @@ module ::Test
             end
         end
 
-        T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
+        T_TestImpossibleException = Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
     end
 
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def requestFailedException(context=nil)
                 TestIntfPrx_mixin::OP_requestFailedException.invoke(self, [], context)
             end
@@ -98,48 +96,47 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_requestFailedException = ::Ice::__defineOperation('requestFailedException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_unknownUserException = ::Ice::__defineOperation('unknownUserException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_unknownLocalException = ::Ice::__defineOperation('unknownLocalException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_unknownException = ::Ice::__defineOperation('unknownException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_localException = ::Ice::__defineOperation('localException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_userException = ::Ice::__defineOperation('userException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_stdException = ::Ice::__defineOperation('stdException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_cppException = ::Ice::__defineOperation('cppException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_unknownExceptionWithServantException = ::Ice::__defineOperation('unknownExceptionWithServantException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_impossibleException = ::Ice::__defineOperation('impossibleException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_intfUserException = ::Ice::__defineOperation('intfUserException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_asyncResponse = ::Ice::__defineOperation('asyncResponse', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_asyncException = ::Ice::__defineOperation('asyncException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_requestFailedException = Ice::__defineOperation('requestFailedException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_unknownUserException = Ice::__defineOperation('unknownUserException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_unknownLocalException = Ice::__defineOperation('unknownLocalException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_unknownException = Ice::__defineOperation('unknownException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_localException = Ice::__defineOperation('localException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_userException = Ice::__defineOperation('userException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_stdException = Ice::__defineOperation('stdException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_cppException = Ice::__defineOperation('cppException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_unknownExceptionWithServantException = Ice::__defineOperation('unknownExceptionWithServantException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_impossibleException = Ice::__defineOperation('impossibleException', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], [Ice::T_string, false, 0], [::Test::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_intfUserException = Ice::__defineOperation('intfUserException', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], [Ice::T_string, false, 0], [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_asyncResponse = Ice::__defineOperation('asyncResponse', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_asyncException = Ice::__defineOperation('asyncException', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_TestActivationPrx)
-        T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
+        T_TestActivationPrx = Ice::__declareProxy('::Test::TestActivation')
     end
 
     if not defined?(::Test::TestActivationPrx)
         module TestActivationPrx_mixin
-
             def activateServantLocator(activate, context=nil)
                 TestActivationPrx_mixin::OP_activateServantLocator.invoke(self, [activate], context)
             end
         end
 
-        class TestActivationPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestActivationPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestActivationPrx_mixin
         end
 
         T_TestActivationPrx.defineProxy(TestActivationPrx, nil, [])
 
-        TestActivationPrx_mixin::OP_activateServantLocator = ::Ice::__defineOperation('activateServantLocator', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
+        TestActivationPrx_mixin::OP_activateServantLocator = Ice::__defineOperation('activateServantLocator', Ice::OperationMode::Normal, nil, [[Ice::T_bool, false, 0]], [], nil, [])
     end
 end

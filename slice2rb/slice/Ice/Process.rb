@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::T_ProcessPrx)
-        T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
+        T_ProcessPrx = Ice::__declareProxy('::Ice::Process')
     end
 
     if not defined?(::Ice::ProcessPrx)
         module ProcessPrx_mixin
-
             def shutdown(context=nil)
                 ProcessPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -30,14 +28,14 @@ module ::Ice
             end
         end
 
-        class ProcessPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ProcessPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ProcessPrx_mixin
         end
 
         T_ProcessPrx.defineProxy(ProcessPrx, nil, [])
 
-        ProcessPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        ProcessPrx_mixin::OP_writeMessage = ::Ice::__defineOperation('writeMessage', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        ProcessPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ProcessPrx_mixin::OP_writeMessage = Ice::__defineOperation('writeMessage', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0], [Ice::T_int, false, 0]], [], nil, [])
     end
 end

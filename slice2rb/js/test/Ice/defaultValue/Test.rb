@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::Color)
         class Color
             include Comparable
@@ -61,7 +60,7 @@ module ::Test
             private_class_method :new
         end
 
-        T_Color = ::Ice::__defineEnum('::Test::Color', Color, Color::_enumerators)
+        T_Color = Ice::__defineEnum('::Test::Color', Color, Color::_enumerators)
     end
 
     module Nested
@@ -113,13 +112,13 @@ module ::Test
                 private_class_method :new
             end
 
-            T_Color = ::Ice::__defineEnum('::Test::Nested::Color', Color, Color::_enumerators)
+            T_Color = Ice::__defineEnum('::Test::Nested::Color', Color, Color::_enumerators)
         end
     end
 
     if not defined?(::Test::Struct1)
         class Struct1
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(boolFalse=false, boolTrue=true, b=254, s=16000, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?", c1=::Test::Color::Red, c2=::Test::Color::Green, c3=::Test::Color::Blue, nc1=::Test::Nested::Color::Red, nc2=::Test::Nested::Color::Green, nc3=::Test::Nested::Color::Blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
                 @boolFalse = boolFalse
                 @boolTrue = boolTrue
@@ -206,29 +205,29 @@ module ::Test
             attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :c1, :c2, :c3, :nc1, :nc2, :nc3, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        T_Struct1 = ::Ice::__defineStruct('::Test::Struct1', Struct1, [
-            ["boolFalse", ::Ice::T_bool],
-            ["boolTrue", ::Ice::T_bool],
-            ["b", ::Ice::T_byte],
-            ["s", ::Ice::T_short],
-            ["i", ::Ice::T_int],
-            ["l", ::Ice::T_long],
-            ["f", ::Ice::T_float],
-            ["d", ::Ice::T_double],
-            ["str", ::Ice::T_string],
+        T_Struct1 = Ice::__defineStruct('::Test::Struct1', Struct1, [
+            ["boolFalse", Ice::T_bool],
+            ["boolTrue", Ice::T_bool],
+            ["b", Ice::T_byte],
+            ["s", Ice::T_short],
+            ["i", Ice::T_int],
+            ["l", Ice::T_long],
+            ["f", Ice::T_float],
+            ["d", Ice::T_double],
+            ["str", Ice::T_string],
             ["c1", ::Test::T_Color],
             ["c2", ::Test::T_Color],
             ["c3", ::Test::T_Color],
             ["nc1", ::Test::Nested::T_Color],
             ["nc2", ::Test::Nested::T_Color],
             ["nc3", ::Test::Nested::T_Color],
-            ["noDefault", ::Ice::T_string],
-            ["zeroI", ::Ice::T_int],
-            ["zeroL", ::Ice::T_long],
-            ["zeroF", ::Ice::T_float],
-            ["zeroDotF", ::Ice::T_float],
-            ["zeroD", ::Ice::T_double],
-            ["zeroDotD", ::Ice::T_double]
+            ["noDefault", Ice::T_string],
+            ["zeroI", Ice::T_int],
+            ["zeroL", Ice::T_long],
+            ["zeroF", Ice::T_float],
+            ["zeroDotF", Ice::T_float],
+            ["zeroD", Ice::T_double],
+            ["zeroDotD", Ice::T_double]
         ])
     end
 
@@ -274,7 +273,7 @@ module ::Test
 
     if not defined?(::Test::Struct2)
         class Struct2
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(boolTrue=::Test::ConstBool, b=::Test::ConstByte, s=::Test::ConstShort, i=::Test::ConstInt, l=::Test::ConstLong, f=::Test::ConstFloat, d=::Test::ConstDouble, str=::Test::ConstString, c1=::Test::ConstColor1, c2=::Test::ConstColor2, c3=::Test::ConstColor3, nc1=::Test::ConstNestedColor1, nc2=::Test::ConstNestedColor2, nc3=::Test::ConstNestedColor3, zeroI=::Test::ConstZeroI, zeroL=::Test::ConstZeroL, zeroF=::Test::ConstZeroF, zeroDotF=::Test::ConstZeroDotF, zeroD=::Test::ConstZeroD, zeroDotD=::Test::ConstZeroDotD)
                 @boolTrue = boolTrue
                 @b = b
@@ -355,33 +354,33 @@ module ::Test
             attr_accessor :boolTrue, :b, :s, :i, :l, :f, :d, :str, :c1, :c2, :c3, :nc1, :nc2, :nc3, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        T_Struct2 = ::Ice::__defineStruct('::Test::Struct2', Struct2, [
-            ["boolTrue", ::Ice::T_bool],
-            ["b", ::Ice::T_byte],
-            ["s", ::Ice::T_short],
-            ["i", ::Ice::T_int],
-            ["l", ::Ice::T_long],
-            ["f", ::Ice::T_float],
-            ["d", ::Ice::T_double],
-            ["str", ::Ice::T_string],
+        T_Struct2 = Ice::__defineStruct('::Test::Struct2', Struct2, [
+            ["boolTrue", Ice::T_bool],
+            ["b", Ice::T_byte],
+            ["s", Ice::T_short],
+            ["i", Ice::T_int],
+            ["l", Ice::T_long],
+            ["f", Ice::T_float],
+            ["d", Ice::T_double],
+            ["str", Ice::T_string],
             ["c1", ::Test::T_Color],
             ["c2", ::Test::T_Color],
             ["c3", ::Test::T_Color],
             ["nc1", ::Test::Nested::T_Color],
             ["nc2", ::Test::Nested::T_Color],
             ["nc3", ::Test::Nested::T_Color],
-            ["zeroI", ::Ice::T_int],
-            ["zeroL", ::Ice::T_long],
-            ["zeroF", ::Ice::T_float],
-            ["zeroDotF", ::Ice::T_float],
-            ["zeroD", ::Ice::T_double],
-            ["zeroDotD", ::Ice::T_double]
+            ["zeroI", Ice::T_int],
+            ["zeroL", Ice::T_long],
+            ["zeroF", Ice::T_float],
+            ["zeroDotF", Ice::T_float],
+            ["zeroD", Ice::T_double],
+            ["zeroDotD", Ice::T_double]
         ])
     end
 
     if not defined?(::Test::Struct3)
         class Struct3
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?", c1=::Test::Color::Red, c2=::Test::Color::Green, c3=::Test::Color::Blue, nc1=::Test::Nested::Color::Red, nc2=::Test::Nested::Color::Green, nc3=::Test::Nested::Color::Blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
                 @boolFalse = boolFalse
                 @boolTrue = boolTrue
@@ -468,34 +467,34 @@ module ::Test
             attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :c1, :c2, :c3, :nc1, :nc2, :nc3, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        T_Struct3 = ::Ice::__defineStruct('::Test::Struct3', Struct3, [
-            ["boolFalse", ::Ice::T_bool],
-            ["boolTrue", ::Ice::T_bool],
-            ["b", ::Ice::T_byte],
-            ["s", ::Ice::T_short],
-            ["i", ::Ice::T_int],
-            ["l", ::Ice::T_long],
-            ["f", ::Ice::T_float],
-            ["d", ::Ice::T_double],
-            ["str", ::Ice::T_string],
+        T_Struct3 = Ice::__defineStruct('::Test::Struct3', Struct3, [
+            ["boolFalse", Ice::T_bool],
+            ["boolTrue", Ice::T_bool],
+            ["b", Ice::T_byte],
+            ["s", Ice::T_short],
+            ["i", Ice::T_int],
+            ["l", Ice::T_long],
+            ["f", Ice::T_float],
+            ["d", Ice::T_double],
+            ["str", Ice::T_string],
             ["c1", ::Test::T_Color],
             ["c2", ::Test::T_Color],
             ["c3", ::Test::T_Color],
             ["nc1", ::Test::Nested::T_Color],
             ["nc2", ::Test::Nested::T_Color],
             ["nc3", ::Test::Nested::T_Color],
-            ["noDefault", ::Ice::T_string],
-            ["zeroI", ::Ice::T_int],
-            ["zeroL", ::Ice::T_long],
-            ["zeroF", ::Ice::T_float],
-            ["zeroDotF", ::Ice::T_float],
-            ["zeroD", ::Ice::T_double],
-            ["zeroDotD", ::Ice::T_double]
+            ["noDefault", Ice::T_string],
+            ["zeroI", Ice::T_int],
+            ["zeroL", Ice::T_long],
+            ["zeroF", Ice::T_float],
+            ["zeroDotF", Ice::T_float],
+            ["zeroD", Ice::T_double],
+            ["zeroDotD", Ice::T_double]
         ])
     end
 
     if not defined?(::Test::T_Base)
-        T_Base = ::Ice::__declareClass('::Test::Base')
+        T_Base = Ice::__declareClass('::Test::Base')
     end
 
     if not defined?(::Test::Base)
@@ -524,27 +523,27 @@ module ::Test
         end
 
         T_Base.defineClass(Base, -1, false, nil, [
-            ['boolFalse', ::Ice::T_bool, false, 0],
-            ['boolTrue', ::Ice::T_bool, false, 0],
-            ['b', ::Ice::T_byte, false, 0],
-            ['s', ::Ice::T_short, false, 0],
-            ['i', ::Ice::T_int, false, 0],
-            ['l', ::Ice::T_long, false, 0],
-            ['f', ::Ice::T_float, false, 0],
-            ['d', ::Ice::T_double, false, 0],
-            ['str', ::Ice::T_string, false, 0],
-            ['noDefault', ::Ice::T_string, false, 0],
-            ['zeroI', ::Ice::T_int, false, 0],
-            ['zeroL', ::Ice::T_long, false, 0],
-            ['zeroF', ::Ice::T_float, false, 0],
-            ['zeroDotF', ::Ice::T_float, false, 0],
-            ['zeroD', ::Ice::T_double, false, 0],
-            ['zeroDotD', ::Ice::T_double, false, 0]
+            ['boolFalse', Ice::T_bool, false, 0],
+            ['boolTrue', Ice::T_bool, false, 0],
+            ['b', Ice::T_byte, false, 0],
+            ['s', Ice::T_short, false, 0],
+            ['i', Ice::T_int, false, 0],
+            ['l', Ice::T_long, false, 0],
+            ['f', Ice::T_float, false, 0],
+            ['d', Ice::T_double, false, 0],
+            ['str', Ice::T_string, false, 0],
+            ['noDefault', Ice::T_string, false, 0],
+            ['zeroI', Ice::T_int, false, 0],
+            ['zeroL', Ice::T_long, false, 0],
+            ['zeroF', Ice::T_float, false, 0],
+            ['zeroDotF', Ice::T_float, false, 0],
+            ['zeroD', Ice::T_double, false, 0],
+            ['zeroDotD', Ice::T_double, false, 0]
         ])
     end
 
     if not defined?(::Test::T_Derived)
-        T_Derived = ::Ice::__declareClass('::Test::Derived')
+        T_Derived = Ice::__declareClass('::Test::Derived')
     end
 
     if not defined?(::Test::Derived)
@@ -582,23 +581,23 @@ module ::Test
             attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        T_BaseEx = ::Ice::__defineException('::Test::BaseEx', BaseEx, nil, [
-            ["boolFalse", ::Ice::T_bool, false, 0],
-            ["boolTrue", ::Ice::T_bool, false, 0],
-            ["b", ::Ice::T_byte, false, 0],
-            ["s", ::Ice::T_short, false, 0],
-            ["i", ::Ice::T_int, false, 0],
-            ["l", ::Ice::T_long, false, 0],
-            ["f", ::Ice::T_float, false, 0],
-            ["d", ::Ice::T_double, false, 0],
-            ["str", ::Ice::T_string, false, 0],
-            ["noDefault", ::Ice::T_string, false, 0],
-            ["zeroI", ::Ice::T_int, false, 0],
-            ["zeroL", ::Ice::T_long, false, 0],
-            ["zeroF", ::Ice::T_float, false, 0],
-            ["zeroDotF", ::Ice::T_float, false, 0],
-            ["zeroD", ::Ice::T_double, false, 0],
-            ["zeroDotD", ::Ice::T_double, false, 0]
+        T_BaseEx = Ice::__defineException('::Test::BaseEx', BaseEx, nil, [
+            ["boolFalse", Ice::T_bool, false, 0],
+            ["boolTrue", Ice::T_bool, false, 0],
+            ["b", Ice::T_byte, false, 0],
+            ["s", Ice::T_short, false, 0],
+            ["i", Ice::T_int, false, 0],
+            ["l", Ice::T_long, false, 0],
+            ["f", Ice::T_float, false, 0],
+            ["d", Ice::T_double, false, 0],
+            ["str", Ice::T_string, false, 0],
+            ["noDefault", Ice::T_string, false, 0],
+            ["zeroI", Ice::T_int, false, 0],
+            ["zeroL", Ice::T_long, false, 0],
+            ["zeroF", Ice::T_float, false, 0],
+            ["zeroDotF", Ice::T_float, false, 0],
+            ["zeroD", Ice::T_double, false, 0],
+            ["zeroDotD", Ice::T_double, false, 0]
         ])
     end
 
@@ -611,7 +610,7 @@ module ::Test
             attr_accessor :c1, :c2, :c3, :nc1, :nc2, :nc3
         end
 
-        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [
+        T_DerivedEx = Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [
             ["c1", ::Test::T_Color, false, 0],
             ["c2", ::Test::T_Color, false, 0],
             ["c3", ::Test::T_Color, false, 0],
@@ -622,20 +621,20 @@ module ::Test
     end
 
     if not defined?(::Test::T_ByteSeq)
-        T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
+        T_ByteSeq = Ice::__defineSequence('::Test::ByteSeq', Ice::T_byte)
     end
 
     if not defined?(::Test::T_IntSeq)
-        T_IntSeq = ::Ice::__defineSequence('::Test::IntSeq', ::Ice::T_int)
+        T_IntSeq = Ice::__defineSequence('::Test::IntSeq', Ice::T_int)
     end
 
     if not defined?(::Test::T_IntStringDict)
-        T_IntStringDict = ::Ice::__defineDictionary('::Test::IntStringDict', ::Ice::T_int, ::Ice::T_string)
+        T_IntStringDict = Ice::__defineDictionary('::Test::IntStringDict', Ice::T_int, Ice::T_string)
     end
 
     if not defined?(::Test::InnerStruct)
         class InnerStruct
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(a=0)
                 @a = a
             end
@@ -659,12 +658,12 @@ module ::Test
             attr_accessor :a
         end
 
-        T_InnerStruct = ::Ice::__defineStruct('::Test::InnerStruct', InnerStruct, [["a", ::Ice::T_int]])
+        T_InnerStruct = Ice::__defineStruct('::Test::InnerStruct', InnerStruct, [["a", Ice::T_int]])
     end
 
     if not defined?(::Test::StructNoDefaults)
         class StructNoDefaults
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(bo=false, b=0, s=0, i=0, l=0, f=0.0, d=0.0, str='', c1=::Test::Color::Red, bs=nil, is=nil, st=::Test::InnerStruct.new, dict=nil)
                 @bo = bo
                 @b = b
@@ -724,15 +723,15 @@ module ::Test
             attr_accessor :bo, :b, :s, :i, :l, :f, :d, :str, :c1, :bs, :is, :st, :dict
         end
 
-        T_StructNoDefaults = ::Ice::__defineStruct('::Test::StructNoDefaults', StructNoDefaults, [
-            ["bo", ::Ice::T_bool],
-            ["b", ::Ice::T_byte],
-            ["s", ::Ice::T_short],
-            ["i", ::Ice::T_int],
-            ["l", ::Ice::T_long],
-            ["f", ::Ice::T_float],
-            ["d", ::Ice::T_double],
-            ["str", ::Ice::T_string],
+        T_StructNoDefaults = Ice::__defineStruct('::Test::StructNoDefaults', StructNoDefaults, [
+            ["bo", Ice::T_bool],
+            ["b", Ice::T_byte],
+            ["s", Ice::T_short],
+            ["i", Ice::T_int],
+            ["l", Ice::T_long],
+            ["f", Ice::T_float],
+            ["d", Ice::T_double],
+            ["str", Ice::T_string],
             ["c1", ::Test::T_Color],
             ["bs", ::Test::T_ByteSeq],
             ["is", ::Test::T_IntSeq],
@@ -750,8 +749,8 @@ module ::Test
             attr_accessor :str, :c1, :bs
         end
 
-        T_ExceptionNoDefaultsBase = ::Ice::__defineException('::Test::ExceptionNoDefaultsBase', ExceptionNoDefaultsBase, nil, [
-            ["str", ::Ice::T_string, false, 0],
+        T_ExceptionNoDefaultsBase = Ice::__defineException('::Test::ExceptionNoDefaultsBase', ExceptionNoDefaultsBase, nil, [
+            ["str", Ice::T_string, false, 0],
             ["c1", ::Test::T_Color, false, 0],
             ["bs", ::Test::T_ByteSeq, false, 0]
         ])
@@ -766,14 +765,14 @@ module ::Test
             attr_accessor :st, :dict
         end
 
-        T_ExceptionNoDefaults = ::Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, ::Test::T_ExceptionNoDefaultsBase, [
+        T_ExceptionNoDefaults = Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, ::Test::T_ExceptionNoDefaultsBase, [
             ["st", ::Test::T_InnerStruct, false, 0],
             ["dict", ::Test::T_IntStringDict, false, 0]
         ])
     end
 
     if not defined?(::Test::T_ClassNoDefaultsBase)
-        T_ClassNoDefaultsBase = ::Ice::__declareClass('::Test::ClassNoDefaultsBase')
+        T_ClassNoDefaultsBase = Ice::__declareClass('::Test::ClassNoDefaultsBase')
     end
 
     if not defined?(::Test::ClassNoDefaultsBase)
@@ -789,14 +788,14 @@ module ::Test
         end
 
         T_ClassNoDefaultsBase.defineClass(ClassNoDefaultsBase, -1, false, nil, [
-            ['str', ::Ice::T_string, false, 0],
+            ['str', Ice::T_string, false, 0],
             ['c1', ::Test::T_Color, false, 0],
             ['bs', ::Test::T_ByteSeq, false, 0]
         ])
     end
 
     if not defined?(::Test::T_ClassNoDefaults)
-        T_ClassNoDefaults = ::Ice::__declareClass('::Test::ClassNoDefaults')
+        T_ClassNoDefaults = Ice::__declareClass('::Test::ClassNoDefaults')
     end
 
     if not defined?(::Test::ClassNoDefaults)

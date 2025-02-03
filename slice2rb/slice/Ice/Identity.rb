@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::Identity)
         class Identity
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(name='', category='')
                 @name = name
                 @category = category
@@ -43,13 +42,13 @@ module ::Ice
             attr_accessor :name, :category
         end
 
-        T_Identity = ::Ice::__defineStruct('::Ice::Identity', Identity, [
-            ["name", ::Ice::T_string],
-            ["category", ::Ice::T_string]
+        T_Identity = Ice::__defineStruct('::Ice::Identity', Identity, [
+            ["name", Ice::T_string],
+            ["category", Ice::T_string]
         ])
     end
 
     if not defined?(::Ice::T_IdentitySeq)
-        T_IdentitySeq = ::Ice::__defineSequence('::Ice::IdentitySeq', ::Ice::T_Identity)
+        T_IdentitySeq = Ice::__defineSequence('::Ice::IdentitySeq', ::Ice::T_Identity)
     end
 end

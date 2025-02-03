@@ -13,8 +13,7 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::T_PropertyDict)
-        T_PropertyDict = ::Ice::__defineDictionary('::Ice::PropertyDict', ::Ice::T_string, ::Ice::T_string)
+        T_PropertyDict = Ice::__defineDictionary('::Ice::PropertyDict', Ice::T_string, Ice::T_string)
     end
 end

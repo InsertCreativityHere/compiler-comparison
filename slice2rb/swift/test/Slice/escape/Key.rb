@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::And
-
     if not defined?(::And::Continue)
         class Continue
             include Comparable
@@ -60,12 +59,12 @@ module ::And
             private_class_method :new
         end
 
-        T_Continue = ::Ice::__defineEnum('::and::continue', Continue, Continue::_enumerators)
+        T_Continue = Ice::__defineEnum('::and::continue', Continue, Continue::_enumerators)
     end
 
     if not defined?(::And::Guard)
         class Guard
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(default=0)
                 @default = default
             end
@@ -89,12 +88,12 @@ module ::And
             attr_accessor :default
         end
 
-        T_Guard = ::Ice::__defineStruct('::and::guard', Guard, [["default", ::Ice::T_int]])
+        T_Guard = Ice::__defineStruct('::and::guard', Guard, [["default", Ice::T_int]])
     end
 
     if not defined?(::And::Defer)
         class Defer
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(_else='')
                 @_else = _else
             end
@@ -118,55 +117,53 @@ module ::And
             attr_accessor :_else
         end
 
-        T_Defer = ::Ice::__defineStruct('::and::defer', Defer, [["_else", ::Ice::T_string]])
+        T_Defer = Ice::__defineStruct('::and::defer', Defer, [["_else", Ice::T_string]])
     end
 
     if not defined?(::And::T_BreakPrx)
-        T_BreakPrx = ::Ice::__declareProxy('::and::break')
+        T_BreakPrx = Ice::__declareProxy('::and::break')
     end
 
     if not defined?(::And::BreakPrx)
         module BreakPrx_mixin
-
             def _case(catch, context=nil)
                 BreakPrx_mixin::OP_case.invoke(self, [catch], context)
             end
         end
 
-        class BreakPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BreakPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BreakPrx_mixin
         end
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        BreakPrx_mixin::OP_case = Ice::__defineOperation('case', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0]], [[Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::T_FuncPrx)
-        T_FuncPrx = ::Ice::__declareProxy('::and::func')
+        T_FuncPrx = Ice::__declareProxy('::and::func')
     end
 
     if not defined?(::And::FuncPrx)
         module FuncPrx_mixin
-
             def public(context=nil)
                 FuncPrx_mixin::OP_public.invoke(self, [], context)
             end
         end
 
-        class FuncPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class FuncPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include FuncPrx_mixin
         end
 
         T_FuncPrx.defineProxy(FuncPrx, nil, [])
 
-        FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        FuncPrx_mixin::OP_public = Ice::__defineOperation('public', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::And::T_Switch)
-        T_Switch = ::Ice::__declareClass('::and::switch')
+        T_Switch = Ice::__declareClass('::and::switch')
     end
 
     if not defined?(::And::Switch)
@@ -182,14 +179,14 @@ module ::And
         end
 
         T_Switch.defineClass(Switch, -1, false, nil, [
-            ['_if', ::Ice::T_int, false, 0],
+            ['_if', Ice::T_int, false, 0],
             ['export', ::And::T_FuncPrx, false, 0],
-            ['volatile', ::Ice::T_int, false, 0]
+            ['volatile', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::And::T_DoPrx)
-        T_DoPrx = ::Ice::__declareProxy('::and::do')
+        T_DoPrx = Ice::__declareProxy('::and::do')
     end
 
     if not defined?(::And::DoPrx)
@@ -198,8 +195,8 @@ module ::And
             include ::And::BreakPrx_mixin
         end
 
-        class DoPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class DoPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include DoPrx_mixin
         end
 
@@ -207,11 +204,11 @@ module ::And
     end
 
     if not defined?(::And::T_Fileprivate)
-        T_Fileprivate = ::Ice::__defineSequence('::and::fileprivate', ::And::T_Guard)
+        T_Fileprivate = Ice::__defineSequence('::and::fileprivate', ::And::T_Guard)
     end
 
     if not defined?(::And::T_For)
-        T_For = ::Ice::__defineDictionary('::and::for', ::Ice::T_string, ::And::T_Guard)
+        T_For = Ice::__defineDictionary('::and::for', Ice::T_string, ::And::T_Guard)
     end
 
     if not defined?(::And::Return)
@@ -223,7 +220,7 @@ module ::And
             attr_accessor :Int32
         end
 
-        T_Return = ::Ice::__defineException('::and::return', Return, nil, [["Int32", ::Ice::T_int, false, 0]])
+        T_Return = Ice::__defineException('::and::return', Return, nil, [["Int32", Ice::T_int, false, 0]])
     end
 
     if not defined?(::And::As)
@@ -235,32 +232,31 @@ module ::And
             attr_accessor :static, :switch
         end
 
-        T_As = ::Ice::__defineException('::and::as', As, ::And::T_Return, [
-            ["static", ::Ice::T_int, false, 0],
-            ["switch", ::Ice::T_int, false, 0]
+        T_As = Ice::__defineException('::and::as', As, ::And::T_Return, [
+            ["static", Ice::T_int, false, 0],
+            ["switch", Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::And::T_FriendPrx)
-        T_FriendPrx = ::Ice::__declareProxy('::and::friend')
+        T_FriendPrx = Ice::__declareProxy('::and::friend')
     end
 
     if not defined?(::And::FriendPrx)
         module FriendPrx_mixin
-
             def goto(_if, d, inline, private, mutable, namespace, _new, _not, operator, _or, protected, public, register, context=nil)
                 FriendPrx_mixin::OP_goto.invoke(self, [_if, d, inline, private, mutable, namespace, _new, _not, operator, _or, protected, public, register], context)
             end
         end
 
-        class FriendPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class FriendPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include FriendPrx_mixin
         end
 
         T_FriendPrx.defineProxy(FriendPrx, nil, [])
 
-        FriendPrx_mixin::OP_goto = ::Ice::__defineOperation('goto', ::Ice::OperationMode::Normal, nil, [[::And::T_Continue, false, 0], [::And::T_Guard, false, 0], [::And::T_Defer, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_FuncPrx, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Guard, false, 0], [::And::T_Return, ::And::T_As])
+        FriendPrx_mixin::OP_goto = Ice::__defineOperation('goto', Ice::OperationMode::Normal, nil, [[::And::T_Continue, false, 0], [::And::T_Guard, false, 0], [::And::T_Defer, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_FuncPrx, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], [::And::T_Guard, false, 0], [::And::T_Return, ::And::T_As])
     end
 
     Is = 0

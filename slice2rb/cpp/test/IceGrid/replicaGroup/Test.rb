@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_TestIntfPrx)
-        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+        T_TestIntfPrx = Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
-
             def getReplicaId(context=nil)
                 TestIntfPrx_mixin::OP_getReplicaId.invoke(self, [], context)
             end
@@ -30,14 +28,14 @@ module ::Test
             end
         end
 
-        class TestIntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class TestIntfPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include TestIntfPrx_mixin
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getReplicaId = ::Ice::__defineOperation('getReplicaId', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getReplicaIdAndShutdown = ::Ice::__defineOperation('getReplicaIdAndShutdown', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getReplicaId = Ice::__defineOperation('getReplicaId', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getReplicaIdAndShutdown = Ice::__defineOperation('getReplicaIdAndShutdown', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
     end
 end

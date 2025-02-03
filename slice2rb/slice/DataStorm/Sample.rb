@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::DataStorm
-
     if not defined?(::DataStorm::SampleEvent)
         class SampleEvent
             include Comparable
@@ -62,10 +61,10 @@ module ::DataStorm
             private_class_method :new
         end
 
-        T_SampleEvent = ::Ice::__defineEnum('::DataStorm::SampleEvent', SampleEvent, SampleEvent::_enumerators)
+        T_SampleEvent = Ice::__defineEnum('::DataStorm::SampleEvent', SampleEvent, SampleEvent::_enumerators)
     end
 
     if not defined?(::DataStorm::T_SampleEventSeq)
-        T_SampleEventSeq = ::Ice::__defineSequence('::DataStorm::SampleEventSeq', ::DataStorm::T_SampleEvent)
+        T_SampleEventSeq = Ice::__defineSequence('::DataStorm::SampleEventSeq', ::DataStorm::T_SampleEvent)
     end
 end

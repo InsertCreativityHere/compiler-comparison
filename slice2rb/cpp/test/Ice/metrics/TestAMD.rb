@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::UserEx)
         class UserEx < Ice::UserException
             def to_s
@@ -21,20 +20,19 @@ module ::Test
             end
         end
 
-        T_UserEx = ::Ice::__defineException('::Test::UserEx', UserEx, nil, [])
+        T_UserEx = Ice::__defineException('::Test::UserEx', UserEx, nil, [])
     end
 
     if not defined?(::Test::T_ByteSeq)
-        T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
+        T_ByteSeq = Ice::__defineSequence('::Test::ByteSeq', Ice::T_byte)
     end
 
     if not defined?(::Test::T_MetricsPrx)
-        T_MetricsPrx = ::Ice::__declareProxy('::Test::Metrics')
+        T_MetricsPrx = Ice::__declareProxy('::Test::Metrics')
     end
 
     if not defined?(::Test::MetricsPrx)
         module MetricsPrx_mixin
-
             def op(context=nil)
                 MetricsPrx_mixin::OP_op.invoke(self, [], context)
             end
@@ -72,31 +70,30 @@ module ::Test
             end
         end
 
-        class MetricsPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MetricsPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MetricsPrx_mixin
         end
 
         T_MetricsPrx.defineProxy(MetricsPrx, nil, [])
 
-        MetricsPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_fail = ::Ice::__defineOperation('fail', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_opWithUserException = ::Ice::__defineOperation('opWithUserException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_UserEx])
-        MetricsPrx_mixin::OP_opWithRequestFailedException = ::Ice::__defineOperation('opWithRequestFailedException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_opWithLocalException = ::Ice::__defineOperation('opWithLocalException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_opWithUnknownException = ::Ice::__defineOperation('opWithUnknownException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_opByteS = ::Ice::__defineOperation('opByteS', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
-        MetricsPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        MetricsPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_op = Ice::__defineOperation('op', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_fail = Ice::__defineOperation('fail', Ice::OperationMode::Idempotent, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_opWithUserException = Ice::__defineOperation('opWithUserException', Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_UserEx])
+        MetricsPrx_mixin::OP_opWithRequestFailedException = Ice::__defineOperation('opWithRequestFailedException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_opWithLocalException = Ice::__defineOperation('opWithLocalException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_opWithUnknownException = Ice::__defineOperation('opWithUnknownException', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_opByteS = Ice::__defineOperation('opByteS', Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
+        MetricsPrx_mixin::OP_getAdmin = Ice::__defineOperation('getAdmin', Ice::OperationMode::Normal, nil, [], [], [Ice::T_ObjectPrx, false, 0], [])
+        MetricsPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_ControllerPrx)
-        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
+        T_ControllerPrx = Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
-
             def hold(context=nil)
                 ControllerPrx_mixin::OP_hold.invoke(self, [], context)
             end
@@ -106,14 +103,14 @@ module ::Test
             end
         end
 
-        class ControllerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ControllerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ControllerPrx_mixin
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
-        ControllerPrx_mixin::OP_hold = ::Ice::__defineOperation('hold', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        ControllerPrx_mixin::OP_resume = ::Ice::__defineOperation('resume', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_hold = Ice::__defineOperation('hold', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_resume = Ice::__defineOperation('resume', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

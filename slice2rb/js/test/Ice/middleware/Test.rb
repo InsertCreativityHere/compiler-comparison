@@ -13,14 +13,12 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_EchoPrx)
-        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
+        T_EchoPrx = Ice::__declareProxy('::Test::Echo')
     end
 
     if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
-
             def setConnection(context=nil)
                 EchoPrx_mixin::OP_setConnection.invoke(self, [], context)
             end
@@ -42,27 +40,26 @@ module ::Test
             end
         end
 
-        class EchoPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class EchoPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include EchoPrx_mixin
         end
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
-        EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_supportsCompress = ::Ice::__defineOperation('supportsCompress', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+        EchoPrx_mixin::OP_setConnection = Ice::__defineOperation('setConnection', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_startBatch = Ice::__defineOperation('startBatch', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_flushBatch = Ice::__defineOperation('flushBatch', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_supportsCompress = Ice::__defineOperation('supportsCompress', Ice::OperationMode::Normal, nil, [], [], [Ice::T_bool, false, 0], [])
     end
 
     if not defined?(::Test::T_MyObjectPrx)
-        T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
+        T_MyObjectPrx = Ice::__declareProxy('::Test::MyObject')
     end
 
     if not defined?(::Test::MyObjectPrx)
         module MyObjectPrx_mixin
-
             def getName(context=nil)
                 MyObjectPrx_mixin::OP_getName.invoke(self, [], context)
             end
@@ -72,14 +69,14 @@ module ::Test
             end
         end
 
-        class MyObjectPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class MyObjectPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include MyObjectPrx_mixin
         end
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
-        MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
-        MyObjectPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyObjectPrx_mixin::OP_getName = Ice::__defineOperation('getName', Ice::OperationMode::Normal, nil, [], [], [Ice::T_string, false, 0], [])
+        MyObjectPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

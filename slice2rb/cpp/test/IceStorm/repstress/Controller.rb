@@ -13,26 +13,24 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_ControllerPrx)
-        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
+        T_ControllerPrx = Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
         module ControllerPrx_mixin
-
             def stop(context=nil)
                 ControllerPrx_mixin::OP_stop.invoke(self, [], context)
             end
         end
 
-        class ControllerPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ControllerPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ControllerPrx_mixin
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
-        ControllerPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_stop = Ice::__defineOperation('stop', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

@@ -15,113 +15,107 @@ require 'Ice'
 module ::Test
 
     module MA
-
         if not defined?(::Test::MA::T_IAPrx)
-            T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
+            T_IAPrx = Ice::__declareProxy('::Test::MA::IA')
         end
 
         if not defined?(::Test::MA::IAPrx)
             module IAPrx_mixin
-
                 def iaop(p, context=nil)
                     IAPrx_mixin::OP_iaop.invoke(self, [p], context)
                 end
             end
 
-            class IAPrx < ::Ice::ObjectPrx
-                include ::Ice::Proxy_mixin
+            class IAPrx < Ice::ObjectPrx
+                include Ice::Proxy_mixin
                 include IAPrx_mixin
             end
 
             T_IAPrx.defineProxy(IAPrx, nil, [])
 
-            IAPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, nil, [[::Test::MA::T_IAPrx, false, 0]], [], [::Test::MA::T_IAPrx, false, 0], [])
+            IAPrx_mixin::OP_iaop = Ice::__defineOperation('iaop', Ice::OperationMode::Normal, nil, [[::Test::MA::T_IAPrx, false, 0]], [], [::Test::MA::T_IAPrx, false, 0], [])
         end
     end
 
     module MB
 
         if not defined?(::Test::MB::T_IB1Prx)
-            T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
+            T_IB1Prx = Ice::__declareProxy('::Test::MB::IB1')
         end
 
         if not defined?(::Test::MB::IB1Prx)
             module IB1Prx_mixin
                 include ::Test::MA::IAPrx_mixin
-
                 def ib1op(p, context=nil)
                     IB1Prx_mixin::OP_ib1op.invoke(self, [p], context)
                 end
             end
 
-            class IB1Prx < ::Ice::ObjectPrx
-                include ::Ice::Proxy_mixin
+            class IB1Prx < Ice::ObjectPrx
+                include Ice::Proxy_mixin
                 include IB1Prx_mixin
             end
 
             T_IB1Prx.defineProxy(IB1Prx, nil, [::Test::MA::T_IAPrx])
 
-            IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
+            IB1Prx_mixin::OP_ib1op = Ice::__defineOperation('ib1op', Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
         end
 
         if not defined?(::Test::MB::T_IB2Prx)
-            T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
+            T_IB2Prx = Ice::__declareProxy('::Test::MB::IB2')
         end
 
         if not defined?(::Test::MB::IB2Prx)
             module IB2Prx_mixin
                 include ::Test::MA::IAPrx_mixin
-
                 def ib2op(p, context=nil)
                     IB2Prx_mixin::OP_ib2op.invoke(self, [p], context)
                 end
             end
 
-            class IB2Prx < ::Ice::ObjectPrx
-                include ::Ice::Proxy_mixin
+            class IB2Prx < Ice::ObjectPrx
+                include Ice::Proxy_mixin
                 include IB2Prx_mixin
             end
 
             T_IB2Prx.defineProxy(IB2Prx, nil, [::Test::MA::T_IAPrx])
 
-            IB2Prx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB2Prx, false, 0]], [], [::Test::MB::T_IB2Prx, false, 0], [])
+            IB2Prx_mixin::OP_ib2op = Ice::__defineOperation('ib2op', Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB2Prx, false, 0]], [], [::Test::MB::T_IB2Prx, false, 0], [])
         end
     end
 
     module MA
 
         if not defined?(::Test::MA::T_ICPrx)
-            T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
+            T_ICPrx = Ice::__declareProxy('::Test::MA::IC')
         end
 
         if not defined?(::Test::MA::ICPrx)
             module ICPrx_mixin
                 include ::Test::MB::IB1Prx_mixin
                 include ::Test::MB::IB2Prx_mixin
-
                 def icop(p, context=nil)
                     ICPrx_mixin::OP_icop.invoke(self, [p], context)
                 end
             end
 
-            class ICPrx < ::Ice::ObjectPrx
-                include ::Ice::Proxy_mixin
+            class ICPrx < Ice::ObjectPrx
+                include Ice::Proxy_mixin
                 include ICPrx_mixin
             end
 
             T_ICPrx.defineProxy(ICPrx, nil, [::Test::MB::T_IB1Prx, ::Test::MB::T_IB2Prx])
 
-            ICPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, nil, [[::Test::MA::T_ICPrx, false, 0]], [], [::Test::MA::T_ICPrx, false, 0], [])
+            ICPrx_mixin::OP_icop = Ice::__defineOperation('icop', Ice::OperationMode::Normal, nil, [[::Test::MA::T_ICPrx, false, 0]], [], [::Test::MA::T_ICPrx, false, 0], [])
         end
     end
 
     if not defined?(::Test::T_InitialPrx)
-        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
+        T_InitialPrx = Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
-
             def shutdown(context=nil)
                 InitialPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -143,17 +137,17 @@ module ::Test
             end
         end
 
-        class InitialPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class InitialPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include InitialPrx_mixin
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        InitialPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, nil, [], [], [::Test::MA::T_IAPrx, false, 0], [])
-        InitialPrx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, nil, [], [], [::Test::MB::T_IB1Prx, false, 0], [])
-        InitialPrx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, nil, [], [], [::Test::MB::T_IB2Prx, false, 0], [])
-        InitialPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, nil, [], [], [::Test::MA::T_ICPrx, false, 0], [])
+        InitialPrx_mixin::OP_shutdown = Ice::__defineOperation('shutdown', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        InitialPrx_mixin::OP_iaop = Ice::__defineOperation('iaop', Ice::OperationMode::Normal, nil, [], [], [::Test::MA::T_IAPrx, false, 0], [])
+        InitialPrx_mixin::OP_ib1op = Ice::__defineOperation('ib1op', Ice::OperationMode::Normal, nil, [], [], [::Test::MB::T_IB1Prx, false, 0], [])
+        InitialPrx_mixin::OP_ib2op = Ice::__defineOperation('ib2op', Ice::OperationMode::Normal, nil, [], [], [::Test::MB::T_IB2Prx, false, 0], [])
+        InitialPrx_mixin::OP_icop = Ice::__defineOperation('icop', Ice::OperationMode::Normal, nil, [], [], [::Test::MA::T_ICPrx, false, 0], [])
     end
 end

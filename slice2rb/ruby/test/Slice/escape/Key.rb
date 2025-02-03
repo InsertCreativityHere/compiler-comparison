@@ -13,7 +13,6 @@
 require 'Ice'
 
 module ::BEGIN_
-
     if not defined?(::BEGIN_::END_)
         class END_
             include Comparable
@@ -59,12 +58,12 @@ module ::BEGIN_
             private_class_method :new
         end
 
-        T_END_ = ::Ice::__defineEnum('::BEGIN::END', END_, END_::_enumerators)
+        T_END_ = Ice::__defineEnum('::BEGIN::END', END_, END_::_enumerators)
     end
 
     if not defined?(::BEGIN_::And)
         class And
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(_begin=0)
                 @_begin = _begin
             end
@@ -88,16 +87,15 @@ module ::BEGIN_
             attr_accessor :_begin
         end
 
-        T_And = ::Ice::__defineStruct('::BEGIN::and', And, [["_begin", ::Ice::T_int]])
+        T_And = Ice::__defineStruct('::BEGIN::and', And, [["_begin", Ice::T_int]])
     end
 
     if not defined?(::BEGIN_::T_BreakPrx)
-        T_BreakPrx = ::Ice::__declareProxy('::BEGIN::break')
+        T_BreakPrx = Ice::__declareProxy('::BEGIN::break')
     end
 
     if not defined?(::BEGIN_::BreakPrx)
         module BreakPrx_mixin
-
             def _case(_clone, _def, context=nil)
                 BreakPrx_mixin::OP_case.invoke(self, [_clone, _def], context)
             end
@@ -115,21 +113,21 @@ module ::BEGIN_
             end
         end
 
-        class BreakPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class BreakPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include BreakPrx_mixin
         end
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        BreakPrx_mixin::OP_to_a = ::Ice::__defineOperation('to_a', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        BreakPrx_mixin::OP_instance_variable_set = ::Ice::__defineOperation('instance_variable_set', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        BreakPrx_mixin::OP_instance_variables = ::Ice::__defineOperation('instance_variables', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BreakPrx_mixin::OP_case = Ice::__defineOperation('case', Ice::OperationMode::Normal, nil, [[Ice::T_int, false, 0], [Ice::T_int, false, 0]], [], nil, [])
+        BreakPrx_mixin::OP_to_a = Ice::__defineOperation('to_a', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BreakPrx_mixin::OP_instance_variable_set = Ice::__defineOperation('instance_variable_set', Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BreakPrx_mixin::OP_instance_variables = Ice::__defineOperation('instance_variables', Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::BEGIN_::T_Display)
-        T_Display = ::Ice::__declareClass('::BEGIN::display')
+        T_Display = Ice::__declareClass('::BEGIN::display')
     end
 
     if not defined?(::BEGIN_::Display)
@@ -146,15 +144,15 @@ module ::BEGIN_
         end
 
         T_Display.defineClass(Display, -1, false, nil, [
-            ['_when', ::Ice::T_int, false, 0],
-            ['_do', ::Ice::T_int, false, 0],
+            ['_when', Ice::T_int, false, 0],
+            ['_do', Ice::T_int, false, 0],
             ['_dup', ::BEGIN_::T_BreakPrx, false, 0],
-            ['_else', ::Ice::T_int, false, 0]
+            ['_else', Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::BEGIN_::T_ElsifPrx)
-        T_ElsifPrx = ::Ice::__declareProxy('::BEGIN::elsif')
+        T_ElsifPrx = Ice::__declareProxy('::BEGIN::elsif')
     end
 
     if not defined?(::BEGIN_::ElsifPrx)
@@ -162,8 +160,8 @@ module ::BEGIN_
             include ::BEGIN_::BreakPrx_mixin
         end
 
-        class ElsifPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ElsifPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ElsifPrx_mixin
         end
 
@@ -171,11 +169,11 @@ module ::BEGIN_
     end
 
     if not defined?(::BEGIN_::T_Rescue)
-        T_Rescue = ::Ice::__defineSequence('::BEGIN::rescue', ::BEGIN_::T_END_)
+        T_Rescue = Ice::__defineSequence('::BEGIN::rescue', ::BEGIN_::T_END_)
     end
 
     if not defined?(::BEGIN_::T_Ensure)
-        T_Ensure = ::Ice::__defineDictionary('::BEGIN::ensure', ::Ice::T_string, ::BEGIN_::T_END_)
+        T_Ensure = Ice::__defineDictionary('::BEGIN::ensure', Ice::T_string, ::BEGIN_::T_END_)
     end
 
     if not defined?(::BEGIN_::Next)
@@ -187,7 +185,7 @@ module ::BEGIN_
             attr_accessor :_new
         end
 
-        T_Next = ::Ice::__defineException('::BEGIN::next', Next, nil, [["_new", ::Ice::T_int, false, 0]])
+        T_Next = Ice::__defineException('::BEGIN::next', Next, nil, [["_new", Ice::T_int, false, 0]])
     end
 
     if not defined?(::BEGIN_::Nil)
@@ -199,32 +197,31 @@ module ::BEGIN_
             attr_accessor :_not, :_or
         end
 
-        T_Nil = ::Ice::__defineException('::BEGIN::nil', Nil, ::BEGIN_::T_Next, [
-            ["_not", ::Ice::T_int, false, 0],
-            ["_or", ::Ice::T_int, false, 0]
+        T_Nil = Ice::__defineException('::BEGIN::nil', Nil, ::BEGIN_::T_Next, [
+            ["_not", Ice::T_int, false, 0],
+            ["_or", Ice::T_int, false, 0]
         ])
     end
 
     if not defined?(::BEGIN_::T_ExtendPrx)
-        T_ExtendPrx = ::Ice::__declareProxy('::BEGIN::extend')
+        T_ExtendPrx = Ice::__declareProxy('::BEGIN::extend')
     end
 
     if not defined?(::BEGIN_::ExtendPrx)
         module ExtendPrx_mixin
-
             def _for(_freeze, _hash, _if, _inspect, _method, _methods, context=nil)
                 ExtendPrx_mixin::OP_for.invoke(self, [_freeze, _hash, _if, _inspect, _method, _methods], context)
             end
         end
 
-        class ExtendPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ExtendPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ExtendPrx_mixin
         end
 
         T_ExtendPrx.defineProxy(ExtendPrx, nil, [])
 
-        ExtendPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
+        ExtendPrx_mixin::OP_for = Ice::__defineOperation('for', Ice::OperationMode::Normal, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
     end
 
     Redo = 1

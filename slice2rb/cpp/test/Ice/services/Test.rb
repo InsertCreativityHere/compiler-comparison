@@ -13,26 +13,24 @@
 require 'Ice'
 
 module ::Test
-
     if not defined?(::Test::T_ClockPrx)
-        T_ClockPrx = ::Ice::__declareProxy('::Test::Clock')
+        T_ClockPrx = Ice::__declareProxy('::Test::Clock')
     end
 
     if not defined?(::Test::ClockPrx)
         module ClockPrx_mixin
-
             def tick(time, context=nil)
                 ClockPrx_mixin::OP_tick.invoke(self, [time], context)
             end
         end
 
-        class ClockPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
+        class ClockPrx < Ice::ObjectPrx
+            include Ice::Proxy_mixin
             include ClockPrx_mixin
         end
 
         T_ClockPrx.defineProxy(ClockPrx, nil, [])
 
-        ClockPrx_mixin::OP_tick = ::Ice::__defineOperation('tick', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        ClockPrx_mixin::OP_tick = Ice::__defineOperation('tick', Ice::OperationMode::Normal, nil, [[Ice::T_string, false, 0]], [], nil, [])
     end
 end

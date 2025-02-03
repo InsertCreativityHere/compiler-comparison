@@ -13,10 +13,9 @@
 require 'Ice'
 
 module ::Ice
-
     if not defined?(::Ice::ProtocolVersion)
         class ProtocolVersion
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(major=0, minor=0)
                 @major = major
                 @minor = minor
@@ -43,15 +42,15 @@ module ::Ice
             attr_accessor :major, :minor
         end
 
-        T_ProtocolVersion = ::Ice::__defineStruct('::Ice::ProtocolVersion', ProtocolVersion, [
-            ["major", ::Ice::T_byte],
-            ["minor", ::Ice::T_byte]
+        T_ProtocolVersion = Ice::__defineStruct('::Ice::ProtocolVersion', ProtocolVersion, [
+            ["major", Ice::T_byte],
+            ["minor", Ice::T_byte]
         ])
     end
 
     if not defined?(::Ice::EncodingVersion)
         class EncodingVersion
-            include ::Ice::Inspect_mixin
+            include Ice::Inspect_mixin
             def initialize(major=0, minor=0)
                 @major = major
                 @minor = minor
@@ -78,9 +77,9 @@ module ::Ice
             attr_accessor :major, :minor
         end
 
-        T_EncodingVersion = ::Ice::__defineStruct('::Ice::EncodingVersion', EncodingVersion, [
-            ["major", ::Ice::T_byte],
-            ["minor", ::Ice::T_byte]
+        T_EncodingVersion = Ice::__defineStruct('::Ice::EncodingVersion', EncodingVersion, [
+            ["major", Ice::T_byte],
+            ["minor", Ice::T_byte]
         ])
     end
 end
