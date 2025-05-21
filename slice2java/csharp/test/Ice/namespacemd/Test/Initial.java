@@ -33,12 +33,24 @@ public interface Initial extends com.zeroc.Ice.Object
 
     void shutdown(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Initial"
+     */
     static String ice_staticId()
     {
         return "::Test::Initial";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getNoNamespaceC2AsC1.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getNoNamespaceC2AsC1(Initial obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -52,7 +64,14 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getNoNamespaceC2AsC2.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getNoNamespaceC2AsC2(Initial obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -66,7 +85,15 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation throwNoNamespaceE2AsE1.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwNoNamespaceE2AsE1(Initial obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -76,7 +103,15 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation throwNoNamespaceE2AsE2.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwNoNamespaceE2AsE2(Initial obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -86,7 +121,15 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation throwNoNamespaceNotify.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwNoNamespaceNotify(Initial obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -96,7 +139,14 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getWithNamespaceC2AsC1.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getWithNamespaceC2AsC1(Initial obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -110,7 +160,14 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getWithNamespaceC2AsC2.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getWithNamespaceC2AsC2(Initial obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -124,7 +181,15 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation throwWithNamespaceE2AsE1.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwWithNamespaceE2AsE1(Initial obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -134,7 +199,15 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation throwWithNamespaceE2AsE2.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwWithNamespaceE2AsE2(Initial obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -144,7 +217,14 @@ public interface Initial extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Initial obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

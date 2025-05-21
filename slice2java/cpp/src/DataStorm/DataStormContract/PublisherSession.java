@@ -11,6 +11,11 @@ package DataStormContract;
 @com.zeroc.Ice.SliceTypeId(value = "::DataStormContract::PublisherSession")
 public interface PublisherSession extends Session
 {
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::PublisherSession"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::PublisherSession";

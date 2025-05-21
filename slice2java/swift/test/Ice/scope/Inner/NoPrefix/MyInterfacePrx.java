@@ -29,11 +29,13 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyStruct operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyStructResult> _iceI_opMyStructAsync(Test.Inner.MyStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -69,11 +71,13 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyClass operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_c1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_c1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyClassResult> _iceI_opMyClassAsync(MyClass iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
@@ -233,6 +237,11 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MyInterfacePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Inner::NoPrefix::MyInterface"
+     */
     static String ice_staticId()
     {
         return "::Inner::NoPrefix::MyInterface";

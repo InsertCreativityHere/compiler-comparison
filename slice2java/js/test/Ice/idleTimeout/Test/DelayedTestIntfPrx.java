@@ -29,11 +29,13 @@ public interface DelayedTestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the sleep operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_ms parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_ms -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_sleepAsync(int iceP_ms, java.util.Map<String, String> context, boolean sync)
     {
@@ -187,6 +189,11 @@ public interface DelayedTestIntfPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     DelayedTestIntfPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::DelayedTestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::DelayedTestIntf";

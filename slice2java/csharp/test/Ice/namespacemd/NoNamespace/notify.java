@@ -8,15 +8,25 @@ package NoNamespace;
 @com.zeroc.Ice.SliceTypeId(value = "::NoNamespace::notify")
 public class notify extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code notify}.
+     **/
     public notify()
     {
     }
 
+    /**
+     * Creates a new {@code notify} with values for all its fields.
+     */
     public notify(int i)
     {
         this.i = i;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::NoNamespace::notify";
@@ -24,7 +34,10 @@ public class notify extends com.zeroc.Ice.UserException
 
     public int i;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class notify extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class notify extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2924311559051098313L;
 }

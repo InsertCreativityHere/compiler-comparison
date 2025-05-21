@@ -11,12 +11,25 @@ public interface MyInterface extends com.zeroc.Ice.Object
     void op(boolean throwIt, com.zeroc.Ice.Current current)
         throws UserError;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyInterface"
+     */
     static String ice_staticId()
     {
         return "::Test::MyInterface";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation op.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_op(MyInterface obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

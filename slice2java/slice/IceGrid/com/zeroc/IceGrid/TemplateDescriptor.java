@@ -26,10 +26,20 @@ public class TemplateDescriptor implements java.lang.Cloneable,
      **/
     public java.util.Map<java.lang.String, java.lang.String> parameterDefaults;
 
+    /**
+     * Creates a new {@code TemplateDescriptor}.
+     **/
     public TemplateDescriptor()
     {
     }
 
+    /**
+     * Creates a new {@code TemplateDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::TemplateDescriptor}.
+     *
+     * @param descriptor The communicator.
+     * @param parameters The parameters required to instantiate the template.
+     * @param parameterDefaults The parameters default values.
+     */
     public TemplateDescriptor(CommunicatorDescriptor descriptor, java.util.List<java.lang.String> parameters, java.util.Map<java.lang.String, java.lang.String> parameterDefaults)
     {
         this.descriptor = descriptor;
@@ -37,6 +47,10 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         this.parameterDefaults = parameterDefaults;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -79,6 +93,10 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -89,6 +107,10 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public TemplateDescriptor clone()
     {
         TemplateDescriptor c = null;
@@ -103,6 +125,11 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeValue(this.descriptor);
@@ -121,6 +148,11 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         StringStringDictHelper.write(ostr, this.parameterDefaults);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         istr.readValue(v -> descriptor = v, CommunicatorDescriptor.class);
@@ -135,6 +167,12 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         this.parameterDefaults = StringStringDictHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code TemplateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code TemplateDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, TemplateDescriptor v)
     {
         if(v == null)
@@ -147,6 +185,12 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code TemplateDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code TemplateDescriptor}
+     */
     static public TemplateDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         TemplateDescriptor v = new TemplateDescriptor();
@@ -154,6 +198,13 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code TemplateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<TemplateDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -162,6 +213,13 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code TemplateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, TemplateDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -172,6 +230,13 @@ public class TemplateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code TemplateDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<TemplateDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -187,6 +252,5 @@ public class TemplateDescriptor implements java.lang.Cloneable,
 
     private static final TemplateDescriptor _nullMarshalValue = new TemplateDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -5369681778710116802L;
 }

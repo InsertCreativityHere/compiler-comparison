@@ -11,6 +11,9 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::DispatchMetrics")
 public class DispatchMetrics extends Metrics
 {
+    /**
+     * Creates a new {@code DispatchMetrics}.
+     **/
     public DispatchMetrics()
     {
         super();
@@ -19,6 +22,18 @@ public class DispatchMetrics extends Metrics
         this.replySize = 0L;
     }
 
+    /**
+     * Creates a new {@code DispatchMetrics} with values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     * @param userException The number of dispatches that failed with a user exception.
+     * @param size The size of the incoming requests.
+     * @param replySize The size of the replies.
+     */
     public DispatchMetrics(String id, long total, int current, long totalLifetime, int failures, int userException, long size, long replySize)
     {
         super(id, total, current, totalLifetime, failures);
@@ -47,18 +62,29 @@ public class DispatchMetrics extends Metrics
         return (DispatchMetrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceMX::DispatchMetrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::DispatchMetrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -70,7 +96,10 @@ public class DispatchMetrics extends Metrics
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -82,6 +111,5 @@ public class DispatchMetrics extends Metrics
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -3191145034387604379L;
 }

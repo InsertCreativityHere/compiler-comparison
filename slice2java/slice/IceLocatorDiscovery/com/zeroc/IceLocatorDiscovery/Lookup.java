@@ -22,12 +22,24 @@ public interface Lookup extends com.zeroc.Ice.Object
      **/
     void findLocator(String instanceName, LookupReplyPrx reply, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceLocatorDiscovery::Lookup"
+     */
     static String ice_staticId()
     {
         return "::IceLocatorDiscovery::Lookup";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation findLocator.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_findLocator(Lookup obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;

@@ -8,16 +8,26 @@ package Core;
 @com.zeroc.Ice.SliceTypeId(value = "::Core::ArgumentException")
 public class ArgumentException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ArgumentException}.
+     **/
     public ArgumentException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Core::ArgumentException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -25,7 +35,10 @@ public class ArgumentException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -33,6 +46,5 @@ public class ArgumentException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 677807875121036155L;
 }

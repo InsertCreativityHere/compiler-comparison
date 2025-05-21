@@ -29,11 +29,13 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the sayHello operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_delay parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_delay -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_sayHelloAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
     {
@@ -65,12 +67,14 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the add operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param iceP_s2 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param iceP_s2 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_addAsync(int iceP_s1, int iceP_s2, java.util.Map<String, String> context, boolean sync)
     {
@@ -120,10 +124,12 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the raiseUE operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_raiseUEAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -159,10 +165,12 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -314,6 +322,11 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     HelloPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Hello"
+     */
     static String ice_staticId()
     {
         return "::Test::Hello";

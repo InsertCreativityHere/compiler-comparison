@@ -2710,12 +2710,24 @@ public interface MyClass extends com.zeroc.Ice.Object
 
     java.util.concurrent.CompletionStage<MyClass.OpCustomCVSSResult> opCustomCVSSAsync(CV[][] i, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyClass";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2724,7 +2736,14 @@ public interface MyClass extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAByteS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAByteS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2743,7 +2762,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLByteS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLByteS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2762,7 +2788,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKByteS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKByteS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2781,7 +2814,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQByteS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQByteS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2800,7 +2840,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSByteS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSByteS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2819,7 +2866,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opABoolS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opABoolS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2838,7 +2892,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLBoolS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLBoolS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2857,7 +2918,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKBoolS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKBoolS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2876,7 +2944,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQBoolS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQBoolS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2895,7 +2970,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSBoolS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSBoolS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2914,7 +2996,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAShortS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAShortS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2933,7 +3022,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLShortS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLShortS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2952,7 +3048,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKShortS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKShortS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2971,7 +3074,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQShortS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQShortS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -2990,7 +3100,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSShortS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSShortS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3009,7 +3126,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAIntS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAIntS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3028,7 +3152,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLIntS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLIntS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3047,7 +3178,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKIntS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKIntS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3066,7 +3204,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQIntS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQIntS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3085,7 +3230,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSIntS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSIntS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3104,7 +3256,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opALongS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opALongS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3123,7 +3282,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLLongS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLLongS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3142,7 +3308,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKLongS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKLongS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3161,7 +3334,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQLongS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQLongS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3180,7 +3360,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSLongS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSLongS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3199,7 +3386,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAFloatS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAFloatS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3218,7 +3412,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLFloatS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLFloatS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3237,7 +3438,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKFloatS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKFloatS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3256,7 +3464,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQFloatS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQFloatS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3275,7 +3490,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSFloatS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSFloatS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3294,7 +3516,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opADoubleS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opADoubleS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3313,7 +3542,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLDoubleS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLDoubleS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3332,7 +3568,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKDoubleS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKDoubleS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3351,7 +3594,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQDoubleS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQDoubleS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3370,7 +3620,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSDoubleS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSDoubleS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3389,7 +3646,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAStringS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAStringS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3408,7 +3672,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLStringS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLStringS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3427,7 +3698,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKStringS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKStringS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3446,7 +3724,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQStringS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQStringS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3465,7 +3750,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSStringS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSStringS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3484,7 +3776,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAObjectS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAObjectS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3505,7 +3804,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLObjectS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLObjectS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3526,7 +3832,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAObjectPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAObjectPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3545,7 +3858,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLObjectPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLObjectPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3564,7 +3884,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKObjectPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKObjectPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3583,7 +3910,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQObjectPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQObjectPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3602,7 +3936,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSObjectPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSObjectPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3621,7 +3962,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAStructS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAStructS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3640,7 +3988,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLStructS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLStructS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3659,7 +4014,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKStructS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKStructS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3678,7 +4040,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQStructS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQStructS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3697,7 +4066,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSStructS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSStructS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3716,7 +4092,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAStructSD.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAStructSD(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3735,7 +4118,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLStructSD.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLStructSD(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3754,7 +4144,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKStructSD.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKStructSD(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3773,7 +4170,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQStructSD.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQStructSD(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3792,7 +4196,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSStructSD.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSStructSD(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3811,7 +4222,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opACVS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opACVS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3832,7 +4250,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLCVS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLCVS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3853,7 +4278,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opACRS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opACRS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3874,7 +4306,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLCRS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLCRS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3895,7 +4334,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAEnS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAEnS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3914,7 +4360,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLEnS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLEnS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3933,7 +4386,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKEnS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKEnS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3952,7 +4412,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQEnS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQEnS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3971,7 +4438,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSEnS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSEnS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -3990,7 +4464,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opAIPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAIPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4009,7 +4490,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opLIPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opLIPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4028,7 +4516,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opKIPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opKIPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4047,7 +4542,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opQIPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opQIPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4066,7 +4568,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opSIPrxS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opSIPrxS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4085,7 +4594,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opCustomIntS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opCustomIntS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4104,7 +4620,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opCustomCVS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opCustomCVS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4125,7 +4648,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opCustomIntSS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opCustomIntSS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -4144,7 +4674,14 @@ public interface MyClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opCustomCVSS.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opCustomCVSS(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

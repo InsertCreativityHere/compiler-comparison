@@ -37,12 +37,24 @@ public interface Adapter extends com.zeroc.Ice.Object
     void setDirectProxy(com.zeroc.Ice.ObjectPrx proxy, com.zeroc.Ice.Current current)
         throws AdapterActiveException;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::Adapter"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Adapter";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation activate.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_activate(Adapter obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -57,7 +69,15 @@ public interface Adapter extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getDirectProxy.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getDirectProxy(Adapter obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -70,7 +90,15 @@ public interface Adapter extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation setDirectProxy.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setDirectProxy(Adapter obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

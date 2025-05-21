@@ -12,6 +12,9 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::Metrics")
 public class Metrics extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code Metrics}.
+     **/
     public Metrics()
     {
         this.id = "";
@@ -21,6 +24,15 @@ public class Metrics extends com.zeroc.Ice.Value
         this.failures = 0;
     }
 
+    /**
+     * Creates a new {@code Metrics} with values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     */
     public Metrics(String id, long total, int current, long totalLifetime, int failures)
     {
         this.id = id;
@@ -62,18 +74,29 @@ public class Metrics extends com.zeroc.Ice.Value
         return (Metrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceMX::Metrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::Metrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -86,7 +109,10 @@ public class Metrics extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -99,6 +125,5 @@ public class Metrics extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5037579122342415218L;
 }

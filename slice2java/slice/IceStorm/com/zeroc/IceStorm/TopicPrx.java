@@ -61,10 +61,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getName operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getNameAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -124,10 +126,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getPublisher operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getPublisherAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -183,10 +187,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getNonReplicatedPublisher operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getNonReplicatedPublisherAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -277,12 +283,14 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the subscribeAndGetPublisher operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_theQoS parameter
+     * @param iceP_subscriber parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_theQoS -
-     * @param iceP_subscriber -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_subscribeAndGetPublisherAsync(java.util.Map<java.lang.String, java.lang.String> iceP_theQoS, com.zeroc.Ice.ObjectPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
@@ -354,11 +362,13 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the unsubscribe operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_subscriber parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_subscriber -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_unsubscribeAsync(com.zeroc.Ice.ObjectPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
@@ -429,12 +439,14 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the link operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_linkTo parameter
+     * @param iceP_cost parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_linkTo -
-     * @param iceP_cost -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_linkAsync(TopicPrx iceP_linkTo, int iceP_cost, java.util.Map<String, String> context, boolean sync)
     {
@@ -508,11 +520,13 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the unlink operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_linkTo parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_linkTo -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_unlinkAsync(TopicPrx iceP_linkTo, java.util.Map<String, String> context, boolean sync)
     {
@@ -568,10 +582,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getLinkInfoSeq operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<LinkInfo[]> _iceI_getLinkInfoSeqAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -623,10 +639,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getSubscribers operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Identity[]> _iceI_getSubscribersAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -676,10 +694,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -831,6 +851,11 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TopicPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStorm::Topic"
+     */
     static String ice_staticId()
     {
         return "::IceStorm::Topic";

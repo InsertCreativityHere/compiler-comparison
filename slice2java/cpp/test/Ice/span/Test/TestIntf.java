@@ -244,12 +244,24 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     java.util.concurrent.CompletionStage<Void> shutdownAsync(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::TestIntf";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opByteSpan.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opByteSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -268,7 +280,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opShortSpan.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opShortSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -287,7 +306,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opStringSpan.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opStringSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -306,7 +332,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opOptionalByteSpan.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opOptionalByteSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -325,7 +358,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opOptionalShortSpan.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opOptionalShortSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -344,7 +384,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opOptionalStringSpan.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opOptionalStringSpan(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -363,7 +410,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

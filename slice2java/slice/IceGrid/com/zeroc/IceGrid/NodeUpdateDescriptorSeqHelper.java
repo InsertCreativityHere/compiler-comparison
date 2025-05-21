@@ -10,6 +10,12 @@ package com.zeroc.IceGrid;
  **/
 public final class NodeUpdateDescriptorSeqHelper
 {
+    /**
+     * Marshals a list of {@code NodeUpdateDescriptorSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.List<NodeUpdateDescriptor> v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class NodeUpdateDescriptorSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code NodeUpdateDescriptorSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static java.util.List<NodeUpdateDescriptor> read(com.zeroc.Ice.InputStream istr)
     {
         final java.util.List<NodeUpdateDescriptor> v;
@@ -40,6 +52,13 @@ public final class NodeUpdateDescriptorSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code NodeUpdateDescriptorSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<java.util.List<NodeUpdateDescriptor>> v)
     {
         if(v != null && v.isPresent())
@@ -48,6 +67,13 @@ public final class NodeUpdateDescriptorSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code NodeUpdateDescriptorSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.List<NodeUpdateDescriptor> v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -58,6 +84,13 @@ public final class NodeUpdateDescriptorSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code NodeUpdateDescriptorSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<java.util.List<NodeUpdateDescriptor>> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

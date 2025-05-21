@@ -9,6 +9,11 @@ package test.Ice.proxy.Test;
 public interface DiamondClass extends MyDerivedClass,
                                       MyOtherDerivedClass
 {
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::DiamondClass"
+     */
     static String ice_staticId()
     {
         return "::Test::DiamondClass";

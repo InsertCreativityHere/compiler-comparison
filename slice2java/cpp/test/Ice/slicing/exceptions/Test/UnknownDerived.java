@@ -8,17 +8,27 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::UnknownDerived")
 public class UnknownDerived extends Base
 {
+    /**
+     * Creates a new {@code UnknownDerived}.
+     **/
     public UnknownDerived()
     {
         this.ud = "";
     }
 
+    /**
+     * Creates a new {@code UnknownDerived} with values for all its fields.
+     */
     public UnknownDerived(String b, String ud)
     {
         super(b);
         this.ud = ud;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::UnknownDerived";
@@ -26,7 +36,10 @@ public class UnknownDerived extends Base
 
     public String ud;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +49,10 @@ public class UnknownDerived extends Base
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -46,6 +62,5 @@ public class UnknownDerived extends Base
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 7432639851401593157L;
 }

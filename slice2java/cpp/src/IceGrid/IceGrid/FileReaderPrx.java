@@ -58,12 +58,14 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getOffsetFromEnd operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_filename parameter
+     * @param iceP_lines parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_filename -
-     * @param iceP_lines -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Long> _iceI_getOffsetFromEndAsync(String iceP_filename, int iceP_lines, java.util.Map<String, String> context, boolean sync)
     {
@@ -137,13 +139,15 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the read operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_filename parameter
+     * @param iceP_pos parameter
+     * @param iceP_size parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_filename -
-     * @param iceP_pos -
-     * @param iceP_size -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileReader.ReadResult> _iceI_readAsync(String iceP_filename, long iceP_pos, int iceP_size, java.util.Map<String, String> context, boolean sync)
     {
@@ -309,6 +313,11 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     FileReaderPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::FileReader"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::FileReader";

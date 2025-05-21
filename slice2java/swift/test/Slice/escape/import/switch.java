@@ -8,10 +8,16 @@ package import;
 @com.zeroc.Ice.SliceTypeId(value = "::import::switch")
 public class switch extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code switch}.
+     **/
     public switch()
     {
     }
 
+    /**
+     * Creates a new {@code switch} with values for all its fields.
+     */
     public switch(breakPrx export, int volatile)
     {
         this.export = export;
@@ -27,18 +33,29 @@ public class switch extends com.zeroc.Ice.Value
         return (switch)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::import::switch"
+     */
     public static String ice_staticId()
     {
         return "::import::switch";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class switch extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class switch extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8328293551429808662L;
 }

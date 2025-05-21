@@ -10,6 +10,12 @@ package Test.Inner;
  **/
 public final class MyStructSeqHelper
 {
+    /**
+     * Marshals a list of {@code MyStructSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, Test.Inner.Inner2.MyStruct[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class MyStructSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code MyStructSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static Test.Inner.Inner2.MyStruct[] read(com.zeroc.Ice.InputStream istr)
     {
         final Test.Inner.Inner2.MyStruct[] v;
@@ -38,6 +50,13 @@ public final class MyStructSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code MyStructSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Test.Inner.Inner2.MyStruct[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class MyStructSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code MyStructSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Test.Inner.Inner2.MyStruct[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -56,6 +82,13 @@ public final class MyStructSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code MyStructSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<Test.Inner.Inner2.MyStruct[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))

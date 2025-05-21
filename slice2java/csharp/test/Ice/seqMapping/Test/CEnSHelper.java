@@ -10,6 +10,12 @@ package Test;
  **/
 public final class CEnSHelper
 {
+    /**
+     * Marshals a list of {@code CEnS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, En[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class CEnSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code CEnS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static En[] read(com.zeroc.Ice.InputStream istr)
     {
         final En[] v;
@@ -38,6 +50,13 @@ public final class CEnSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code CEnS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<En[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class CEnSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code CEnS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, En[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class CEnSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code CEnS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<En[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

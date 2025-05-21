@@ -8,6 +8,9 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Derived")
 public class Derived extends Base
 {
+    /**
+     * Creates a new {@code Derived}.
+     **/
     public Derived()
     {
         super();
@@ -19,6 +22,9 @@ public class Derived extends Base
         this.nc3 = Test.Nested.Color.blue;
     }
 
+    /**
+     * Creates a new {@code Derived} with values for all its fields.
+     */
     public Derived(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Struct1 st1, Color c1, Color c2, Color c3, Test.Nested.Color nc1, Test.Nested.Color nc2, Test.Nested.Color nc3)
     {
         super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, st1);
@@ -47,18 +53,29 @@ public class Derived extends Base
         return (Derived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Derived"
+     */
     public static String ice_staticId()
     {
         return "::Test::Derived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -73,7 +90,10 @@ public class Derived extends Base
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -88,6 +108,5 @@ public class Derived extends Base
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 6197572758625398801L;
 }

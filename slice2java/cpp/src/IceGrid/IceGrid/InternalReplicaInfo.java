@@ -11,12 +11,21 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::InternalReplicaInfo")
 public class InternalReplicaInfo extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code InternalReplicaInfo}.
+     **/
     public InternalReplicaInfo()
     {
         this.name = "";
         this.hostname = "";
     }
 
+    /**
+     * Creates a new {@code InternalReplicaInfo} with values for all its fields.
+     *
+     * @param name The name of the registry.
+     * @param hostname The network name of the host running this registry (as defined in uname()).
+     */
     public InternalReplicaInfo(String name, String hostname)
     {
         this.name = name;
@@ -38,18 +47,29 @@ public class InternalReplicaInfo extends com.zeroc.Ice.Value
         return (InternalReplicaInfo)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::InternalReplicaInfo"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::InternalReplicaInfo";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -59,7 +79,10 @@ public class InternalReplicaInfo extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -69,6 +92,5 @@ public class InternalReplicaInfo extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8977395097337825254L;
 }

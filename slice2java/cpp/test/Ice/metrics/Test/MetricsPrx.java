@@ -29,10 +29,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the op operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,10 +64,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the fail operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_failAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -108,10 +112,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opWithUserException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opWithUserExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -147,10 +153,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opWithRequestFailedException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opWithRequestFailedExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -180,10 +188,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opWithLocalException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opWithLocalExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -213,10 +223,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opWithUnknownException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opWithUnknownExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -246,11 +258,13 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opByteS operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_bs parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_bs -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opByteSAsync(byte[] iceP_bs, java.util.Map<String, String> context, boolean sync)
     {
@@ -282,10 +296,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getAdmin operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getAdminAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -319,10 +335,12 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -474,6 +492,11 @@ public interface MetricsPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MetricsPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Metrics"
+     */
     static String ice_staticId()
     {
         return "::Test::Metrics";

@@ -36,12 +36,18 @@ public class S2 implements java.lang.Cloneable,
 
     public com.zeroc.Ice.ObjectPrx prx;
 
+    /**
+     * Creates a new {@code S2}.
+     **/
     public S2()
     {
         this.str = "";
         this.s = new S1();
     }
 
+    /**
+     * Creates a new {@code S2} with values for all fields not marked optional in the Slice definition for {@code ::Test::S2}.
+     */
     public S2(boolean bo, byte by, short sh, int i, long l, float f, double d, String str, String[] ss, java.util.List<java.lang.Integer> il, java.util.Map<java.lang.String, java.lang.String> sd, S1 s, C cls, com.zeroc.Ice.ObjectPrx prx)
     {
         this.bo = bo;
@@ -60,6 +66,10 @@ public class S2 implements java.lang.Cloneable,
         this.prx = prx;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -155,6 +165,10 @@ public class S2 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -176,6 +190,10 @@ public class S2 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public S2 clone()
     {
         S2 c = null;
@@ -190,6 +208,11 @@ public class S2 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.bo);
@@ -208,6 +231,11 @@ public class S2 implements java.lang.Cloneable,
         ostr.writeProxy(this.prx);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.bo = istr.readBool();
@@ -226,6 +254,12 @@ public class S2 implements java.lang.Cloneable,
         this.prx = istr.readProxy();
     }
 
+    /**
+     * Marshals a {@code S2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code S2} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, S2 v)
     {
         if(v == null)
@@ -238,6 +272,12 @@ public class S2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code S2} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code S2}
+     */
     static public S2 ice_read(com.zeroc.Ice.InputStream istr)
     {
         S2 v = new S2();
@@ -245,6 +285,13 @@ public class S2 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code S2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<S2> v)
     {
         if(v != null && v.isPresent())
@@ -253,6 +300,13 @@ public class S2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code S2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, S2 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -263,6 +317,13 @@ public class S2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code S2} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<S2> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -278,6 +339,5 @@ public class S2 implements java.lang.Cloneable,
 
     private static final S2 _nullMarshalValue = new S2();
 
-    /** @hidden */
     private static final long serialVersionUID = 5961286373164321587L;
 }

@@ -208,12 +208,24 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
                RegistryNotExistException,
                RegistryUnreachableException;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::AdminSession"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::AdminSession";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation keepAlive.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_keepAlive(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();
@@ -221,7 +233,14 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getAdmin.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getAdmin(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();
@@ -233,7 +252,14 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getAdminCallbackTemplate.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getAdminCallbackTemplate(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();
@@ -245,7 +271,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation setObservers.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setObservers(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -266,7 +300,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation setObserversByIdentity.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setObserversByIdentity(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -287,7 +329,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation startUpdate.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_startUpdate(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -301,7 +351,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation finishUpdate.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_finishUpdate(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -311,7 +369,14 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getReplicaName.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getReplicaName(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();
@@ -323,7 +388,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openServerLog.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openServerLog(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -345,7 +418,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openServerStdErr.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openServerStdErr(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -365,7 +446,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openServerStdOut.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openServerStdOut(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -385,7 +474,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openNodeStdErr.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openNodeStdErr(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -405,7 +502,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openNodeStdOut.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openNodeStdOut(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -425,7 +530,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openRegistryStdErr.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openRegistryStdErr(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -445,7 +558,15 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation openRegistryStdOut.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_openRegistryStdOut(AdminSession obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

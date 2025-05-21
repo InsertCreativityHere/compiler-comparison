@@ -10,15 +10,25 @@ public class G2 implements java.lang.Cloneable,
 {
     public long a;
 
+    /**
+     * Creates a new {@code G2}.
+     **/
     public G2()
     {
     }
 
+    /**
+     * Creates a new {@code G2} with values for all fields not marked optional in the Slice definition for {@code ::Test::G2}.
+     */
     public G2(long a)
     {
         this.a = a;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -44,6 +54,10 @@ public class G2 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -52,6 +66,10 @@ public class G2 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public G2 clone()
     {
         G2 c = null;
@@ -66,16 +84,32 @@ public class G2 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.a);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.a = istr.readLong();
     }
 
+    /**
+     * Marshals a {@code G2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code G2} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, G2 v)
     {
         if(v == null)
@@ -88,6 +122,12 @@ public class G2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code G2} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code G2}
+     */
     static public G2 ice_read(com.zeroc.Ice.InputStream istr)
     {
         G2 v = new G2();
@@ -95,6 +135,13 @@ public class G2 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code G2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<G2> v)
     {
         if(v != null && v.isPresent())
@@ -103,6 +150,13 @@ public class G2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code G2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, G2 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -112,6 +166,13 @@ public class G2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code G2} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<G2> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -127,6 +188,5 @@ public class G2 implements java.lang.Cloneable,
 
     private static final G2 _nullMarshalValue = new G2();
 
-    /** @hidden */
     private static final long serialVersionUID = 4257878736882107418L;
 }

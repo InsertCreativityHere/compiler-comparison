@@ -10,6 +10,12 @@ package Test;
  **/
 public final class CStructSDHelper
 {
+    /**
+     * Marshals a list of {@code CStructSD} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, SD[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class CStructSDHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code CStructSD} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static SD[] read(com.zeroc.Ice.InputStream istr)
     {
         final SD[] v;
@@ -38,6 +50,13 @@ public final class CStructSDHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code CStructSD} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SD[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class CStructSDHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code CStructSD} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, SD[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -56,6 +82,13 @@ public final class CStructSDHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code CStructSD} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<SD[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))

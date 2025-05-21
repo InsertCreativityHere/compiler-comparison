@@ -21,17 +21,30 @@ public class GroupInfo implements java.lang.Cloneable,
      **/
     public LogUpdate llu;
 
+    /**
+     * Creates a new {@code GroupInfo}.
+     **/
     public GroupInfo()
     {
         this.llu = new LogUpdate();
     }
 
+    /**
+     * Creates a new {@code GroupInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceStormElection::GroupInfo}.
+     *
+     * @param id The identity of the node.
+     * @param llu The last known log update for this node.
+     */
     public GroupInfo(int id, LogUpdate llu)
     {
         this.id = id;
         this.llu = llu;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -64,6 +77,10 @@ public class GroupInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -73,6 +90,10 @@ public class GroupInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public GroupInfo clone()
     {
         GroupInfo c = null;
@@ -87,18 +108,34 @@ public class GroupInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.id);
         LogUpdate.ice_write(ostr, this.llu);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readInt();
         this.llu = LogUpdate.ice_read(istr);
     }
 
+    /**
+     * Marshals a {@code GroupInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code GroupInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, GroupInfo v)
     {
         if(v == null)
@@ -111,6 +148,12 @@ public class GroupInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code GroupInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code GroupInfo}
+     */
     static public GroupInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         GroupInfo v = new GroupInfo();
@@ -118,6 +161,13 @@ public class GroupInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code GroupInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<GroupInfo> v)
     {
         if(v != null && v.isPresent())
@@ -126,6 +176,13 @@ public class GroupInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code GroupInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, GroupInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -135,6 +192,13 @@ public class GroupInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code GroupInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<GroupInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -150,6 +214,5 @@ public class GroupInfo implements java.lang.Cloneable,
 
     private static final GroupInfo _nullMarshalValue = new GroupInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -8957097342149973563L;
 }

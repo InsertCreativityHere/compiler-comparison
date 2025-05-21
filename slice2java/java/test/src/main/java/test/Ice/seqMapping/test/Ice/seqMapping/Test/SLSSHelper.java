@@ -10,6 +10,12 @@ package test.Ice.seqMapping.Test;
  **/
 public final class SLSSHelper
 {
+    /**
+     * Marshals a list of {@code SLSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, test.Ice.seqMapping.Serialize.Large[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class SLSSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code SLSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static test.Ice.seqMapping.Serialize.Large[][] read(com.zeroc.Ice.InputStream istr)
     {
         final test.Ice.seqMapping.Serialize.Large[][] v;
@@ -38,6 +50,13 @@ public final class SLSSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code SLSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<test.Ice.seqMapping.Serialize.Large[][]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class SLSSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code SLSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, test.Ice.seqMapping.Serialize.Large[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class SLSSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code SLSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<test.Ice.seqMapping.Serialize.Large[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

@@ -8,10 +8,16 @@ package test.Ice.objects.Test.Inner.Sub;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Inner::Sub::A")
 public class A extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code A}.
+     **/
     public A()
     {
     }
 
+    /**
+     * Creates a new {@code A} with values for all its fields.
+     */
     public A(test.Ice.objects.Test.Inner.A theA)
     {
         this.theA = theA;
@@ -24,18 +30,29 @@ public class A extends com.zeroc.Ice.Value
         return (A)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Inner::Sub::A"
+     */
     public static String ice_staticId()
     {
         return "::Test::Inner::Sub::A";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +61,10 @@ public class A extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +73,5 @@ public class A extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -104367535519731826L;
 }

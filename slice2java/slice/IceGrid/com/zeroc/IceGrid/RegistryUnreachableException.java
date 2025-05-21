@@ -11,18 +11,31 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::RegistryUnreachableException")
 public class RegistryUnreachableException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code RegistryUnreachableException}.
+     **/
     public RegistryUnreachableException()
     {
         this.name = "";
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code RegistryUnreachableException} with values for all its fields.
+     *
+     * @param name The name of the registry that is not reachable.
+     * @param reason The reason why the registry couldn't be reached.
+     */
     public RegistryUnreachableException(String name, String reason)
     {
         this.name = name;
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::RegistryUnreachableException";
@@ -38,7 +51,10 @@ public class RegistryUnreachableException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +64,10 @@ public class RegistryUnreachableException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +77,5 @@ public class RegistryUnreachableException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 6094429676385867006L;
 }

@@ -8,11 +8,17 @@ package classdef;
 @com.zeroc.Ice.SliceTypeId(value = "::classdef::Base")
 public class Base extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code Base}.
+     **/
     public Base()
     {
         this.while = 1;
     }
 
+    /**
+     * Creates a new {@code Base} with values for all its fields.
+     */
     public Base(int while)
     {
         this.while = while;
@@ -25,18 +31,29 @@ public class Base extends com.zeroc.Ice.Value
         return (Base)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::classdef::Base"
+     */
     public static String ice_staticId()
     {
         return "::classdef::Base";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -45,7 +62,10 @@ public class Base extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -54,6 +74,5 @@ public class Base extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5460272432830171586L;
 }

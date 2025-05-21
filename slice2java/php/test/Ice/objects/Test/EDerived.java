@@ -8,10 +8,16 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::EDerived")
 public class EDerived extends EBase
 {
+    /**
+     * Creates a new {@code EDerived}.
+     **/
     public EDerived()
     {
     }
 
+    /**
+     * Creates a new {@code EDerived} with values for all its fields.
+     */
     public EDerived(A1 a1, A1 a2, A1 a3, A1 a4)
     {
         super(a1, a2);
@@ -19,6 +25,10 @@ public class EDerived extends EBase
         this.a4 = a4;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::EDerived";
@@ -28,7 +38,10 @@ public class EDerived extends EBase
 
     public A1 a4;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -39,7 +52,10 @@ public class EDerived extends EBase
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -50,6 +66,5 @@ public class EDerived extends EBase
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 9061134725989698621L;
 }

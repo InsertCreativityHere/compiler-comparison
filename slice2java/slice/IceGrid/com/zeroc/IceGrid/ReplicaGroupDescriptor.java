@@ -41,6 +41,9 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
      **/
     public String filter;
 
+    /**
+     * Creates a new {@code ReplicaGroupDescriptor}.
+     **/
     public ReplicaGroupDescriptor()
     {
         this.id = "";
@@ -49,6 +52,16 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         this.filter = "";
     }
 
+    /**
+     * Creates a new {@code ReplicaGroupDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ReplicaGroupDescriptor}.
+     *
+     * @param id The replica group ID.
+     * @param loadBalancing The load balancing policy.
+     * @param proxyOptions Default options for proxies created for the replica group.
+     * @param objects The descriptors for the well-known objects.
+     * @param description The description of this replica group.
+     * @param filter The filter to use for this replica group.
+     */
     public ReplicaGroupDescriptor(String id, LoadBalancingPolicy loadBalancing, String proxyOptions, java.util.List<ObjectDescriptor> objects, String description, String filter)
     {
         this.id = id;
@@ -59,6 +72,10 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         this.filter = filter;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -122,6 +139,10 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -135,6 +156,10 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ReplicaGroupDescriptor clone()
     {
         ReplicaGroupDescriptor c = null;
@@ -149,6 +174,11 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.id);
@@ -159,6 +189,11 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         ostr.writeString(this.filter);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readString();
@@ -169,6 +204,12 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         this.filter = istr.readString();
     }
 
+    /**
+     * Marshals a {@code ReplicaGroupDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ReplicaGroupDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ReplicaGroupDescriptor v)
     {
         if(v == null)
@@ -181,6 +222,12 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code ReplicaGroupDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ReplicaGroupDescriptor}
+     */
     static public ReplicaGroupDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         ReplicaGroupDescriptor v = new ReplicaGroupDescriptor();
@@ -188,6 +235,13 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ReplicaGroupDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ReplicaGroupDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -196,6 +250,13 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ReplicaGroupDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ReplicaGroupDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -206,6 +267,13 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ReplicaGroupDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ReplicaGroupDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -221,6 +289,5 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
 
     private static final ReplicaGroupDescriptor _nullMarshalValue = new ReplicaGroupDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -7652979376440502224L;
 }

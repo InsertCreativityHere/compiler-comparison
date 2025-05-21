@@ -12,6 +12,9 @@ package DataStormContract;
 @com.zeroc.Ice.CompactSliceTypeId(value = 1)
 public class ElementConfig extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code ElementConfig}.
+     **/
     public ElementConfig()
     {
         this.facet = "";
@@ -20,6 +23,17 @@ public class ElementConfig extends com.zeroc.Ice.Value
         this.clearHistory = ClearHistoryPolicy.OnAdd;
     }
 
+    /**
+     * Creates a new {@code ElementConfig} with values for all its fields.
+     *
+     * @param facet A facet that is used to process the samples when sample filtering is enabled.
+     * @param sampleFilter An optional sample filter associated with the reader.
+     * @param name An optional name for the reader or writer.
+     * @param priority An optional priority for the writer.
+     * @param sampleCount An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+     * @param sampleLifetime An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the writer or reader sample queue.
+     * @param clearHistory An optional clear history policy that determines when the reader or writer sample history is cleared.
+     */
     public ElementConfig(String facet, FilterInfo sampleFilter, String name, int priority, int sampleCount, int sampleLifetime, ClearHistoryPolicy clearHistory)
     {
         setFacet(facet);
@@ -582,18 +596,29 @@ public class ElementConfig extends com.zeroc.Ice.Value
         return (ElementConfig)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::ElementConfig"
+     */
     public static String ice_staticId()
     {
         return "::DataStormContract::ElementConfig";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -629,7 +654,10 @@ public class ElementConfig extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -666,6 +694,5 @@ public class ElementConfig extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 117940197979569336L;
 }

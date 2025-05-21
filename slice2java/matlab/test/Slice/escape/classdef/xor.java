@@ -8,12 +8,18 @@ package classdef;
 @com.zeroc.Ice.SliceTypeId(value = "::classdef::xor")
 public class xor extends logical
 {
+    /**
+     * Creates a new {@code xor}.
+     **/
     public xor()
     {
         super();
         this.return = 1;
     }
 
+    /**
+     * Creates a new {@code xor} with values for all its fields.
+     */
     public xor(persistent else, global for, boolean int64, int return)
     {
         super(else, for, int64);
@@ -27,18 +33,29 @@ public class xor extends logical
         return (xor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::classdef::xor"
+     */
     public static String ice_staticId()
     {
         return "::classdef::xor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class xor extends logical
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class xor extends logical
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 7412896662906986957L;
 }

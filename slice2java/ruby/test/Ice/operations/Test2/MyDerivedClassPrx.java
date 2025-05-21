@@ -151,6 +151,11 @@ public interface MyDerivedClassPrx extends Test.MyClassPrx
     @Override
     MyDerivedClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test2::MyDerivedClass"
+     */
     static String ice_staticId()
     {
         return "::Test2::MyDerivedClass";

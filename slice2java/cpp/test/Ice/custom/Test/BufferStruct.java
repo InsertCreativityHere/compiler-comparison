@@ -22,10 +22,16 @@ public class BufferStruct implements java.lang.Cloneable,
 
     public double[] doubleBuf;
 
+    /**
+     * Creates a new {@code BufferStruct}.
+     **/
     public BufferStruct()
     {
     }
 
+    /**
+     * Creates a new {@code BufferStruct} with values for all fields not marked optional in the Slice definition for {@code ::Test::BufferStruct}.
+     */
     public BufferStruct(byte[] byteBuf, boolean[] boolBuf, short[] shortBuf, int[] intBuf, long[] longBuf, float[] floatBuf, double[] doubleBuf)
     {
         this.byteBuf = byteBuf;
@@ -37,6 +43,10 @@ public class BufferStruct implements java.lang.Cloneable,
         this.doubleBuf = doubleBuf;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -86,6 +96,10 @@ public class BufferStruct implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -100,6 +114,10 @@ public class BufferStruct implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public BufferStruct clone()
     {
         BufferStruct c = null;
@@ -114,6 +132,11 @@ public class BufferStruct implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeByteSeq(this.byteBuf);
@@ -125,6 +148,11 @@ public class BufferStruct implements java.lang.Cloneable,
         ostr.writeDoubleSeq(this.doubleBuf);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.byteBuf = istr.readByteSeq();
@@ -136,6 +164,12 @@ public class BufferStruct implements java.lang.Cloneable,
         this.doubleBuf = istr.readDoubleSeq();
     }
 
+    /**
+     * Marshals a {@code BufferStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code BufferStruct} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, BufferStruct v)
     {
         if(v == null)
@@ -148,6 +182,12 @@ public class BufferStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code BufferStruct} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code BufferStruct}
+     */
     static public BufferStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
         BufferStruct v = new BufferStruct();
@@ -155,6 +195,13 @@ public class BufferStruct implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code BufferStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<BufferStruct> v)
     {
         if(v != null && v.isPresent())
@@ -163,6 +210,13 @@ public class BufferStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code BufferStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, BufferStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -173,6 +227,13 @@ public class BufferStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code BufferStruct} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<BufferStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -188,6 +249,5 @@ public class BufferStruct implements java.lang.Cloneable,
 
     private static final BufferStruct _nullMarshalValue = new BufferStruct();
 
-    /** @hidden */
     private static final long serialVersionUID = 4845484787439672654L;
 }

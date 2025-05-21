@@ -28,12 +28,24 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     void shutdown(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::TestIntf";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getAdapterName.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getAdapterName(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -46,7 +58,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getConnection.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getConnection(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -59,7 +78,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getIdentity.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getIdentity(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -72,7 +98,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getFacet.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getFacet(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -85,7 +118,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getOperation.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getOperation(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -98,7 +138,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getMode.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getMode(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -111,7 +158,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getContext.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getContext(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -124,7 +178,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getRequestId.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getRequestId(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -137,7 +198,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getEncoding.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getEncoding(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -150,7 +218,14 @@ public interface TestIntf extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

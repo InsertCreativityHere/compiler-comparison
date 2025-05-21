@@ -8,10 +8,16 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::COneMember")
 public class COneMember extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code COneMember}.
+     **/
     public COneMember()
     {
     }
 
+    /**
+     * Creates a new {@code COneMember} with values for all its fields.
+     */
     public COneMember(Empty e)
     {
         this.e = e;
@@ -24,18 +30,29 @@ public class COneMember extends com.zeroc.Ice.Value
         return (COneMember)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::COneMember"
+     */
     public static String ice_staticId()
     {
         return "::Test::COneMember";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +61,10 @@ public class COneMember extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +73,5 @@ public class COneMember extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5092713228725621787L;
 }

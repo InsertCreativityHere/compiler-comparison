@@ -29,10 +29,12 @@ public interface doPrx extends breakPrx
     }
 
     /**
+     * Invokes the public operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_publicAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -81,17 +83,19 @@ public interface doPrx extends breakPrx
     }
 
     /**
+     * Invokes the goto operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_if parameter
+     * @param iceP_d parameter
+     * @param iceP_private parameter
+     * @param iceP_mutable parameter
+     * @param iceP_namespace parameter
+     * @param iceP_not parameter
+     * @param iceP_or parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_if -
-     * @param iceP_d -
-     * @param iceP_private -
-     * @param iceP_mutable -
-     * @param iceP_namespace -
-     * @param iceP_not -
-     * @param iceP_or -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<guard> _iceI_gotoAsync(continue iceP_if, guard iceP_d, switch iceP_private, doPrx iceP_mutable, breakPrx iceP_namespace, switch iceP_not, long iceP_or, java.util.Map<String, String> context, boolean sync)
     {
@@ -263,6 +267,11 @@ public interface doPrx extends breakPrx
     @Override
     doPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::import::do"
+     */
     static String ice_staticId()
     {
         return "::import::do";

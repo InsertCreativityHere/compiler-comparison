@@ -64,12 +64,25 @@ public interface Node extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> confirmCreateSessionAsync(NodePrx publisher, PublisherSessionPrx session, com.zeroc.Ice.Current current)
         throws SessionCreationException;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::Node"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::Node";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation initiateCreateSession.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_initiateCreateSession(Node obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -83,7 +96,15 @@ public interface Node extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation createSession.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_createSession(Node obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -101,7 +122,15 @@ public interface Node extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation confirmCreateSession.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_confirmCreateSession(Node obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

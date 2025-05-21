@@ -14,11 +14,17 @@ public class Variable implements java.lang.Cloneable,
 
     public String[] ss;
 
+    /**
+     * Creates a new {@code Variable}.
+     **/
     public Variable()
     {
         this.s = "";
     }
 
+    /**
+     * Creates a new {@code Variable} with values for all fields not marked optional in the Slice definition for {@code ::Test::Variable}.
+     */
     public Variable(String s, boolean[] bl, String[] ss)
     {
         this.s = s;
@@ -26,6 +32,10 @@ public class Variable implements java.lang.Cloneable,
         this.ss = ss;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -62,6 +72,10 @@ public class Variable implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -72,6 +86,10 @@ public class Variable implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Variable clone()
     {
         Variable c = null;
@@ -86,6 +104,11 @@ public class Variable implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.s);
@@ -93,6 +116,11 @@ public class Variable implements java.lang.Cloneable,
         ostr.writeStringSeq(this.ss);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.s = istr.readString();
@@ -100,6 +128,12 @@ public class Variable implements java.lang.Cloneable,
         this.ss = istr.readStringSeq();
     }
 
+    /**
+     * Marshals a {@code Variable} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Variable} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Variable v)
     {
         if(v == null)
@@ -112,6 +146,12 @@ public class Variable implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Variable} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Variable}
+     */
     static public Variable ice_read(com.zeroc.Ice.InputStream istr)
     {
         Variable v = new Variable();
@@ -119,6 +159,13 @@ public class Variable implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Variable} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Variable> v)
     {
         if(v != null && v.isPresent())
@@ -127,6 +174,13 @@ public class Variable implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Variable} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Variable v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -137,6 +191,13 @@ public class Variable implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Variable} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Variable> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -152,6 +213,5 @@ public class Variable implements java.lang.Cloneable,
 
     private static final Variable _nullMarshalValue = new Variable();
 
-    /** @hidden */
     private static final long serialVersionUID = 7821002592316311291L;
 }

@@ -16,12 +16,25 @@ public interface Process extends com.zeroc.Ice.Object
 
     String terminate(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Common::Process"
+     */
     static String ice_staticId()
     {
         return "::Test::Common::Process";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation waitReady.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_waitReady(Process obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -35,7 +48,15 @@ public interface Process extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation waitSuccess.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_waitSuccess(Process obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -53,7 +74,14 @@ public interface Process extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation terminate.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_terminate(Process obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

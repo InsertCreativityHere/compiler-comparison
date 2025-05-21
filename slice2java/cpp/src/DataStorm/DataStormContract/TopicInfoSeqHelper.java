@@ -10,6 +10,12 @@ package DataStormContract;
  **/
 public final class TopicInfoSeqHelper
 {
+    /**
+     * Marshals a list of {@code TopicInfoSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, TopicInfo[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class TopicInfoSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code TopicInfoSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static TopicInfo[] read(com.zeroc.Ice.InputStream istr)
     {
         final TopicInfo[] v;
@@ -38,6 +50,13 @@ public final class TopicInfoSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code TopicInfoSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<TopicInfo[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class TopicInfoSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code TopicInfoSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, TopicInfo[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class TopicInfoSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code TopicInfoSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<TopicInfo[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

@@ -26,10 +26,20 @@ public class LoadInfo implements java.lang.Cloneable,
      **/
     public float avg15;
 
+    /**
+     * Creates a new {@code LoadInfo}.
+     **/
     public LoadInfo()
     {
     }
 
+    /**
+     * Creates a new {@code LoadInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::LoadInfo}.
+     *
+     * @param avg1 The load average over the past minute.
+     * @param avg5 The load average over the past 5 minutes.
+     * @param avg15 The load average over the past 15 minutes.
+     */
     public LoadInfo(float avg1, float avg5, float avg15)
     {
         this.avg1 = avg1;
@@ -37,6 +47,10 @@ public class LoadInfo implements java.lang.Cloneable,
         this.avg15 = avg15;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -70,6 +84,10 @@ public class LoadInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -80,6 +98,10 @@ public class LoadInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public LoadInfo clone()
     {
         LoadInfo c = null;
@@ -94,6 +116,11 @@ public class LoadInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeFloat(this.avg1);
@@ -101,6 +128,11 @@ public class LoadInfo implements java.lang.Cloneable,
         ostr.writeFloat(this.avg15);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.avg1 = istr.readFloat();
@@ -108,6 +140,12 @@ public class LoadInfo implements java.lang.Cloneable,
         this.avg15 = istr.readFloat();
     }
 
+    /**
+     * Marshals a {@code LoadInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code LoadInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, LoadInfo v)
     {
         if(v == null)
@@ -120,6 +158,12 @@ public class LoadInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code LoadInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code LoadInfo}
+     */
     static public LoadInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         LoadInfo v = new LoadInfo();
@@ -127,6 +171,13 @@ public class LoadInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code LoadInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LoadInfo> v)
     {
         if(v != null && v.isPresent())
@@ -135,6 +186,13 @@ public class LoadInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code LoadInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LoadInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -144,6 +202,13 @@ public class LoadInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code LoadInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<LoadInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -159,6 +224,5 @@ public class LoadInfo implements java.lang.Cloneable,
 
     private static final LoadInfo _nullMarshalValue = new LoadInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 9161043515091186477L;
 }

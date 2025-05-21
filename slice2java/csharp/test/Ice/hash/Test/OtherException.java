@@ -8,10 +8,16 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::OtherException")
 public class OtherException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code OtherException}.
+     **/
     public OtherException()
     {
     }
 
+    /**
+     * Creates a new {@code OtherException} with values for all its fields.
+     */
     public OtherException(int x, int y, int z, boolean b)
     {
         this.x = x;
@@ -20,6 +26,10 @@ public class OtherException extends com.zeroc.Ice.UserException
         this.b = b;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::OtherException";
@@ -33,7 +43,10 @@ public class OtherException extends com.zeroc.Ice.UserException
 
     public boolean b;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -45,7 +58,10 @@ public class OtherException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -57,6 +73,5 @@ public class OtherException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2394751448655548463L;
 }

@@ -11,11 +11,19 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::OrderedLoadBalancingPolicy")
 public class OrderedLoadBalancingPolicy extends LoadBalancingPolicy
 {
+    /**
+     * Creates a new {@code OrderedLoadBalancingPolicy}.
+     **/
     public OrderedLoadBalancingPolicy()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code OrderedLoadBalancingPolicy} with values for all its fields.
+     *
+     * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
+     */
     public OrderedLoadBalancingPolicy(String nReplicas)
     {
         super(nReplicas);
@@ -26,18 +34,29 @@ public class OrderedLoadBalancingPolicy extends LoadBalancingPolicy
         return (OrderedLoadBalancingPolicy)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::OrderedLoadBalancingPolicy"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::OrderedLoadBalancingPolicy";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -46,7 +65,10 @@ public class OrderedLoadBalancingPolicy extends LoadBalancingPolicy
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -55,6 +77,5 @@ public class OrderedLoadBalancingPolicy extends LoadBalancingPolicy
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 7472357601925912043L;
 }

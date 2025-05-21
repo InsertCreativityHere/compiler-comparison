@@ -151,6 +151,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestIntfPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::TestIntf";

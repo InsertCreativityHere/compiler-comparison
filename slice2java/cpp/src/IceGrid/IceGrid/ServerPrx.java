@@ -58,10 +58,12 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the start operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_startAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -130,10 +132,12 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the stop operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_stopAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -202,12 +206,14 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the checkUpdate operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_svr parameter
+     * @param iceP_noRestart parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_svr -
-     * @param iceP_noRestart -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_checkUpdateAsync(InternalServerDescriptor iceP_svr, boolean iceP_noRestart, java.util.Map<String, String> context, boolean sync)
     {
@@ -267,11 +273,13 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the setEnabled operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setEnabledAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -319,10 +327,12 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the isEnabled operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_isEnabledAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -385,11 +395,13 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the sendSignal operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_signal parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_signal -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_sendSignalAsync(String iceP_signal, java.util.Map<String, String> context, boolean sync)
     {
@@ -443,12 +455,14 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the writeMessage operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_message parameter
+     * @param iceP_fd parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_message -
-     * @param iceP_fd -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_writeMessageAsync(String iceP_message, int iceP_fd, java.util.Map<String, String> context, boolean sync)
     {
@@ -507,10 +521,12 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getState operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.IceGrid.ServerState> _iceI_getStateAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -564,10 +580,12 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getPid operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getPidAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -617,11 +635,13 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the setProcess operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_proc parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_proc -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setProcessAsync(com.zeroc.Ice.ProcessPrx iceP_proc, java.util.Map<String, String> context, boolean sync)
     {
@@ -775,6 +795,11 @@ public interface ServerPrx extends FileReaderPrx
     @Override
     ServerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::Server"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Server";

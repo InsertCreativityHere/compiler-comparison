@@ -10,6 +10,12 @@ package IceGrid;
  **/
 public final class InternalDbEnvDescriptorSeqHelper
 {
+    /**
+     * Marshals a list of {@code InternalDbEnvDescriptorSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, InternalDbEnvDescriptor[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class InternalDbEnvDescriptorSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code InternalDbEnvDescriptorSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static InternalDbEnvDescriptor[] read(com.zeroc.Ice.InputStream istr)
     {
         final InternalDbEnvDescriptor[] v;
@@ -39,6 +51,13 @@ public final class InternalDbEnvDescriptorSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code InternalDbEnvDescriptorSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<InternalDbEnvDescriptor[]> v)
     {
         if(v != null && v.isPresent())
@@ -47,6 +66,13 @@ public final class InternalDbEnvDescriptorSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code InternalDbEnvDescriptorSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, InternalDbEnvDescriptor[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -57,6 +83,13 @@ public final class InternalDbEnvDescriptorSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code InternalDbEnvDescriptorSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<InternalDbEnvDescriptor[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

@@ -11,6 +11,9 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::ConnectionMetrics")
 public class ConnectionMetrics extends Metrics
 {
+    /**
+     * Creates a new {@code ConnectionMetrics}.
+     **/
     public ConnectionMetrics()
     {
         super();
@@ -18,6 +21,17 @@ public class ConnectionMetrics extends Metrics
         this.sentBytes = 0L;
     }
 
+    /**
+     * Creates a new {@code ConnectionMetrics} with values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     * @param receivedBytes The number of bytes received by the connection.
+     * @param sentBytes The number of bytes sent by the connection.
+     */
     public ConnectionMetrics(String id, long total, int current, long totalLifetime, int failures, long receivedBytes, long sentBytes)
     {
         super(id, total, current, totalLifetime, failures);
@@ -40,18 +54,29 @@ public class ConnectionMetrics extends Metrics
         return (ConnectionMetrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceMX::ConnectionMetrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::ConnectionMetrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -62,7 +87,10 @@ public class ConnectionMetrics extends Metrics
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -73,6 +101,5 @@ public class ConnectionMetrics extends Metrics
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8694831881286888081L;
 }

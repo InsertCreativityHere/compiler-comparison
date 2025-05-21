@@ -39,12 +39,14 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opClassAndUnknownOptional operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p parameter
+     * @param iceP_ovs parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p -
-     * @param iceP_ovs -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, VarStruct iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
@@ -68,12 +70,14 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opClassAndUnknownOptional operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p parameter
+     * @param iceP_ovs parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p -
-     * @param iceP_ovs -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, java.util.Optional<VarStruct> iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
@@ -117,12 +121,14 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opVoid operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_v parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_v -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opVoidAsync(int iceP_a, String iceP_v, java.util.Map<String, String> context, boolean sync)
     {
@@ -145,12 +151,14 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opVoid operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_v parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_v -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opVoidAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_v, java.util.Map<String, String> context, boolean sync)
     {
@@ -305,6 +313,11 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     @Override
     Initial2Prx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Initial2"
+     */
     static String ice_staticId()
     {
         return "::Test::Initial2";

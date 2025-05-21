@@ -8,10 +8,16 @@ package test.Slice.macros.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::NoDefault")
 public class NoDefault extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code NoDefault}.
+     **/
     public NoDefault()
     {
     }
 
+    /**
+     * Creates a new {@code NoDefault} with values for all its fields.
+     */
     public NoDefault(int x, int y)
     {
         this.x = x;
@@ -27,18 +33,29 @@ public class NoDefault extends com.zeroc.Ice.Value
         return (NoDefault)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::NoDefault"
+     */
     public static String ice_staticId()
     {
         return "::Test::NoDefault";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class NoDefault extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class NoDefault extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8638420219928394736L;
 }

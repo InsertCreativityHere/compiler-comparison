@@ -8,15 +8,25 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::InvalidLengthException")
 public class InvalidLengthException extends BaseException
 {
+    /**
+     * Creates a new {@code InvalidLengthException}.
+     **/
     public InvalidLengthException()
     {
     }
 
+    /**
+     * Creates a new {@code InvalidLengthException} with values for all its fields.
+     */
     public InvalidLengthException(int length)
     {
         this.length = length;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::InvalidLengthException";
@@ -24,7 +34,10 @@ public class InvalidLengthException extends BaseException
 
     public int length;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class InvalidLengthException extends BaseException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -44,6 +60,5 @@ public class InvalidLengthException extends BaseException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 3389696528252392785L;
 }

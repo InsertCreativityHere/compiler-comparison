@@ -21,17 +21,30 @@ public class FilterInfo implements java.lang.Cloneable,
      **/
     public byte[] criteria;
 
+    /**
+     * Creates a new {@code FilterInfo}.
+     **/
     public FilterInfo()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code FilterInfo} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::FilterInfo}.
+     *
+     * @param name The unique name of the filter, used for identification.
+     * @param criteria The encoded criteria for instantiating the filter.
+     */
     public FilterInfo(String name, byte[] criteria)
     {
         this.name = name;
         this.criteria = criteria;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -64,6 +77,10 @@ public class FilterInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -73,6 +90,10 @@ public class FilterInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public FilterInfo clone()
     {
         FilterInfo c = null;
@@ -87,18 +108,34 @@ public class FilterInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
         ostr.writeByteSeq(this.criteria);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
         this.criteria = istr.readByteSeq();
     }
 
+    /**
+     * Marshals a {@code FilterInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code FilterInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, FilterInfo v)
     {
         if(v == null)
@@ -111,6 +148,12 @@ public class FilterInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code FilterInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code FilterInfo}
+     */
     static public FilterInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         FilterInfo v = new FilterInfo();
@@ -118,6 +161,13 @@ public class FilterInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code FilterInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<FilterInfo> v)
     {
         if(v != null && v.isPresent())
@@ -126,6 +176,13 @@ public class FilterInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code FilterInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, FilterInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -136,6 +193,13 @@ public class FilterInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code FilterInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<FilterInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -151,6 +215,5 @@ public class FilterInfo implements java.lang.Cloneable,
 
     private static final FilterInfo _nullMarshalValue = new FilterInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 1220030223339889106L;
 }

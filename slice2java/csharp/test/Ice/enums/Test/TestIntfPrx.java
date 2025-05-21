@@ -29,11 +29,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opByte operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_b1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_b1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpByteResult> _iceI_opByteAsync(ByteEnum iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
@@ -69,11 +71,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opShort operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpShortResult> _iceI_opShortAsync(ShortEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -109,11 +113,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opInt operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpIntResult> _iceI_opIntAsync(IntEnum iceP_i1, java.util.Map<String, String> context, boolean sync)
     {
@@ -149,11 +155,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opSimple operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpSimpleResult> _iceI_opSimpleAsync(SimpleEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -189,11 +197,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opByteSeq operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_b1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_b1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpByteSeqResult> _iceI_opByteSeqAsync(ByteEnum[] iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
@@ -229,11 +239,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opShortSeq operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpShortSeqResult> _iceI_opShortSeqAsync(ShortEnum[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -269,11 +281,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opIntSeq operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpIntSeqResult> _iceI_opIntSeqAsync(IntEnum[] iceP_i1, java.util.Map<String, String> context, boolean sync)
     {
@@ -309,11 +323,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opSimpleSeq operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpSimpleSeqResult> _iceI_opSimpleSeqAsync(SimpleEnum[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -349,10 +365,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -504,6 +522,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestIntfPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::TestIntf";

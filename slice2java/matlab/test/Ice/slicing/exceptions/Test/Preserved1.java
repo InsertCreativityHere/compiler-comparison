@@ -8,16 +8,26 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Preserved1")
 public class Preserved1 extends KnownPreservedDerived
 {
+    /**
+     * Creates a new {@code Preserved1}.
+     **/
     public Preserved1()
     {
     }
 
+    /**
+     * Creates a new {@code Preserved1} with values for all its fields.
+     */
     public Preserved1(String b, String kp, String kpd, BaseClass p1)
     {
         super(b, kp, kpd);
         this.p1 = p1;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Preserved1";
@@ -25,7 +35,10 @@ public class Preserved1 extends KnownPreservedDerived
 
     public BaseClass p1;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -35,7 +48,10 @@ public class Preserved1 extends KnownPreservedDerived
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,13 +61,15 @@ public class Preserved1 extends KnownPreservedDerived
         super._readImpl(istr_);
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4822486922792439139L;
 }

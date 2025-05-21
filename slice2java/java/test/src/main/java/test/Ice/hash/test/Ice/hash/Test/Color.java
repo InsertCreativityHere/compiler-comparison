@@ -16,10 +16,16 @@ public class Color implements java.lang.Cloneable,
 
     public int a;
 
+    /**
+     * Creates a new {@code Color}.
+     **/
     public Color()
     {
     }
 
+    /**
+     * Creates a new {@code Color} with values for all fields not marked optional in the Slice definition for {@code ::Test::Color}.
+     */
     public Color(int r, int g, int b, int a)
     {
         this.r = r;
@@ -28,6 +34,10 @@ public class Color implements java.lang.Cloneable,
         this.a = a;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -65,6 +75,10 @@ public class Color implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -76,6 +90,10 @@ public class Color implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Color clone()
     {
         Color c = null;
@@ -90,6 +108,11 @@ public class Color implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.r);
@@ -98,6 +121,11 @@ public class Color implements java.lang.Cloneable,
         ostr.writeInt(this.a);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.r = istr.readInt();
@@ -106,6 +134,12 @@ public class Color implements java.lang.Cloneable,
         this.a = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code Color} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Color} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Color v)
     {
         if(v == null)
@@ -118,6 +152,12 @@ public class Color implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Color} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Color}
+     */
     static public Color ice_read(com.zeroc.Ice.InputStream istr)
     {
         Color v = new Color();
@@ -125,6 +165,13 @@ public class Color implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Color} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Color> v)
     {
         if(v != null && v.isPresent())
@@ -133,6 +180,13 @@ public class Color implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Color} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Color v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -142,6 +196,13 @@ public class Color implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Color} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Color> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -157,6 +218,5 @@ public class Color implements java.lang.Cloneable,
 
     private static final Color _nullMarshalValue = new Color();
 
-    /** @hidden */
     private static final long serialVersionUID = -3910883983508356644L;
 }

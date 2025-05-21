@@ -8,11 +8,17 @@ package test.Ice.objects.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::G")
 public class G extends Base
 {
+    /**
+     * Creates a new {@code G}.
+     **/
     public G()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code G} with values for all its fields.
+     */
     public G(S theS, String str)
     {
         super(theS, str);
@@ -23,18 +29,29 @@ public class G extends Base
         return (G)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::G"
+     */
     public static String ice_staticId()
     {
         return "::Test::G";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -43,7 +60,10 @@ public class G extends Base
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -52,6 +72,5 @@ public class G extends Base
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 6858990680615140182L;
 }

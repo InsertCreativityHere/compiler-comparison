@@ -10,12 +10,24 @@ public interface TestSession extends com.zeroc.Glacier2.Session
 {
     void shutdown(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestSession"
+     */
     static String ice_staticId()
     {
         return "::Test::TestSession";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(TestSession obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

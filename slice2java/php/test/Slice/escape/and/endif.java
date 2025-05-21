@@ -8,15 +8,25 @@ package and;
 @com.zeroc.Ice.SliceTypeId(value = "::and::endif")
 public class endif extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code endif}.
+     **/
     public endif()
     {
     }
 
+    /**
+     * Creates a new {@code endif} with values for all its fields.
+     */
     public endif(int switch)
     {
         this.switch = switch;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::and::endif";
@@ -24,7 +34,10 @@ public class endif extends com.zeroc.Ice.UserException
 
     public int switch;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class endif extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class endif extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7754938073153236840L;
 }

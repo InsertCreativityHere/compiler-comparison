@@ -12,12 +12,24 @@ public interface MyClass extends com.zeroc.Ice.Object
 
     java.util.concurrent.CompletionStage<java.util.Map<java.lang.String, java.lang.String>> getContextAsync(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyClass";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -26,7 +38,14 @@ public interface MyClass extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getContext.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getContext(MyClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

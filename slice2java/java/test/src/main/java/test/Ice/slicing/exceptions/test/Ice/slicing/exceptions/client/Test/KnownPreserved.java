@@ -8,17 +8,27 @@ package test.Ice.slicing.exceptions.client.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::KnownPreserved")
 public class KnownPreserved extends Base
 {
+    /**
+     * Creates a new {@code KnownPreserved}.
+     **/
     public KnownPreserved()
     {
         this.kp = "";
     }
 
+    /**
+     * Creates a new {@code KnownPreserved} with values for all its fields.
+     */
     public KnownPreserved(String b, String kp)
     {
         super(b);
         this.kp = kp;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::KnownPreserved";
@@ -26,7 +36,10 @@ public class KnownPreserved extends Base
 
     public String kp;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +49,10 @@ public class KnownPreserved extends Base
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -46,6 +62,5 @@ public class KnownPreserved extends Base
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -3973277117854034094L;
 }

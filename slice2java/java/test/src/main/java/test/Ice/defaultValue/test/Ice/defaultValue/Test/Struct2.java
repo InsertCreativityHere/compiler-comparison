@@ -48,6 +48,9 @@ public class Struct2 implements java.lang.Cloneable,
 
     public double zeroDotD;
 
+    /**
+     * Creates a new {@code Struct2}.
+     **/
     public Struct2()
     {
         this.boolTrue = ConstBool.value;
@@ -72,6 +75,9 @@ public class Struct2 implements java.lang.Cloneable,
         this.zeroDotD = ConstZeroDotD.value;
     }
 
+    /**
+     * Creates a new {@code Struct2} with values for all fields not marked optional in the Slice definition for {@code ::Test::Struct2}.
+     */
     public Struct2(boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, Color c1, Color c2, Color c3, test.Ice.defaultValue.Test.Nested.Color nc1, test.Ice.defaultValue.Test.Nested.Color nc2, test.Ice.defaultValue.Test.Nested.Color nc3, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
     {
         this.boolTrue = boolTrue;
@@ -96,6 +102,10 @@ public class Struct2 implements java.lang.Cloneable,
         this.zeroDotD = zeroDotD;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -218,6 +228,10 @@ public class Struct2 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -245,6 +259,10 @@ public class Struct2 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Struct2 clone()
     {
         Struct2 c = null;
@@ -259,6 +277,11 @@ public class Struct2 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.boolTrue);
@@ -283,6 +306,11 @@ public class Struct2 implements java.lang.Cloneable,
         ostr.writeDouble(this.zeroDotD);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.boolTrue = istr.readBool();
@@ -307,6 +335,12 @@ public class Struct2 implements java.lang.Cloneable,
         this.zeroDotD = istr.readDouble();
     }
 
+    /**
+     * Marshals a {@code Struct2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Struct2} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Struct2 v)
     {
         if(v == null)
@@ -319,6 +353,12 @@ public class Struct2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Struct2} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Struct2}
+     */
     static public Struct2 ice_read(com.zeroc.Ice.InputStream istr)
     {
         Struct2 v = new Struct2();
@@ -326,6 +366,13 @@ public class Struct2 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Struct2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Struct2> v)
     {
         if(v != null && v.isPresent())
@@ -334,6 +381,13 @@ public class Struct2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Struct2} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Struct2 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -344,6 +398,13 @@ public class Struct2 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Struct2} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Struct2> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -359,6 +420,5 @@ public class Struct2 implements java.lang.Cloneable,
 
     private static final Struct2 _nullMarshalValue = new Struct2();
 
-    /** @hidden */
     private static final long serialVersionUID = 5022883604999554111L;
 }

@@ -29,11 +29,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opByteSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpByteSpanResult> _iceI_opByteSpanAsync(byte[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -69,11 +71,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opShortSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpShortSpanResult> _iceI_opShortSpanAsync(short[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -109,11 +113,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opStringSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpStringSpanResult> _iceI_opStringSpanAsync(String[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -159,11 +165,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opOptionalByteSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpOptionalByteSpanResult> _iceI_opOptionalByteSpanAsync(byte[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -189,11 +197,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opOptionalByteSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpOptionalByteSpanResult> _iceI_opOptionalByteSpanAsync(java.util.Optional<byte[]> iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -239,11 +249,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opOptionalShortSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpOptionalShortSpanResult> _iceI_opOptionalShortSpanAsync(short[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -269,11 +281,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opOptionalShortSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpOptionalShortSpanResult> _iceI_opOptionalShortSpanAsync(java.util.Optional<short[]> iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -319,11 +333,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opOptionalStringSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpOptionalStringSpanResult> _iceI_opOptionalStringSpanAsync(String[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -349,11 +365,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opOptionalStringSpan operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dataIn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dataIn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpOptionalStringSpanResult> _iceI_opOptionalStringSpanAsync(java.util.Optional<String[]> iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
@@ -389,10 +407,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -544,6 +564,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestIntfPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::TestIntf";

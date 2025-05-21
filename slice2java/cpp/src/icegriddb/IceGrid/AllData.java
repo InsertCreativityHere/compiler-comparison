@@ -18,10 +18,16 @@ public class AllData implements java.lang.Cloneable,
 
     public java.util.Map<java.lang.String, java.lang.Long> serials;
 
+    /**
+     * Creates a new {@code AllData}.
+     **/
     public AllData()
     {
     }
 
+    /**
+     * Creates a new {@code AllData} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::AllData}.
+     */
     public AllData(java.util.List<com.zeroc.IceGrid.ApplicationInfo> applications, com.zeroc.IceGrid.AdapterInfo[] adapters, com.zeroc.IceGrid.ObjectInfo[] objects, com.zeroc.IceGrid.ObjectInfo[] internalObjects, java.util.Map<java.lang.String, java.lang.Long> serials)
     {
         this.applications = applications;
@@ -31,6 +37,10 @@ public class AllData implements java.lang.Cloneable,
         this.serials = serials;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -78,6 +88,10 @@ public class AllData implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -90,6 +104,10 @@ public class AllData implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public AllData clone()
     {
         AllData c = null;
@@ -104,6 +122,11 @@ public class AllData implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         com.zeroc.IceGrid.ApplicationInfoSeqHelper.write(ostr, this.applications);
@@ -113,6 +136,11 @@ public class AllData implements java.lang.Cloneable,
         StringLongDictHelper.write(ostr, this.serials);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.applications = com.zeroc.IceGrid.ApplicationInfoSeqHelper.read(istr);
@@ -122,6 +150,12 @@ public class AllData implements java.lang.Cloneable,
         this.serials = StringLongDictHelper.read(istr);
     }
 
+    /**
+     * Marshals an {@code AllData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code AllData} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, AllData v)
     {
         if(v == null)
@@ -134,6 +168,12 @@ public class AllData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code AllData} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code AllData}
+     */
     static public AllData ice_read(com.zeroc.Ice.InputStream istr)
     {
         AllData v = new AllData();
@@ -141,6 +181,13 @@ public class AllData implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code AllData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<AllData> v)
     {
         if(v != null && v.isPresent())
@@ -149,6 +196,13 @@ public class AllData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code AllData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, AllData v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -159,6 +213,13 @@ public class AllData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code AllData} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<AllData> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -174,6 +235,5 @@ public class AllData implements java.lang.Cloneable,
 
     private static final AllData _nullMarshalValue = new AllData();
 
-    /** @hidden */
     private static final long serialVersionUID = 8119437984662865579L;
 }

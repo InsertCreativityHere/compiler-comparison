@@ -8,6 +8,9 @@ package test.Ice.optional.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::MultiOptional")
 public class MultiOptional extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code MultiOptional}.
+     **/
     public MultiOptional()
     {
         this.h = "";
@@ -16,6 +19,9 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.vs = new VarStruct();
     }
 
+    /**
+     * Creates a new {@code MultiOptional} with values for all its fields.
+     */
     public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, MyInterfacePrx j, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, MyInterfacePrx[] mips, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, MyInterfacePrx> imipd, boolean[] bos, test.Ice.optional.SerializableClass ser)
     {
         setA(a);
@@ -1636,18 +1642,29 @@ public class MultiOptional extends com.zeroc.Ice.Value
         return (MultiOptional)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MultiOptional"
+     */
     public static String ice_staticId()
     {
         return "::Test::MultiOptional";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -1763,7 +1780,10 @@ public class MultiOptional extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -1894,6 +1914,5 @@ public class MultiOptional extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6815549692184982368L;
 }

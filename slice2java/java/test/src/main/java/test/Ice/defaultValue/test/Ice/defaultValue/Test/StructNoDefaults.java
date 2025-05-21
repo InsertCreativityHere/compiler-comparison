@@ -34,6 +34,9 @@ public class StructNoDefaults implements java.lang.Cloneable,
 
     public java.util.Map<java.lang.Integer, java.lang.String> dict;
 
+    /**
+     * Creates a new {@code StructNoDefaults}.
+     **/
     public StructNoDefaults()
     {
         this.str = "";
@@ -41,6 +44,9 @@ public class StructNoDefaults implements java.lang.Cloneable,
         this.st = new InnerStruct();
     }
 
+    /**
+     * Creates a new {@code StructNoDefaults} with values for all fields not marked optional in the Slice definition for {@code ::Test::StructNoDefaults}.
+     */
     public StructNoDefaults(boolean bo, byte b, short s, int i, long l, float f, double d, String str, Color c1, byte[] bs, int[] is, InnerStruct st, java.util.Map<java.lang.Integer, java.lang.String> dict)
     {
         this.bo = bo;
@@ -58,6 +64,10 @@ public class StructNoDefaults implements java.lang.Cloneable,
         this.dict = dict;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -143,6 +153,10 @@ public class StructNoDefaults implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -163,6 +177,10 @@ public class StructNoDefaults implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public StructNoDefaults clone()
     {
         StructNoDefaults c = null;
@@ -177,6 +195,11 @@ public class StructNoDefaults implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.bo);
@@ -194,6 +217,11 @@ public class StructNoDefaults implements java.lang.Cloneable,
         IntStringDictHelper.write(ostr, this.dict);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.bo = istr.readBool();
@@ -211,6 +239,12 @@ public class StructNoDefaults implements java.lang.Cloneable,
         this.dict = IntStringDictHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code StructNoDefaults} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code StructNoDefaults} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, StructNoDefaults v)
     {
         if(v == null)
@@ -223,6 +257,12 @@ public class StructNoDefaults implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code StructNoDefaults} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code StructNoDefaults}
+     */
     static public StructNoDefaults ice_read(com.zeroc.Ice.InputStream istr)
     {
         StructNoDefaults v = new StructNoDefaults();
@@ -230,6 +270,13 @@ public class StructNoDefaults implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code StructNoDefaults} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<StructNoDefaults> v)
     {
         if(v != null && v.isPresent())
@@ -238,6 +285,13 @@ public class StructNoDefaults implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code StructNoDefaults} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, StructNoDefaults v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -248,6 +302,13 @@ public class StructNoDefaults implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code StructNoDefaults} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<StructNoDefaults> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -263,6 +324,5 @@ public class StructNoDefaults implements java.lang.Cloneable,
 
     private static final StructNoDefaults _nullMarshalValue = new StructNoDefaults();
 
-    /** @hidden */
     private static final long serialVersionUID = -7716677008901600010L;
 }

@@ -11,16 +11,26 @@ package com.zeroc.IceStorm;
 @com.zeroc.Ice.SliceTypeId(value = "::IceStorm::AlreadySubscribed")
 public class AlreadySubscribed extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AlreadySubscribed}.
+     **/
     public AlreadySubscribed()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceStorm::AlreadySubscribed";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -28,7 +38,10 @@ public class AlreadySubscribed extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -36,6 +49,5 @@ public class AlreadySubscribed extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 7830279108639149014L;
 }

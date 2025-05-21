@@ -8,17 +8,27 @@ package test.Ice.slicing.exceptions.serverAMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::UnknownMostDerived2")
 public class UnknownMostDerived2 extends UnknownIntermediate
 {
+    /**
+     * Creates a new {@code UnknownMostDerived2}.
+     **/
     public UnknownMostDerived2()
     {
         this.umd2 = "";
     }
 
+    /**
+     * Creates a new {@code UnknownMostDerived2} with values for all its fields.
+     */
     public UnknownMostDerived2(String b, String ui, String umd2)
     {
         super(b, ui);
         this.umd2 = umd2;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::UnknownMostDerived2";
@@ -26,7 +36,10 @@ public class UnknownMostDerived2 extends UnknownIntermediate
 
     public String umd2;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +49,10 @@ public class UnknownMostDerived2 extends UnknownIntermediate
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -46,6 +62,5 @@ public class UnknownMostDerived2 extends UnknownIntermediate
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8579059741670620154L;
 }

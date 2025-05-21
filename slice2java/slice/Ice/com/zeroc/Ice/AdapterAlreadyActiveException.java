@@ -12,16 +12,26 @@ package com.zeroc.Ice;
 @com.zeroc.Ice.SliceTypeId(value = "::Ice::AdapterAlreadyActiveException")
 public class AdapterAlreadyActiveException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AdapterAlreadyActiveException}.
+     **/
     public AdapterAlreadyActiveException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Ice::AdapterAlreadyActiveException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -29,7 +39,10 @@ public class AdapterAlreadyActiveException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -37,6 +50,5 @@ public class AdapterAlreadyActiveException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -4742491122994771103L;
 }

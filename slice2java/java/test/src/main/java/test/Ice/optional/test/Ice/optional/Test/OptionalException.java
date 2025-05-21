@@ -8,6 +8,9 @@ package test.Ice.optional.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::OptionalException")
 public class OptionalException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code OptionalException}.
+     **/
     public OptionalException()
     {
         this.req = false;
@@ -15,6 +18,9 @@ public class OptionalException extends com.zeroc.Ice.UserException
         this.b = "";
     }
 
+    /**
+     * Creates a new {@code OptionalException} with values for all fields not marked optional in the Slice definition for {@code ::Test::OptionalException}.
+     */
     public OptionalException(boolean req)
     {
         this.req = req;
@@ -22,6 +28,9 @@ public class OptionalException extends com.zeroc.Ice.UserException
         this.b = "";
     }
 
+    /**
+     * Creates a new {@code OptionalException} with values for all its fields.
+     */
     public OptionalException(boolean req, int a, String b)
     {
         this.req = req;
@@ -29,6 +38,10 @@ public class OptionalException extends com.zeroc.Ice.UserException
         setB(b);
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::OptionalException";
@@ -142,7 +155,10 @@ public class OptionalException extends com.zeroc.Ice.UserException
         }
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -159,7 +175,10 @@ public class OptionalException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -176,6 +195,5 @@ public class OptionalException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6682909330746092957L;
 }

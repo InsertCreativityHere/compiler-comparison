@@ -63,12 +63,24 @@ public interface TopicManagerSync extends com.zeroc.Ice.Object
      **/
     TopicManagerSync.GetContentResult getContent(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStormElection::TopicManagerSync"
+     */
     static String ice_staticId()
     {
         return "::IceStormElection::TopicManagerSync";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getContent.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getContent(TopicManagerSync obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

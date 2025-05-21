@@ -154,6 +154,11 @@ public interface PublisherSessionPrx extends SessionPrx
     @Override
     PublisherSessionPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::PublisherSession"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::PublisherSession";

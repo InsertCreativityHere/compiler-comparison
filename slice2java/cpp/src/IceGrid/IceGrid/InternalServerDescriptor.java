@@ -8,6 +8,9 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::InternalServerDescriptor")
 public class InternalServerDescriptor extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code InternalServerDescriptor}.
+     **/
     public InternalServerDescriptor()
     {
         this.id = "";
@@ -22,6 +25,27 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         this.deactivationTimeout = "";
     }
 
+    /**
+     * Creates a new {@code InternalServerDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::InternalServerDescriptor}.
+     *
+     * @param id The server ID.
+     * @param application The server application
+     * @param uuid The application uuid.
+     * @param revision The application revision.
+     * @param sessionId The id of the session which allocated the server.
+     * @param exe The server executable.
+     * @param pwd The server working directory.
+     * @param user The user ID to use to run the server.
+     * @param activation The server activation mode.
+     * @param activationTimeout The server activation timeout.
+     * @param deactivationTimeout The server deactivation timeout.
+     * @param processRegistered Specifies if a process object is registered.
+     * @param options The server command line options.
+     * @param envs The server environment variables.
+     * @param logs The path of the server logs.
+     * @param adapters The indirect object adapters.
+     * @param properties The configuration files of the server.
+     */
     public InternalServerDescriptor(String id, String application, String uuid, int revision, String sessionId, String exe, String pwd, String user, String activation, String activationTimeout, String deactivationTimeout, boolean processRegistered, String[] options, String[] envs, String[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> properties)
     {
         this.id = id;
@@ -44,6 +68,28 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         this.properties = properties;
     }
 
+    /**
+     * Creates a new {@code InternalServerDescriptor} with values for all its fields.
+     *
+     * @param id The server ID.
+     * @param application The server application
+     * @param uuid The application uuid.
+     * @param revision The application revision.
+     * @param sessionId The id of the session which allocated the server.
+     * @param exe The server executable.
+     * @param pwd The server working directory.
+     * @param user The user ID to use to run the server.
+     * @param activation The server activation mode.
+     * @param activationTimeout The server activation timeout.
+     * @param deactivationTimeout The server deactivation timeout.
+     * @param processRegistered Specifies if a process object is registered.
+     * @param options The server command line options.
+     * @param envs The server environment variables.
+     * @param logs The path of the server logs.
+     * @param adapters The indirect object adapters.
+     * @param properties The configuration files of the server.
+     * @param services IceBox service names
+     */
     public InternalServerDescriptor(String id, String application, String uuid, int revision, String sessionId, String exe, String pwd, String user, String activation, String activationTimeout, String deactivationTimeout, boolean processRegistered, String[] options, String[] envs, String[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> properties, String[] services)
     {
         this.id = id;
@@ -251,18 +297,29 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         return (InternalServerDescriptor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::InternalServerDescriptor"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::InternalServerDescriptor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -292,7 +349,10 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -323,6 +383,5 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 3705613459695229201L;
 }

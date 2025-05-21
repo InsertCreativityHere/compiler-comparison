@@ -153,6 +153,11 @@ public interface DatabaseObserverPrx extends com.zeroc.IceGrid.ApplicationObserv
     @Override
     DatabaseObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::DatabaseObserver"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::DatabaseObserver";

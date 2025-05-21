@@ -151,6 +151,11 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MyInterfacePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyInterface"
+     */
     static String ice_staticId()
     {
         return "::Test::MyInterface";

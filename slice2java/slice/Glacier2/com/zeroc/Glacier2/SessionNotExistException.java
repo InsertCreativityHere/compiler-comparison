@@ -14,16 +14,26 @@ package com.zeroc.Glacier2;
 @com.zeroc.Ice.SliceTypeId(value = "::Glacier2::SessionNotExistException")
 public class SessionNotExistException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code SessionNotExistException}.
+     **/
     public SessionNotExistException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Glacier2::SessionNotExistException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -31,7 +41,10 @@ public class SessionNotExistException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -39,6 +52,5 @@ public class SessionNotExistException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2130603456621139538L;
 }

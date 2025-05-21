@@ -8,16 +8,26 @@ package test.Ice.classLoader.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::E")
 public class E extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code E}.
+     **/
     public E()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::E";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -25,7 +35,10 @@ public class E extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -33,6 +46,5 @@ public class E extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6933397944756169057L;
 }

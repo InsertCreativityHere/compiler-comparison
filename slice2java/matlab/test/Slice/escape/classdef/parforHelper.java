@@ -10,6 +10,12 @@ package classdef;
  **/
 public final class parforHelper
 {
+    /**
+     * Marshals a list of {@code parfor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, global[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class parforHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code parfor} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static global[] read(com.zeroc.Ice.InputStream istr)
     {
         final global[] v;
@@ -38,6 +50,13 @@ public final class parforHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code parfor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<global[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class parforHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code parfor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, global[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class parforHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code parfor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<global[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

@@ -10,15 +10,25 @@ public class SOneMember implements java.lang.Cloneable,
 {
     public Empty e;
 
+    /**
+     * Creates a new {@code SOneMember}.
+     **/
     public SOneMember()
     {
     }
 
+    /**
+     * Creates a new {@code SOneMember} with values for all fields not marked optional in the Slice definition for {@code ::Test::SOneMember}.
+     */
     public SOneMember(Empty e)
     {
         this.e = e;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -47,6 +57,10 @@ public class SOneMember implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -55,6 +69,10 @@ public class SOneMember implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public SOneMember clone()
     {
         SOneMember c = null;
@@ -69,16 +87,32 @@ public class SOneMember implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeValue(this.e);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         istr.readValue(v -> e = v, Empty.class);
     }
 
+    /**
+     * Marshals a {@code SOneMember} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code SOneMember} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, SOneMember v)
     {
         if(v == null)
@@ -91,6 +125,12 @@ public class SOneMember implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code SOneMember} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code SOneMember}
+     */
     static public SOneMember ice_read(com.zeroc.Ice.InputStream istr)
     {
         SOneMember v = new SOneMember();
@@ -98,6 +138,13 @@ public class SOneMember implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code SOneMember} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SOneMember> v)
     {
         if(v != null && v.isPresent())
@@ -106,6 +153,13 @@ public class SOneMember implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code SOneMember} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, SOneMember v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -116,6 +170,13 @@ public class SOneMember implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code SOneMember} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<SOneMember> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -131,6 +192,5 @@ public class SOneMember implements java.lang.Cloneable,
 
     private static final SOneMember _nullMarshalValue = new SOneMember();
 
-    /** @hidden */
     private static final long serialVersionUID = -1277193367056348149L;
 }

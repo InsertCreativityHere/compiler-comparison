@@ -29,10 +29,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the callCallback operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callCallbackAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,10 +64,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getCallbackCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getCallbackCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -99,11 +103,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the incCounter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_expected parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_expected -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_incCounterAsync(int iceP_expected, java.util.Map<String, String> context, boolean sync)
     {
@@ -135,11 +141,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the waitCounter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_value parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_value -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_waitCounterAsync(int iceP_value, java.util.Map<String, String> context, boolean sync)
     {
@@ -171,10 +179,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getConnectionCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getConnectionCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -208,10 +218,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getConnectionInfo operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getConnectionInfoAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -245,11 +257,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the closeConnection operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_force parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_force -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_closeConnectionAsync(boolean iceP_force, java.util.Map<String, String> context, boolean sync)
     {
@@ -281,10 +295,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the datagram operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_datagramAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -314,10 +330,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getDatagramCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getDatagramCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -351,10 +369,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the callDatagramCallback operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callDatagramCallbackAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -384,10 +404,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getCallbackDatagramCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getCallbackDatagramCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -421,10 +443,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -576,6 +600,11 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MyClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyClass";

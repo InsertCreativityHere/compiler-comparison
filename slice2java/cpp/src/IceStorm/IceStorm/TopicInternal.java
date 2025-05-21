@@ -29,12 +29,24 @@ public interface TopicInternal extends com.zeroc.IceStorm.Topic
     void reap(com.zeroc.Ice.Identity[] id, com.zeroc.Ice.Current current)
         throws ReapWouldBlock;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStorm::TopicInternal"
+     */
     static String ice_staticId()
     {
         return "::IceStorm::TopicInternal";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getLinkProxy.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getLinkProxy(TopicInternal obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();
@@ -46,7 +58,15 @@ public interface TopicInternal extends com.zeroc.IceStorm.Topic
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation reap.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_reap(TopicInternal obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

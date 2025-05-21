@@ -43,6 +43,9 @@ public class SSLInfo implements java.lang.Cloneable,
      **/
     public String[] certs;
 
+    /**
+     * Creates a new {@code SSLInfo}.
+     **/
     public SSLInfo()
     {
         this.remoteHost = "";
@@ -50,6 +53,16 @@ public class SSLInfo implements java.lang.Cloneable,
         this.cipher = "";
     }
 
+    /**
+     * Creates a new {@code SSLInfo} with values for all fields not marked optional in the Slice definition for {@code ::Glacier2::SSLInfo}.
+     *
+     * @param remoteHost The remote host.
+     * @param remotePort The remote port.
+     * @param localHost The router's host.
+     * @param localPort The router's port.
+     * @param cipher The negotiated cipher suite.
+     * @param certs The certificate chain.
+     */
     public SSLInfo(String remoteHost, int remotePort, String localHost, int localPort, String cipher, String[] certs)
     {
         this.remoteHost = remoteHost;
@@ -60,6 +73,10 @@ public class SSLInfo implements java.lang.Cloneable,
         this.certs = certs;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -114,6 +131,10 @@ public class SSLInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -127,6 +148,10 @@ public class SSLInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public SSLInfo clone()
     {
         SSLInfo c = null;
@@ -141,6 +166,11 @@ public class SSLInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.remoteHost);
@@ -151,6 +181,11 @@ public class SSLInfo implements java.lang.Cloneable,
         ostr.writeStringSeq(this.certs);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.remoteHost = istr.readString();
@@ -161,6 +196,12 @@ public class SSLInfo implements java.lang.Cloneable,
         this.certs = istr.readStringSeq();
     }
 
+    /**
+     * Marshals a {@code SSLInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code SSLInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, SSLInfo v)
     {
         if(v == null)
@@ -173,6 +214,12 @@ public class SSLInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code SSLInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code SSLInfo}
+     */
     static public SSLInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         SSLInfo v = new SSLInfo();
@@ -180,6 +227,13 @@ public class SSLInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code SSLInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SSLInfo> v)
     {
         if(v != null && v.isPresent())
@@ -188,6 +242,13 @@ public class SSLInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code SSLInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, SSLInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -198,6 +259,13 @@ public class SSLInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code SSLInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<SSLInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -213,6 +281,5 @@ public class SSLInfo implements java.lang.Cloneable,
 
     private static final SSLInfo _nullMarshalValue = new SSLInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -5222439429874957L;
 }

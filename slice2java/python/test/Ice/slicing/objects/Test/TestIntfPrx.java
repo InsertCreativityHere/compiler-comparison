@@ -29,10 +29,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SBaseAsObject operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Value> _iceI_SBaseAsObjectAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -67,10 +69,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SBaseAsSBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBaseAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -105,10 +109,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SBSKnownDerivedAsSBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBSKnownDerivedAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -143,10 +149,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SBSKnownDerivedAsSBSKnownDerived operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SBSKnownDerived> _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -181,10 +189,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SBSUnknownDerivedAsSBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBSUnknownDerivedAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -219,10 +229,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SBSUnknownDerivedAsSBaseCompact operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBSUnknownDerivedAsSBaseCompactAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -257,10 +269,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the SUnknownAsObject operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Value> _iceI_SUnknownAsObjectAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -295,11 +309,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkSUnknown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_o parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_o -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkSUnknownAsync(com.zeroc.Ice.Value iceP_o, java.util.Map<String, String> context, boolean sync)
     {
@@ -332,10 +348,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the oneElementCycle operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<B> _iceI_oneElementCycleAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -370,10 +388,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the twoElementCycle operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<B> _iceI_twoElementCycleAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -408,10 +428,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the D1AsB operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<B> _iceI_D1AsBAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -446,10 +468,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the D1AsD1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<D1> _iceI_D1AsD1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -484,10 +508,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the D2AsB operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<B> _iceI_D2AsBAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -522,10 +548,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the paramTest1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest1Result> _iceI_paramTest1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -560,10 +588,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the paramTest2 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest2Result> _iceI_paramTest2Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -598,10 +628,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the paramTest3 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest3Result> _iceI_paramTest3Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -636,10 +668,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the paramTest4 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest4Result> _iceI_paramTest4Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -674,10 +708,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the returnTest1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.ReturnTest1Result> _iceI_returnTest1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -712,10 +748,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the returnTest2 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.ReturnTest2Result> _iceI_returnTest2Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -750,12 +788,14 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the returnTest3 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p1 parameter
+     * @param iceP_p2 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p1 -
-     * @param iceP_p2 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<B> _iceI_returnTest3Async(B iceP_p1, B iceP_p2, java.util.Map<String, String> context, boolean sync)
     {
@@ -794,12 +834,14 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the sequenceTest operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p1 parameter
+     * @param iceP_p2 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p1 -
-     * @param iceP_p2 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SS3> _iceI_sequenceTestAsync(SS1 iceP_p1, SS2 iceP_p2, java.util.Map<String, String> context, boolean sync)
     {
@@ -838,11 +880,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the dictionaryTest operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_bin parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_bin -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.DictionaryTestResult> _iceI_dictionaryTestAsync(java.util.Map<java.lang.Integer, B> iceP_bin, java.util.Map<String, String> context, boolean sync)
     {
@@ -880,11 +924,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the exchangePBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_pb parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_pb -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<PBase> _iceI_exchangePBaseAsync(PBase iceP_pb, java.util.Map<String, String> context, boolean sync)
     {
@@ -922,10 +968,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the PBSUnknownAsPreserved operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Preserved> _iceI_PBSUnknownAsPreservedAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -960,11 +1008,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkPBSUnknown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkPBSUnknownAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
     {
@@ -997,10 +1047,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the PBSUnknownAsPreservedWithGraph operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Preserved> _iceI_PBSUnknownAsPreservedWithGraphAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1035,11 +1087,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkPBSUnknownWithGraph operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkPBSUnknownWithGraphAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
     {
@@ -1072,10 +1126,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the PBSUnknown2AsPreservedWithGraph operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Preserved> _iceI_PBSUnknown2AsPreservedWithGraphAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1110,11 +1166,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkPBSUnknown2WithGraph operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkPBSUnknown2WithGraphAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
     {
@@ -1147,11 +1205,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the exchangePNode operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_pn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_pn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<PNode> _iceI_exchangePNodeAsync(PNode iceP_pn, java.util.Map<String, String> context, boolean sync)
     {
@@ -1202,10 +1262,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwBaseAsBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwBaseAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1254,10 +1316,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwDerivedAsBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1306,10 +1370,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwDerivedAsDerived operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwDerivedAsDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1358,10 +1424,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwUnknownDerivedAsBase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwUnknownDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1397,10 +1465,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the useForward operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Forward> _iceI_useForwardAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1435,10 +1505,12 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -1590,6 +1662,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestIntfPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::TestIntf";

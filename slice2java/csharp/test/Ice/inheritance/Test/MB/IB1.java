@@ -10,12 +10,24 @@ public interface IB1 extends Test.MA.IA
 {
     IB1Prx ib1op(IB1Prx p, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MB::IB1"
+     */
     static String ice_staticId()
     {
         return "::Test::MB::IB1";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation ib1op.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_ib1op(IB1 obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

@@ -8,15 +8,27 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::AdapterNotActiveException")
 public class AdapterNotActiveException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AdapterNotActiveException}.
+     **/
     public AdapterNotActiveException()
     {
     }
 
+    /**
+     * Creates a new {@code AdapterNotActiveException} with values for all its fields.
+     *
+     * @param activatable True if the adapter can be activated on demand.
+     */
     public AdapterNotActiveException(boolean activatable)
     {
         this.activatable = activatable;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::AdapterNotActiveException";
@@ -27,7 +39,10 @@ public class AdapterNotActiveException extends com.zeroc.Ice.UserException
      **/
     public boolean activatable;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +51,10 @@ public class AdapterNotActiveException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,6 +63,5 @@ public class AdapterNotActiveException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -1995507920628469362L;
 }

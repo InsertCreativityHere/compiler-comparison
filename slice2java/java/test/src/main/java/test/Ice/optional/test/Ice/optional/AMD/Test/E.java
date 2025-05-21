@@ -8,11 +8,17 @@ package test.Ice.optional.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::E")
 public class E extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code E}.
+     **/
     public E()
     {
         this.fse = new FixedStruct();
     }
 
+    /**
+     * Creates a new {@code E} with values for all its fields.
+     */
     public E(FixedStruct fse)
     {
         this.fse = fse;
@@ -25,18 +31,29 @@ public class E extends com.zeroc.Ice.Value
         return (E)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::E"
+     */
     public static String ice_staticId()
     {
         return "::Test::E";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -45,7 +62,10 @@ public class E extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -54,6 +74,5 @@ public class E extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -534762799971938680L;
 }

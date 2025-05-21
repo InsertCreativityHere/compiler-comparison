@@ -8,16 +8,26 @@ package Test.Sub;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Sub::NestedException")
 public class NestedException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code NestedException}.
+     **/
     public NestedException()
     {
         this.str = "";
     }
 
+    /**
+     * Creates a new {@code NestedException} with values for all its fields.
+     */
     public NestedException(String str)
     {
         this.str = str;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Sub::NestedException";
@@ -25,7 +35,10 @@ public class NestedException extends com.zeroc.Ice.UserException
 
     public String str;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class NestedException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class NestedException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6969058178288201414L;
 }

@@ -8,12 +8,18 @@ package test.Ice.slicing.objects.serverAMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Preserved")
 public class Preserved extends PBase
 {
+    /**
+     * Creates a new {@code Preserved}.
+     **/
     public Preserved()
     {
         super();
         this.ps = "";
     }
 
+    /**
+     * Creates a new {@code Preserved} with values for all its fields.
+     */
     public Preserved(int pi, String ps)
     {
         super(pi);
@@ -27,18 +33,29 @@ public class Preserved extends PBase
         return (Preserved)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Preserved"
+     */
     public static String ice_staticId()
     {
         return "::Test::Preserved";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class Preserved extends PBase
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class Preserved extends PBase
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5685206405186674741L;
 }

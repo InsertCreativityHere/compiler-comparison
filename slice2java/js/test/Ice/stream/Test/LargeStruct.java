@@ -28,12 +28,18 @@ public class LargeStruct implements java.lang.Cloneable,
 
     public MyInterfacePrx p;
 
+    /**
+     * Creates a new {@code LargeStruct}.
+     **/
     public LargeStruct()
     {
         this.str = "";
         this.e = MyEnum.enum1;
     }
 
+    /**
+     * Creates a new {@code LargeStruct} with values for all fields not marked optional in the Slice definition for {@code ::Test::LargeStruct}.
+     */
     public LargeStruct(boolean bo, byte by, short sh, int i, long l, float f, double d, String str, MyEnum e, MyInterfacePrx p)
     {
         this.bo = bo;
@@ -48,6 +54,10 @@ public class LargeStruct implements java.lang.Cloneable,
         this.p = p;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -118,6 +128,10 @@ public class LargeStruct implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -135,6 +149,10 @@ public class LargeStruct implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public LargeStruct clone()
     {
         LargeStruct c = null;
@@ -149,6 +167,11 @@ public class LargeStruct implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.bo);
@@ -163,6 +186,11 @@ public class LargeStruct implements java.lang.Cloneable,
         ostr.writeProxy(this.p);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.bo = istr.readBool();
@@ -177,6 +205,12 @@ public class LargeStruct implements java.lang.Cloneable,
         this.p = MyInterfacePrx.uncheckedCast(istr.readProxy());
     }
 
+    /**
+     * Marshals a {@code LargeStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code LargeStruct} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, LargeStruct v)
     {
         if(v == null)
@@ -189,6 +223,12 @@ public class LargeStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code LargeStruct} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code LargeStruct}
+     */
     static public LargeStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
         LargeStruct v = new LargeStruct();
@@ -196,6 +236,13 @@ public class LargeStruct implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code LargeStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LargeStruct> v)
     {
         if(v != null && v.isPresent())
@@ -204,6 +251,13 @@ public class LargeStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code LargeStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LargeStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -214,6 +268,13 @@ public class LargeStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code LargeStruct} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<LargeStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -229,6 +290,5 @@ public class LargeStruct implements java.lang.Cloneable,
 
     private static final LargeStruct _nullMarshalValue = new LargeStruct();
 
-    /** @hidden */
     private static final long serialVersionUID = -4352034666427394453L;
 }

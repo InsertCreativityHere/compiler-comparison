@@ -71,12 +71,14 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the init operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_llu parameter
+     * @param iceP_content parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_llu -
-     * @param iceP_content -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initAsync(LogUpdate iceP_llu, TopicContent[] iceP_content, java.util.Map<String, String> context, boolean sync)
     {
@@ -154,12 +156,14 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createTopic operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_llu parameter
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_llu -
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_createTopicAsync(LogUpdate iceP_llu, String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -237,12 +241,14 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroyTopic operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_llu parameter
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_llu -
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyTopicAsync(LogUpdate iceP_llu, String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -324,13 +330,15 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the addSubscriber operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_llu parameter
+     * @param iceP_topic parameter
+     * @param iceP_record parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_llu -
-     * @param iceP_topic -
-     * @param iceP_record -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addSubscriberAsync(LogUpdate iceP_llu, String iceP_topic, IceStorm.SubscriberRecord iceP_record, java.util.Map<String, String> context, boolean sync)
     {
@@ -413,13 +421,15 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the removeSubscriber operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_llu parameter
+     * @param iceP_topic parameter
+     * @param iceP_subscribers parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_llu -
-     * @param iceP_topic -
-     * @param iceP_subscribers -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_removeSubscriberAsync(LogUpdate iceP_llu, String iceP_topic, com.zeroc.Ice.Identity[] iceP_subscribers, java.util.Map<String, String> context, boolean sync)
     {
@@ -581,6 +591,11 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ReplicaObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStormElection::ReplicaObserver"
+     */
     static String ice_staticId()
     {
         return "::IceStormElection::ReplicaObserver";

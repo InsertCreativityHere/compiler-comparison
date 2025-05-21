@@ -8,10 +8,16 @@ package LocalTest;
 @com.zeroc.Ice.SliceTypeId(value = "::LocalTest::CB2")
 public class CB2 extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code CB2}.
+     **/
     public CB2()
     {
     }
 
+    /**
+     * Creates a new {@code CB2} with values for all its fields.
+     */
     public CB2(C1[] c1seq)
     {
         this.c1seq = c1seq;
@@ -24,18 +30,29 @@ public class CB2 extends com.zeroc.Ice.Value
         return (CB2)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::LocalTest::CB2"
+     */
     public static String ice_staticId()
     {
         return "::LocalTest::CB2";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +61,10 @@ public class CB2 extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +73,5 @@ public class CB2 extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -91311623440955794L;
 }

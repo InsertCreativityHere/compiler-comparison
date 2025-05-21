@@ -8,6 +8,11 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::J")
 public interface J extends I
 {
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::J"
+     */
     static String ice_staticId()
     {
         return "::Test::J";

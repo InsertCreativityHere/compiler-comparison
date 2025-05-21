@@ -97,12 +97,14 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the announceTopics operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topics parameter
+     * @param iceP_initialize parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topics -
-     * @param iceP_initialize -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceTopicsAsync(TopicInfo[] iceP_topics, boolean iceP_initialize, java.util.Map<String, String> context, boolean sync)
     {
@@ -167,11 +169,13 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the attachTopic operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topic parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topic -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachTopicAsync(TopicSpec iceP_topic, java.util.Map<String, String> context, boolean sync)
     {
@@ -231,11 +235,13 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the detachTopic operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_detachTopicAsync(long iceP_topicId, java.util.Map<String, String> context, boolean sync)
     {
@@ -303,13 +309,15 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the attachTags operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_tags parameter
+     * @param iceP_initialize parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_tags -
-     * @param iceP_initialize -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachTagsAsync(long iceP_topicId, ElementInfo[] iceP_tags, boolean iceP_initialize, java.util.Map<String, String> context, boolean sync)
     {
@@ -367,12 +375,14 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the detachTags operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_tags parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_tags -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_detachTagsAsync(long iceP_topicId, long[] iceP_tags, java.util.Map<String, String> context, boolean sync)
     {
@@ -461,12 +471,14 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the announceElements operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_elements parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_elements -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceElementsAsync(long iceP_topicId, ElementInfo[] iceP_elements, java.util.Map<String, String> context, boolean sync)
     {
@@ -539,13 +551,15 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the attachElements operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_elements parameter
+     * @param iceP_initialize parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_elements -
-     * @param iceP_initialize -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachElementsAsync(long iceP_topicId, ElementSpec[] iceP_elements, boolean iceP_initialize, java.util.Map<String, String> context, boolean sync)
     {
@@ -616,12 +630,14 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the attachElementsAck operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_elements parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_elements -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachElementsAckAsync(long iceP_topicId, ElementSpecAck[] iceP_elements, java.util.Map<String, String> context, boolean sync)
     {
@@ -691,12 +707,14 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the detachElements operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_elements parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_elements -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_detachElementsAsync(long iceP_topicId, long[] iceP_elements, java.util.Map<String, String> context, boolean sync)
     {
@@ -753,12 +771,14 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the initSamples operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topicId parameter
+     * @param iceP_samples parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topicId -
-     * @param iceP_samples -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initSamplesAsync(long iceP_topicId, DataSamples[] iceP_samples, java.util.Map<String, String> context, boolean sync)
     {
@@ -819,10 +839,12 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the disconnected operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_disconnectedAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -974,6 +996,11 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     SessionPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::Session"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::Session";

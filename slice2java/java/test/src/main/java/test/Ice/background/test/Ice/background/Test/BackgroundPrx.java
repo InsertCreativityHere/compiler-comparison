@@ -29,10 +29,12 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the op operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,11 +64,13 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opWithPayload operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_seq parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_seq -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opWithPayloadAsync(byte[] iceP_seq, java.util.Map<String, String> context, boolean sync)
     {
@@ -98,10 +102,12 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -253,6 +259,11 @@ public interface BackgroundPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     BackgroundPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Background"
+     */
     static String ice_staticId()
     {
         return "::Test::Background";

@@ -46,12 +46,24 @@ public interface Lookup extends com.zeroc.Ice.Object
      **/
     NodePrx createSession(NodePrx node, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::Lookup"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::Lookup";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation announceTopicReader.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_announceTopicReader(Lookup obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;
@@ -65,7 +77,14 @@ public interface Lookup extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation announceTopicWriter.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_announceTopicWriter(Lookup obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;
@@ -79,7 +98,14 @@ public interface Lookup extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation announceTopics.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_announceTopics(Lookup obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;
@@ -95,7 +121,14 @@ public interface Lookup extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation createSession.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_createSession(Lookup obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

@@ -8,12 +8,18 @@ package classdef;
 @com.zeroc.Ice.SliceTypeId(value = "::classdef::bitand")
 public class bitand extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code bitand}.
+     **/
     public bitand()
     {
         this.identifier = "1";
         this.message = "2";
     }
 
+    /**
+     * Creates a new {@code bitand} with values for all its fields.
+     */
     public bitand(String identifier, String message, logical end)
     {
         this.identifier = identifier;
@@ -21,6 +27,10 @@ public class bitand extends com.zeroc.Ice.UserException
         this.end = end;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::classdef::bitand";
@@ -32,7 +42,10 @@ public class bitand extends com.zeroc.Ice.UserException
 
     public logical end;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -43,7 +56,10 @@ public class bitand extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -54,13 +70,15 @@ public class bitand extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5458048300670258708L;
 }

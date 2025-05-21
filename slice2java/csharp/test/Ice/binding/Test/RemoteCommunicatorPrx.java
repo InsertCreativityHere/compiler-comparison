@@ -29,12 +29,14 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createObjectAdapter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_endpoints parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_endpoints -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<RemoteObjectAdapterPrx> _iceI_createObjectAdapterAsync(String iceP_name, String iceP_endpoints, java.util.Map<String, String> context, boolean sync)
     {
@@ -71,11 +73,13 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the deactivateObjectAdapter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_adapter parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_adapter -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_deactivateObjectAdapterAsync(RemoteObjectAdapterPrx iceP_adapter, java.util.Map<String, String> context, boolean sync)
     {
@@ -107,10 +111,12 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -262,6 +268,11 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     RemoteCommunicatorPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::RemoteCommunicator"
+     */
     static String ice_staticId()
     {
         return "::Test::RemoteCommunicator";

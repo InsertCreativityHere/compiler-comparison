@@ -10,6 +10,12 @@ package Test;
  **/
 public final class ByteBoolDSHelper
 {
+    /**
+     * Marshals a list of {@code ByteBoolDS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Byte, java.lang.Boolean>[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class ByteBoolDSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code ByteBoolDS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     @SuppressWarnings("unchecked")
     public static java.util.Map<java.lang.Byte, java.lang.Boolean>[] read(com.zeroc.Ice.InputStream istr)
     {
@@ -39,6 +51,13 @@ public final class ByteBoolDSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code ByteBoolDS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<java.util.Map<java.lang.Byte, java.lang.Boolean>[]> v)
     {
         if(v != null && v.isPresent())
@@ -47,6 +66,13 @@ public final class ByteBoolDSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code ByteBoolDS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Map<java.lang.Byte, java.lang.Boolean>[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -57,6 +83,13 @@ public final class ByteBoolDSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code ByteBoolDS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<java.util.Map<java.lang.Byte, java.lang.Boolean>[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

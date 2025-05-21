@@ -8,16 +8,26 @@ package test.Ice.objects.Test.Inner.Sub;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Inner::Sub::Ex")
 public class Ex extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code Ex}.
+     **/
     public Ex()
     {
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code Ex} with values for all its fields.
+     */
     public Ex(String reason)
     {
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Inner::Sub::Ex";
@@ -25,7 +35,10 @@ public class Ex extends com.zeroc.Ice.UserException
 
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class Ex extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class Ex extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -9036844046226363389L;
 }

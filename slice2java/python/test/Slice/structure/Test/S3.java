@@ -14,10 +14,16 @@ public class S3 implements java.lang.Cloneable,
 
     public com.zeroc.Ice.ObjectPrx prx;
 
+    /**
+     * Creates a new {@code S3}.
+     **/
     public S3()
     {
     }
 
+    /**
+     * Creates a new {@code S3} with values for all fields not marked optional in the Slice definition for {@code ::Test::S3}.
+     */
     public S3(C obj, java.util.Map<java.lang.String, java.lang.String> sd, com.zeroc.Ice.ObjectPrx prx)
     {
         this.obj = obj;
@@ -25,6 +31,10 @@ public class S3 implements java.lang.Cloneable,
         this.prx = prx;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -67,6 +77,10 @@ public class S3 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -77,6 +91,10 @@ public class S3 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public S3 clone()
     {
         S3 c = null;
@@ -91,6 +109,11 @@ public class S3 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeValue(this.obj);
@@ -98,6 +121,11 @@ public class S3 implements java.lang.Cloneable,
         ostr.writeProxy(this.prx);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         istr.readValue(v -> obj = v, C.class);
@@ -105,6 +133,12 @@ public class S3 implements java.lang.Cloneable,
         this.prx = istr.readProxy();
     }
 
+    /**
+     * Marshals a {@code S3} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code S3} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, S3 v)
     {
         if(v == null)
@@ -117,6 +151,12 @@ public class S3 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code S3} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code S3}
+     */
     static public S3 ice_read(com.zeroc.Ice.InputStream istr)
     {
         S3 v = new S3();
@@ -124,6 +164,13 @@ public class S3 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code S3} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<S3> v)
     {
         if(v != null && v.isPresent())
@@ -132,6 +179,13 @@ public class S3 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code S3} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, S3 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -142,6 +196,13 @@ public class S3 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code S3} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<S3> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -157,6 +218,5 @@ public class S3 implements java.lang.Cloneable,
 
     private static final S3 _nullMarshalValue = new S3();
 
-    /** @hidden */
     private static final long serialVersionUID = 2813743599638887633L;
 }

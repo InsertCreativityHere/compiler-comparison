@@ -10,12 +10,24 @@ public interface MyObject extends com.zeroc.Ice.Object
 {
     String getName(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyObject"
+     */
     static String ice_staticId()
     {
         return "::Test::MyObject";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getName.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getName(MyObject obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

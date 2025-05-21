@@ -14,10 +14,16 @@ public class PointD implements java.lang.Cloneable,
 
     public double z;
 
+    /**
+     * Creates a new {@code PointD}.
+     **/
     public PointD()
     {
     }
 
+    /**
+     * Creates a new {@code PointD} with values for all fields not marked optional in the Slice definition for {@code ::Test::PointD}.
+     */
     public PointD(double x, double y, double z)
     {
         this.x = x;
@@ -25,6 +31,10 @@ public class PointD implements java.lang.Cloneable,
         this.z = z;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -58,6 +68,10 @@ public class PointD implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -68,6 +82,10 @@ public class PointD implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public PointD clone()
     {
         PointD c = null;
@@ -82,6 +100,11 @@ public class PointD implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeDouble(this.x);
@@ -89,6 +112,11 @@ public class PointD implements java.lang.Cloneable,
         ostr.writeDouble(this.z);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.x = istr.readDouble();
@@ -96,6 +124,12 @@ public class PointD implements java.lang.Cloneable,
         this.z = istr.readDouble();
     }
 
+    /**
+     * Marshals a {@code PointD} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code PointD} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, PointD v)
     {
         if(v == null)
@@ -108,6 +142,12 @@ public class PointD implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code PointD} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code PointD}
+     */
     static public PointD ice_read(com.zeroc.Ice.InputStream istr)
     {
         PointD v = new PointD();
@@ -115,6 +155,13 @@ public class PointD implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code PointD} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<PointD> v)
     {
         if(v != null && v.isPresent())
@@ -123,6 +170,13 @@ public class PointD implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code PointD} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, PointD v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -132,6 +186,13 @@ public class PointD implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code PointD} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<PointD> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -147,6 +208,5 @@ public class PointD implements java.lang.Cloneable,
 
     private static final PointD _nullMarshalValue = new PointD();
 
-    /** @hidden */
     private static final long serialVersionUID = 7921053566625181031L;
 }

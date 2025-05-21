@@ -10,6 +10,12 @@ package Test;
  **/
 public final class CustomCVSSHelper
 {
+    /**
+     * Marshals a list of {@code CustomCVSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, CV[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class CustomCVSSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code CustomCVSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static CV[][] read(com.zeroc.Ice.InputStream istr)
     {
         final CV[][] v;
@@ -39,6 +51,13 @@ public final class CustomCVSSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code CustomCVSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<CV[][]> v)
     {
         if(v != null && v.isPresent())
@@ -47,6 +66,13 @@ public final class CustomCVSSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code CustomCVSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, CV[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -57,6 +83,13 @@ public final class CustomCVSSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code CustomCVSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<CV[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

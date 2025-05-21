@@ -10,6 +10,12 @@ package DataStormContract;
  **/
 public final class ElementDataSeqHelper
 {
+    /**
+     * Marshals a list of {@code ElementDataSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, ElementData[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class ElementDataSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code ElementDataSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static ElementData[] read(com.zeroc.Ice.InputStream istr)
     {
         final ElementData[] v;
@@ -38,6 +50,13 @@ public final class ElementDataSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code ElementDataSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ElementData[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class ElementDataSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code ElementDataSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, ElementData[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class ElementDataSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code ElementDataSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<ElementData[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

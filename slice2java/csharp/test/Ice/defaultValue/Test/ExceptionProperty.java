@@ -8,6 +8,9 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::ExceptionProperty")
 public class ExceptionProperty extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ExceptionProperty}.
+     **/
     public ExceptionProperty()
     {
         this.boolFalse = false;
@@ -28,6 +31,9 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
         this.zeroDotD = 0;
     }
 
+    /**
+     * Creates a new {@code ExceptionProperty} with values for all its fields.
+     */
     public ExceptionProperty(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
     {
         this.boolFalse = boolFalse;
@@ -48,6 +54,10 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
         this.zeroDotD = zeroDotD;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::ExceptionProperty";
@@ -85,7 +95,10 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
 
     public double zeroDotD;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -109,7 +122,10 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -133,6 +149,5 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2411688592320325688L;
 }

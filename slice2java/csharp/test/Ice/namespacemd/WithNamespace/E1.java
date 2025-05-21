@@ -8,15 +8,25 @@ package WithNamespace;
 @com.zeroc.Ice.SliceTypeId(value = "::WithNamespace::E1")
 public class E1 extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code E1}.
+     **/
     public E1()
     {
     }
 
+    /**
+     * Creates a new {@code E1} with values for all its fields.
+     */
     public E1(int i)
     {
         this.i = i;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::WithNamespace::E1";
@@ -24,7 +34,10 @@ public class E1 extends com.zeroc.Ice.UserException
 
     public int i;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class E1 extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class E1 extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6737171741245867299L;
 }

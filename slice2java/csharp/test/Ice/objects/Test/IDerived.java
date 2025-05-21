@@ -8,12 +8,18 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::IDerived")
 public class IDerived extends IBase
 {
+    /**
+     * Creates a new {@code IDerived}.
+     **/
     public IDerived()
     {
         super();
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code IDerived} with values for all its fields.
+     */
     public IDerived(String id, String name)
     {
         super(id);
@@ -27,18 +33,29 @@ public class IDerived extends IBase
         return (IDerived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::IDerived"
+     */
     public static String ice_staticId()
     {
         return "::Test::IDerived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class IDerived extends IBase
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class IDerived extends IBase
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 7190131836273040760L;
 }

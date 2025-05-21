@@ -29,11 +29,13 @@ public interface breakPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the case operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_class parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_class -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_caseAsync(int iceP_class, java.util.Map<String, String> context, boolean sync)
     {
@@ -191,6 +193,11 @@ public interface breakPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     breakPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::import::break"
+     */
     static String ice_staticId()
     {
         return "::import::break";

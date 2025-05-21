@@ -49,14 +49,16 @@ public interface explicitPrx extends typeofPrx,
     }
 
     /**
+     * Invokes the in operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_internal parameter
+     * @param iceP_new parameter
+     * @param iceP_null parameter
+     * @param iceP_override parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_internal -
-     * @param iceP_new -
-     * @param iceP_null -
-     * @param iceP_override -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<var> _iceI_inAsync(break iceP_internal, typeofPrx iceP_new, delete iceP_null, int iceP_override, java.util.Map<String, String> context, boolean sync)
     {
@@ -225,6 +227,11 @@ public interface explicitPrx extends typeofPrx,
     @Override
     explicitPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::await::explicit"
+     */
     static String ice_staticId()
     {
         return "::await::explicit";

@@ -8,16 +8,26 @@ package and;
 @com.zeroc.Ice.SliceTypeId(value = "::and::not")
 public class not extends is
 {
+    /**
+     * Creates a new {@code not}.
+     **/
     public not()
     {
     }
 
+    /**
+     * Creates a new {@code not} with values for all its fields.
+     */
     public not(int bar, int pass)
     {
         super(bar);
         this.pass = pass;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::and::not";
@@ -25,7 +35,10 @@ public class not extends is
 
     public int pass;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -35,7 +48,10 @@ public class not extends is
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,6 +61,5 @@ public class not extends is
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4766648286454704334L;
 }

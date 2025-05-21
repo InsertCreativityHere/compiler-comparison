@@ -71,11 +71,13 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the create operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TopicPrx> _iceI_createAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -154,11 +156,13 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the retrieve operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TopicPrx> _iceI_retrieveAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -218,10 +222,12 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the retrieveAll operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, TopicPrx>> _iceI_retrieveAllAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -377,6 +383,11 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TopicManagerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStorm::TopicManager"
+     */
     static String ice_staticId()
     {
         return "::IceStorm::TopicManager";

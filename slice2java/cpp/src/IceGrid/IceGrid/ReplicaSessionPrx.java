@@ -45,10 +45,12 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the keepAlive operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_keepAliveAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -94,10 +96,12 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getTimeout operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -202,12 +206,14 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setDatabaseObserver operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dbObs parameter
+     * @param iceP_serials parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dbObs -
-     * @param iceP_serials -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, java.util.Map<java.lang.String, java.lang.Long> iceP_serials, java.util.Map<String, String> context, boolean sync)
     {
@@ -239,12 +245,14 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setDatabaseObserver operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_dbObs parameter
+     * @param iceP_serials parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_dbObs -
-     * @param iceP_serials -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> iceP_serials, java.util.Map<String, String> context, boolean sync)
     {
@@ -304,11 +312,13 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setEndpoints operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_endpoints parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_endpoints -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setEndpointsAsync(java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> iceP_endpoints, java.util.Map<String, String> context, boolean sync)
     {
@@ -356,11 +366,13 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the registerWellKnownObjects operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_objects parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_objects -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_registerWellKnownObjectsAsync(com.zeroc.IceGrid.ObjectInfo[] iceP_objects, java.util.Map<String, String> context, boolean sync)
     {
@@ -431,13 +443,15 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setAdapterDirectProxy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_adapterId parameter
+     * @param iceP_replicaGroupId parameter
+     * @param iceP_proxy parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_adapterId -
-     * @param iceP_replicaGroupId -
-     * @param iceP_proxy -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, com.zeroc.Ice.ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
@@ -498,13 +512,15 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the receivedUpdate operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_serial parameter
+     * @param iceP_failure parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_serial -
-     * @param iceP_failure -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_receivedUpdateAsync(TopicName iceP_name, int iceP_serial, String iceP_failure, java.util.Map<String, String> context, boolean sync)
     {
@@ -554,10 +570,12 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -709,6 +727,11 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ReplicaSessionPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::ReplicaSession"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::ReplicaSession";

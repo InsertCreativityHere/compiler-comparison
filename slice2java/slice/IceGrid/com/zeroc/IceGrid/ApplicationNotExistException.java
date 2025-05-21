@@ -11,16 +11,28 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ApplicationNotExistException")
 public class ApplicationNotExistException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ApplicationNotExistException}.
+     **/
     public ApplicationNotExistException()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code ApplicationNotExistException} with values for all its fields.
+     *
+     * @param name The name of the application.
+     */
     public ApplicationNotExistException(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::ApplicationNotExistException";
@@ -31,7 +43,10 @@ public class ApplicationNotExistException extends com.zeroc.Ice.UserException
      **/
     public String name;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class ApplicationNotExistException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class ApplicationNotExistException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -1264588982032751300L;
 }

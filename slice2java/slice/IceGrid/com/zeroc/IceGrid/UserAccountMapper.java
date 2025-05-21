@@ -24,12 +24,25 @@ public interface UserAccountMapper extends com.zeroc.Ice.Object
     String getUserAccount(String user, com.zeroc.Ice.Current current)
         throws UserAccountNotFoundException;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::UserAccountMapper"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::UserAccountMapper";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getUserAccount.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getUserAccount(UserAccountMapper obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

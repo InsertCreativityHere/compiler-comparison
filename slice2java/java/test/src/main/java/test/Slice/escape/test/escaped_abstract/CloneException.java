@@ -8,17 +8,27 @@ package test.escaped_abstract;
 @com.zeroc.Ice.SliceTypeId(value = "::abstract::clone")
 public class CloneException extends _hashCode
 {
+    /**
+     * Creates a new {@code CloneException}.
+     **/
     public CloneException()
     {
         this.escaped_native = "";
     }
 
+    /**
+     * Creates a new {@code CloneException} with values for all its fields.
+     */
     public CloneException(int bar, String escaped_native)
     {
         super(bar);
         this.escaped_native = escaped_native;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::abstract::clone";
@@ -26,7 +36,10 @@ public class CloneException extends _hashCode
 
     public String escaped_native;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +49,10 @@ public class CloneException extends _hashCode
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -46,6 +62,5 @@ public class CloneException extends _hashCode
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 893541654036180866L;
 }

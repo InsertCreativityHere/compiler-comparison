@@ -42,10 +42,22 @@ public class ElementDataAck implements java.lang.Cloneable,
      **/
     public long peerId;
 
+    /**
+     * Creates a new {@code ElementDataAck}.
+     **/
     public ElementDataAck()
     {
     }
 
+    /**
+     * Creates a new {@code ElementDataAck} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::ElementDataAck}.
+     *
+     * @param id The unique identifier for the data reader or data writer.
+     * @param config The configuration settings for the data reader or data writer.
+     * @param lastIds A mapping of data writer IDs to the last sample IDs received by the data reader.
+     * @param samples A sequence of samples in the writer's queue, used to initialize the reader.
+     * @param peerId The unique identifier for the peer's data reader or data writer.
+     */
     public ElementDataAck(long id, ElementConfig config, java.util.Map<java.lang.Long, java.lang.Long> lastIds, DataSample[] samples, long peerId)
     {
         this.id = id;
@@ -55,6 +67,10 @@ public class ElementDataAck implements java.lang.Cloneable,
         this.peerId = peerId;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -102,6 +118,10 @@ public class ElementDataAck implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -114,6 +134,10 @@ public class ElementDataAck implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ElementDataAck clone()
     {
         ElementDataAck c = null;
@@ -128,6 +152,11 @@ public class ElementDataAck implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.id);
@@ -137,6 +166,11 @@ public class ElementDataAck implements java.lang.Cloneable,
         ostr.writeLong(this.peerId);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readLong();
@@ -146,6 +180,12 @@ public class ElementDataAck implements java.lang.Cloneable,
         this.peerId = istr.readLong();
     }
 
+    /**
+     * Marshals an {@code ElementDataAck} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ElementDataAck} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ElementDataAck v)
     {
         if(v == null)
@@ -158,6 +198,12 @@ public class ElementDataAck implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ElementDataAck} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ElementDataAck}
+     */
     static public ElementDataAck ice_read(com.zeroc.Ice.InputStream istr)
     {
         ElementDataAck v = new ElementDataAck();
@@ -165,6 +211,13 @@ public class ElementDataAck implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ElementDataAck} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ElementDataAck> v)
     {
         if(v != null && v.isPresent())
@@ -173,6 +226,13 @@ public class ElementDataAck implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ElementDataAck} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ElementDataAck v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -183,6 +243,13 @@ public class ElementDataAck implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ElementDataAck} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ElementDataAck> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -198,6 +265,5 @@ public class ElementDataAck implements java.lang.Cloneable,
 
     private static final ElementDataAck _nullMarshalValue = new ElementDataAck();
 
-    /** @hidden */
     private static final long serialVersionUID = 4375151747138385479L;
 }

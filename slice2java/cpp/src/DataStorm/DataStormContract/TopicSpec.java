@@ -35,11 +35,22 @@ public class TopicSpec implements java.lang.Cloneable,
      **/
     public ElementInfo[] tags;
 
+    /**
+     * Creates a new {@code TopicSpec}.
+     **/
     public TopicSpec()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code TopicSpec} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::TopicSpec}.
+     *
+     * @param id The unique identifier for the topic.
+     * @param name The name of the topic.
+     * @param elements The topic's keys and filters.
+     * @param tags The topic update tags.
+     */
     public TopicSpec(long id, String name, ElementInfo[] elements, ElementInfo[] tags)
     {
         this.id = id;
@@ -48,6 +59,10 @@ public class TopicSpec implements java.lang.Cloneable,
         this.tags = tags;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -88,6 +103,10 @@ public class TopicSpec implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -99,6 +118,10 @@ public class TopicSpec implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public TopicSpec clone()
     {
         TopicSpec c = null;
@@ -113,6 +136,11 @@ public class TopicSpec implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.id);
@@ -121,6 +149,11 @@ public class TopicSpec implements java.lang.Cloneable,
         ElementInfoSeqHelper.write(ostr, this.tags);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readLong();
@@ -129,6 +162,12 @@ public class TopicSpec implements java.lang.Cloneable,
         this.tags = ElementInfoSeqHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code TopicSpec} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code TopicSpec} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, TopicSpec v)
     {
         if(v == null)
@@ -141,6 +180,12 @@ public class TopicSpec implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code TopicSpec} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code TopicSpec}
+     */
     static public TopicSpec ice_read(com.zeroc.Ice.InputStream istr)
     {
         TopicSpec v = new TopicSpec();
@@ -148,6 +193,13 @@ public class TopicSpec implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code TopicSpec} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<TopicSpec> v)
     {
         if(v != null && v.isPresent())
@@ -156,6 +208,13 @@ public class TopicSpec implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code TopicSpec} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, TopicSpec v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -166,6 +225,13 @@ public class TopicSpec implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code TopicSpec} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<TopicSpec> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -181,6 +247,5 @@ public class TopicSpec implements java.lang.Cloneable,
 
     private static final TopicSpec _nullMarshalValue = new TopicSpec();
 
-    /** @hidden */
     private static final long serialVersionUID = 7925909457543579564L;
 }

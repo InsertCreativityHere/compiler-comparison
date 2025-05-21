@@ -8,17 +8,27 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::CallbackException")
 public class CallbackException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code CallbackException}.
+     **/
     public CallbackException()
     {
         this.someString = "";
     }
 
+    /**
+     * Creates a new {@code CallbackException} with values for all its fields.
+     */
     public CallbackException(double someValue, String someString)
     {
         this.someValue = someValue;
         this.someString = someString;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::CallbackException";
@@ -28,7 +38,10 @@ public class CallbackException extends com.zeroc.Ice.UserException
 
     public String someString;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -38,7 +51,10 @@ public class CallbackException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -48,6 +64,5 @@ public class CallbackException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5419554587870599278L;
 }

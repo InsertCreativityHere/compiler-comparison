@@ -10,6 +10,12 @@ package test.Ice.optional.Test;
  **/
 public final class VarStructSeqHelper
 {
+    /**
+     * Marshals a list of {@code VarStructSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, VarStruct[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class VarStructSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code VarStructSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static VarStruct[] read(com.zeroc.Ice.InputStream istr)
     {
         final VarStruct[] v;
@@ -38,6 +50,13 @@ public final class VarStructSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code VarStructSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<VarStruct[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class VarStructSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code VarStructSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, VarStruct[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class VarStructSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code VarStructSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<VarStruct[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

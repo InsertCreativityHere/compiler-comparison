@@ -14,12 +14,24 @@ public interface case extends com.zeroc.Ice.Object
      **/
     java.util.concurrent.CompletionStage<java.lang.Integer> catchAsync(int checked, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::case"
+     */
     static String ice_staticId()
     {
         return "::abstract::case";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation catch.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_catch(case obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

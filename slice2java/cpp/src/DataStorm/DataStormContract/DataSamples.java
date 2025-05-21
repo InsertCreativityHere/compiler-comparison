@@ -21,16 +21,29 @@ public class DataSamples implements java.lang.Cloneable,
      **/
     public DataSample[] samples;
 
+    /**
+     * Creates a new {@code DataSamples}.
+     **/
     public DataSamples()
     {
     }
 
+    /**
+     * Creates a new {@code DataSamples} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::DataSamples}.
+     *
+     * @param id The unique identifier for the writer.
+     * @param samples The sequence of samples produced by the writer.
+     */
     public DataSamples(long id, DataSample[] samples)
     {
         this.id = id;
         this.samples = samples;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -60,6 +73,10 @@ public class DataSamples implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -69,6 +86,10 @@ public class DataSamples implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public DataSamples clone()
     {
         DataSamples c = null;
@@ -83,18 +104,34 @@ public class DataSamples implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.id);
         DataSampleSeqHelper.write(ostr, this.samples);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readLong();
         this.samples = DataSampleSeqHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code DataSamples} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code DataSamples} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, DataSamples v)
     {
         if(v == null)
@@ -107,6 +144,12 @@ public class DataSamples implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code DataSamples} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code DataSamples}
+     */
     static public DataSamples ice_read(com.zeroc.Ice.InputStream istr)
     {
         DataSamples v = new DataSamples();
@@ -114,6 +157,13 @@ public class DataSamples implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code DataSamples} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<DataSamples> v)
     {
         if(v != null && v.isPresent())
@@ -122,6 +172,13 @@ public class DataSamples implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code DataSamples} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, DataSamples v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -132,6 +189,13 @@ public class DataSamples implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code DataSamples} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<DataSamples> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -147,6 +211,5 @@ public class DataSamples implements java.lang.Cloneable,
 
     private static final DataSamples _nullMarshalValue = new DataSamples();
 
-    /** @hidden */
     private static final long serialVersionUID = -7204609476247368211L;
 }

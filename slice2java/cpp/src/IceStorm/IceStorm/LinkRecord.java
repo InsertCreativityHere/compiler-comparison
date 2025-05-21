@@ -26,10 +26,20 @@ public class LinkRecord implements java.lang.Cloneable,
      **/
     public com.zeroc.IceStorm.TopicPrx theTopic;
 
+    /**
+     * Creates a new {@code LinkRecord}.
+     **/
     public LinkRecord()
     {
     }
 
+    /**
+     * Creates a new {@code LinkRecord} with values for all fields not marked optional in the Slice definition for {@code ::IceStorm::LinkRecord}.
+     *
+     * @param obj The topic link object.
+     * @param cost The cost.
+     * @param theTopic The linked topic for getLinkInfoSeq
+     */
     public LinkRecord(TopicLinkPrx obj, int cost, com.zeroc.IceStorm.TopicPrx theTopic)
     {
         this.obj = obj;
@@ -37,6 +47,10 @@ public class LinkRecord implements java.lang.Cloneable,
         this.theTopic = theTopic;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -76,6 +90,10 @@ public class LinkRecord implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -86,6 +104,10 @@ public class LinkRecord implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public LinkRecord clone()
     {
         LinkRecord c = null;
@@ -100,6 +122,11 @@ public class LinkRecord implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeProxy(this.obj);
@@ -107,6 +134,11 @@ public class LinkRecord implements java.lang.Cloneable,
         ostr.writeProxy(this.theTopic);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.obj = TopicLinkPrx.uncheckedCast(istr.readProxy());
@@ -114,6 +146,12 @@ public class LinkRecord implements java.lang.Cloneable,
         this.theTopic = com.zeroc.IceStorm.TopicPrx.uncheckedCast(istr.readProxy());
     }
 
+    /**
+     * Marshals a {@code LinkRecord} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code LinkRecord} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, LinkRecord v)
     {
         if(v == null)
@@ -126,6 +164,12 @@ public class LinkRecord implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code LinkRecord} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code LinkRecord}
+     */
     static public LinkRecord ice_read(com.zeroc.Ice.InputStream istr)
     {
         LinkRecord v = new LinkRecord();
@@ -133,6 +177,13 @@ public class LinkRecord implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code LinkRecord} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LinkRecord> v)
     {
         if(v != null && v.isPresent())
@@ -141,6 +192,13 @@ public class LinkRecord implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code LinkRecord} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LinkRecord v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -151,6 +209,13 @@ public class LinkRecord implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code LinkRecord} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<LinkRecord> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -166,6 +231,5 @@ public class LinkRecord implements java.lang.Cloneable,
 
     private static final LinkRecord _nullMarshalValue = new LinkRecord();
 
-    /** @hidden */
     private static final long serialVersionUID = -8213948081421839616L;
 }

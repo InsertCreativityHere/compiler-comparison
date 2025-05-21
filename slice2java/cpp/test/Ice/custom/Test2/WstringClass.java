@@ -83,12 +83,24 @@ public interface WstringClass extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> throwExceptAsync(String reason, com.zeroc.Ice.Current current)
         throws WstringException;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test2::WstringClass"
+     */
     static String ice_staticId()
     {
         return "::Test2::WstringClass";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opString.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opString(WstringClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -107,7 +119,14 @@ public interface WstringClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opStruct.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opStruct(WstringClass obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -126,7 +145,15 @@ public interface WstringClass extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation throwExcept.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwExcept(WstringClass obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

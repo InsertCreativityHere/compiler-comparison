@@ -74,12 +74,14 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createSession operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_userId parameter
+     * @param iceP_password parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_userId -
-     * @param iceP_password -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
@@ -163,12 +165,14 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createAdminSession operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_userId parameter
+     * @param iceP_password parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_userId -
-     * @param iceP_password -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
@@ -244,10 +248,12 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createSessionFromSecureConnection operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -320,10 +326,12 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createAdminSessionFromSecureConnection operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -389,10 +397,12 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getSessionTimeout operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -548,6 +558,11 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     RegistryPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::Registry"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Registry";

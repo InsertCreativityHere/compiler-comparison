@@ -8,15 +8,25 @@ package abstract;
 @com.zeroc.Ice.SliceTypeId(value = "::abstract::fixed")
 public class fixed extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code fixed}.
+     **/
     public fixed()
     {
     }
 
+    /**
+     * Creates a new {@code fixed} with values for all its fields.
+     */
     public fixed(int for)
     {
         this.for = for;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::abstract::fixed";
@@ -24,7 +34,10 @@ public class fixed extends com.zeroc.Ice.UserException
 
     public int for;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class fixed extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class fixed extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 770616082806579212L;
 }

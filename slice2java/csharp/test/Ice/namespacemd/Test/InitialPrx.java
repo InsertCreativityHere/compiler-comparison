@@ -29,10 +29,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getNoNamespaceC2AsC1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<NoNamespace.C1> _iceI_getNoNamespaceC2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -67,10 +69,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getNoNamespaceC2AsC2 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<NoNamespace.C2> _iceI_getNoNamespaceC2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -118,10 +122,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwNoNamespaceE2AsE1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNoNamespaceE2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -170,10 +176,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwNoNamespaceE2AsE2 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNoNamespaceE2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -222,10 +230,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwNoNamespaceNotify operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNoNamespaceNotifyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -261,10 +271,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getWithNamespaceC2AsC1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<WithNamespace.C1> _iceI_getWithNamespaceC2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -299,10 +311,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getWithNamespaceC2AsC2 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<WithNamespace.C2> _iceI_getWithNamespaceC2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -350,10 +364,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwWithNamespaceE2AsE1 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwWithNamespaceE2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -402,10 +418,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwWithNamespaceE2AsE2 operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwWithNamespaceE2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
@@ -441,10 +459,12 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -596,6 +616,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     InitialPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Initial"
+     */
     static String ice_staticId()
     {
         return "::Test::Initial";

@@ -10,6 +10,12 @@ package Test;
  **/
 public final class QIPrxSHelper
 {
+    /**
+     * Marshals a list of {@code QIPrxS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, IPrx[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class QIPrxSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code QIPrxS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static IPrx[] read(com.zeroc.Ice.InputStream istr)
     {
         final IPrx[] v;
@@ -38,6 +50,13 @@ public final class QIPrxSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code QIPrxS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<IPrx[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class QIPrxSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code QIPrxS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, IPrx[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class QIPrxSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code QIPrxS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<IPrx[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

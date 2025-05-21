@@ -8,17 +8,26 @@ package test.Ice.optional.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::B")
 public class B extends A
 {
+    /**
+     * Creates a new {@code B}.
+     **/
     public B()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code B} with values for all fields not marked optional in the Slice definition for {@code ::Test::B}.
+     */
     public B(int requiredA, int requiredB)
     {
         super(requiredA);
         this.requiredB = requiredB;
     }
 
+    /**
+     * Creates a new {@code B} with values for all its fields.
+     */
     public B(int requiredA, int ma, int mb, int mc, int requiredB, int md)
     {
         super(requiredA, ma, mb, mc);
@@ -86,18 +95,29 @@ public class B extends A
         return (B)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::B"
+     */
     public static String ice_staticId()
     {
         return "::Test::B";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -111,7 +131,10 @@ public class B extends A
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -125,6 +148,5 @@ public class B extends A
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2950570675148239589L;
 }

@@ -9,11 +9,17 @@ package test.Ice.slicing.objects.client.Test;
 @com.zeroc.Ice.CompactSliceTypeId(value = 57)
 public class CompactPCDerived extends CompactPDerived
 {
+    /**
+     * Creates a new {@code CompactPCDerived}.
+     **/
     public CompactPCDerived()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code CompactPCDerived} with values for all its fields.
+     */
     public CompactPCDerived(int pi, String ps, PBase pb, PBase[] pbs)
     {
         super(pi, ps, pb);
@@ -27,18 +33,29 @@ public class CompactPCDerived extends CompactPDerived
         return (CompactPCDerived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::CompactPCDerived"
+     */
     public static String ice_staticId()
     {
         return "::Test::CompactPCDerived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class CompactPCDerived extends CompactPDerived
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class CompactPCDerived extends CompactPDerived
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2398094519110966026L;
 }

@@ -12,16 +12,26 @@ public class Point implements java.lang.Cloneable,
 
     public int y;
 
+    /**
+     * Creates a new {@code Point}.
+     **/
     public Point()
     {
     }
 
+    /**
+     * Creates a new {@code Point} with values for all fields not marked optional in the Slice definition for {@code ::Test::Point}.
+     */
     public Point(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -51,6 +61,10 @@ public class Point implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -60,6 +74,10 @@ public class Point implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Point clone()
     {
         Point c = null;
@@ -74,18 +92,34 @@ public class Point implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.x);
         ostr.writeInt(this.y);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.x = istr.readInt();
         this.y = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code Point} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Point} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Point v)
     {
         if(v == null)
@@ -98,6 +132,12 @@ public class Point implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Point} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Point}
+     */
     static public Point ice_read(com.zeroc.Ice.InputStream istr)
     {
         Point v = new Point();
@@ -105,6 +145,13 @@ public class Point implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Point} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Point> v)
     {
         if(v != null && v.isPresent())
@@ -113,6 +160,13 @@ public class Point implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Point} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Point v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -122,6 +176,13 @@ public class Point implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Point} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Point> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -137,6 +198,5 @@ public class Point implements java.lang.Cloneable,
 
     private static final Point _nullMarshalValue = new Point();
 
-    /** @hidden */
     private static final long serialVersionUID = -5035213570962643596L;
 }

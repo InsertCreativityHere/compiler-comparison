@@ -11,16 +11,26 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::NodeActiveException")
 public class NodeActiveException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code NodeActiveException}.
+     **/
     public NodeActiveException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::NodeActiveException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -28,7 +38,10 @@ public class NodeActiveException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -36,6 +49,5 @@ public class NodeActiveException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6248959864254311544L;
 }

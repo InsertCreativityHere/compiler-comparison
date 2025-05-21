@@ -11,16 +11,28 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::RegistryNotExistException")
 public class RegistryNotExistException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code RegistryNotExistException}.
+     **/
     public RegistryNotExistException()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code RegistryNotExistException} with values for all its fields.
+     *
+     * @param name The registry name.
+     */
     public RegistryNotExistException(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::RegistryNotExistException";
@@ -31,7 +43,10 @@ public class RegistryNotExistException extends com.zeroc.Ice.UserException
      **/
     public String name;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class RegistryNotExistException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class RegistryNotExistException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4025151905569713715L;
 }

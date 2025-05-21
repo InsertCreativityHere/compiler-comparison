@@ -88,13 +88,15 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the registerNode operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_info parameter
+     * @param iceP_prx parameter
+     * @param iceP_loadInf parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param iceP_prx -
-     * @param iceP_loadInf -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<NodeSessionPrx> _iceI_registerNodeAsync(InternalNodeInfo iceP_info, NodePrx iceP_prx, com.zeroc.IceGrid.LoadInfo iceP_loadInf, java.util.Map<String, String> context, boolean sync)
     {
@@ -195,12 +197,14 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the registerReplica operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_info parameter
+     * @param iceP_prx parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param iceP_prx -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<ReplicaSessionPrx> _iceI_registerReplicaAsync(InternalReplicaInfo iceP_info, InternalRegistryPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
@@ -265,11 +269,13 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the registerWithReplica operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_prx parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_prx -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
@@ -317,10 +323,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getNodes operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<NodePrx[]> _iceI_getNodesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -370,10 +378,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getReplicas operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<InternalRegistryPrx[]> _iceI_getReplicasAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -425,10 +435,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getApplications operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetApplicationsResult> _iceI_getApplicationsAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -463,10 +475,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getAdapters operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetAdaptersResult> _iceI_getAdaptersAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -500,10 +514,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the getObjects operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetObjectsResult> _iceI_getObjectsAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -553,10 +569,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -708,6 +726,11 @@ public interface InternalRegistryPrx extends FileReaderPrx
     @Override
     InternalRegistryPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::InternalRegistry"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::InternalRegistry";

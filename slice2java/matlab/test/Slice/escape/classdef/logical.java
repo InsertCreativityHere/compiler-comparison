@@ -8,6 +8,9 @@ package classdef;
 @com.zeroc.Ice.SliceTypeId(value = "::classdef::logical")
 public class logical extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code logical}.
+     **/
     public logical()
     {
         this.else = classdef.persistent.break;
@@ -15,6 +18,9 @@ public class logical extends com.zeroc.Ice.Value
         this.int64 = true;
     }
 
+    /**
+     * Creates a new {@code logical} with values for all its fields.
+     */
     public logical(persistent else, global for, boolean int64)
     {
         this.else = else;
@@ -33,18 +39,29 @@ public class logical extends com.zeroc.Ice.Value
         return (logical)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::classdef::logical"
+     */
     public static String ice_staticId()
     {
         return "::classdef::logical";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -55,7 +72,10 @@ public class logical extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -66,6 +86,5 @@ public class logical extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8987462539875924199L;
 }

@@ -8,11 +8,17 @@ package test.Ice.packagemd.Test1;
 @com.zeroc.Ice.SliceTypeId(value = "::Test1::C2")
 public class C2 extends C1
 {
+    /**
+     * Creates a new {@code C2}.
+     **/
     public C2()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code C2} with values for all its fields.
+     */
     public C2(int i, long l)
     {
         super(i);
@@ -26,18 +32,29 @@ public class C2 extends C1
         return (C2)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test1::C2"
+     */
     public static String ice_staticId()
     {
         return "::Test1::C2";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -47,7 +64,10 @@ public class C2 extends C1
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -57,6 +77,5 @@ public class C2 extends C1
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -1260087064625126409L;
 }

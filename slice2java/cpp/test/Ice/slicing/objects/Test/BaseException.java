@@ -8,17 +8,27 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::BaseException")
 public class BaseException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code BaseException}.
+     **/
     public BaseException()
     {
         this.sbe = "";
     }
 
+    /**
+     * Creates a new {@code BaseException} with values for all its fields.
+     */
     public BaseException(String sbe, B pb)
     {
         this.sbe = sbe;
         this.pb = pb;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::BaseException";
@@ -28,7 +38,10 @@ public class BaseException extends com.zeroc.Ice.UserException
 
     public B pb;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -38,7 +51,10 @@ public class BaseException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -48,13 +64,15 @@ public class BaseException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -3602153861553732103L;
 }

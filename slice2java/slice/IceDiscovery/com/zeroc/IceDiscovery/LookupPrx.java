@@ -68,13 +68,15 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findObjectById operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_domainId parameter
+     * @param iceP_id parameter
+     * @param iceP_reply parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_domainId -
-     * @param iceP_id -
-     * @param iceP_reply -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_findObjectByIdAsync(String iceP_domainId, com.zeroc.Ice.Identity iceP_id, LookupReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
     {
@@ -144,13 +146,15 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findAdapterById operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_domainId parameter
+     * @param iceP_id parameter
+     * @param iceP_reply parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_domainId -
-     * @param iceP_id -
-     * @param iceP_reply -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_findAdapterByIdAsync(String iceP_domainId, String iceP_id, LookupReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
     {
@@ -306,6 +310,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     LookupPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceDiscovery::Lookup"
+     */
     static String ice_staticId()
     {
         return "::IceDiscovery::Lookup";

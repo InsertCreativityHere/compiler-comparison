@@ -8,21 +8,34 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::DerivedEx")
 public class DerivedEx extends BaseEx
 {
+    /**
+     * Creates a new {@code DerivedEx}.
+     **/
     public DerivedEx()
     {
     }
 
+    /**
+     * Creates a new {@code DerivedEx} with values for all its fields.
+     */
     public DerivedEx(String reason)
     {
         super(reason);
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::DerivedEx";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -31,7 +44,10 @@ public class DerivedEx extends BaseEx
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -40,6 +56,5 @@ public class DerivedEx extends BaseEx
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4268776817929044354L;
 }

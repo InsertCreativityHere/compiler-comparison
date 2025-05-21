@@ -12,18 +12,28 @@ public class Struct4 implements java.lang.Cloneable,
 
     public String bar;
 
+    /**
+     * Creates a new {@code Struct4}.
+     **/
     public Struct4()
     {
         this.foo = "foo";
         this.bar = "";
     }
 
+    /**
+     * Creates a new {@code Struct4} with values for all fields not marked optional in the Slice definition for {@code ::Test::Struct4}.
+     */
     public Struct4(String foo, String bar)
     {
         this.foo = foo;
         this.bar = bar;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -59,6 +69,10 @@ public class Struct4 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -68,6 +82,10 @@ public class Struct4 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Struct4 clone()
     {
         Struct4 c = null;
@@ -82,18 +100,34 @@ public class Struct4 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.foo);
         ostr.writeString(this.bar);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.foo = istr.readString();
         this.bar = istr.readString();
     }
 
+    /**
+     * Marshals a {@code Struct4} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Struct4} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Struct4 v)
     {
         if(v == null)
@@ -106,6 +140,12 @@ public class Struct4 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Struct4} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Struct4}
+     */
     static public Struct4 ice_read(com.zeroc.Ice.InputStream istr)
     {
         Struct4 v = new Struct4();
@@ -113,6 +153,13 @@ public class Struct4 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Struct4} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Struct4> v)
     {
         if(v != null && v.isPresent())
@@ -121,6 +168,13 @@ public class Struct4 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Struct4} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Struct4 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -131,6 +185,13 @@ public class Struct4 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Struct4} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Struct4> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -146,6 +207,5 @@ public class Struct4 implements java.lang.Cloneable,
 
     private static final Struct4 _nullMarshalValue = new Struct4();
 
-    /** @hidden */
     private static final long serialVersionUID = 4831068734465390438L;
 }

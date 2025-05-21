@@ -20,12 +20,24 @@ public interface TopicManagerInternal extends com.zeroc.IceStorm.TopicManager
      **/
     IceStormElection.NodePrx getReplicaNode(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStorm::TopicManagerInternal"
+     */
     static String ice_staticId()
     {
         return "::IceStorm::TopicManagerInternal";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getReplicaNode.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getReplicaNode(TopicManagerInternal obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();

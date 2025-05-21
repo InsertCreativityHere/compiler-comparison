@@ -10,12 +10,24 @@ public interface break extends com.zeroc.Ice.Object
 {
     java.util.concurrent.CompletionStage<java.lang.Integer> caseAsync(int class, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::import::break"
+     */
     static String ice_staticId()
     {
         return "::import::break";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation case.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_case(break obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

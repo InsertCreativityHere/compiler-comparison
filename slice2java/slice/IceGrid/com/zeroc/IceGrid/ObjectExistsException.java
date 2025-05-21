@@ -11,16 +11,28 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ObjectExistsException")
 public class ObjectExistsException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ObjectExistsException}.
+     **/
     public ObjectExistsException()
     {
         this.id = new com.zeroc.Ice.Identity();
     }
 
+    /**
+     * Creates a new {@code ObjectExistsException} with values for all its fields.
+     *
+     * @param id The identity of the object.
+     */
     public ObjectExistsException(com.zeroc.Ice.Identity id)
     {
         this.id = id;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::ObjectExistsException";
@@ -31,7 +43,10 @@ public class ObjectExistsException extends com.zeroc.Ice.UserException
      **/
     public com.zeroc.Ice.Identity id;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class ObjectExistsException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class ObjectExistsException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7700719531947051939L;
 }

@@ -10,6 +10,12 @@ package test.Ice.slicing.objects.serverAMD.Test;
  **/
 public final class BSeqHelper
 {
+    /**
+     * Marshals a list of {@code BSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, B[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class BSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code BSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static B[] read(com.zeroc.Ice.InputStream istr)
     {
         final B[] v;
@@ -39,6 +51,13 @@ public final class BSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code BSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<B[]> v)
     {
         if(v != null && v.isPresent())
@@ -47,6 +66,13 @@ public final class BSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code BSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, B[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -57,6 +83,13 @@ public final class BSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code BSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<B[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

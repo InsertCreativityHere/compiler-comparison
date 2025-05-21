@@ -40,6 +40,9 @@ public class StructProperty implements java.lang.Cloneable,
 
     public double zeroDotD;
 
+    /**
+     * Creates a new {@code StructProperty}.
+     **/
     public StructProperty()
     {
         this.boolFalse = false;
@@ -60,6 +63,9 @@ public class StructProperty implements java.lang.Cloneable,
         this.zeroDotD = 0;
     }
 
+    /**
+     * Creates a new {@code StructProperty} with values for all fields not marked optional in the Slice definition for {@code ::Test::StructProperty}.
+     */
     public StructProperty(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
     {
         this.boolFalse = boolFalse;
@@ -80,6 +86,10 @@ public class StructProperty implements java.lang.Cloneable,
         this.zeroDotD = zeroDotD;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -171,6 +181,10 @@ public class StructProperty implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -194,6 +208,10 @@ public class StructProperty implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public StructProperty clone()
     {
         StructProperty c = null;
@@ -208,6 +226,11 @@ public class StructProperty implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.boolFalse);
@@ -228,6 +251,11 @@ public class StructProperty implements java.lang.Cloneable,
         ostr.writeDouble(this.zeroDotD);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.boolFalse = istr.readBool();
@@ -248,6 +276,12 @@ public class StructProperty implements java.lang.Cloneable,
         this.zeroDotD = istr.readDouble();
     }
 
+    /**
+     * Marshals a {@code StructProperty} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code StructProperty} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, StructProperty v)
     {
         if(v == null)
@@ -260,6 +294,12 @@ public class StructProperty implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code StructProperty} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code StructProperty}
+     */
     static public StructProperty ice_read(com.zeroc.Ice.InputStream istr)
     {
         StructProperty v = new StructProperty();
@@ -267,6 +307,13 @@ public class StructProperty implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code StructProperty} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<StructProperty> v)
     {
         if(v != null && v.isPresent())
@@ -275,6 +322,13 @@ public class StructProperty implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code StructProperty} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, StructProperty v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -285,6 +339,13 @@ public class StructProperty implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code StructProperty} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<StructProperty> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -300,6 +361,5 @@ public class StructProperty implements java.lang.Cloneable,
 
     private static final StructProperty _nullMarshalValue = new StructProperty();
 
-    /** @hidden */
     private static final long serialVersionUID = 9087242768797398392L;
 }

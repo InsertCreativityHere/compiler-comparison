@@ -8,17 +8,27 @@ package classdef;
 @com.zeroc.Ice.SliceTypeId(value = "::classdef::bitor")
 public class bitor extends bitand
 {
+    /**
+     * Creates a new {@code bitor}.
+     **/
     public bitor()
     {
         this.enumeration = 1;
     }
 
+    /**
+     * Creates a new {@code bitor} with values for all its fields.
+     */
     public bitor(String identifier, String message, logical end, int enumeration)
     {
         super(identifier, message, end);
         this.enumeration = enumeration;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::classdef::bitor";
@@ -26,7 +36,10 @@ public class bitor extends bitand
 
     public int enumeration;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +49,10 @@ public class bitor extends bitand
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -46,6 +62,5 @@ public class bitor extends bitand
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7804668404239250701L;
 }

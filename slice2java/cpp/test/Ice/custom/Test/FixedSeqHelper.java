@@ -10,6 +10,12 @@ package Test;
  **/
 public final class FixedSeqHelper
 {
+    /**
+     * Marshals a list of {@code FixedSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, Fixed[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class FixedSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code FixedSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static Fixed[] read(com.zeroc.Ice.InputStream istr)
     {
         final Fixed[] v;
@@ -38,6 +50,13 @@ public final class FixedSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code FixedSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Fixed[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class FixedSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code FixedSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Fixed[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -56,6 +82,13 @@ public final class FixedSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code FixedSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<Fixed[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))

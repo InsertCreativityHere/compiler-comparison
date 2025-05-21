@@ -10,6 +10,12 @@ package Test;
  **/
 public final class DPrxListHelper
 {
+    /**
+     * Marshals a list of {@code DPrxList} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, DPrx[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class DPrxListHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code DPrxList} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static DPrx[] read(com.zeroc.Ice.InputStream istr)
     {
         final DPrx[] v;
@@ -38,6 +50,13 @@ public final class DPrxListHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code DPrxList} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<DPrx[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class DPrxListHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code DPrxList} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, DPrx[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class DPrxListHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code DPrxList} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<DPrx[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

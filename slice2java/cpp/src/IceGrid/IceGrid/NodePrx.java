@@ -65,12 +65,14 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the loadServer operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_svr parameter
+     * @param iceP_replicaName parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_svr -
-     * @param iceP_replicaName -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Node.LoadServerResult> _iceI_loadServerAsync(InternalServerDescriptor iceP_svr, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
@@ -153,12 +155,14 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the loadServerWithoutRestart operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_svr parameter
+     * @param iceP_replicaName parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_svr -
-     * @param iceP_replicaName -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Node.LoadServerWithoutRestartResult> _iceI_loadServerWithoutRestartAsync(InternalServerDescriptor iceP_svr, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
@@ -231,14 +235,16 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the destroyServer operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_uuid parameter
+     * @param iceP_revision parameter
+     * @param iceP_replicaName parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_uuid -
-     * @param iceP_revision -
-     * @param iceP_replicaName -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyServerAsync(String iceP_name, String iceP_uuid, int iceP_revision, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
@@ -308,14 +314,16 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the destroyServerWithoutRestart operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_uuid parameter
+     * @param iceP_revision parameter
+     * @param iceP_replicaName parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_uuid -
-     * @param iceP_revision -
-     * @param iceP_replicaName -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyServerWithoutRestartAsync(String iceP_name, String iceP_uuid, int iceP_revision, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
@@ -376,11 +384,13 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the registerWithReplica operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_replica parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_replica -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
     {
@@ -428,10 +438,12 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the getName operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getNameAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -481,10 +493,12 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the getHostname operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getHostnameAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -534,10 +548,12 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the getLoad operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.IceGrid.LoadInfo> _iceI_getLoadAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -587,10 +603,12 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the getProcessorSocketCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getProcessorSocketCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -640,10 +658,12 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -795,6 +815,11 @@ public interface NodePrx extends FileReaderPrx,
     @Override
     NodePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::Node"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Node";

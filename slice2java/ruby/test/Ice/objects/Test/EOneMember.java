@@ -8,15 +8,25 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::EOneMember")
 public class EOneMember extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code EOneMember}.
+     **/
     public EOneMember()
     {
     }
 
+    /**
+     * Creates a new {@code EOneMember} with values for all its fields.
+     */
     public EOneMember(Empty e)
     {
         this.e = e;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::EOneMember";
@@ -24,7 +34,10 @@ public class EOneMember extends com.zeroc.Ice.UserException
 
     public Empty e;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class EOneMember extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,13 +58,15 @@ public class EOneMember extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 3719296483853316765L;
 }

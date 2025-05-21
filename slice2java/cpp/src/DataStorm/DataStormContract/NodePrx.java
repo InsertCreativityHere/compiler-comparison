@@ -87,11 +87,13 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the initiateCreateSession operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_publisher parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_publisher -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initiateCreateSessionAsync(NodePrx iceP_publisher, java.util.Map<String, String> context, boolean sync)
     {
@@ -208,13 +210,15 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createSession operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_subscriber parameter
+     * @param iceP_session parameter
+     * @param iceP_fromRelay parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_subscriber -
-     * @param iceP_session -
-     * @param iceP_fromRelay -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_createSessionAsync(NodePrx iceP_subscriber, SubscriberSessionPrx iceP_session, boolean iceP_fromRelay, java.util.Map<String, String> context, boolean sync)
     {
@@ -293,12 +297,14 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the confirmCreateSession operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_publisher parameter
+     * @param iceP_session parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_publisher -
-     * @param iceP_session -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_confirmCreateSessionAsync(NodePrx iceP_publisher, PublisherSessionPrx iceP_session, java.util.Map<String, String> context, boolean sync)
     {
@@ -459,6 +465,11 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     @Override
     NodePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::Node"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::Node";

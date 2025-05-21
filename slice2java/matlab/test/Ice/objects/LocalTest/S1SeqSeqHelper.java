@@ -10,6 +10,12 @@ package LocalTest;
  **/
 public final class S1SeqSeqHelper
 {
+    /**
+     * Marshals a list of {@code S1SeqSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, S1[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class S1SeqSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code S1SeqSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static S1[][] read(com.zeroc.Ice.InputStream istr)
     {
         final S1[][] v;
@@ -38,6 +50,13 @@ public final class S1SeqSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code S1SeqSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<S1[][]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class S1SeqSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code S1SeqSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, S1[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class S1SeqSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code S1SeqSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<S1[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

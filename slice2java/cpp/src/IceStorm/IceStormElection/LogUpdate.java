@@ -21,16 +21,29 @@ public class LogUpdate implements java.lang.Cloneable,
      **/
     public long iteration;
 
+    /**
+     * Creates a new {@code LogUpdate}.
+     **/
     public LogUpdate()
     {
     }
 
+    /**
+     * Creates a new {@code LogUpdate} with values for all fields not marked optional in the Slice definition for {@code ::IceStormElection::LogUpdate}.
+     *
+     * @param generation The generation.
+     * @param iteration The iteration within this generation.
+     */
     public LogUpdate(long generation, long iteration)
     {
         this.generation = generation;
         this.iteration = iteration;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -60,6 +73,10 @@ public class LogUpdate implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -69,6 +86,10 @@ public class LogUpdate implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public LogUpdate clone()
     {
         LogUpdate c = null;
@@ -83,18 +104,34 @@ public class LogUpdate implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.generation);
         ostr.writeLong(this.iteration);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.generation = istr.readLong();
         this.iteration = istr.readLong();
     }
 
+    /**
+     * Marshals a {@code LogUpdate} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code LogUpdate} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, LogUpdate v)
     {
         if(v == null)
@@ -107,6 +144,12 @@ public class LogUpdate implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code LogUpdate} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code LogUpdate}
+     */
     static public LogUpdate ice_read(com.zeroc.Ice.InputStream istr)
     {
         LogUpdate v = new LogUpdate();
@@ -114,6 +157,13 @@ public class LogUpdate implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code LogUpdate} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LogUpdate> v)
     {
         if(v != null && v.isPresent())
@@ -122,6 +172,13 @@ public class LogUpdate implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code LogUpdate} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LogUpdate v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -131,6 +188,13 @@ public class LogUpdate implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code LogUpdate} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<LogUpdate> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -146,6 +210,5 @@ public class LogUpdate implements java.lang.Cloneable,
 
     private static final LogUpdate _nullMarshalValue = new LogUpdate();
 
-    /** @hidden */
     private static final long serialVersionUID = -6542839632081932245L;
 }

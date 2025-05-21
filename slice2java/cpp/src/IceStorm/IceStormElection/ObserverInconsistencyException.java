@@ -11,16 +11,28 @@ package IceStormElection;
 @com.zeroc.Ice.SliceTypeId(value = "::IceStormElection::ObserverInconsistencyException")
 public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ObserverInconsistencyException}.
+     **/
     public ObserverInconsistencyException()
     {
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code ObserverInconsistencyException} with values for all its fields.
+     *
+     * @param reason The reason for the inconsistency.
+     */
     public ObserverInconsistencyException(String reason)
     {
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceStormElection::ObserverInconsistencyException";
@@ -31,7 +43,10 @@ public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5870772271785858882L;
 }

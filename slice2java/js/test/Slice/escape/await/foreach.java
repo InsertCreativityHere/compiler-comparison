@@ -8,10 +8,16 @@ package await;
 @com.zeroc.Ice.SliceTypeId(value = "::await::foreach")
 public class foreach extends fixed
 {
+    /**
+     * Creates a new {@code foreach}.
+     **/
     public foreach()
     {
     }
 
+    /**
+     * Creates a new {@code foreach} with values for all its fields.
+     */
     public foreach(int for, int goto, int if)
     {
         super(for);
@@ -19,6 +25,10 @@ public class foreach extends fixed
         this.if = if;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::await::foreach";
@@ -28,7 +38,10 @@ public class foreach extends fixed
 
     public int if;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -39,7 +52,10 @@ public class foreach extends fixed
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -50,6 +66,5 @@ public class foreach extends fixed
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1968597479751563238L;
 }

@@ -8,11 +8,17 @@ package BEGIN;
 @com.zeroc.Ice.SliceTypeId(value = "::BEGIN::nil")
 public class nil extends next
 {
+    /**
+     * Creates a new {@code nil}.
+     **/
     public nil()
     {
         this.or = new and();
     }
 
+    /**
+     * Creates a new {@code nil} with values for all its fields.
+     */
     public nil(int new, int not, and or)
     {
         super(new);
@@ -20,6 +26,10 @@ public class nil extends next
         this.or = or;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::BEGIN::nil";
@@ -29,7 +39,10 @@ public class nil extends next
 
     public and or;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +53,10 @@ public class nil extends next
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -51,6 +67,5 @@ public class nil extends next
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8974016374958583919L;
 }

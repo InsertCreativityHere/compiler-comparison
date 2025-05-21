@@ -8,16 +8,26 @@ package Test1;
 @com.zeroc.Ice.SliceTypeId(value = "::Test1::WstringException")
 public class WstringException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code WstringException}.
+     **/
     public WstringException()
     {
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code WstringException} with values for all its fields.
+     */
     public WstringException(String reason)
     {
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test1::WstringException";
@@ -25,7 +35,10 @@ public class WstringException extends com.zeroc.Ice.UserException
 
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class WstringException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class WstringException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1136265399562805585L;
 }

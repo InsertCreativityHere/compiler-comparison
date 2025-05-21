@@ -29,10 +29,12 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the callback operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callbackAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -75,10 +77,12 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the callbackEx operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callbackExAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -114,11 +118,13 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the concurrentCallback operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_number parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_number -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_concurrentCallbackAsync(int iceP_number, java.util.Map<String, String> context, boolean sync)
     {
@@ -154,10 +160,12 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the waitCallback operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_waitCallbackAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -187,11 +195,13 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the callbackWithPayload operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_payload parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_payload -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callbackWithPayloadAsync(byte[] iceP_payload, java.util.Map<String, String> context, boolean sync)
     {
@@ -345,6 +355,11 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     CallbackReceiverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::CallbackReceiver"
+     */
     static String ice_staticId()
     {
         return "::Test::CallbackReceiver";

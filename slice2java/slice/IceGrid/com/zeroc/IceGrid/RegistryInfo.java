@@ -21,18 +21,31 @@ public class RegistryInfo implements java.lang.Cloneable,
      **/
     public String hostname;
 
+    /**
+     * Creates a new {@code RegistryInfo}.
+     **/
     public RegistryInfo()
     {
         this.name = "";
         this.hostname = "";
     }
 
+    /**
+     * Creates a new {@code RegistryInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::RegistryInfo}.
+     *
+     * @param name The name of the registry.
+     * @param hostname The network name of the host running this registry.
+     */
     public RegistryInfo(String name, String hostname)
     {
         this.name = name;
         this.hostname = hostname;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -68,6 +81,10 @@ public class RegistryInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -77,6 +94,10 @@ public class RegistryInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public RegistryInfo clone()
     {
         RegistryInfo c = null;
@@ -91,18 +112,34 @@ public class RegistryInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
         ostr.writeString(this.hostname);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
         this.hostname = istr.readString();
     }
 
+    /**
+     * Marshals a {@code RegistryInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code RegistryInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, RegistryInfo v)
     {
         if(v == null)
@@ -115,6 +152,12 @@ public class RegistryInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code RegistryInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code RegistryInfo}
+     */
     static public RegistryInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         RegistryInfo v = new RegistryInfo();
@@ -122,6 +165,13 @@ public class RegistryInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code RegistryInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<RegistryInfo> v)
     {
         if(v != null && v.isPresent())
@@ -130,6 +180,13 @@ public class RegistryInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code RegistryInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, RegistryInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -140,6 +197,13 @@ public class RegistryInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code RegistryInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<RegistryInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -155,6 +219,5 @@ public class RegistryInfo implements java.lang.Cloneable,
 
     private static final RegistryInfo _nullMarshalValue = new RegistryInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -2076164531699536504L;
 }

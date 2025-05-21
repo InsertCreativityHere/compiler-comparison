@@ -14,12 +14,18 @@ public class StructValue implements java.lang.Cloneable,
 
     public int age;
 
+    /**
+     * Creates a new {@code StructValue}.
+     **/
     public StructValue()
     {
         this.firstName = "";
         this.lastName = "";
     }
 
+    /**
+     * Creates a new {@code StructValue} with values for all fields not marked optional in the Slice definition for {@code ::Test::StructValue}.
+     */
     public StructValue(String firstName, String lastName, int age)
     {
         this.firstName = firstName;
@@ -27,6 +33,10 @@ public class StructValue implements java.lang.Cloneable,
         this.age = age;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -66,6 +76,10 @@ public class StructValue implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -76,6 +90,10 @@ public class StructValue implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public StructValue clone()
     {
         StructValue c = null;
@@ -90,6 +108,11 @@ public class StructValue implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.firstName);
@@ -97,6 +120,11 @@ public class StructValue implements java.lang.Cloneable,
         ostr.writeInt(this.age);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.firstName = istr.readString();
@@ -104,6 +132,12 @@ public class StructValue implements java.lang.Cloneable,
         this.age = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code StructValue} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code StructValue} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, StructValue v)
     {
         if(v == null)
@@ -116,6 +150,12 @@ public class StructValue implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code StructValue} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code StructValue}
+     */
     static public StructValue ice_read(com.zeroc.Ice.InputStream istr)
     {
         StructValue v = new StructValue();
@@ -123,6 +163,13 @@ public class StructValue implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code StructValue} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<StructValue> v)
     {
         if(v != null && v.isPresent())
@@ -131,6 +178,13 @@ public class StructValue implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code StructValue} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, StructValue v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -141,6 +195,13 @@ public class StructValue implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code StructValue} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<StructValue> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -156,6 +217,5 @@ public class StructValue implements java.lang.Cloneable,
 
     private static final StructValue _nullMarshalValue = new StructValue();
 
-    /** @hidden */
     private static final long serialVersionUID = 7195980719721932952L;
 }

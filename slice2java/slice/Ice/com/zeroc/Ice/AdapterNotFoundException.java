@@ -12,16 +12,26 @@ package com.zeroc.Ice;
 @com.zeroc.Ice.SliceTypeId(value = "::Ice::AdapterNotFoundException")
 public class AdapterNotFoundException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AdapterNotFoundException}.
+     **/
     public AdapterNotFoundException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Ice::AdapterNotFoundException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -29,7 +39,10 @@ public class AdapterNotFoundException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -37,6 +50,5 @@ public class AdapterNotFoundException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8908526381796415272L;
 }

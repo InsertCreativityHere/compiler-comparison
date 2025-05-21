@@ -8,10 +8,16 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::YesDefault")
 public class YesDefault extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code YesDefault}.
+     **/
     public YesDefault()
     {
     }
 
+    /**
+     * Creates a new {@code YesDefault} with values for all its fields.
+     */
     public YesDefault(int x, int y)
     {
         this.x = x;
@@ -27,18 +33,29 @@ public class YesDefault extends com.zeroc.Ice.Value
         return (YesDefault)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::YesDefault"
+     */
     public static String ice_staticId()
     {
         return "::Test::YesDefault";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class YesDefault extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class YesDefault extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2063006932950033673L;
 }

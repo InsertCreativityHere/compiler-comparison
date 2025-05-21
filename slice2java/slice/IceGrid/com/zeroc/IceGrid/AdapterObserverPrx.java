@@ -52,11 +52,13 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the adapterInit operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_adpts parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_adpts -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterInitAsync(AdapterInfo[] iceP_adpts, java.util.Map<String, String> context, boolean sync)
     {
@@ -108,11 +110,13 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the adapterAdded operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_info parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterAddedAsync(AdapterInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
@@ -160,11 +164,13 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the adapterUpdated operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_info parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterUpdatedAsync(AdapterInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
@@ -216,11 +222,13 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the adapterRemoved operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterRemovedAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -374,6 +382,11 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     AdapterObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::AdapterObserver"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::AdapterObserver";

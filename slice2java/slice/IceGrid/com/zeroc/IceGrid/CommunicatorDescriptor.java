@@ -11,12 +11,23 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::CommunicatorDescriptor")
 public class CommunicatorDescriptor extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code CommunicatorDescriptor}.
+     **/
     public CommunicatorDescriptor()
     {
         this.propertySet = new PropertySetDescriptor();
         this.description = "";
     }
 
+    /**
+     * Creates a new {@code CommunicatorDescriptor} with values for all its fields.
+     *
+     * @param adapters The indirect object adapters.
+     * @param propertySet The property set.
+     * @param logs The path of each log file.
+     * @param description A description of this descriptor.
+     */
     public CommunicatorDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description)
     {
         this.adapters = adapters;
@@ -50,18 +61,29 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
         return (CommunicatorDescriptor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::CommunicatorDescriptor"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::CommunicatorDescriptor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -73,7 +95,10 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -85,6 +110,5 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2098835034144012873L;
 }

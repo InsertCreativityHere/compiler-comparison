@@ -72,11 +72,13 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the authorize operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_info parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> _iceI_authorizeAsync(SSLInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
@@ -240,6 +242,11 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     SSLPermissionsVerifierPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Glacier2::SSLPermissionsVerifier"
+     */
     static String ice_staticId()
     {
         return "::Glacier2::SSLPermissionsVerifier";

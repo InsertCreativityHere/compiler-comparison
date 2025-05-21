@@ -8,11 +8,17 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::UnknownDerivedException")
 public class UnknownDerivedException extends BaseException
 {
+    /**
+     * Creates a new {@code UnknownDerivedException}.
+     **/
     public UnknownDerivedException()
     {
         this.sude = "";
     }
 
+    /**
+     * Creates a new {@code UnknownDerivedException} with values for all its fields.
+     */
     public UnknownDerivedException(String sbe, B pb, String sude, D2 pd2)
     {
         super(sbe, pb);
@@ -20,6 +26,10 @@ public class UnknownDerivedException extends BaseException
         this.pd2 = pd2;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::UnknownDerivedException";
@@ -29,7 +39,10 @@ public class UnknownDerivedException extends BaseException
 
     public D2 pd2;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +53,10 @@ public class UnknownDerivedException extends BaseException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -51,6 +67,5 @@ public class UnknownDerivedException extends BaseException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1715202172570015610L;
 }

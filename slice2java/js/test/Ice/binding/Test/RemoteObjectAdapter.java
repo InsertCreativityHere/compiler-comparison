@@ -12,12 +12,24 @@ public interface RemoteObjectAdapter extends com.zeroc.Ice.Object
 
     void deactivate(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::RemoteObjectAdapter"
+     */
     static String ice_staticId()
     {
         return "::Test::RemoteObjectAdapter";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation getTestIntf.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getTestIntf(RemoteObjectAdapter obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -30,7 +42,14 @@ public interface RemoteObjectAdapter extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation deactivate.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_deactivate(RemoteObjectAdapter obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

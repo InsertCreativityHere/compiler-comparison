@@ -10,15 +10,25 @@ public class Polyline implements java.lang.Cloneable,
 {
     public Point[] vertices;
 
+    /**
+     * Creates a new {@code Polyline}.
+     **/
     public Polyline()
     {
     }
 
+    /**
+     * Creates a new {@code Polyline} with values for all fields not marked optional in the Slice definition for {@code ::Test::Polyline}.
+     */
     public Polyline(Point[] vertices)
     {
         this.vertices = vertices;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -44,6 +54,10 @@ public class Polyline implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -52,6 +66,10 @@ public class Polyline implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Polyline clone()
     {
         Polyline c = null;
@@ -66,16 +84,32 @@ public class Polyline implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         PointsHelper.write(ostr, this.vertices);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.vertices = PointsHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code Polyline} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Polyline} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Polyline v)
     {
         if(v == null)
@@ -88,6 +122,12 @@ public class Polyline implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Polyline} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Polyline}
+     */
     static public Polyline ice_read(com.zeroc.Ice.InputStream istr)
     {
         Polyline v = new Polyline();
@@ -95,6 +135,13 @@ public class Polyline implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Polyline} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Polyline> v)
     {
         if(v != null && v.isPresent())
@@ -103,6 +150,13 @@ public class Polyline implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Polyline} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Polyline v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -113,6 +167,13 @@ public class Polyline implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Polyline} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Polyline> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -128,6 +189,5 @@ public class Polyline implements java.lang.Cloneable,
 
     private static final Polyline _nullMarshalValue = new Polyline();
 
-    /** @hidden */
     private static final long serialVersionUID = -2237572283468617989L;
 }

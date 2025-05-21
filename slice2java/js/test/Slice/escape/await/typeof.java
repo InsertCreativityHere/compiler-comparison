@@ -10,12 +10,24 @@ public interface typeof extends com.zeroc.Ice.Object
 {
     void default(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::await::typeof"
+     */
     static String ice_staticId()
     {
         return "::await::typeof";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation default.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_default(typeof obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

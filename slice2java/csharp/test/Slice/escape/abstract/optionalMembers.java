@@ -8,6 +8,9 @@ package abstract;
 @com.zeroc.Ice.SliceTypeId(value = "::abstract::optionalMembers")
 public class optionalMembers extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code optionalMembers}.
+     **/
     public optionalMembers()
     {
         this.for = new break();
@@ -15,6 +18,9 @@ public class optionalMembers extends com.zeroc.Ice.Value
         this.namespace = "";
     }
 
+    /**
+     * Creates a new {@code optionalMembers} with values for all its fields.
+     */
     public optionalMembers(break for, as goto, explicitPrx if, java.util.Map<java.lang.String, break> internal, String namespace)
     {
         setFor(for);
@@ -294,18 +300,29 @@ public class optionalMembers extends com.zeroc.Ice.Value
         return (optionalMembers)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::optionalMembers"
+     */
     public static String ice_staticId()
     {
         return "::abstract::optionalMembers";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -333,7 +350,10 @@ public class optionalMembers extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -364,6 +384,5 @@ public class optionalMembers extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5944635411128391984L;
 }

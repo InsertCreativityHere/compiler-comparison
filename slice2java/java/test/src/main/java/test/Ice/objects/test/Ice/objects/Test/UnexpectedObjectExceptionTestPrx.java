@@ -29,10 +29,12 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
     }
 
     /**
+     * Invokes the op operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Empty> _iceI_opAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -189,6 +191,11 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
     @Override
     UnexpectedObjectExceptionTestPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::UnexpectedObjectExceptionTest"
+     */
     static String ice_staticId()
     {
         return "::Test::UnexpectedObjectExceptionTest";

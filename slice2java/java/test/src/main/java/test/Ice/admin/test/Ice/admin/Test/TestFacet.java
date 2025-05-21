@@ -10,12 +10,24 @@ public interface TestFacet extends com.zeroc.Ice.Object
 {
     void op(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestFacet"
+     */
     static String ice_staticId()
     {
         return "::Test::TestFacet";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation op.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_op(TestFacet obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

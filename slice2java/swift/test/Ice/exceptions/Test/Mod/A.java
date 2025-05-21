@@ -8,16 +8,26 @@ package Test.Mod;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Mod::A")
 public class A extends Test.A
 {
+    /**
+     * Creates a new {@code A}.
+     **/
     public A()
     {
     }
 
+    /**
+     * Creates a new {@code A} with values for all its fields.
+     */
     public A(int aMem, int a2Mem)
     {
         super(aMem);
         this.a2Mem = a2Mem;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Mod::A";
@@ -25,7 +35,10 @@ public class A extends Test.A
 
     public int a2Mem;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -35,7 +48,10 @@ public class A extends Test.A
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,6 +61,5 @@ public class A extends Test.A
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8055816905405520006L;
 }

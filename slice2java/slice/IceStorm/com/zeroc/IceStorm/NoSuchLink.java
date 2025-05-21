@@ -11,16 +11,28 @@ package com.zeroc.IceStorm;
 @com.zeroc.Ice.SliceTypeId(value = "::IceStorm::NoSuchLink")
 public class NoSuchLink extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code NoSuchLink}.
+     **/
     public NoSuchLink()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code NoSuchLink} with values for all its fields.
+     *
+     * @param name The name of the link that does not exist.
+     */
     public NoSuchLink(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceStorm::NoSuchLink";
@@ -31,7 +43,10 @@ public class NoSuchLink extends com.zeroc.Ice.UserException
      **/
     public String name;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class NoSuchLink extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class NoSuchLink extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7813149366582951276L;
 }

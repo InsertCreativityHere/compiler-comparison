@@ -8,10 +8,16 @@ package Test.Common;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Common::OptionOverrides")
 public class OptionOverrides extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code OptionOverrides}.
+     **/
     public OptionOverrides()
     {
     }
 
+    /**
+     * Creates a new {@code OptionOverrides} with values for all its fields.
+     */
     public OptionOverrides(String[] protocol, boolean[] mx, boolean[] serialize, boolean[] compress, boolean[] ipv6)
     {
         setProtocol(protocol);
@@ -381,18 +387,29 @@ public class OptionOverrides extends com.zeroc.Ice.Value
         return (OptionOverrides)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Common::OptionOverrides"
+     */
     public static String ice_staticId()
     {
         return "::Test::Common::OptionOverrides";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -420,7 +437,10 @@ public class OptionOverrides extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -449,6 +469,5 @@ public class OptionOverrides extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6128512882465283852L;
 }

@@ -11,12 +11,25 @@ public interface elsif extends break
     END for(display freeze, breakPrx if, int methods, com.zeroc.Ice.Current current)
         throws nil;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::BEGIN::elsif"
+     */
     static String ice_staticId()
     {
         return "::BEGIN::elsif";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation for.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_for(elsif obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

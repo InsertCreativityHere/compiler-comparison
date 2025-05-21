@@ -8,12 +8,18 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::PSUnknown")
 public class PSUnknown extends Preserved
 {
+    /**
+     * Creates a new {@code PSUnknown}.
+     **/
     public PSUnknown()
     {
         super();
         this.psu = "";
     }
 
+    /**
+     * Creates a new {@code PSUnknown} with values for all its fields.
+     */
     public PSUnknown(int pi, String ps, String psu, PNode graph, MyClass cl)
     {
         super(pi, ps);
@@ -33,18 +39,29 @@ public class PSUnknown extends Preserved
         return (PSUnknown)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::PSUnknown"
+     */
     public static String ice_staticId()
     {
         return "::Test::PSUnknown";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -56,7 +73,10 @@ public class PSUnknown extends Preserved
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -68,6 +88,5 @@ public class PSUnknown extends Preserved
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -4883445097074658393L;
 }

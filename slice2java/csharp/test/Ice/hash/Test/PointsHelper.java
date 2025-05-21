@@ -10,6 +10,12 @@ package Test;
  **/
 public final class PointsHelper
 {
+    /**
+     * Marshals a list of {@code Points} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, Point[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class PointsHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code Points} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static Point[] read(com.zeroc.Ice.InputStream istr)
     {
         final Point[] v;
@@ -38,6 +50,13 @@ public final class PointsHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code Points} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Point[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class PointsHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code Points} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Point[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -56,6 +82,13 @@ public final class PointsHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code Points} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<Point[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))

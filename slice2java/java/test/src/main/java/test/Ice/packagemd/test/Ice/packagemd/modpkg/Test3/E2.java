@@ -8,16 +8,26 @@ package test.Ice.packagemd.modpkg.Test3;
 @com.zeroc.Ice.SliceTypeId(value = "::Test3::E2")
 public class E2 extends E1
 {
+    /**
+     * Creates a new {@code E2}.
+     **/
     public E2()
     {
     }
 
+    /**
+     * Creates a new {@code E2} with values for all its fields.
+     */
     public E2(int i, long l)
     {
         super(i);
         this.l = l;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test3::E2";
@@ -25,7 +35,10 @@ public class E2 extends E1
 
     public long l;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -35,7 +48,10 @@ public class E2 extends E1
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,6 +61,5 @@ public class E2 extends E1
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 168559707242455078L;
 }

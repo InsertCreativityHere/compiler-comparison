@@ -43,12 +43,26 @@ public class QueryInfo implements java.lang.Cloneable,
      **/
     public int max;
 
+    /**
+     * Creates a new {@code QueryInfo}.
+     **/
     public QueryInfo()
     {
         this.group = "";
         this.state = NodeState.NodeStateInactive;
     }
 
+    /**
+     * Creates a new {@code QueryInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceStormElection::QueryInfo}.
+     *
+     * @param id The node id.
+     * @param coord The nodes coordinator.
+     * @param group The nodes group name.
+     * @param replica The replica the node is managing.
+     * @param state The node state.
+     * @param up The sequence of nodes in this nodes group.
+     * @param max The highest priority node that this node has seen.
+     */
     public QueryInfo(int id, int coord, String group, com.zeroc.Ice.ObjectPrx replica, NodeState state, GroupInfo[] up, int max)
     {
         this.id = id;
@@ -60,6 +74,10 @@ public class QueryInfo implements java.lang.Cloneable,
         this.max = max;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -118,6 +136,10 @@ public class QueryInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -132,6 +154,10 @@ public class QueryInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public QueryInfo clone()
     {
         QueryInfo c = null;
@@ -146,6 +172,11 @@ public class QueryInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.id);
@@ -157,6 +188,11 @@ public class QueryInfo implements java.lang.Cloneable,
         ostr.writeInt(this.max);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readInt();
@@ -168,6 +204,12 @@ public class QueryInfo implements java.lang.Cloneable,
         this.max = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code QueryInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code QueryInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, QueryInfo v)
     {
         if(v == null)
@@ -180,6 +222,12 @@ public class QueryInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code QueryInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code QueryInfo}
+     */
     static public QueryInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         QueryInfo v = new QueryInfo();
@@ -187,6 +235,13 @@ public class QueryInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code QueryInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<QueryInfo> v)
     {
         if(v != null && v.isPresent())
@@ -195,6 +250,13 @@ public class QueryInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code QueryInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, QueryInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -205,6 +267,13 @@ public class QueryInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code QueryInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<QueryInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -220,6 +289,5 @@ public class QueryInfo implements java.lang.Cloneable,
 
     private static final QueryInfo _nullMarshalValue = new QueryInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -3283989489882655116L;
 }

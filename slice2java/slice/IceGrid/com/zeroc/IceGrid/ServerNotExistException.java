@@ -11,16 +11,28 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ServerNotExistException")
 public class ServerNotExistException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ServerNotExistException}.
+     **/
     public ServerNotExistException()
     {
         this.id = "";
     }
 
+    /**
+     * Creates a new {@code ServerNotExistException} with values for all its fields.
+     *
+     * @param id The server ID.
+     */
     public ServerNotExistException(String id)
     {
         this.id = id;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::ServerNotExistException";
@@ -31,7 +43,10 @@ public class ServerNotExistException extends com.zeroc.Ice.UserException
      **/
     public String id;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class ServerNotExistException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class ServerNotExistException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8621013033267030569L;
 }

@@ -18,16 +18,28 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::FileNotAvailableException")
 public class FileNotAvailableException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code FileNotAvailableException}.
+     **/
     public FileNotAvailableException()
     {
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code FileNotAvailableException} with values for all its fields.
+     *
+     * @param reason The reason for the failure.
+     */
     public FileNotAvailableException(String reason)
     {
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::FileNotAvailableException";
@@ -38,7 +50,10 @@ public class FileNotAvailableException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -47,7 +62,10 @@ public class FileNotAvailableException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -56,6 +74,5 @@ public class FileNotAvailableException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6822138672355072951L;
 }

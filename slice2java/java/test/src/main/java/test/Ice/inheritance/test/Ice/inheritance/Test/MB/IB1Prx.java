@@ -29,11 +29,13 @@ public interface IB1Prx extends test.Ice.inheritance.Test.MA.IAPrx
     }
 
     /**
+     * Invokes the ib1op operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_p parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_p -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<IB1Prx> _iceI_ib1opAsync(IB1Prx iceP_p, java.util.Map<String, String> context, boolean sync)
     {
@@ -191,6 +193,11 @@ public interface IB1Prx extends test.Ice.inheritance.Test.MA.IAPrx
     @Override
     IB1Prx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MB::IB1"
+     */
     static String ice_staticId()
     {
         return "::Test::MB::IB1";

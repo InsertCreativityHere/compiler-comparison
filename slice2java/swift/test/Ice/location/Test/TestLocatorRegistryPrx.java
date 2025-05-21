@@ -29,11 +29,13 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
     }
 
     /**
+     * Invokes the addObject operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_obj parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_obj -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addObjectAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
     {
@@ -187,6 +189,11 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
     @Override
     TestLocatorRegistryPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::TestLocatorRegistry"
+     */
     static String ice_staticId()
     {
         return "::Test::TestLocatorRegistry";

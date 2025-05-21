@@ -8,10 +8,16 @@ package test.Ice.optional.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::OptionalWithCustom")
 public class OptionalWithCustom extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code OptionalWithCustom}.
+     **/
     public OptionalWithCustom()
     {
     }
 
+    /**
+     * Creates a new {@code OptionalWithCustom} with values for all its fields.
+     */
     public OptionalWithCustom(java.util.List<SmallStruct> l)
     {
         setL(l);
@@ -75,18 +81,29 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
         return (OptionalWithCustom)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::OptionalWithCustom"
+     */
     public static String ice_staticId()
     {
         return "::Test::OptionalWithCustom";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -98,7 +115,10 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -110,6 +130,5 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1507313123577319711L;
 }

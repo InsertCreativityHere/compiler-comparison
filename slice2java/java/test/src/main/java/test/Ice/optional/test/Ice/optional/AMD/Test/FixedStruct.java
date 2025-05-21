@@ -10,15 +10,25 @@ public class FixedStruct implements java.lang.Cloneable,
 {
     public int m;
 
+    /**
+     * Creates a new {@code FixedStruct}.
+     **/
     public FixedStruct()
     {
     }
 
+    /**
+     * Creates a new {@code FixedStruct} with values for all fields not marked optional in the Slice definition for {@code ::Test::FixedStruct}.
+     */
     public FixedStruct(int m)
     {
         this.m = m;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -44,6 +54,10 @@ public class FixedStruct implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -52,6 +66,10 @@ public class FixedStruct implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public FixedStruct clone()
     {
         FixedStruct c = null;
@@ -66,16 +84,32 @@ public class FixedStruct implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.m);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.m = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code FixedStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code FixedStruct} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, FixedStruct v)
     {
         if(v == null)
@@ -88,6 +122,12 @@ public class FixedStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code FixedStruct} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code FixedStruct}
+     */
     static public FixedStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
         FixedStruct v = new FixedStruct();
@@ -95,6 +135,13 @@ public class FixedStruct implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code FixedStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<FixedStruct> v)
     {
         if(v != null && v.isPresent())
@@ -103,6 +150,13 @@ public class FixedStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code FixedStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, FixedStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -112,6 +166,13 @@ public class FixedStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code FixedStruct} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<FixedStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -127,6 +188,5 @@ public class FixedStruct implements java.lang.Cloneable,
 
     private static final FixedStruct _nullMarshalValue = new FixedStruct();
 
-    /** @hidden */
     private static final long serialVersionUID = -148415499237805532L;
 }

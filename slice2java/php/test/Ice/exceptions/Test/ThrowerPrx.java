@@ -29,10 +29,12 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,10 +64,12 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the supportsUndeclaredExceptions operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_supportsUndeclaredExceptionsAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -112,11 +116,13 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwAasA operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwAasAAsync(int iceP_a, java.util.Map<String, String> context, boolean sync)
     {
@@ -173,11 +179,13 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwAorDasAorD operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwAorDasAorDAsync(int iceP_a, java.util.Map<String, String> context, boolean sync)
     {
@@ -229,12 +237,14 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwBasA operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwBasAAsync(int iceP_a, int iceP_b, java.util.Map<String, String> context, boolean sync)
     {
@@ -286,13 +296,15 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwCasA operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param iceP_c parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param iceP_c -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwCasAAsync(int iceP_a, int iceP_b, int iceP_c, java.util.Map<String, String> context, boolean sync)
     {
@@ -345,12 +357,14 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwBasB operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwBasBAsync(int iceP_a, int iceP_b, java.util.Map<String, String> context, boolean sync)
     {
@@ -402,13 +416,15 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwCasB operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param iceP_c parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param iceP_c -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwCasBAsync(int iceP_a, int iceP_b, int iceP_c, java.util.Map<String, String> context, boolean sync)
     {
@@ -461,13 +477,15 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwCasC operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param iceP_c parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param iceP_c -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwCasCAsync(int iceP_a, int iceP_b, int iceP_c, java.util.Map<String, String> context, boolean sync)
     {
@@ -507,11 +525,13 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwUndeclaredA operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwUndeclaredAAsync(int iceP_a, java.util.Map<String, String> context, boolean sync)
     {
@@ -543,12 +563,14 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwUndeclaredB operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwUndeclaredBAsync(int iceP_a, int iceP_b, java.util.Map<String, String> context, boolean sync)
     {
@@ -581,13 +603,15 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwUndeclaredC operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_a parameter
+     * @param iceP_b parameter
+     * @param iceP_c parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_a -
-     * @param iceP_b -
-     * @param iceP_c -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwUndeclaredCAsync(int iceP_a, int iceP_b, int iceP_c, java.util.Map<String, String> context, boolean sync)
     {
@@ -621,10 +645,12 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwLocalException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwLocalExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -654,10 +680,12 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwNonIceException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNonIceExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -687,11 +715,13 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwMemoryLimitException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_seq parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_seq -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<byte[]> _iceI_throwMemoryLimitExceptionAsync(byte[] iceP_seq, java.util.Map<String, String> context, boolean sync)
     {
@@ -727,10 +757,12 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwLocalExceptionIdempotent operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwLocalExceptionIdempotentAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -760,11 +792,13 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwDispatchException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_replyStatus parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_replyStatus -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwDispatchExceptionAsync(byte iceP_replyStatus, java.util.Map<String, String> context, boolean sync)
     {
@@ -918,6 +952,11 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ThrowerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Thrower"
+     */
     static String ice_staticId()
     {
         return "::Test::Thrower";

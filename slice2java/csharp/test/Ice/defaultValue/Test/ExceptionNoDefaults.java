@@ -8,12 +8,18 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::ExceptionNoDefaults")
 public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
 {
+    /**
+     * Creates a new {@code ExceptionNoDefaults}.
+     **/
     public ExceptionNoDefaults()
     {
         this.st = new InnerStruct();
         this.st2 = new InnerStruct2();
     }
 
+    /**
+     * Creates a new {@code ExceptionNoDefaults} with values for all its fields.
+     */
     public ExceptionNoDefaults(String str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, java.util.Map<java.lang.Integer, java.lang.String> dict)
     {
         super(str, c1, bs);
@@ -22,6 +28,10 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
         this.dict = dict;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::ExceptionNoDefaults";
@@ -33,7 +43,10 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
 
     public java.util.Map<java.lang.Integer, java.lang.String> dict;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -45,7 +58,10 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -57,6 +73,5 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5481544791300383319L;
 }

@@ -9,11 +9,17 @@ package Test;
 @com.zeroc.Ice.CompactSliceTypeId(value = 56)
 public class CompactPDerived extends Preserved
 {
+    /**
+     * Creates a new {@code CompactPDerived}.
+     **/
     public CompactPDerived()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code CompactPDerived} with values for all its fields.
+     */
     public CompactPDerived(int pi, String ps, PBase pb)
     {
         super(pi, ps);
@@ -27,18 +33,29 @@ public class CompactPDerived extends Preserved
         return (CompactPDerived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::CompactPDerived"
+     */
     public static String ice_staticId()
     {
         return "::Test::CompactPDerived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class CompactPDerived extends Preserved
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class CompactPDerived extends Preserved
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8679710370108878003L;
 }

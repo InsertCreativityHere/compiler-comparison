@@ -29,11 +29,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the pauseCall operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_call parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_call -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_pauseCallAsync(String iceP_call, java.util.Map<String, String> context, boolean sync)
     {
@@ -65,11 +67,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the resumeCall operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_call parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_call -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_resumeCallAsync(String iceP_call, java.util.Map<String, String> context, boolean sync)
     {
@@ -101,10 +105,12 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the holdAdapter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_holdAdapterAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -134,10 +140,12 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the resumeAdapter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_resumeAdapterAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -167,11 +175,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the initializeException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initializeExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -203,11 +213,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the readReady operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_readReadyAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -239,11 +251,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the readException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_readExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -275,11 +289,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the writeReady operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_writeReadyAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -311,11 +327,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the writeException operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_writeExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -347,11 +365,13 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the buffered operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_enable parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_enable -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_bufferedAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
@@ -505,6 +525,11 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     BackgroundControllerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::BackgroundController"
+     */
     static String ice_staticId()
     {
         return "::Test::BackgroundController";

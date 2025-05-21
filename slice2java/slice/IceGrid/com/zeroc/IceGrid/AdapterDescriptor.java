@@ -58,6 +58,9 @@ public class AdapterDescriptor implements java.lang.Cloneable,
      **/
     public java.util.List<ObjectDescriptor> allocatables;
 
+    /**
+     * Creates a new {@code AdapterDescriptor}.
+     **/
     public AdapterDescriptor()
     {
         this.name = "";
@@ -67,6 +70,19 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         this.priority = "";
     }
 
+    /**
+     * Creates a new {@code AdapterDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::AdapterDescriptor}.
+     *
+     * @param name The object adapter name.
+     * @param description A description of this object adapter.
+     * @param id The adapter ID.
+     * @param replicaGroupId The replica group ID.
+     * @param priority The adapter priority.
+     * @param registerProcess When `true`, the object adapter registers a process object.
+     * @param serverLifetime When `true`, the lifetime of this object adapter is the same of the server lifetime.
+     * @param objects The descriptors of well-known objects.
+     * @param allocatables The descriptors of allocatable objects
+     */
     public AdapterDescriptor(String name, String description, String id, String replicaGroupId, String priority, boolean registerProcess, boolean serverLifetime, java.util.List<ObjectDescriptor> objects, java.util.List<ObjectDescriptor> allocatables)
     {
         this.name = name;
@@ -80,6 +96,10 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         this.allocatables = allocatables;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -158,6 +178,10 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -174,6 +198,10 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public AdapterDescriptor clone()
     {
         AdapterDescriptor c = null;
@@ -188,6 +216,11 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
@@ -201,6 +234,11 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         ObjectDescriptorSeqHelper.write(ostr, this.allocatables);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
@@ -214,6 +252,12 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         this.allocatables = ObjectDescriptorSeqHelper.read(istr);
     }
 
+    /**
+     * Marshals an {@code AdapterDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code AdapterDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, AdapterDescriptor v)
     {
         if(v == null)
@@ -226,6 +270,12 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code AdapterDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code AdapterDescriptor}
+     */
     static public AdapterDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         AdapterDescriptor v = new AdapterDescriptor();
@@ -233,6 +283,13 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code AdapterDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<AdapterDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -241,6 +298,13 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code AdapterDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, AdapterDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -251,6 +315,13 @@ public class AdapterDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code AdapterDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<AdapterDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -266,6 +337,5 @@ public class AdapterDescriptor implements java.lang.Cloneable,
 
     private static final AdapterDescriptor _nullMarshalValue = new AdapterDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -7027153741899901269L;
 }

@@ -10,12 +10,24 @@ public interface function extends com.zeroc.Ice.Object
 {
     void continue(int declare, int default, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::and::function"
+     */
     static String ice_staticId()
     {
         return "::and::function";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation continue.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_continue(function obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

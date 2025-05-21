@@ -8,6 +8,9 @@ package test.Ice.defaultValue.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::DerivedEx")
 public class DerivedEx extends BaseEx
 {
+    /**
+     * Creates a new {@code DerivedEx}.
+     **/
     public DerivedEx()
     {
         this.c1 = ConstColor1.value;
@@ -18,6 +21,9 @@ public class DerivedEx extends BaseEx
         this.nc3 = ConstNestedColor3.value;
     }
 
+    /**
+     * Creates a new {@code DerivedEx} with values for all its fields.
+     */
     public DerivedEx(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, test.Ice.defaultValue.Test.Nested.Color nc1, test.Ice.defaultValue.Test.Nested.Color nc2, test.Ice.defaultValue.Test.Nested.Color nc3)
     {
         super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
@@ -29,6 +35,10 @@ public class DerivedEx extends BaseEx
         this.nc3 = nc3;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::DerivedEx";
@@ -46,7 +56,10 @@ public class DerivedEx extends BaseEx
 
     public test.Ice.defaultValue.Test.Nested.Color nc3;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -61,7 +74,10 @@ public class DerivedEx extends BaseEx
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -76,6 +92,5 @@ public class DerivedEx extends BaseEx
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -3715140525210662696L;
 }

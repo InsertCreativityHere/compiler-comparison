@@ -21,16 +21,29 @@ public class NodeInfo implements java.lang.Cloneable,
      **/
     public NodePrx n;
 
+    /**
+     * Creates a new {@code NodeInfo}.
+     **/
     public NodeInfo()
     {
     }
 
+    /**
+     * Creates a new {@code NodeInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceStormElection::NodeInfo}.
+     *
+     * @param id The identity of the node.
+     * @param n The node proxy.
+     */
     public NodeInfo(int id, NodePrx n)
     {
         this.id = id;
         this.n = n;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -63,6 +76,10 @@ public class NodeInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -72,6 +89,10 @@ public class NodeInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public NodeInfo clone()
     {
         NodeInfo c = null;
@@ -86,18 +107,34 @@ public class NodeInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.id);
         ostr.writeProxy(this.n);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readInt();
         this.n = NodePrx.uncheckedCast(istr.readProxy());
     }
 
+    /**
+     * Marshals a {@code NodeInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code NodeInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, NodeInfo v)
     {
         if(v == null)
@@ -110,6 +147,12 @@ public class NodeInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code NodeInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code NodeInfo}
+     */
     static public NodeInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         NodeInfo v = new NodeInfo();
@@ -117,6 +160,13 @@ public class NodeInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code NodeInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<NodeInfo> v)
     {
         if(v != null && v.isPresent())
@@ -125,6 +175,13 @@ public class NodeInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code NodeInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, NodeInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -135,6 +192,13 @@ public class NodeInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code NodeInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<NodeInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -150,6 +214,5 @@ public class NodeInfo implements java.lang.Cloneable,
 
     private static final NodeInfo _nullMarshalValue = new NodeInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 2963477926787345390L;
 }

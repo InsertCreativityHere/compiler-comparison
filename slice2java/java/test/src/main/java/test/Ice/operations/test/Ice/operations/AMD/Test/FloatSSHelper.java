@@ -10,6 +10,12 @@ package test.Ice.operations.AMD.Test;
  **/
 public final class FloatSSHelper
 {
+    /**
+     * Marshals a list of {@code FloatSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, float[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class FloatSSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code FloatSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static float[][] read(com.zeroc.Ice.InputStream istr)
     {
         final float[][] v;
@@ -38,6 +50,13 @@ public final class FloatSSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code FloatSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<float[][]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class FloatSSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code FloatSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, float[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class FloatSSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code FloatSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<float[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

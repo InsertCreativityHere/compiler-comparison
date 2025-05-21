@@ -11,11 +11,19 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::LoadBalancingPolicy")
 public class LoadBalancingPolicy extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code LoadBalancingPolicy}.
+     **/
     public LoadBalancingPolicy()
     {
         this.nReplicas = "";
     }
 
+    /**
+     * Creates a new {@code LoadBalancingPolicy} with values for all its fields.
+     *
+     * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
+     */
     public LoadBalancingPolicy(String nReplicas)
     {
         this.nReplicas = nReplicas;
@@ -31,18 +39,29 @@ public class LoadBalancingPolicy extends com.zeroc.Ice.Value
         return (LoadBalancingPolicy)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::LoadBalancingPolicy"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::LoadBalancingPolicy";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -51,7 +70,10 @@ public class LoadBalancingPolicy extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -60,6 +82,5 @@ public class LoadBalancingPolicy extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 9135608698774128712L;
 }

@@ -8,16 +8,26 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::UserError")
 public class UserError extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code UserError}.
+     **/
     public UserError()
     {
         this.message = "";
     }
 
+    /**
+     * Creates a new {@code UserError} with values for all its fields.
+     */
     public UserError(String message)
     {
         this.message = message;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::UserError";
@@ -25,7 +35,10 @@ public class UserError extends com.zeroc.Ice.UserException
 
     public String message;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class UserError extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class UserError extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -3746519168976220653L;
 }

@@ -51,10 +51,12 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getMetricsViewNames operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -123,11 +125,13 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the enableMetricsView operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_enableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -200,11 +204,13 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the disableMetricsView operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_disableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -279,11 +285,13 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getMetricsView operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_view parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_view -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MetricsAdmin.GetMetricsViewResult> _iceI_getMetricsViewAsync(String iceP_view, java.util.Map<String, String> context, boolean sync)
     {
@@ -367,12 +375,14 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getMapMetricsFailures operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_view parameter
+     * @param iceP_map parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_view -
-     * @param iceP_map -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(String iceP_view, String iceP_map, java.util.Map<String, String> context, boolean sync)
     {
@@ -460,13 +470,15 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getMetricsFailures operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_view parameter
+     * @param iceP_map parameter
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_view -
-     * @param iceP_map -
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MetricsFailures> _iceI_getMetricsFailuresAsync(String iceP_view, String iceP_map, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -632,6 +644,11 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MetricsAdminPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceMX::MetricsAdmin"
+     */
     static String ice_staticId()
     {
         return "::IceMX::MetricsAdmin";

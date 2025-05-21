@@ -46,12 +46,26 @@ public class SubscriberRecord implements java.lang.Cloneable,
      **/
     public com.zeroc.IceStorm.TopicPrx theTopic;
 
+    /**
+     * Creates a new {@code SubscriberRecord}.
+     **/
     public SubscriberRecord()
     {
         this.topicName = "";
         this.id = new com.zeroc.Ice.Identity();
     }
 
+    /**
+     * Creates a new {@code SubscriberRecord} with values for all fields not marked optional in the Slice definition for {@code ::IceStorm::SubscriberRecord}.
+     *
+     * @param topicName The name of the topic.
+     * @param id The subscriber identity.
+     * @param link Is this a link record, or a subscriber record?
+     * @param obj The subscriber object.
+     * @param theQoS The QoS.
+     * @param cost The cost.
+     * @param theTopic The linked topic.
+     */
     public SubscriberRecord(String topicName, com.zeroc.Ice.Identity id, boolean link, com.zeroc.Ice.ObjectPrx obj, java.util.Map<java.lang.String, java.lang.String> theQoS, int cost, com.zeroc.IceStorm.TopicPrx theTopic)
     {
         this.topicName = topicName;
@@ -63,6 +77,10 @@ public class SubscriberRecord implements java.lang.Cloneable,
         this.theTopic = theTopic;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -127,6 +145,10 @@ public class SubscriberRecord implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -141,6 +163,10 @@ public class SubscriberRecord implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public SubscriberRecord clone()
     {
         SubscriberRecord c = null;
@@ -155,6 +181,11 @@ public class SubscriberRecord implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.topicName);
@@ -166,6 +197,11 @@ public class SubscriberRecord implements java.lang.Cloneable,
         ostr.writeProxy(this.theTopic);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.topicName = istr.readString();
@@ -177,6 +213,12 @@ public class SubscriberRecord implements java.lang.Cloneable,
         this.theTopic = com.zeroc.IceStorm.TopicPrx.uncheckedCast(istr.readProxy());
     }
 
+    /**
+     * Marshals a {@code SubscriberRecord} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code SubscriberRecord} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, SubscriberRecord v)
     {
         if(v == null)
@@ -189,6 +231,12 @@ public class SubscriberRecord implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code SubscriberRecord} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code SubscriberRecord}
+     */
     static public SubscriberRecord ice_read(com.zeroc.Ice.InputStream istr)
     {
         SubscriberRecord v = new SubscriberRecord();
@@ -196,6 +244,13 @@ public class SubscriberRecord implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code SubscriberRecord} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SubscriberRecord> v)
     {
         if(v != null && v.isPresent())
@@ -204,6 +259,13 @@ public class SubscriberRecord implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code SubscriberRecord} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, SubscriberRecord v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -214,6 +276,13 @@ public class SubscriberRecord implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code SubscriberRecord} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<SubscriberRecord> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -229,6 +298,5 @@ public class SubscriberRecord implements java.lang.Cloneable,
 
     private static final SubscriberRecord _nullMarshalValue = new SubscriberRecord();
 
-    /** @hidden */
     private static final long serialVersionUID = -1724134876635487286L;
 }

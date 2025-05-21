@@ -8,15 +8,25 @@ package BEGIN;
 @com.zeroc.Ice.SliceTypeId(value = "::BEGIN::next")
 public class next extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code next}.
+     **/
     public next()
     {
     }
 
+    /**
+     * Creates a new {@code next} with values for all its fields.
+     */
     public next(int new)
     {
         this.new = new;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::BEGIN::next";
@@ -24,7 +34,10 @@ public class next extends com.zeroc.Ice.UserException
 
     public int new;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class next extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class next extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2071781653635918019L;
 }

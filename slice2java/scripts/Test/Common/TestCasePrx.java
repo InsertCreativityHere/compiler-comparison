@@ -42,11 +42,13 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the startServerSide operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_config parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_config -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_startServerSideAsync(Config iceP_config, java.util.Map<String, String> context, boolean sync)
     {
@@ -102,11 +104,13 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the stopServerSide operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_success parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_success -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_stopServerSideAsync(boolean iceP_success, java.util.Map<String, String> context, boolean sync)
     {
@@ -161,12 +165,14 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the runClientSide operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_host parameter
+     * @param iceP_config parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_host -
-     * @param iceP_config -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_runClientSideAsync(String iceP_host, Config iceP_config, java.util.Map<String, String> context, boolean sync)
     {
@@ -210,10 +216,12 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -365,6 +373,11 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestCasePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Common::TestCase"
+     */
     static String ice_staticId()
     {
         return "::Test::Common::TestCase";

@@ -8,16 +8,26 @@ package Test.Common;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Common::TestCaseNotExistException")
 public class TestCaseNotExistException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code TestCaseNotExistException}.
+     **/
     public TestCaseNotExistException()
     {
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code TestCaseNotExistException} with values for all its fields.
+     */
     public TestCaseNotExistException(String reason)
     {
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Common::TestCaseNotExistException";
@@ -25,7 +35,10 @@ public class TestCaseNotExistException extends com.zeroc.Ice.UserException
 
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class TestCaseNotExistException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class TestCaseNotExistException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8335495617187817685L;
 }

@@ -8,12 +8,18 @@ package test.Ice.defaultValue.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::ExceptionNoDefaultsBase")
 public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ExceptionNoDefaultsBase}.
+     **/
     public ExceptionNoDefaultsBase()
     {
         this.str = "";
         this.c1 = Color.red;
     }
 
+    /**
+     * Creates a new {@code ExceptionNoDefaultsBase} with values for all its fields.
+     */
     public ExceptionNoDefaultsBase(String str, Color c1, byte[] bs)
     {
         this.str = str;
@@ -21,6 +27,10 @@ public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
         this.bs = bs;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::ExceptionNoDefaultsBase";
@@ -32,7 +42,10 @@ public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
 
     public byte[] bs;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -43,7 +56,10 @@ public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -54,6 +70,5 @@ public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7846877934278420139L;
 }

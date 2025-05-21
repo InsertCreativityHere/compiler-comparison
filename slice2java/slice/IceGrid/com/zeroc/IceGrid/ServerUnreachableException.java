@@ -11,18 +11,31 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ServerUnreachableException")
 public class ServerUnreachableException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ServerUnreachableException}.
+     **/
     public ServerUnreachableException()
     {
         this.name = "";
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code ServerUnreachableException} with values for all its fields.
+     *
+     * @param name The id of the server that is not reachable.
+     * @param reason The reason why the server couldn't be reached.
+     */
     public ServerUnreachableException(String name, String reason)
     {
         this.name = name;
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::ServerUnreachableException";
@@ -38,7 +51,10 @@ public class ServerUnreachableException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +64,10 @@ public class ServerUnreachableException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +77,5 @@ public class ServerUnreachableException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7494715565303966866L;
 }

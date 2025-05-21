@@ -58,12 +58,14 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the announceTopicReader operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topic parameter
+     * @param iceP_subscriber parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topic -
-     * @param iceP_subscriber -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceTopicReaderAsync(String iceP_topic, NodePrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
@@ -120,12 +122,14 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the announceTopicWriter operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_topic parameter
+     * @param iceP_node parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_topic -
-     * @param iceP_node -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceTopicWriterAsync(String iceP_topic, NodePrx iceP_node, java.util.Map<String, String> context, boolean sync)
     {
@@ -186,13 +190,15 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the announceTopics operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_readers parameter
+     * @param iceP_writers parameter
+     * @param iceP_node parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_readers -
-     * @param iceP_writers -
-     * @param iceP_node -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceTopicsAsync(String[] iceP_readers, String[] iceP_writers, NodePrx iceP_node, java.util.Map<String, String> context, boolean sync)
     {
@@ -248,11 +254,13 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the createSession operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_node parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_node -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<NodePrx> _iceI_createSessionAsync(NodePrx iceP_node, java.util.Map<String, String> context, boolean sync)
     {
@@ -410,6 +418,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     LookupPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::DataStormContract::Lookup"
+     */
     static String ice_staticId()
     {
         return "::DataStormContract::Lookup";

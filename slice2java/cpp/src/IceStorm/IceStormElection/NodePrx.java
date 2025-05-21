@@ -56,12 +56,14 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the invitation operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_j parameter
+     * @param iceP_gn parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_j -
-     * @param iceP_gn -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_invitationAsync(int iceP_j, String iceP_gn, java.util.Map<String, String> context, boolean sync)
     {
@@ -130,15 +132,17 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the ready operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_j parameter
+     * @param iceP_gn parameter
+     * @param iceP_coordinator parameter
+     * @param iceP_max parameter
+     * @param iceP_generation parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_j -
-     * @param iceP_gn -
-     * @param iceP_coordinator -
-     * @param iceP_max -
-     * @param iceP_generation -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_readyAsync(int iceP_j, String iceP_gn, com.zeroc.Ice.ObjectPrx iceP_coordinator, int iceP_max, long iceP_generation, java.util.Map<String, String> context, boolean sync)
     {
@@ -214,16 +218,18 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the accept operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_j parameter
+     * @param iceP_gn parameter
+     * @param iceP_forwardedInvites parameter
+     * @param iceP_observer parameter
+     * @param iceP_llu parameter
+     * @param iceP_max parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_j -
-     * @param iceP_gn -
-     * @param iceP_forwardedInvites -
-     * @param iceP_observer -
-     * @param iceP_llu -
-     * @param iceP_max -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_acceptAsync(int iceP_j, String iceP_gn, int[] iceP_forwardedInvites, com.zeroc.Ice.ObjectPrx iceP_observer, LogUpdate iceP_llu, int iceP_max, java.util.Map<String, String> context, boolean sync)
     {
@@ -278,10 +284,12 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the areYouCoordinator operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_areYouCoordinatorAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -341,12 +349,14 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the areYouThere operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_gn parameter
+     * @param iceP_j parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_gn -
-     * @param iceP_j -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_areYouThereAsync(String iceP_gn, int iceP_j, java.util.Map<String, String> context, boolean sync)
     {
@@ -401,10 +411,12 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the sync operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_syncAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -456,10 +468,12 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the nodes operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<NodeInfo[]> _iceI_nodesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -511,10 +525,12 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the query operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<QueryInfo> _iceI_queryAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -670,6 +686,11 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     @Override
     NodePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStormElection::Node"
+     */
     static String ice_staticId()
     {
         return "::IceStormElection::Node";

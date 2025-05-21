@@ -8,16 +8,26 @@ package import;
 @com.zeroc.Ice.SliceTypeId(value = "::import::as")
 public class as extends return
 {
+    /**
+     * Creates a new {@code as}.
+     **/
     public as()
     {
     }
 
+    /**
+     * Creates a new {@code as} with values for all its fields.
+     */
     public as(int Int32, int switch)
     {
         super(Int32);
         this.switch = switch;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::import::as";
@@ -25,7 +35,10 @@ public class as extends return
 
     public int switch;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -35,7 +48,10 @@ public class as extends return
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,6 +61,5 @@ public class as extends return
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4036953566322496988L;
 }

@@ -10,6 +10,11 @@ public interface DatabaseObserver extends com.zeroc.IceGrid.ApplicationObserver,
                                           com.zeroc.IceGrid.ObjectObserver,
                                           com.zeroc.IceGrid.AdapterObserver
 {
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::DatabaseObserver"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::DatabaseObserver";

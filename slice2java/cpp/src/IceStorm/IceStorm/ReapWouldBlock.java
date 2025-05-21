@@ -11,16 +11,26 @@ package IceStorm;
 @com.zeroc.Ice.SliceTypeId(value = "::IceStorm::ReapWouldBlock")
 public class ReapWouldBlock extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ReapWouldBlock}.
+     **/
     public ReapWouldBlock()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceStorm::ReapWouldBlock";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -28,7 +38,10 @@ public class ReapWouldBlock extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -36,6 +49,5 @@ public class ReapWouldBlock extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5367272736398480822L;
 }

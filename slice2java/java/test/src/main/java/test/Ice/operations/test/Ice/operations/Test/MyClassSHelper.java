@@ -10,6 +10,12 @@ package test.Ice.operations.Test;
  **/
 public final class MyClassSHelper
 {
+    /**
+     * Marshals a list of {@code MyClassS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, MyClassPrx[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class MyClassSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code MyClassS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static MyClassPrx[] read(com.zeroc.Ice.InputStream istr)
     {
         final MyClassPrx[] v;
@@ -38,6 +50,13 @@ public final class MyClassSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code MyClassS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<MyClassPrx[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class MyClassSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code MyClassS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, MyClassPrx[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class MyClassSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code MyClassS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<MyClassPrx[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

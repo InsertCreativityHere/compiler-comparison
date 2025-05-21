@@ -8,12 +8,18 @@ package classdef;
 @com.zeroc.Ice.SliceTypeId(value = "::classdef::Derived")
 public class Derived extends Base
 {
+    /**
+     * Creates a new {@code Derived}.
+     **/
     public Derived()
     {
         super();
         this.if = 2;
     }
 
+    /**
+     * Creates a new {@code Derived} with values for all its fields.
+     */
     public Derived(int while, int if, global[] spmd, java.util.Map<java.lang.Integer, global> otherwise)
     {
         super(while);
@@ -33,18 +39,29 @@ public class Derived extends Base
         return (Derived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::classdef::Derived"
+     */
     public static String ice_staticId()
     {
         return "::classdef::Derived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -56,7 +73,10 @@ public class Derived extends Base
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -68,6 +88,5 @@ public class Derived extends Base
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 578037294122450850L;
 }

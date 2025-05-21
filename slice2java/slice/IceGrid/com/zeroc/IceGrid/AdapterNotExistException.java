@@ -11,16 +11,28 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::AdapterNotExistException")
 public class AdapterNotExistException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AdapterNotExistException}.
+     **/
     public AdapterNotExistException()
     {
         this.id = "";
     }
 
+    /**
+     * Creates a new {@code AdapterNotExistException} with values for all its fields.
+     *
+     * @param id The adapter ID.
+     */
     public AdapterNotExistException(String id)
     {
         this.id = id;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::AdapterNotExistException";
@@ -31,7 +43,10 @@ public class AdapterNotExistException extends com.zeroc.Ice.UserException
      **/
     public String id;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class AdapterNotExistException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class AdapterNotExistException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 3229311136761232123L;
 }

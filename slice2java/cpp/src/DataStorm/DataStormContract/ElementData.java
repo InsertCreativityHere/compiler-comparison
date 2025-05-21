@@ -29,10 +29,20 @@ public class ElementData implements java.lang.Cloneable,
      **/
     public java.util.Map<java.lang.Long, java.lang.Long> lastIds;
 
+    /**
+     * Creates a new {@code ElementData}.
+     **/
     public ElementData()
     {
     }
 
+    /**
+     * Creates a new {@code ElementData} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::ElementData}.
+     *
+     * @param id The unique identifier for the data reader or data writer.
+     * @param config The configuration settings for the data reader or data writer.
+     * @param lastIds A mapping of data writer IDs to the last sample IDs received by the data reader.
+     */
     public ElementData(long id, ElementConfig config, java.util.Map<java.lang.Long, java.lang.Long> lastIds)
     {
         this.id = id;
@@ -40,6 +50,10 @@ public class ElementData implements java.lang.Cloneable,
         this.lastIds = lastIds;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -79,6 +93,10 @@ public class ElementData implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -89,6 +107,10 @@ public class ElementData implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ElementData clone()
     {
         ElementData c = null;
@@ -103,6 +125,11 @@ public class ElementData implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.id);
@@ -110,6 +137,11 @@ public class ElementData implements java.lang.Cloneable,
         LongLongDictHelper.write(ostr, this.lastIds);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readLong();
@@ -117,6 +149,12 @@ public class ElementData implements java.lang.Cloneable,
         this.lastIds = LongLongDictHelper.read(istr);
     }
 
+    /**
+     * Marshals an {@code ElementData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ElementData} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ElementData v)
     {
         if(v == null)
@@ -129,6 +167,12 @@ public class ElementData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ElementData} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ElementData}
+     */
     static public ElementData ice_read(com.zeroc.Ice.InputStream istr)
     {
         ElementData v = new ElementData();
@@ -136,6 +180,13 @@ public class ElementData implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ElementData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ElementData> v)
     {
         if(v != null && v.isPresent())
@@ -144,6 +195,13 @@ public class ElementData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ElementData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ElementData v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -154,6 +212,13 @@ public class ElementData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ElementData} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ElementData> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -169,6 +234,5 @@ public class ElementData implements java.lang.Cloneable,
 
     private static final ElementData _nullMarshalValue = new ElementData();
 
-    /** @hidden */
     private static final long serialVersionUID = 13045169173606229L;
 }

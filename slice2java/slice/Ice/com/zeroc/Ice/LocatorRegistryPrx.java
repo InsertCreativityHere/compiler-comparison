@@ -93,12 +93,14 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setAdapterDirectProxy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param iceP_proxy parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param iceP_proxy -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_id, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
@@ -217,13 +219,15 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setReplicatedAdapterDirectProxy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_adapterId parameter
+     * @param iceP_replicaGroupId parameter
+     * @param iceP_proxy parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_adapterId -
-     * @param iceP_replicaGroupId -
-     * @param iceP_proxy -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setReplicatedAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
@@ -306,12 +310,14 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setServerProcessProxy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param iceP_proxy parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param iceP_proxy -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setServerProcessProxyAsync(String iceP_id, ProcessPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
@@ -472,6 +478,11 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     LocatorRegistryPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Ice::LocatorRegistry"
+     */
     static String ice_staticId()
     {
         return "::Ice::LocatorRegistry";

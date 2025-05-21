@@ -10,6 +10,12 @@ package Test;
  **/
 public final class ValueSeqHelper
 {
+    /**
+     * Marshals a list of {@code ValueSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, com.zeroc.Ice.Value[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class ValueSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code ValueSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static com.zeroc.Ice.Value[] read(com.zeroc.Ice.InputStream istr)
     {
         final com.zeroc.Ice.Value[] v;
@@ -39,6 +51,13 @@ public final class ValueSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code ValueSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<com.zeroc.Ice.Value[]> v)
     {
         if(v != null && v.isPresent())
@@ -47,6 +66,13 @@ public final class ValueSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code ValueSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, com.zeroc.Ice.Value[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -57,6 +83,13 @@ public final class ValueSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code ValueSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<com.zeroc.Ice.Value[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

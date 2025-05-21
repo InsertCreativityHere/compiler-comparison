@@ -21,18 +21,31 @@ public class PropertyDescriptor implements java.lang.Cloneable,
      **/
     public String value;
 
+    /**
+     * Creates a new {@code PropertyDescriptor}.
+     **/
     public PropertyDescriptor()
     {
         this.name = "";
         this.value = "";
     }
 
+    /**
+     * Creates a new {@code PropertyDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::PropertyDescriptor}.
+     *
+     * @param name The name of the property.
+     * @param value The value of the property.
+     */
     public PropertyDescriptor(String name, String value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -68,6 +81,10 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -77,6 +94,10 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public PropertyDescriptor clone()
     {
         PropertyDescriptor c = null;
@@ -91,18 +112,34 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
         ostr.writeString(this.value);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
         this.value = istr.readString();
     }
 
+    /**
+     * Marshals a {@code PropertyDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code PropertyDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, PropertyDescriptor v)
     {
         if(v == null)
@@ -115,6 +152,12 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code PropertyDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code PropertyDescriptor}
+     */
     static public PropertyDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         PropertyDescriptor v = new PropertyDescriptor();
@@ -122,6 +165,13 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code PropertyDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<PropertyDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -130,6 +180,13 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code PropertyDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, PropertyDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -140,6 +197,13 @@ public class PropertyDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code PropertyDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<PropertyDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -155,6 +219,5 @@ public class PropertyDescriptor implements java.lang.Cloneable,
 
     private static final PropertyDescriptor _nullMarshalValue = new PropertyDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -2163696695624232341L;
 }

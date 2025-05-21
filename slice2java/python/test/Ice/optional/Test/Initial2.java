@@ -12,12 +12,24 @@ public interface Initial2 extends com.zeroc.Ice.Object
 
     void opVoid(java.util.OptionalInt a, java.util.Optional<java.lang.String> v, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Initial2"
+     */
     static String ice_staticId()
     {
         return "::Test::Initial2";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opClassAndUnknownOptional.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opClassAndUnknownOptional(Initial2 obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -34,7 +46,14 @@ public interface Initial2 extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation opVoid.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opVoid(Initial2 obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

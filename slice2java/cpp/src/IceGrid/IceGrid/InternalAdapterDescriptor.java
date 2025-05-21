@@ -8,11 +8,20 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::InternalAdapterDescriptor")
 public class InternalAdapterDescriptor extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code InternalAdapterDescriptor}.
+     **/
     public InternalAdapterDescriptor()
     {
         this.id = "";
     }
 
+    /**
+     * Creates a new {@code InternalAdapterDescriptor} with values for all its fields.
+     *
+     * @param id The identifier of the server.
+     * @param serverLifetime Specifies if the lifetime of the adapter is the same as the server.
+     */
     public InternalAdapterDescriptor(String id, boolean serverLifetime)
     {
         this.id = id;
@@ -34,18 +43,29 @@ public class InternalAdapterDescriptor extends com.zeroc.Ice.Value
         return (InternalAdapterDescriptor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::InternalAdapterDescriptor"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::InternalAdapterDescriptor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -55,7 +75,10 @@ public class InternalAdapterDescriptor extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -65,6 +88,5 @@ public class InternalAdapterDescriptor extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5695791725053429466L;
 }

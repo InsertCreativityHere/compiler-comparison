@@ -29,10 +29,12 @@ public interface CPrx extends APrx
     }
 
     /**
+     * Invokes the callC operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_callCAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -188,6 +190,11 @@ public interface CPrx extends APrx
     @Override
     CPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::C"
+     */
     static String ice_staticId()
     {
         return "::Test::C";

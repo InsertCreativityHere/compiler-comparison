@@ -50,10 +50,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the keepAlive operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_keepAliveAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -105,10 +107,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the getAdmin operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<AdminPrx> _iceI_getAdminAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -164,10 +168,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the getAdminCallbackTemplate operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getAdminCallbackTemplateAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -252,15 +258,17 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the setObservers operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_registryObs parameter
+     * @param iceP_nodeObs parameter
+     * @param iceP_appObs parameter
+     * @param iceP_adptObs parameter
+     * @param iceP_objObs parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_registryObs -
-     * @param iceP_nodeObs -
-     * @param iceP_appObs -
-     * @param iceP_adptObs -
-     * @param iceP_objObs -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setObserversAsync(RegistryObserverPrx iceP_registryObs, NodeObserverPrx iceP_nodeObs, ApplicationObserverPrx iceP_appObs, AdapterObserverPrx iceP_adptObs, ObjectObserverPrx iceP_objObs, java.util.Map<String, String> context, boolean sync)
     {
@@ -361,15 +369,17 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the setObserversByIdentity operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_registryObs parameter
+     * @param iceP_nodeObs parameter
+     * @param iceP_appObs parameter
+     * @param iceP_adptObs parameter
+     * @param iceP_objObs parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_registryObs -
-     * @param iceP_nodeObs -
-     * @param iceP_appObs -
-     * @param iceP_adptObs -
-     * @param iceP_objObs -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setObserversByIdentityAsync(com.zeroc.Ice.Identity iceP_registryObs, com.zeroc.Ice.Identity iceP_nodeObs, com.zeroc.Ice.Identity iceP_appObs, com.zeroc.Ice.Identity iceP_adptObs, com.zeroc.Ice.Identity iceP_objObs, java.util.Map<String, String> context, boolean sync)
     {
@@ -446,10 +456,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the startUpdate operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_startUpdateAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -520,10 +532,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the finishUpdate operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_finishUpdateAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -577,10 +591,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the getReplicaName operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getReplicaNameAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -691,13 +707,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openServerLog operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param iceP_path parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param iceP_path -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openServerLogAsync(String iceP_id, String iceP_path, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -813,12 +831,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openServerStdErr operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openServerStdErrAsync(String iceP_id, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -933,12 +953,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openServerStdOut operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openServerStdOutAsync(String iceP_id, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -1045,12 +1067,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openNodeStdErr operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openNodeStdErrAsync(String iceP_name, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -1156,12 +1180,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openNodeStdOut operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openNodeStdOutAsync(String iceP_name, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -1267,12 +1293,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openRegistryStdErr operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openRegistryStdErrAsync(String iceP_name, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -1378,12 +1406,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the openRegistryStdOut operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_name parameter
+     * @param iceP_count parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_count -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<FileIteratorPrx> _iceI_openRegistryStdOutAsync(String iceP_name, int iceP_count, java.util.Map<String, String> context, boolean sync)
     {
@@ -1550,6 +1580,11 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     @Override
     AdminSessionPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::AdminSession"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::AdminSession";

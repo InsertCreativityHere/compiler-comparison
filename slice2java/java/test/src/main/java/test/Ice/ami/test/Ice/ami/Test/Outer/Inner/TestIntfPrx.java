@@ -29,11 +29,13 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the op operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntf.OpResult> _iceI_opAsync(int iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -191,6 +193,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestIntfPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Outer::Inner::TestIntf"
+     */
     static String ice_staticId()
     {
         return "::Test::Outer::Inner::TestIntf";

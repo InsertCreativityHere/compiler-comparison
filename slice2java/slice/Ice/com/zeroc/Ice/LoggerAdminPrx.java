@@ -98,14 +98,16 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the attachRemoteLogger operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_prx parameter
+     * @param iceP_messageTypes parameter
+     * @param iceP_traceCategories parameter
+     * @param iceP_messageMax parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_prx -
-     * @param iceP_messageTypes -
-     * @param iceP_traceCategories -
-     * @param iceP_messageMax -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
     {
@@ -168,11 +170,13 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the detachRemoteLogger operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_prx parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_prx -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
@@ -254,13 +258,15 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getLog operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_messageTypes parameter
+     * @param iceP_traceCategories parameter
+     * @param iceP_messageMax parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_messageTypes -
-     * @param iceP_traceCategories -
-     * @param iceP_messageMax -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<LoggerAdmin.GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
     {
@@ -420,6 +426,11 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     LoggerAdminPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Ice::LoggerAdmin"
+     */
     static String ice_staticId()
     {
         return "::Ice::LoggerAdmin";

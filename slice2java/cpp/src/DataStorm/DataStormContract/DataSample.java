@@ -47,11 +47,25 @@ public class DataSample implements java.lang.Cloneable,
      **/
     public byte[] value;
 
+    /**
+     * Creates a new {@code DataSample}.
+     **/
     public DataSample()
     {
         this.event = DataStorm.SampleEvent.Add;
     }
 
+    /**
+     * Creates a new {@code DataSample} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::DataSample}.
+     *
+     * @param id The unique identifier for the sample.
+     * @param keyId The unique identifier for the associated key.
+     * @param keyValue The encoded key value, used when keyId < 0 (key filter).
+     * @param timestamp The timestamp when the sample was written, in milliseconds since the epoch.
+     * @param tag An update tag, used for PartialUpdate sample events.
+     * @param event The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
+     * @param value The payload data of the sample.
+     */
     public DataSample(long id, long keyId, byte[] keyValue, long timestamp, long tag, DataStorm.SampleEvent event, byte[] value)
     {
         this.id = id;
@@ -63,6 +77,10 @@ public class DataSample implements java.lang.Cloneable,
         this.value = value;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -115,6 +133,10 @@ public class DataSample implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -129,6 +151,10 @@ public class DataSample implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public DataSample clone()
     {
         DataSample c = null;
@@ -143,6 +169,11 @@ public class DataSample implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.id);
@@ -154,6 +185,11 @@ public class DataSample implements java.lang.Cloneable,
         ostr.writeByteSeq(this.value);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readLong();
@@ -165,6 +201,12 @@ public class DataSample implements java.lang.Cloneable,
         this.value = istr.readByteSeq();
     }
 
+    /**
+     * Marshals a {@code DataSample} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code DataSample} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, DataSample v)
     {
         if(v == null)
@@ -177,6 +219,12 @@ public class DataSample implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code DataSample} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code DataSample}
+     */
     static public DataSample ice_read(com.zeroc.Ice.InputStream istr)
     {
         DataSample v = new DataSample();
@@ -184,6 +232,13 @@ public class DataSample implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code DataSample} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<DataSample> v)
     {
         if(v != null && v.isPresent())
@@ -192,6 +247,13 @@ public class DataSample implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code DataSample} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, DataSample v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -202,6 +264,13 @@ public class DataSample implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code DataSample} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<DataSample> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -217,6 +286,5 @@ public class DataSample implements java.lang.Cloneable,
 
     private static final DataSample _nullMarshalValue = new DataSample();
 
-    /** @hidden */
     private static final long serialVersionUID = -3340581980658407230L;
 }

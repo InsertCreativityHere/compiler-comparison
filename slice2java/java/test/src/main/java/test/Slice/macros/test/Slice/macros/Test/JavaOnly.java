@@ -8,12 +8,18 @@ package test.Slice.macros.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::JavaOnly")
 public class JavaOnly extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code JavaOnly}.
+     **/
     public JavaOnly()
     {
         this.lang = "java";
         this.version = 30850;
     }
 
+    /**
+     * Creates a new {@code JavaOnly} with values for all its fields.
+     */
     public JavaOnly(String lang, int version)
     {
         this.lang = lang;
@@ -29,18 +35,29 @@ public class JavaOnly extends com.zeroc.Ice.Value
         return (JavaOnly)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::JavaOnly"
+     */
     public static String ice_staticId()
     {
         return "::Test::JavaOnly";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -50,7 +67,10 @@ public class JavaOnly extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -60,6 +80,5 @@ public class JavaOnly extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6080076186790239317L;
 }

@@ -29,11 +29,13 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opString operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<WstringClass.OpStringResult> _iceI_opStringAsync(String iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -69,11 +71,13 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opStruct operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<WstringClass.OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -122,11 +126,13 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the throwExcept operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_reason parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_reason -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwExceptAsync(String iceP_reason, java.util.Map<String, String> context, boolean sync)
     {
@@ -286,6 +292,11 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     WstringClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test1::WstringClass"
+     */
     static String ice_staticId()
     {
         return "::Test1::WstringClass";

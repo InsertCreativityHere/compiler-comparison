@@ -31,12 +31,23 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
      **/
     public PropertySetDescriptor propertySet;
 
+    /**
+     * Creates a new {@code ServiceInstanceDescriptor}.
+     **/
     public ServiceInstanceDescriptor()
     {
         this.template = "";
         this.propertySet = new PropertySetDescriptor();
     }
 
+    /**
+     * Creates a new {@code ServiceInstanceDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ServiceInstanceDescriptor}.
+     *
+     * @param template The template used by this instance.
+     * @param parameterValues The template parameter values.
+     * @param descriptor The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
+     * @param propertySet The property set.
+     */
     public ServiceInstanceDescriptor(String template, java.util.Map<java.lang.String, java.lang.String> parameterValues, ServiceDescriptor descriptor, PropertySetDescriptor propertySet)
     {
         this.template = template;
@@ -45,6 +56,10 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         this.propertySet = propertySet;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -94,6 +109,10 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -105,6 +124,10 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ServiceInstanceDescriptor clone()
     {
         ServiceInstanceDescriptor c = null;
@@ -119,6 +142,11 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.template);
@@ -127,6 +155,11 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         PropertySetDescriptor.ice_write(ostr, this.propertySet);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.template = istr.readString();
@@ -135,6 +168,12 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         this.propertySet = PropertySetDescriptor.ice_read(istr);
     }
 
+    /**
+     * Marshals a {@code ServiceInstanceDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ServiceInstanceDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ServiceInstanceDescriptor v)
     {
         if(v == null)
@@ -147,6 +186,12 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code ServiceInstanceDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ServiceInstanceDescriptor}
+     */
     static public ServiceInstanceDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         ServiceInstanceDescriptor v = new ServiceInstanceDescriptor();
@@ -154,6 +199,13 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ServiceInstanceDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ServiceInstanceDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -162,6 +214,13 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ServiceInstanceDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ServiceInstanceDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -172,6 +231,13 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ServiceInstanceDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ServiceInstanceDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -187,6 +253,5 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
 
     private static final ServiceInstanceDescriptor _nullMarshalValue = new ServiceInstanceDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -1120481263044223356L;
 }

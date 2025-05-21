@@ -42,11 +42,13 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getUserInfo operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<UserInfo> _iceI_getUserInfoAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -211,6 +213,11 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     RegistryPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::User::Registry"
+     */
     static String ice_staticId()
     {
         return "::User::Registry";

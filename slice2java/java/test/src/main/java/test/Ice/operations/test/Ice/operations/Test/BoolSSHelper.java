@@ -10,6 +10,12 @@ package test.Ice.operations.Test;
  **/
 public final class BoolSSHelper
 {
+    /**
+     * Marshals a list of {@code BoolSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, boolean[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class BoolSSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code BoolSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static boolean[][] read(com.zeroc.Ice.InputStream istr)
     {
         final boolean[][] v;
@@ -38,6 +50,13 @@ public final class BoolSSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code BoolSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<boolean[][]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class BoolSSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code BoolSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, boolean[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class BoolSSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code BoolSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<boolean[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

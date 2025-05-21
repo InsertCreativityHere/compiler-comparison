@@ -12,12 +12,24 @@ public interface operations extends com.zeroc.Ice.Object
 
     void function(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::classdef::operations"
+     */
     static String ice_staticId()
     {
         return "::classdef::operations";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation events.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_events(operations obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -26,7 +38,14 @@ public interface operations extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation function.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_function(operations obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

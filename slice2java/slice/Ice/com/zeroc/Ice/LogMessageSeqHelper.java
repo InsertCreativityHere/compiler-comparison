@@ -10,6 +10,12 @@ package com.zeroc.Ice;
  **/
 public final class LogMessageSeqHelper
 {
+    /**
+     * Marshals a list of {@code LogMessageSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, LogMessage[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class LogMessageSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code LogMessageSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static LogMessage[] read(com.zeroc.Ice.InputStream istr)
     {
         final LogMessage[] v;
@@ -38,6 +50,13 @@ public final class LogMessageSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code LogMessageSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LogMessage[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class LogMessageSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code LogMessageSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, LogMessage[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class LogMessageSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code LogMessageSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<LogMessage[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

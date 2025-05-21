@@ -152,6 +152,11 @@ public interface explicitPrx extends decimalPrx,
     @Override
     explicitPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::explicit"
+     */
     static String ice_staticId()
     {
         return "::abstract::explicit";

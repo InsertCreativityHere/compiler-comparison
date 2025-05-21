@@ -8,15 +8,25 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::InvalidPointException")
 public class InvalidPointException extends BaseException
 {
+    /**
+     * Creates a new {@code InvalidPointException}.
+     **/
     public InvalidPointException()
     {
     }
 
+    /**
+     * Creates a new {@code InvalidPointException} with values for all its fields.
+     */
     public InvalidPointException(int index)
     {
         this.index = index;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::InvalidPointException";
@@ -24,7 +34,10 @@ public class InvalidPointException extends BaseException
 
     public int index;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class InvalidPointException extends BaseException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -44,6 +60,5 @@ public class InvalidPointException extends BaseException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2157407499270333891L;
 }

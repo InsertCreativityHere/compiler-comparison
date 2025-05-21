@@ -26,12 +26,18 @@ public class NestedStruct implements java.lang.Cloneable,
 
     public NestedEnum e;
 
+    /**
+     * Creates a new {@code NestedStruct}.
+     **/
     public NestedStruct()
     {
         this.str = "";
         this.e = NestedEnum.nestedEnum1;
     }
 
+    /**
+     * Creates a new {@code NestedStruct} with values for all fields not marked optional in the Slice definition for {@code ::Test::Sub::NestedStruct}.
+     */
     public NestedStruct(boolean bo, byte by, short sh, int i, long l, float f, double d, String str, NestedEnum e)
     {
         this.bo = bo;
@@ -45,6 +51,10 @@ public class NestedStruct implements java.lang.Cloneable,
         this.e = e;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -108,6 +118,10 @@ public class NestedStruct implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -124,6 +138,10 @@ public class NestedStruct implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public NestedStruct clone()
     {
         NestedStruct c = null;
@@ -138,6 +156,11 @@ public class NestedStruct implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.bo);
@@ -151,6 +174,11 @@ public class NestedStruct implements java.lang.Cloneable,
         NestedEnum.ice_write(ostr, this.e);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.bo = istr.readBool();
@@ -164,6 +192,12 @@ public class NestedStruct implements java.lang.Cloneable,
         this.e = NestedEnum.ice_read(istr);
     }
 
+    /**
+     * Marshals a {@code NestedStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code NestedStruct} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, NestedStruct v)
     {
         if(v == null)
@@ -176,6 +210,12 @@ public class NestedStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code NestedStruct} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code NestedStruct}
+     */
     static public NestedStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
         NestedStruct v = new NestedStruct();
@@ -183,6 +223,13 @@ public class NestedStruct implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code NestedStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<NestedStruct> v)
     {
         if(v != null && v.isPresent())
@@ -191,6 +238,13 @@ public class NestedStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code NestedStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, NestedStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -201,6 +255,13 @@ public class NestedStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code NestedStruct} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<NestedStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -216,6 +277,5 @@ public class NestedStruct implements java.lang.Cloneable,
 
     private static final NestedStruct _nullMarshalValue = new NestedStruct();
 
-    /** @hidden */
     private static final long serialVersionUID = 7538410162619095929L;
 }

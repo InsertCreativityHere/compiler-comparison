@@ -52,10 +52,12 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     }
 
     /**
+     * Invokes the getLinkProxy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TopicLinkPrx> _iceI_getLinkProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -124,11 +126,13 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     }
 
     /**
+     * Invokes the reap operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_reapAsync(com.zeroc.Ice.Identity[] iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -288,6 +292,11 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
     @Override
     TopicInternalPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceStorm::TopicInternal"
+     */
     static String ice_staticId()
     {
         return "::IceStorm::TopicInternal";

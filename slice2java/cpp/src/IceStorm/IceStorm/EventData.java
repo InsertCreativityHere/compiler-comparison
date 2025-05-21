@@ -31,12 +31,23 @@ public class EventData implements java.lang.Cloneable,
      **/
     public java.util.Map<java.lang.String, java.lang.String> context;
 
+    /**
+     * Creates a new {@code EventData}.
+     **/
     public EventData()
     {
         this.op = "";
         this.mode = com.zeroc.Ice.OperationMode.Normal;
     }
 
+    /**
+     * Creates a new {@code EventData} with values for all fields not marked optional in the Slice definition for {@code ::IceStorm::EventData}.
+     *
+     * @param op The operation name.
+     * @param mode The operation mode.
+     * @param data The encoded data for the operation's input parameters.
+     * @param context The Ice::Current::Context data from the originating request.
+     */
     public EventData(String op, com.zeroc.Ice.OperationMode mode, byte[] data, java.util.Map<java.lang.String, java.lang.String> context)
     {
         this.op = op;
@@ -45,6 +56,10 @@ public class EventData implements java.lang.Cloneable,
         this.context = context;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -91,6 +106,10 @@ public class EventData implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -102,6 +121,10 @@ public class EventData implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public EventData clone()
     {
         EventData c = null;
@@ -116,6 +139,11 @@ public class EventData implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.op);
@@ -124,6 +152,11 @@ public class EventData implements java.lang.Cloneable,
         com.zeroc.Ice.ContextHelper.write(ostr, this.context);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.op = istr.readString();
@@ -132,6 +165,12 @@ public class EventData implements java.lang.Cloneable,
         this.context = com.zeroc.Ice.ContextHelper.read(istr);
     }
 
+    /**
+     * Marshals an {@code EventData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code EventData} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, EventData v)
     {
         if(v == null)
@@ -144,6 +183,12 @@ public class EventData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code EventData} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code EventData}
+     */
     static public EventData ice_read(com.zeroc.Ice.InputStream istr)
     {
         EventData v = new EventData();
@@ -151,6 +196,13 @@ public class EventData implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code EventData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<EventData> v)
     {
         if(v != null && v.isPresent())
@@ -159,6 +211,13 @@ public class EventData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code EventData} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, EventData v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -169,6 +228,13 @@ public class EventData implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code EventData} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<EventData> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -184,6 +250,5 @@ public class EventData implements java.lang.Cloneable,
 
     private static final EventData _nullMarshalValue = new EventData();
 
-    /** @hidden */
     private static final long serialVersionUID = -5773549919515323689L;
 }

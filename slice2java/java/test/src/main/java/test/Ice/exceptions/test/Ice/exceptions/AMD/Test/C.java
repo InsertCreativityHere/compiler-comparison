@@ -8,16 +8,26 @@ package test.Ice.exceptions.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::C")
 public class C extends B
 {
+    /**
+     * Creates a new {@code C}.
+     **/
     public C()
     {
     }
 
+    /**
+     * Creates a new {@code C} with values for all its fields.
+     */
     public C(int aMem, int bMem, int cMem)
     {
         super(aMem, bMem);
         this.cMem = cMem;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::C";
@@ -25,7 +35,10 @@ public class C extends B
 
     public int cMem;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -35,7 +48,10 @@ public class C extends B
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -45,6 +61,5 @@ public class C extends B
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5031833481864002841L;
 }

@@ -10,12 +10,24 @@ public interface Clock extends com.zeroc.Ice.Object
 {
     void tick(String time, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Clock"
+     */
     static String ice_staticId()
     {
         return "::Test::Clock";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation tick.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_tick(Clock obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

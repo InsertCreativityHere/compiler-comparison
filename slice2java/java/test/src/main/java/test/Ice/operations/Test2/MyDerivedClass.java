@@ -8,6 +8,11 @@ package Test2;
 @com.zeroc.Ice.SliceTypeId(value = "::Test2::MyDerivedClass")
 public interface MyDerivedClass extends test.Ice.operations.Test.MyClass
 {
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test2::MyDerivedClass"
+     */
     static String ice_staticId()
     {
         return "::Test2::MyDerivedClass";

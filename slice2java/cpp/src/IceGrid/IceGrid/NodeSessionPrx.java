@@ -45,11 +45,13 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the keepAlive operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_load parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_load -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_keepAliveAsync(com.zeroc.IceGrid.LoadInfo iceP_load, java.util.Map<String, String> context, boolean sync)
     {
@@ -101,11 +103,13 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setReplicaObserver operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_observer parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_observer -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setReplicaObserverAsync(ReplicaObserverPrx iceP_observer, java.util.Map<String, String> context, boolean sync)
     {
@@ -153,10 +157,12 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getTimeout operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -206,10 +212,12 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getObserver operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.IceGrid.NodeObserverPrx> _iceI_getObserverAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -259,10 +267,12 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the loadServers operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_loadServersAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -308,10 +318,12 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getServers operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<String[]> _iceI_getServersAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -369,12 +381,14 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the waitForApplicationUpdate operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_application parameter
+     * @param iceP_revision parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_application -
-     * @param iceP_revision -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_waitForApplicationUpdateAsync(String iceP_application, int iceP_revision, java.util.Map<String, String> context, boolean sync)
     {
@@ -423,10 +437,12 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -578,6 +594,11 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     NodeSessionPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::NodeSession"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::NodeSession";

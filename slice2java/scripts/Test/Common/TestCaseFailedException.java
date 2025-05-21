@@ -8,16 +8,26 @@ package Test.Common;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Common::TestCaseFailedException")
 public class TestCaseFailedException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code TestCaseFailedException}.
+     **/
     public TestCaseFailedException()
     {
         this.output = "";
     }
 
+    /**
+     * Creates a new {@code TestCaseFailedException} with values for all its fields.
+     */
     public TestCaseFailedException(String output)
     {
         this.output = output;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Common::TestCaseFailedException";
@@ -25,7 +35,10 @@ public class TestCaseFailedException extends com.zeroc.Ice.UserException
 
     public String output;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class TestCaseFailedException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class TestCaseFailedException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -1749331422355153707L;
 }

@@ -20,6 +20,9 @@ public class TestToken implements java.lang.Cloneable,
 
     public String testReference;
 
+    /**
+     * Creates a new {@code TestToken}.
+     **/
     public TestToken()
     {
         this.description = "";
@@ -27,6 +30,9 @@ public class TestToken implements java.lang.Cloneable,
         this.testReference = "";
     }
 
+    /**
+     * Creates a new {@code TestToken} with values for all fields not marked optional in the Slice definition for {@code ::Test::TestToken}.
+     */
     public TestToken(boolean expectedResult, String description, StateCode code, short config, short caseIndex, String testReference)
     {
         this.expectedResult = expectedResult;
@@ -37,6 +43,10 @@ public class TestToken implements java.lang.Cloneable,
         this.testReference = testReference;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -91,6 +101,10 @@ public class TestToken implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -104,6 +118,10 @@ public class TestToken implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public TestToken clone()
     {
         TestToken c = null;
@@ -118,6 +136,11 @@ public class TestToken implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.expectedResult);
@@ -128,6 +151,11 @@ public class TestToken implements java.lang.Cloneable,
         ostr.writeString(this.testReference);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.expectedResult = istr.readBool();
@@ -138,6 +166,12 @@ public class TestToken implements java.lang.Cloneable,
         this.testReference = istr.readString();
     }
 
+    /**
+     * Marshals a {@code TestToken} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code TestToken} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, TestToken v)
     {
         if(v == null)
@@ -150,6 +184,12 @@ public class TestToken implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code TestToken} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code TestToken}
+     */
     static public TestToken ice_read(com.zeroc.Ice.InputStream istr)
     {
         TestToken v = new TestToken();
@@ -157,6 +197,13 @@ public class TestToken implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code TestToken} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<TestToken> v)
     {
         if(v != null && v.isPresent())
@@ -165,6 +212,13 @@ public class TestToken implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code TestToken} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, TestToken v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -175,6 +229,13 @@ public class TestToken implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code TestToken} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<TestToken> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -190,6 +251,5 @@ public class TestToken implements java.lang.Cloneable,
 
     private static final TestToken _nullMarshalValue = new TestToken();
 
-    /** @hidden */
     private static final long serialVersionUID = 7999633931236030296L;
 }

@@ -29,10 +29,12 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the noCert operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_noCertAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,12 +64,14 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkCert operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_subjectDN parameter
+     * @param iceP_issuerDN parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_subjectDN -
-     * @param iceP_issuerDN -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkCertAsync(String iceP_subjectDN, String iceP_issuerDN, java.util.Map<String, String> context, boolean sync)
     {
@@ -100,11 +104,13 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkCipher operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_cipher parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_cipher -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkCipherAsync(String iceP_cipher, java.util.Map<String, String> context, boolean sync)
     {
@@ -258,6 +264,11 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ServerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Server"
+     */
     static String ice_staticId()
     {
         return "::Test::Server";

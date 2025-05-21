@@ -10,6 +10,12 @@ package com.zeroc.IceMX;
  **/
 public final class MetricsFailuresSeqHelper
 {
+    /**
+     * Marshals a list of {@code MetricsFailuresSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, MetricsFailures[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class MetricsFailuresSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code MetricsFailuresSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static MetricsFailures[] read(com.zeroc.Ice.InputStream istr)
     {
         final MetricsFailures[] v;
@@ -38,6 +50,13 @@ public final class MetricsFailuresSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code MetricsFailuresSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<MetricsFailures[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class MetricsFailuresSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code MetricsFailuresSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, MetricsFailures[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class MetricsFailuresSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code MetricsFailuresSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<MetricsFailures[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

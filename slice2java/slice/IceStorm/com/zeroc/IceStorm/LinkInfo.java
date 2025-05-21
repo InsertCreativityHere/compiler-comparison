@@ -26,11 +26,21 @@ public class LinkInfo implements java.lang.Cloneable,
      **/
     public int cost;
 
+    /**
+     * Creates a new {@code LinkInfo}.
+     **/
     public LinkInfo()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code LinkInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceStorm::LinkInfo}.
+     *
+     * @param theTopic The linked topic proxy.
+     * @param name The name of the linked topic.
+     * @param cost The cost of traversing this link.
+     */
     public LinkInfo(TopicPrx theTopic, String name, int cost)
     {
         this.theTopic = theTopic;
@@ -38,6 +48,10 @@ public class LinkInfo implements java.lang.Cloneable,
         this.cost = cost;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -77,6 +91,10 @@ public class LinkInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -87,6 +105,10 @@ public class LinkInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public LinkInfo clone()
     {
         LinkInfo c = null;
@@ -101,6 +123,11 @@ public class LinkInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeProxy(this.theTopic);
@@ -108,6 +135,11 @@ public class LinkInfo implements java.lang.Cloneable,
         ostr.writeInt(this.cost);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.theTopic = TopicPrx.uncheckedCast(istr.readProxy());
@@ -115,6 +147,12 @@ public class LinkInfo implements java.lang.Cloneable,
         this.cost = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code LinkInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code LinkInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, LinkInfo v)
     {
         if(v == null)
@@ -127,6 +165,12 @@ public class LinkInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code LinkInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code LinkInfo}
+     */
     static public LinkInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         LinkInfo v = new LinkInfo();
@@ -134,6 +178,13 @@ public class LinkInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code LinkInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LinkInfo> v)
     {
         if(v != null && v.isPresent())
@@ -142,6 +193,13 @@ public class LinkInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code LinkInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LinkInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -152,6 +210,13 @@ public class LinkInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code LinkInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<LinkInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -167,6 +232,5 @@ public class LinkInfo implements java.lang.Cloneable,
 
     private static final LinkInfo _nullMarshalValue = new LinkInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 4338548757003220635L;
 }

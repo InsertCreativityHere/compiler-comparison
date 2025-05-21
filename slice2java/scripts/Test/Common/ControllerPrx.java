@@ -42,14 +42,16 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the runTestCase operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_mapping parameter
+     * @param iceP_testsuite parameter
+     * @param iceP_testcase parameter
+     * @param iceP_cross parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_mapping -
-     * @param iceP_testsuite -
-     * @param iceP_testcase -
-     * @param iceP_cross -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestCasePrx> _iceI_runTestCaseAsync(String iceP_mapping, String iceP_testsuite, String iceP_testcase, String iceP_cross, java.util.Map<String, String> context, boolean sync)
     {
@@ -94,10 +96,12 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getOptionOverrides operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<OptionOverrides> _iceI_getOptionOverridesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -132,11 +136,13 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getTestSuites operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_mapping parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_mapping -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<String[]> _iceI_getTestSuitesAsync(String iceP_mapping, java.util.Map<String, String> context, boolean sync)
     {
@@ -172,12 +178,14 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getHost operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_protocol parameter
+     * @param iceP_ipv6 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_protocol -
-     * @param iceP_ipv6 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
     {
@@ -336,6 +344,11 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ControllerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Common::Controller"
+     */
     static String ice_staticId()
     {
         return "::Test::Common::Controller";

@@ -8,10 +8,16 @@ package test.Ice.slicing.objects.client.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::SS2")
 public class SS2 extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code SS2}.
+     **/
     public SS2()
     {
     }
 
+    /**
+     * Creates a new {@code SS2} with values for all its fields.
+     */
     public SS2(B[] s)
     {
         this.s = s;
@@ -24,18 +30,29 @@ public class SS2 extends com.zeroc.Ice.Value
         return (SS2)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::SS2"
+     */
     public static String ice_staticId()
     {
         return "::Test::SS2";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +61,10 @@ public class SS2 extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +73,5 @@ public class SS2 extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1733635111519884217L;
 }

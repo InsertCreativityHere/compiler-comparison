@@ -11,16 +11,28 @@ package com.zeroc.IceStorm;
 @com.zeroc.Ice.SliceTypeId(value = "::IceStorm::TopicExists")
 public class TopicExists extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code TopicExists}.
+     **/
     public TopicExists()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code TopicExists} with values for all its fields.
+     *
+     * @param name The name of the topic that already exists.
+     */
     public TopicExists(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceStorm::TopicExists";
@@ -31,7 +43,10 @@ public class TopicExists extends com.zeroc.Ice.UserException
      **/
     public String name;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class TopicExists extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class TopicExists extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8270382985555355961L;
 }

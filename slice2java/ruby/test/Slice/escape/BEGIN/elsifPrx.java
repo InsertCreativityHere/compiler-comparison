@@ -42,13 +42,15 @@ public interface elsifPrx extends breakPrx
     }
 
     /**
+     * Invokes the for operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_freeze parameter
+     * @param iceP_if parameter
+     * @param iceP_methods parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_freeze -
-     * @param iceP_if -
-     * @param iceP_methods -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<END> _iceI_forAsync(display iceP_freeze, breakPrx iceP_if, int iceP_methods, java.util.Map<String, String> context, boolean sync)
     {
@@ -215,6 +217,11 @@ public interface elsifPrx extends breakPrx
     @Override
     elsifPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::BEGIN::elsif"
+     */
     static String ice_staticId()
     {
         return "::BEGIN::elsif";

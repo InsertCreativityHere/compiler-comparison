@@ -11,6 +11,9 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::InternalNodeInfo")
 public class InternalNodeInfo extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code InternalNodeInfo}.
+     **/
     public InternalNodeInfo()
     {
         this.name = "";
@@ -23,6 +26,18 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         this.iceSoVersion = "";
     }
 
+    /**
+     * Creates a new {@code InternalNodeInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::InternalNodeInfo}.
+     *
+     * @param name The name of the node.
+     * @param os The operating system name.
+     * @param hostname The network name of the host running this node (as defined in uname()).
+     * @param release The operation system release level (as defined in uname()).
+     * @param version The operation system version (as defined in uname()).
+     * @param machine The machine hardware type (as defined in uname()).
+     * @param nProcessors The number of processor threads (e.g.
+     * @param dataDir The path to the node data directory.
+     */
     public InternalNodeInfo(String name, String os, String hostname, String release, String version, String machine, int nProcessors, String dataDir)
     {
         this.name = name;
@@ -36,6 +51,19 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         this.iceSoVersion = "";
     }
 
+    /**
+     * Creates a new {@code InternalNodeInfo} with values for all its fields.
+     *
+     * @param name The name of the node.
+     * @param os The operating system name.
+     * @param hostname The network name of the host running this node (as defined in uname()).
+     * @param release The operation system release level (as defined in uname()).
+     * @param version The operation system version (as defined in uname()).
+     * @param machine The machine hardware type (as defined in uname()).
+     * @param nProcessors The number of processor threads (e.g.
+     * @param dataDir The path to the node data directory.
+     * @param iceSoVersion The Ice SO version of this node, for example 38.
+     */
     public InternalNodeInfo(String name, String os, String hostname, String release, String version, String machine, int nProcessors, String dataDir, String iceSoVersion)
     {
         this.name = name;
@@ -175,18 +203,29 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         return (InternalNodeInfo)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::InternalNodeInfo"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::InternalNodeInfo";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -206,7 +245,10 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -226,6 +268,5 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2437932417795345960L;
 }

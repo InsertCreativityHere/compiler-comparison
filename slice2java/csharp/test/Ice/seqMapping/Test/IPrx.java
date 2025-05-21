@@ -151,6 +151,11 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     IPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::I"
+     */
     static String ice_staticId()
     {
         return "::Test::I";

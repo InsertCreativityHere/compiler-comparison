@@ -30,12 +30,24 @@ public interface LookupReply extends com.zeroc.Ice.Object
      **/
     void foundAdapterById(String id, com.zeroc.Ice.ObjectPrx prx, boolean isReplicaGroup, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceDiscovery::LookupReply"
+     */
     static String ice_staticId()
     {
         return "::IceDiscovery::LookupReply";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation foundObjectById.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_foundObjectById(LookupReply obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -50,7 +62,14 @@ public interface LookupReply extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation foundAdapterById.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_foundAdapterById(LookupReply obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

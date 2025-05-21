@@ -12,12 +12,24 @@ public interface break extends com.zeroc.Ice.Object
 
     END instance_variables(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::BEGIN::break"
+     */
     static String ice_staticId()
     {
         return "::BEGIN::break";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation case.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_case(break obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -34,7 +46,14 @@ public interface break extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation instance_variables.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_instance_variables(break obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

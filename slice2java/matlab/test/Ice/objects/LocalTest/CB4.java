@@ -8,10 +8,16 @@ package LocalTest;
 @com.zeroc.Ice.SliceTypeId(value = "::LocalTest::CB4")
 public class CB4 extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code CB4}.
+     **/
     public CB4()
     {
     }
 
+    /**
+     * Creates a new {@code CB4} with values for all its fields.
+     */
     public CB4(java.util.Map<java.lang.Integer, C1> c1dict)
     {
         this.c1dict = c1dict;
@@ -24,18 +30,29 @@ public class CB4 extends com.zeroc.Ice.Value
         return (CB4)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::LocalTest::CB4"
+     */
     public static String ice_staticId()
     {
         return "::LocalTest::CB4";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +61,10 @@ public class CB4 extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +73,5 @@ public class CB4 extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8066613419293130969L;
 }

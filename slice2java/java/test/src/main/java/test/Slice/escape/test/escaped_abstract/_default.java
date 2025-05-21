@@ -10,12 +10,24 @@ public interface _default extends com.zeroc.Ice.Object
 {
     void _do(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::default"
+     */
     static String ice_staticId()
     {
         return "::abstract::default";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation _do.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD__do(_default obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

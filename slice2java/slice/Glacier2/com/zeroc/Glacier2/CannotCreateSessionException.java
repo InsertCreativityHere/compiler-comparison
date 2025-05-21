@@ -11,16 +11,28 @@ package com.zeroc.Glacier2;
 @com.zeroc.Ice.SliceTypeId(value = "::Glacier2::CannotCreateSessionException")
 public class CannotCreateSessionException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code CannotCreateSessionException}.
+     **/
     public CannotCreateSessionException()
     {
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code CannotCreateSessionException} with values for all its fields.
+     *
+     * @param reason The reason why the session creation failed.
+     */
     public CannotCreateSessionException(String reason)
     {
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Glacier2::CannotCreateSessionException";
@@ -31,7 +43,10 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +55,10 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +67,5 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7201236761485959246L;
 }

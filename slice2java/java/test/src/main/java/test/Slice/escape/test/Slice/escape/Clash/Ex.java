@@ -8,11 +8,17 @@ package test.Slice.escape.Clash;
 @com.zeroc.Ice.SliceTypeId(value = "::Clash::Ex")
 public class Ex extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code Ex}.
+     **/
     public Ex()
     {
         this.cause = "";
     }
 
+    /**
+     * Creates a new {@code Ex} with values for all its fields.
+     */
     public Ex(short istr, int ostr, String cause)
     {
         this.istr = istr;
@@ -20,6 +26,10 @@ public class Ex extends com.zeroc.Ice.UserException
         this.cause = cause;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Clash::Ex";
@@ -31,7 +41,10 @@ public class Ex extends com.zeroc.Ice.UserException
 
     public String cause;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -42,7 +55,10 @@ public class Ex extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +69,5 @@ public class Ex extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2269765394084215616L;
 }

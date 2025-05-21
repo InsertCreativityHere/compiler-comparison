@@ -10,16 +10,26 @@ public class WstringStruct implements java.lang.Cloneable,
 {
     public String s;
 
+    /**
+     * Creates a new {@code WstringStruct}.
+     **/
     public WstringStruct()
     {
         this.s = "";
     }
 
+    /**
+     * Creates a new {@code WstringStruct} with values for all fields not marked optional in the Slice definition for {@code ::Test1::WstringStruct}.
+     */
     public WstringStruct(String s)
     {
         this.s = s;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -48,6 +58,10 @@ public class WstringStruct implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -56,6 +70,10 @@ public class WstringStruct implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public WstringStruct clone()
     {
         WstringStruct c = null;
@@ -70,16 +88,32 @@ public class WstringStruct implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.s);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.s = istr.readString();
     }
 
+    /**
+     * Marshals a {@code WstringStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code WstringStruct} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, WstringStruct v)
     {
         if(v == null)
@@ -92,6 +126,12 @@ public class WstringStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code WstringStruct} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code WstringStruct}
+     */
     static public WstringStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
         WstringStruct v = new WstringStruct();
@@ -99,6 +139,13 @@ public class WstringStruct implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code WstringStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<WstringStruct> v)
     {
         if(v != null && v.isPresent())
@@ -107,6 +154,13 @@ public class WstringStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code WstringStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, WstringStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -117,6 +171,13 @@ public class WstringStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code WstringStruct} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<WstringStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -132,6 +193,5 @@ public class WstringStruct implements java.lang.Cloneable,
 
     private static final WstringStruct _nullMarshalValue = new WstringStruct();
 
-    /** @hidden */
     private static final long serialVersionUID = 4181649732798911558L;
 }

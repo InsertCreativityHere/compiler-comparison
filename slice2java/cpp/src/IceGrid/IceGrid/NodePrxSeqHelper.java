@@ -10,6 +10,12 @@ package IceGrid;
  **/
 public final class NodePrxSeqHelper
 {
+    /**
+     * Marshals a list of {@code NodePrxSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, NodePrx[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class NodePrxSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code NodePrxSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static NodePrx[] read(com.zeroc.Ice.InputStream istr)
     {
         final NodePrx[] v;
@@ -38,6 +50,13 @@ public final class NodePrxSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code NodePrxSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<NodePrx[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class NodePrxSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code NodePrxSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, NodePrx[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class NodePrxSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code NodePrxSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<NodePrx[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

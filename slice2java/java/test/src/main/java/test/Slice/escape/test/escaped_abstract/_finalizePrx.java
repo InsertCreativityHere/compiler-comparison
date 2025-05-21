@@ -49,15 +49,17 @@ public interface _finalizePrx extends _defaultPrx,
     }
 
     /**
+     * Invokes the notify operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_escaped_notifyAll parameter
+     * @param iceP_escaped_null parameter
+     * @param iceP_escaped_package parameter
+     * @param iceP_escaped_return parameter
+     * @param iceP_escaped_super parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_escaped_notifyAll -
-     * @param iceP_escaped_null -
-     * @param iceP_escaped_package -
-     * @param iceP_escaped_return -
-     * @param iceP_escaped_super -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<_assert> _iceI__notifyAsync(_break iceP_escaped_notifyAll, _notify iceP_escaped_null, _finalizePrx iceP_escaped_package, _defaultPrx iceP_escaped_return, int iceP_escaped_super, java.util.Map<String, String> context, boolean sync)
     {
@@ -227,6 +229,11 @@ public interface _finalizePrx extends _defaultPrx,
     @Override
     _finalizePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::finalize"
+     */
     static String ice_staticId()
     {
         return "::abstract::finalize";

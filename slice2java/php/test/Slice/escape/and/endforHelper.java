@@ -10,6 +10,12 @@ package and;
  **/
 public final class endforHelper
 {
+    /**
+     * Marshals a list of {@code endfor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, array[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class endforHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code endfor} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static array[] read(com.zeroc.Ice.InputStream istr)
     {
         final array[] v;
@@ -38,6 +50,13 @@ public final class endforHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code endfor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<array[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class endforHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code endfor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, array[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class endforHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code endfor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<array[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

@@ -12,12 +12,24 @@ public interface Session extends com.zeroc.Glacier2.Session
 
     void shutdown(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Session"
+     */
     static String ice_staticId()
     {
         return "::Test::Session";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation destroyFromClient.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_destroyFromClient(Session obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -26,7 +38,14 @@ public interface Session extends com.zeroc.Glacier2.Session
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation shutdown.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Session obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

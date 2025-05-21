@@ -10,6 +10,12 @@ package Test;
  **/
 public final class MyInterfaceProxyStackHelper
 {
+    /**
+     * Marshals a list of {@code MyInterfaceProxyStack} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, MyInterfacePrx[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class MyInterfaceProxyStackHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code MyInterfaceProxyStack} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static MyInterfacePrx[] read(com.zeroc.Ice.InputStream istr)
     {
         final MyInterfacePrx[] v;
@@ -38,6 +50,13 @@ public final class MyInterfaceProxyStackHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code MyInterfaceProxyStack} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<MyInterfacePrx[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class MyInterfaceProxyStackHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code MyInterfaceProxyStack} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, MyInterfacePrx[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class MyInterfaceProxyStackHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code MyInterfaceProxyStack} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<MyInterfacePrx[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

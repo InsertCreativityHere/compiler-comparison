@@ -11,18 +11,31 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::NodeUnreachableException")
 public class NodeUnreachableException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code NodeUnreachableException}.
+     **/
     public NodeUnreachableException()
     {
         this.name = "";
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code NodeUnreachableException} with values for all its fields.
+     *
+     * @param name The name of the node that is not reachable.
+     * @param reason The reason why the node couldn't be reached.
+     */
     public NodeUnreachableException(String name, String reason)
     {
         this.name = name;
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::NodeUnreachableException";
@@ -38,7 +51,10 @@ public class NodeUnreachableException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +64,10 @@ public class NodeUnreachableException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +77,5 @@ public class NodeUnreachableException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 794203655811309739L;
 }

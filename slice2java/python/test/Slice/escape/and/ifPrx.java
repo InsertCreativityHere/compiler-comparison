@@ -43,16 +43,18 @@ public interface ifPrx extends execPrx,
     }
 
     /**
+     * Invokes the raise operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_else parameter
+     * @param iceP_return parameter
+     * @param iceP_while parameter
+     * @param iceP_yield parameter
+     * @param iceP_or parameter
+     * @param iceP_global parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_else -
-     * @param iceP_return -
-     * @param iceP_while -
-     * @param iceP_yield -
-     * @param iceP_or -
-     * @param iceP_global -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<assert> _iceI_raiseAsync(continue iceP_else, for iceP_return, delPrx iceP_while, execPrx iceP_yield, ifPrx iceP_or, int iceP_global, java.util.Map<String, String> context, boolean sync)
     {
@@ -222,6 +224,11 @@ public interface ifPrx extends execPrx,
     @Override
     ifPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::and::if"
+     */
     static String ice_staticId()
     {
         return "::and::if";

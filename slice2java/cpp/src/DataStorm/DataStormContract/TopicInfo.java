@@ -26,17 +26,30 @@ public class TopicInfo implements java.lang.Cloneable,
      **/
     public long[] ids;
 
+    /**
+     * Creates a new {@code TopicInfo}.
+     **/
     public TopicInfo()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code TopicInfo} with values for all fields not marked optional in the Slice definition for {@code ::DataStormContract::TopicInfo}.
+     *
+     * @param name The name of the topic.
+     * @param ids The list of active topic reader or writer IDs.
+     */
     public TopicInfo(String name, long[] ids)
     {
         this.name = name;
         this.ids = ids;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -69,6 +82,10 @@ public class TopicInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -78,6 +95,10 @@ public class TopicInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public TopicInfo clone()
     {
         TopicInfo c = null;
@@ -92,18 +113,34 @@ public class TopicInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
         ostr.writeLongSeq(this.ids);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
         this.ids = istr.readLongSeq();
     }
 
+    /**
+     * Marshals a {@code TopicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code TopicInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, TopicInfo v)
     {
         if(v == null)
@@ -116,6 +153,12 @@ public class TopicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code TopicInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code TopicInfo}
+     */
     static public TopicInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         TopicInfo v = new TopicInfo();
@@ -123,6 +166,13 @@ public class TopicInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code TopicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<TopicInfo> v)
     {
         if(v != null && v.isPresent())
@@ -131,6 +181,13 @@ public class TopicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code TopicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, TopicInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -141,6 +198,13 @@ public class TopicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code TopicInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<TopicInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -156,6 +220,5 @@ public class TopicInfo implements java.lang.Cloneable,
 
     private static final TopicInfo _nullMarshalValue = new TopicInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 1899540385940713854L;
 }

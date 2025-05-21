@@ -57,11 +57,13 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the putOnHold operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_delay parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_delay -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_putOnHoldAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
     {
@@ -109,10 +111,12 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the waitForHold operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_waitForHoldAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -166,12 +170,14 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setOneway operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_value parameter
+     * @param iceP_expected parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_value -
-     * @param iceP_expected -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setOnewayAsync(int iceP_value, int iceP_expected, java.util.Map<String, String> context, boolean sync)
     {
@@ -230,12 +236,14 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the set operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_value parameter
+     * @param iceP_delay parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_value -
-     * @param iceP_delay -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_setAsync(int iceP_value, int iceP_delay, java.util.Map<String, String> context, boolean sync)
     {
@@ -288,10 +296,12 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -443,6 +453,11 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     HoldPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Hold"
+     */
     static String ice_staticId()
     {
         return "::Test::Hold";

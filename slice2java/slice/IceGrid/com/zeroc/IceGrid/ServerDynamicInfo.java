@@ -31,12 +31,23 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
      **/
     public boolean enabled;
 
+    /**
+     * Creates a new {@code ServerDynamicInfo}.
+     **/
     public ServerDynamicInfo()
     {
         this.id = "";
         this.state = ServerState.Inactive;
     }
 
+    /**
+     * Creates a new {@code ServerDynamicInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ServerDynamicInfo}.
+     *
+     * @param id The ID of the server.
+     * @param state The state of the server.
+     * @param pid The process ID of the server.
+     * @param enabled Indicates whether the server is enabled.
+     */
     public ServerDynamicInfo(String id, ServerState state, int pid, boolean enabled)
     {
         this.id = id;
@@ -45,6 +56,10 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         this.enabled = enabled;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -88,6 +103,10 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -99,6 +118,10 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ServerDynamicInfo clone()
     {
         ServerDynamicInfo c = null;
@@ -113,6 +136,11 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.id);
@@ -121,6 +149,11 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         ostr.writeBool(this.enabled);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readString();
@@ -129,6 +162,12 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         this.enabled = istr.readBool();
     }
 
+    /**
+     * Marshals a {@code ServerDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ServerDynamicInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ServerDynamicInfo v)
     {
         if(v == null)
@@ -141,6 +180,12 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code ServerDynamicInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ServerDynamicInfo}
+     */
     static public ServerDynamicInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         ServerDynamicInfo v = new ServerDynamicInfo();
@@ -148,6 +193,13 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ServerDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ServerDynamicInfo> v)
     {
         if(v != null && v.isPresent())
@@ -156,6 +208,13 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ServerDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ServerDynamicInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -166,6 +225,13 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ServerDynamicInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ServerDynamicInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -181,6 +247,5 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
 
     private static final ServerDynamicInfo _nullMarshalValue = new ServerDynamicInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -49380744722538778L;
 }

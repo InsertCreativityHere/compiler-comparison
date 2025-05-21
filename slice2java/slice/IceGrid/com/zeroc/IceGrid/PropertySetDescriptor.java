@@ -21,16 +21,29 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
      **/
     public java.util.List<PropertyDescriptor> properties;
 
+    /**
+     * Creates a new {@code PropertySetDescriptor}.
+     **/
     public PropertySetDescriptor()
     {
     }
 
+    /**
+     * Creates a new {@code PropertySetDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::PropertySetDescriptor}.
+     *
+     * @param references References to named property sets.
+     * @param properties The property set properties.
+     */
     public PropertySetDescriptor(String[] references, java.util.List<PropertyDescriptor> properties)
     {
         this.references = references;
         this.properties = properties;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -63,6 +76,10 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -72,6 +89,10 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public PropertySetDescriptor clone()
     {
         PropertySetDescriptor c = null;
@@ -86,18 +107,34 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeStringSeq(this.references);
         PropertyDescriptorSeqHelper.write(ostr, this.properties);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.references = istr.readStringSeq();
         this.properties = PropertyDescriptorSeqHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code PropertySetDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code PropertySetDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, PropertySetDescriptor v)
     {
         if(v == null)
@@ -110,6 +147,12 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code PropertySetDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code PropertySetDescriptor}
+     */
     static public PropertySetDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         PropertySetDescriptor v = new PropertySetDescriptor();
@@ -117,6 +160,13 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code PropertySetDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<PropertySetDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -125,6 +175,13 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code PropertySetDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, PropertySetDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -135,6 +192,13 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code PropertySetDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<PropertySetDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -150,6 +214,5 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
 
     private static final PropertySetDescriptor _nullMarshalValue = new PropertySetDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = 3586666972168033338L;
 }

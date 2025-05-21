@@ -9,6 +9,11 @@ package abstract;
 public interface explicit extends decimal,
                                   case
 {
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::explicit"
+     */
     static String ice_staticId()
     {
         return "::abstract::explicit";

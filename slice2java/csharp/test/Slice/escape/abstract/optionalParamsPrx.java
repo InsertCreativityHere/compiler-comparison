@@ -39,14 +39,16 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the for operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_goto parameter
+     * @param iceP_if parameter
+     * @param iceP_internal parameter
+     * @param iceP_context parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_goto -
-     * @param iceP_if -
-     * @param iceP_internal -
-     * @param iceP_context -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Optional<break>> _iceI_forAsync(as iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, break> iceP_internal, String iceP_context, java.util.Map<String, String> context, boolean sync)
     {
@@ -75,14 +77,16 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the for operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_goto parameter
+     * @param iceP_if parameter
+     * @param iceP_internal parameter
+     * @param iceP_context parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_goto -
-     * @param iceP_if -
-     * @param iceP_internal -
-     * @param iceP_context -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Optional<break>> _iceI_forAsync(java.util.Optional<as> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, break>> iceP_internal, java.util.Optional<java.lang.String> iceP_context, java.util.Map<String, String> context, boolean sync)
     {
@@ -131,14 +135,16 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the continue operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_goto parameter
+     * @param iceP_if parameter
+     * @param iceP_internal parameter
+     * @param iceP_context parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_goto -
-     * @param iceP_if -
-     * @param iceP_internal -
-     * @param iceP_context -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Optional<break>> _iceI_continueAsync(as iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, break> iceP_internal, String iceP_context, java.util.Map<String, String> context, boolean sync)
     {
@@ -167,14 +173,16 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the continue operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_goto parameter
+     * @param iceP_if parameter
+     * @param iceP_internal parameter
+     * @param iceP_context parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_goto -
-     * @param iceP_if -
-     * @param iceP_internal -
-     * @param iceP_context -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Optional<break>> _iceI_continueAsync(java.util.Optional<as> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, break>> iceP_internal, java.util.Optional<java.lang.String> iceP_context, java.util.Map<String, String> context, boolean sync)
     {
@@ -213,10 +221,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the in operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<optionalParams.InResult> _iceI_inAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -250,10 +260,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the foreach operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<optionalParams.ForeachResult> _iceI_foreachAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -409,6 +421,11 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     optionalParamsPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::optionalParams"
+     */
     static String ice_staticId()
     {
         return "::abstract::optionalParams";

@@ -11,6 +11,9 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::ThreadMetrics")
 public class ThreadMetrics extends Metrics
 {
+    /**
+     * Creates a new {@code ThreadMetrics}.
+     **/
     public ThreadMetrics()
     {
         super();
@@ -19,6 +22,18 @@ public class ThreadMetrics extends Metrics
         this.inUseForOther = 0;
     }
 
+    /**
+     * Creates a new {@code ThreadMetrics} with values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     * @param inUseForIO The number of threads which are currently performing socket read or writes.
+     * @param inUseForUser The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+     * @param inUseForOther The number of threads which are currently performing other activities such as DNS lookups, garbage collection, etc.
+     */
     public ThreadMetrics(String id, long total, int current, long totalLifetime, int failures, int inUseForIO, int inUseForUser, int inUseForOther)
     {
         super(id, total, current, totalLifetime, failures);
@@ -49,18 +64,29 @@ public class ThreadMetrics extends Metrics
         return (ThreadMetrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceMX::ThreadMetrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::ThreadMetrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -72,7 +98,10 @@ public class ThreadMetrics extends Metrics
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -84,6 +113,5 @@ public class ThreadMetrics extends Metrics
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2482843955754226211L;
 }

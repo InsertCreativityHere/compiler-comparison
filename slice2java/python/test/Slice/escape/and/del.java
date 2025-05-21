@@ -10,12 +10,24 @@ public interface del extends com.zeroc.Ice.Object
 {
     java.util.concurrent.CompletionStage<java.lang.Integer> elifAsync(int else, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::and::del"
+     */
     static String ice_staticId()
     {
         return "::and::del";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation elif.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_elif(del obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

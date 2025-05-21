@@ -29,10 +29,12 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getObject operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<TestIntfPrx> _iceI_getObjectAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -66,10 +68,12 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getThreadStartCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getThreadStartCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -103,10 +107,12 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getThreadStopCount operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getThreadStopCountAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -140,10 +146,12 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroy operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -295,6 +303,11 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     RemoteCommunicatorPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::RemoteCommunicator"
+     */
     static String ice_staticId()
     {
         return "::Test::RemoteCommunicator";

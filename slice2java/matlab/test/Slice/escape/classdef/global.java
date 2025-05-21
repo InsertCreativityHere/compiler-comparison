@@ -14,6 +14,9 @@ public class global implements java.lang.Cloneable,
 
     public int eq;
 
+    /**
+     * Creates a new {@code global}.
+     **/
     public global()
     {
         this.case = classdef.persistent.catch;
@@ -21,6 +24,9 @@ public class global implements java.lang.Cloneable,
         this.eq = 2;
     }
 
+    /**
+     * Creates a new {@code global} with values for all fields not marked optional in the Slice definition for {@code ::classdef::global}.
+     */
     public global(persistent case, int continue, int eq)
     {
         this.case = case;
@@ -28,6 +34,10 @@ public class global implements java.lang.Cloneable,
         this.eq = eq;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -64,6 +74,10 @@ public class global implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -74,6 +88,10 @@ public class global implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public global clone()
     {
         global c = null;
@@ -88,6 +106,11 @@ public class global implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         persistent.ice_write(ostr, this.case);
@@ -95,6 +118,11 @@ public class global implements java.lang.Cloneable,
         ostr.writeInt(this.eq);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.case = persistent.ice_read(istr);
@@ -102,6 +130,12 @@ public class global implements java.lang.Cloneable,
         this.eq = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code global} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code global} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, global v)
     {
         if(v == null)
@@ -114,6 +148,12 @@ public class global implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code global} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code global}
+     */
     static public global ice_read(com.zeroc.Ice.InputStream istr)
     {
         global v = new global();
@@ -121,6 +161,13 @@ public class global implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code global} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<global> v)
     {
         if(v != null && v.isPresent())
@@ -129,6 +176,13 @@ public class global implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code global} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, global v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -139,6 +193,13 @@ public class global implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code global} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<global> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -154,6 +215,5 @@ public class global implements java.lang.Cloneable,
 
     private static final global _nullMarshalValue = new global();
 
-    /** @hidden */
     private static final long serialVersionUID = -8547116664243661517L;
 }

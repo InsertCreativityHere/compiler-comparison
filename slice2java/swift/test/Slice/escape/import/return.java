@@ -8,15 +8,25 @@ package import;
 @com.zeroc.Ice.SliceTypeId(value = "::import::return")
 public class return extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code return}.
+     **/
     public return()
     {
     }
 
+    /**
+     * Creates a new {@code return} with values for all its fields.
+     */
     public return(int Int32)
     {
         this.Int32 = Int32;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::import::return";
@@ -24,7 +34,10 @@ public class return extends com.zeroc.Ice.UserException
 
     public int Int32;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class return extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class return extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5982632964686982596L;
 }

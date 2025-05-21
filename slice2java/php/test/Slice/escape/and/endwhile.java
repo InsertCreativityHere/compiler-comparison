@@ -8,11 +8,17 @@ package and;
 @com.zeroc.Ice.SliceTypeId(value = "::and::endwhile")
 public class endwhile extends endif
 {
+    /**
+     * Creates a new {@code endwhile}.
+     **/
     public endwhile()
     {
         this.exit = require_once.value;
     }
 
+    /**
+     * Creates a new {@code endwhile} with values for all its fields.
+     */
     public endwhile(int switch, int eval, int exit)
     {
         super(switch);
@@ -20,6 +26,10 @@ public class endwhile extends endif
         this.exit = exit;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::and::endwhile";
@@ -29,7 +39,10 @@ public class endwhile extends endif
 
     public int exit;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +53,10 @@ public class endwhile extends endif
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -51,6 +67,5 @@ public class endwhile extends endif
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8195030630219611265L;
 }

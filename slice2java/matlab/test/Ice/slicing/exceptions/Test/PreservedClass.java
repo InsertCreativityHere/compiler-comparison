@@ -8,12 +8,18 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::PreservedClass")
 public class PreservedClass extends BaseClass
 {
+    /**
+     * Creates a new {@code PreservedClass}.
+     **/
     public PreservedClass()
     {
         super();
         this.pc = "";
     }
 
+    /**
+     * Creates a new {@code PreservedClass} with values for all its fields.
+     */
     public PreservedClass(String bc, String pc)
     {
         super(bc);
@@ -27,18 +33,29 @@ public class PreservedClass extends BaseClass
         return (PreservedClass)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::PreservedClass"
+     */
     public static String ice_staticId()
     {
         return "::Test::PreservedClass";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +65,10 @@ public class PreservedClass extends BaseClass
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +78,5 @@ public class PreservedClass extends BaseClass
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2981428025546998571L;
 }

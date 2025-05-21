@@ -12,17 +12,27 @@ public class xor implements java.lang.Cloneable,
 
     public int var;
 
+    /**
+     * Creates a new {@code xor}.
+     **/
     public xor()
     {
         this.var = require_once.value;
     }
 
+    /**
+     * Creates a new {@code xor} with values for all fields not marked optional in the Slice definition for {@code ::and::xor}.
+     */
     public xor(int abstract, int var)
     {
         this.abstract = abstract;
         this.var = var;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -52,6 +62,10 @@ public class xor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -61,6 +75,10 @@ public class xor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public xor clone()
     {
         xor c = null;
@@ -75,18 +93,34 @@ public class xor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.abstract);
         ostr.writeInt(this.var);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.abstract = istr.readInt();
         this.var = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code xor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code xor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, xor v)
     {
         if(v == null)
@@ -99,6 +133,12 @@ public class xor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code xor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code xor}
+     */
     static public xor ice_read(com.zeroc.Ice.InputStream istr)
     {
         xor v = new xor();
@@ -106,6 +146,13 @@ public class xor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code xor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<xor> v)
     {
         if(v != null && v.isPresent())
@@ -114,6 +161,13 @@ public class xor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code xor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, xor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -123,6 +177,13 @@ public class xor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code xor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<xor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -138,6 +199,5 @@ public class xor implements java.lang.Cloneable,
 
     private static final xor _nullMarshalValue = new xor();
 
-    /** @hidden */
     private static final long serialVersionUID = -6300464297413787761L;
 }

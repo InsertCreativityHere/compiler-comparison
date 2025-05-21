@@ -12,12 +12,25 @@ public interface if extends exec,
     assert raise(continue else, for return, delPrx while, execPrx yield, ifPrx or, int global, com.zeroc.Ice.Current current)
         throws is;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::and::if"
+     */
     static String ice_staticId()
     {
         return "::and::if";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation raise.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_raise(if obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

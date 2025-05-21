@@ -42,13 +42,15 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the start operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_testsuite parameter
+     * @param iceP_exe parameter
+     * @param iceP_args parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_testsuite -
-     * @param iceP_exe -
-     * @param iceP_args -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<ProcessPrx> _iceI_startAsync(String iceP_testsuite, String iceP_exe, String[] iceP_args, java.util.Map<String, String> context, boolean sync)
     {
@@ -92,12 +94,14 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getHost operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_protocol parameter
+     * @param iceP_ipv6 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_protocol -
-     * @param iceP_ipv6 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
     {
@@ -256,6 +260,11 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ProcessControllerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::Common::ProcessController"
+     */
     static String ice_staticId()
     {
         return "::Test::Common::ProcessController";

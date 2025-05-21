@@ -29,10 +29,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,11 +64,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNV operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNVResult> _iceI_opNVAsync(java.util.Map<java.lang.Integer, java.lang.Integer> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -102,11 +106,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNR operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNRResult> _iceI_opNRAsync(java.util.Map<java.lang.String, java.lang.String> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -142,11 +148,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNDV operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNDVResult> _iceI_opNDVAsync(java.util.Map<java.lang.String, java.util.Map<java.lang.Integer, java.lang.Integer>> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -182,11 +190,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNDR operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNDRResult> _iceI_opNDRAsync(java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -222,11 +232,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNDAIS operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNDAISResult> _iceI_opNDAISAsync(java.util.Map<java.lang.String, int[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -262,11 +274,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNDGIS operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNDGISResult> _iceI_opNDGISAsync(java.util.Map<java.lang.String, int[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -302,11 +316,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNDASS operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNDASSResult> _iceI_opNDASSAsync(java.util.Map<java.lang.String, String[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -342,11 +358,13 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opNDGSS operation on this proxy with the given parameters and returns a future that will be completed with the result.
+     *
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpNDGSSResult> _iceI_opNDGSSAsync(java.util.Map<java.lang.String, String[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -504,6 +522,11 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MyClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::Test::MyClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyClass";

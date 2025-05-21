@@ -8,16 +8,26 @@ package Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::F")
 public class F extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code F}.
+     **/
     public F()
     {
         this.data = "";
     }
 
+    /**
+     * Creates a new {@code F} with values for all its fields.
+     */
     public F(String data)
     {
         this.data = data;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::F";
@@ -25,7 +35,10 @@ public class F extends com.zeroc.Ice.UserException
 
     public String data;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class F extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class F extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6750835701093689L;
 }

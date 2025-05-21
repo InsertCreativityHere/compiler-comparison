@@ -8,11 +8,20 @@ package IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::InternalDbEnvDescriptor")
 public class InternalDbEnvDescriptor extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code InternalDbEnvDescriptor}.
+     **/
     public InternalDbEnvDescriptor()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code InternalDbEnvDescriptor} with values for all its fields.
+     *
+     * @param name The name of the database environment.
+     * @param properties The database properties.
+     */
     public InternalDbEnvDescriptor(String name, java.util.List<com.zeroc.IceGrid.PropertyDescriptor> properties)
     {
         this.name = name;
@@ -34,18 +43,29 @@ public class InternalDbEnvDescriptor extends com.zeroc.Ice.Value
         return (InternalDbEnvDescriptor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceGrid::InternalDbEnvDescriptor"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::InternalDbEnvDescriptor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -55,7 +75,10 @@ public class InternalDbEnvDescriptor extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -65,6 +88,5 @@ public class InternalDbEnvDescriptor extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -566192631718049414L;
 }

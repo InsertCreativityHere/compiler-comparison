@@ -14,11 +14,17 @@ public class Draw implements java.lang.Cloneable,
 
     public boolean shared;
 
+    /**
+     * Creates a new {@code Draw}.
+     **/
     public Draw()
     {
         this.backgroundColor = new Color();
     }
 
+    /**
+     * Creates a new {@code Draw} with values for all fields not marked optional in the Slice definition for {@code ::Test::Draw}.
+     */
     public Draw(Color backgroundColor, Pen pen, boolean shared)
     {
         this.backgroundColor = backgroundColor;
@@ -26,6 +32,10 @@ public class Draw implements java.lang.Cloneable,
         this.shared = shared;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -65,6 +75,10 @@ public class Draw implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -75,6 +89,10 @@ public class Draw implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Draw clone()
     {
         Draw c = null;
@@ -89,6 +107,11 @@ public class Draw implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         Color.ice_write(ostr, this.backgroundColor);
@@ -96,6 +119,11 @@ public class Draw implements java.lang.Cloneable,
         ostr.writeBool(this.shared);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.backgroundColor = Color.ice_read(istr);
@@ -103,6 +131,12 @@ public class Draw implements java.lang.Cloneable,
         this.shared = istr.readBool();
     }
 
+    /**
+     * Marshals a {@code Draw} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Draw} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Draw v)
     {
         if(v == null)
@@ -115,6 +149,12 @@ public class Draw implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Draw} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Draw}
+     */
     static public Draw ice_read(com.zeroc.Ice.InputStream istr)
     {
         Draw v = new Draw();
@@ -122,6 +162,13 @@ public class Draw implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Draw} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Draw> v)
     {
         if(v != null && v.isPresent())
@@ -130,6 +177,13 @@ public class Draw implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Draw} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Draw v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -140,6 +194,13 @@ public class Draw implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Draw} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Draw> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -155,6 +216,5 @@ public class Draw implements java.lang.Cloneable,
 
     private static final Draw _nullMarshalValue = new Draw();
 
-    /** @hidden */
     private static final long serialVersionUID = -2403041345279866846L;
 }

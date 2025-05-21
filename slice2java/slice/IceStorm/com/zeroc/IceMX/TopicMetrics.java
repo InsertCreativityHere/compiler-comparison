@@ -11,6 +11,9 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::TopicMetrics")
 public class TopicMetrics extends Metrics
 {
+    /**
+     * Creates a new {@code TopicMetrics}.
+     **/
     public TopicMetrics()
     {
         super();
@@ -18,6 +21,17 @@ public class TopicMetrics extends Metrics
         this.forwarded = 0L;
     }
 
+    /**
+     * Creates a new {@code TopicMetrics} with values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     * @param published The number of events published on the topic(s) by publishers.
+     * @param forwarded The number of events forwarded on the topic(s) by IceStorm topic links.
+     */
     public TopicMetrics(String id, long total, int current, long totalLifetime, int failures, long published, long forwarded)
     {
         super(id, total, current, totalLifetime, failures);
@@ -40,18 +54,29 @@ public class TopicMetrics extends Metrics
         return (TopicMetrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::IceMX::TopicMetrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::TopicMetrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -62,7 +87,10 @@ public class TopicMetrics extends Metrics
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -73,6 +101,5 @@ public class TopicMetrics extends Metrics
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 3562707248962743655L;
 }

@@ -10,6 +10,12 @@ package test.Ice.operations.Test;
  **/
 public final class StringStringDSHelper
 {
+    /**
+     * Marshals a list of {@code StringStringDS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.List<java.util.Map<java.lang.String, java.lang.String>> v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class StringStringDSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code StringStringDS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static java.util.List<java.util.Map<java.lang.String, java.lang.String>> read(com.zeroc.Ice.InputStream istr)
     {
         final java.util.List<java.util.Map<java.lang.String, java.lang.String>> v;
@@ -40,6 +52,13 @@ public final class StringStringDSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code StringStringDS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<java.util.List<java.util.Map<java.lang.String, java.lang.String>>> v)
     {
         if(v != null && v.isPresent())
@@ -48,6 +67,13 @@ public final class StringStringDSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code StringStringDS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.List<java.util.Map<java.lang.String, java.lang.String>> v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -58,6 +84,13 @@ public final class StringStringDSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code StringStringDS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<java.util.List<java.util.Map<java.lang.String, java.lang.String>>> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

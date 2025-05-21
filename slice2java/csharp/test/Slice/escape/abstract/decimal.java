@@ -15,12 +15,25 @@ public interface decimal extends com.zeroc.Ice.Object
     void default(com.zeroc.Ice.Current current)
         throws foreach;
 
+    /**
+     * Gets the type ID of the associated Slice interface.
+     *
+     * @return the string "::abstract::decimal"
+     */
     static String ice_staticId()
     {
         return "::abstract::decimal";
     }
 
-    /** @hidden */
+    /**
+     * Dispatches the operation default.
+     *
+     * @param obj the servant object
+     * @param request the incoming request
+     * @return a {@code CompletionStage} that will complete when the operation is done
+     * @throws com.zeroc.Ice.UserException in the event of a user exception
+     * @hidden
+     */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_default(decimal obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
