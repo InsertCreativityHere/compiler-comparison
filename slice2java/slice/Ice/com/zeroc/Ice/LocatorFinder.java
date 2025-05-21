@@ -22,12 +22,24 @@ public interface LocatorFinder extends com.zeroc.Ice.Object
      **/
     LocatorPrx getLocator(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::LocatorFinder"
+     */
     static String ice_staticId()
     {
         return "::Ice::LocatorFinder";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation getLocator.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getLocator(LocatorFinder obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

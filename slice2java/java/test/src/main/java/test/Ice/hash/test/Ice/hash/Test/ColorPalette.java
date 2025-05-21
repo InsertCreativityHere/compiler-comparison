@@ -10,15 +10,26 @@ public class ColorPalette implements java.lang.Cloneable,
 {
     public java.util.Map<java.lang.Integer, Color> colors;
 
+    /**
+     * Creates a new {@code ColorPalette}.
+     **/
     public ColorPalette()
     {
     }
 
+    /**
+     * Creates a new {@code ColorPalette} with values for all fields not marked optional in the Slice definition for {@code ::Test::ColorPalette}.
+     *
+     */
     public ColorPalette(java.util.Map<java.lang.Integer, Color> colors)
     {
         this.colors = colors;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -47,6 +58,10 @@ public class ColorPalette implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -55,6 +70,10 @@ public class ColorPalette implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ColorPalette clone()
     {
         ColorPalette c = null;
@@ -69,16 +88,32 @@ public class ColorPalette implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         StringColorMapHelper.write(ostr, this.colors);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.colors = StringColorMapHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code ColorPalette} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ColorPalette} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ColorPalette v)
     {
         if(v == null)
@@ -91,6 +126,12 @@ public class ColorPalette implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code ColorPalette} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ColorPalette}
+     */
     static public ColorPalette ice_read(com.zeroc.Ice.InputStream istr)
     {
         ColorPalette v = new ColorPalette();
@@ -98,6 +139,13 @@ public class ColorPalette implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ColorPalette} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ColorPalette> v)
     {
         if(v != null && v.isPresent())
@@ -106,6 +154,13 @@ public class ColorPalette implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ColorPalette} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ColorPalette v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -116,6 +171,13 @@ public class ColorPalette implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ColorPalette} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ColorPalette> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -131,6 +193,5 @@ public class ColorPalette implements java.lang.Cloneable,
 
     private static final ColorPalette _nullMarshalValue = new ColorPalette();
 
-    /** @hidden */
     private static final long serialVersionUID = -899800264050524965L;
 }

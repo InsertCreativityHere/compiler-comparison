@@ -8,15 +8,25 @@ package test.Ice.slicing.objects.server.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::PSUnknownException")
 public class PSUnknownException extends PreservedException
 {
+    /**
+     * Creates a new {@code PSUnknownException}.
+     **/
     public PSUnknownException()
     {
     }
 
+    /**
+     * Creates a new {@code PSUnknownException} with all values for all its fields.
+     */
     public PSUnknownException(PSUnknown2 p)
     {
         this.p = p;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::PSUnknownException";
@@ -24,7 +34,10 @@ public class PSUnknownException extends PreservedException
 
     public PSUnknown2 p;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class PSUnknownException extends PreservedException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -44,13 +60,15 @@ public class PSUnknownException extends PreservedException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 8200013002539521545L;
 }

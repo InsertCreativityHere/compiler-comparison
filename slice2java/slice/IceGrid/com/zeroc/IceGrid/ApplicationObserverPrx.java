@@ -60,12 +60,13 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the applicationInit operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_serial parameter
+     * @param iceP_applications parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_serial -
-     * @param iceP_applications -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationInitAsync(int iceP_serial, java.util.List<ApplicationInfo> iceP_applications, java.util.Map<String, String> context, boolean sync)
     {
@@ -123,12 +124,13 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the applicationAdded operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_serial parameter
+     * @param iceP_desc parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_serial -
-     * @param iceP_desc -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationAddedAsync(int iceP_serial, ApplicationInfo iceP_desc, java.util.Map<String, String> context, boolean sync)
     {
@@ -186,12 +188,13 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the applicationRemoved operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_serial parameter
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_serial -
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationRemovedAsync(int iceP_serial, String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -248,12 +251,13 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the applicationUpdated operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_serial parameter
+     * @param iceP_desc parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_serial -
-     * @param iceP_desc -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationUpdatedAsync(int iceP_serial, ApplicationUpdateInfo iceP_desc, java.util.Map<String, String> context, boolean sync)
     {
@@ -409,6 +413,11 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ApplicationObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::ApplicationObserver"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::ApplicationObserver";

@@ -29,10 +29,11 @@ public interface MyDerivedClassPrx extends MyClassPrx
     }
 
     /**
+     * Invokes the opDerived operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,11 +63,12 @@ public interface MyDerivedClassPrx extends MyClassPrx
     }
 
     /**
+     * Invokes the opMyClass1 operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_opMyClass1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_opMyClass1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass1> _iceI_opMyClass1Async(MyClass1 iceP_opMyClass1, java.util.Map<String, String> context, boolean sync)
     {
@@ -104,11 +106,12 @@ public interface MyDerivedClassPrx extends MyClassPrx
     }
 
     /**
+     * Invokes the opMyStruct1 operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_opMyStruct1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_opMyStruct1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyStruct1> _iceI_opMyStruct1Async(MyStruct1 iceP_opMyStruct1, java.util.Map<String, String> context, boolean sync)
     {
@@ -266,6 +269,11 @@ public interface MyDerivedClassPrx extends MyClassPrx
     @Override
     MyDerivedClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::MyDerivedClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyDerivedClass";

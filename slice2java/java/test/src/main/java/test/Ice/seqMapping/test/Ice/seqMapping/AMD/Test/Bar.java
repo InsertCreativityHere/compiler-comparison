@@ -8,16 +8,26 @@ package test.Ice.seqMapping.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Bar")
 public class Bar extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code Bar}.
+     **/
     public Bar()
     {
     }
 
+    /**
+     * Creates a new {@code Bar} with all values for all its fields.
+     */
     public Bar(test.Ice.seqMapping.Serialize.Large SLmem, test.Ice.seqMapping.Serialize.Large[] SLSmem)
     {
         this.SLmem = SLmem;
         this.SLSmem = SLSmem;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Bar";
@@ -27,7 +37,10 @@ public class Bar extends com.zeroc.Ice.UserException
 
     public test.Ice.seqMapping.Serialize.Large[] SLSmem;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -37,7 +50,10 @@ public class Bar extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -47,6 +63,5 @@ public class Bar extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 195116734672682892L;
 }

@@ -14,12 +14,24 @@ public interface TestLocator extends com.zeroc.Ice.Locator
      **/
     int getRequestCount(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::TestLocator"
+     */
     static String ice_staticId()
     {
         return "::Test::TestLocator";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation getRequestCount.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getRequestCount(TestLocator obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();

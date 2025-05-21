@@ -10,16 +10,27 @@ public class VarStruct implements java.lang.Cloneable,
 {
     public String m;
 
+    /**
+     * Creates a new {@code VarStruct}.
+     **/
     public VarStruct()
     {
         this.m = "";
     }
 
+    /**
+     * Creates a new {@code VarStruct} with values for all fields not marked optional in the Slice definition for {@code ::Test::VarStruct}.
+     *
+     */
     public VarStruct(String m)
     {
         this.m = m;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -48,6 +59,10 @@ public class VarStruct implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -56,6 +71,10 @@ public class VarStruct implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public VarStruct clone()
     {
         VarStruct c = null;
@@ -70,16 +89,32 @@ public class VarStruct implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.m);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.m = istr.readString();
     }
 
+    /**
+     * Marshals a {@code VarStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code VarStruct} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, VarStruct v)
     {
         if(v == null)
@@ -92,6 +127,12 @@ public class VarStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code VarStruct} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code VarStruct}
+     */
     static public VarStruct ice_read(com.zeroc.Ice.InputStream istr)
     {
         VarStruct v = new VarStruct();
@@ -99,6 +140,13 @@ public class VarStruct implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code VarStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<VarStruct> v)
     {
         if(v != null && v.isPresent())
@@ -107,6 +155,13 @@ public class VarStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code VarStruct} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, VarStruct v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -117,6 +172,13 @@ public class VarStruct implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code VarStruct} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<VarStruct> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -132,6 +194,5 @@ public class VarStruct implements java.lang.Cloneable,
 
     private static final VarStruct _nullMarshalValue = new VarStruct();
 
-    /** @hidden */
     private static final long serialVersionUID = -4458201984680690953L;
 }

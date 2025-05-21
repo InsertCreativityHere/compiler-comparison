@@ -8,6 +8,9 @@ package test.Ice.optional.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::DerivedException")
 public class DerivedException extends OptionalException
 {
+    /**
+     * Creates a new {@code DerivedException}.
+     **/
     public DerivedException()
     {
         this.d1 = "";
@@ -15,6 +18,9 @@ public class DerivedException extends OptionalException
         this.d2 = "";
     }
 
+    /**
+     * Creates a new {@code DerivedException} with values for all fields not marked optional in the Slice definition for {@code ::Test::DerivedException}.
+     */
     public DerivedException(boolean req, String d1, String d2)
     {
         super(req);
@@ -23,6 +29,9 @@ public class DerivedException extends OptionalException
         setSs("test");
     }
 
+    /**
+     * Creates a new {@code DerivedException} with all values for all its fields.
+     */
     public DerivedException(boolean req, int a, String b, String d1, String ss, String d2)
     {
         super(req, a, b);
@@ -31,6 +40,10 @@ public class DerivedException extends OptionalException
         this.d2 = d2;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::DerivedException";
@@ -93,7 +106,10 @@ public class DerivedException extends OptionalException
 
     public String d2;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -108,7 +124,10 @@ public class DerivedException extends OptionalException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -123,6 +142,5 @@ public class DerivedException extends OptionalException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -3765254320732932649L;
 }

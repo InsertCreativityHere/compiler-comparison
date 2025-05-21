@@ -8,12 +8,19 @@ package test.Ice.slicing.objects.serverAMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::SBSUnknownDerived")
 public class SBSUnknownDerived extends SBase
 {
+    /**
+     * Creates a new {@code SBSUnknownDerived}.
+     **/
     public SBSUnknownDerived()
     {
         super();
         this.sbsud = "";
     }
 
+    /**
+     * Creates a new {@code SBSUnknownDerived} with all values for all its fields.
+     *
+     */
     public SBSUnknownDerived(String sb, String sbsud)
     {
         super(sb);
@@ -27,18 +34,29 @@ public class SBSUnknownDerived extends SBase
         return (SBSUnknownDerived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::SBSUnknownDerived"
+     */
     public static String ice_staticId()
     {
         return "::Test::SBSUnknownDerived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +66,10 @@ public class SBSUnknownDerived extends SBase
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +79,5 @@ public class SBSUnknownDerived extends SBase
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -483571653232976011L;
 }

@@ -36,12 +36,24 @@ public interface IdentitySet extends com.zeroc.Ice.Object
      **/
     com.zeroc.Ice.Identity[] get(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Glacier2::IdentitySet"
+     */
     static String ice_staticId()
     {
         return "::Glacier2::IdentitySet";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation add.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_add(IdentitySet obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;
@@ -53,7 +65,14 @@ public interface IdentitySet extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation remove.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_remove(IdentitySet obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;
@@ -65,7 +84,14 @@ public interface IdentitySet extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation get.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_get(IdentitySet obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();

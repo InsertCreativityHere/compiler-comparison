@@ -54,11 +54,12 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getProperty operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_key parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_key -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getPropertyAsync(String iceP_key, java.util.Map<String, String> context, boolean sync)
     {
@@ -120,11 +121,12 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getPropertiesForPrefix operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_prefix parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_prefix -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getPropertiesForPrefixAsync(String iceP_prefix, java.util.Map<String, String> context, boolean sync)
     {
@@ -201,11 +203,12 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the setProperties operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_newProperties parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_newProperties -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setPropertiesAsync(java.util.Map<java.lang.String, java.lang.String> iceP_newProperties, java.util.Map<String, String> context, boolean sync)
     {
@@ -359,6 +362,11 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     PropertiesAdminPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::PropertiesAdmin"
+     */
     static String ice_staticId()
     {
         return "::Ice::PropertiesAdmin";

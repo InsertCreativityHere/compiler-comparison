@@ -11,18 +11,30 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ServerStartException")
 public class ServerStartException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ServerStartException}.
+     **/
     public ServerStartException()
     {
         this.id = "";
         this.reason = "";
     }
 
+    /**
+     * Creates a new {@code ServerStartException} with all values for all its fields.
+     * @param id The server ID.
+     * @param reason The reason for the failure.
+     */
     public ServerStartException(String id, String reason)
     {
         this.id = id;
         this.reason = reason;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::ServerStartException";
@@ -38,7 +50,10 @@ public class ServerStartException extends com.zeroc.Ice.UserException
      **/
     public String reason;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +63,10 @@ public class ServerStartException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +76,5 @@ public class ServerStartException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7328866799720888120L;
 }

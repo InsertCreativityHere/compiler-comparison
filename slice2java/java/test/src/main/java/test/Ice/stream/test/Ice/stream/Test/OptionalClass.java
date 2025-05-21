@@ -8,6 +8,9 @@ package test.Ice.stream.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::OptionalClass")
 public class OptionalClass extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code OptionalClass}.
+     **/
     public OptionalClass()
     {
         this.s = new LargeStruct();
@@ -15,6 +18,10 @@ public class OptionalClass extends com.zeroc.Ice.Value
         this.p15 = new Point();
     }
 
+    /**
+     * Creates a new {@code OptionalClass} with values for all fields not marked optional in the Slice definition for {@code ::Test::OptionalClass}.
+     *
+     */
     public OptionalClass(boolean bo, byte by)
     {
         this.bo = bo;
@@ -24,6 +31,10 @@ public class OptionalClass extends com.zeroc.Ice.Value
         this.p15 = new Point();
     }
 
+    /**
+     * Creates a new {@code OptionalClass} with all values for all its fields.
+     *
+     */
     public OptionalClass(boolean bo, byte by, short sh, int i, LargeStruct s, MyEnum[] enumS4, java.util.Map<java.lang.Byte, java.lang.Boolean> byteBoolD6, java.util.Map<java.lang.Short, java.lang.Integer> shortIntD7, MyEnum enum8, int[] intSeq12, byte[] byteSeq13, String[] stringSeq14, Point p15)
     {
         this.bo = bo;
@@ -705,18 +716,29 @@ public class OptionalClass extends com.zeroc.Ice.Value
         return (OptionalClass)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::OptionalClass"
+     */
     public static String ice_staticId()
     {
         return "::Test::OptionalClass";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -770,7 +792,10 @@ public class OptionalClass extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -831,6 +856,5 @@ public class OptionalClass extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8899427600702534041L;
 }

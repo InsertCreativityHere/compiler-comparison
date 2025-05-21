@@ -10,6 +10,12 @@ package test.Ice.stream.Test;
  **/
 public final class ShortSSHelper
 {
+    /**
+     * Marshals a list of {@code ShortSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, short[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class ShortSSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code ShortSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static short[][] read(com.zeroc.Ice.InputStream istr)
     {
         final short[][] v;
@@ -38,6 +50,13 @@ public final class ShortSSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code ShortSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<short[][]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class ShortSSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code ShortSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, short[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class ShortSSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code ShortSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<short[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

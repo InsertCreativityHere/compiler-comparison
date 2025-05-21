@@ -10,6 +10,12 @@ package test.Ice.scope.Test.Inner;
  **/
 public final class MyClassSeqHelper
 {
+    /**
+     * Marshals a list of {@code MyClassSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, test.Ice.scope.Test.Inner.Inner2.MyClass[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class MyClassSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code MyClassSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static test.Ice.scope.Test.Inner.Inner2.MyClass[] read(com.zeroc.Ice.InputStream istr)
     {
         final test.Ice.scope.Test.Inner.Inner2.MyClass[] v;
@@ -39,6 +51,13 @@ public final class MyClassSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code MyClassSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<test.Ice.scope.Test.Inner.Inner2.MyClass[]> v)
     {
         if(v != null && v.isPresent())
@@ -47,6 +66,13 @@ public final class MyClassSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code MyClassSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, test.Ice.scope.Test.Inner.Inner2.MyClass[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -57,6 +83,13 @@ public final class MyClassSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code MyClassSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<test.Ice.scope.Test.Inner.Inner2.MyClass[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

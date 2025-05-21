@@ -69,12 +69,24 @@ public interface Session extends com.zeroc.Glacier2.Session
      **/
     void setAllocationTimeout(int timeout, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::Session"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Session";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation keepAlive.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_keepAlive(Session obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();
@@ -82,7 +94,15 @@ public interface Session extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation allocateObjectById.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_allocateObjectById(Session obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -102,7 +122,15 @@ public interface Session extends com.zeroc.Glacier2.Session
             null));
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation allocateObjectByType.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_allocateObjectByType(Session obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -122,7 +150,15 @@ public interface Session extends com.zeroc.Glacier2.Session
             null));
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation releaseObject.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_releaseObject(Session obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -136,7 +172,14 @@ public interface Session extends com.zeroc.Glacier2.Session
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation setAllocationTimeout.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setAllocationTimeout(Session obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.InputStream istr = request.inputStream;

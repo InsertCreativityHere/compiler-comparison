@@ -29,13 +29,14 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the activateObjectAdapter operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_name parameter
+     * @param iceP_adapterId parameter
+     * @param iceP_replicaGroupId parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param iceP_adapterId -
-     * @param iceP_replicaGroupId -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_activateObjectAdapterAsync(String iceP_name, String iceP_adapterId, String iceP_replicaGroupId, java.util.Map<String, String> context, boolean sync)
     {
@@ -69,11 +70,12 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the deactivateObjectAdapter operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_deactivateObjectAdapterAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -105,12 +107,13 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the addObject operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_oaName parameter
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_oaName -
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addObjectAsync(String iceP_oaName, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -143,12 +146,13 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the removeObject operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_oaName parameter
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_oaName -
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_removeObjectAsync(String iceP_oaName, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -181,10 +185,11 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -336,6 +341,11 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ControllerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::Controller"
+     */
     static String ice_staticId()
     {
         return "::Test::Controller";

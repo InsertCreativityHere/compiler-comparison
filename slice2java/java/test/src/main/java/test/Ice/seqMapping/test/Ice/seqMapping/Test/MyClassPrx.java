@@ -29,10 +29,11 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -62,11 +63,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opSerialSmallJava operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(test.Ice.seqMapping.Serialize.Small iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -102,11 +104,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opSerialLargeJava operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(test.Ice.seqMapping.Serialize.Large iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -142,11 +145,12 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opSerialStructJava operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_i parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_i -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(test.Ice.seqMapping.Serialize.Struct iceP_i, java.util.Map<String, String> context, boolean sync)
     {
@@ -304,6 +308,11 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MyClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::MyClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyClass";

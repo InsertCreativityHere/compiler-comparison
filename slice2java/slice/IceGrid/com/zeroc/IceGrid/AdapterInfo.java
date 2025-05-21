@@ -26,12 +26,22 @@ public class AdapterInfo implements java.lang.Cloneable,
      **/
     public String replicaGroupId;
 
+    /**
+     * Creates a new {@code AdapterInfo}.
+     **/
     public AdapterInfo()
     {
         this.id = "";
         this.replicaGroupId = "";
     }
 
+    /**
+     * Creates a new {@code AdapterInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::AdapterInfo}.
+     *
+     * @param id The ID of the adapter.
+     * @param proxy A dummy direct proxy that contains the adapter endpoints.
+     * @param replicaGroupId The replica group ID of the object adapter, or empty if the adapter doesn't belong to a replica group.
+     */
     public AdapterInfo(String id, com.zeroc.Ice.ObjectPrx proxy, String replicaGroupId)
     {
         this.id = id;
@@ -39,6 +49,10 @@ public class AdapterInfo implements java.lang.Cloneable,
         this.replicaGroupId = replicaGroupId;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -81,6 +95,10 @@ public class AdapterInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -91,6 +109,10 @@ public class AdapterInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public AdapterInfo clone()
     {
         AdapterInfo c = null;
@@ -105,6 +127,11 @@ public class AdapterInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.id);
@@ -112,6 +139,11 @@ public class AdapterInfo implements java.lang.Cloneable,
         ostr.writeString(this.replicaGroupId);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readString();
@@ -119,6 +151,12 @@ public class AdapterInfo implements java.lang.Cloneable,
         this.replicaGroupId = istr.readString();
     }
 
+    /**
+     * Marshals an {@code AdapterInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code AdapterInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, AdapterInfo v)
     {
         if(v == null)
@@ -131,6 +169,12 @@ public class AdapterInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code AdapterInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code AdapterInfo}
+     */
     static public AdapterInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         AdapterInfo v = new AdapterInfo();
@@ -138,6 +182,13 @@ public class AdapterInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code AdapterInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<AdapterInfo> v)
     {
         if(v != null && v.isPresent())
@@ -146,6 +197,13 @@ public class AdapterInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code AdapterInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, AdapterInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -156,6 +214,13 @@ public class AdapterInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code AdapterInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<AdapterInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -171,6 +236,5 @@ public class AdapterInfo implements java.lang.Cloneable,
 
     private static final AdapterInfo _nullMarshalValue = new AdapterInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -7340701509149392511L;
 }

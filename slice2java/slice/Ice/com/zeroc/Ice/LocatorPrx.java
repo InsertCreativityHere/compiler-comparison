@@ -81,11 +81,12 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findObjectById operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByIdAsync(Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -166,11 +167,12 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findAdapterById operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findAdapterByIdAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -230,10 +232,11 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getRegistry operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<LocatorRegistryPrx> _iceI_getRegistryAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -389,6 +392,11 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     LocatorPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::Locator"
+     */
     static String ice_staticId()
     {
         return "::Ice::Locator";

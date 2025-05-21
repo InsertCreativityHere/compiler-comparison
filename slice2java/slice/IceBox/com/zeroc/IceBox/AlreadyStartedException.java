@@ -11,16 +11,26 @@ package com.zeroc.IceBox;
 @com.zeroc.Ice.SliceTypeId(value = "::IceBox::AlreadyStartedException")
 public class AlreadyStartedException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AlreadyStartedException}.
+     **/
     public AlreadyStartedException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceBox::AlreadyStartedException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -28,7 +38,10 @@ public class AlreadyStartedException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -36,6 +49,5 @@ public class AlreadyStartedException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5840094705572303246L;
 }

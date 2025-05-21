@@ -8,16 +8,26 @@ package test.Ice.objects.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::EBase")
 public class EBase extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code EBase}.
+     **/
     public EBase()
     {
     }
 
+    /**
+     * Creates a new {@code EBase} with all values for all its fields.
+     */
     public EBase(A1 a1, A1 a2)
     {
         this.a1 = a1;
         this.a2 = a2;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::EBase";
@@ -27,7 +37,10 @@ public class EBase extends com.zeroc.Ice.UserException
 
     public A1 a2;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -37,7 +50,10 @@ public class EBase extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -47,13 +63,15 @@ public class EBase extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -4529108216453665744L;
 }

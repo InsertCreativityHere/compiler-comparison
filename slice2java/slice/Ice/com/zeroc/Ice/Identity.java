@@ -22,18 +22,31 @@ public class Identity implements java.lang.Cloneable,
      **/
     public String category;
 
+    /**
+     * Creates a new {@code Identity}.
+     **/
     public Identity()
     {
         this.name = "";
         this.category = "";
     }
 
+    /**
+     * Creates a new {@code Identity} with values for all fields not marked optional in the Slice definition for {@code ::Ice::Identity}.
+     *
+     * @param name The name of the Ice object.
+     * @param category The category of the object.
+     */
     public Identity(String name, String category)
     {
         this.name = name;
         this.category = category;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -69,6 +82,10 @@ public class Identity implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -78,6 +95,10 @@ public class Identity implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Identity clone()
     {
         Identity c = null;
@@ -92,18 +113,34 @@ public class Identity implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
         ostr.writeString(this.category);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
         this.category = istr.readString();
     }
 
+    /**
+     * Marshals an {@code Identity} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Identity} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Identity v)
     {
         if(v == null)
@@ -116,6 +153,12 @@ public class Identity implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code Identity} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Identity}
+     */
     static public Identity ice_read(com.zeroc.Ice.InputStream istr)
     {
         Identity v = new Identity();
@@ -123,6 +166,13 @@ public class Identity implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Identity} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Identity> v)
     {
         if(v != null && v.isPresent())
@@ -131,6 +181,13 @@ public class Identity implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Identity} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Identity v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -141,6 +198,13 @@ public class Identity implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Identity} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Identity> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -156,6 +220,5 @@ public class Identity implements java.lang.Cloneable,
 
     private static final Identity _nullMarshalValue = new Identity();
 
-    /** @hidden */
     private static final long serialVersionUID = 2603029482647996458L;
 }

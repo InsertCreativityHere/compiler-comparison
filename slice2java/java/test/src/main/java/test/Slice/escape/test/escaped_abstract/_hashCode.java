@@ -8,15 +8,25 @@ package test.escaped_abstract;
 @com.zeroc.Ice.SliceTypeId(value = "::abstract::hashCode")
 public class _hashCode extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code _hashCode}.
+     **/
     public _hashCode()
     {
     }
 
+    /**
+     * Creates a new {@code _hashCode} with all values for all its fields.
+     */
     public _hashCode(int bar)
     {
         this.bar = bar;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::abstract::hashCode";
@@ -24,7 +34,10 @@ public class _hashCode extends com.zeroc.Ice.UserException
 
     public int bar;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class _hashCode extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,6 +58,5 @@ public class _hashCode extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -1726700424778321390L;
 }

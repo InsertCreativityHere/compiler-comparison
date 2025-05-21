@@ -12,16 +12,27 @@ public class STwoMembers implements java.lang.Cloneable,
 
     public Empty e2;
 
+    /**
+     * Creates a new {@code STwoMembers}.
+     **/
     public STwoMembers()
     {
     }
 
+    /**
+     * Creates a new {@code STwoMembers} with values for all fields not marked optional in the Slice definition for {@code ::Test::STwoMembers}.
+     *
+     */
     public STwoMembers(Empty e1, Empty e2)
     {
         this.e1 = e1;
         this.e2 = e2;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -57,6 +68,10 @@ public class STwoMembers implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -66,6 +81,10 @@ public class STwoMembers implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public STwoMembers clone()
     {
         STwoMembers c = null;
@@ -80,18 +99,34 @@ public class STwoMembers implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeValue(this.e1);
         ostr.writeValue(this.e2);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         istr.readValue(v -> e1 = v, Empty.class);
         istr.readValue(v -> e2 = v, Empty.class);
     }
 
+    /**
+     * Marshals a {@code STwoMembers} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code STwoMembers} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, STwoMembers v)
     {
         if(v == null)
@@ -104,6 +139,12 @@ public class STwoMembers implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code STwoMembers} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code STwoMembers}
+     */
     static public STwoMembers ice_read(com.zeroc.Ice.InputStream istr)
     {
         STwoMembers v = new STwoMembers();
@@ -111,6 +152,13 @@ public class STwoMembers implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code STwoMembers} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<STwoMembers> v)
     {
         if(v != null && v.isPresent())
@@ -119,6 +167,13 @@ public class STwoMembers implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code STwoMembers} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, STwoMembers v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -129,6 +184,13 @@ public class STwoMembers implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code STwoMembers} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<STwoMembers> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -144,6 +206,5 @@ public class STwoMembers implements java.lang.Cloneable,
 
     private static final STwoMembers _nullMarshalValue = new STwoMembers();
 
-    /** @hidden */
     private static final long serialVersionUID = 138508896973598876L;
 }

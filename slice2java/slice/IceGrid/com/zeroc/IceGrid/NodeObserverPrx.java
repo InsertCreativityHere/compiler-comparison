@@ -52,11 +52,12 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the nodeInit operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_nodes parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_nodes -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_nodeInitAsync(NodeDynamicInfo[] iceP_nodes, java.util.Map<String, String> context, boolean sync)
     {
@@ -108,11 +109,12 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the nodeUp operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_node parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_node -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_nodeUpAsync(NodeDynamicInfo iceP_node, java.util.Map<String, String> context, boolean sync)
     {
@@ -164,11 +166,12 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the nodeDown operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_name parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_name -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_nodeDownAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
@@ -224,12 +227,13 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the updateServer operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_node parameter
+     * @param iceP_updatedInfo parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_node -
-     * @param iceP_updatedInfo -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_updateServerAsync(String iceP_node, ServerDynamicInfo iceP_updatedInfo, java.util.Map<String, String> context, boolean sync)
     {
@@ -286,12 +290,13 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the updateAdapter operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_node parameter
+     * @param iceP_updatedInfo parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_node -
-     * @param iceP_updatedInfo -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_updateAdapterAsync(String iceP_node, AdapterDynamicInfo iceP_updatedInfo, java.util.Map<String, String> context, boolean sync)
     {
@@ -446,6 +451,11 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     NodeObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::NodeObserver"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::NodeObserver";

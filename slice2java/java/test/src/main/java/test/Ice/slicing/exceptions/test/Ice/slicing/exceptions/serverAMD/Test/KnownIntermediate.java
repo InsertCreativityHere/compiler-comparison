@@ -8,17 +8,27 @@ package test.Ice.slicing.exceptions.serverAMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::KnownIntermediate")
 public class KnownIntermediate extends Base
 {
+    /**
+     * Creates a new {@code KnownIntermediate}.
+     **/
     public KnownIntermediate()
     {
         this.ki = "";
     }
 
+    /**
+     * Creates a new {@code KnownIntermediate} with all values for all its fields.
+     */
     public KnownIntermediate(String b, String ki)
     {
         super(b);
         this.ki = ki;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::KnownIntermediate";
@@ -26,7 +36,10 @@ public class KnownIntermediate extends Base
 
     public String ki;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -36,7 +49,10 @@ public class KnownIntermediate extends Base
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -46,6 +62,5 @@ public class KnownIntermediate extends Base
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -4171063658484553126L;
 }

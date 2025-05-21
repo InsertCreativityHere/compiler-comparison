@@ -38,12 +38,24 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object
      **/
     void setProperties(java.util.Map<java.lang.String, java.lang.String> newProperties, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::PropertiesAdmin"
+     */
     static String ice_staticId()
     {
         return "::Ice::PropertiesAdmin";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation getProperty.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getProperty(PropertiesAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -60,7 +72,14 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation getPropertiesForPrefix.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getPropertiesForPrefix(PropertiesAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -77,7 +96,14 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation setProperties.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setProperties(PropertiesAdmin obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

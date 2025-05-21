@@ -11,11 +11,19 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::BoxedString")
 public class BoxedString extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code BoxedString}.
+     **/
     public BoxedString()
     {
         this.value = "";
     }
 
+    /**
+     * Creates a new {@code BoxedString} with all values for all its fields.
+     *
+     * @param value The value of the boxed string.
+     */
     public BoxedString(String value)
     {
         this.value = value;
@@ -31,18 +39,29 @@ public class BoxedString extends com.zeroc.Ice.Value
         return (BoxedString)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::BoxedString"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::BoxedString";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -51,7 +70,10 @@ public class BoxedString extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -60,6 +82,5 @@ public class BoxedString extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 6719014947817057946L;
 }

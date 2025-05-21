@@ -21,17 +21,30 @@ public class DistributionDescriptor implements java.lang.Cloneable,
      **/
     public java.util.List<java.lang.String> directories;
 
+    /**
+     * Creates a new {@code DistributionDescriptor}.
+     **/
     public DistributionDescriptor()
     {
         this.icepatch = "";
     }
 
+    /**
+     * Creates a new {@code DistributionDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::DistributionDescriptor}.
+     *
+     * @param icepatch The proxy of the IcePatch2 server.
+     * @param directories The source directories.
+     */
     public DistributionDescriptor(String icepatch, java.util.List<java.lang.String> directories)
     {
         this.icepatch = icepatch;
         this.directories = directories;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -67,6 +80,10 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -76,6 +93,10 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public DistributionDescriptor clone()
     {
         DistributionDescriptor c = null;
@@ -90,6 +111,11 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.icepatch);
@@ -107,6 +133,11 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.icepatch = istr.readString();
@@ -120,6 +151,12 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals a {@code DistributionDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code DistributionDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, DistributionDescriptor v)
     {
         if(v == null)
@@ -132,6 +169,12 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code DistributionDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code DistributionDescriptor}
+     */
     static public DistributionDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         DistributionDescriptor v = new DistributionDescriptor();
@@ -139,6 +182,13 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code DistributionDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<DistributionDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -147,6 +197,13 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code DistributionDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, DistributionDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -157,6 +214,13 @@ public class DistributionDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code DistributionDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<DistributionDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -172,6 +236,5 @@ public class DistributionDescriptor implements java.lang.Cloneable,
 
     private static final DistributionDescriptor _nullMarshalValue = new DistributionDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = 8576434643406300276L;
 }

@@ -10,6 +10,12 @@ package test.Ice.enums.Test;
  **/
 public final class SimpleEnumSeqHelper
 {
+    /**
+     * Marshals a list of {@code SimpleEnumSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, SimpleEnum[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class SimpleEnumSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code SimpleEnumSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static SimpleEnum[] read(com.zeroc.Ice.InputStream istr)
     {
         final SimpleEnum[] v;
@@ -38,6 +50,13 @@ public final class SimpleEnumSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code SimpleEnumSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<SimpleEnum[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class SimpleEnumSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code SimpleEnumSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, SimpleEnum[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class SimpleEnumSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code SimpleEnumSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<SimpleEnum[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

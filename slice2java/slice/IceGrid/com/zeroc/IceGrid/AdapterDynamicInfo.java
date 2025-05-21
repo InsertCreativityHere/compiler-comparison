@@ -21,17 +21,30 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
      **/
     public com.zeroc.Ice.ObjectPrx proxy;
 
+    /**
+     * Creates a new {@code AdapterDynamicInfo}.
+     **/
     public AdapterDynamicInfo()
     {
         this.id = "";
     }
 
+    /**
+     * Creates a new {@code AdapterDynamicInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::AdapterDynamicInfo}.
+     *
+     * @param id The id of the adapter.
+     * @param proxy The direct proxy containing the adapter endpoints.
+     */
     public AdapterDynamicInfo(String id, com.zeroc.Ice.ObjectPrx proxy)
     {
         this.id = id;
         this.proxy = proxy;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -67,6 +80,10 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -76,6 +93,10 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public AdapterDynamicInfo clone()
     {
         AdapterDynamicInfo c = null;
@@ -90,18 +111,34 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.id);
         ostr.writeProxy(this.proxy);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = istr.readString();
         this.proxy = istr.readProxy();
     }
 
+    /**
+     * Marshals an {@code AdapterDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code AdapterDynamicInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, AdapterDynamicInfo v)
     {
         if(v == null)
@@ -114,6 +151,12 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code AdapterDynamicInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code AdapterDynamicInfo}
+     */
     static public AdapterDynamicInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         AdapterDynamicInfo v = new AdapterDynamicInfo();
@@ -121,6 +164,13 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code AdapterDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<AdapterDynamicInfo> v)
     {
         if(v != null && v.isPresent())
@@ -129,6 +179,13 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code AdapterDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, AdapterDynamicInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -139,6 +196,13 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code AdapterDynamicInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<AdapterDynamicInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -154,6 +218,5 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
 
     private static final AdapterDynamicInfo _nullMarshalValue = new AdapterDynamicInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 6891811985556690789L;
 }

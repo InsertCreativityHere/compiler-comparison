@@ -29,11 +29,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyStruct operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyStructResult> _iceI_opMyStructAsync(MyStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -69,11 +70,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyStructSeq operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyStructSeqResult> _iceI_opMyStructSeqAsync(MyStruct[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -109,11 +111,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyStructMap operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyStructMapResult> _iceI_opMyStructMapAsync(java.util.Map<java.lang.String, MyStruct> iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -149,11 +152,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyClass operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_c1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_c1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyClassResult> _iceI_opMyClassAsync(MyClass iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
@@ -191,11 +195,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyClassSeq operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_c1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_c1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyClassSeqResult> _iceI_opMyClassSeqAsync(MyClass[] iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
@@ -233,11 +238,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyClassMap operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_c1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_c1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyInterface.OpMyClassMapResult> _iceI_opMyClassMapAsync(java.util.Map<java.lang.String, MyClass> iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
@@ -275,11 +281,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyEnum operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_e1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_e1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyEnum> _iceI_opMyEnumAsync(MyEnum iceP_e1, java.util.Map<String, String> context, boolean sync)
     {
@@ -315,11 +322,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyOtherStruct operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_s1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_s1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyOtherStruct> _iceI_opMyOtherStructAsync(MyOtherStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
@@ -355,11 +363,12 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the opMyOtherClass operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_c1 parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_c1 -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<MyOtherClass> _iceI_opMyOtherClassAsync(MyOtherClass iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
@@ -397,10 +406,11 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -552,6 +562,11 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
     @Override
     MyInterfacePrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::MyInterface"
+     */
     static String ice_staticId()
     {
         return "::Test::MyInterface";

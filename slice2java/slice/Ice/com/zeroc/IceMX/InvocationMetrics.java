@@ -11,6 +11,9 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::InvocationMetrics")
 public class InvocationMetrics extends Metrics
 {
+    /**
+     * Creates a new {@code InvocationMetrics}.
+     **/
     public InvocationMetrics()
     {
         super();
@@ -18,6 +21,19 @@ public class InvocationMetrics extends Metrics
         this.userException = 0;
     }
 
+    /**
+     * Creates a new {@code InvocationMetrics} with all values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     * @param retry The number of retries for the invocations.
+     * @param userException The number of invocations that failed with a user exception.
+     * @param remotes The remote invocation metrics map.
+     * @param collocated The collocated invocation metrics map.
+     */
     public InvocationMetrics(String id, long total, int current, long totalLifetime, int failures, int retry, int userException, Metrics[] remotes, Metrics[] collocated)
     {
         super(id, total, current, totalLifetime, failures);
@@ -56,18 +72,29 @@ public class InvocationMetrics extends Metrics
         return (InvocationMetrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceMX::InvocationMetrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::InvocationMetrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -80,7 +107,10 @@ public class InvocationMetrics extends Metrics
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -93,6 +123,5 @@ public class InvocationMetrics extends Metrics
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8255832824446106391L;
 }

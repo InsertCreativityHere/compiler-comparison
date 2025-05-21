@@ -58,11 +58,12 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the add operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_additions parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_additions -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addAsync(String[] iceP_additions, java.util.Map<String, String> context, boolean sync)
     {
@@ -114,11 +115,12 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the remove operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_deletions parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_deletions -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_removeAsync(String[] iceP_deletions, java.util.Map<String, String> context, boolean sync)
     {
@@ -168,10 +170,11 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the get operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<String[]> _iceI_getAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -327,6 +330,11 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     StringSetPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Glacier2::StringSet"
+     */
     static String ice_staticId()
     {
         return "::Glacier2::StringSet";

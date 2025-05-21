@@ -56,12 +56,13 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the init operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_prefix parameter
+     * @param iceP_logMessages parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_prefix -
-     * @param iceP_logMessages -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initAsync(String iceP_prefix, LogMessage[] iceP_logMessages, java.util.Map<String, String> context, boolean sync)
     {
@@ -114,11 +115,12 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the log operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_message parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_message -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_logAsync(LogMessage iceP_message, java.util.Map<String, String> context, boolean sync)
     {
@@ -272,6 +274,11 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     RemoteLoggerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::RemoteLogger"
+     */
     static String ice_staticId()
     {
         return "::Ice::RemoteLogger";

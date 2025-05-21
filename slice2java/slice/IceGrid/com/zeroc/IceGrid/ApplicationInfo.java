@@ -46,6 +46,9 @@ public class ApplicationInfo implements java.lang.Cloneable,
      **/
     public ApplicationDescriptor descriptor;
 
+    /**
+     * Creates a new {@code ApplicationInfo}.
+     **/
     public ApplicationInfo()
     {
         this.uuid = "";
@@ -54,6 +57,17 @@ public class ApplicationInfo implements java.lang.Cloneable,
         this.descriptor = new ApplicationDescriptor();
     }
 
+    /**
+     * Creates a new {@code ApplicationInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ApplicationInfo}.
+     *
+     * @param uuid Unique application identifier.
+     * @param createTime The creation time.
+     * @param createUser The user who created the application.
+     * @param updateTime The last update time.
+     * @param updateUser The user who updated the application.
+     * @param revision The application revision number.
+     * @param descriptor The application descriptor.
+     */
     public ApplicationInfo(String uuid, long createTime, String createUser, long updateTime, String updateUser, int revision, ApplicationDescriptor descriptor)
     {
         this.uuid = uuid;
@@ -65,6 +79,10 @@ public class ApplicationInfo implements java.lang.Cloneable,
         this.descriptor = descriptor;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -126,6 +144,10 @@ public class ApplicationInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -140,6 +162,10 @@ public class ApplicationInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ApplicationInfo clone()
     {
         ApplicationInfo c = null;
@@ -154,6 +180,11 @@ public class ApplicationInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.uuid);
@@ -165,6 +196,11 @@ public class ApplicationInfo implements java.lang.Cloneable,
         ApplicationDescriptor.ice_write(ostr, this.descriptor);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.uuid = istr.readString();
@@ -176,6 +212,12 @@ public class ApplicationInfo implements java.lang.Cloneable,
         this.descriptor = ApplicationDescriptor.ice_read(istr);
     }
 
+    /**
+     * Marshals an {@code ApplicationInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ApplicationInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ApplicationInfo v)
     {
         if(v == null)
@@ -188,6 +230,12 @@ public class ApplicationInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ApplicationInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ApplicationInfo}
+     */
     static public ApplicationInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         ApplicationInfo v = new ApplicationInfo();
@@ -195,6 +243,13 @@ public class ApplicationInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ApplicationInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ApplicationInfo> v)
     {
         if(v != null && v.isPresent())
@@ -203,6 +258,13 @@ public class ApplicationInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ApplicationInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ApplicationInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -213,6 +275,13 @@ public class ApplicationInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ApplicationInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ApplicationInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -228,6 +297,5 @@ public class ApplicationInfo implements java.lang.Cloneable,
 
     private static final ApplicationInfo _nullMarshalValue = new ApplicationInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 361940108159859594L;
 }

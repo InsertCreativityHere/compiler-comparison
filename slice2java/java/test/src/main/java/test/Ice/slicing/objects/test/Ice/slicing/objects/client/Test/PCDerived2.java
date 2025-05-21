@@ -8,11 +8,18 @@ package test.Ice.slicing.objects.client.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::PCDerived2")
 public class PCDerived2 extends PCDerived
 {
+    /**
+     * Creates a new {@code PCDerived2}.
+     **/
     public PCDerived2()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code PCDerived2} with all values for all its fields.
+     *
+     */
     public PCDerived2(int pi, String ps, PBase pb, PBase[] pbs, int pcd2)
     {
         super(pi, ps, pb, pbs);
@@ -26,18 +33,29 @@ public class PCDerived2 extends PCDerived
         return (PCDerived2)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::PCDerived2"
+     */
     public static String ice_staticId()
     {
         return "::Test::PCDerived2";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -47,7 +65,10 @@ public class PCDerived2 extends PCDerived
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -57,6 +78,5 @@ public class PCDerived2 extends PCDerived
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4551860110009433942L;
 }

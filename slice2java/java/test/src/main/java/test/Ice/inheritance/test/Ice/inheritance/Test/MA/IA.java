@@ -10,12 +10,24 @@ public interface IA extends com.zeroc.Ice.Object
 {
     IAPrx iaop(IAPrx p, com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::MA::IA"
+     */
     static String ice_staticId()
     {
         return "::Test::MA::IA";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation iaop.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_iaop(IA obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();

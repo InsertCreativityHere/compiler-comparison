@@ -8,10 +8,17 @@ package test.Ice.classLoader.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::ConcreteClass")
 public class ConcreteClass extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code ConcreteClass}.
+     **/
     public ConcreteClass()
     {
     }
 
+    /**
+     * Creates a new {@code ConcreteClass} with all values for all its fields.
+     *
+     */
     public ConcreteClass(int i)
     {
         this.i = i;
@@ -24,18 +31,29 @@ public class ConcreteClass extends com.zeroc.Ice.Value
         return (ConcreteClass)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::ConcreteClass"
+     */
     public static String ice_staticId()
     {
         return "::Test::ConcreteClass";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +62,10 @@ public class ConcreteClass extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +74,5 @@ public class ConcreteClass extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -5135643995738196513L;
 }

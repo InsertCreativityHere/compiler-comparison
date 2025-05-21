@@ -75,11 +75,12 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the startService operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_service parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_service -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_startServiceAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
     {
@@ -161,11 +162,12 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the stopService operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_service parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_service -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_stopServiceAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
     {
@@ -224,11 +226,12 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the addObserver operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_observer parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_observer -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addObserverAsync(ServiceObserverPrx iceP_observer, java.util.Map<String, String> context, boolean sync)
     {
@@ -276,10 +279,11 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the shutdown operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -431,6 +435,11 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ServiceManagerPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceBox::ServiceManager"
+     */
     static String ice_staticId()
     {
         return "::IceBox::ServiceManager";

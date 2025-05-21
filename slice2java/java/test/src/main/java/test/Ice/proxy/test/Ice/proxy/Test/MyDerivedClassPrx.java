@@ -29,11 +29,12 @@ public interface MyDerivedClassPrx extends MyClassPrx
     }
 
     /**
+     * Invokes the echo operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_obj parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_obj -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_echoAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
     {
@@ -191,6 +192,11 @@ public interface MyDerivedClassPrx extends MyClassPrx
     @Override
     MyDerivedClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::MyDerivedClass"
+     */
     static String ice_staticId()
     {
         return "::Test::MyDerivedClass";

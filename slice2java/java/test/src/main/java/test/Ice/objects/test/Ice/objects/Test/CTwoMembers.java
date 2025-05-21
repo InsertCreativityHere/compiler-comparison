@@ -8,10 +8,17 @@ package test.Ice.objects.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::CTwoMembers")
 public class CTwoMembers extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code CTwoMembers}.
+     **/
     public CTwoMembers()
     {
     }
 
+    /**
+     * Creates a new {@code CTwoMembers} with all values for all its fields.
+     *
+     */
     public CTwoMembers(Empty e1, Empty e2)
     {
         this.e1 = e1;
@@ -27,18 +34,29 @@ public class CTwoMembers extends com.zeroc.Ice.Value
         return (CTwoMembers)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::CTwoMembers"
+     */
     public static String ice_staticId()
     {
         return "::Test::CTwoMembers";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +66,10 @@ public class CTwoMembers extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +79,5 @@ public class CTwoMembers extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -2383674491629312884L;
 }

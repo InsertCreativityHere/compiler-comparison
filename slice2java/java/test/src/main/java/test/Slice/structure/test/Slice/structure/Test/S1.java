@@ -10,16 +10,27 @@ public class S1 implements java.lang.Cloneable,
 {
     public String name;
 
+    /**
+     * Creates a new {@code S1}.
+     **/
     public S1()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code S1} with values for all fields not marked optional in the Slice definition for {@code ::Test::S1}.
+     *
+     */
     public S1(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -48,6 +59,10 @@ public class S1 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -56,6 +71,10 @@ public class S1 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public S1 clone()
     {
         S1 c = null;
@@ -70,16 +89,32 @@ public class S1 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
     }
 
+    /**
+     * Marshals a {@code S1} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code S1} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, S1 v)
     {
         if(v == null)
@@ -92,6 +127,12 @@ public class S1 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code S1} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code S1}
+     */
     static public S1 ice_read(com.zeroc.Ice.InputStream istr)
     {
         S1 v = new S1();
@@ -99,6 +140,13 @@ public class S1 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code S1} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<S1> v)
     {
         if(v != null && v.isPresent())
@@ -107,6 +155,13 @@ public class S1 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code S1} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, S1 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -117,6 +172,13 @@ public class S1 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code S1} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<S1> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -132,6 +194,5 @@ public class S1 implements java.lang.Cloneable,
 
     private static final S1 _nullMarshalValue = new S1();
 
-    /** @hidden */
     private static final long serialVersionUID = 3551050374163193705L;
 }

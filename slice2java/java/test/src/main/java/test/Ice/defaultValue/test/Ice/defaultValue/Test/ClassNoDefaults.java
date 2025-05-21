@@ -8,12 +8,19 @@ package test.Ice.defaultValue.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::ClassNoDefaults")
 public class ClassNoDefaults extends ClassNoDefaultsBase
 {
+    /**
+     * Creates a new {@code ClassNoDefaults}.
+     **/
     public ClassNoDefaults()
     {
         super();
         this.st = new InnerStruct();
     }
 
+    /**
+     * Creates a new {@code ClassNoDefaults} with all values for all its fields.
+     *
+     */
     public ClassNoDefaults(String str, Color c1, byte[] bs, InnerStruct st, java.util.Map<java.lang.Integer, java.lang.String> dict)
     {
         super(str, c1, bs);
@@ -30,18 +37,29 @@ public class ClassNoDefaults extends ClassNoDefaultsBase
         return (ClassNoDefaults)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::ClassNoDefaults"
+     */
     public static String ice_staticId()
     {
         return "::Test::ClassNoDefaults";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -52,7 +70,10 @@ public class ClassNoDefaults extends ClassNoDefaultsBase
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -63,6 +84,5 @@ public class ClassNoDefaults extends ClassNoDefaultsBase
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -991062770144306477L;
 }

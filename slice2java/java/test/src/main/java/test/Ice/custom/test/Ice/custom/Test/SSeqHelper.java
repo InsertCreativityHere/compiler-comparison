@@ -10,6 +10,12 @@ package test.Ice.custom.Test;
  **/
 public final class SSeqHelper
 {
+    /**
+     * Marshals a list of {@code SSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.List<S> v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class SSeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code SSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static java.util.List<S> read(com.zeroc.Ice.InputStream istr)
     {
         final java.util.List<S> v;
@@ -40,6 +52,13 @@ public final class SSeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code SSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<java.util.List<S>> v)
     {
         if(v != null && v.isPresent())
@@ -48,6 +67,13 @@ public final class SSeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code SSeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.List<S> v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -58,6 +84,13 @@ public final class SSeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code SSeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<java.util.List<S>> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

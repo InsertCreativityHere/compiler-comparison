@@ -8,15 +8,25 @@ package test.Ice.stream.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::MyException")
 public class MyException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code MyException}.
+     **/
     public MyException()
     {
     }
 
+    /**
+     * Creates a new {@code MyException} with all values for all its fields.
+     */
     public MyException(MyClass c)
     {
         this.c = c;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::MyException";
@@ -24,7 +34,10 @@ public class MyException extends com.zeroc.Ice.UserException
 
     public MyClass c;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -33,7 +46,10 @@ public class MyException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -42,13 +58,15 @@ public class MyException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -4323156746499016698L;
 }

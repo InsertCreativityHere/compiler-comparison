@@ -11,16 +11,27 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::AccessDeniedException")
 public class AccessDeniedException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code AccessDeniedException}.
+     **/
     public AccessDeniedException()
     {
         this.lockUserId = "";
     }
 
+    /**
+     * Creates a new {@code AccessDeniedException} with all values for all its fields.
+     * @param lockUserId The id of the user holding the lock (if any).
+     */
     public AccessDeniedException(String lockUserId)
     {
         this.lockUserId = lockUserId;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::AccessDeniedException";
@@ -31,7 +42,10 @@ public class AccessDeniedException extends com.zeroc.Ice.UserException
      **/
     public String lockUserId;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +54,10 @@ public class AccessDeniedException extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +66,5 @@ public class AccessDeniedException extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8645784350169635565L;
 }

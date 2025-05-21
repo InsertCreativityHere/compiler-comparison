@@ -10,15 +10,26 @@ public class _break implements java.lang.Cloneable,
 {
     public int escaped_case;
 
+    /**
+     * Creates a new {@code _break}.
+     **/
     public _break()
     {
     }
 
+    /**
+     * Creates a new {@code _break} with values for all fields not marked optional in the Slice definition for {@code ::abstract::break}.
+     *
+     */
     public _break(int escaped_case)
     {
         this.escaped_case = escaped_case;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -44,6 +55,10 @@ public class _break implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -52,6 +67,10 @@ public class _break implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public _break clone()
     {
         _break c = null;
@@ -66,16 +85,32 @@ public class _break implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeInt(this.escaped_case);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.escaped_case = istr.readInt();
     }
 
+    /**
+     * Marshals a {@code _break} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code _break} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, _break v)
     {
         if(v == null)
@@ -88,6 +123,12 @@ public class _break implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code _break} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code _break}
+     */
     static public _break ice_read(com.zeroc.Ice.InputStream istr)
     {
         _break v = new _break();
@@ -95,6 +136,13 @@ public class _break implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code _break} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<_break> v)
     {
         if(v != null && v.isPresent())
@@ -103,6 +151,13 @@ public class _break implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code _break} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, _break v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -112,6 +167,13 @@ public class _break implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code _break} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<_break> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
@@ -127,6 +189,5 @@ public class _break implements java.lang.Cloneable,
 
     private static final _break _nullMarshalValue = new _break();
 
-    /** @hidden */
     private static final long serialVersionUID = -1796643858102131027L;
 }

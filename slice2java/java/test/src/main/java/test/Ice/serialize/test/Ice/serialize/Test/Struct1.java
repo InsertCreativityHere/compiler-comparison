@@ -28,12 +28,19 @@ public class Struct1 implements java.lang.Cloneable,
 
     public InitialPrx p;
 
+    /**
+     * Creates a new {@code Struct1}.
+     **/
     public Struct1()
     {
         this.str = "";
         this.e = MyEnum.enum1;
     }
 
+    /**
+     * Creates a new {@code Struct1} with values for all fields not marked optional in the Slice definition for {@code ::Test::Struct1}.
+     *
+     */
     public Struct1(boolean bo, byte by, short sh, int i, long l, float f, double d, String str, MyEnum e, InitialPrx p)
     {
         this.bo = bo;
@@ -48,6 +55,10 @@ public class Struct1 implements java.lang.Cloneable,
         this.p = p;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -118,6 +129,10 @@ public class Struct1 implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -135,6 +150,10 @@ public class Struct1 implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public Struct1 clone()
     {
         Struct1 c = null;
@@ -149,6 +168,11 @@ public class Struct1 implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeBool(this.bo);
@@ -163,6 +187,11 @@ public class Struct1 implements java.lang.Cloneable,
         ostr.writeProxy(this.p);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.bo = istr.readBool();
@@ -177,6 +206,12 @@ public class Struct1 implements java.lang.Cloneable,
         this.p = InitialPrx.uncheckedCast(istr.readProxy());
     }
 
+    /**
+     * Marshals a {@code Struct1} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code Struct1} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, Struct1 v)
     {
         if(v == null)
@@ -189,6 +224,12 @@ public class Struct1 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code Struct1} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code Struct1}
+     */
     static public Struct1 ice_read(com.zeroc.Ice.InputStream istr)
     {
         Struct1 v = new Struct1();
@@ -196,6 +237,13 @@ public class Struct1 implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code Struct1} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Struct1> v)
     {
         if(v != null && v.isPresent())
@@ -204,6 +252,13 @@ public class Struct1 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code Struct1} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, Struct1 v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -214,6 +269,13 @@ public class Struct1 implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code Struct1} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<Struct1> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -229,6 +291,5 @@ public class Struct1 implements java.lang.Cloneable,
 
     private static final Struct1 _nullMarshalValue = new Struct1();
 
-    /** @hidden */
     private static final long serialVersionUID = 1001L;
 }

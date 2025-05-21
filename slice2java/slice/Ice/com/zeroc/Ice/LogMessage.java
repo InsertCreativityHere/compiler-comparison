@@ -32,6 +32,9 @@ public class LogMessage implements java.lang.Cloneable,
      **/
     public String message;
 
+    /**
+     * Creates a new {@code LogMessage}.
+     **/
     public LogMessage()
     {
         this.type = LogMessageType.PrintMessage;
@@ -39,6 +42,14 @@ public class LogMessage implements java.lang.Cloneable,
         this.message = "";
     }
 
+    /**
+     * Creates a new {@code LogMessage} with values for all fields not marked optional in the Slice definition for {@code ::Ice::LogMessage}.
+     *
+     * @param type The type of message sent to the {@link com.zeroc.Ice.RemoteLoggerPrx}.
+     * @param timestamp The date and time when the {@link com.zeroc.Ice.RemoteLoggerPrx} received this message, expressed as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970).
+     * @param traceCategory For a message of type trace, the trace category of this log message; otherwise, the empty string.
+     * @param message The log message itself.
+     */
     public LogMessage(LogMessageType type, long timestamp, String traceCategory, String message)
     {
         this.type = type;
@@ -47,6 +58,10 @@ public class LogMessage implements java.lang.Cloneable,
         this.message = message;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -93,6 +108,10 @@ public class LogMessage implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -104,6 +123,10 @@ public class LogMessage implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public LogMessage clone()
     {
         LogMessage c = null;
@@ -118,6 +141,11 @@ public class LogMessage implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         LogMessageType.ice_write(ostr, this.type);
@@ -126,6 +154,11 @@ public class LogMessage implements java.lang.Cloneable,
         ostr.writeString(this.message);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.type = LogMessageType.ice_read(istr);
@@ -134,6 +167,12 @@ public class LogMessage implements java.lang.Cloneable,
         this.message = istr.readString();
     }
 
+    /**
+     * Marshals a {@code LogMessage} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code LogMessage} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, LogMessage v)
     {
         if(v == null)
@@ -146,6 +185,12 @@ public class LogMessage implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code LogMessage} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code LogMessage}
+     */
     static public LogMessage ice_read(com.zeroc.Ice.InputStream istr)
     {
         LogMessage v = new LogMessage();
@@ -153,6 +198,13 @@ public class LogMessage implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code LogMessage} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<LogMessage> v)
     {
         if(v != null && v.isPresent())
@@ -161,6 +213,13 @@ public class LogMessage implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code LogMessage} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, LogMessage v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -171,6 +230,13 @@ public class LogMessage implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code LogMessage} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<LogMessage> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -186,6 +252,5 @@ public class LogMessage implements java.lang.Cloneable,
 
     private static final LogMessage _nullMarshalValue = new LogMessage();
 
-    /** @hidden */
     private static final long serialVersionUID = -3480862453889397004L;
 }

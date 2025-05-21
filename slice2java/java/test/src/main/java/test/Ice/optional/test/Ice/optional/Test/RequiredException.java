@@ -8,23 +8,27 @@ package test.Ice.optional.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::RequiredException")
 public class RequiredException extends OptionalException
 {
+    /**
+     * Creates a new {@code RequiredException}.
+     **/
     public RequiredException()
     {
         this.ss = "test";
     }
 
-    public RequiredException(boolean req, String ss)
-    {
-        super(req);
-        this.ss = ss;
-    }
-
+    /**
+     * Creates a new {@code RequiredException} with all values for all its fields.
+     */
     public RequiredException(boolean req, int a, String b, String ss)
     {
         super(req, a, b);
         this.ss = ss;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::RequiredException";
@@ -32,7 +36,10 @@ public class RequiredException extends OptionalException
 
     public String ss;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -42,7 +49,10 @@ public class RequiredException extends OptionalException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -52,6 +62,5 @@ public class RequiredException extends OptionalException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4056983993845519030L;
 }

@@ -10,6 +10,12 @@ package com.zeroc.Ice;
  **/
 public final class IdentitySeqHelper
 {
+    /**
+     * Marshals a list of {@code IdentitySeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, Identity[] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class IdentitySeqHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code IdentitySeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static Identity[] read(com.zeroc.Ice.InputStream istr)
     {
         final Identity[] v;
@@ -38,6 +50,13 @@ public final class IdentitySeqHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code IdentitySeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Identity[]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class IdentitySeqHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code IdentitySeq} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Identity[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class IdentitySeqHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code IdentitySeq} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<Identity[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

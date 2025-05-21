@@ -31,12 +31,23 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
      **/
     public ApplicationUpdateDescriptor descriptor;
 
+    /**
+     * Creates a new {@code ApplicationUpdateInfo}.
+     **/
     public ApplicationUpdateInfo()
     {
         this.updateUser = "";
         this.descriptor = new ApplicationUpdateDescriptor();
     }
 
+    /**
+     * Creates a new {@code ApplicationUpdateInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ApplicationUpdateInfo}.
+     *
+     * @param updateTime The update time.
+     * @param updateUser The user who updated the application.
+     * @param revision The application revision number.
+     * @param descriptor The update descriptor.
+     */
     public ApplicationUpdateInfo(long updateTime, String updateUser, int revision, ApplicationUpdateDescriptor descriptor)
     {
         this.updateTime = updateTime;
@@ -45,6 +56,10 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         this.descriptor = descriptor;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -88,6 +103,10 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -99,6 +118,10 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ApplicationUpdateInfo clone()
     {
         ApplicationUpdateInfo c = null;
@@ -113,6 +136,11 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeLong(this.updateTime);
@@ -121,6 +149,11 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         ApplicationUpdateDescriptor.ice_write(ostr, this.descriptor);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.updateTime = istr.readLong();
@@ -129,6 +162,12 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         this.descriptor = ApplicationUpdateDescriptor.ice_read(istr);
     }
 
+    /**
+     * Marshals an {@code ApplicationUpdateInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ApplicationUpdateInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ApplicationUpdateInfo v)
     {
         if(v == null)
@@ -141,6 +180,12 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ApplicationUpdateInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ApplicationUpdateInfo}
+     */
     static public ApplicationUpdateInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         ApplicationUpdateInfo v = new ApplicationUpdateInfo();
@@ -148,6 +193,13 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ApplicationUpdateInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ApplicationUpdateInfo> v)
     {
         if(v != null && v.isPresent())
@@ -156,6 +208,13 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ApplicationUpdateInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ApplicationUpdateInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -166,6 +225,13 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ApplicationUpdateInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ApplicationUpdateInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -181,6 +247,5 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
 
     private static final ApplicationUpdateInfo _nullMarshalValue = new ApplicationUpdateInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = 1142544516206143327L;
 }

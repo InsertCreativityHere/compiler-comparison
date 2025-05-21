@@ -14,16 +14,27 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ObserverAlreadyRegisteredException")
 public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ObserverAlreadyRegisteredException}.
+     **/
     public ObserverAlreadyRegisteredException()
     {
         this.id = new com.zeroc.Ice.Identity();
     }
 
+    /**
+     * Creates a new {@code ObserverAlreadyRegisteredException} with all values for all its fields.
+     * @param id The identity of the observer.
+     */
     public ObserverAlreadyRegisteredException(com.zeroc.Ice.Identity id)
     {
         this.id = id;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::ObserverAlreadyRegisteredException";
@@ -34,7 +45,10 @@ public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserExcept
      **/
     public com.zeroc.Ice.Identity id;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -43,7 +57,10 @@ public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserExcept
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -52,6 +69,5 @@ public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserExcept
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 4978391563846848110L;
 }

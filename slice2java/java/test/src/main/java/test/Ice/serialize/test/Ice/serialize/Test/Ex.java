@@ -8,17 +8,27 @@ package test.Ice.serialize.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Ex")
 public class Ex extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code Ex}.
+     **/
     public Ex()
     {
         this.s = new Struct1();
     }
 
+    /**
+     * Creates a new {@code Ex} with all values for all its fields.
+     */
     public Ex(Struct1 s, Base b)
     {
         this.s = s;
         this.b = b;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Ex";
@@ -28,7 +38,10 @@ public class Ex extends com.zeroc.Ice.UserException
 
     public Base b;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -38,7 +51,10 @@ public class Ex extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -48,13 +64,15 @@ public class Ex extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1004L;
 }

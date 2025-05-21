@@ -8,10 +8,17 @@ package test.Ice.seqMapping.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Baz")
 public class Baz extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code Baz}.
+     **/
     public Baz()
     {
     }
 
+    /**
+     * Creates a new {@code Baz} with all values for all its fields.
+     *
+     */
     public Baz(test.Ice.seqMapping.Serialize.Large SLmem, test.Ice.seqMapping.Serialize.Large[] SLSmem)
     {
         this.SLmem = SLmem;
@@ -27,18 +34,29 @@ public class Baz extends com.zeroc.Ice.Value
         return (Baz)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::Baz"
+     */
     public static String ice_staticId()
     {
         return "::Test::Baz";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -48,7 +66,10 @@ public class Baz extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -58,6 +79,5 @@ public class Baz extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7698829930247693310L;
 }

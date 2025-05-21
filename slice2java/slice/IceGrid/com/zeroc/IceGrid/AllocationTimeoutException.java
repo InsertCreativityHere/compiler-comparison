@@ -11,21 +11,35 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::AllocationTimeoutException")
 public class AllocationTimeoutException extends AllocationException
 {
+    /**
+     * Creates a new {@code AllocationTimeoutException}.
+     **/
     public AllocationTimeoutException()
     {
     }
 
+    /**
+     * Creates a new {@code AllocationTimeoutException} with all values for all its fields.
+     * @param reason The reason why the object couldn't be allocated.
+     */
     public AllocationTimeoutException(String reason)
     {
         super(reason);
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceGrid::AllocationTimeoutException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +48,10 @@ public class AllocationTimeoutException extends AllocationException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +60,5 @@ public class AllocationTimeoutException extends AllocationException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2693013586482805775L;
 }

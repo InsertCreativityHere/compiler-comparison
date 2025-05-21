@@ -8,16 +8,26 @@ package test.Ice.slicing.exceptions.server.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Base")
 public class Base extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code Base}.
+     **/
     public Base()
     {
         this.b = "";
     }
 
+    /**
+     * Creates a new {@code Base} with all values for all its fields.
+     */
     public Base(String b)
     {
         this.b = b;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::Base";
@@ -25,7 +35,10 @@ public class Base extends com.zeroc.Ice.UserException
 
     public String b;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -34,7 +47,10 @@ public class Base extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -43,6 +59,5 @@ public class Base extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 7501903995245920325L;
 }

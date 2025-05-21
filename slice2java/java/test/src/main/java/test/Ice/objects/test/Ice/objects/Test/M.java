@@ -8,10 +8,17 @@ package test.Ice.objects.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::M")
 public class M extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code M}.
+     **/
     public M()
     {
     }
 
+    /**
+     * Creates a new {@code M} with all values for all its fields.
+     *
+     */
     public M(java.util.Map<StructKey, L> v)
     {
         this.v = v;
@@ -24,18 +31,29 @@ public class M extends com.zeroc.Ice.Value
         return (M)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::M"
+     */
     public static String ice_staticId()
     {
         return "::Test::M";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -44,7 +62,10 @@ public class M extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -53,6 +74,5 @@ public class M extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -7966484913815112472L;
 }

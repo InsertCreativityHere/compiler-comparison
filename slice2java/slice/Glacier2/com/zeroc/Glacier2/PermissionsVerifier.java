@@ -69,12 +69,25 @@ public interface PermissionsVerifier extends com.zeroc.Ice.Object
     PermissionsVerifier.CheckPermissionsResult checkPermissions(String userId, String password, com.zeroc.Ice.Current current)
         throws PermissionDeniedException;
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Glacier2::PermissionsVerifier"
+     */
     static String ice_staticId()
     {
         return "::Glacier2::PermissionsVerifier";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation checkPermissions.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_checkPermissions(PermissionsVerifier obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

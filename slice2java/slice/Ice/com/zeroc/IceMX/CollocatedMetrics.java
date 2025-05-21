@@ -12,11 +12,25 @@ package com.zeroc.IceMX;
 @com.zeroc.Ice.SliceTypeId(value = "::IceMX::CollocatedMetrics")
 public class CollocatedMetrics extends ChildInvocationMetrics
 {
+    /**
+     * Creates a new {@code CollocatedMetrics}.
+     **/
     public CollocatedMetrics()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code CollocatedMetrics} with all values for all its fields.
+     *
+     * @param id The metrics identifier.
+     * @param total The total number of objects observed by this metrics.
+     * @param current The number of objects currently observed by this metrics.
+     * @param totalLifetime The sum of the lifetime of each observed objects.
+     * @param failures The number of failures observed.
+     * @param size The size of the invocation.
+     * @param replySize The size of the invocation reply.
+     */
     public CollocatedMetrics(String id, long total, int current, long totalLifetime, int failures, long size, long replySize)
     {
         super(id, total, current, totalLifetime, failures, size, replySize);
@@ -27,18 +41,29 @@ public class CollocatedMetrics extends ChildInvocationMetrics
         return (CollocatedMetrics)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceMX::CollocatedMetrics"
+     */
     public static String ice_staticId()
     {
         return "::IceMX::CollocatedMetrics";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -47,7 +72,10 @@ public class CollocatedMetrics extends ChildInvocationMetrics
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -56,6 +84,5 @@ public class CollocatedMetrics extends ChildInvocationMetrics
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6095407819388229350L;
 }

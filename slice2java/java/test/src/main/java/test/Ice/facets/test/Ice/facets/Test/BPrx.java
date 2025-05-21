@@ -29,10 +29,11 @@ public interface BPrx extends APrx
     }
 
     /**
+     * Invokes the callB operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_callBAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -188,6 +189,11 @@ public interface BPrx extends APrx
     @Override
     BPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::B"
+     */
     static String ice_staticId()
     {
         return "::Test::B";

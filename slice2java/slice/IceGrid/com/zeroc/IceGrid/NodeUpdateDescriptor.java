@@ -61,11 +61,28 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
      **/
     public BoxedString loadFactor;
 
+    /**
+     * Creates a new {@code NodeUpdateDescriptor}.
+     **/
     public NodeUpdateDescriptor()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code NodeUpdateDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::NodeUpdateDescriptor}.
+     *
+     * @param name The name of the node to update.
+     * @param description The updated description (or null if the description wasn't updated.)
+     * @param variables The variables to update.
+     * @param removeVariables The variables to remove.
+     * @param propertySets The property sets to update.
+     * @param removePropertySets The property sets to remove.
+     * @param serverInstances The server instances to update.
+     * @param servers The servers which are not template instances to update.
+     * @param removeServers The IDs of the servers to remove.
+     * @param loadFactor The updated load factor of the node (or null if the load factor was not updated).
+     */
     public NodeUpdateDescriptor(String name, BoxedString description, java.util.Map<java.lang.String, java.lang.String> variables, String[] removeVariables, java.util.Map<java.lang.String, PropertySetDescriptor> propertySets, String[] removePropertySets, java.util.List<ServerInstanceDescriptor> serverInstances, java.util.List<ServerDescriptor> servers, String[] removeServers, BoxedString loadFactor)
     {
         this.name = name;
@@ -80,6 +97,10 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         this.loadFactor = loadFactor;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -162,6 +183,10 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -179,6 +204,10 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public NodeUpdateDescriptor clone()
     {
         NodeUpdateDescriptor c = null;
@@ -193,6 +222,11 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
@@ -207,6 +241,11 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         ostr.writeValue(this.loadFactor);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
@@ -230,6 +269,12 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         istr.readValue(v -> loadFactor = v, BoxedString.class);
     }
 
+    /**
+     * Marshals a {@code NodeUpdateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code NodeUpdateDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, NodeUpdateDescriptor v)
     {
         if(v == null)
@@ -242,6 +287,12 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code NodeUpdateDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code NodeUpdateDescriptor}
+     */
     static public NodeUpdateDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         NodeUpdateDescriptor v = new NodeUpdateDescriptor();
@@ -249,6 +300,13 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code NodeUpdateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<NodeUpdateDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -257,6 +315,13 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code NodeUpdateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, NodeUpdateDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -267,6 +332,13 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code NodeUpdateDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<NodeUpdateDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -282,6 +354,5 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
 
     private static final NodeUpdateDescriptor _nullMarshalValue = new NodeUpdateDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -4935382544930358097L;
 }

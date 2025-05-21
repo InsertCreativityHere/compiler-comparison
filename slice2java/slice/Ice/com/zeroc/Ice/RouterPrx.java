@@ -55,10 +55,11 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getClientProxy operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Router.GetClientProxyResult> _iceI_getClientProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -118,10 +119,11 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getServerProxy operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getServerProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -177,11 +179,12 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the addProxies operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_proxies parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_proxies -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, java.util.Map<String, String> context, boolean sync)
     {
@@ -339,6 +342,11 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     RouterPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::Router"
+     */
     static String ice_staticId()
     {
         return "::Ice::Router";

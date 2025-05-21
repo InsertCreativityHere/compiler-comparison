@@ -11,6 +11,9 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ServerDescriptor")
 public class ServerDescriptor extends CommunicatorDescriptor
 {
+    /**
+     * Creates a new {@code ServerDescriptor}.
+     **/
     public ServerDescriptor()
     {
         super();
@@ -26,6 +29,27 @@ public class ServerDescriptor extends CommunicatorDescriptor
         this.user = "";
     }
 
+    /**
+     * Creates a new {@code ServerDescriptor} with all values for all its fields.
+     *
+     * @param adapters The indirect object adapters.
+     * @param propertySet The property set.
+     * @param logs The path of each log file.
+     * @param description A description of this descriptor.
+     * @param id The server ID.
+     * @param exe The path of the server executable.
+     * @param iceVersion The Ice version used by this server.
+     * @param pwd The path to the server working directory.
+     * @param options The command line options to pass to the server executable.
+     * @param envs The server environment variables.
+     * @param activation / The server activation mode.
+     * @param activationTimeout The activation timeout.
+     * @param deactivationTimeout The deactivation timeout.
+     * @param applicationDistrib Specifies if the server depends on the application distribution.
+     * @param distrib The distribution descriptor.
+     * @param allocatable Specifies if the server is allocatable.
+     * @param user The user account used to run the server.
+     */
     public ServerDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description, String id, String exe, String iceVersion, String pwd, java.util.List<java.lang.String> options, java.util.List<java.lang.String> envs, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, DistributionDescriptor distrib, boolean allocatable, String user)
     {
         super(adapters, propertySet, logs, description);
@@ -118,18 +142,29 @@ public class ServerDescriptor extends CommunicatorDescriptor
         return (ServerDescriptor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::ServerDescriptor"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::ServerDescriptor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -173,7 +208,10 @@ public class ServerDescriptor extends CommunicatorDescriptor
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -209,6 +247,5 @@ public class ServerDescriptor extends CommunicatorDescriptor
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -1854504882656070621L;
 }

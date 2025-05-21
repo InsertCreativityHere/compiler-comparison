@@ -152,6 +152,11 @@ public interface DiamondClassPrx extends MyDerivedClassPrx,
     @Override
     DiamondClassPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::DiamondClass"
+     */
     static String ice_staticId()
     {
         return "::Test::DiamondClass";

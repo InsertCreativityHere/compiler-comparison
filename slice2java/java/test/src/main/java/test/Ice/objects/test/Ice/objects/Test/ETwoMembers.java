@@ -8,16 +8,26 @@ package test.Ice.objects.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::ETwoMembers")
 public class ETwoMembers extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code ETwoMembers}.
+     **/
     public ETwoMembers()
     {
     }
 
+    /**
+     * Creates a new {@code ETwoMembers} with all values for all its fields.
+     */
     public ETwoMembers(Empty e1, Empty e2)
     {
         this.e1 = e1;
         this.e2 = e2;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::ETwoMembers";
@@ -27,7 +37,10 @@ public class ETwoMembers extends com.zeroc.Ice.UserException
 
     public Empty e2;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -37,7 +50,10 @@ public class ETwoMembers extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -47,13 +63,15 @@ public class ETwoMembers extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * @{inheritDoc}
+     * @hidden
+     **/
     @Override
     public boolean _usesClasses()
     {
         return true;
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 5900874448132391818L;
 }

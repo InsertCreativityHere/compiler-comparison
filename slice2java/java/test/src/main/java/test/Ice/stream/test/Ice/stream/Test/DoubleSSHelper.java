@@ -10,6 +10,12 @@ package test.Ice.stream.Test;
  **/
 public final class DoubleSSHelper
 {
+    /**
+     * Marshals a list of {@code DoubleSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, double[][] v)
     {
         if(v == null)
@@ -26,6 +32,12 @@ public final class DoubleSSHelper
         }
     }
 
+    /**
+     * Unmarshals a list of {@code DoubleSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @return the list
+     */
     public static double[][] read(com.zeroc.Ice.InputStream istr)
     {
         final double[][] v;
@@ -38,6 +50,13 @@ public final class DoubleSSHelper
         return v;
     }
 
+    /**
+     * Marshals an optional list of {@code DoubleSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<double[][]> v)
     {
         if(v != null && v.isPresent())
@@ -46,6 +65,13 @@ public final class DoubleSSHelper
         }
     }
 
+    /**
+     * Marshals an optional list of {@code DoubleSS} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the list to marshal
+     */
     public static void write(com.zeroc.Ice.OutputStream ostr, int tag, double[][] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -56,6 +82,13 @@ public final class DoubleSSHelper
         }
     }
 
+    /**
+     * Unmarshals an optional list of {@code DoubleSS} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the list
+     */
     public static java.util.Optional<double[][]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))

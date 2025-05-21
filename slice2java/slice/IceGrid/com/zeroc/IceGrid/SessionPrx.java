@@ -49,10 +49,11 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the keepAlive operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_keepAliveAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -141,11 +142,12 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the allocateObjectById operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_allocateObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -237,11 +239,12 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the allocateObjectByType operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_type parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_type -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_allocateObjectByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
@@ -330,11 +333,12 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the releaseObject operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_releaseObjectAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -401,11 +405,12 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
+     * Invokes the setAllocationTimeout operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_timeout parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_timeout -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setAllocationTimeoutAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
     {
@@ -559,6 +564,11 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     @Override
     SessionPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::Session"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Session";

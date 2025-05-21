@@ -8,12 +8,19 @@ package test.Ice.optional.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::WD")
 public class WD extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code WD}.
+     **/
     public WD()
     {
         setA(5);
         setS("test");
     }
 
+    /**
+     * Creates a new {@code WD} with all values for all its fields.
+     *
+     */
     public WD(int a, String s)
     {
         setA(a);
@@ -131,18 +138,29 @@ public class WD extends com.zeroc.Ice.Value
         return (WD)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::WD"
+     */
     public static String ice_staticId()
     {
         return "::Test::WD";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -158,7 +176,10 @@ public class WD extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -174,6 +195,5 @@ public class WD extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -582231404662940886L;
 }

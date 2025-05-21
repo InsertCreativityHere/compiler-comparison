@@ -8,11 +8,17 @@ package test.Ice.slicing.objects.server.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::DerivedException")
 public class DerivedException extends BaseException
 {
+    /**
+     * Creates a new {@code DerivedException}.
+     **/
     public DerivedException()
     {
         this.sde = "";
     }
 
+    /**
+     * Creates a new {@code DerivedException} with all values for all its fields.
+     */
     public DerivedException(String sbe, B pb, String sde, D1 pd1)
     {
         super(sbe, pb);
@@ -20,6 +26,10 @@ public class DerivedException extends BaseException
         this.pd1 = pd1;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Test::DerivedException";
@@ -29,7 +39,10 @@ public class DerivedException extends BaseException
 
     public D1 pd1;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +53,10 @@ public class DerivedException extends BaseException
         super._writeImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -51,6 +67,5 @@ public class DerivedException extends BaseException
         super._readImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -929981813500480761L;
 }

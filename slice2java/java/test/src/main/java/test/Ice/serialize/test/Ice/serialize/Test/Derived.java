@@ -8,11 +8,18 @@ package test.Ice.serialize.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::Derived")
 public class Derived extends Base
 {
+    /**
+     * Creates a new {@code Derived}.
+     **/
     public Derived()
     {
         super();
     }
 
+    /**
+     * Creates a new {@code Derived} with all values for all its fields.
+     *
+     */
     public Derived(Base b, com.zeroc.Ice.Value o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base[] seq4, java.util.Map<java.lang.Byte, java.lang.Boolean> d1, java.util.Map<java.lang.Short, java.lang.Integer> d2, java.util.Map<java.lang.String, MyEnum> d3, java.util.Map<java.lang.String, Base> d4, com.zeroc.Ice.ObjectPrx p)
     {
         super(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4);
@@ -26,18 +33,29 @@ public class Derived extends Base
         return (Derived)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::Derived"
+     */
     public static String ice_staticId()
     {
         return "::Test::Derived";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -47,7 +65,10 @@ public class Derived extends Base
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -57,6 +78,5 @@ public class Derived extends Base
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 1003L;
 }

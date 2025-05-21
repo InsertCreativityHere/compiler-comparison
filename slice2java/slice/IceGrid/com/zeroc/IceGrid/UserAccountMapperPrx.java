@@ -78,11 +78,12 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getUserAccount operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_user parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_user -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getUserAccountAsync(String iceP_user, java.util.Map<String, String> context, boolean sync)
     {
@@ -246,6 +247,11 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     UserAccountMapperPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::UserAccountMapper"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::UserAccountMapper";

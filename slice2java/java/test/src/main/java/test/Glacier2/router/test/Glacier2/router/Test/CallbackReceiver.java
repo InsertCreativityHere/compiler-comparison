@@ -13,12 +13,24 @@ public interface CallbackReceiver extends com.zeroc.Ice.Object
     void callbackEx(com.zeroc.Ice.Current current)
         throws CallbackException;
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::CallbackReceiver"
+     */
     static String ice_staticId()
     {
         return "::Test::CallbackReceiver";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation callback.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_callback(CallbackReceiver obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.current.checkNonIdempotent();
@@ -27,7 +39,15 @@ public interface CallbackReceiver extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation callbackEx.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_callbackEx(CallbackReceiver obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

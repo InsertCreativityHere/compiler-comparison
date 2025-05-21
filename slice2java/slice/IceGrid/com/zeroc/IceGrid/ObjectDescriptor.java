@@ -27,6 +27,9 @@ public class ObjectDescriptor implements java.lang.Cloneable,
      **/
     public String proxyOptions;
 
+    /**
+     * Creates a new {@code ObjectDescriptor}.
+     **/
     public ObjectDescriptor()
     {
         this.id = new com.zeroc.Ice.Identity();
@@ -34,6 +37,13 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         this.proxyOptions = "";
     }
 
+    /**
+     * Creates a new {@code ObjectDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ObjectDescriptor}.
+     *
+     * @param id The identity of the object.
+     * @param type The object type.
+     * @param proxyOptions The proxy options to use when creating a proxy for this well-known object.
+     */
     public ObjectDescriptor(com.zeroc.Ice.Identity id, String type, String proxyOptions)
     {
         this.id = id;
@@ -41,6 +51,10 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         this.proxyOptions = proxyOptions;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -83,6 +97,10 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -93,6 +111,10 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ObjectDescriptor clone()
     {
         ObjectDescriptor c = null;
@@ -107,6 +129,11 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         com.zeroc.Ice.Identity.ice_write(ostr, this.id);
@@ -114,6 +141,11 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         ostr.writeString(this.proxyOptions);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.id = com.zeroc.Ice.Identity.ice_read(istr);
@@ -121,6 +153,12 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         this.proxyOptions = istr.readString();
     }
 
+    /**
+     * Marshals an {@code ObjectDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ObjectDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ObjectDescriptor v)
     {
         if(v == null)
@@ -133,6 +171,12 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ObjectDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ObjectDescriptor}
+     */
     static public ObjectDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         ObjectDescriptor v = new ObjectDescriptor();
@@ -140,6 +184,13 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ObjectDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ObjectDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -148,6 +199,13 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ObjectDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ObjectDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -158,6 +216,13 @@ public class ObjectDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ObjectDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ObjectDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -173,6 +238,5 @@ public class ObjectDescriptor implements java.lang.Cloneable,
 
     private static final ObjectDescriptor _nullMarshalValue = new ObjectDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -2384323669216839235L;
 }

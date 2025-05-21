@@ -51,10 +51,11 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the categories operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<StringSetPrx> _iceI_categoriesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -106,10 +107,11 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the adapterIds operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<StringSetPrx> _iceI_adapterIdsAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -161,10 +163,11 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the identities operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<IdentitySetPrx> _iceI_identitiesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -216,10 +219,11 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getSessionTimeout operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -269,10 +273,11 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the destroy operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -424,6 +429,11 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     SessionControlPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Glacier2::SessionControl"
+     */
     static String ice_staticId()
     {
         return "::Glacier2::SessionControl";

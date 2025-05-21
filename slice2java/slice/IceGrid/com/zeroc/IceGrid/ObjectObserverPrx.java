@@ -52,11 +52,12 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the objectInit operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_objects parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_objects -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_objectInitAsync(ObjectInfo[] iceP_objects, java.util.Map<String, String> context, boolean sync)
     {
@@ -108,11 +109,12 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the objectAdded operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_info parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_objectAddedAsync(ObjectInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
@@ -164,11 +166,12 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the objectUpdated operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_info parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_info -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_objectUpdatedAsync(ObjectInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
@@ -220,11 +223,12 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the objectRemoved operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_objectRemovedAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -378,6 +382,11 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     ObjectObserverPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::ObjectObserver"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::ObjectObserver";

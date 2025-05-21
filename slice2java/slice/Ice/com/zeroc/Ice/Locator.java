@@ -44,12 +44,25 @@ public interface Locator extends com.zeroc.Ice.Object
      **/
     LocatorRegistryPrx getRegistry(com.zeroc.Ice.Current current);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::Locator"
+     */
     static String ice_staticId()
     {
         return "::Ice::Locator";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation findObjectById.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_findObjectById(Locator obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -68,7 +81,15 @@ public interface Locator extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation findAdapterById.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_findAdapterById(Locator obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -87,7 +108,14 @@ public interface Locator extends com.zeroc.Ice.Object
             null));
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation getRegistry.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getRegistry(Locator obj, com.zeroc.Ice.IncomingRequest request)
     {
         request.inputStream.skipEmptyEncapsulation();

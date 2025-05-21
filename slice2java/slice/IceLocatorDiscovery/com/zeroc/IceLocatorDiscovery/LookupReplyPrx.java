@@ -55,11 +55,12 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the foundLocator operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_prx parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_prx -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<Void> _iceI_foundLocatorAsync(com.zeroc.Ice.LocatorPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
@@ -213,6 +214,11 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     LookupReplyPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceLocatorDiscovery::LookupReply"
+     */
     static String ice_staticId()
     {
         return "::IceLocatorDiscovery::LookupReply";

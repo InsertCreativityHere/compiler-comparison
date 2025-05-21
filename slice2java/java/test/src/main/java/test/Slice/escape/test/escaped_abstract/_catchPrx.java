@@ -29,11 +29,12 @@ public interface _catchPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the checkedCast operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_escaped_clone parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_escaped_clone -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_myCheckedCastAsync(int iceP_escaped_clone, java.util.Map<String, String> context, boolean sync)
     {
@@ -191,6 +192,11 @@ public interface _catchPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     _catchPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::abstract::catch"
+     */
     static String ice_staticId()
     {
         return "::abstract::catch";

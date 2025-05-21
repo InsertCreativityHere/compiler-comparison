@@ -64,12 +64,25 @@ public interface LocatorRegistry extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> setServerProcessProxyAsync(String id, ProcessPrx proxy, com.zeroc.Ice.Current current)
         throws ServerNotFoundException;
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Ice::LocatorRegistry"
+     */
     static String ice_staticId()
     {
         return "::Ice::LocatorRegistry";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation setAdapterDirectProxy.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setAdapterDirectProxy(LocatorRegistry obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -84,7 +97,15 @@ public interface LocatorRegistry extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation setReplicatedAdapterDirectProxy.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {
@@ -101,7 +122,15 @@ public interface LocatorRegistry extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation setServerProcessProxy.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setServerProcessProxy(LocatorRegistry obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

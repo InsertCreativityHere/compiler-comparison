@@ -54,11 +54,12 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findObjectById operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_id parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_id -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
@@ -120,11 +121,12 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findObjectByType operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_type parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_type -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
@@ -194,12 +196,13 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findObjectByTypeOnLeastLoadedNode operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_type parameter
+     * @param iceP_sample parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_type -
-     * @param iceP_sample -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByTypeOnLeastLoadedNodeAsync(String iceP_type, LoadSample iceP_sample, java.util.Map<String, String> context, boolean sync)
     {
@@ -258,11 +261,12 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findAllObjectsByType operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_type parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_type -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> _iceI_findAllObjectsByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
@@ -320,11 +324,12 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the findAllReplicas operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_proxy parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_proxy -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> _iceI_findAllReplicasAsync(com.zeroc.Ice.ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
@@ -482,6 +487,11 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     QueryPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::Query"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::Query";

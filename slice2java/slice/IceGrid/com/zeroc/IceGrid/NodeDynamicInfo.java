@@ -26,11 +26,21 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
      **/
     public java.util.List<AdapterDynamicInfo> adapters;
 
+    /**
+     * Creates a new {@code NodeDynamicInfo}.
+     **/
     public NodeDynamicInfo()
     {
         this.info = new NodeInfo();
     }
 
+    /**
+     * Creates a new {@code NodeDynamicInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::NodeDynamicInfo}.
+     *
+     * @param info Some static information about the node.
+     * @param servers The dynamic information of the servers deployed on this node.
+     * @param adapters The dynamic information of the adapters deployed on this node.
+     */
     public NodeDynamicInfo(NodeInfo info, java.util.List<ServerDynamicInfo> servers, java.util.List<AdapterDynamicInfo> adapters)
     {
         this.info = info;
@@ -38,6 +48,10 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         this.adapters = adapters;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -80,6 +94,10 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -90,6 +108,10 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public NodeDynamicInfo clone()
     {
         NodeDynamicInfo c = null;
@@ -104,6 +126,11 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         NodeInfo.ice_write(ostr, this.info);
@@ -111,6 +138,11 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         AdapterDynamicInfoSeqHelper.write(ostr, this.adapters);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.info = NodeInfo.ice_read(istr);
@@ -118,6 +150,12 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         this.adapters = AdapterDynamicInfoSeqHelper.read(istr);
     }
 
+    /**
+     * Marshals a {@code NodeDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code NodeDynamicInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, NodeDynamicInfo v)
     {
         if(v == null)
@@ -130,6 +168,12 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals a {@code NodeDynamicInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code NodeDynamicInfo}
+     */
     static public NodeDynamicInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         NodeDynamicInfo v = new NodeDynamicInfo();
@@ -137,6 +181,13 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code NodeDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<NodeDynamicInfo> v)
     {
         if(v != null && v.isPresent())
@@ -145,6 +196,13 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code NodeDynamicInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, NodeDynamicInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -155,6 +213,13 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code NodeDynamicInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<NodeDynamicInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -170,6 +235,5 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
 
     private static final NodeDynamicInfo _nullMarshalValue = new NodeDynamicInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -3896114936333150873L;
 }

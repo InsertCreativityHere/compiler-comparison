@@ -8,6 +8,9 @@ package test.Ice.optional.AMD.Test;
 @com.zeroc.Ice.SliceTypeId(value = "::Test::G")
 public class G extends com.zeroc.Ice.Value
 {
+    /**
+     * Creates a new {@code G}.
+     **/
     public G()
     {
         this.gg1Opt = new G1();
@@ -16,6 +19,10 @@ public class G extends com.zeroc.Ice.Value
         this.gg1 = new G1();
     }
 
+    /**
+     * Creates a new {@code G} with values for all fields not marked optional in the Slice definition for {@code ::Test::G}.
+     *
+     */
     public G(G2 gg2, G1 gg1)
     {
         this.gg2 = gg2;
@@ -24,6 +31,10 @@ public class G extends com.zeroc.Ice.Value
         this.gg1Opt = new G1();
     }
 
+    /**
+     * Creates a new {@code G} with all values for all its fields.
+     *
+     */
     public G(G1 gg1Opt, G2 gg2, G2 gg2Opt, G1 gg1)
     {
         setGg1Opt(gg1Opt);
@@ -147,18 +158,29 @@ public class G extends com.zeroc.Ice.Value
         return (G)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::G"
+     */
     public static String ice_staticId()
     {
         return "::Test::G";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -176,7 +198,10 @@ public class G extends com.zeroc.Ice.Value
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -196,6 +221,5 @@ public class G extends com.zeroc.Ice.Value
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = 2061314797392475594L;
 }

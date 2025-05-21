@@ -11,6 +11,9 @@ package com.zeroc.IceGrid;
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::ServiceDescriptor")
 public class ServiceDescriptor extends CommunicatorDescriptor
 {
+    /**
+     * Creates a new {@code ServiceDescriptor}.
+     **/
     public ServiceDescriptor()
     {
         super();
@@ -18,6 +21,16 @@ public class ServiceDescriptor extends CommunicatorDescriptor
         this.entry = "";
     }
 
+    /**
+     * Creates a new {@code ServiceDescriptor} with all values for all its fields.
+     *
+     * @param adapters The indirect object adapters.
+     * @param propertySet The property set.
+     * @param logs The path of each log file.
+     * @param description A description of this descriptor.
+     * @param name The service name.
+     * @param entry The entry point of the IceBox service.
+     */
     public ServiceDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description, String name, String entry)
     {
         super(adapters, propertySet, logs, description);
@@ -40,18 +53,29 @@ public class ServiceDescriptor extends CommunicatorDescriptor
         return (ServiceDescriptor)super.clone();
     }
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::ServiceDescriptor"
+     */
     public static String ice_staticId()
     {
         return "::IceGrid::ServiceDescriptor";
     }
 
+    /**
+     * {@inheritDoc}
+     **/
     @Override
     public String ice_id()
     {
         return ice_staticId();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -62,7 +86,10 @@ public class ServiceDescriptor extends CommunicatorDescriptor
         super._iceWriteImpl(ostr_);
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -73,6 +100,5 @@ public class ServiceDescriptor extends CommunicatorDescriptor
         super._iceReadImpl(istr_);
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -6356990834996774401L;
 }

@@ -74,12 +74,13 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the parse operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param iceP_xmlFile parameter
+     * @param iceP_adminProxy parameter
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param iceP_xmlFile -
-     * @param iceP_adminProxy -
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<ApplicationDescriptor> _iceI_parseAsync(String iceP_xmlFile, AdminPrx iceP_adminProxy, java.util.Map<String, String> context, boolean sync)
     {
@@ -245,6 +246,11 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     FileParserPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::FileParser"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::FileParser";

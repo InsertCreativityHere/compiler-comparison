@@ -86,11 +86,33 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
      **/
     public String[] removeNodes;
 
+    /**
+     * Creates a new {@code ApplicationUpdateDescriptor}.
+     **/
     public ApplicationUpdateDescriptor()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code ApplicationUpdateDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ApplicationUpdateDescriptor}.
+     *
+     * @param name The name of the application to update.
+     * @param description The updated description (or null if the description wasn't updated.)
+     * @param distrib The updated distribution application descriptor.
+     * @param variables The variables to update.
+     * @param removeVariables The variables to remove.
+     * @param propertySets The property sets to update.
+     * @param removePropertySets The property sets to remove.
+     * @param replicaGroups The replica groups to update.
+     * @param removeReplicaGroups The replica groups to remove.
+     * @param serverTemplates The server templates to update.
+     * @param removeServerTemplates The IDs of the server template to remove.
+     * @param serviceTemplates The service templates to update.
+     * @param removeServiceTemplates The IDs of the service template to remove.
+     * @param nodes The application nodes to update.
+     * @param removeNodes The nodes to remove.
+     */
     public ApplicationUpdateDescriptor(String name, BoxedString description, BoxedDistributionDescriptor distrib, java.util.Map<java.lang.String, java.lang.String> variables, String[] removeVariables, java.util.Map<java.lang.String, PropertySetDescriptor> propertySets, String[] removePropertySets, java.util.List<ReplicaGroupDescriptor> replicaGroups, String[] removeReplicaGroups, java.util.Map<java.lang.String, TemplateDescriptor> serverTemplates, String[] removeServerTemplates, java.util.Map<java.lang.String, TemplateDescriptor> serviceTemplates, String[] removeServiceTemplates, java.util.List<NodeUpdateDescriptor> nodes, String[] removeNodes)
     {
         this.name = name;
@@ -110,6 +132,10 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         this.removeNodes = removeNodes;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -218,6 +244,10 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -240,6 +270,10 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ApplicationUpdateDescriptor clone()
     {
         ApplicationUpdateDescriptor c = null;
@@ -254,6 +288,11 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
@@ -273,6 +312,11 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         ostr.writeStringSeq(this.removeNodes);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
@@ -301,6 +345,12 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         this.removeNodes = istr.readStringSeq();
     }
 
+    /**
+     * Marshals an {@code ApplicationUpdateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ApplicationUpdateDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ApplicationUpdateDescriptor v)
     {
         if(v == null)
@@ -313,6 +363,12 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ApplicationUpdateDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ApplicationUpdateDescriptor}
+     */
     static public ApplicationUpdateDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         ApplicationUpdateDescriptor v = new ApplicationUpdateDescriptor();
@@ -320,6 +376,13 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ApplicationUpdateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ApplicationUpdateDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -328,6 +391,13 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ApplicationUpdateDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ApplicationUpdateDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -338,6 +408,13 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ApplicationUpdateDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ApplicationUpdateDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -353,6 +430,5 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
 
     private static final ApplicationUpdateDescriptor _nullMarshalValue = new ApplicationUpdateDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = 8861866270242413610L;
 }

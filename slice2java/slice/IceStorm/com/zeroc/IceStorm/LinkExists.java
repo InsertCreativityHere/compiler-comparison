@@ -11,16 +11,27 @@ package com.zeroc.IceStorm;
 @com.zeroc.Ice.SliceTypeId(value = "::IceStorm::LinkExists")
 public class LinkExists extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code LinkExists}.
+     **/
     public LinkExists()
     {
         this.name = "";
     }
 
+    /**
+     * Creates a new {@code LinkExists} with all values for all its fields.
+     * @param name The name of the linked topic.
+     */
     public LinkExists(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::IceStorm::LinkExists";
@@ -31,7 +42,10 @@ public class LinkExists extends com.zeroc.Ice.UserException
      **/
     public String name;
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -40,7 +54,10 @@ public class LinkExists extends com.zeroc.Ice.UserException
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -49,6 +66,5 @@ public class LinkExists extends com.zeroc.Ice.UserException
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -299633251854886536L;
 }

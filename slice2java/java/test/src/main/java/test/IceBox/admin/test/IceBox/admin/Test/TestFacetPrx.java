@@ -29,10 +29,11 @@ public interface TestFacetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
+     * Invokes the getChanges operation with the given parameters on this proxy and returns a future that will be completed with the result.
+     * @param context the request context
+     * @param sync {@code true} if the operation is synchronous, {@code false} otherwise
+     * @return a CompletableFuture that will be completed with the result of the operation
      * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
      **/
     default com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getChangesAsync(java.util.Map<String, String> context, boolean sync)
     {
@@ -188,6 +189,11 @@ public interface TestFacetPrx extends com.zeroc.Ice.ObjectPrx
     @Override
     TestFacetPrx ice_fixed(com.zeroc.Ice.Connection connection);
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::Test::TestFacet"
+     */
     static String ice_staticId()
     {
         return "::Test::TestFacet";

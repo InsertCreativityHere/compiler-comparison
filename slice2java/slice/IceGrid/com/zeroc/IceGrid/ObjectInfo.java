@@ -21,17 +21,30 @@ public class ObjectInfo implements java.lang.Cloneable,
      **/
     public String type;
 
+    /**
+     * Creates a new {@code ObjectInfo}.
+     **/
     public ObjectInfo()
     {
         this.type = "";
     }
 
+    /**
+     * Creates a new {@code ObjectInfo} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ObjectInfo}.
+     *
+     * @param proxy The proxy of the object.
+     * @param type The type of the object.
+     */
     public ObjectInfo(com.zeroc.Ice.ObjectPrx proxy, String type)
     {
         this.proxy = proxy;
         this.type = type;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -67,6 +80,10 @@ public class ObjectInfo implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -76,6 +93,10 @@ public class ObjectInfo implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ObjectInfo clone()
     {
         ObjectInfo c = null;
@@ -90,18 +111,34 @@ public class ObjectInfo implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeProxy(this.proxy);
         ostr.writeString(this.type);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.proxy = istr.readProxy();
         this.type = istr.readString();
     }
 
+    /**
+     * Marshals an {@code ObjectInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ObjectInfo} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ObjectInfo v)
     {
         if(v == null)
@@ -114,6 +151,12 @@ public class ObjectInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ObjectInfo} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ObjectInfo}
+     */
     static public ObjectInfo ice_read(com.zeroc.Ice.InputStream istr)
     {
         ObjectInfo v = new ObjectInfo();
@@ -121,6 +164,13 @@ public class ObjectInfo implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ObjectInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ObjectInfo> v)
     {
         if(v != null && v.isPresent())
@@ -129,6 +179,13 @@ public class ObjectInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ObjectInfo} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ObjectInfo v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -139,6 +196,13 @@ public class ObjectInfo implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ObjectInfo} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ObjectInfo> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -154,6 +218,5 @@ public class ObjectInfo implements java.lang.Cloneable,
 
     private static final ObjectInfo _nullMarshalValue = new ObjectInfo();
 
-    /** @hidden */
     private static final long serialVersionUID = -8119145155765236985L;
 }

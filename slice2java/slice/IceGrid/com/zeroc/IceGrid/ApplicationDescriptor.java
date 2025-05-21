@@ -56,6 +56,9 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
      **/
     public java.util.Map<java.lang.String, PropertySetDescriptor> propertySets;
 
+    /**
+     * Creates a new {@code ApplicationDescriptor}.
+     **/
     public ApplicationDescriptor()
     {
         this.name = "";
@@ -63,6 +66,19 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         this.description = "";
     }
 
+    /**
+     * Creates a new {@code ApplicationDescriptor} with values for all fields not marked optional in the Slice definition for {@code ::IceGrid::ApplicationDescriptor}.
+     *
+     * @param name The application name.
+     * @param variables The variables defined in the application descriptor.
+     * @param replicaGroups The replica groups.
+     * @param serverTemplates The server templates.
+     * @param serviceTemplates The service templates.
+     * @param nodes The node descriptors.
+     * @param distrib The application distribution.
+     * @param description The description of this application.
+     * @param propertySets Property set descriptors.
+     */
     public ApplicationDescriptor(String name, java.util.Map<java.lang.String, java.lang.String> variables, java.util.List<ReplicaGroupDescriptor> replicaGroups, java.util.Map<java.lang.String, TemplateDescriptor> serverTemplates, java.util.Map<java.lang.String, TemplateDescriptor> serviceTemplates, java.util.Map<java.lang.String, NodeDescriptor> nodes, DistributionDescriptor distrib, String description, java.util.Map<java.lang.String, PropertySetDescriptor> propertySets)
     {
         this.name = name;
@@ -76,6 +92,10 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         this.propertySets = propertySets;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public boolean equals(java.lang.Object rhs)
     {
         if(this == rhs)
@@ -160,6 +180,10 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public int hashCode()
     {
         int h_ = 5381;
@@ -176,6 +200,10 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         return h_;
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public ApplicationDescriptor clone()
     {
         ApplicationDescriptor c = null;
@@ -190,6 +218,11 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         return c;
     }
 
+    /**
+     * Marshals this object's fields into an output stream.
+     *
+     * @param ostr the output stream
+     */
     public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
         ostr.writeString(this.name);
@@ -203,6 +236,11 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         PropertySetDescriptorDictHelper.write(ostr, this.propertySets);
     }
 
+    /**
+     * Unmarshals and sets this object's fields from an input stream.
+     *
+     * @param istr the input stream
+     */
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
         this.name = istr.readString();
@@ -225,6 +263,12 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         this.propertySets = PropertySetDescriptorDictHelper.read(istr);
     }
 
+    /**
+     * Marshals an {@code ApplicationDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param v the {@code ApplicationDescriptor} to marshal; can be null
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, ApplicationDescriptor v)
     {
         if(v == null)
@@ -237,6 +281,12 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an {@code ApplicationDescriptor} from an input stream.
+     *
+     * @param istr the input stream 
+     * @return the {@code ApplicationDescriptor}
+     */
     static public ApplicationDescriptor ice_read(com.zeroc.Ice.InputStream istr)
     {
         ApplicationDescriptor v = new ApplicationDescriptor();
@@ -244,6 +294,13 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         return v;
     }
 
+    /**
+     * Marshals an optional {@code ApplicationDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<ApplicationDescriptor> v)
     {
         if(v != null && v.isPresent())
@@ -252,6 +309,13 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Marshals an optional {@code ApplicationDescriptor} into an output stream.
+     *
+     * @param ostr the output stream
+     * @param tag the tag
+     * @param v the value to marshal
+     */
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, ApplicationDescriptor v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -262,6 +326,13 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
         }
     }
 
+    /**
+     * Unmarshals an optional {@code ApplicationDescriptor} from an input stream.
+     *
+     * @param istr the input stream
+     * @param tag the tag
+     * @return the unmarshaled value
+     */
     static public java.util.Optional<ApplicationDescriptor> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
@@ -277,6 +348,5 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
 
     private static final ApplicationDescriptor _nullMarshalValue = new ApplicationDescriptor();
 
-    /** @hidden */
     private static final long serialVersionUID = -8553101820273379960L;
 }

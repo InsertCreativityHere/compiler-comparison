@@ -23,12 +23,25 @@ public interface FileParser extends com.zeroc.Ice.Object
     ApplicationDescriptor parse(String xmlFile, AdminPrx adminProxy, com.zeroc.Ice.Current current)
         throws ParseException;
 
+    /**
+     * Gets the type ID of the associated Slice interface
+     *
+     * @return the string "::IceGrid::FileParser"
+     */
     static String ice_staticId()
     {
         return "::IceGrid::FileParser";
     }
 
-    /** @hidden */
+    /**
+    * Dispatches the operation parse.
+    *
+    * @param obj the servant object
+    * @param request the incoming request
+    * @return a {@code CompletionStage} that will complete when the operation is done
+    * @throws com.zeroc.Ice.UserException in the event of a user exception
+    * @hidden
+    */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_parse(FileParser obj, com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
     {

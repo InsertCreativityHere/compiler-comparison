@@ -11,16 +11,26 @@ package com.zeroc.Ice;
 @com.zeroc.Ice.SliceTypeId(value = "::Ice::RemoteLoggerAlreadyAttachedException")
 public class RemoteLoggerAlreadyAttachedException extends com.zeroc.Ice.UserException
 {
+    /**
+     * Creates a new {@code RemoteLoggerAlreadyAttachedException}.
+     **/
     public RemoteLoggerAlreadyAttachedException()
     {
     }
 
+    /**
+     * {@inheritDoc}
+     **/
+    @Override
     public String ice_id()
     {
         return "::Ice::RemoteLoggerAlreadyAttachedException";
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
@@ -28,7 +38,10 @@ public class RemoteLoggerAlreadyAttachedException extends com.zeroc.Ice.UserExce
         ostr_.endSlice();
     }
 
-    /** @hidden */
+    /**
+     * {@inheritDoc}
+     * @hidden
+     **/
     @Override
     protected void _readImpl(com.zeroc.Ice.InputStream istr_)
     {
@@ -36,6 +49,5 @@ public class RemoteLoggerAlreadyAttachedException extends com.zeroc.Ice.UserExce
         istr_.endSlice();
     }
 
-    /** @hidden */
     private static final long serialVersionUID = -8011864917276174560L;
 }
