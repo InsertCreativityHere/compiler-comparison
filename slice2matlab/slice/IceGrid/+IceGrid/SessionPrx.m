@@ -1,0 +1,247 @@
+% SessionPrx   Summary of SessionPrx
+%
+% Represents a session object used by IceGrid clients to allocate and release objects. Client sessions are created
+% either via the Registry object or via the registry client `SessionManager` object.
+%
+% SessionPrx Methods:
+%   keepAlive - Keeps the session alive.
+%   keepAliveAsync - Keeps the session alive.
+%   allocateObjectById - Allocates an object.
+%   allocateObjectByIdAsync - Allocates an object.
+%   allocateObjectByType - Allocates an object with the given type.
+%   allocateObjectByTypeAsync - Allocates an object with the given type.
+%   releaseObject - Releases an object that was allocated using allocateObjectById or allocateObjectByType.
+%   releaseObjectAsync - Releases an object that was allocated using allocateObjectById or allocateObjectByType.
+%   setAllocationTimeout - Sets the allocation timeout.
+%   setAllocationTimeoutAsync - Sets the allocation timeout.
+%   checkedCast - Contacts the remote server to verify that the object implements this type.
+%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
+
+% Copyright (c) ZeroC, Inc.
+% Generated from Session.ice by slice2matlab version 3.8.0-alpha.0
+
+classdef SessionPrx < Glacier2.SessionPrx
+    methods
+        function keepAlive(obj, varargin)
+            % keepAlive   Keeps the session alive.
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            
+            obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
+        end
+        function r_ = keepAliveAsync(obj, varargin)
+            % keepAliveAsync   Keeps the session alive.
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
+        end
+        function result = allocateObjectById(obj, id, varargin)
+            % allocateObjectById   Allocates an object.
+            %
+            % Parameters:
+            %   id (Ice.Identity) - The identity of the object to allocate.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.ObjectPrx) - A proxy to the allocated object. This proxy is never null.
+            %
+            % Exceptions:
+            %   IceGrid.AllocationException - Thrown when the allocation fails.
+            %   IceGrid.ObjectNotRegisteredException - Thrown when an object with the given identity is not registered with
+            %     the registry.
+            %
+            % See also setAllocationTimeout, releaseObject
+            
+            os_ = obj.iceStartWriteParams([]);
+            Ice.Identity.ice_write(os_, id);
+            obj.iceEndWriteParams(os_);
+            is_ = obj.iceInvoke('allocateObjectById', 0, true, os_, true, IceGrid.SessionPrx.allocateObjectById_ex_, varargin{:});
+            is_.startEncapsulation();
+            result = is_.readProxy();
+            is_.endEncapsulation();
+        end
+        function r_ = allocateObjectByIdAsync(obj, id, varargin)
+            % allocateObjectByIdAsync   Allocates an object.
+            %
+            % Parameters:
+            %   id (Ice.Identity) - The identity of the object to allocate.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % Exceptions:
+            %   IceGrid.AllocationException - Thrown when the allocation fails.
+            %   IceGrid.ObjectNotRegisteredException - Thrown when an object with the given identity is not registered with
+            %     the registry.
+            %
+            % See also setAllocationTimeout, releaseObject
+            
+            os_ = obj.iceStartWriteParams([]);
+            Ice.Identity.ice_write(os_, id);
+            obj.iceEndWriteParams(os_);
+            function varargout = unmarshal(is_)
+                is_.startEncapsulation();
+                result = is_.readProxy();
+                is_.endEncapsulation();
+                varargout{1} = result;
+            end
+            r_ = obj.iceInvokeAsync('allocateObjectById', 0, true, os_, 1, @unmarshal, IceGrid.SessionPrx.allocateObjectById_ex_, varargin{:});
+        end
+        function result = allocateObjectByType(obj, type, varargin)
+            % allocateObjectByType   Allocates an object with the given type.
+            %
+            % Parameters:
+            %   type (char) - The type of the object.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.ObjectPrx) - A proxy to the allocated object. This proxy is never null.
+            %
+            % Exceptions:
+            %   IceGrid.AllocationException - Thrown when the allocation fails.
+            %
+            % See also setAllocationTimeout, releaseObject
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeString(type);
+            obj.iceEndWriteParams(os_);
+            is_ = obj.iceInvoke('allocateObjectByType', 0, true, os_, true, IceGrid.SessionPrx.allocateObjectByType_ex_, varargin{:});
+            is_.startEncapsulation();
+            result = is_.readProxy();
+            is_.endEncapsulation();
+        end
+        function r_ = allocateObjectByTypeAsync(obj, type, varargin)
+            % allocateObjectByTypeAsync   Allocates an object with the given type.
+            %
+            % Parameters:
+            %   type (char) - The type of the object.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % Exceptions:
+            %   IceGrid.AllocationException - Thrown when the allocation fails.
+            %
+            % See also setAllocationTimeout, releaseObject
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeString(type);
+            obj.iceEndWriteParams(os_);
+            function varargout = unmarshal(is_)
+                is_.startEncapsulation();
+                result = is_.readProxy();
+                is_.endEncapsulation();
+                varargout{1} = result;
+            end
+            r_ = obj.iceInvokeAsync('allocateObjectByType', 0, true, os_, 1, @unmarshal, IceGrid.SessionPrx.allocateObjectByType_ex_, varargin{:});
+        end
+        function releaseObject(obj, id, varargin)
+            % releaseObject   Releases an object that was allocated using allocateObjectById or allocateObjectByType.
+            %
+            % Parameters:
+            %   id (Ice.Identity) - The identity of the object to release.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Exceptions:
+            %   IceGrid.AllocationException - Thrown when the object can't be released. This can happen when the object is not
+            %     allocatable or is not allocated by this session.
+            %   IceGrid.ObjectNotRegisteredException - Thrown when an object with the given identity is not registered with
+            %     the registry.
+            
+            os_ = obj.iceStartWriteParams([]);
+            Ice.Identity.ice_write(os_, id);
+            obj.iceEndWriteParams(os_);
+            obj.iceInvoke('releaseObject', 0, true, os_, false, IceGrid.SessionPrx.releaseObject_ex_, varargin{:});
+        end
+        function r_ = releaseObjectAsync(obj, id, varargin)
+            % releaseObjectAsync   Releases an object that was allocated using allocateObjectById or allocateObjectByType.
+            %
+            % Parameters:
+            %   id (Ice.Identity) - The identity of the object to release.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % Exceptions:
+            %   IceGrid.AllocationException - Thrown when the object can't be released. This can happen when the object is not
+            %     allocatable or is not allocated by this session.
+            %   IceGrid.ObjectNotRegisteredException - Thrown when an object with the given identity is not registered with
+            %     the registry.
+            
+            os_ = obj.iceStartWriteParams([]);
+            Ice.Identity.ice_write(os_, id);
+            obj.iceEndWriteParams(os_);
+            r_ = obj.iceInvokeAsync('releaseObject', 0, true, os_, 0, [], IceGrid.SessionPrx.releaseObject_ex_, varargin{:});
+        end
+        function setAllocationTimeout(obj, timeout, varargin)
+            % setAllocationTimeout   Sets the allocation timeout. When no object is immediately available for an allocation request, the
+            % implementation of allocateObjectById and allocateObjectByType waits for the duration of
+            % this timeout.
+            %
+            % Parameters:
+            %   timeout (int32) - The timeout in milliseconds.
+            %   context (containers.Map) - Optional request context.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeInt(timeout);
+            obj.iceEndWriteParams(os_);
+            obj.iceInvoke('setAllocationTimeout', 2, false, os_, false, {}, varargin{:});
+        end
+        function r_ = setAllocationTimeoutAsync(obj, timeout, varargin)
+            % setAllocationTimeoutAsync   Sets the allocation timeout. When no object is immediately available for an allocation request, the
+            % implementation of allocateObjectById and allocateObjectByType waits for the duration of
+            % this timeout.
+            %
+            % Parameters:
+            %   timeout (int32) - The timeout in milliseconds.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeInt(timeout);
+            obj.iceEndWriteParams(os_);
+            r_ = obj.iceInvokeAsync('setAllocationTimeout', 2, false, os_, 0, [], {}, varargin{:});
+        end
+    end
+    methods(Static)
+        function id = ice_staticId()
+            id = '::IceGrid::Session';
+        end
+        function r = ice_read(is)
+            r = is.readProxy('IceGrid.SessionPrx');
+        end
+        function r = checkedCast(p, varargin)
+            % checkedCast   Contacts the remote server to verify that the object implements this type.
+            %   Raises a local exception if a communication error occurs. You can optionally supply a
+            %   facet name and a context map.
+            %
+            % Parameters:
+            %   p - The proxy to be cast.
+            %   facet - The optional name of the desired facet.
+            %   context - The optional context map to send with the invocation.
+            %
+            % Returns (IceGrid.SessionPrx) - A proxy for this type, or an empty array if the object does not support this type.
+            r = Ice.ObjectPrx.iceCheckedCast(p, IceGrid.SessionPrx.ice_staticId(), 'IceGrid.SessionPrx', varargin{:});
+        end
+        function r = uncheckedCast(p, varargin)
+            % uncheckedCast   Downcasts the given proxy to this type without contacting the remote server.
+            %   You can optionally specify a facet name.
+            %
+            % Parameters:
+            %   p - The proxy to be cast.
+            %   facet - The optional name of the desired facet.
+            %
+            % Returns (IceGrid.SessionPrx) - A proxy for this type.
+            r = Ice.ObjectPrx.iceUncheckedCast(p, 'IceGrid.SessionPrx', varargin{:});
+        end
+    end
+    properties(Constant,Access=private)
+        allocateObjectById_ex_ = { 'IceGrid.ObjectNotRegisteredException', 'IceGrid.AllocationException' }
+        allocateObjectByType_ex_ = { 'IceGrid.AllocationException' }
+        releaseObject_ex_ = { 'IceGrid.ObjectNotRegisteredException', 'IceGrid.AllocationException' }
+    end
+end

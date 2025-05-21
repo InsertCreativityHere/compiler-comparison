@@ -1,0 +1,76 @@
+% SubscriberMetrics   Summary of SubscriberMetrics
+%
+% Provides information about IceStorm subscribers.
+%
+% SubscriberMetrics Properties:
+%   queued - The number of queued events.
+%   outstanding - The number of outstanding events.
+%   delivered - The number of forwarded events.
+
+% Copyright (c) ZeroC, Inc.
+% Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
+
+classdef SubscriberMetrics < IceMX.Metrics
+    properties
+        % queued - The number of queued events.
+        queued int32
+        % outstanding - The number of outstanding events.
+        outstanding int32
+        % delivered - The number of forwarded events.
+        delivered int64
+    end
+    methods
+        function obj = SubscriberMetrics(id, total, current, totalLifetime, failures, queued, outstanding, delivered)
+            if nargin == 0
+                id = '';
+                total = 0;
+                current = 0;
+                totalLifetime = 0;
+                failures = 0;
+                queued = 0;
+                outstanding = 0;
+                delivered = 0;
+                v = { id, total, current, totalLifetime, failures };
+            elseif eq(id, IceInternal.NoInit.Instance)
+                v = { IceInternal.NoInit.Instance, [], [], [], [] };
+            else
+                v = { id, total, current, totalLifetime, failures };
+            end
+            obj = obj@IceMX.Metrics(v{:});
+            if ne(id, IceInternal.NoInit.Instance)
+                obj.queued = queued;
+                obj.outstanding = outstanding;
+                obj.delivered = delivered;
+            end
+        end
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods(Access=protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::IceMX::SubscriberMetrics', -1, false);
+            os.writeInt(obj.queued);
+            os.writeInt(obj.outstanding);
+            os.writeLong(obj.delivered);
+            os.endSlice();
+            iceWriteImpl@IceMX.Metrics(obj, os);
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            obj.queued = is.readInt();
+            obj.outstanding = is.readInt();
+            obj.delivered = is.readLong();
+            is.endSlice();
+            iceReadImpl@IceMX.Metrics(obj, is);
+        end
+    end
+    methods(Static)
+        function id = ice_staticId()
+            id = '::IceMX::SubscriberMetrics';
+        end
+    end
+    properties(Constant, Access=private)
+        TypeId char = '::IceMX::SubscriberMetrics'
+    end
+end
