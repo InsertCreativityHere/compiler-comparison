@@ -1,0 +1,60 @@
+classdef Baz < Ice.Value
+    %BAZ
+    %
+    %   Creation
+    %     Syntax
+    %       obj = Test.Baz()
+    %       obj = Test.Baz(SLmem, SLSmem)
+    %
+    %     The input arguments correspond to the properties, in order.
+    %
+    %   Baz Properties:
+    %     SLmem
+    %     SLSmem
+    %
+    %   Generated from TestAMD.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % SLMEM
+        %   uint8 vector
+        SLmem (1, :) uint8
+        
+        % SLSMEM
+        %   cell array
+        SLSmem (1, :) cell
+    end
+    methods
+        function obj = Baz(SLmem, SLSmem)
+            if nargin > 0
+                assert(nargin == 2, 'Invalid number of arguments');
+                obj.SLmem = SLmem;
+                obj.SLSmem = SLSmem;
+            end
+        end
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods (Access = protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::Test::Baz', -1, true);
+            os.writeByteSeq(obj.SLmem);
+            Test.SLS.write(os, obj.SLSmem);
+            os.endSlice();
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            obj.SLmem = is.readByteSeq();
+            obj.SLSmem = Test.SLS.read(is);
+            is.endSlice();
+        end
+    end
+    methods (Static)
+        function id = ice_staticId()
+            id = '::Test::Baz';
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::Baz'
+    end
+end

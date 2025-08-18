@@ -1,0 +1,52 @@
+classdef IBase < Ice.Value
+    %IBASE
+    %
+    %   Creation
+    %     Syntax
+    %       obj = Test.IBase()
+    %       obj = Test.IBase(id)
+    %
+    %     The input arguments correspond to the properties, in order.
+    %
+    %   IBase Properties:
+    %     id
+    %
+    %   Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % ID
+        %   character vector
+        id (1, :) char
+    end
+    methods
+        function obj = IBase(id)
+            if nargin > 0
+                assert(nargin == 1, 'Invalid number of arguments');
+                obj.id = id;
+            end
+        end
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods (Access = protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::Test::IBase', -1, true);
+            os.writeString(obj.id);
+            os.endSlice();
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            obj.id = is.readString();
+            is.endSlice();
+        end
+    end
+    methods (Static)
+        function id = ice_staticId()
+            id = '::Test::IBase';
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::IBase'
+    end
+end

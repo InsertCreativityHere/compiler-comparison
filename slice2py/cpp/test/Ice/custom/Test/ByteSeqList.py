@@ -1,0 +1,12 @@
+# Copyright (c) ZeroC, Inc.
+
+# slice2py version 3.8.0-alpha.0
+
+from __future__ import annotations
+import IcePy
+
+from Test.ByteSeq import _Test_ByteSeq_t
+
+_Test_ByteSeqList_t = IcePy.defineSequence("::Test::ByteSeqList", (), _Test_ByteSeq_t)
+
+__all__ = ["_Test_ByteSeqList_t"]

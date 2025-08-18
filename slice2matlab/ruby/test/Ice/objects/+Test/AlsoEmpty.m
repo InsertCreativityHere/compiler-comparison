@@ -1,0 +1,33 @@
+classdef AlsoEmpty < Ice.Value
+    %ALSOEMPTY
+    %
+    %   Creation
+    %     Syntax
+    %       obj = Test.AlsoEmpty()
+    %
+    %   Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0
+
+    methods
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods (Access = protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::Test::AlsoEmpty', -1, true);
+            os.endSlice();
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            is.endSlice();
+        end
+    end
+    methods (Static)
+        function id = ice_staticId()
+            id = '::Test::AlsoEmpty';
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::AlsoEmpty'
+    end
+end

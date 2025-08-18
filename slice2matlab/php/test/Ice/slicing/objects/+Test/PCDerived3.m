@@ -1,0 +1,63 @@
+classdef PCDerived3 < Test.PCDerived2
+    %PCDERIVED3
+    %
+    %   Creation
+    %     Syntax
+    %       obj = Test.PCDerived3()
+    %       obj = Test.PCDerived3(pcd3)
+    %
+    %     The input arguments correspond to the properties, in order.
+    %
+    %   PCDerived3 Properties:
+    %     pcd3
+    %
+    %   Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % PCD3
+        %   Ice.Value scalar | empty array of Ice.Value
+        pcd3 {mustBeScalarOrEmpty} = Ice.UnknownSlicedValue.empty
+    end
+    methods
+        function obj = PCDerived3(pi, ps, pb, pbs, pcd2, pcd3)
+            if nargin == 0
+                superArgs = {};
+            else
+                assert(nargin == 6, 'Invalid number of arguments');
+                superArgs = {pi, ps, pb, pbs, pcd2};
+            end
+            obj = obj@Test.PCDerived2(superArgs{:});
+            if nargin > 0
+                obj.pcd3 = pcd3;
+            end
+        end
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods (Access = protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::Test::PCDerived3', -1, false);
+            os.writeValue(obj.pcd3);
+            os.endSlice();
+            iceWriteImpl@Test.PCDerived2(obj, os);
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            is.readValue(@obj.iceSetProperty_pcd3, 'Ice.Value');
+            is.endSlice();
+            iceReadImpl@Test.PCDerived2(obj, is);
+        end
+        function iceSetProperty_pcd3(obj, v)
+            obj.pcd3 = v;
+        end
+    end
+    methods (Static)
+        function id = ice_staticId()
+            id = '::Test::PCDerived3';
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::PCDerived3'
+    end
+end

@@ -1,0 +1,366 @@
+# Copyright (c) ZeroC, Inc.
+
+# slice2py version 3.8.0-alpha.0
+
+from __future__ import annotations
+import IcePy
+
+from Ice.Object import Object
+
+from Ice.ObjectPrx import ObjectPrx
+from Ice.ObjectPrx import checkedCast
+from Ice.ObjectPrx import checkedCastAsync
+from Ice.ObjectPrx import uncheckedCast
+
+from Ice.OperationMode import OperationMode
+
+from abc import ABC
+from abc import abstractmethod
+
+from generated.test.Slice.escape.Test.Intf_forward import _generated_test_Slice_escape_Test_IntfPrx_t
+
+from generated.test.Slice.escape.Test.field_forward import _generated_test_Slice_escape_Test_field_t
+
+from typing import TYPE_CHECKING
+from typing import overload
+
+if TYPE_CHECKING:
+    from Ice.Current import Current
+    from collections.abc import Awaitable
+    from collections.abc import Sequence
+    from generated.test.Slice.escape.Test.field import field
+
+
+class IntfPrx(ObjectPrx):
+
+    def context(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_context.invoke(self, ((), context))
+
+    def contextAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_context.invokeAsync(self, ((), context))
+
+    def current(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_current.invoke(self, ((), context))
+
+    def currentAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_current.invokeAsync(self, ((), context))
+
+    def response(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_response.invoke(self, ((), context))
+
+    def responseAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_response.invokeAsync(self, ((), context))
+
+    def upCast(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_upCast.invoke(self, ((), context))
+
+    def upCastAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_upCast.invokeAsync(self, ((), context))
+
+    def typeId(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_typeId.invoke(self, ((), context))
+
+    def typeIdAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_typeId.invokeAsync(self, ((), context))
+
+    def _del(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_del.invoke(self, ((), context))
+
+    def _delAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_del.invokeAsync(self, ((), context))
+
+    def cookie(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_cookie.invoke(self, ((), context))
+
+    def cookieAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_cookie.invokeAsync(self, ((), context))
+
+    def sync(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_sync.invoke(self, ((), context))
+
+    def syncAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_sync.invokeAsync(self, ((), context))
+
+    def inS(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_inS.invoke(self, ((), context))
+
+    def inSAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_inS.invokeAsync(self, ((), context))
+
+    def istr(self, context: dict[str, str] | None = None) -> None:
+        return Intf._op_istr.invoke(self, ((), context))
+
+    def istrAsync(self, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_istr.invokeAsync(self, ((), context))
+
+    def op(self, context: str, current: str, response: str, ex: str, sent: str, cookie: str, sync: str, result: str, istr: str, ostr: str, proxy: str | None = None, context_: dict[str, str] | None = None) -> None:
+        return Intf._op_op.invoke(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy), context_))
+
+    def opAsync(self, context: str, current: str, response: str, ex: str, sent: str, cookie: str, sync: str, result: str, istr: str, ostr: str, proxy: str | None = None, context_: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_op.invokeAsync(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy), context_))
+
+    def opOut(self, context_: dict[str, str] | None = None) -> tuple[str, str, str, str, str, str, str, str, str, str, str | None]:
+        return Intf._op_opOut.invoke(self, ((), context_))
+
+    def opOutAsync(self, context_: dict[str, str] | None = None) -> Awaitable[tuple[str, str, str, str, str, str, str, str, str, str, str | None]]:
+        return Intf._op_opOut.invokeAsync(self, ((), context_))
+
+    def opField(self, name: field | None, value: field | None, context: dict[str, str] | None = None) -> None:
+        return Intf._op_opField.invoke(self, ((name, value), context))
+
+    def opFieldAsync(self, name: field | None, value: field | None, context: dict[str, str] | None = None) -> Awaitable[None]:
+        return Intf._op_opField.invokeAsync(self, ((name, value), context))
+
+    @staticmethod
+    def checkedCast(
+        proxy: ObjectPrx | None,
+        facet: str | None = None,
+        context: dict[str, str] | None = None
+    ) -> IntfPrx | None:
+        return checkedCast(IntfPrx, proxy, facet, context)
+
+    @staticmethod
+    def checkedCastAsync(
+        proxy: ObjectPrx | None,
+        facet: str | None = None,
+        context: dict[str, str] | None = None
+    ) -> Awaitable[IntfPrx | None ]:
+        return checkedCastAsync(IntfPrx, proxy, facet, context)
+
+    @overload
+    @staticmethod
+    def uncheckedCast(proxy: ObjectPrx, facet: str | None = None) -> IntfPrx:
+        ...
+
+    @overload
+    @staticmethod
+    def uncheckedCast(proxy: None, facet: str | None = None) -> None:
+        ...
+
+    @staticmethod
+    def uncheckedCast(proxy: ObjectPrx | None, facet: str | None = None) -> IntfPrx | None:
+        return uncheckedCast(IntfPrx, proxy, facet)
+
+    @staticmethod
+    def ice_staticId() -> str:
+        return "::Test::Intf"
+
+IcePy.defineProxy("::Test::Intf", IntfPrx)
+
+class Intf(Object, ABC):
+
+    _ice_ids: Sequence[str] = ("::Ice::Object", "::Test::Intf", )
+    _op_context: IcePy.Operation
+    _op_current: IcePy.Operation
+    _op_response: IcePy.Operation
+    _op_upCast: IcePy.Operation
+    _op_typeId: IcePy.Operation
+    _op_del: IcePy.Operation
+    _op_cookie: IcePy.Operation
+    _op_sync: IcePy.Operation
+    _op_inS: IcePy.Operation
+    _op_istr: IcePy.Operation
+    _op_op: IcePy.Operation
+    _op_opOut: IcePy.Operation
+    _op_opField: IcePy.Operation
+
+    @staticmethod
+    def ice_staticId() -> str:
+        return "::Test::Intf"
+
+    @abstractmethod
+    def context(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def current(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def response(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def upCast(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def typeId(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def _del(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def cookie(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def sync(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def inS(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def istr(self, current: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def op(self, context: str, current: str, response: str, ex: str, sent: str, cookie: str, sync: str, result: str, istr: str, ostr: str, proxy: str | None, current_: Current) -> None | Awaitable[None]:
+        pass
+
+    @abstractmethod
+    def opOut(self, current_: Current) -> tuple[str, str, str, str, str, str, str, str, str, str, str | None] | Awaitable[tuple[str, str, str, str, str, str, str, str, str, str, str | None]]:
+        pass
+
+    @abstractmethod
+    def opField(self, name: field | None, value: field | None, current: Current) -> None | Awaitable[None]:
+        pass
+
+Intf._op_context = IcePy.Operation(
+    "context",
+    "context",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_current = IcePy.Operation(
+    "current",
+    "current",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_response = IcePy.Operation(
+    "response",
+    "response",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_upCast = IcePy.Operation(
+    "upCast",
+    "upCast",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_typeId = IcePy.Operation(
+    "typeId",
+    "typeId",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_del = IcePy.Operation(
+    "del",
+    "_del",
+    OperationMode.Normal,
+    None,
+    ("python:identifier:_del", ),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_cookie = IcePy.Operation(
+    "cookie",
+    "cookie",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_sync = IcePy.Operation(
+    "sync",
+    "sync",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_inS = IcePy.Operation(
+    "inS",
+    "inS",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_istr = IcePy.Operation(
+    "istr",
+    "istr",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (),
+    None,
+    ())
+
+Intf._op_op = IcePy.Operation(
+    "op",
+    "op",
+    OperationMode.Normal,
+    None,
+    (),
+    (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1)),
+    (),
+    None,
+    ())
+
+Intf._op_opOut = IcePy.Operation(
+    "opOut",
+    "opOut",
+    OperationMode.Normal,
+    None,
+    (),
+    (),
+    (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1)),
+    None,
+    ())
+
+Intf._op_opField = IcePy.Operation(
+    "opField",
+    "opField",
+    OperationMode.Normal,
+    None,
+    (),
+    (((), _generated_test_Slice_escape_Test_field_t, False, 0), ((), _generated_test_Slice_escape_Test_field_t, False, 0)),
+    (),
+    None,
+    ())
+
+__all__ = ["Intf", "IntfPrx", "_generated_test_Slice_escape_Test_IntfPrx_t"]

@@ -1,0 +1,54 @@
+
+classdef (Hidden) StringColorMap
+    %STRINGCOLORMAP Marshaling and unmarshaling support code for dictionary<int, ::Test::Color>.
+    %
+    %   Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
+
+    methods (Access = private)
+        function obj = StringColorMap()
+        end
+    end
+    methods (Static)
+        function write(os, d)
+            if isempty(d)
+                os.writeSize(0);
+            else
+                sz = d.numEntries;
+                os.writeSize(sz);
+                entries = d.entries;
+                for i = 1:sz
+                    os.writeInt(entries{i, 1});
+                    Test.Color.ice_write(os, entries{i, 2});
+                end
+            end
+        end
+        function r = read(is)
+            sz = is.readSize();
+            r = configureDictionary('int32', 'Test.Color');
+            for i = 1:sz
+                k = is.readInt();
+                v = Test.Color.ice_read(is);
+                r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if isa(d, 'dictionary') && os.writeOptional(tag, Ice.OptionalFormat.VSize)
+                len = d.numEntries;
+                if len > 254
+                    os.writeSize(len * 20 + 5);
+                else
+                    os.writeSize(len * 20 + 1);
+                end
+                Test.StringColorMap.write(os, d);
+            end
+        end
+        function r = readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.VSize)
+                is.skipSize();
+                r = Test.StringColorMap.read(is);
+            else
+                r = Ice.Unset;
+            end
+        end
+    end
+end

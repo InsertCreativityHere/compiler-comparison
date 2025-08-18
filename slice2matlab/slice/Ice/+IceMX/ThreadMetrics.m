@@ -1,0 +1,78 @@
+classdef ThreadMetrics < IceMX.Metrics
+    %THREADMETRICS Provides information on the number of threads currently in use and their activity.
+    %
+    %   Creation
+    %     Syntax
+    %       obj = IceMX.ThreadMetrics()
+    %       obj = IceMX.ThreadMetrics(inUseForIO, inUseForUser, inUseForOther)
+    %
+    %     The input arguments correspond to the properties, in order.
+    %
+    %   ThreadMetrics Properties:
+    %     inUseForIO - The number of threads which are currently performing socket read or writes.
+    %     inUseForUser - The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+    %     inUseForOther - The number of threads which are currently performing other activities such as DNS lookups, garbage collection, etc.
+    %
+    %   Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % INUSEFORIO The number of threads which are currently performing socket read or writes.
+        %   int32 scalar
+        inUseForIO (1, 1) int32 = 0
+        
+        % INUSEFORUSER The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+        %   int32 scalar
+        inUseForUser (1, 1) int32 = 0
+        
+        % INUSEFOROTHER The number of threads which are currently performing other activities such as DNS lookups, garbage
+        %   collection, etc. These are all the other threads created by the Ice runtime that are not counted in
+        %   <a href="matlab:help IceMX.ThreadMetrics/inUseForUser -displayBanner">ThreadMetrics/inUseForUser</a> or <a href="matlab:help IceMX.ThreadMetrics/inUseForIO -displayBanner">ThreadMetrics/inUseForIO</a>.
+        %   int32 scalar
+        inUseForOther (1, 1) int32 = 0
+    end
+    methods
+        function obj = ThreadMetrics(id, total, current, totalLifetime, failures, inUseForIO, inUseForUser, inUseForOther)
+            if nargin == 0
+                superArgs = {};
+            else
+                assert(nargin == 8, 'Invalid number of arguments');
+                superArgs = {id, total, current, totalLifetime, failures};
+            end
+            obj = obj@IceMX.Metrics(superArgs{:});
+            if nargin > 0
+                obj.inUseForIO = inUseForIO;
+                obj.inUseForUser = inUseForUser;
+                obj.inUseForOther = inUseForOther;
+            end
+        end
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods (Access = protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::IceMX::ThreadMetrics', -1, false);
+            os.writeInt(obj.inUseForIO);
+            os.writeInt(obj.inUseForUser);
+            os.writeInt(obj.inUseForOther);
+            os.endSlice();
+            iceWriteImpl@IceMX.Metrics(obj, os);
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            obj.inUseForIO = is.readInt();
+            obj.inUseForUser = is.readInt();
+            obj.inUseForOther = is.readInt();
+            is.endSlice();
+            iceReadImpl@IceMX.Metrics(obj, is);
+        end
+    end
+    methods (Static)
+        function id = ice_staticId()
+            id = '::IceMX::ThreadMetrics';
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::IceMX::ThreadMetrics'
+    end
+end

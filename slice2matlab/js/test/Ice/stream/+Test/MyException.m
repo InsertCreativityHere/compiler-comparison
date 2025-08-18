@@ -1,0 +1,44 @@
+classdef MyException < Ice.UserException
+    %MYEXCEPTION
+    %
+    %   MyException Properties:
+    %     c
+    %
+    %   Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % C
+        %   Test.MyClass scalar | empty array of Test.MyClass
+        c {mustBeScalarOrEmpty} = Test.MyClass.empty
+    end
+    methods
+        function obj = MyException(errID, msg)
+            if nargin == 0
+                errID = 'Test:MyException';
+                msg = 'Test.MyException';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
+            end
+            obj = obj@Ice.UserException(errID, msg);
+        end
+        function id = ice_id(~)
+            id = '::Test::MyException';
+        end
+    end
+    methods (Hidden)
+        function obj = icePostUnmarshal(obj)
+            obj.c = obj.c.value;
+        end
+    end
+    methods (Access = protected)
+        function obj = iceReadImpl(obj, is)
+            is.startSlice();
+            obj.c = IceInternal.ValueHolder();
+            is.readValue(@(v) obj.c.set(v), 'Test.MyClass');
+            is.endSlice();
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::MyException'
+    end
+end

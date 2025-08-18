@@ -1,0 +1,100 @@
+classdef Config < Ice.Value
+    %CONFIG
+    %
+    %   Creation
+    %     Syntax
+    %       obj = Test.Common.Config()
+    %       obj = Test.Common.Config(protocol, mx, serialize, compress, ipv6, cprops, sprops)
+    %
+    %     The input arguments correspond to the properties, in order.
+    %
+    %   Config Properties:
+    %     protocol
+    %     mx
+    %     serialize
+    %     compress
+    %     ipv6
+    %     cprops
+    %     sprops
+    %
+    %   Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % PROTOCOL
+        %   character vector | Ice.Unset
+        protocol (1, :) = IceInternal.UnsetI.Instance
+        
+        % MX
+        %   logical scalar | Ice.Unset
+        mx (1, 1) = IceInternal.UnsetI.Instance
+        
+        % SERIALIZE
+        %   logical scalar | Ice.Unset
+        serialize (1, 1) = IceInternal.UnsetI.Instance
+        
+        % COMPRESS
+        %   logical scalar | Ice.Unset
+        compress (1, 1) = IceInternal.UnsetI.Instance
+        
+        % IPV6
+        %   logical scalar | Ice.Unset
+        ipv6 (1, 1) = IceInternal.UnsetI.Instance
+        
+        % CPROPS
+        %   string vector | Ice.Unset
+        cprops (1, :) = IceInternal.UnsetI.Instance
+        
+        % SPROPS
+        %   string vector | Ice.Unset
+        sprops (1, :) = IceInternal.UnsetI.Instance
+    end
+    methods
+        function obj = Config(protocol, mx, serialize, compress, ipv6, cprops, sprops)
+            if nargin > 0
+                assert(nargin == 7, 'Invalid number of arguments');
+                obj.protocol = protocol;
+                obj.mx = mx;
+                obj.serialize = serialize;
+                obj.compress = compress;
+                obj.ipv6 = ipv6;
+                obj.cprops = cprops;
+                obj.sprops = sprops;
+            end
+        end
+        function id = ice_id(obj)
+            id = obj.ice_staticId();
+        end
+    end
+    methods (Access = protected)
+        function iceWriteImpl(obj, os)
+            os.startSlice('::Test::Common::Config', -1, true);
+            os.writeStringOpt(1, obj.protocol);
+            os.writeBoolOpt(2, obj.mx);
+            os.writeBoolOpt(3, obj.serialize);
+            os.writeBoolOpt(4, obj.compress);
+            os.writeBoolOpt(5, obj.ipv6);
+            os.writeStringSeqOpt(6, obj.cprops);
+            os.writeStringSeqOpt(7, obj.sprops);
+            os.endSlice();
+        end
+        function iceReadImpl(obj, is)
+            is.startSlice();
+            obj.protocol = is.readStringOpt(1);
+            obj.mx = is.readBoolOpt(2);
+            obj.serialize = is.readBoolOpt(3);
+            obj.compress = is.readBoolOpt(4);
+            obj.ipv6 = is.readBoolOpt(5);
+            obj.cprops = is.readStringSeqOpt(6);
+            obj.sprops = is.readStringSeqOpt(7);
+            is.endSlice();
+        end
+    end
+    methods (Static)
+        function id = ice_staticId()
+            id = '::Test::Common::Config';
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::Common::Config'
+    end
+end

@@ -1,0 +1,46 @@
+classdef Preserved2 < Test.Preserved1
+    %PRESERVED2
+    %
+    %   Preserved2 Properties:
+    %     p2
+    %
+    %   Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0
+
+    properties
+        % P2
+        %   Test.BaseClass scalar | empty array of Test.BaseClass
+        p2 {mustBeScalarOrEmpty} = Test.BaseClass.empty
+    end
+    methods
+        function obj = Preserved2(errID, msg)
+            if nargin == 0
+                errID = 'Test:Preserved2';
+                msg = 'Test.Preserved2';
+            else
+                assert(nargin == 2, 'Invalid number of arguments');
+            end
+            obj = obj@Test.Preserved1(errID, msg);
+        end
+        function id = ice_id(~)
+            id = '::Test::Preserved2';
+        end
+    end
+    methods (Hidden)
+        function obj = icePostUnmarshal(obj)
+            obj.p2 = obj.p2.value;
+            obj = icePostUnmarshal@Test.Preserved1(obj);
+        end
+    end
+    methods (Access = protected)
+        function obj = iceReadImpl(obj, is)
+            is.startSlice();
+            obj.p2 = IceInternal.ValueHolder();
+            is.readValue(@(v) obj.p2.set(v), 'Test.BaseClass');
+            is.endSlice();
+            obj = iceReadImpl@Test.Preserved1(obj, is);
+        end
+    end
+    properties (Constant, Access = private)
+        TypeId char = '::Test::Preserved2'
+    end
+end

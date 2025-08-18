@@ -1,0 +1,27 @@
+
+# Copyright (c) ZeroC, Inc.
+
+# slice2py version 3.8.0-alpha.0
+
+from .WstringClass import WstringClass
+from .WstringClass import WstringClassPrx
+from .WstringClass_forward import _Test2_WstringClassPrx_t
+from .WstringException import WstringException
+from .WstringException import _Test2_WstringException_t
+from .WstringSeq import _Test2_WstringSeq_t
+from .WstringStruct import WstringStruct
+from .WstringStruct import _Test2_WstringStruct_t
+from .WstringWStringDict import _Test2_WstringWStringDict_t
+
+
+__all__ = [
+    "WstringClass",
+    "WstringClassPrx",
+    "_Test2_WstringClassPrx_t",
+    "WstringException",
+    "_Test2_WstringException_t",
+    "_Test2_WstringSeq_t",
+    "WstringStruct",
+    "_Test2_WstringStruct_t",
+    "_Test2_WstringWStringDict_t"
+]

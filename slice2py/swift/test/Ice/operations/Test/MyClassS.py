@@ -1,0 +1,12 @@
+# Copyright (c) ZeroC, Inc.
+
+# slice2py version 3.8.0-alpha.0
+
+from __future__ import annotations
+import IcePy
+
+from Test.MyClass_forward import _Test_MyClassPrx_t
+
+_Test_MyClassS_t = IcePy.defineSequence("::Test::MyClassS", (), _Test_MyClassPrx_t)
+
+__all__ = ["_Test_MyClassS_t"]
