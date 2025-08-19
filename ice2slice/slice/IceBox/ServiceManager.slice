@@ -37,13 +37,13 @@ interface ServiceManager {
     /// Starts a service.
     /// @param service: The service name.
     /// @throws AlreadyStartedException: Thrown when the service is already running.
-    /// @throws NoSuchServiceException: Thrown when IceBox does not know a service named @p service.
+    /// @throws NoSuchServiceException: Thrown when IceBox does not know a service named `service`.
     startService(service: string) throws (AlreadyStartedException, NoSuchServiceException)
 
     /// Stops a service.
     /// @param service: The service name.
     /// @throws AlreadyStoppedException: Thrown when the service is already stopped.
-    /// @throws NoSuchServiceException: Thrown when IceBox does not know a service named @p service.
+    /// @throws NoSuchServiceException: Thrown when IceBox does not know a service named `service`.
     stopService(service: string) throws (AlreadyStoppedException, NoSuchServiceException)
 
     /// Registers a new observer with this service manager.

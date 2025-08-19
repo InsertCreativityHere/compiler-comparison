@@ -613,7 +613,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.
         /// @param id The server ID.
-        /// @param enabled `true` to enable the server, `false` to disable it.
+        /// @param enabled <tt>true</tt> to enable the server, <tt>false</tt> to disable it.
         /// @param context The request context.
         /// @throws IceGrid::DeploymentException Thrown when the deployment of the server failed.
         /// @throws IceGrid::NodeUnreachableException Thrown when the node is unreachable.
@@ -624,7 +624,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.
         /// @param id The server ID.
-        /// @param enabled `true` to enable the server, `false` to disable it.
+        /// @param enabled <tt>true</tt> to enable the server, <tt>false</tt> to disable it.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes.
         [[nodiscard]] std::future<void> enableServerAsync(std::string_view id, bool enabled, const Ice::Context& context = Ice::noExplicitContext) const;
@@ -633,7 +633,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.
         /// @param id The server ID.
-        /// @param enabled `true` to enable the server, `false` to disable it.
+        /// @param enabled <tt>true</tt> to enable the server, <tt>false</tt> to disable it.
         /// @param response The response callback.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
@@ -648,7 +648,7 @@ namespace IceGrid
         /// Checks if the server is enabled or disabled.
         /// @param id The server ID.
         /// @param context The request context.
-        /// @return `true` if the server is enabled, `false` otherwise.
+        /// @return <tt>true</tt> if the server is enabled, <tt>false</tt> otherwise.
         /// @throws IceGrid::DeploymentException Thrown when the deployment of the server failed.
         /// @throws IceGrid::NodeUnreachableException Thrown when the node is unreachable.
         /// @throws IceGrid::ServerNotExistException Thrown when the server doesn't exist.
@@ -658,13 +658,13 @@ namespace IceGrid
         /// @param id The server ID.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the server is enabled, `false` otherwise.
+        /// - <tt>true</tt> if the server is enabled, <tt>false</tt> otherwise.
         [[nodiscard]] std::future<bool> isServerEnabledAsync(std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Checks if the server is enabled or disabled.
         /// @param id The server ID.
         /// @param response The response callback. It accepts:
-        /// - `true` if the server is enabled, `false` otherwise.
+        /// - <tt>true</tt> if the server is enabled, <tt>false</tt> otherwise.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -870,7 +870,7 @@ namespace IceGrid
         /// @private
         void _iceI_getAllAdapterIds(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const Ice::Context&) const;
 
-        /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// Adds an object to the object registry. IceGrid gets the object type by calling <tt>ice_id</tt> on @p obj. The
         /// object must be reachable.
         /// @param obj A proxy to the object. This proxy is never null.
         /// @param context The request context.
@@ -878,14 +878,14 @@ namespace IceGrid
         /// @throws IceGrid::ObjectExistsException Thrown when the object is already registered.
         void addObject(const std::optional<Ice::ObjectPrx>& obj, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// Adds an object to the object registry. IceGrid gets the object type by calling <tt>ice_id</tt> on @p obj. The
         /// object must be reachable.
         /// @param obj A proxy to the object. This proxy is never null.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes.
         [[nodiscard]] std::future<void> addObjectAsync(const std::optional<Ice::ObjectPrx>& obj, const Ice::Context& context = Ice::noExplicitContext) const;
 
-        /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// Adds an object to the object registry. IceGrid gets the object type by calling <tt>ice_id</tt> on @p obj. The
         /// object must be reachable.
         /// @param obj A proxy to the object. This proxy is never null.
         /// @param response The response callback.
@@ -1043,14 +1043,14 @@ namespace IceGrid
 
         /// Gets the object info of all the registered objects whose stringified identities match the given expression.
         /// @param expr The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.
+        /// may contain a trailing wildcard (<tt>*</tt>) character.
         /// @param context The request context.
         /// @return All the object infos with a stringified identity matching the given expression.
         ObjectInfoSeq getAllObjectInfos(std::string_view expr, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Gets the object info of all the registered objects whose stringified identities match the given expression.
         /// @param expr The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.
+        /// may contain a trailing wildcard (<tt>*</tt>) character.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
         /// - All the object infos with a stringified identity matching the given expression.
@@ -1058,7 +1058,7 @@ namespace IceGrid
 
         /// Gets the object info of all the registered objects whose stringified identities match the given expression.
         /// @param expr The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.
+        /// may contain a trailing wildcard (<tt>*</tt>) character.
         /// @param response The response callback. It accepts:
         /// - All the object infos with a stringified identity matching the given expression.
         /// @param exception The exception callback.
@@ -1074,7 +1074,7 @@ namespace IceGrid
         /// Pings an IceGrid node to see if it is active.
         /// @param name The node name.
         /// @param context The request context.
-        /// @return `true` if the node ping succeeded, `false` otherwise.
+        /// @return <tt>true</tt> if the node ping succeeded, <tt>false</tt> otherwise.
         /// @throws IceGrid::NodeNotExistException Thrown when the node doesn't exist.
         bool pingNode(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
@@ -1082,13 +1082,13 @@ namespace IceGrid
         /// @param name The node name.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the node ping succeeded, `false` otherwise.
+        /// - <tt>true</tt> if the node ping succeeded, <tt>false</tt> otherwise.
         [[nodiscard]] std::future<bool> pingNodeAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Pings an IceGrid node to see if it is active.
         /// @param name The node name.
         /// @param response The response callback. It accepts:
-        /// - `true` if the node ping succeeded, `false` otherwise.
+        /// - <tt>true</tt> if the node ping succeeded, <tt>false</tt> otherwise.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -1188,7 +1188,7 @@ namespace IceGrid
 
         /// Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        /// where the <tt>IceGrid.Node.ProcessorSocketCount</tt> property for the node is not set.
         /// @param name The node name.
         /// @param context The request context.
         /// @return The number of processor sockets or 1 if the number of sockets can't be determined.
@@ -1198,7 +1198,7 @@ namespace IceGrid
 
         /// Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        /// where the <tt>IceGrid.Node.ProcessorSocketCount</tt> property for the node is not set.
         /// @param name The node name.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
@@ -1207,7 +1207,7 @@ namespace IceGrid
 
         /// Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        /// where the <tt>IceGrid.Node.ProcessorSocketCount</tt> property for the node is not set.
         /// @param name The node name.
         /// @param response The response callback. It accepts:
         /// - The number of processor sockets or 1 if the number of sockets can't be determined.
@@ -1303,7 +1303,7 @@ namespace IceGrid
         /// Pings an IceGrid registry to see if it is active.
         /// @param name The registry name.
         /// @param context The request context.
-        /// @return `true` if the registry ping succeeded, `false` otherwise.
+        /// @return <tt>true</tt> if the registry ping succeeded, <tt>false</tt> otherwise.
         /// @throws IceGrid::RegistryNotExistException Thrown when the registry doesn't exist.
         bool pingRegistry(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
@@ -1311,13 +1311,13 @@ namespace IceGrid
         /// @param name The registry name.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the registry ping succeeded, `false` otherwise.
+        /// - <tt>true</tt> if the registry ping succeeded, <tt>false</tt> otherwise.
         [[nodiscard]] std::future<bool> pingRegistryAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Pings an IceGrid registry to see if it is active.
         /// @param name The registry name.
         /// @param response The response callback. It accepts:
-        /// - `true` if the registry ping succeeded, `false` otherwise.
+        /// - <tt>true</tt> if the registry ping succeeded, <tt>false</tt> otherwise.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -1523,7 +1523,7 @@ namespace IceGrid
         /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
         /// newline character should be added when writing the last line to the to the output device).
         /// @param context The request context.
-        /// @return `true` if EOF is encountered.
+        /// @return <tt>true</tt> if EOF is encountered.
         /// @throws IceGrid::FileNotAvailableException Thrown when the implementation failed to read from the file.
         bool read(std::int32_t size, ::Ice::StringSeq& lines, const Ice::Context& context = Ice::noExplicitContext) const;
 
@@ -1532,7 +1532,7 @@ namespace IceGrid
         /// message doesn't exceed the given size.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `returnValue` `true` if EOF is encountered.
+        /// - `returnValue` <tt>true</tt> if EOF is encountered.
         /// - `lines` The lines read from the file. If there was nothing to read from the file since the last call to
         /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
         /// newline character should be added when writing the last line to the to the output device).
@@ -1542,7 +1542,7 @@ namespace IceGrid
         /// @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
         /// message doesn't exceed the given size.
         /// @param response The response callback. It accepts:
-        /// - `returnValue` `true` if EOF is encountered.
+        /// - `returnValue` <tt>true</tt> if EOF is encountered.
         /// - `lines` The lines read from the file. If there was nothing to read from the file since the last call to
         /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
         /// newline character should be added when writing the last line to the to the output device).
@@ -3532,7 +3532,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.
         /// @param id The server ID.
-        /// @param enabled `true` to enable the server, `false` to disable it.
+        /// @param enabled <tt>true</tt> to enable the server, <tt>false</tt> to disable it.
         /// @param current The Current object of the incoming request.
         /// @throws IceGrid::DeploymentException Thrown when the deployment of the server failed.
         /// @throws IceGrid::NodeUnreachableException Thrown when the node is unreachable.
@@ -3545,7 +3545,7 @@ namespace IceGrid
         /// Checks if the server is enabled or disabled.
         /// @param id The server ID.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the server is enabled, `false` otherwise.
+        /// @return <tt>true</tt> if the server is enabled, <tt>false</tt> otherwise.
         /// @throws IceGrid::DeploymentException Thrown when the deployment of the server failed.
         /// @throws IceGrid::NodeUnreachableException Thrown when the node is unreachable.
         /// @throws IceGrid::ServerNotExistException Thrown when the server doesn't exist.
@@ -3633,7 +3633,7 @@ namespace IceGrid
         /// @private
         void _iceD_getAllAdapterIds(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) const;
 
-        /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// Adds an object to the object registry. IceGrid gets the object type by calling <tt>ice_id</tt> on @p obj. The
         /// object must be reachable.
         /// @param obj A proxy to the object. This proxy is never null.
         /// @param current The Current object of the incoming request.
@@ -3698,7 +3698,7 @@ namespace IceGrid
 
         /// Gets the object info of all the registered objects whose stringified identities match the given expression.
         /// @param expr The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.
+        /// may contain a trailing wildcard (<tt>*</tt>) character.
         /// @param current The Current object of the incoming request.
         /// @return All the object infos with a stringified identity matching the given expression.
         [[nodiscard]] virtual ObjectInfoSeq getAllObjectInfos(std::string expr, const Ice::Current& current) const = 0;
@@ -3709,7 +3709,7 @@ namespace IceGrid
         /// Pings an IceGrid node to see if it is active.
         /// @param name The node name.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the node ping succeeded, `false` otherwise.
+        /// @return <tt>true</tt> if the node ping succeeded, <tt>false</tt> otherwise.
         /// @throws IceGrid::NodeNotExistException Thrown when the node doesn't exist.
         [[nodiscard]] virtual bool pingNode(std::string name, const Ice::Current& current) const = 0;
 
@@ -3751,7 +3751,7 @@ namespace IceGrid
 
         /// Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        /// where the <tt>IceGrid.Node.ProcessorSocketCount</tt> property for the node is not set.
         /// @param name The node name.
         /// @param current The Current object of the incoming request.
         /// @return The number of processor sockets or 1 if the number of sockets can't be determined.
@@ -3794,7 +3794,7 @@ namespace IceGrid
         /// Pings an IceGrid registry to see if it is active.
         /// @param name The registry name.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the registry ping succeeded, `false` otherwise.
+        /// @return <tt>true</tt> if the registry ping succeeded, <tt>false</tt> otherwise.
         /// @throws IceGrid::RegistryNotExistException Thrown when the registry doesn't exist.
         [[nodiscard]] virtual bool pingRegistry(std::string name, const Ice::Current& current) const = 0;
 
@@ -3879,7 +3879,7 @@ namespace IceGrid
         /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
         /// newline character should be added when writing the last line to the to the output device).
         /// @param current The Current object of the incoming request.
-        /// @return `true` if EOF is encountered.
+        /// @return <tt>true</tt> if EOF is encountered.
         /// @throws IceGrid::FileNotAvailableException Thrown when the implementation failed to read from the file.
         virtual bool read(std::int32_t size, ::Ice::StringSeq& lines, const Ice::Current& current) = 0;
 

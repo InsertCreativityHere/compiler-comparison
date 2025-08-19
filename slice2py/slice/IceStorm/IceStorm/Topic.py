@@ -173,9 +173,9 @@ class TopicPrx(ObjectPrx):
         Raises
         ------
         AlreadySubscribed
-            Thrown when @p subscriber is already subscribed.
+            Thrown when ``subscriber`` is already subscribed.
         BadQoS
-            Thrown when @p theQoS is unavailable or invalid.
+            Thrown when ``theQoS`` is unavailable or invalid.
         """
         return Topic._op_subscribeAndGetPublisher.invoke(self, ((theQoS, subscriber), context))
 
@@ -201,7 +201,7 @@ class TopicPrx(ObjectPrx):
 
     def unsubscribe(self, subscriber: ObjectPrx | None, context: dict[str, str] | None = None) -> None:
         """
-        Unsubscribes the provided @p subscriber from this topic.
+        Unsubscribes the provided ``subscriber`` from this topic.
         
         Parameters
         ----------
@@ -214,7 +214,7 @@ class TopicPrx(ObjectPrx):
 
     def unsubscribeAsync(self, subscriber: ObjectPrx | None, context: dict[str, str] | None = None) -> Awaitable[None]:
         """
-        Unsubscribes the provided @p subscriber from this topic.
+        Unsubscribes the provided ``subscriber`` from this topic.
         
         Parameters
         ----------
@@ -246,7 +246,7 @@ class TopicPrx(ObjectPrx):
         Raises
         ------
         LinkExists
-            Thrown when a link to @p linkTo already exists.
+            Thrown when a link to ``linkTo`` already exists.
         """
         return Topic._op_link.invoke(self, ((linkTo, cost), context))
 
@@ -284,7 +284,7 @@ class TopicPrx(ObjectPrx):
         Raises
         ------
         NoSuchLink
-            Thrown when a link to @p linkTo does not exist.
+            Thrown when a link to ``linkTo`` does not exist.
         """
         return Topic._op_unlink.invoke(self, ((linkTo, ), context))
 
@@ -527,16 +527,16 @@ class Topic(Object, ABC):
         Raises
         ------
         AlreadySubscribed
-            Thrown when @p subscriber is already subscribed.
+            Thrown when ``subscriber`` is already subscribed.
         BadQoS
-            Thrown when @p theQoS is unavailable or invalid.
+            Thrown when ``theQoS`` is unavailable or invalid.
         """
         pass
 
     @abstractmethod
     def unsubscribe(self, subscriber: ObjectPrx | None, current: Current) -> None | Awaitable[None]:
         """
-        Unsubscribes the provided @p subscriber from this topic.
+        Unsubscribes the provided ``subscriber`` from this topic.
         
         Parameters
         ----------
@@ -574,7 +574,7 @@ class Topic(Object, ABC):
         Raises
         ------
         LinkExists
-            Thrown when a link to @p linkTo already exists.
+            Thrown when a link to ``linkTo`` already exists.
         """
         pass
 
@@ -598,7 +598,7 @@ class Topic(Object, ABC):
         Raises
         ------
         NoSuchLink
-            Thrown when a link to @p linkTo does not exist.
+            Thrown when a link to ``linkTo`` does not exist.
         """
         pass
 

@@ -12,7 +12,7 @@ package com.zeroc.Ice;
 @com.zeroc.Ice.SliceTypeId(value = "::Ice::LoggerAdmin")
 public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
-     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on @p prx.
+     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on {@code prx}.
      * @param prx A proxy to the remote logger.
      * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
      * no filtering (send all message types).
@@ -30,7 +30,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on @p prx.
+     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on {@code prx}.
      * @param prx A proxy to the remote logger.
      * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
      * no filtering (send all message types).
@@ -55,7 +55,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on @p prx.
+     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on {@code prx}.
      * @param prx A proxy to the remote logger.
      * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
      * no filtering (send all message types).
@@ -71,7 +71,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on @p prx.
+     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on {@code prx}.
      * @param prx A proxy to the remote logger.
      * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
      * no filtering (send all message types).
@@ -106,7 +106,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Detaches a RemoteLogger object from the local logger.
      * @param prx A proxy to the remote logger.
-     * @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+     * @return {@code true} if the provided remote logger proxy was detached, and {@code false} otherwise.
      */
     default boolean detachRemoteLogger(RemoteLoggerPrx prx) {
         return detachRemoteLogger(prx, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -116,7 +116,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Detaches a RemoteLogger object from the local logger.
      * @param prx A proxy to the remote logger.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+     * @return {@code true} if the provided remote logger proxy was detached, and {@code false} otherwise.
      */
     default boolean detachRemoteLogger(RemoteLoggerPrx prx, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_detachRemoteLoggerAsync(prx, context, true).waitForResponse();
@@ -125,7 +125,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Detaches a RemoteLogger object from the local logger.
      * @param prx A proxy to the remote logger.
-     * @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+     * @return {@code true} if the provided remote logger proxy was detached, and {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> detachRemoteLoggerAsync(RemoteLoggerPrx prx) {
         return _iceI_detachRemoteLoggerAsync(prx, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -135,7 +135,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Detaches a RemoteLogger object from the local logger.
      * @param prx A proxy to the remote logger.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+     * @return {@code true} if the provided remote logger proxy was detached, and {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> detachRemoteLoggerAsync(RemoteLoggerPrx prx, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_detachRemoteLoggerAsync(prx, context, false);

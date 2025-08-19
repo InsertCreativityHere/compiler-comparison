@@ -262,7 +262,7 @@ classdef NodePrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the node is a coordinator, `false` otherwise.
+            %     returnValue - |true| if the node is a coordinator, |false| otherwise.
             %       logical scalar
             
             arguments
@@ -313,7 +313,7 @@ classdef NodePrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the node is a member, `false` otherwise.
+            %     returnValue - |true| if the node is a member, |false| otherwise.
             %       logical scalar
             
             arguments

@@ -61,7 +61,7 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+     * Gets all properties whose keys begin with {@code prefix}. If {@code prefix} is the empty string then all properties
      * are returned.
      * @param prefix The prefix to search for. May be empty.
      * @return The matching property set.
@@ -71,7 +71,7 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+     * Gets all properties whose keys begin with {@code prefix}. If {@code prefix} is the empty string then all properties
      * are returned.
      * @param prefix The prefix to search for. May be empty.
      * @param context The Context map to send with the invocation.
@@ -82,7 +82,7 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+     * Gets all properties whose keys begin with {@code prefix}. If {@code prefix} is the empty string then all properties
      * are returned.
      * @param prefix The prefix to search for. May be empty.
      * @return The matching property set.
@@ -92,7 +92,7 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+     * Gets all properties whose keys begin with {@code prefix}. If {@code prefix} is the empty string then all properties
      * are returned.
      * @param prefix The prefix to search for. May be empty.
      * @param context The Context map to send with the invocation.
@@ -123,10 +123,10 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+     * Updates the communicator's properties with the given property set. If an entry in {@code newProperties} matches
      * the name of an existing property, that property's value is replaced with the new value. If the new value is
      * the empty string, the property is removed. Existing properties that are not modified or removed by the
-     * entries in @p newProperties are not affected by this update.
+     * entries in {@code newProperties} are not affected by this update.
      * @param newProperties Properties to add, change, or remove.
      */
     default void setProperties(java.util.Map<java.lang.String, java.lang.String> newProperties) {
@@ -134,10 +134,10 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+     * Updates the communicator's properties with the given property set. If an entry in {@code newProperties} matches
      * the name of an existing property, that property's value is replaced with the new value. If the new value is
      * the empty string, the property is removed. Existing properties that are not modified or removed by the
-     * entries in @p newProperties are not affected by this update.
+     * entries in {@code newProperties} are not affected by this update.
      * @param newProperties Properties to add, change, or remove.
      * @param context The Context map to send with the invocation.
      */
@@ -146,10 +146,10 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+     * Updates the communicator's properties with the given property set. If an entry in {@code newProperties} matches
      * the name of an existing property, that property's value is replaced with the new value. If the new value is
      * the empty string, the property is removed. Existing properties that are not modified or removed by the
-     * entries in @p newProperties are not affected by this update.
+     * entries in {@code newProperties} are not affected by this update.
      * @param newProperties Properties to add, change, or remove.
      * @return A future that will be completed when the invocation completes.
      */
@@ -158,10 +158,10 @@ public interface PropertiesAdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+     * Updates the communicator's properties with the given property set. If an entry in {@code newProperties} matches
      * the name of an existing property, that property's value is replaced with the new value. If the new value is
      * the empty string, the property is removed. Existing properties that are not modified or removed by the
-     * entries in @p newProperties are not affected by this update.
+     * entries in {@code newProperties} are not affected by this update.
      * @param newProperties Properties to add, change, or remove.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

@@ -1047,7 +1047,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
      * default.
      * @param id The server ID.
-     * @param enabled `true` to enable the server, `false` to disable it.
+     * @param enabled {@code true} to enable the server, {@code false} to disable it.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the deployment of the server failed.
      * @throws com.zeroc.IceGrid.NodeUnreachableException Thrown when the node is unreachable.
      * @throws com.zeroc.IceGrid.ServerNotExistException Thrown when the server doesn't exist.
@@ -1062,7 +1062,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
      * default.
      * @param id The server ID.
-     * @param enabled `true` to enable the server, `false` to disable it.
+     * @param enabled {@code true} to enable the server, {@code false} to disable it.
      * @param context The Context map to send with the invocation.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the deployment of the server failed.
      * @throws com.zeroc.IceGrid.NodeUnreachableException Thrown when the node is unreachable.
@@ -1088,7 +1088,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
      * default.
      * @param id The server ID.
-     * @param enabled `true` to enable the server, `false` to disable it.
+     * @param enabled {@code true} to enable the server, {@code false} to disable it.
      * @return A future that will be completed when the invocation completes.
      */
     default java.util.concurrent.CompletableFuture<Void> enableServerAsync(java.lang.String id, boolean enabled) {
@@ -1100,7 +1100,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
      * default.
      * @param id The server ID.
-     * @param enabled `true` to enable the server, `false` to disable it.
+     * @param enabled {@code true} to enable the server, {@code false} to disable it.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      */
@@ -1127,7 +1127,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Checks if the server is enabled or disabled.
      * @param id The server ID.
-     * @return `true` if the server is enabled, `false` otherwise.
+     * @return {@code true} if the server is enabled, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the deployment of the server failed.
      * @throws com.zeroc.IceGrid.NodeUnreachableException Thrown when the node is unreachable.
      * @throws com.zeroc.IceGrid.ServerNotExistException Thrown when the server doesn't exist.
@@ -1141,7 +1141,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Checks if the server is enabled or disabled.
      * @param id The server ID.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the server is enabled, `false` otherwise.
+     * @return {@code true} if the server is enabled, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the deployment of the server failed.
      * @throws com.zeroc.IceGrid.NodeUnreachableException Thrown when the node is unreachable.
      * @throws com.zeroc.IceGrid.ServerNotExistException Thrown when the server doesn't exist.
@@ -1164,7 +1164,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Checks if the server is enabled or disabled.
      * @param id The server ID.
-     * @return `true` if the server is enabled, `false` otherwise.
+     * @return {@code true} if the server is enabled, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> isServerEnabledAsync(java.lang.String id) {
         return _iceI_isServerEnabledAsync(id, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -1174,7 +1174,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Checks if the server is enabled or disabled.
      * @param id The server ID.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the server is enabled, `false` otherwise.
+     * @return {@code true} if the server is enabled, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> isServerEnabledAsync(java.lang.String id, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_isServerEnabledAsync(id, context, false);
@@ -1473,8 +1473,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets adapter information for the replica group or adapter with the given ID.
      * @param id The adapter or replica group ID.
-     * @return A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-     * If @p id refers to a replica group, this sequence contains adapter information for each member of the
+     * @return A sequence of AdapterInfo. If {@code id} refers to an adapter, this sequence contains a single element.
+     * If {@code id} refers to a replica group, this sequence contains adapter information for each member of the
      * replica group.
      * @throws com.zeroc.IceGrid.AdapterNotExistException Thrown when the adapter or replica group doesn't exist.
      */
@@ -1487,8 +1487,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Gets adapter information for the replica group or adapter with the given ID.
      * @param id The adapter or replica group ID.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-     * If @p id refers to a replica group, this sequence contains adapter information for each member of the
+     * @return A sequence of AdapterInfo. If {@code id} refers to an adapter, this sequence contains a single element.
+     * If {@code id} refers to a replica group, this sequence contains adapter information for each member of the
      * replica group.
      * @throws com.zeroc.IceGrid.AdapterNotExistException Thrown when the adapter or replica group doesn't exist.
      */
@@ -1506,8 +1506,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets adapter information for the replica group or adapter with the given ID.
      * @param id The adapter or replica group ID.
-     * @return A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-     * If @p id refers to a replica group, this sequence contains adapter information for each member of the
+     * @return A sequence of AdapterInfo. If {@code id} refers to an adapter, this sequence contains a single element.
+     * If {@code id} refers to a replica group, this sequence contains adapter information for each member of the
      * replica group.
      */
     default java.util.concurrent.CompletableFuture<AdapterInfo[]> getAdapterInfoAsync(java.lang.String id) {
@@ -1518,8 +1518,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Gets adapter information for the replica group or adapter with the given ID.
      * @param id The adapter or replica group ID.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-     * If @p id refers to a replica group, this sequence contains adapter information for each member of the
+     * @return A sequence of AdapterInfo. If {@code id} refers to an adapter, this sequence contains a single element.
+     * If {@code id} refers to a replica group, this sequence contains adapter information for each member of the
      * replica group.
      */
     default java.util.concurrent.CompletableFuture<AdapterInfo[]> getAdapterInfoAsync(java.lang.String id, java.util.Map<java.lang.String, java.lang.String> context) {
@@ -1652,7 +1652,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+     * Adds an object to the object registry. IceGrid gets the object type by calling {@code ice_id} on {@code obj}. The
      * object must be reachable.
      * @param obj A proxy to the object. This proxy is never null.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the object can't be added.
@@ -1664,7 +1664,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+     * Adds an object to the object registry. IceGrid gets the object type by calling {@code ice_id} on {@code obj}. The
      * object must be reachable.
      * @param obj A proxy to the object. This proxy is never null.
      * @param context The Context map to send with the invocation.
@@ -1685,7 +1685,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+     * Adds an object to the object registry. IceGrid gets the object type by calling {@code ice_id} on {@code obj}. The
      * object must be reachable.
      * @param obj A proxy to the object. This proxy is never null.
      * @return A future that will be completed when the invocation completes.
@@ -1695,7 +1695,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+     * Adds an object to the object registry. IceGrid gets the object type by calling {@code ice_id} on {@code obj}. The
      * object must be reachable.
      * @param obj A proxy to the object. This proxy is never null.
      * @param context The Context map to send with the invocation.
@@ -2042,7 +2042,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the object info of all the registered objects whose stringified identities match the given expression.
      * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (`*`) character.
+     * may contain a trailing wildcard ({@code *}) character.
      * @return All the object infos with a stringified identity matching the given expression.
      */
     default ObjectInfo[] getAllObjectInfos(java.lang.String expr) {
@@ -2052,7 +2052,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the object info of all the registered objects whose stringified identities match the given expression.
      * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (`*`) character.
+     * may contain a trailing wildcard ({@code *}) character.
      * @param context The Context map to send with the invocation.
      * @return All the object infos with a stringified identity matching the given expression.
      */
@@ -2063,7 +2063,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the object info of all the registered objects whose stringified identities match the given expression.
      * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (`*`) character.
+     * may contain a trailing wildcard ({@code *}) character.
      * @return All the object infos with a stringified identity matching the given expression.
      */
     default java.util.concurrent.CompletableFuture<ObjectInfo[]> getAllObjectInfosAsync(java.lang.String expr) {
@@ -2073,7 +2073,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the object info of all the registered objects whose stringified identities match the given expression.
      * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (`*`) character.
+     * may contain a trailing wildcard ({@code *}) character.
      * @param context The Context map to send with the invocation.
      * @return All the object infos with a stringified identity matching the given expression.
      */
@@ -2096,7 +2096,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Pings an IceGrid node to see if it is active.
      * @param name The node name.
-     * @return `true` if the node ping succeeded, `false` otherwise.
+     * @return {@code true} if the node ping succeeded, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.NodeNotExistException Thrown when the node doesn't exist.
      */
     default boolean pingNode(java.lang.String name)
@@ -2108,7 +2108,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Pings an IceGrid node to see if it is active.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the node ping succeeded, `false` otherwise.
+     * @return {@code true} if the node ping succeeded, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.NodeNotExistException Thrown when the node doesn't exist.
      */
     default boolean pingNode(java.lang.String name, java.util.Map<java.lang.String, java.lang.String> context)
@@ -2125,7 +2125,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Pings an IceGrid node to see if it is active.
      * @param name The node name.
-     * @return `true` if the node ping succeeded, `false` otherwise.
+     * @return {@code true} if the node ping succeeded, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> pingNodeAsync(java.lang.String name) {
         return _iceI_pingNodeAsync(name, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -2135,7 +2135,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Pings an IceGrid node to see if it is active.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the node ping succeeded, `false` otherwise.
+     * @return {@code true} if the node ping succeeded, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> pingNodeAsync(java.lang.String name, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_pingNodeAsync(name, context, false);
@@ -2371,7 +2371,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
      * Note that this operation returns 1 on operating systems where this can't be automatically determined and
-     * where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+     * where the {@code IceGrid.Node.ProcessorSocketCount} property for the node is not set.
      * @param name The node name.
      * @return The number of processor sockets or 1 if the number of sockets can't be determined.
      * @throws com.zeroc.IceGrid.NodeNotExistException Thrown when the node doesn't exist.
@@ -2385,7 +2385,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
      * Note that this operation returns 1 on operating systems where this can't be automatically determined and
-     * where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+     * where the {@code IceGrid.Node.ProcessorSocketCount} property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The number of processor sockets or 1 if the number of sockets can't be determined.
@@ -2408,7 +2408,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
      * Note that this operation returns 1 on operating systems where this can't be automatically determined and
-     * where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+     * where the {@code IceGrid.Node.ProcessorSocketCount} property for the node is not set.
      * @param name The node name.
      * @return The number of processor sockets or 1 if the number of sockets can't be determined.
      */
@@ -2419,7 +2419,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
      * Note that this operation returns 1 on operating systems where this can't be automatically determined and
-     * where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+     * where the {@code IceGrid.Node.ProcessorSocketCount} property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The number of processor sockets or 1 if the number of sockets can't be determined.
@@ -2627,7 +2627,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Pings an IceGrid registry to see if it is active.
      * @param name The registry name.
-     * @return `true` if the registry ping succeeded, `false` otherwise.
+     * @return {@code true} if the registry ping succeeded, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.RegistryNotExistException Thrown when the registry doesn't exist.
      */
     default boolean pingRegistry(java.lang.String name)
@@ -2639,7 +2639,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Pings an IceGrid registry to see if it is active.
      * @param name The registry name.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the registry ping succeeded, `false` otherwise.
+     * @return {@code true} if the registry ping succeeded, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.RegistryNotExistException Thrown when the registry doesn't exist.
      */
     default boolean pingRegistry(java.lang.String name, java.util.Map<java.lang.String, java.lang.String> context)
@@ -2656,7 +2656,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Pings an IceGrid registry to see if it is active.
      * @param name The registry name.
-     * @return `true` if the registry ping succeeded, `false` otherwise.
+     * @return {@code true} if the registry ping succeeded, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> pingRegistryAsync(java.lang.String name) {
         return _iceI_pingRegistryAsync(name, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -2666,7 +2666,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx {
      * Pings an IceGrid registry to see if it is active.
      * @param name The registry name.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the registry ping succeeded, `false` otherwise.
+     * @return {@code true} if the registry ping succeeded, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> pingRegistryAsync(java.lang.String name, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_pingRegistryAsync(name, context, false);

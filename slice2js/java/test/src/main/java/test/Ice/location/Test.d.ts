@@ -19,14 +19,14 @@ export namespace Test {
         /**
          * Registers or unregisters the endpoints of an object adapter.
          * @param id The adapter ID.
-         * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+         * @param proxy A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
          * The locator considers an object adapter to be active after it has registered its endpoints.
-         * When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+         * When `proxy` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
          * @throws {@link Ice.AdapterAlreadyActiveException} Thrown when an object adapter with the same adapter ID has already
          * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-         * Ice client runtime retries an invocation with a non-null @p proxy.
+         * Ice client runtime retries an invocation with a non-null `proxy`.
          * @throws {@link Ice.AdapterNotFoundException} Thrown when the locator only allows registered object adapters to register
          * their endpoints and no object adapter with this adapter ID was registered with the locator.
          */
@@ -37,14 +37,14 @@ export namespace Test {
          * group.
          * @param adapterId The adapter ID.
          * @param replicaGroupId The replica group ID.
-         * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-         * The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+         * @param proxy A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
+         * The locator considers an object adapter to be active after it has registered its endpoints. When `proxy` is
          * null, the endpoints are unregistered and the locator considers the object adapter inactive.
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
          * @throws {@link Ice.AdapterAlreadyActiveException} Thrown when an object adapter with the same adapter ID has already
          * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-         * Ice client runtime retries an invocation with a non-null @p proxy.
+         * Ice client runtime retries an invocation with a non-null `proxy`.
          * @throws {@link Ice.AdapterNotFoundException} Thrown when the locator only allows registered object adapters to register
          * their endpoints and no object adapter with this adapter ID was registered with the locator.
          * @throws {@link Ice.InvalidReplicaGroupIdException} Thrown when the given replica group does not match the replica group
@@ -101,14 +101,14 @@ export namespace Test {
         /**
          * Registers or unregisters the endpoints of an object adapter.
          * @param id The adapter ID.
-         * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+         * @param proxy A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
          * The locator considers an object adapter to be active after it has registered its endpoints.
-         * When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+         * When `proxy` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch.
          * @throws {@link Ice.AdapterAlreadyActiveException} Thrown when an object adapter with the same adapter ID has already
          * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-         * Ice client runtime retries an invocation with a non-null @p proxy.
+         * Ice client runtime retries an invocation with a non-null `proxy`.
          * @throws {@link Ice.AdapterNotFoundException} Thrown when the locator only allows registered object adapters to register
          * their endpoints and no object adapter with this adapter ID was registered with the locator.
          */
@@ -119,14 +119,14 @@ export namespace Test {
          * group.
          * @param adapterId The adapter ID.
          * @param replicaGroupId The replica group ID.
-         * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-         * The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+         * @param proxy A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
+         * The locator considers an object adapter to be active after it has registered its endpoints. When `proxy` is
          * null, the endpoints are unregistered and the locator considers the object adapter inactive.
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch.
          * @throws {@link Ice.AdapterAlreadyActiveException} Thrown when an object adapter with the same adapter ID has already
          * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-         * Ice client runtime retries an invocation with a non-null @p proxy.
+         * Ice client runtime retries an invocation with a non-null `proxy`.
          * @throws {@link Ice.AdapterNotFoundException} Thrown when the locator only allows registered object adapters to register
          * their endpoints and no object adapter with this adapter ID was registered with the locator.
          * @throws {@link Ice.InvalidReplicaGroupIdException} Thrown when the given replica group does not match the replica group
@@ -197,7 +197,7 @@ export namespace Test {
          * @param id The adapter ID.
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
-         * - __module__zeroc_ice.Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+         * - __module__zeroc_ice.Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
          * @throws {@link Ice.AdapterNotFoundException} Thrown when an object adapter with this adapter ID was not found. The
          * caller should treat this exception like a null return value.
          */
@@ -265,7 +265,7 @@ export namespace Test {
          * @param id The adapter ID.
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch, which resolves to:
-         * - __module__zeroc_ice.Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+         * - __module__zeroc_ice.Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
          * @throws {@link Ice.AdapterNotFoundException} Thrown when an object adapter with this adapter ID was not found. The
          * caller should treat this exception like a null return value.
          */

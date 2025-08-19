@@ -89,13 +89,13 @@ namespace Ice
     {
         /// <summary>Registers or unregisters the endpoints of an object adapter.</summary>
         /// <param name="id">The adapter ID.</param>
-        /// <param name="proxy">A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+        /// <param name="proxy">A dummy proxy created by the object adapter. <paramref name="proxy"> carries the object adapter's endpoints.
         /// The locator considers an object adapter to be active after it has registered its endpoints.
-        /// When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
+        /// When <paramref name="proxy"> is null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
         /// <param name="context">The request context.</param>
         /// <exception cref="Ice.AdapterAlreadyActiveException">Thrown when an object adapter with the same adapter ID has already
         /// registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-        /// Ice client runtime retries an invocation with a non-null @p proxy.</exception>
+        /// Ice client runtime retries an invocation with a non-null <paramref name="proxy">.</exception>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when the locator only allows registered object adapters to register
         /// their endpoints and no object adapter with this adapter ID was registered with the locator.</exception>
         void setAdapterDirectProxy(
@@ -105,16 +105,16 @@ namespace Ice
 
         /// <summary>Registers or unregisters the endpoints of an object adapter.</summary>
         /// <param name="id">The adapter ID.</param>
-        /// <param name="proxy">A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+        /// <param name="proxy">A dummy proxy created by the object adapter. <paramref name="proxy"> carries the object adapter's endpoints.
         /// The locator considers an object adapter to be active after it has registered its endpoints.
-        /// When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
+        /// When <paramref name="proxy"> is null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="Ice.AdapterAlreadyActiveException">Thrown when an object adapter with the same adapter ID has already
         /// registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-        /// Ice client runtime retries an invocation with a non-null @p proxy.</exception>
+        /// Ice client runtime retries an invocation with a non-null <paramref name="proxy">.</exception>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when the locator only allows registered object adapters to register
         /// their endpoints and no object adapter with this adapter ID was registered with the locator.</exception>
         global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(
@@ -128,13 +128,13 @@ namespace Ice
         /// group.</summary>
         /// <param name="adapterId">The adapter ID.</param>
         /// <param name="replicaGroupId">The replica group ID.</param>
-        /// <param name="proxy">A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-        /// The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+        /// <param name="proxy">A dummy proxy created by the object adapter. <paramref name="proxy"> carries the object adapter's endpoints.
+        /// The locator considers an object adapter to be active after it has registered its endpoints. When <paramref name="proxy"> is
         /// null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
         /// <param name="context">The request context.</param>
         /// <exception cref="Ice.AdapterAlreadyActiveException">Thrown when an object adapter with the same adapter ID has already
         /// registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-        /// Ice client runtime retries an invocation with a non-null @p proxy.</exception>
+        /// Ice client runtime retries an invocation with a non-null <paramref name="proxy">.</exception>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when the locator only allows registered object adapters to register
         /// their endpoints and no object adapter with this adapter ID was registered with the locator.</exception>
         /// <exception cref="Ice.InvalidReplicaGroupIdException">Thrown when the given replica group does not match the replica group
@@ -149,8 +149,8 @@ namespace Ice
         /// group.</summary>
         /// <param name="adapterId">The adapter ID.</param>
         /// <param name="replicaGroupId">The replica group ID.</param>
-        /// <param name="proxy">A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-        /// The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+        /// <param name="proxy">A dummy proxy created by the object adapter. <paramref name="proxy"> carries the object adapter's endpoints.
+        /// The locator considers an object adapter to be active after it has registered its endpoints. When <paramref name="proxy"> is
         /// null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -158,7 +158,7 @@ namespace Ice
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="Ice.AdapterAlreadyActiveException">Thrown when an object adapter with the same adapter ID has already
         /// registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-        /// Ice client runtime retries an invocation with a non-null @p proxy.</exception>
+        /// Ice client runtime retries an invocation with a non-null <paramref name="proxy">.</exception>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when the locator only allows registered object adapters to register
         /// their endpoints and no object adapter with this adapter ID was registered with the locator.</exception>
         /// <exception cref="Ice.InvalidReplicaGroupIdException">Thrown when the given replica group does not match the replica group
@@ -561,14 +561,14 @@ namespace Ice
     {
         /// <summary>Registers or unregisters the endpoints of an object adapter.</summary>
         /// <param name="id">The adapter ID.</param>
-        /// <param name="proxy">A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+        /// <param name="proxy">A dummy proxy created by the object adapter. <paramref name="proxy"> carries the object adapter's endpoints.
         /// The locator considers an object adapter to be active after it has registered its endpoints.
-        /// When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
+        /// When <paramref name="proxy"> is null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="Ice.AdapterAlreadyActiveException">Thrown when an object adapter with the same adapter ID has already
         /// registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-        /// Ice client runtime retries an invocation with a non-null @p proxy.</exception>
+        /// Ice client runtime retries an invocation with a non-null <paramref name="proxy">.</exception>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when the locator only allows registered object adapters to register
         /// their endpoints and no object adapter with this adapter ID was registered with the locator.</exception>
         global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(
@@ -596,14 +596,14 @@ namespace Ice
         /// group.</summary>
         /// <param name="adapterId">The adapter ID.</param>
         /// <param name="replicaGroupId">The replica group ID.</param>
-        /// <param name="proxy">A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-        /// The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+        /// <param name="proxy">A dummy proxy created by the object adapter. <paramref name="proxy"> carries the object adapter's endpoints.
+        /// The locator considers an object adapter to be active after it has registered its endpoints. When <paramref name="proxy"> is
         /// null, the endpoints are unregistered and the locator considers the object adapter inactive.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="Ice.AdapterAlreadyActiveException">Thrown when an object adapter with the same adapter ID has already
         /// registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-        /// Ice client runtime retries an invocation with a non-null @p proxy.</exception>
+        /// Ice client runtime retries an invocation with a non-null <paramref name="proxy">.</exception>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when the locator only allows registered object adapters to register
         /// their endpoints and no object adapter with this adapter ID was registered with the locator.</exception>
         /// <exception cref="Ice.InvalidReplicaGroupIdException">Thrown when the given replica group does not match the replica group

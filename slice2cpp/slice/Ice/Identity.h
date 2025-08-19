@@ -34,7 +34,7 @@ namespace Ice
 namespace Ice
 {
     /// Represents the identity of an Ice object. It is comparable to the path of a URI. Its string representation is
-    /// `name` when the category is empty, and `category/name` when the category is not empty.
+    /// <tt>name</tt> when the category is empty, and <tt>category/name</tt> when the category is not empty.
     /// @headerfile Ice/Ice.h
     struct Identity
     {

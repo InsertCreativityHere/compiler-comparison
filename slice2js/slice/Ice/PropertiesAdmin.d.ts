@@ -29,7 +29,7 @@ declare module "@zeroc/ice" {
             getProperty(key: string, context?: Map<string, string>): Ice.AsyncResult<string>;
 
             /**
-             * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+             * Gets all properties whose keys begin with `prefix`. If `prefix` is the empty string then all properties
              * are returned.
              * @param prefix The prefix to search for. May be empty.
              * @param context The Context map to send with the invocation.
@@ -39,10 +39,10 @@ declare module "@zeroc/ice" {
             getPropertiesForPrefix(prefix: string, context?: Map<string, string>): Ice.AsyncResult<Map<string, string>>;
 
             /**
-             * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+             * Updates the communicator's properties with the given property set. If an entry in `newProperties` matches
              * the name of an existing property, that property's value is replaced with the new value. If the new value is
              * the empty string, the property is removed. Existing properties that are not modified or removed by the
-             * entries in @p newProperties are not affected by this update.
+             * entries in `newProperties` are not affected by this update.
              * @param newProperties Properties to add, change, or remove.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
@@ -90,7 +90,7 @@ declare module "@zeroc/ice" {
             abstract getProperty(key: string, current: Ice.Current): PromiseLike<string> | string;
 
             /**
-             * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+             * Gets all properties whose keys begin with `prefix`. If `prefix` is the empty string then all properties
              * are returned.
              * @param prefix The prefix to search for. May be empty.
              * @param current The Current object for the dispatch.
@@ -100,10 +100,10 @@ declare module "@zeroc/ice" {
             abstract getPropertiesForPrefix(prefix: string, current: Ice.Current): PromiseLike<Map<string, string>> | Map<string, string>;
 
             /**
-             * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+             * Updates the communicator's properties with the given property set. If an entry in `newProperties` matches
              * the name of an existing property, that property's value is replaced with the new value. If the new value is
              * the empty string, the property is removed. Existing properties that are not modified or removed by the
-             * entries in @p newProperties are not affected by this update.
+             * entries in `newProperties` are not affected by this update.
              * @param newProperties Properties to add, change, or remove.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch.

@@ -356,7 +356,7 @@ namespace DataStormContract
         /// Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <tt>attachElements</tt> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.
@@ -369,7 +369,7 @@ namespace DataStormContract
         /// Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <tt>attachElements</tt> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.
@@ -383,7 +383,7 @@ namespace DataStormContract
         /// Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <tt>attachElements</tt> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.
@@ -406,7 +406,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+        /// @param elements The sequence of <tt>ElementSpec</tt> objects representing the elements to attach.
         /// @param initialize Indicates whether the elements are being attached during session initialization.
         /// @param context The request context.
         void attachElements(std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const Ice::Context& context = Ice::noExplicitContext) const;
@@ -416,7 +416,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+        /// @param elements The sequence of <tt>ElementSpec</tt> objects representing the elements to attach.
         /// @param initialize Indicates whether the elements are being attached during session initialization.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes.
@@ -427,7 +427,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+        /// @param elements The sequence of <tt>ElementSpec</tt> objects representing the elements to attach.
         /// @param initialize Indicates whether the elements are being attached during session initialization.
         /// @param response The response callback.
         /// @param exception The exception callback.
@@ -445,7 +445,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// @param elements A sequence of <tt>ElementSpecAck</tt> objects representing the confirmed attachments.
         /// @param context The request context.
         void attachElementsAck(std::int64_t topicId, const ElementSpecAckSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
 
@@ -454,7 +454,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// @param elements A sequence of <tt>ElementSpecAck</tt> objects representing the confirmed attachments.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes.
         [[nodiscard]] std::future<void> attachElementsAckAsync(std::int64_t topicId, const ElementSpecAckSeq& elements, const Ice::Context& context = Ice::noExplicitContext) const;
@@ -464,7 +464,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// @param elements A sequence of <tt>ElementSpecAck</tt> objects representing the confirmed attachments.
         /// @param response The response callback.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
@@ -514,20 +514,20 @@ namespace DataStormContract
 
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// @param topicId The unique identifier for the topic.
-        /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// @param samples A sequence of <tt>DataSamples</tt> containing the queued samples to initialize the subscriber.
         /// @param context The request context.
         void initSamples(std::int64_t topicId, const DataSamplesSeq& samples, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// @param topicId The unique identifier for the topic.
-        /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// @param samples A sequence of <tt>DataSamples</tt> containing the queued samples to initialize the subscriber.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes.
         [[nodiscard]] std::future<void> initSamplesAsync(std::int64_t topicId, const DataSamplesSeq& samples, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// @param topicId The unique identifier for the topic.
-        /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// @param samples A sequence of <tt>DataSamples</tt> containing the queued samples to initialize the subscriber.
         /// @param response The response callback.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
@@ -1218,8 +1218,8 @@ namespace DataStormContract
 
         /// The list of active topic reader or writer IDs.
         ///
-        /// - In a publisher session,  the `ids` field contains the active topic writer IDs.
-        /// - In a subscriber session,  the `ids` field contains the active topic reader IDs.
+        /// - In a publisher session,  the <tt>ids</tt> field contains the active topic writer IDs.
+        /// - In a subscriber session,  the <tt>ids</tt> field contains the active topic reader IDs.
         ::Ice::LongSeq ids;
 
         /// Creates a tuple with all the fields of this struct.
@@ -1358,19 +1358,19 @@ namespace DataStormContract
         std::optional<std::string> name;
 
         /// An optional priority for the writer.
-        /// See also the `DataStorm.Topic.Priority` property.
+        /// See also the <tt>DataStorm.Topic.Priority</tt> property.
         std::optional<std::int32_t> priority;
 
         /// An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-        /// See also the `DataStorm.Topic.SampleCount` property.
+        /// See also the <tt>DataStorm.Topic.SampleCount</tt> property.
         std::optional<std::int32_t> sampleCount;
 
         /// An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-        /// writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+        /// writer or reader sample queue. See also the <tt>DataStorm.Topic.SampleLifetime</tt> property.
         std::optional<std::int32_t> sampleLifetime;
 
         /// An optional clear history policy that determines when the reader or writer sample history is cleared.
-        /// See also the `DataStorm.Topic.ClearHistory` property.
+        /// See also the <tt>DataStorm.Topic.ClearHistory</tt> property.
         std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory;
 
     protected:
@@ -1680,7 +1680,7 @@ namespace DataStormContract
         /// Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <tt>attachElements</tt> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.
@@ -1698,7 +1698,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+        /// @param elements The sequence of <tt>ElementSpec</tt> objects representing the elements to attach.
         /// @param initialize Indicates whether the elements are being attached during session initialization.
         /// @param current The Current object of the incoming request.
         virtual void attachElements(std::int64_t topicId, ElementSpecSeq elements, bool initialize, const Ice::Current& current) = 0;
@@ -1711,7 +1711,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.
         /// @param topicId The unique identifier for the topic to which the elements belong.
-        /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// @param elements A sequence of <tt>ElementSpecAck</tt> objects representing the confirmed attachments.
         /// @param current The Current object of the incoming request.
         virtual void attachElementsAck(std::int64_t topicId, ElementSpecAckSeq elements, const Ice::Current& current) = 0;
 
@@ -1732,7 +1732,7 @@ namespace DataStormContract
 
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// @param topicId The unique identifier for the topic.
-        /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// @param samples A sequence of <tt>DataSamples</tt> containing the queued samples to initialize the subscriber.
         /// @param current The Current object of the incoming request.
         virtual void initSamples(std::int64_t topicId, DataSamplesSeq samples, const Ice::Current& current) = 0;
 

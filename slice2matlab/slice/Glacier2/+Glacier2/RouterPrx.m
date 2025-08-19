@@ -43,7 +43,7 @@ classdef RouterPrx < Ice.RouterPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+            %     returnValue - The category. It's an empty string when |Glacier2.Server.Endpoints| is not configured.
             %       character vector
             
             arguments

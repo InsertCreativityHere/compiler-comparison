@@ -347,8 +347,8 @@ public struct TopicTraits: Ice.SliceTraits {
 ///  - getNonReplicatedPublisherAsync: Gets a non-replicated proxy to a publisher object for this topic.
 ///  - subscribeAndGetPublisher: Subscribes to this topic.
 ///  - subscribeAndGetPublisherAsync: Subscribes to this topic.
-///  - unsubscribe: Unsubscribes the provided @p subscriber from this topic.
-///  - unsubscribeAsync: Unsubscribes the provided @p subscriber from this topic.
+///  - unsubscribe: Unsubscribes the provided `subscriber` from this topic.
+///  - unsubscribeAsync: Unsubscribes the provided `subscriber` from this topic.
 ///  - link: Creates a link to another topic.
 ///  - linkAsync: Creates a link to another topic.
 ///  - unlink: Destroys a link from this topic to the provided topic.
@@ -455,8 +455,8 @@ public extension Ice.InputStream {
 ///  - getNonReplicatedPublisherAsync: Gets a non-replicated proxy to a publisher object for this topic.
 ///  - subscribeAndGetPublisher: Subscribes to this topic.
 ///  - subscribeAndGetPublisherAsync: Subscribes to this topic.
-///  - unsubscribe: Unsubscribes the provided @p subscriber from this topic.
-///  - unsubscribeAsync: Unsubscribes the provided @p subscriber from this topic.
+///  - unsubscribe: Unsubscribes the provided `subscriber` from this topic.
+///  - unsubscribeAsync: Unsubscribes the provided `subscriber` from this topic.
 ///  - link: Creates a link to another topic.
 ///  - linkAsync: Creates a link to another topic.
 ///  - unlink: Destroys a link from this topic to the provided topic.
@@ -531,7 +531,7 @@ public extension TopicPrx {
     ///
     /// - Returns: The per-subscriber publisher proxy. This proxy is never null.
     ///
-    /// - Throws: AlreadySubscribed Thrown when @p subscriber is already subscribed. BadQoS Thrown when @p theQoS is unavailable or invalid.
+    /// - Throws: AlreadySubscribed Thrown when `subscriber` is already subscribed. BadQoS Thrown when `theQoS` is unavailable or invalid.
     func subscribeAndGetPublisher(theQoS iceP_theQoS: QoS, subscriber iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "subscribeAndGetPublisher",
                                        mode: .normal,
@@ -557,7 +557,7 @@ public extension TopicPrx {
         }
     }
 
-    /// Unsubscribes the provided @p subscriber from this topic.
+    /// Unsubscribes the provided `subscriber` from this topic.
     ///
     /// - Parameters:
     ///   - iceP_subscriber: A proxy to an existing subscriber. This proxy is never null.
@@ -579,7 +579,7 @@ public extension TopicPrx {
     ///   - context: Optional request context.
     ///
     /// - Throws:
-    ///   - LinkExists Thrown when a link to @p linkTo already exists.
+    ///   - LinkExists Thrown when a link to `linkTo` already exists.
     func link(linkTo iceP_linkTo: TopicPrx?, cost iceP_cost: Swift.Int32, context: Ice.Context? = nil) async throws {
         return try await _impl._invoke(operation: "link",
                                        mode: .normal,
@@ -604,7 +604,7 @@ public extension TopicPrx {
     ///   - context: Optional request context.
     ///
     /// - Throws:
-    ///   - NoSuchLink Thrown when a link to @p linkTo does not exist.
+    ///   - NoSuchLink Thrown when a link to `linkTo` does not exist.
     func unlink(_ iceP_linkTo: TopicPrx?, context: Ice.Context? = nil) async throws {
         return try await _impl._invoke(operation: "unlink",
                                        mode: .normal,
@@ -947,7 +947,7 @@ public extension TopicManagerPrx {
     /// - Returns: A proxy to the topic object. The returned proxy is never null.
     ///
     /// - Throws:
-    ///   - NoSuchTopic Thrown when there is no topic named @p name.
+    ///   - NoSuchTopic Thrown when there is no topic named `name`.
     func retrieve(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> TopicPrx? {
         return try await _impl._invoke(operation: "retrieve",
                                        mode: .idempotent,
@@ -1151,10 +1151,10 @@ public protocol Topic: Ice.Dispatcher {
     ///
     /// - Returns: The per-subscriber publisher proxy. This proxy is never null.
     ///
-    /// - Throws: AlreadySubscribed Thrown when @p subscriber is already subscribed. BadQoS Thrown when @p theQoS is unavailable or invalid.
+    /// - Throws: AlreadySubscribed Thrown when `subscriber` is already subscribed. BadQoS Thrown when `theQoS` is unavailable or invalid.
     func subscribeAndGetPublisher(theQoS: QoS, subscriber: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
-    /// Unsubscribes the provided @p subscriber from this topic.
+    /// Unsubscribes the provided `subscriber` from this topic.
     ///
     /// - Parameters:
     ///   - subscriber: A proxy to an existing subscriber. This proxy is never null.
@@ -1169,7 +1169,7 @@ public protocol Topic: Ice.Dispatcher {
     ///   - current: The Current object for the dispatch.
     ///
     /// - Throws:
-    ///   - LinkExists Thrown when a link to @p linkTo already exists.
+    ///   - LinkExists Thrown when a link to `linkTo` already exists.
     func link(linkTo: TopicPrx?, cost: Swift.Int32, current: Ice.Current) async throws
 
     /// Destroys a link from this topic to the provided topic.
@@ -1179,7 +1179,7 @@ public protocol Topic: Ice.Dispatcher {
     ///   - current: The Current object for the dispatch.
     ///
     /// - Throws:
-    ///   - NoSuchLink Thrown when a link to @p linkTo does not exist.
+    ///   - NoSuchLink Thrown when a link to `linkTo` does not exist.
     func unlink(linkTo: TopicPrx?, current: Ice.Current) async throws
 
     /// Gets information on the current links.
@@ -1225,7 +1225,7 @@ public protocol TopicManager: Ice.Dispatcher {
     /// - Returns: A proxy to the topic object. The returned proxy is never null.
     ///
     /// - Throws:
-    ///   - NoSuchTopic Thrown when there is no topic named @p name.
+    ///   - NoSuchTopic Thrown when there is no topic named `name`.
     func retrieve(name: Swift.String, current: Ice.Current) async throws -> TopicPrx?
 
     /// Retrieves all topics managed by this topic manager.
@@ -1258,7 +1258,7 @@ public protocol Finder: Ice.Dispatcher {
 ///  - getPublisher: Gets a proxy to a publisher object for this topic.
 ///  - getNonReplicatedPublisher: Gets a non-replicated proxy to a publisher object for this topic.
 ///  - subscribeAndGetPublisher: Subscribes to this topic.
-///  - unsubscribe: Unsubscribes the provided @p subscriber from this topic.
+///  - unsubscribe: Unsubscribes the provided `subscriber` from this topic.
 ///  - link: Creates a link to another topic.
 ///  - unlink: Destroys a link from this topic to the provided topic.
 ///  - getLinkInfoSeq: Gets information on the current links.

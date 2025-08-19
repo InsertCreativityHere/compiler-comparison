@@ -122,7 +122,7 @@ class ServerPrx(FileReaderPrx):
         Returns
         -------
         bool
-            `true` if the server is inactive.
+            ``true`` if the server is inactive.
         
         Raises
         ------
@@ -145,7 +145,7 @@ class ServerPrx(FileReaderPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the server is inactive.
+            ``true`` if the server is inactive.
         """
         return Server._op_checkUpdate.invokeAsync(self, ((svr, noRestart), context))
 
@@ -465,7 +465,7 @@ class Server(FileReader, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the server is inactive.
+            ``true`` if the server is inactive.
         
         Raises
         ------

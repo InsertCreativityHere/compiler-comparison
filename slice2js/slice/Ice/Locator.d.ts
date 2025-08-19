@@ -51,7 +51,7 @@ declare module "@zeroc/ice" {
              * @param id The adapter ID.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
-             * - Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+             * - Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
              * @throws {@link Ice.AdapterNotFoundException} Thrown when an object adapter with this adapter ID was not found. The
              * caller should treat this exception like a null return value.
              */
@@ -116,7 +116,7 @@ declare module "@zeroc/ice" {
              * @param id The adapter ID.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
-             * - Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+             * - Ice.ObjectPrx | null : A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
              * @throws {@link Ice.AdapterNotFoundException} Thrown when an object adapter with this adapter ID was not found. The
              * caller should treat this exception like a null return value.
              */

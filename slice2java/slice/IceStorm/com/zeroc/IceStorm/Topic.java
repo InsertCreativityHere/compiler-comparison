@@ -45,8 +45,8 @@ public interface Topic extends com.zeroc.Ice.Object {
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param current The Current object of the incoming request.
      * @return The per-subscriber publisher proxy. This proxy is never null.
-     * @throws com.zeroc.IceStorm.AlreadySubscribed Thrown when @p subscriber is already subscribed.
-     * @throws com.zeroc.IceStorm.BadQoS Thrown when @p theQoS is unavailable or invalid.
+     * @throws com.zeroc.IceStorm.AlreadySubscribed Thrown when {@code subscriber} is already subscribed.
+     * @throws com.zeroc.IceStorm.BadQoS Thrown when {@code theQoS} is unavailable or invalid.
      *
      * @see #unsubscribe
      */
@@ -54,7 +54,7 @@ public interface Topic extends com.zeroc.Ice.Object {
         throws AlreadySubscribed, BadQoS;
 
     /**
-     * Unsubscribes the provided @p subscriber from this topic.
+     * Unsubscribes the provided {@code subscriber} from this topic.
      * @param subscriber A proxy to an existing subscriber. This proxy is never null.
      * @param current The Current object of the incoming request.
      *
@@ -67,7 +67,7 @@ public interface Topic extends com.zeroc.Ice.Object {
      * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost of the link.
      * @param current The Current object of the incoming request.
-     * @throws com.zeroc.IceStorm.LinkExists Thrown when a link to @p linkTo already exists.
+     * @throws com.zeroc.IceStorm.LinkExists Thrown when a link to {@code linkTo} already exists.
      */
     void link(TopicPrx linkTo, int cost, com.zeroc.Ice.Current current)
         throws LinkExists;
@@ -76,7 +76,7 @@ public interface Topic extends com.zeroc.Ice.Object {
      * Destroys a link from this topic to the provided topic.
      * @param linkTo The topic to destroy the link to. This proxy is never null.
      * @param current The Current object of the incoming request.
-     * @throws com.zeroc.IceStorm.NoSuchLink Thrown when a link to @p linkTo does not exist.
+     * @throws com.zeroc.IceStorm.NoSuchLink Thrown when a link to {@code linkTo} does not exist.
      */
     void unlink(TopicPrx linkTo, com.zeroc.Ice.Current current)
         throws NoSuchLink;

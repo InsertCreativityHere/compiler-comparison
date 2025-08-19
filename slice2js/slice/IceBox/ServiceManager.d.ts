@@ -139,7 +139,7 @@ declare module "@zeroc/ice" {
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
              * @throws {@link IceBox.AlreadyStartedException} Thrown when the service is already running.
-             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named @p service.
+             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named `service`.
              */
             startService(service: string, context?: Map<string, string>): Ice.AsyncResult<void>;
 
@@ -149,7 +149,7 @@ declare module "@zeroc/ice" {
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
              * @throws {@link IceBox.AlreadyStoppedException} Thrown when the service is already stopped.
-             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named @p service.
+             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named `service`.
              */
             stopService(service: string, context?: Map<string, string>): Ice.AsyncResult<void>;
 
@@ -205,7 +205,7 @@ declare module "@zeroc/ice" {
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch.
              * @throws {@link IceBox.AlreadyStartedException} Thrown when the service is already running.
-             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named @p service.
+             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named `service`.
              */
             abstract startService(service: string, current: Ice.Current): PromiseLike<void> | void;
 
@@ -215,7 +215,7 @@ declare module "@zeroc/ice" {
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch.
              * @throws {@link IceBox.AlreadyStoppedException} Thrown when the service is already stopped.
-             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named @p service.
+             * @throws {@link IceBox.NoSuchServiceException} Thrown when IceBox does not know a service named `service`.
              */
             abstract stopService(service: string, current: Ice.Current): PromiseLike<void> | void;
 

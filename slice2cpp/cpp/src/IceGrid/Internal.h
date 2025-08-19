@@ -439,19 +439,19 @@ namespace IceGrid
 
         /// Check if the given server can be loaded on this node.
         /// @param context The request context.
-        /// @return `true` if the server is inactive.
+        /// @return <tt>true</tt> if the server is inactive.
         /// @throws IceGrid::DeploymentException Raised if the server can't be updated.
         bool checkUpdate(const InternalServerDescriptorPtr& svr, bool noRestart, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Check if the given server can be loaded on this node.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the server is inactive.
+        /// - <tt>true</tt> if the server is inactive.
         [[nodiscard]] std::future<bool> checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Check if the given server can be loaded on this node.
         /// @param response The response callback. It accepts:
-        /// - `true` if the server is inactive.
+        /// - <tt>true</tt> if the server is inactive.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -2527,7 +2527,7 @@ namespace IceGrid
 
         /// Check if the given server can be loaded on this node.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the server is inactive.
+        /// @return <tt>true</tt> if the server is inactive.
         /// @throws IceGrid::DeploymentException Raised if the server can't be updated.
         virtual bool checkUpdate(InternalServerDescriptorPtr svr, bool noRestart, const Ice::Current& current) = 0;
 

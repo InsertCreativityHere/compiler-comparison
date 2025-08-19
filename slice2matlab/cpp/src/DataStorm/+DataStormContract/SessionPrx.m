@@ -344,7 +344,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %ANNOUNCEELEMENTS Announces elements associated with a topic to the peer.
             %
             %   This operation informs the peer about new data readers or data writers associated with the specified topic.
-            %   The receiving peer will invoke `attachElements` for any elements it is interested in.
+            %   The receiving peer will invoke |attachElements| for any elements it is interested in.
             %
             %   - A publisher session announces its data writers.
             %   - A subscriber session announces its data readers.
@@ -376,7 +376,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %ANNOUNCEELEMENTSASYNC Announces elements associated with a topic to the peer.
             %
             %   This operation informs the peer about new data readers or data writers associated with the specified topic.
-            %   The receiving peer will invoke `attachElements` for any elements it is interested in.
+            %   The receiving peer will invoke |attachElements| for any elements it is interested in.
             %
             %   - A publisher session announces its data writers.
             %   - A subscriber session announces its data readers.
@@ -419,7 +419,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %   Input Arguments
             %     topicId - The unique identifier for the topic to which the elements belong.
             %       int64 scalar
-            %     elements - The sequence of `ElementSpec` objects representing the elements to attach.
+            %     elements - The sequence of |ElementSpec| objects representing the elements to attach.
             %       DataStormContract.ElementSpec vector
             %     initialize - Indicates whether the elements are being attached during session initialization.
             %       logical scalar
@@ -451,7 +451,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %   Input Arguments
             %     topicId - The unique identifier for the topic to which the elements belong.
             %       int64 scalar
-            %     elements - The sequence of `ElementSpec` objects representing the elements to attach.
+            %     elements - The sequence of |ElementSpec| objects representing the elements to attach.
             %       DataStormContract.ElementSpec vector
             %     initialize - Indicates whether the elements are being attached during session initialization.
             %       logical scalar
@@ -489,7 +489,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %   Input Arguments
             %     topicId - The unique identifier for the topic to which the elements belong.
             %       int64 scalar
-            %     elements - A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            %     elements - A sequence of |ElementSpecAck| objects representing the confirmed attachments.
             %       DataStormContract.ElementSpecAck vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -517,7 +517,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %   Input Arguments
             %     topicId - The unique identifier for the topic to which the elements belong.
             %       int64 scalar
-            %     elements - A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            %     elements - A sequence of |ElementSpecAck| objects representing the confirmed attachments.
             %       DataStormContract.ElementSpecAck vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -608,7 +608,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %   Input Arguments
             %     topicId - The unique identifier for the topic.
             %       int64 scalar
-            %     samples - A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            %     samples - A sequence of |DataSamples| containing the queued samples to initialize the subscriber.
             %       DataStormContract.DataSamples vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -632,7 +632,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %   Input Arguments
             %     topicId - The unique identifier for the topic.
             %       int64 scalar
-            %     samples - A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            %     samples - A sequence of |DataSamples| containing the queued samples to initialize the subscriber.
             %       DataStormContract.DataSamples vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar

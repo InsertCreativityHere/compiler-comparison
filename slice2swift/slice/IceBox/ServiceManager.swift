@@ -325,7 +325,7 @@ public extension ServiceManagerPrx {
     ///   - iceP_service: The service name.
     ///   - context: Optional request context.
     ///
-    /// - Throws: AlreadyStartedException Thrown when the service is already running. NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+    /// - Throws: AlreadyStartedException Thrown when the service is already running. NoSuchServiceException Thrown when IceBox does not know a service named `service`.
     func startService(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws {
         return try await _impl._invoke(operation: "startService",
                                        mode: .normal,
@@ -350,7 +350,7 @@ public extension ServiceManagerPrx {
     ///   - iceP_service: The service name.
     ///   - context: Optional request context.
     ///
-    /// - Throws: AlreadyStoppedException Thrown when the service is already stopped. NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+    /// - Throws: AlreadyStoppedException Thrown when the service is already stopped. NoSuchServiceException Thrown when IceBox does not know a service named `service`.
     func stopService(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws {
         return try await _impl._invoke(operation: "stopService",
                                        mode: .normal,
@@ -421,7 +421,7 @@ public protocol ServiceManager: Ice.Dispatcher {
     ///   - service: The service name.
     ///   - current: The Current object for the dispatch.
     ///
-    /// - Throws: AlreadyStartedException Thrown when the service is already running. NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+    /// - Throws: AlreadyStartedException Thrown when the service is already running. NoSuchServiceException Thrown when IceBox does not know a service named `service`.
     func startService(service: Swift.String, current: Ice.Current) async throws
 
     /// Stops a service.
@@ -430,7 +430,7 @@ public protocol ServiceManager: Ice.Dispatcher {
     ///   - service: The service name.
     ///   - current: The Current object for the dispatch.
     ///
-    /// - Throws: AlreadyStoppedException Thrown when the service is already stopped. NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+    /// - Throws: AlreadyStoppedException Thrown when the service is already stopped. NoSuchServiceException Thrown when IceBox does not know a service named `service`.
     func stopService(service: Swift.String, current: Ice.Current) async throws
 
     /// Registers a new observer with this service manager.

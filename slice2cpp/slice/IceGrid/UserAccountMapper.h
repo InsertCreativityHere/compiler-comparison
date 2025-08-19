@@ -35,7 +35,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// Maps user strings in server descriptors to actual user account names. You can configure the user account mapper
-    /// of an IceGrid node with the property `IceGrid.Node.UserAccountMapper`.
+    /// of an IceGrid node with the property <tt>IceGrid.Node.UserAccountMapper</tt>.
     /// @headerfile IceGrid/IceGrid.h
     class ICEGRID_API UserAccountMapperPrx : public Ice::Proxy<UserAccountMapperPrx, Ice::ObjectPrx>
     {
@@ -80,8 +80,8 @@ namespace IceGrid
 
         /// Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.
-        /// @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.
+        /// @param user The value of the server descriptor's <tt>user</tt> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <tt>session</tt>, the default value for <tt>user</tt> is the session identifier.
         /// @param context The request context.
         /// @return The user account name.
         /// @throws IceGrid::UserAccountNotFoundException Thrown when no user account is found for the given user.
@@ -89,8 +89,8 @@ namespace IceGrid
 
         /// Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.
-        /// @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.
+        /// @param user The value of the server descriptor's <tt>user</tt> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <tt>session</tt>, the default value for <tt>user</tt> is the session identifier.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
         /// - The user account name.
@@ -98,8 +98,8 @@ namespace IceGrid
 
         /// Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.
-        /// @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.
+        /// @param user The value of the server descriptor's <tt>user</tt> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <tt>session</tt>, the default value for <tt>user</tt> is the session identifier.
         /// @param response The response callback. It accepts:
         /// - The user account name.
         /// @param exception The exception callback.
@@ -157,7 +157,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// Maps user strings in server descriptors to actual user account names. You can configure the user account mapper
-    /// of an IceGrid node with the property `IceGrid.Node.UserAccountMapper`.
+    /// of an IceGrid node with the property <tt>IceGrid.Node.UserAccountMapper</tt>.
     /// @headerfile IceGrid/IceGrid.h
     class ICEGRID_API UserAccountMapper : public virtual Ice::Object
     {
@@ -176,8 +176,8 @@ namespace IceGrid
 
         /// Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.
-        /// @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.
+        /// @param user The value of the server descriptor's <tt>user</tt> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <tt>session</tt>, the default value for <tt>user</tt> is the session identifier.
         /// @param current The Current object of the incoming request.
         /// @return The user account name.
         /// @throws IceGrid::UserAccountNotFoundException Thrown when no user account is found for the given user.

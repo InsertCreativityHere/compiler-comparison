@@ -225,14 +225,14 @@ export namespace IceStorm {
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
          * - __module__zeroc_ice.Ice.ObjectPrx | null : The per-subscriber publisher proxy. This proxy is never null.
-         * @throws {@link IceStorm.AlreadySubscribed} Thrown when @p subscriber is already subscribed.
-         * @throws {@link IceStorm.BadQoS} Thrown when @p theQoS is unavailable or invalid.
+         * @throws {@link IceStorm.AlreadySubscribed} Thrown when `subscriber` is already subscribed.
+         * @throws {@link IceStorm.BadQoS} Thrown when `theQoS` is unavailable or invalid.
          * @see #unsubscribe
          */
         subscribeAndGetPublisher(theQoS: Map<string, string>, subscriber: __module__zeroc_ice.Ice.ObjectPrx | null, context?: Map<string, string>): __module__zeroc_ice.Ice.AsyncResult<__module__zeroc_ice.Ice.ObjectPrx | null>;
 
         /**
-         * Unsubscribes the provided @p subscriber from this topic.
+         * Unsubscribes the provided `subscriber` from this topic.
          * @param subscriber A proxy to an existing subscriber. This proxy is never null.
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
@@ -246,7 +246,7 @@ export namespace IceStorm {
          * @param cost The cost of the link.
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
-         * @throws {@link IceStorm.LinkExists} Thrown when a link to @p linkTo already exists.
+         * @throws {@link IceStorm.LinkExists} Thrown when a link to `linkTo` already exists.
          */
         link(linkTo: __module__zeroc_ice.IceStorm.TopicPrx | null, cost: number, context?: Map<string, string>): __module__zeroc_ice.Ice.AsyncResult<void>;
 
@@ -255,7 +255,7 @@ export namespace IceStorm {
          * @param linkTo The topic to destroy the link to. This proxy is never null.
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation.
-         * @throws {@link IceStorm.NoSuchLink} Thrown when a link to @p linkTo does not exist.
+         * @throws {@link IceStorm.NoSuchLink} Thrown when a link to `linkTo` does not exist.
          */
         unlink(linkTo: __module__zeroc_ice.IceStorm.TopicPrx | null, context?: Map<string, string>): __module__zeroc_ice.Ice.AsyncResult<void>;
 
@@ -366,14 +366,14 @@ export namespace IceStorm {
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch, which resolves to:
          * - __module__zeroc_ice.Ice.ObjectPrx | null : The per-subscriber publisher proxy. This proxy is never null.
-         * @throws {@link IceStorm.AlreadySubscribed} Thrown when @p subscriber is already subscribed.
-         * @throws {@link IceStorm.BadQoS} Thrown when @p theQoS is unavailable or invalid.
+         * @throws {@link IceStorm.AlreadySubscribed} Thrown when `subscriber` is already subscribed.
+         * @throws {@link IceStorm.BadQoS} Thrown when `theQoS` is unavailable or invalid.
          * @see #unsubscribe
          */
         abstract subscribeAndGetPublisher(theQoS: Map<string, string>, subscriber: __module__zeroc_ice.Ice.ObjectPrx | null, current: __module__zeroc_ice.Ice.Current): PromiseLike<__module__zeroc_ice.Ice.ObjectPrx | null> | __module__zeroc_ice.Ice.ObjectPrx | null;
 
         /**
-         * Unsubscribes the provided @p subscriber from this topic.
+         * Unsubscribes the provided `subscriber` from this topic.
          * @param subscriber A proxy to an existing subscriber. This proxy is never null.
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch.
@@ -387,7 +387,7 @@ export namespace IceStorm {
          * @param cost The cost of the link.
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch.
-         * @throws {@link IceStorm.LinkExists} Thrown when a link to @p linkTo already exists.
+         * @throws {@link IceStorm.LinkExists} Thrown when a link to `linkTo` already exists.
          */
         abstract link(linkTo: __module__zeroc_ice.IceStorm.TopicPrx | null, cost: number, current: __module__zeroc_ice.Ice.Current): PromiseLike<void> | void;
 
@@ -396,7 +396,7 @@ export namespace IceStorm {
          * @param linkTo The topic to destroy the link to. This proxy is never null.
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch.
-         * @throws {@link IceStorm.NoSuchLink} Thrown when a link to @p linkTo does not exist.
+         * @throws {@link IceStorm.NoSuchLink} Thrown when a link to `linkTo` does not exist.
          */
         abstract unlink(linkTo: __module__zeroc_ice.IceStorm.TopicPrx | null, current: __module__zeroc_ice.Ice.Current): PromiseLike<void> | void;
 
@@ -487,7 +487,7 @@ export namespace IceStorm {
          * @param context The Context map to send with the invocation.
          * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
          * - __module__zeroc_ice.IceStorm.TopicPrx | null : A proxy to the topic object. The returned proxy is never null.
-         * @throws {@link IceStorm.NoSuchTopic} Thrown when there is no topic named @p name.
+         * @throws {@link IceStorm.NoSuchTopic} Thrown when there is no topic named `name`.
          */
         retrieve(name: string, context?: Map<string, string>): __module__zeroc_ice.Ice.AsyncResult<__module__zeroc_ice.IceStorm.TopicPrx | null>;
 
@@ -555,7 +555,7 @@ export namespace IceStorm {
          * @param current The Current object for the dispatch.
          * @returns A promise like object representing the result of the dispatch, which resolves to:
          * - __module__zeroc_ice.IceStorm.TopicPrx | null : A proxy to the topic object. The returned proxy is never null.
-         * @throws {@link IceStorm.NoSuchTopic} Thrown when there is no topic named @p name.
+         * @throws {@link IceStorm.NoSuchTopic} Thrown when there is no topic named `name`.
          */
         abstract retrieve(name: string, current: __module__zeroc_ice.Ice.Current): PromiseLike<__module__zeroc_ice.IceStorm.TopicPrx | null> | __module__zeroc_ice.IceStorm.TopicPrx | null;
 

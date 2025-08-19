@@ -7,10 +7,10 @@ package com.zeroc.Ice;
 
 /**
  * Provides access to a {@link RouterPrx} object via a fixed identity.
- * A RouterFinder is always registered with identity `Ice/RouterFinder`. This allows clients to obtain the
+ * A RouterFinder is always registered with identity {@code Ice/RouterFinder}. This allows clients to obtain the
  * associated Router proxy with just the endpoint information of the object. For example, you can use the
- * RouterFinder proxy `Ice/RouterFinder:tcp -h somehost -p 4061` to get the Router proxy
- * `MyGlacier2/Router:tcp -h somehost -p 4061`.
+ * RouterFinder proxy {@code Ice/RouterFinder:tcp -h somehost -p 4061} to get the Router proxy
+ * {@code MyGlacier2/Router:tcp -h somehost -p 4061}.
  */
 @com.zeroc.Ice.SliceTypeId(value = "::Ice::RouterFinder")
 public interface RouterFinderPrx extends com.zeroc.Ice.ObjectPrx {

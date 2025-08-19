@@ -27,7 +27,7 @@ public interface TopicManager extends com.zeroc.Ice.Object {
      * @param name The name of the topic.
      * @param current The Current object of the incoming request.
      * @return A proxy to the topic object. The returned proxy is never null.
-     * @throws com.zeroc.IceStorm.NoSuchTopic Thrown when there is no topic named @p name.
+     * @throws com.zeroc.IceStorm.NoSuchTopic Thrown when there is no topic named {@code name}.
      */
     TopicPrx retrieve(java.lang.String name, com.zeroc.Ice.Current current)
         throws NoSuchTopic;

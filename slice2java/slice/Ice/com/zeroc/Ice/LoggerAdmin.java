@@ -61,7 +61,7 @@ public interface LoggerAdmin extends com.zeroc.Ice.Object {
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on @p prx.
+     * Attaches a RemoteLogger object to the local logger. This operation calls {@link com.zeroc.Ice.RemoteLoggerPrx#init} on {@code prx}.
      * @param prx A proxy to the remote logger.
      * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
      * no filtering (send all message types).
@@ -81,7 +81,7 @@ public interface LoggerAdmin extends com.zeroc.Ice.Object {
      * Detaches a RemoteLogger object from the local logger.
      * @param prx A proxy to the remote logger.
      * @param current The Current object of the incoming request.
-     * @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+     * @return {@code true} if the provided remote logger proxy was detached, and {@code false} otherwise.
      */
     boolean detachRemoteLogger(RemoteLoggerPrx prx, com.zeroc.Ice.Current current);
 

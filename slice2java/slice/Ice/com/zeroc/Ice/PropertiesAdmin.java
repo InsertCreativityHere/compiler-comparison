@@ -19,7 +19,7 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object {
     java.lang.String getProperty(java.lang.String key, com.zeroc.Ice.Current current);
 
     /**
-     * Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+     * Gets all properties whose keys begin with {@code prefix}. If {@code prefix} is the empty string then all properties
      * are returned.
      * @param prefix The prefix to search for. May be empty.
      * @param current The Current object of the incoming request.
@@ -28,10 +28,10 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object {
     java.util.Map<java.lang.String, java.lang.String> getPropertiesForPrefix(java.lang.String prefix, com.zeroc.Ice.Current current);
 
     /**
-     * Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+     * Updates the communicator's properties with the given property set. If an entry in {@code newProperties} matches
      * the name of an existing property, that property's value is replaced with the new value. If the new value is
      * the empty string, the property is removed. Existing properties that are not modified or removed by the
-     * entries in @p newProperties are not affected by this update.
+     * entries in {@code newProperties} are not affected by this update.
      * @param newProperties Properties to add, change, or remove.
      * @param current The Current object of the incoming request.
      */

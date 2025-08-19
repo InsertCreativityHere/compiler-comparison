@@ -1185,7 +1185,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.</summary>
         /// <param name="id">The server ID.</param>
-        /// <param name="enabled">`true` to enable the server, `false` to disable it.</param>
+        /// <param name="enabled"><c>true</c> to enable the server, <c>false</c> to disable it.</param>
         /// <param name="context">The request context.</param>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the deployment of the server failed.</exception>
         /// <exception cref="IceGrid.NodeUnreachableException">Thrown when the node is unreachable.</exception>
@@ -1199,7 +1199,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.</summary>
         /// <param name="id">The server ID.</param>
-        /// <param name="enabled">`true` to enable the server, `false` to disable it.</param>
+        /// <param name="enabled"><c>true</c> to enable the server, <c>false</c> to disable it.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1217,7 +1217,7 @@ namespace IceGrid
         /// <summary>Checks if the server is enabled or disabled.</summary>
         /// <param name="id">The server ID.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the server is enabled, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the server is enabled, <c>false</c> otherwise.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the deployment of the server failed.</exception>
         /// <exception cref="IceGrid.NodeUnreachableException">Thrown when the node is unreachable.</exception>
         /// <exception cref="IceGrid.ServerNotExistException">Thrown when the server doesn't exist.</exception>
@@ -1344,8 +1344,8 @@ namespace IceGrid
         /// <summary>Gets adapter information for the replica group or adapter with the given ID.</summary>
         /// <param name="id">The adapter or replica group ID.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-        /// If @p id refers to a replica group, this sequence contains adapter information for each member of the
+        /// <returns>A sequence of AdapterInfo. If <paramref name="id"> refers to an adapter, this sequence contains a single element.
+        /// If <paramref name="id"> refers to a replica group, this sequence contains adapter information for each member of the
         /// replica group.</returns>
         /// <exception cref="IceGrid.AdapterNotExistException">Thrown when the adapter or replica group doesn't exist.</exception>
         AdapterInfo[] getAdapterInfo(
@@ -1404,7 +1404,7 @@ namespace IceGrid
             global::System.IProgress<bool>? progress = null,
             global::System.Threading.CancellationToken cancel = default);
 
-        /// <summary>Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// <summary>Adds an object to the object registry. IceGrid gets the object type by calling <c>ice_id</c> on <paramref name="obj">. The
         /// object must be reachable.</summary>
         /// <param name="obj">A proxy to the object. This proxy is never null.</param>
         /// <param name="context">The request context.</param>
@@ -1414,7 +1414,7 @@ namespace IceGrid
             Ice.ObjectPrx? obj,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        /// <summary>Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// <summary>Adds an object to the object registry. IceGrid gets the object type by calling <c>ice_id</c> on <paramref name="obj">. The
         /// object must be reachable.</summary>
         /// <param name="obj">A proxy to the object. This proxy is never null.</param>
         /// <param name="context">The request context.</param>
@@ -1550,7 +1550,7 @@ namespace IceGrid
 
         /// <summary>Gets the object info of all the registered objects whose stringified identities match the given expression.</summary>
         /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.</param>
+        /// may contain a trailing wildcard (<c>*</c>) character.</param>
         /// <param name="context">The request context.</param>
         /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
         ObjectInfo[] getAllObjectInfos(
@@ -1559,7 +1559,7 @@ namespace IceGrid
 
         /// <summary>Gets the object info of all the registered objects whose stringified identities match the given expression.</summary>
         /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.</param>
+        /// may contain a trailing wildcard (<c>*</c>) character.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1573,7 +1573,7 @@ namespace IceGrid
         /// <summary>Pings an IceGrid node to see if it is active.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the node ping succeeded, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the node ping succeeded, <c>false</c> otherwise.</returns>
         /// <exception cref="IceGrid.NodeNotExistException">Thrown when the node doesn't exist.</exception>
         bool pingNode(
             string name,
@@ -1666,7 +1666,7 @@ namespace IceGrid
 
         /// <summary>Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.</summary>
+        /// where the <c>IceGrid.Node.ProcessorSocketCount</c> property for the node is not set.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The request context.</param>
         /// <returns>The number of processor sockets or 1 if the number of sockets can't be determined.</returns>
@@ -1678,7 +1678,7 @@ namespace IceGrid
 
         /// <summary>Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.</summary>
+        /// where the <c>IceGrid.Node.ProcessorSocketCount</c> property for the node is not set.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -1758,7 +1758,7 @@ namespace IceGrid
         /// <summary>Pings an IceGrid registry to see if it is active.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the registry ping succeeded, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the registry ping succeeded, <c>false</c> otherwise.</returns>
         /// <exception cref="IceGrid.RegistryNotExistException">Thrown when the registry doesn't exist.</exception>
         bool pingRegistry(
             string name,
@@ -5369,7 +5369,7 @@ namespace IceGrid
         /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
         /// newline character should be added when writing the last line to the to the output device).</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if EOF is encountered.</returns>
+        /// <returns><c>true</c> if EOF is encountered.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the implementation failed to read from the file.</exception>
         bool read(
             int size,
@@ -8240,7 +8240,7 @@ namespace IceGrid
         /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
         /// service deployment descriptor.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the server couldn't be deployed on the node.</exception>
@@ -8258,7 +8258,7 @@ namespace IceGrid
         /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
         /// service deployment descriptor.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8278,7 +8278,7 @@ namespace IceGrid
         /// <summary>Opens a server stderr file for reading.</summary>
         /// <param name="id">The server ID.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the server couldn't be deployed on the node.</exception>
@@ -8293,7 +8293,7 @@ namespace IceGrid
         /// <summary>Opens a server stderr file for reading.</summary>
         /// <param name="id">The server ID.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8312,7 +8312,7 @@ namespace IceGrid
         /// <summary>Opens a server stdout file for reading.</summary>
         /// <param name="id">The server id.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the server couldn't be deployed on the node.</exception>
@@ -8327,7 +8327,7 @@ namespace IceGrid
         /// <summary>Opens a server stdout file for reading.</summary>
         /// <param name="id">The server id.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8346,7 +8346,7 @@ namespace IceGrid
         /// <summary>Opens a node stderr file for reading.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -8360,7 +8360,7 @@ namespace IceGrid
         /// <summary>Opens a node stderr file for reading.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8378,7 +8378,7 @@ namespace IceGrid
         /// <summary>Opens a node stdout file for reading.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -8392,7 +8392,7 @@ namespace IceGrid
         /// <summary>Opens a node stdout file for reading.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8410,7 +8410,7 @@ namespace IceGrid
         /// <summary>Opens a registry stderr file for reading.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -8424,7 +8424,7 @@ namespace IceGrid
         /// <summary>Opens a registry stderr file for reading.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8442,7 +8442,7 @@ namespace IceGrid
         /// <summary>Opens a registry stdout file for reading.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -8456,7 +8456,7 @@ namespace IceGrid
         /// <summary>Opens a registry stdout file for reading.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -10193,7 +10193,7 @@ namespace IceGrid
         /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
         /// default.</summary>
         /// <param name="id">The server ID.</param>
-        /// <param name="enabled">`true` to enable the server, `false` to disable it.</param>
+        /// <param name="enabled"><c>true</c> to enable the server, <c>false</c> to disable it.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the deployment of the server failed.</exception>
         /// <exception cref="IceGrid.NodeUnreachableException">Thrown when the node is unreachable.</exception>
@@ -10219,7 +10219,7 @@ namespace IceGrid
         /// <summary>Checks if the server is enabled or disabled.</summary>
         /// <param name="id">The server ID.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the server is enabled, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the server is enabled, <c>false</c> otherwise.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the deployment of the server failed.</exception>
         /// <exception cref="IceGrid.NodeUnreachableException">Thrown when the node is unreachable.</exception>
         /// <exception cref="IceGrid.ServerNotExistException">Thrown when the server doesn't exist.</exception>
@@ -10346,8 +10346,8 @@ namespace IceGrid
         /// <summary>Gets adapter information for the replica group or adapter with the given ID.</summary>
         /// <param name="id">The adapter or replica group ID.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-        /// If @p id refers to a replica group, this sequence contains adapter information for each member of the
+        /// <returns>A sequence of AdapterInfo. If <paramref name="id"> refers to an adapter, this sequence contains a single element.
+        /// If <paramref name="id"> refers to a replica group, this sequence contains adapter information for each member of the
         /// replica group.</returns>
         /// <exception cref="IceGrid.AdapterNotExistException">Thrown when the adapter or replica group doesn't exist.</exception>
         AdapterInfo[] getAdapterInfo(string id, Ice.Current current);
@@ -10411,7 +10411,7 @@ namespace IceGrid
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        /// <summary>Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        /// <summary>Adds an object to the object registry. IceGrid gets the object type by calling <c>ice_id</c> on <paramref name="obj">. The
         /// object must be reachable.</summary>
         /// <param name="obj">A proxy to the object. This proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -10556,7 +10556,7 @@ namespace IceGrid
 
         /// <summary>Gets the object info of all the registered objects whose stringified identities match the given expression.</summary>
         /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        /// may contain a trailing wildcard (`*`) character.</param>
+        /// may contain a trailing wildcard (<c>*</c>) character.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
         ObjectInfo[] getAllObjectInfos(string expr, Ice.Current current);
@@ -10582,7 +10582,7 @@ namespace IceGrid
         /// <summary>Pings an IceGrid node to see if it is active.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the node ping succeeded, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the node ping succeeded, <c>false</c> otherwise.</returns>
         /// <exception cref="IceGrid.NodeNotExistException">Thrown when the node doesn't exist.</exception>
         bool pingNode(string name, Ice.Current current);
 
@@ -10684,7 +10684,7 @@ namespace IceGrid
 
         /// <summary>Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         /// Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        /// where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.</summary>
+        /// where the <c>IceGrid.Node.ProcessorSocketCount</c> property for the node is not set.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The number of processor sockets or 1 if the number of sockets can't be determined.</returns>
@@ -10780,7 +10780,7 @@ namespace IceGrid
         /// <summary>Pings an IceGrid registry to see if it is active.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the registry ping succeeded, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the registry ping succeeded, <c>false</c> otherwise.</returns>
         /// <exception cref="IceGrid.RegistryNotExistException">Thrown when the registry doesn't exist.</exception>
         bool pingRegistry(string name, Ice.Current current);
 
@@ -11089,7 +11089,7 @@ namespace IceGrid
         /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
         /// newline character should be added when writing the last line to the to the output device).</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if EOF is encountered.</returns>
+        /// <returns><c>true</c> if EOF is encountered.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the implementation failed to read from the file.</exception>
         bool read(int size, out string[] lines, Ice.Current current);
 
@@ -12010,7 +12010,7 @@ namespace IceGrid
         /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
         /// service deployment descriptor.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the server couldn't be deployed on the node.</exception>
@@ -12045,7 +12045,7 @@ namespace IceGrid
         /// <summary>Opens a server stderr file for reading.</summary>
         /// <param name="id">The server ID.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the server couldn't be deployed on the node.</exception>
@@ -12078,7 +12078,7 @@ namespace IceGrid
         /// <summary>Opens a server stdout file for reading.</summary>
         /// <param name="id">The server id.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.DeploymentException">Thrown when the server couldn't be deployed on the node.</exception>
@@ -12111,7 +12111,7 @@ namespace IceGrid
         /// <summary>Opens a node stderr file for reading.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -12143,7 +12143,7 @@ namespace IceGrid
         /// <summary>Opens a node stdout file for reading.</summary>
         /// <param name="name">The node name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -12175,7 +12175,7 @@ namespace IceGrid
         /// <summary>Opens a registry stderr file for reading.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>
@@ -12207,7 +12207,7 @@ namespace IceGrid
         /// <summary>Opens a registry stdout file for reading.</summary>
         /// <param name="name">The registry name.</param>
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the beginning.
-        /// Otherwise, the file is read from the last @p count lines.</param>
+        /// Otherwise, the file is read from the last <paramref name="count"> lines.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>An iterator to read the file. This proxy is never null.</returns>
         /// <exception cref="IceGrid.FileNotAvailableException">Thrown when the file can't be read.</exception>

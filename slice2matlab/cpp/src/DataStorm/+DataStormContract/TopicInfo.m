@@ -23,8 +23,8 @@ classdef (Sealed) TopicInfo
         
         % IDS The list of active topic reader or writer IDs.
         %
-        %   - In a publisher session,  the `ids` field contains the active topic writer IDs.
-        %   - In a subscriber session,  the `ids` field contains the active topic reader IDs.
+        %   - In a publisher session,  the |ids| field contains the active topic writer IDs.
+        %   - In a subscriber session,  the |ids| field contains the active topic reader IDs.
         %   int64 vector
         ids (1, :) int64
     end

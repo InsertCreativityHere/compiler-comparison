@@ -944,8 +944,8 @@ declare module "@zeroc/ice" {
              * @param id The adapter or replica group ID.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
-             * - __global_IceGrid.AdapterInfo[] : A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-             *   If @p id refers to a replica group, this sequence contains adapter information for each member of the
+             * - __global_IceGrid.AdapterInfo[] : A sequence of AdapterInfo. If `id` refers to an adapter, this sequence contains a single element.
+             *   If `id` refers to a replica group, this sequence contains adapter information for each member of the
              *   replica group.
              * @throws {@link IceGrid.AdapterNotExistException} Thrown when the adapter or replica group doesn't exist.
              */
@@ -970,7 +970,7 @@ declare module "@zeroc/ice" {
             getAllAdapterIds(context?: Map<string, string>): Ice.AsyncResult<string[]>;
 
             /**
-             * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+             * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on `obj`. The
              * object must be reachable.
              * @param obj A proxy to the object. This proxy is never null.
              * @param context The Context map to send with the invocation.
@@ -1461,8 +1461,8 @@ declare module "@zeroc/ice" {
              * @param id The adapter or replica group ID.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
-             * - __global_IceGrid.AdapterInfo[] : A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-             *   If @p id refers to a replica group, this sequence contains adapter information for each member of the
+             * - __global_IceGrid.AdapterInfo[] : A sequence of AdapterInfo. If `id` refers to an adapter, this sequence contains a single element.
+             *   If `id` refers to a replica group, this sequence contains adapter information for each member of the
              *   replica group.
              * @throws {@link IceGrid.AdapterNotExistException} Thrown when the adapter or replica group doesn't exist.
              */
@@ -1487,7 +1487,7 @@ declare module "@zeroc/ice" {
             abstract getAllAdapterIds(current: Ice.Current): PromiseLike<string[]> | string[];
 
             /**
-             * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+             * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on `obj`. The
              * object must be reachable.
              * @param obj A proxy to the object. This proxy is never null.
              * @param current The Current object for the dispatch.
@@ -2811,7 +2811,7 @@ declare module "@zeroc/ice" {
              * @param path The path of the log file. A log file can be opened only if it's declared in the server or
              * service deployment descriptor.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -2826,7 +2826,7 @@ declare module "@zeroc/ice" {
              * Opens a server stderr file for reading.
              * @param id The server ID.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -2841,7 +2841,7 @@ declare module "@zeroc/ice" {
              * Opens a server stdout file for reading.
              * @param id The server id.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -2856,7 +2856,7 @@ declare module "@zeroc/ice" {
              * Opens a node stderr file for reading.
              * @param name The node name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -2870,7 +2870,7 @@ declare module "@zeroc/ice" {
              * Opens a node stdout file for reading.
              * @param name The node name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -2884,7 +2884,7 @@ declare module "@zeroc/ice" {
              * Opens a registry stderr file for reading.
              * @param name The registry name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -2898,7 +2898,7 @@ declare module "@zeroc/ice" {
              * Opens a registry stdout file for reading.
              * @param name The registry name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param context The Context map to send with the invocation.
              * @returns An {@link Ice.AsyncResult} object representing the result of the invocation, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3032,7 +3032,7 @@ declare module "@zeroc/ice" {
              * @param path The path of the log file. A log file can be opened only if it's declared in the server or
              * service deployment descriptor.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3047,7 +3047,7 @@ declare module "@zeroc/ice" {
              * Opens a server stderr file for reading.
              * @param id The server ID.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3062,7 +3062,7 @@ declare module "@zeroc/ice" {
              * Opens a server stdout file for reading.
              * @param id The server id.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3077,7 +3077,7 @@ declare module "@zeroc/ice" {
              * Opens a node stderr file for reading.
              * @param name The node name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3091,7 +3091,7 @@ declare module "@zeroc/ice" {
              * Opens a node stdout file for reading.
              * @param name The node name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3105,7 +3105,7 @@ declare module "@zeroc/ice" {
              * Opens a registry stderr file for reading.
              * @param name The registry name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.
@@ -3119,7 +3119,7 @@ declare module "@zeroc/ice" {
              * Opens a registry stdout file for reading.
              * @param name The registry name.
              * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-             * Otherwise, the file is read from the last @p count lines.
+             * Otherwise, the file is read from the last `count` lines.
              * @param current The Current object for the dispatch.
              * @returns A promise like object representing the result of the dispatch, which resolves to:
              * - __global_IceGrid.FileIteratorPrx | null : An iterator to read the file. This proxy is never null.

@@ -19,8 +19,8 @@ public final class TopicInfo implements java.lang.Cloneable, java.io.Serializabl
     /**
      * The list of active topic reader or writer IDs.
      *
-     * - In a publisher session,  the `ids` field contains the active topic writer IDs.
-     * - In a subscriber session,  the `ids` field contains the active topic reader IDs.
+     * - In a publisher session,  the {@code ids} field contains the active topic writer IDs.
+     * - In a subscriber session,  the {@code ids} field contains the active topic reader IDs.
      */
     public long[] ids;
 

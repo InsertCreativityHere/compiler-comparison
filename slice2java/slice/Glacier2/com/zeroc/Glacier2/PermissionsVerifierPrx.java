@@ -17,7 +17,7 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx {
      * @param password The user's password.
      * @return An instance of PermissionsVerifier.CheckPermissionsResult.
      * @throws com.zeroc.Glacier2.PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-     * instead of returning `false` with a reason set in the reason out parameter.
+     * instead of returning {@code false} with a reason set in the reason out parameter.
      */
     default PermissionsVerifier.CheckPermissionsResult checkPermissions(java.lang.String userId, java.lang.String password)
         throws PermissionDeniedException {
@@ -31,7 +31,7 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx {
      * @param context The Context map to send with the invocation.
      * @return An instance of PermissionsVerifier.CheckPermissionsResult.
      * @throws com.zeroc.Glacier2.PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-     * instead of returning `false` with a reason set in the reason out parameter.
+     * instead of returning {@code false} with a reason set in the reason out parameter.
      */
     default PermissionsVerifier.CheckPermissionsResult checkPermissions(java.lang.String userId, java.lang.String password, java.util.Map<java.lang.String, java.lang.String> context)
         throws PermissionDeniedException {

@@ -546,7 +546,7 @@ public extension InputStream {
 ///  - getLog: Retrieves log messages recently logged.
 ///  - getLogAsync: Retrieves log messages recently logged.
 public extension LoggerAdminPrx {
-    /// Attaches a RemoteLogger object to the local logger. This operation calls ``RemoteLoggerPrx/initialize(prefix:logMessages:context:)`` on @p prx.
+    /// Attaches a RemoteLogger object to the local logger. This operation calls ``RemoteLoggerPrx/initialize(prefix:logMessages:context:)`` on `prx`.
     ///
     /// - Parameters:
     ///   - iceP_prx: A proxy to the remote logger.
@@ -661,7 +661,7 @@ public protocol RemoteLogger: Dispatcher {
 /// Represents the admin facet that allows an Ice application the attach its ``RemoteLoggerPrx`` to the local
 /// logger of an Ice communicator.
 public protocol LoggerAdmin: Dispatcher {
-    /// Attaches a RemoteLogger object to the local logger. This operation calls ``RemoteLoggerPrx/initialize(prefix:logMessages:context:)`` on @p prx.
+    /// Attaches a RemoteLogger object to the local logger. This operation calls ``RemoteLoggerPrx/initialize(prefix:logMessages:context:)`` on `prx`.
     ///
     /// - Parameters:
     ///   - prx: A proxy to the remote logger.

@@ -15,7 +15,7 @@ public interface ServiceManager extends com.zeroc.Ice.Object {
      * @param service The service name.
      * @param current The Current object of the incoming request.
      * @throws com.zeroc.IceBox.AlreadyStartedException Thrown when the service is already running.
-     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named {@code service}.
      */
     void startService(java.lang.String service, com.zeroc.Ice.Current current)
         throws AlreadyStartedException, NoSuchServiceException;
@@ -25,7 +25,7 @@ public interface ServiceManager extends com.zeroc.Ice.Object {
      * @param service The service name.
      * @param current The Current object of the incoming request.
      * @throws com.zeroc.IceBox.AlreadyStoppedException Thrown when the service is already stopped.
-     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named {@code service}.
      */
     void stopService(java.lang.String service, com.zeroc.Ice.Current current)
         throws AlreadyStoppedException, NoSuchServiceException;

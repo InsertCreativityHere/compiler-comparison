@@ -499,7 +499,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %       service deployment descriptor.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -542,7 +542,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %       service deployment descriptor.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -581,7 +581,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     id - The server ID.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -619,7 +619,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     id - The server ID.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -656,7 +656,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     id - The server id.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -694,7 +694,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     id - The server id.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -731,7 +731,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The node name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -768,7 +768,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The node name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -805,7 +805,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The node name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -842,7 +842,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The node name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -879,7 +879,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The registry name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -916,7 +916,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The registry name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -953,7 +953,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The registry name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -990,7 +990,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     name - The registry name.
             %       character vector
             %     count - Specifies where to start reading the file. If negative, the file is read from the beginning.
-            %       Otherwise, the file is read from the last @p count lines.
+            %       Otherwise, the file is read from the last |count| lines.
             %       int32 scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar

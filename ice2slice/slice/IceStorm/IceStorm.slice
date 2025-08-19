@@ -68,12 +68,12 @@ interface Topic {
     /// @param theQoS: The quality of service parameters for this subscription.
     /// @param subscriber: The subscriber's proxy. This proxy is never null.
     /// @returns: The per-subscriber publisher proxy. This proxy is never null.
-    /// @throws AlreadySubscribed: Thrown when @p subscriber is already subscribed.
-    /// @throws BadQoS: Thrown when @p theQoS is unavailable or invalid.
+    /// @throws AlreadySubscribed: Thrown when `subscriber` is already subscribed.
+    /// @throws BadQoS: Thrown when `theQoS` is unavailable or invalid.
     /// @see unsubscribe
     subscribeAndGetPublisher(theQoS: QoS, subscriber: IceRpc::ServiceAddress?) -> IceRpc::ServiceAddress? throws (AlreadySubscribed, BadQoS)
 
-    /// Unsubscribes the provided @p subscriber from this topic.
+    /// Unsubscribes the provided `subscriber` from this topic.
     /// @param subscriber: A proxy to an existing subscriber. This proxy is never null.
     /// @see subscribeAndGetPublisher
     idempotent unsubscribe(subscriber: IceRpc::ServiceAddress?)
@@ -81,12 +81,12 @@ interface Topic {
     /// Creates a link to another topic. All events originating on this topic will also be sent to the other topic.
     /// @param linkTo: The topic to link to. This proxy is never null.
     /// @param cost: The cost of the link.
-    /// @throws LinkExists: Thrown when a link to @p linkTo already exists.
+    /// @throws LinkExists: Thrown when a link to `linkTo` already exists.
     link(linkTo: TopicProxy?, cost: int32) throws LinkExists
 
     /// Destroys a link from this topic to the provided topic.
     /// @param linkTo: The topic to destroy the link to. This proxy is never null.
-    /// @throws NoSuchLink: Thrown when a link to @p linkTo does not exist.
+    /// @throws NoSuchLink: Thrown when a link to `linkTo` does not exist.
     unlink(linkTo: TopicProxy?) throws NoSuchLink
 
     /// Gets information on the current links.
@@ -131,7 +131,7 @@ interface TopicManager {
     /// Retrieves a topic by name.
     /// @param name: The name of the topic.
     /// @returns: A proxy to the topic object. The returned proxy is never null.
-    /// @throws NoSuchTopic: Thrown when there is no topic named @p name.
+    /// @throws NoSuchTopic: Thrown when there is no topic named `name`.
     idempotent retrieve(name: string) -> TopicProxy? throws NoSuchTopic
 
     /// Retrieves all topics managed by this topic manager.

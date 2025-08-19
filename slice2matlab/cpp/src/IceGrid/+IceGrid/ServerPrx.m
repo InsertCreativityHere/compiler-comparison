@@ -128,7 +128,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the server is inactive.
+            %     returnValue - |true| if the server is inactive.
             %       logical scalar
             %
             %   Exceptions

@@ -31,7 +31,7 @@ classdef TopicPrx < Ice.ObjectPrx
     %     subscribeAndGetPublisherAsync - An asynchronous subscribeAndGetPublisher.
     %     unlink - Destroys a link from this topic to the provided topic.
     %     unlinkAsync - An asynchronous unlink.
-    %     unsubscribe - Unsubscribes the provided @p subscriber from this topic.
+    %     unsubscribe - Unsubscribes the provided |subscriber| from this topic.
     %     unsubscribeAsync - An asynchronous unsubscribe.
     %
     %   TopicPrx Static Methods:
@@ -210,8 +210,8 @@ classdef TopicPrx < Ice.ObjectPrx
             %       Ice.ObjectPrx scalar | empty array of Ice.ObjectPrx
             %
             %   Exceptions
-            %     IceStorm.AlreadySubscribed - Thrown when @p subscriber is already subscribed.
-            %     IceStorm.BadQoS - Thrown when @p theQoS is unavailable or invalid.
+            %     IceStorm.AlreadySubscribed - Thrown when |subscriber| is already subscribed.
+            %     IceStorm.BadQoS - Thrown when |theQoS| is unavailable or invalid.
             %
             %   See also unsubscribe
             
@@ -270,7 +270,7 @@ classdef TopicPrx < Ice.ObjectPrx
         end
 
         function unsubscribe(obj, subscriber, context)
-            %UNSUBSCRIBE Unsubscribes the provided @p subscriber from this topic.
+            %UNSUBSCRIBE Unsubscribes the provided |subscriber| from this topic.
             %
             %   Input Arguments
             %     subscriber - A proxy to an existing subscriber. This proxy is never null.
@@ -292,7 +292,7 @@ classdef TopicPrx < Ice.ObjectPrx
         end
 
         function future = unsubscribeAsync(obj, subscriber, context)
-            %UNSUBSCRIBEASYNC Unsubscribes the provided @p subscriber from this topic.
+            %UNSUBSCRIBEASYNC Unsubscribes the provided |subscriber| from this topic.
             %
             %   Input Arguments
             %     subscriber - A proxy to an existing subscriber. This proxy is never null.
@@ -331,7 +331,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Exceptions
-            %     IceStorm.LinkExists - Thrown when a link to @p linkTo already exists.
+            %     IceStorm.LinkExists - Thrown when a link to |linkTo| already exists.
             
             arguments
                 obj (1, 1) IceStorm.TopicPrx
@@ -386,7 +386,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Exceptions
-            %     IceStorm.NoSuchLink - Thrown when a link to @p linkTo does not exist.
+            %     IceStorm.NoSuchLink - Thrown when a link to |linkTo| does not exist.
             
             arguments
                 obj (1, 1) IceStorm.TopicPrx

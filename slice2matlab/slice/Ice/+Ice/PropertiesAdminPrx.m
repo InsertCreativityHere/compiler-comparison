@@ -12,7 +12,7 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
     %         character vector
     %
     %   PropertiesAdminPrx Methods:
-    %     getPropertiesForPrefix - Gets all properties whose keys begin with @p prefix.
+    %     getPropertiesForPrefix - Gets all properties whose keys begin with |prefix|.
     %     getPropertiesForPrefixAsync - An asynchronous getPropertiesForPrefix.
     %     getProperty - Gets a property by key.
     %     getPropertyAsync - An asynchronous getProperty.
@@ -86,7 +86,7 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
         end
 
         function returnValue = getPropertiesForPrefix(obj, prefix, context)
-            %GETPROPERTIESFORPREFIX Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+            %GETPROPERTIESFORPREFIX Gets all properties whose keys begin with |prefix|. If |prefix| is the empty string then all properties
             %   are returned.
             %
             %   Input Arguments
@@ -114,7 +114,7 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
         end
 
         function future = getPropertiesForPrefixAsync(obj, prefix, context)
-            %GETPROPERTIESFORPREFIXASYNC Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+            %GETPROPERTIESFORPREFIXASYNC Gets all properties whose keys begin with |prefix|. If |prefix| is the empty string then all properties
             %   are returned.
             %
             %   Input Arguments
@@ -147,10 +147,10 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
         end
 
         function setProperties(obj, newProperties, context)
-            %SETPROPERTIES Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+            %SETPROPERTIES Updates the communicator's properties with the given property set. If an entry in |newProperties| matches
             %   the name of an existing property, that property's value is replaced with the new value. If the new value is
             %   the empty string, the property is removed. Existing properties that are not modified or removed by the
-            %   entries in @p newProperties are not affected by this update.
+            %   entries in |newProperties| are not affected by this update.
             %
             %   Input Arguments
             %     newProperties - Properties to add, change, or remove.
@@ -170,10 +170,10 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
         end
 
         function future = setPropertiesAsync(obj, newProperties, context)
-            %SETPROPERTIESASYNC Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+            %SETPROPERTIESASYNC Updates the communicator's properties with the given property set. If an entry in |newProperties| matches
             %   the name of an existing property, that property's value is replaced with the new value. If the new value is
             %   the empty string, the property is removed. Existing properties that are not modified or removed by the
-            %   entries in @p newProperties are not affected by this update.
+            %   entries in |newProperties| are not affected by this update.
             %
             %   Input Arguments
             %     newProperties - Properties to add, change, or remove.

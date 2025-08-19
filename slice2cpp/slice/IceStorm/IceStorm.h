@@ -525,10 +525,10 @@ namespace IceStorm
     };
 
     /// Provides access to a TopicManagerPrx object via a fixed identity.
-    /// An IceStorm Finder is always registered with identity `IceStorm/Finder`. This allows clients to obtain the
+    /// An IceStorm Finder is always registered with identity <tt>IceStorm/Finder</tt>. This allows clients to obtain the
     /// associated TopicManager proxy with just the endpoint information of the object. For example, you can use the
-    /// Finder proxy `IceStorm/Finder:tcp -h somehost -p 4061` to get the TopicManager proxy
-    /// `MyIceStorm/TopicManager:tcp -h somehost -p 4061`.
+    /// Finder proxy <tt>IceStorm/Finder:tcp -h somehost -p 4061</tt> to get the TopicManager proxy
+    /// <tt>MyIceStorm/TopicManager:tcp -h somehost -p 4061</tt>.
     /// @headerfile IceStorm/IceStorm.h
     class ICESTORM_API FinderPrx : public Ice::Proxy<FinderPrx, Ice::ObjectPrx>
     {
@@ -1078,10 +1078,10 @@ namespace IceStorm
     using TopicManagerPtr = std::shared_ptr<TopicManager>;
 
     /// Provides access to a TopicManagerPrx object via a fixed identity.
-    /// An IceStorm Finder is always registered with identity `IceStorm/Finder`. This allows clients to obtain the
+    /// An IceStorm Finder is always registered with identity <tt>IceStorm/Finder</tt>. This allows clients to obtain the
     /// associated TopicManager proxy with just the endpoint information of the object. For example, you can use the
-    /// Finder proxy `IceStorm/Finder:tcp -h somehost -p 4061` to get the TopicManager proxy
-    /// `MyIceStorm/TopicManager:tcp -h somehost -p 4061`.
+    /// Finder proxy <tt>IceStorm/Finder:tcp -h somehost -p 4061</tt> to get the TopicManager proxy
+    /// <tt>MyIceStorm/TopicManager:tcp -h somehost -p 4061</tt>.
     /// @headerfile IceStorm/IceStorm.h
     class ICESTORM_API Finder : public virtual Ice::Object
     {

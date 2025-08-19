@@ -16,7 +16,7 @@
 namespace IceGrid
 {
     /// <summary>Represents a session object used by IceGrid clients to allocate and release objects. Client sessions are created
-    /// either via the <see cref="RegistryPrx" /> object or via the registry client `SessionManager` object.</summary>
+    /// either via the <see cref="RegistryPrx" /> object or via the registry client <c>SessionManager</c> object.</summary>
     /// <remarks>The Slice compiler generated this client-side interface from Slice interface <c>::IceGrid::Session</c>.
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>Session</c>.</remarks>
     public partial interface SessionPrx : global::Glacier2.SessionPrx
@@ -640,7 +640,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>Represents a session object used by IceGrid clients to allocate and release objects. Client sessions are created
-    /// either via the <see cref="RegistryPrx" /> object or via the registry client `SessionManager` object.</summary>
+    /// either via the <see cref="RegistryPrx" /> object or via the registry client <c>SessionManager</c> object.</summary>
     /// <remarks>The Slice compiler generated this server-side interface from Slice interface <c>::IceGrid::Session</c>.
     /// Your servant class implements this interface by deriving from <see cref="SessionDisp_" /> or from the Disp_ class for a derived interface.</remarks>
     [Ice.SliceTypeId("::IceGrid::Session")]

@@ -1323,7 +1323,7 @@ namespace IceGrid
 
         /// <summary>Check if the given server can be loaded on this node.</summary>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the server is inactive.</returns>
+        /// <returns><c>true</c> if the server is inactive.</returns>
         /// <exception cref="IceGrid.DeploymentException">Raised if the server can't be updated.</exception>
         bool checkUpdate(
             InternalServerDescriptor? svr,
@@ -7911,7 +7911,7 @@ namespace IceGrid
 
         /// <summary>Check if the given server can be loaded on this node.</summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the server is inactive.</returns>
+        /// <returns><c>true</c> if the server is inactive.</returns>
         /// <exception cref="IceGrid.DeploymentException">Raised if the server can't be updated.</exception>
         bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, Ice.Current current);
 

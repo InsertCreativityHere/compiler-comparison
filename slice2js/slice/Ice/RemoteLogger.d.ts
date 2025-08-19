@@ -278,7 +278,7 @@ declare module "@zeroc/ice" {
             constructor(communicator: Ice.Communicator, proxyString: string);
 
             /**
-             * Attaches a RemoteLogger object to the local logger. This operation calls {@link Ice.RemoteLoggerPrx.init} on @p prx.
+             * Attaches a RemoteLogger object to the local logger. This operation calls {@link Ice.RemoteLoggerPrx.init} on `prx`.
              * @param prx A proxy to the remote logger.
              * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
              * no filtering (send all message types).
@@ -352,7 +352,7 @@ declare module "@zeroc/ice" {
          */
         export abstract class LoggerAdmin extends Ice.Object {
             /**
-             * Attaches a RemoteLogger object to the local logger. This operation calls {@link Ice.RemoteLoggerPrx.init} on @p prx.
+             * Attaches a RemoteLogger object to the local logger. This operation calls {@link Ice.RemoteLoggerPrx.init} on `prx`.
              * @param prx A proxy to the remote logger.
              * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
              * no filtering (send all message types).

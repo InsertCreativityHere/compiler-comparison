@@ -150,7 +150,7 @@ namespace IceGrid
         /// <summary>Finds all the replicas of a well-known object.</summary>
         /// <param name="proxy">A proxy that identifies the well-known object.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.</returns>
+        /// <returns>A list of proxies  to the replicas of the well-known object specified by <paramref name="proxy">. Can be empty.</returns>
         Ice.ObjectPrx?[] findAllReplicas(
             Ice.ObjectPrx? proxy,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1751,7 +1751,7 @@ namespace IceGrid
         /// <summary>Finds all the replicas of a well-known object.</summary>
         /// <param name="proxy">A proxy that identifies the well-known object.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.</returns>
+        /// <returns>A list of proxies  to the replicas of the well-known object specified by <paramref name="proxy">. Can be empty.</returns>
         Ice.ObjectPrx?[] findAllReplicas(Ice.ObjectPrx? proxy, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

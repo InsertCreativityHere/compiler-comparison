@@ -254,7 +254,7 @@ class SessionPrx(ObjectPrx):
         Announces elements associated with a topic to the peer.
         
         This operation informs the peer about new data readers or data writers associated with the specified topic.
-        The receiving peer will invoke `attachElements` for any elements it is interested in.
+        The receiving peer will invoke ``attachElements`` for any elements it is interested in.
         
         - A publisher session announces its data writers.
         - A subscriber session announces its data readers.
@@ -275,7 +275,7 @@ class SessionPrx(ObjectPrx):
         Announces elements associated with a topic to the peer.
         
         This operation informs the peer about new data readers or data writers associated with the specified topic.
-        The receiving peer will invoke `attachElements` for any elements it is interested in.
+        The receiving peer will invoke ``attachElements`` for any elements it is interested in.
         
         - A publisher session announces its data writers.
         - A subscriber session announces its data readers.
@@ -308,7 +308,7 @@ class SessionPrx(ObjectPrx):
         topicId : int
             The unique identifier for the topic to which the elements belong.
         elements : Sequence[ElementSpec]
-            The sequence of `ElementSpec` objects representing the elements to attach.
+            The sequence of ``ElementSpec`` objects representing the elements to attach.
         initialize : bool
             Indicates whether the elements are being attached during session initialization.
         context : dict[str, str]
@@ -328,7 +328,7 @@ class SessionPrx(ObjectPrx):
         topicId : int
             The unique identifier for the topic to which the elements belong.
         elements : Sequence[ElementSpec]
-            The sequence of `ElementSpec` objects representing the elements to attach.
+            The sequence of ``ElementSpec`` objects representing the elements to attach.
         initialize : bool
             Indicates whether the elements are being attached during session initialization.
         context : dict[str, str]
@@ -353,7 +353,7 @@ class SessionPrx(ObjectPrx):
         topicId : int
             The unique identifier for the topic to which the elements belong.
         elements : Sequence[ElementSpecAck]
-            A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            A sequence of ``ElementSpecAck`` objects representing the confirmed attachments.
         context : dict[str, str]
             The request context for the invocation.
         """
@@ -371,7 +371,7 @@ class SessionPrx(ObjectPrx):
         topicId : int
             The unique identifier for the topic to which the elements belong.
         elements : Sequence[ElementSpecAck]
-            A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            A sequence of ``ElementSpecAck`` objects representing the confirmed attachments.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -432,7 +432,7 @@ class SessionPrx(ObjectPrx):
         topicId : int
             The unique identifier for the topic.
         samples : Sequence[DataSamples]
-            A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            A sequence of ``DataSamples`` containing the queued samples to initialize the subscriber.
         context : dict[str, str]
             The request context for the invocation.
         """
@@ -447,7 +447,7 @@ class SessionPrx(ObjectPrx):
         topicId : int
             The unique identifier for the topic.
         samples : Sequence[DataSamples]
-            A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            A sequence of ``DataSamples`` containing the queued samples to initialize the subscriber.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -669,7 +669,7 @@ class Session(Object, ABC):
         Announces elements associated with a topic to the peer.
         
         This operation informs the peer about new data readers or data writers associated with the specified topic.
-        The receiving peer will invoke `attachElements` for any elements it is interested in.
+        The receiving peer will invoke ``attachElements`` for any elements it is interested in.
         
         - A publisher session announces its data writers.
         - A subscriber session announces its data readers.
@@ -703,7 +703,7 @@ class Session(Object, ABC):
         topicId : int
             The unique identifier for the topic to which the elements belong.
         elements : list[ElementSpec]
-            The sequence of `ElementSpec` objects representing the elements to attach.
+            The sequence of ``ElementSpec`` objects representing the elements to attach.
         initialize : bool
             Indicates whether the elements are being attached during session initialization.
         current : Ice.Current
@@ -729,7 +729,7 @@ class Session(Object, ABC):
         topicId : int
             The unique identifier for the topic to which the elements belong.
         elements : list[ElementSpecAck]
-            A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            A sequence of ``ElementSpecAck`` objects representing the confirmed attachments.
         current : Ice.Current
             The Current object for the dispatch.
         
@@ -774,7 +774,7 @@ class Session(Object, ABC):
         topicId : int
             The unique identifier for the topic.
         samples : list[DataSamples]
-            A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            A sequence of ``DataSamples`` containing the queued samples to initialize the subscriber.
         current : Ice.Current
             The Current object for the dispatch.
         

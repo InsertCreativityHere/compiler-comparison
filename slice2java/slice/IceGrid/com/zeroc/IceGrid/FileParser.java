@@ -6,7 +6,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * `icegridadmin` provides a {@link FileParserPrx} object to transform XML files into {@link ApplicationDescriptor}
+ * {@code icegridadmin} provides a {@link FileParserPrx} object to transform XML files into {@link ApplicationDescriptor}
  * objects.
  */
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::FileParser")

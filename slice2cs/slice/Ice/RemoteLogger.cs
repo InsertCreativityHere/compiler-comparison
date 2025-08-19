@@ -502,7 +502,7 @@ namespace Ice
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>LoggerAdmin</c>.</remarks>
     public partial interface LoggerAdminPrx : Ice.ObjectPrx
     {
-        /// <summary>Attaches a RemoteLogger object to the local logger. This operation calls <see cref="global::Ice.RemoteLoggerPrx.init" /> on @p prx.</summary>
+        /// <summary>Attaches a RemoteLogger object to the local logger. This operation calls <see cref="global::Ice.RemoteLoggerPrx.init" /> on <paramref name="prx">.</summary>
         /// <param name="prx">A proxy to the remote logger.</param>
         /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
         /// no filtering (send all message types).</param>
@@ -521,7 +521,7 @@ namespace Ice
             int messageMax,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        /// <summary>Attaches a RemoteLogger object to the local logger. This operation calls <see cref="global::Ice.RemoteLoggerPrx.init" /> on @p prx.</summary>
+        /// <summary>Attaches a RemoteLogger object to the local logger. This operation calls <see cref="global::Ice.RemoteLoggerPrx.init" /> on <paramref name="prx">.</summary>
         /// <param name="prx">A proxy to the remote logger.</param>
         /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
         /// no filtering (send all message types).</param>
@@ -548,7 +548,7 @@ namespace Ice
         /// <summary>Detaches a RemoteLogger object from the local logger.</summary>
         /// <param name="prx">A proxy to the remote logger.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the provided remote logger proxy was detached, and `false` otherwise.</returns>
+        /// <returns><c>true</c> if the provided remote logger proxy was detached, and <c>false</c> otherwise.</returns>
         bool detachRemoteLogger(
             RemoteLoggerPrx? prx,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1036,7 +1036,7 @@ namespace Ice
     [Ice.SliceTypeId("::Ice::LoggerAdmin")]
     public partial interface LoggerAdmin : Ice.Object
     {
-        /// <summary>Attaches a RemoteLogger object to the local logger. This operation calls <see cref="global::Ice.RemoteLoggerPrx.init" /> on @p prx.</summary>
+        /// <summary>Attaches a RemoteLogger object to the local logger. This operation calls <see cref="global::Ice.RemoteLoggerPrx.init" /> on <paramref name="prx">.</summary>
         /// <param name="prx">A proxy to the remote logger.</param>
         /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
         /// no filtering (send all message types).</param>
@@ -1074,7 +1074,7 @@ namespace Ice
         /// <summary>Detaches a RemoteLogger object from the local logger.</summary>
         /// <param name="prx">A proxy to the remote logger.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the provided remote logger proxy was detached, and `false` otherwise.</returns>
+        /// <returns><c>true</c> if the provided remote logger proxy was detached, and <c>false</c> otherwise.</returns>
         bool detachRemoteLogger(RemoteLoggerPrx? prx, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

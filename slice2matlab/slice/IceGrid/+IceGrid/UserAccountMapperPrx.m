@@ -1,6 +1,6 @@
 classdef UserAccountMapperPrx < Ice.ObjectPrx
     %USERACCOUNTMAPPERPRX Maps user strings in server descriptors to actual user account names. You can configure the user account mapper
-    %   of an IceGrid node with the property `IceGrid.Node.UserAccountMapper`.
+    %   of an IceGrid node with the property |IceGrid.Node.UserAccountMapper|.
     %
     %   Creation
     %     Syntax
@@ -28,8 +28,8 @@ classdef UserAccountMapperPrx < Ice.ObjectPrx
             %   account to use to run servers.
             %
             %   Input Arguments
-            %     user - The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-            %       the server's activation mode is `session`, the default value for `user` is the session identifier.
+            %     user - The value of the server descriptor's |user| attribute. When this attribute is not defined, and
+            %       the server's activation mode is |session|, the default value for |user| is the session identifier.
             %       character vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -60,8 +60,8 @@ classdef UserAccountMapperPrx < Ice.ObjectPrx
             %   account to use to run servers.
             %
             %   Input Arguments
-            %     user - The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-            %       the server's activation mode is `session`, the default value for `user` is the session identifier.
+            %     user - The value of the server descriptor's |user| attribute. When this attribute is not defined, and
+            %       the server's activation mode is |session|, the default value for |user| is the session identifier.
             %       character vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar

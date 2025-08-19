@@ -35,12 +35,12 @@ public final class AdapterDescriptor implements java.lang.Cloneable, java.io.Ser
     public java.lang.String priority;
 
     /**
-     * When `true`, the object adapter registers a process object.
+     * When {@code true}, the object adapter registers a process object.
      */
     public boolean registerProcess;
 
     /**
-     * When `true`, the lifetime of this object adapter is the same of the server lifetime. This information is
+     * When {@code true}, the lifetime of this object adapter is the same of the server lifetime. This information is
      * used by the IceGrid node to figure out the server state: the server is active when all its "server lifetime"
      * adapters are active.
      */
@@ -75,8 +75,8 @@ public final class AdapterDescriptor implements java.lang.Cloneable, java.io.Ser
      * @param id The adapter ID.
      * @param replicaGroupId The replica group ID.
      * @param priority The adapter priority.
-     * @param registerProcess When `true`, the object adapter registers a process object.
-     * @param serverLifetime When `true`, the lifetime of this object adapter is the same of the server lifetime.
+     * @param registerProcess When {@code true}, the object adapter registers a process object.
+     * @param serverLifetime When {@code true}, the lifetime of this object adapter is the same of the server lifetime.
      * @param objects The descriptors of well-known objects.
      * @param allocatables The descriptors of allocatable objects
      */

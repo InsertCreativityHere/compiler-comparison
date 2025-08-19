@@ -1,5 +1,5 @@
 classdef FileParserPrx < Ice.ObjectPrx
-    %FILEPARSERPRX `icegridadmin` provides a <a href="matlab:help IceGrid.FileParserPrx -displayBanner">FileParserPrx</a> object to transform XML files into <a href="matlab:help IceGrid.ApplicationDescriptor -displayBanner">ApplicationDescriptor</a>
+    %FILEPARSERPRX |icegridadmin| provides a <a href="matlab:help IceGrid.FileParserPrx -displayBanner">FileParserPrx</a> object to transform XML files into <a href="matlab:help IceGrid.ApplicationDescriptor -displayBanner">ApplicationDescriptor</a>
     %   objects.
     %
     %   Creation

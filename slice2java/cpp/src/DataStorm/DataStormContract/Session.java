@@ -74,7 +74,7 @@ public interface Session extends com.zeroc.Ice.Object {
      * Announces elements associated with a topic to the peer.
      *
      * This operation informs the peer about new data readers or data writers associated with the specified topic.
-     * The receiving peer will invoke `attachElements` for any elements it is interested in.
+     * The receiving peer will invoke {@code attachElements} for any elements it is interested in.
      *
      * - A publisher session announces its data writers.
      * - A subscriber session announces its data readers.
@@ -92,7 +92,7 @@ public interface Session extends com.zeroc.Ice.Object {
      * This operation associates the provided elements, such as keys or filters, with the subscribers of the given
      * topic.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+     * @param elements The sequence of {@code ElementSpec} objects representing the elements to attach.
      * @param initialize Indicates whether the elements are being attached during session initialization.
      * @param current The Current object of the incoming request.
      */
@@ -104,7 +104,7 @@ public interface Session extends com.zeroc.Ice.Object {
      * This method confirms that the specified elements, such as keys or filters, have been successfully attached
      * to the session.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+     * @param elements A sequence of {@code ElementSpecAck} objects representing the confirmed attachments.
      * @param current The Current object of the incoming request.
      */
     void attachElementsAck(long topicId, ElementSpecAck[] elements, com.zeroc.Ice.Current current);
@@ -123,7 +123,7 @@ public interface Session extends com.zeroc.Ice.Object {
     /**
      * Initializes the subscriber with the publisher queued samples for a topic during session establishment.
      * @param topicId The unique identifier for the topic.
-     * @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+     * @param samples A sequence of {@code DataSamples} containing the queued samples to initialize the subscriber.
      * @param current The Current object of the incoming request.
      */
     void initSamples(long topicId, DataSamples[] samples, com.zeroc.Ice.Current current);

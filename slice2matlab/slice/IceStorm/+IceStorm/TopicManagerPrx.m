@@ -104,7 +104,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             %       IceStorm.TopicPrx scalar | empty array of IceStorm.TopicPrx
             %
             %   Exceptions
-            %     IceStorm.NoSuchTopic - Thrown when there is no topic named @p name.
+            %     IceStorm.NoSuchTopic - Thrown when there is no topic named |name|.
             
             arguments
                 obj (1, 1) IceStorm.TopicManagerPrx

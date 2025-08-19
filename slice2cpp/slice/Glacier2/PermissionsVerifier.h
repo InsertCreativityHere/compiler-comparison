@@ -86,9 +86,9 @@ namespace Glacier2
         /// @param password The user's password.
         /// @param[out] reason The reason why access was denied.
         /// @param context The request context.
-        /// @return `true` if access is granted, `false` otherwise.
+        /// @return <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// @throws Glacier2::PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.
+        /// instead of returning <tt>false</tt> with a reason set in the reason out parameter.
         bool checkPermissions(std::string_view userId, std::string_view password, std::string& reason, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Checks if a user is authorized to establish a session.
@@ -96,7 +96,7 @@ namespace Glacier2
         /// @param password The user's password.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `returnValue` `true` if access is granted, `false` otherwise.
+        /// - `returnValue` <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// - `reason` The reason why access was denied.
         [[nodiscard]] std::future<std::tuple<bool, std::string>> checkPermissionsAsync(std::string_view userId, std::string_view password, const Ice::Context& context = Ice::noExplicitContext) const;
 
@@ -104,7 +104,7 @@ namespace Glacier2
         /// @param userId The user ID.
         /// @param password The user's password.
         /// @param response The response callback. It accepts:
-        /// - `returnValue` `true` if access is granted, `false` otherwise.
+        /// - `returnValue` <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// - `reason` The reason why access was denied.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
@@ -181,23 +181,23 @@ namespace Glacier2
         /// @param info The SSL information.
         /// @param[out] reason The reason why access was denied.
         /// @param context The request context.
-        /// @return `true` if access is granted, `false` otherwise.
+        /// @return <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// @throws Glacier2::PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.
+        /// instead of returning <tt>false</tt> with a reason set in the reason out parameter.
         bool authorize(const SSLInfo& info, std::string& reason, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Checks if a user is authorized to establish a session.
         /// @param info The SSL information.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `returnValue` `true` if access is granted, `false` otherwise.
+        /// - `returnValue` <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// - `reason` The reason why access was denied.
         [[nodiscard]] std::future<std::tuple<bool, std::string>> authorizeAsync(const SSLInfo& info, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Checks if a user is authorized to establish a session.
         /// @param info The SSL information.
         /// @param response The response callback. It accepts:
-        /// - `returnValue` `true` if access is granted, `false` otherwise.
+        /// - `returnValue` <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// - `reason` The reason why access was denied.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
@@ -300,9 +300,9 @@ namespace Glacier2
         /// @param password The user's password.
         /// @param[out] reason The reason why access was denied.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if access is granted, `false` otherwise.
+        /// @return <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// @throws Glacier2::PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.
+        /// instead of returning <tt>false</tt> with a reason set in the reason out parameter.
         virtual bool checkPermissions(std::string userId, std::string password, std::string& reason, const Ice::Current& current) const = 0;
 
         /// @private
@@ -338,9 +338,9 @@ namespace Glacier2
         /// @param info The SSL information.
         /// @param[out] reason The reason why access was denied.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if access is granted, `false` otherwise.
+        /// @return <tt>true</tt> if access is granted, <tt>false</tt> otherwise.
         /// @throws Glacier2::PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.
+        /// instead of returning <tt>false</tt> with a reason set in the reason out parameter.
         virtual bool authorize(SSLInfo info, std::string& reason, const Ice::Current& current) const = 0;
 
         /// @private

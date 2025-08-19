@@ -115,7 +115,7 @@ public interface ServerPrx extends FileReaderPrx {
 
     /**
      * Check if the given server can be loaded on this node.
-     * @return `true` if the server is inactive.
+     * @return {@code true} if the server is inactive.
      * @throws com.zeroc.IceGrid.DeploymentException Raised if the server can't be updated.
      */
     default boolean checkUpdate(InternalServerDescriptor svr, boolean noRestart)
@@ -126,7 +126,7 @@ public interface ServerPrx extends FileReaderPrx {
     /**
      * Check if the given server can be loaded on this node.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the server is inactive.
+     * @return {@code true} if the server is inactive.
      * @throws com.zeroc.IceGrid.DeploymentException Raised if the server can't be updated.
      */
     default boolean checkUpdate(InternalServerDescriptor svr, boolean noRestart, java.util.Map<java.lang.String, java.lang.String> context)
@@ -142,7 +142,7 @@ public interface ServerPrx extends FileReaderPrx {
 
     /**
      * Check if the given server can be loaded on this node.
-     * @return `true` if the server is inactive.
+     * @return {@code true} if the server is inactive.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> checkUpdateAsync(InternalServerDescriptor svr, boolean noRestart) {
         return _iceI_checkUpdateAsync(svr, noRestart, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -151,7 +151,7 @@ public interface ServerPrx extends FileReaderPrx {
     /**
      * Check if the given server can be loaded on this node.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the server is inactive.
+     * @return {@code true} if the server is inactive.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> checkUpdateAsync(InternalServerDescriptor svr, boolean noRestart, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_checkUpdateAsync(svr, noRestart, context, false);

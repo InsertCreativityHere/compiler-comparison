@@ -34,9 +34,9 @@ class AdapterDescriptor:
     priority : str
         The adapter priority. Only relevant when the adapter is in a replica group.
     registerProcess : bool
-        When `true`, the object adapter registers a process object.
+        When ``true``, the object adapter registers a process object.
     serverLifetime : bool
-        When `true`, the lifetime of this object adapter is the same of the server lifetime. This information is
+        When ``true``, the lifetime of this object adapter is the same of the server lifetime. This information is
         used by the IceGrid node to figure out the server state: the server is active when all its "server lifetime"
         adapters are active.
     objects : list[ObjectDescriptor]

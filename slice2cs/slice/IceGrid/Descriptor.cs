@@ -359,10 +359,10 @@ namespace IceGrid
         /// <summary>The adapter priority. Only relevant when the adapter is in a replica group.</summary>
         public string priority = "";
 
-        /// <summary>When `true`, the object adapter registers a process object.</summary>
+        /// <summary>When <c>true</c>, the object adapter registers a process object.</summary>
         public bool registerProcess;
 
-        /// <summary>When `true`, the lifetime of this object adapter is the same of the server lifetime. This information is
+        /// <summary>When <c>true</c>, the lifetime of this object adapter is the same of the server lifetime. This information is
         /// used by the IceGrid node to figure out the server state: the server is active when all its "server lifetime"
         /// adapters are active.</summary>
         public bool serverLifetime;

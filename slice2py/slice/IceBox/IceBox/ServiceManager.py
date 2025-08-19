@@ -55,7 +55,7 @@ class ServiceManagerPrx(ObjectPrx):
         AlreadyStartedException
             Thrown when the service is already running.
         NoSuchServiceException
-            Thrown when IceBox does not know a service named @p service.
+            Thrown when IceBox does not know a service named ``service``.
         """
         return ServiceManager._op_startService.invoke(self, ((service, ), context))
 
@@ -93,7 +93,7 @@ class ServiceManagerPrx(ObjectPrx):
         AlreadyStoppedException
             Thrown when the service is already stopped.
         NoSuchServiceException
-            Thrown when IceBox does not know a service named @p service.
+            Thrown when IceBox does not know a service named ``service``.
         """
         return ServiceManager._op_stopService.invoke(self, ((service, ), context))
 
@@ -243,7 +243,7 @@ class ServiceManager(Object, ABC):
         AlreadyStartedException
             Thrown when the service is already running.
         NoSuchServiceException
-            Thrown when IceBox does not know a service named @p service.
+            Thrown when IceBox does not know a service named ``service``.
         """
         pass
 
@@ -269,7 +269,7 @@ class ServiceManager(Object, ABC):
         AlreadyStoppedException
             Thrown when the service is already stopped.
         NoSuchServiceException
-            Thrown when IceBox does not know a service named @p service.
+            Thrown when IceBox does not know a service named ``service``.
         """
         pass
 

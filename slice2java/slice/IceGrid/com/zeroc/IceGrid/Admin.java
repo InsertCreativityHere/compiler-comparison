@@ -184,7 +184,7 @@ public interface Admin extends com.zeroc.Ice.Object {
      * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
      * default.
      * @param id The server ID.
-     * @param enabled `true` to enable the server, `false` to disable it.
+     * @param enabled {@code true} to enable the server, {@code false} to disable it.
      * @param current The Current object of the incoming request.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the deployment of the server failed.
      * @throws com.zeroc.IceGrid.NodeUnreachableException Thrown when the node is unreachable.
@@ -197,7 +197,7 @@ public interface Admin extends com.zeroc.Ice.Object {
      * Checks if the server is enabled or disabled.
      * @param id The server ID.
      * @param current The Current object of the incoming request.
-     * @return `true` if the server is enabled, `false` otherwise.
+     * @return {@code true} if the server is enabled, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the deployment of the server failed.
      * @throws com.zeroc.IceGrid.NodeUnreachableException Thrown when the node is unreachable.
      * @throws com.zeroc.IceGrid.ServerNotExistException Thrown when the server doesn't exist.
@@ -255,8 +255,8 @@ public interface Admin extends com.zeroc.Ice.Object {
      * Gets adapter information for the replica group or adapter with the given ID.
      * @param id The adapter or replica group ID.
      * @param current The Current object of the incoming request.
-     * @return A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-     * If @p id refers to a replica group, this sequence contains adapter information for each member of the
+     * @return A sequence of AdapterInfo. If {@code id} refers to an adapter, this sequence contains a single element.
+     * If {@code id} refers to a replica group, this sequence contains adapter information for each member of the
      * replica group.
      * @throws com.zeroc.IceGrid.AdapterNotExistException Thrown when the adapter or replica group doesn't exist.
      */
@@ -281,7 +281,7 @@ public interface Admin extends com.zeroc.Ice.Object {
     java.lang.String[] getAllAdapterIds(com.zeroc.Ice.Current current);
 
     /**
-     * Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+     * Adds an object to the object registry. IceGrid gets the object type by calling {@code ice_id} on {@code obj}. The
      * object must be reachable.
      * @param obj A proxy to the object. This proxy is never null.
      * @param current The Current object of the incoming request.
@@ -345,7 +345,7 @@ public interface Admin extends com.zeroc.Ice.Object {
     /**
      * Gets the object info of all the registered objects whose stringified identities match the given expression.
      * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (`*`) character.
+     * may contain a trailing wildcard ({@code *}) character.
      * @param current The Current object of the incoming request.
      * @return All the object infos with a stringified identity matching the given expression.
      */
@@ -355,7 +355,7 @@ public interface Admin extends com.zeroc.Ice.Object {
      * Pings an IceGrid node to see if it is active.
      * @param name The node name.
      * @param current The Current object of the incoming request.
-     * @return `true` if the node ping succeeded, `false` otherwise.
+     * @return {@code true} if the node ping succeeded, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.NodeNotExistException Thrown when the node doesn't exist.
      */
     boolean pingNode(java.lang.String name, com.zeroc.Ice.Current current)
@@ -397,7 +397,7 @@ public interface Admin extends com.zeroc.Ice.Object {
     /**
      * Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
      * Note that this operation returns 1 on operating systems where this can't be automatically determined and
-     * where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+     * where the {@code IceGrid.Node.ProcessorSocketCount} property for the node is not set.
      * @param name The node name.
      * @param current The Current object of the incoming request.
      * @return The number of processor sockets or 1 if the number of sockets can't be determined.
@@ -439,7 +439,7 @@ public interface Admin extends com.zeroc.Ice.Object {
      * Pings an IceGrid registry to see if it is active.
      * @param name The registry name.
      * @param current The Current object of the incoming request.
-     * @return `true` if the registry ping succeeded, `false` otherwise.
+     * @return {@code true} if the registry ping succeeded, {@code false} otherwise.
      * @throws com.zeroc.IceGrid.RegistryNotExistException Thrown when the registry doesn't exist.
      */
     boolean pingRegistry(java.lang.String name, com.zeroc.Ice.Current current)

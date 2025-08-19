@@ -23,9 +23,9 @@ namespace Ice
     {
         /// <summary>Gets the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the
         /// router. If a null proxy is returned, the client will forward requests to the router's endpoints.</summary>
-        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If `true`, the Ice
+        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If <c>true</c>, the Ice
         /// runtime will call <see cref="global::Ice.RouterPrx.addProxies" /> to populate the routing table. The Ice runtime assumes the router has
-        /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.</param>
+        /// a routing table when <paramref name="hasRoutingTable"> is not set. Introduced in Ice 3.7.</param>
         /// <param name="context">The request context.</param>
         /// <returns>The router's client proxy.</returns>
         Ice.ObjectPrx? getClientProxy(
@@ -368,10 +368,10 @@ namespace Ice
     }
 
     /// <summary>Provides access to a <see cref="RouterPrx" /> object via a fixed identity.
-    /// A RouterFinder is always registered with identity `Ice/RouterFinder`. This allows clients to obtain the
+    /// A RouterFinder is always registered with identity <c>Ice/RouterFinder</c>. This allows clients to obtain the
     /// associated Router proxy with just the endpoint information of the object. For example, you can use the
-    /// RouterFinder proxy `Ice/RouterFinder:tcp -h somehost -p 4061` to get the Router proxy
-    /// `MyGlacier2/Router:tcp -h somehost -p 4061`.</summary>
+    /// RouterFinder proxy <c>Ice/RouterFinder:tcp -h somehost -p 4061</c> to get the Router proxy
+    /// <c>MyGlacier2/Router:tcp -h somehost -p 4061</c>.</summary>
     /// <remarks>The Slice compiler generated this client-side interface from Slice interface <c>::Ice::RouterFinder</c>.
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>RouterFinder</c>.</remarks>
     public partial interface RouterFinderPrx : Ice.ObjectPrx
@@ -571,9 +571,9 @@ namespace Ice
     {
         /// <summary>Gets the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the
         /// router. If a null proxy is returned, the client will forward requests to the router's endpoints.</summary>
-        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If `true`, the Ice
+        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If <c>true</c>, the Ice
         /// runtime will call <see cref="global::Ice.RouterPrx.addProxies" /> to populate the routing table. The Ice runtime assumes the router has
-        /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.</param>
+        /// a routing table when <paramref name="hasRoutingTable"> is not set. Introduced in Ice 3.7.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The router's client proxy.</returns>
         Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
@@ -678,10 +678,10 @@ namespace Ice
     }
 
     /// <summary>Provides access to a <see cref="RouterPrx" /> object via a fixed identity.
-    /// A RouterFinder is always registered with identity `Ice/RouterFinder`. This allows clients to obtain the
+    /// A RouterFinder is always registered with identity <c>Ice/RouterFinder</c>. This allows clients to obtain the
     /// associated Router proxy with just the endpoint information of the object. For example, you can use the
-    /// RouterFinder proxy `Ice/RouterFinder:tcp -h somehost -p 4061` to get the Router proxy
-    /// `MyGlacier2/Router:tcp -h somehost -p 4061`.</summary>
+    /// RouterFinder proxy <c>Ice/RouterFinder:tcp -h somehost -p 4061</c> to get the Router proxy
+    /// <c>MyGlacier2/Router:tcp -h somehost -p 4061</c>.</summary>
     /// <remarks>The Slice compiler generated this server-side interface from Slice interface <c>::Ice::RouterFinder</c>.
     /// Your servant class implements this interface by deriving from <see cref="RouterFinderDisp_" /> or from the Disp_ class for a derived interface.</remarks>
     [Ice.SliceTypeId("::Ice::RouterFinder")]

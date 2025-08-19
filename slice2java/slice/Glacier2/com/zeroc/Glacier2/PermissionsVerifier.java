@@ -16,7 +16,7 @@ public interface PermissionsVerifier extends com.zeroc.Ice.Object {
      */
     public static class CheckPermissionsResult {
         /**
-         * `true` if access is granted, `false` otherwise.
+         * {@code true} if access is granted, {@code false} otherwise.
          */
         public boolean returnValue;
 
@@ -33,7 +33,7 @@ public interface PermissionsVerifier extends com.zeroc.Ice.Object {
 
         /**
          * This constructor makes shallow copies of the results for operation checkPermissions.
-         * @param returnValue `true` if access is granted, `false` otherwise.
+         * @param returnValue {@code true} if access is granted, {@code false} otherwise.
          * @param reason The reason why access was denied.
          */
         public CheckPermissionsResult(boolean returnValue, java.lang.String reason) {
@@ -67,7 +67,7 @@ public interface PermissionsVerifier extends com.zeroc.Ice.Object {
      * @param current The Current object of the incoming request.
      * @return An instance of PermissionsVerifier.CheckPermissionsResult.
      * @throws com.zeroc.Glacier2.PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-     * instead of returning `false` with a reason set in the reason out parameter.
+     * instead of returning {@code false} with a reason set in the reason out parameter.
      */
     PermissionsVerifier.CheckPermissionsResult checkPermissions(java.lang.String userId, java.lang.String password, com.zeroc.Ice.Current current)
         throws PermissionDeniedException;

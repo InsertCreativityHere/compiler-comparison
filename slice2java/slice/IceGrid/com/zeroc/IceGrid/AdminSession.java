@@ -93,7 +93,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * @param path The path of the log file. A log file can be opened only if it's declared in the server or
      * service deployment descriptor.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the server couldn't be deployed on the node.
@@ -108,7 +108,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * Opens a server stderr file for reading.
      * @param id The server ID.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the server couldn't be deployed on the node.
@@ -123,7 +123,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * Opens a server stdout file for reading.
      * @param id The server id.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.DeploymentException Thrown when the server couldn't be deployed on the node.
@@ -138,7 +138,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * Opens a node stderr file for reading.
      * @param name The node name.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.FileNotAvailableException Thrown when the file can't be read.
@@ -152,7 +152,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * Opens a node stdout file for reading.
      * @param name The node name.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.FileNotAvailableException Thrown when the file can't be read.
@@ -166,7 +166,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * Opens a registry stderr file for reading.
      * @param name The registry name.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.FileNotAvailableException Thrown when the file can't be read.
@@ -180,7 +180,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session {
      * Opens a registry stdout file for reading.
      * @param name The registry name.
      * @param count Specifies where to start reading the file. If negative, the file is read from the beginning.
-     * Otherwise, the file is read from the last @p count lines.
+     * Otherwise, the file is read from the last {@code count} lines.
      * @param current The Current object of the incoming request.
      * @return An iterator to read the file. This proxy is never null.
      * @throws com.zeroc.IceGrid.FileNotAvailableException Thrown when the file can't be read.

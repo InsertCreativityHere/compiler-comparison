@@ -21,9 +21,9 @@ public interface Router extends com.zeroc.Ice.Object {
         public ObjectPrx returnValue;
 
         /**
-         * Indicates whether or not the router supports a routing table. If `true`, the Ice
+         * Indicates whether or not the router supports a routing table. If {@code true}, the Ice
          * runtime will call {@link com.zeroc.Ice.RouterPrx#addProxies} to populate the routing table. The Ice runtime assumes the router has
-         * a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+         * a routing table when {@code hasRoutingTable} is not set. Introduced in Ice 3.7.
          */
         public java.util.Optional<java.lang.Boolean> hasRoutingTable;
 
@@ -36,9 +36,9 @@ public interface Router extends com.zeroc.Ice.Object {
         /**
          * This constructor makes shallow copies of the results for operation getClientProxy.
          * @param returnValue The router's client proxy.
-         * @param hasRoutingTable Indicates whether or not the router supports a routing table. If `true`, the Ice
+         * @param hasRoutingTable Indicates whether or not the router supports a routing table. If {@code true}, the Ice
          * runtime will call {@link com.zeroc.Ice.RouterPrx#addProxies} to populate the routing table. The Ice runtime assumes the router has
-         * a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+         * a routing table when {@code hasRoutingTable} is not set. Introduced in Ice 3.7.
          */
         public GetClientProxyResult(ObjectPrx returnValue, java.util.Optional<java.lang.Boolean> hasRoutingTable) {
             this.returnValue = returnValue;
@@ -48,9 +48,9 @@ public interface Router extends com.zeroc.Ice.Object {
         /**
          * This constructor makes shallow copies of the results for operation getClientProxy (overload without Optional parameters).
          * @param returnValue The router's client proxy.
-         * @param hasRoutingTable Indicates whether or not the router supports a routing table. If `true`, the Ice
+         * @param hasRoutingTable Indicates whether or not the router supports a routing table. If {@code true}, the Ice
          * runtime will call {@link com.zeroc.Ice.RouterPrx#addProxies} to populate the routing table. The Ice runtime assumes the router has
-         * a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+         * a routing table when {@code hasRoutingTable} is not set. Introduced in Ice 3.7.
          */
         public GetClientProxyResult(ObjectPrx returnValue, boolean hasRoutingTable) {
             this.returnValue = returnValue;

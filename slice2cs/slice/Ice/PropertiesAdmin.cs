@@ -40,7 +40,7 @@ namespace Ice
             global::System.IProgress<bool>? progress = null,
             global::System.Threading.CancellationToken cancel = default);
 
-        /// <summary>Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+        /// <summary>Gets all properties whose keys begin with <paramref name="prefix">. If <paramref name="prefix"> is the empty string then all properties
         /// are returned.</summary>
         /// <param name="prefix">The prefix to search for. May be empty.</param>
         /// <param name="context">The request context.</param>
@@ -49,7 +49,7 @@ namespace Ice
             string prefix,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        /// <summary>Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+        /// <summary>Gets all properties whose keys begin with <paramref name="prefix">. If <paramref name="prefix"> is the empty string then all properties
         /// are returned.</summary>
         /// <param name="prefix">The prefix to search for. May be empty.</param>
         /// <param name="context">The request context.</param>
@@ -62,20 +62,20 @@ namespace Ice
             global::System.IProgress<bool>? progress = null,
             global::System.Threading.CancellationToken cancel = default);
 
-        /// <summary>Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+        /// <summary>Updates the communicator's properties with the given property set. If an entry in <paramref name="newProperties"> matches
         /// the name of an existing property, that property's value is replaced with the new value. If the new value is
         /// the empty string, the property is removed. Existing properties that are not modified or removed by the
-        /// entries in @p newProperties are not affected by this update.</summary>
+        /// entries in <paramref name="newProperties"> are not affected by this update.</summary>
         /// <param name="newProperties">Properties to add, change, or remove.</param>
         /// <param name="context">The request context.</param>
         void setProperties(
             global::System.Collections.Generic.Dictionary<string, string> newProperties,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        /// <summary>Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+        /// <summary>Updates the communicator's properties with the given property set. If an entry in <paramref name="newProperties"> matches
         /// the name of an existing property, that property's value is replaced with the new value. If the new value is
         /// the empty string, the property is removed. Existing properties that are not modified or removed by the
-        /// entries in @p newProperties are not affected by this update.</summary>
+        /// entries in <paramref name="newProperties"> are not affected by this update.</summary>
         /// <param name="newProperties">Properties to add, change, or remove.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -410,7 +410,7 @@ namespace Ice
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        /// <summary>Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+        /// <summary>Gets all properties whose keys begin with <paramref name="prefix">. If <paramref name="prefix"> is the empty string then all properties
         /// are returned.</summary>
         /// <param name="prefix">The prefix to search for. May be empty.</param>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -436,10 +436,10 @@ namespace Ice
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        /// <summary>Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+        /// <summary>Updates the communicator's properties with the given property set. If an entry in <paramref name="newProperties"> matches
         /// the name of an existing property, that property's value is replaced with the new value. If the new value is
         /// the empty string, the property is removed. Existing properties that are not modified or removed by the
-        /// entries in @p newProperties are not affected by this update.</summary>
+        /// entries in <paramref name="newProperties"> are not affected by this update.</summary>
         /// <param name="newProperties">Properties to add, change, or remove.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);

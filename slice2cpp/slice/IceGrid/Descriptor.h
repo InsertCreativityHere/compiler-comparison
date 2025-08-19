@@ -264,10 +264,10 @@ namespace IceGrid
         /// The adapter priority. Only relevant when the adapter is in a replica group.
         std::string priority;
 
-        /// When `true`, the object adapter registers a process object.
+        /// When <tt>true</tt>, the object adapter registers a process object.
         bool registerProcess;
 
-        /// When `true`, the lifetime of this object adapter is the same of the server lifetime. This information is
+        /// When <tt>true</tt>, the lifetime of this object adapter is the same of the server lifetime. This information is
         /// used by the IceGrid node to figure out the server state: the server is active when all its "server lifetime"
         /// adapters are active.
         bool serverLifetime;

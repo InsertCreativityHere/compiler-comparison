@@ -1,9 +1,9 @@
 classdef RouterFinderPrx < Ice.ObjectPrx
     %ROUTERFINDERPRX Provides access to a <a href="matlab:help Ice.RouterPrx -displayBanner">RouterPrx</a> object via a fixed identity.
-    %   A RouterFinder is always registered with identity `Ice/RouterFinder`. This allows clients to obtain the
+    %   A RouterFinder is always registered with identity |Ice/RouterFinder|. This allows clients to obtain the
     %   associated Router proxy with just the endpoint information of the object. For example, you can use the
-    %   RouterFinder proxy `Ice/RouterFinder:tcp -h somehost -p 4061` to get the Router proxy
-    %   `MyGlacier2/Router:tcp -h somehost -p 4061`.
+    %   RouterFinder proxy |Ice/RouterFinder:tcp -h somehost -p 4061| to get the Router proxy
+    %   |MyGlacier2/Router:tcp -h somehost -p 4061|.
     %
     %   Creation
     %     Syntax

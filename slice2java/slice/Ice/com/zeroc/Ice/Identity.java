@@ -7,7 +7,7 @@ package com.zeroc.Ice;
 
 /**
  * Represents the identity of an Ice object. It is comparable to the path of a URI. Its string representation is
- * `name` when the category is empty, and `category/name` when the category is not empty.
+ * {@code name} when the category is empty, and {@code category/name} when the category is not empty.
  */
 public final class Identity implements java.lang.Cloneable, java.io.Serializable {
     /**

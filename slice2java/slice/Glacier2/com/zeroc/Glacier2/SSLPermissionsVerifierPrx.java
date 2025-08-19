@@ -16,7 +16,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx {
      * @param info The SSL information.
      * @return An instance of SSLPermissionsVerifier.AuthorizeResult.
      * @throws com.zeroc.Glacier2.PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-     * instead of returning `false` with a reason set in the reason out parameter.
+     * instead of returning {@code false} with a reason set in the reason out parameter.
      */
     default SSLPermissionsVerifier.AuthorizeResult authorize(SSLInfo info)
         throws PermissionDeniedException {
@@ -29,7 +29,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx {
      * @param context The Context map to send with the invocation.
      * @return An instance of SSLPermissionsVerifier.AuthorizeResult.
      * @throws com.zeroc.Glacier2.PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-     * instead of returning `false` with a reason set in the reason out parameter.
+     * instead of returning {@code false} with a reason set in the reason out parameter.
      */
     default SSLPermissionsVerifier.AuthorizeResult authorize(SSLInfo info, java.util.Map<java.lang.String, java.lang.String> context)
         throws PermissionDeniedException {

@@ -282,7 +282,7 @@ public extension QueryPrx {
     ///   - iceP_proxy: A proxy that identifies the well-known object.
     ///   - context: Optional request context.
     ///
-    /// - Returns: A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+    /// - Returns: A list of proxies  to the replicas of the well-known object specified by `proxy`. Can be empty.
     func findAllReplicas(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
         return try await _impl._invoke(operation: "findAllReplicas",
                                        mode: .idempotent,
@@ -748,7 +748,7 @@ public protocol Query: Ice.Dispatcher {
     ///   - proxy: A proxy that identifies the well-known object.
     ///   - current: The Current object for the dispatch.
     ///
-    /// - Returns: A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+    /// - Returns: A list of proxies  to the replicas of the well-known object specified by `proxy`. Can be empty.
     func findAllReplicas(proxy: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectProxySeq
 }
 

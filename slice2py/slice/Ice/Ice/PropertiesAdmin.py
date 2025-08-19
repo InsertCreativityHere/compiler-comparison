@@ -71,7 +71,7 @@ class PropertiesAdminPrx(ObjectPrx):
 
     def getPropertiesForPrefix(self, prefix: str, context: dict[str, str] | None = None) -> dict[str, str]:
         """
-        Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+        Gets all properties whose keys begin with ``prefix``. If ``prefix`` is the empty string then all properties
         are returned.
         
         Parameters
@@ -90,7 +90,7 @@ class PropertiesAdminPrx(ObjectPrx):
 
     def getPropertiesForPrefixAsync(self, prefix: str, context: dict[str, str] | None = None) -> Awaitable[dict[str, str]]:
         """
-        Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+        Gets all properties whose keys begin with ``prefix``. If ``prefix`` is the empty string then all properties
         are returned.
         
         Parameters
@@ -109,10 +109,10 @@ class PropertiesAdminPrx(ObjectPrx):
 
     def setProperties(self, newProperties: Mapping[str, str], context: dict[str, str] | None = None) -> None:
         """
-        Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+        Updates the communicator's properties with the given property set. If an entry in ``newProperties`` matches
         the name of an existing property, that property's value is replaced with the new value. If the new value is
         the empty string, the property is removed. Existing properties that are not modified or removed by the
-        entries in @p newProperties are not affected by this update.
+        entries in ``newProperties`` are not affected by this update.
         
         Parameters
         ----------
@@ -125,10 +125,10 @@ class PropertiesAdminPrx(ObjectPrx):
 
     def setPropertiesAsync(self, newProperties: Mapping[str, str], context: dict[str, str] | None = None) -> Awaitable[None]:
         """
-        Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+        Updates the communicator's properties with the given property set. If an entry in ``newProperties`` matches
         the name of an existing property, that property's value is replaced with the new value. If the new value is
         the empty string, the property is removed. Existing properties that are not modified or removed by the
-        entries in @p newProperties are not affected by this update.
+        entries in ``newProperties`` are not affected by this update.
         
         Parameters
         ----------
@@ -213,7 +213,7 @@ class PropertiesAdmin(Object, ABC):
     @abstractmethod
     def getPropertiesForPrefix(self, prefix: str, current: Current) -> Mapping[str, str] | Awaitable[Mapping[str, str]]:
         """
-        Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+        Gets all properties whose keys begin with ``prefix``. If ``prefix`` is the empty string then all properties
         are returned.
         
         Parameters
@@ -233,10 +233,10 @@ class PropertiesAdmin(Object, ABC):
     @abstractmethod
     def setProperties(self, newProperties: dict[str, str], current: Current) -> None | Awaitable[None]:
         """
-        Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+        Updates the communicator's properties with the given property set. If an entry in ``newProperties`` matches
         the name of an existing property, that property's value is replaced with the new value. If the new value is
         the empty string, the property is removed. Existing properties that are not modified or removed by the
-        entries in @p newProperties are not affected by this update.
+        entries in ``newProperties`` are not affected by this update.
         
         Parameters
         ----------

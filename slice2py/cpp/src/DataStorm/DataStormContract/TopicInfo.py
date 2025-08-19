@@ -23,8 +23,8 @@ class TopicInfo:
     ids : list[int]
         The list of active topic reader or writer IDs.
         
-        - In a publisher session,  the `ids` field contains the active topic writer IDs.
-        - In a subscriber session,  the `ids` field contains the active topic reader IDs.
+        - In a publisher session,  the ``ids`` field contains the active topic writer IDs.
+        - In a subscriber session,  the ``ids`` field contains the active topic reader IDs.
     """
     name: str = ""
     ids: list[int] = field(default_factory=list)

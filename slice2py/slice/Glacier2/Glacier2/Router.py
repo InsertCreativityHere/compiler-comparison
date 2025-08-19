@@ -57,7 +57,7 @@ class RouterPrx(_m_Ice_Router_RouterPrx):
         Returns
         -------
         str
-            The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+            The category. It's an empty string when ``Glacier2.Server.Endpoints`` is not configured.
         """
         return Router._op_getCategoryForClient.invoke(self, ((), context))
 
@@ -74,7 +74,7 @@ class RouterPrx(_m_Ice_Router_RouterPrx):
         Returns
         -------
         Awaitable[str]
-            The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+            The category. It's an empty string when ``Glacier2.Server.Endpoints`` is not configured.
         """
         return Router._op_getCategoryForClient.invokeAsync(self, ((), context))
 
@@ -383,7 +383,7 @@ class Router(_m_Ice_Router_Router, ABC):
         Returns
         -------
         str | Awaitable[str]
-            The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+            The category. It's an empty string when ``Glacier2.Server.Endpoints`` is not configured.
         """
         pass
 

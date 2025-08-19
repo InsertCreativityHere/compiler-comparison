@@ -50,9 +50,9 @@ class RouterPrx(ObjectPrx):
         
             A tuple containing:
                 - ObjectPrx | None The router's client proxy.
-                - bool | None Indicates whether or not the router supports a routing table. If `true`, the Ice
+                - bool | None Indicates whether or not the router supports a routing table. If ``true``, the Ice
                   runtime will call :meth:`Ice.RouterPrx.addProxies` to populate the routing table. The Ice runtime assumes the router has
-                  a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+                  a routing table when ``hasRoutingTable`` is not set. Introduced in Ice 3.7.
         """
         return Router._op_getClientProxy.invoke(self, ((), context))
 
@@ -72,9 +72,9 @@ class RouterPrx(ObjectPrx):
         
             A tuple containing:
                 - ObjectPrx | None The router's client proxy.
-                - bool | None Indicates whether or not the router supports a routing table. If `true`, the Ice
+                - bool | None Indicates whether or not the router supports a routing table. If ``true``, the Ice
                   runtime will call :meth:`Ice.RouterPrx.addProxies` to populate the routing table. The Ice runtime assumes the router has
-                  a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+                  a routing table when ``hasRoutingTable`` is not set. Introduced in Ice 3.7.
         """
         return Router._op_getClientProxy.invokeAsync(self, ((), context))
 
@@ -214,9 +214,9 @@ class Router(Object, ABC):
         
             A tuple containing:
                 - ObjectPrx | None The router's client proxy.
-                - bool | None Indicates whether or not the router supports a routing table. If `true`, the Ice
+                - bool | None Indicates whether or not the router supports a routing table. If ``true``, the Ice
                   runtime will call :meth:`Ice.RouterPrx.addProxies` to populate the routing table. The Ice runtime assumes the router has
-                  a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+                  a routing table when ``hasRoutingTable`` is not set. Introduced in Ice 3.7.
         """
         pass
 

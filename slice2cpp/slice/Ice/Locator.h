@@ -181,10 +181,10 @@ namespace Ice
     };
 
     /// Provides access to a LocatorPrx object via a fixed identity.
-    /// A LocatorFinder is always registered with identity `Ice/LocatorFinder`. This allows clients to obtain the
+    /// A LocatorFinder is always registered with identity <tt>Ice/LocatorFinder</tt>. This allows clients to obtain the
     /// associated Locator proxy with just the endpoint information of the object. For example, you can use the
-    /// LocatorFinder proxy `Ice/LocatorFinder:tcp -h somehost -p 4061` to get the Locator proxy
-    /// `MyIceGrid/Locator:tcp -h somehost -p 4061`.
+    /// LocatorFinder proxy <tt>Ice/LocatorFinder:tcp -h somehost -p 4061</tt> to get the Locator proxy
+    /// <tt>MyIceGrid/Locator:tcp -h somehost -p 4061</tt>.
     /// @headerfile Ice/Ice.h
     class ICE_API LocatorFinderPrx : public Ice::Proxy<LocatorFinderPrx, Ice::ObjectPrx>
     {
@@ -382,10 +382,10 @@ namespace Ice
     using LocatorPtr = std::shared_ptr<Locator>;
 
     /// Provides access to a LocatorPrx object via a fixed identity.
-    /// A LocatorFinder is always registered with identity `Ice/LocatorFinder`. This allows clients to obtain the
+    /// A LocatorFinder is always registered with identity <tt>Ice/LocatorFinder</tt>. This allows clients to obtain the
     /// associated Locator proxy with just the endpoint information of the object. For example, you can use the
-    /// LocatorFinder proxy `Ice/LocatorFinder:tcp -h somehost -p 4061` to get the Locator proxy
-    /// `MyIceGrid/Locator:tcp -h somehost -p 4061`.
+    /// LocatorFinder proxy <tt>Ice/LocatorFinder:tcp -h somehost -p 4061</tt> to get the Locator proxy
+    /// <tt>MyIceGrid/Locator:tcp -h somehost -p 4061</tt>.
     /// @headerfile Ice/Ice.h
     class ICE_API LocatorFinder : public virtual Ice::Object
     {

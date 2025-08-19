@@ -50,7 +50,7 @@ public interface Query extends com.zeroc.Ice.Object {
      * Finds all the replicas of a well-known object.
      * @param proxy A proxy that identifies the well-known object.
      * @param current The Current object of the incoming request.
-     * @return A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+     * @return A list of proxies  to the replicas of the well-known object specified by {@code proxy}. Can be empty.
      */
     com.zeroc.Ice.ObjectPrx[] findAllReplicas(com.zeroc.Ice.ObjectPrx proxy, com.zeroc.Ice.Current current);
 

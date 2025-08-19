@@ -362,8 +362,8 @@ namespace IceStorm
         /// <param name="subscriber">The subscriber's proxy. This proxy is never null.</param>
         /// <param name="context">The request context.</param>
         /// <returns>The per-subscriber publisher proxy. This proxy is never null.</returns>
-        /// <exception cref="IceStorm.AlreadySubscribed">Thrown when @p subscriber is already subscribed.</exception>
-        /// <exception cref="IceStorm.BadQoS">Thrown when @p theQoS is unavailable or invalid.</exception>
+        /// <exception cref="IceStorm.AlreadySubscribed">Thrown when <paramref name="subscriber"> is already subscribed.</exception>
+        /// <exception cref="IceStorm.BadQoS">Thrown when <paramref name="theQoS"> is unavailable or invalid.</exception>
         /// <seealso cref="unsubscribe" />
         Ice.ObjectPrx? subscribeAndGetPublisher(
             global::System.Collections.Generic.Dictionary<string, string> theQoS,
@@ -377,8 +377,8 @@ namespace IceStorm
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceStorm.AlreadySubscribed">Thrown when @p subscriber is already subscribed.</exception>
-        /// <exception cref="IceStorm.BadQoS">Thrown when @p theQoS is unavailable or invalid.</exception>
+        /// <exception cref="IceStorm.AlreadySubscribed">Thrown when <paramref name="subscriber"> is already subscribed.</exception>
+        /// <exception cref="IceStorm.BadQoS">Thrown when <paramref name="theQoS"> is unavailable or invalid.</exception>
         /// <seealso cref="unsubscribe" />
         global::System.Threading.Tasks.Task<Ice.ObjectPrx?> subscribeAndGetPublisherAsync(
             global::System.Collections.Generic.Dictionary<string, string> theQoS,
@@ -387,7 +387,7 @@ namespace IceStorm
             global::System.IProgress<bool>? progress = null,
             global::System.Threading.CancellationToken cancel = default);
 
-        /// <summary>Unsubscribes the provided @p subscriber from this topic.</summary>
+        /// <summary>Unsubscribes the provided <paramref name="subscriber"> from this topic.</summary>
         /// <param name="subscriber">A proxy to an existing subscriber. This proxy is never null.</param>
         /// <param name="context">The request context.</param>
         /// <seealso cref="subscribeAndGetPublisher" />
@@ -395,7 +395,7 @@ namespace IceStorm
             Ice.ObjectPrx? subscriber,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        /// <summary>Unsubscribes the provided @p subscriber from this topic.</summary>
+        /// <summary>Unsubscribes the provided <paramref name="subscriber"> from this topic.</summary>
         /// <param name="subscriber">A proxy to an existing subscriber. This proxy is never null.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -412,7 +412,7 @@ namespace IceStorm
         /// <param name="linkTo">The topic to link to. This proxy is never null.</param>
         /// <param name="cost">The cost of the link.</param>
         /// <param name="context">The request context.</param>
-        /// <exception cref="IceStorm.LinkExists">Thrown when a link to @p linkTo already exists.</exception>
+        /// <exception cref="IceStorm.LinkExists">Thrown when a link to <paramref name="linkTo"> already exists.</exception>
         void link(
             TopicPrx? linkTo,
             int cost,
@@ -425,7 +425,7 @@ namespace IceStorm
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceStorm.LinkExists">Thrown when a link to @p linkTo already exists.</exception>
+        /// <exception cref="IceStorm.LinkExists">Thrown when a link to <paramref name="linkTo"> already exists.</exception>
         global::System.Threading.Tasks.Task linkAsync(
             TopicPrx? linkTo,
             int cost,
@@ -436,7 +436,7 @@ namespace IceStorm
         /// <summary>Destroys a link from this topic to the provided topic.</summary>
         /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.</param>
         /// <param name="context">The request context.</param>
-        /// <exception cref="IceStorm.NoSuchLink">Thrown when a link to @p linkTo does not exist.</exception>
+        /// <exception cref="IceStorm.NoSuchLink">Thrown when a link to <paramref name="linkTo"> does not exist.</exception>
         void unlink(
             TopicPrx? linkTo,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -447,7 +447,7 @@ namespace IceStorm
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceStorm.NoSuchLink">Thrown when a link to @p linkTo does not exist.</exception>
+        /// <exception cref="IceStorm.NoSuchLink">Thrown when a link to <paramref name="linkTo"> does not exist.</exception>
         global::System.Threading.Tasks.Task unlinkAsync(
             TopicPrx? linkTo,
             global::System.Collections.Generic.Dictionary<string, string>? context = null,
@@ -1373,7 +1373,7 @@ namespace IceStorm
         /// <param name="name">The name of the topic.</param>
         /// <param name="context">The request context.</param>
         /// <returns>A proxy to the topic object. The returned proxy is never null.</returns>
-        /// <exception cref="IceStorm.NoSuchTopic">Thrown when there is no topic named @p name.</exception>
+        /// <exception cref="IceStorm.NoSuchTopic">Thrown when there is no topic named <paramref name="name">.</exception>
         TopicPrx? retrieve(
             string name,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1384,7 +1384,7 @@ namespace IceStorm
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        /// <exception cref="IceStorm.NoSuchTopic">Thrown when there is no topic named @p name.</exception>
+        /// <exception cref="IceStorm.NoSuchTopic">Thrown when there is no topic named <paramref name="name">.</exception>
         global::System.Threading.Tasks.Task<TopicPrx?> retrieveAsync(
             string name,
             global::System.Collections.Generic.Dictionary<string, string>? context = null,
@@ -1724,10 +1724,10 @@ namespace IceStorm
     }
 
     /// <summary>Provides access to a <see cref="TopicManagerPrx" /> object via a fixed identity.
-    /// An IceStorm Finder is always registered with identity `IceStorm/Finder`. This allows clients to obtain the
+    /// An IceStorm Finder is always registered with identity <c>IceStorm/Finder</c>. This allows clients to obtain the
     /// associated TopicManager proxy with just the endpoint information of the object. For example, you can use the
-    /// Finder proxy `IceStorm/Finder:tcp -h somehost -p 4061` to get the TopicManager proxy
-    /// `MyIceStorm/TopicManager:tcp -h somehost -p 4061`.</summary>
+    /// Finder proxy <c>IceStorm/Finder:tcp -h somehost -p 4061</c> to get the TopicManager proxy
+    /// <c>MyIceStorm/TopicManager:tcp -h somehost -p 4061</c>.</summary>
     /// <remarks>The Slice compiler generated this client-side interface from Slice interface <c>::IceStorm::Finder</c>.
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>Finder</c>.</remarks>
     public partial interface FinderPrx : Ice.ObjectPrx
@@ -1987,8 +1987,8 @@ namespace IceStorm
         /// <param name="subscriber">The subscriber's proxy. This proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The per-subscriber publisher proxy. This proxy is never null.</returns>
-        /// <exception cref="IceStorm.AlreadySubscribed">Thrown when @p subscriber is already subscribed.</exception>
-        /// <exception cref="IceStorm.BadQoS">Thrown when @p theQoS is unavailable or invalid.</exception>
+        /// <exception cref="IceStorm.AlreadySubscribed">Thrown when <paramref name="subscriber"> is already subscribed.</exception>
+        /// <exception cref="IceStorm.BadQoS">Thrown when <paramref name="theQoS"> is unavailable or invalid.</exception>
         /// <seealso cref="unsubscribe" />
         Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, Ice.ObjectPrx? subscriber, Ice.Current current);
 
@@ -2013,7 +2013,7 @@ namespace IceStorm
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        /// <summary>Unsubscribes the provided @p subscriber from this topic.</summary>
+        /// <summary>Unsubscribes the provided <paramref name="subscriber"> from this topic.</summary>
         /// <param name="subscriber">A proxy to an existing subscriber. This proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <seealso cref="subscribeAndGetPublisher" />
@@ -2037,7 +2037,7 @@ namespace IceStorm
         /// <param name="linkTo">The topic to link to. This proxy is never null.</param>
         /// <param name="cost">The cost of the link.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStorm.LinkExists">Thrown when a link to @p linkTo already exists.</exception>
+        /// <exception cref="IceStorm.LinkExists">Thrown when a link to <paramref name="linkTo"> already exists.</exception>
         void link(TopicPrx? linkTo, int cost, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -2060,7 +2060,7 @@ namespace IceStorm
         /// <summary>Destroys a link from this topic to the provided topic.</summary>
         /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <exception cref="IceStorm.NoSuchLink">Thrown when a link to @p linkTo does not exist.</exception>
+        /// <exception cref="IceStorm.NoSuchLink">Thrown when a link to <paramref name="linkTo"> does not exist.</exception>
         void unlink(TopicPrx? linkTo, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -2228,7 +2228,7 @@ namespace IceStorm
         /// <param name="name">The name of the topic.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>A proxy to the topic object. The returned proxy is never null.</returns>
-        /// <exception cref="IceStorm.NoSuchTopic">Thrown when there is no topic named @p name.</exception>
+        /// <exception cref="IceStorm.NoSuchTopic">Thrown when there is no topic named <paramref name="name">.</exception>
         TopicPrx? retrieve(string name, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -2307,10 +2307,10 @@ namespace IceStorm
     }
 
     /// <summary>Provides access to a <see cref="TopicManagerPrx" /> object via a fixed identity.
-    /// An IceStorm Finder is always registered with identity `IceStorm/Finder`. This allows clients to obtain the
+    /// An IceStorm Finder is always registered with identity <c>IceStorm/Finder</c>. This allows clients to obtain the
     /// associated TopicManager proxy with just the endpoint information of the object. For example, you can use the
-    /// Finder proxy `IceStorm/Finder:tcp -h somehost -p 4061` to get the TopicManager proxy
-    /// `MyIceStorm/TopicManager:tcp -h somehost -p 4061`.</summary>
+    /// Finder proxy <c>IceStorm/Finder:tcp -h somehost -p 4061</c> to get the TopicManager proxy
+    /// <c>MyIceStorm/TopicManager:tcp -h somehost -p 4061</c>.</summary>
     /// <remarks>The Slice compiler generated this server-side interface from Slice interface <c>::IceStorm::Finder</c>.
     /// Your servant class implements this interface by deriving from <see cref="FinderDisp_" /> or from the Disp_ class for a derived interface.</remarks>
     [Ice.SliceTypeId("::IceStorm::Finder")]

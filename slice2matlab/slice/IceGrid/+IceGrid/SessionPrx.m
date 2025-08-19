@@ -1,6 +1,6 @@
 classdef SessionPrx < Glacier2.SessionPrx
     %SESSIONPRX Represents a session object used by IceGrid clients to allocate and release objects. Client sessions are created
-    %   either via the <a href="matlab:help IceGrid.RegistryPrx -displayBanner">RegistryPrx</a> object or via the registry client `SessionManager` object.
+    %   either via the <a href="matlab:help IceGrid.RegistryPrx -displayBanner">RegistryPrx</a> object or via the registry client |SessionManager| object.
     %
     %   Creation
     %     Syntax

@@ -81,7 +81,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx {
      * Retrieves a topic by name.
      * @param name The name of the topic.
      * @return A proxy to the topic object. The returned proxy is never null.
-     * @throws com.zeroc.IceStorm.NoSuchTopic Thrown when there is no topic named @p name.
+     * @throws com.zeroc.IceStorm.NoSuchTopic Thrown when there is no topic named {@code name}.
      */
     default TopicPrx retrieve(java.lang.String name)
         throws NoSuchTopic {
@@ -93,7 +93,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx {
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the topic object. The returned proxy is never null.
-     * @throws com.zeroc.IceStorm.NoSuchTopic Thrown when there is no topic named @p name.
+     * @throws com.zeroc.IceStorm.NoSuchTopic Thrown when there is no topic named {@code name}.
      */
     default TopicPrx retrieve(java.lang.String name, java.util.Map<java.lang.String, java.lang.String> context)
         throws NoSuchTopic {

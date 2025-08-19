@@ -323,7 +323,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * Announces elements associated with a topic to the peer.
      *
      * This operation informs the peer about new data readers or data writers associated with the specified topic.
-     * The receiving peer will invoke `attachElements` for any elements it is interested in.
+     * The receiving peer will invoke {@code attachElements} for any elements it is interested in.
      *
      * - A publisher session announces its data writers.
      * - A subscriber session announces its data readers.
@@ -340,7 +340,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * Announces elements associated with a topic to the peer.
      *
      * This operation informs the peer about new data readers or data writers associated with the specified topic.
-     * The receiving peer will invoke `attachElements` for any elements it is interested in.
+     * The receiving peer will invoke {@code attachElements} for any elements it is interested in.
      *
      * - A publisher session announces its data writers.
      * - A subscriber session announces its data readers.
@@ -358,7 +358,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * Announces elements associated with a topic to the peer.
      *
      * This operation informs the peer about new data readers or data writers associated with the specified topic.
-     * The receiving peer will invoke `attachElements` for any elements it is interested in.
+     * The receiving peer will invoke {@code attachElements} for any elements it is interested in.
      *
      * - A publisher session announces its data writers.
      * - A subscriber session announces its data readers.
@@ -376,7 +376,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * Announces elements associated with a topic to the peer.
      *
      * This operation informs the peer about new data readers or data writers associated with the specified topic.
-     * The receiving peer will invoke `attachElements` for any elements it is interested in.
+     * The receiving peer will invoke {@code attachElements} for any elements it is interested in.
      *
      * - A publisher session announces its data writers.
      * - A subscriber session announces its data readers.
@@ -406,7 +406,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This operation associates the provided elements, such as keys or filters, with the subscribers of the given
      * topic.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+     * @param elements The sequence of {@code ElementSpec} objects representing the elements to attach.
      * @param initialize Indicates whether the elements are being attached during session initialization.
      */
     default void attachElements(long topicId, ElementSpec[] elements, boolean initialize) {
@@ -419,7 +419,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This operation associates the provided elements, such as keys or filters, with the subscribers of the given
      * topic.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+     * @param elements The sequence of {@code ElementSpec} objects representing the elements to attach.
      * @param initialize Indicates whether the elements are being attached during session initialization.
      * @param context The Context map to send with the invocation.
      */
@@ -433,7 +433,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This operation associates the provided elements, such as keys or filters, with the subscribers of the given
      * topic.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+     * @param elements The sequence of {@code ElementSpec} objects representing the elements to attach.
      * @param initialize Indicates whether the elements are being attached during session initialization.
      * @return A future that will be completed when the invocation completes.
      */
@@ -447,7 +447,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This operation associates the provided elements, such as keys or filters, with the subscribers of the given
      * topic.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+     * @param elements The sequence of {@code ElementSpec} objects representing the elements to attach.
      * @param initialize Indicates whether the elements are being attached during session initialization.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -473,7 +473,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This method confirms that the specified elements, such as keys or filters, have been successfully attached
      * to the session.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+     * @param elements A sequence of {@code ElementSpecAck} objects representing the confirmed attachments.
      */
     default void attachElementsAck(long topicId, ElementSpecAck[] elements) {
         attachElementsAck(topicId, elements, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -485,7 +485,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This method confirms that the specified elements, such as keys or filters, have been successfully attached
      * to the session.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+     * @param elements A sequence of {@code ElementSpecAck} objects representing the confirmed attachments.
      * @param context The Context map to send with the invocation.
      */
     default void attachElementsAck(long topicId, ElementSpecAck[] elements, java.util.Map<java.lang.String, java.lang.String> context) {
@@ -498,7 +498,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This method confirms that the specified elements, such as keys or filters, have been successfully attached
      * to the session.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+     * @param elements A sequence of {@code ElementSpecAck} objects representing the confirmed attachments.
      * @return A future that will be completed when the invocation completes.
      */
     default java.util.concurrent.CompletableFuture<Void> attachElementsAckAsync(long topicId, ElementSpecAck[] elements) {
@@ -511,7 +511,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
      * This method confirms that the specified elements, such as keys or filters, have been successfully attached
      * to the session.
      * @param topicId The unique identifier for the topic to which the elements belong.
-     * @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+     * @param elements A sequence of {@code ElementSpecAck} objects representing the confirmed attachments.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      */
@@ -593,7 +593,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Initializes the subscriber with the publisher queued samples for a topic during session establishment.
      * @param topicId The unique identifier for the topic.
-     * @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+     * @param samples A sequence of {@code DataSamples} containing the queued samples to initialize the subscriber.
      */
     default void initSamples(long topicId, DataSamples[] samples) {
         initSamples(topicId, samples, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -602,7 +602,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Initializes the subscriber with the publisher queued samples for a topic during session establishment.
      * @param topicId The unique identifier for the topic.
-     * @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+     * @param samples A sequence of {@code DataSamples} containing the queued samples to initialize the subscriber.
      * @param context The Context map to send with the invocation.
      */
     default void initSamples(long topicId, DataSamples[] samples, java.util.Map<java.lang.String, java.lang.String> context) {
@@ -612,7 +612,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Initializes the subscriber with the publisher queued samples for a topic during session establishment.
      * @param topicId The unique identifier for the topic.
-     * @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+     * @param samples A sequence of {@code DataSamples} containing the queued samples to initialize the subscriber.
      * @return A future that will be completed when the invocation completes.
      */
     default java.util.concurrent.CompletableFuture<Void> initSamplesAsync(long topicId, DataSamples[] samples) {
@@ -622,7 +622,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Initializes the subscriber with the publisher queued samples for a topic during session establishment.
      * @param topicId The unique identifier for the topic.
-     * @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+     * @param samples A sequence of {@code DataSamples} containing the queued samples to initialize the subscriber.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      */

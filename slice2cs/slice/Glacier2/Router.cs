@@ -47,7 +47,7 @@ namespace Glacier2
         /// <summary>Gets a unique category that identifies the client (caller) in the router. This category must be used in the
         /// identities of all the client's callback objects.</summary>
         /// <param name="context">The request context.</param>
-        /// <returns>The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.</returns>
+        /// <returns>The category. It's an empty string when <c>Glacier2.Server.Endpoints</c> is not configured.</returns>
         string getCategoryForClient(
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -962,7 +962,7 @@ namespace Glacier2
         /// <summary>Gets a unique category that identifies the client (caller) in the router. This category must be used in the
         /// identities of all the client's callback objects.</summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.</returns>
+        /// <returns>The category. It's an empty string when <c>Glacier2.Server.Endpoints</c> is not configured.</returns>
         string getCategoryForClient(Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

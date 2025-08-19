@@ -1921,8 +1921,8 @@ public extension AdminPrx {
     ///   - iceP_id: The adapter or replica group ID.
     ///   - context: Optional request context.
     ///
-    /// - Returns: A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-    /// If @p id refers to a replica group, this sequence contains adapter information for each member of the
+    /// - Returns: A sequence of AdapterInfo. If `id` refers to an adapter, this sequence contains a single element.
+    /// If `id` refers to a replica group, this sequence contains adapter information for each member of the
     /// replica group.
     ///
     /// - Throws:
@@ -1991,7 +1991,7 @@ public extension AdminPrx {
         }
     }
 
-    /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+    /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on `obj`. The
     /// object must be reachable.
     ///
     /// - Parameters:
@@ -4327,7 +4327,7 @@ public extension AdminSessionPrx {
     ///   - iceP_path: The path of the log file. A log file can be opened only if it's declared in the server or
     /// service deployment descriptor.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4368,7 +4368,7 @@ public extension AdminSessionPrx {
     /// - Parameters:
     ///   - iceP_id: The server ID.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4408,7 +4408,7 @@ public extension AdminSessionPrx {
     /// - Parameters:
     ///   - iceP_id: The server id.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4448,7 +4448,7 @@ public extension AdminSessionPrx {
     /// - Parameters:
     ///   - iceP_name: The node name.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4486,7 +4486,7 @@ public extension AdminSessionPrx {
     /// - Parameters:
     ///   - iceP_name: The node name.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4524,7 +4524,7 @@ public extension AdminSessionPrx {
     /// - Parameters:
     ///   - iceP_name: The registry name.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4562,7 +4562,7 @@ public extension AdminSessionPrx {
     /// - Parameters:
     ///   - iceP_name: The registry name.
     ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - context: Optional request context.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -4820,8 +4820,8 @@ public protocol Admin: Ice.Dispatcher {
     ///   - id: The adapter or replica group ID.
     ///   - current: The Current object for the dispatch.
     ///
-    /// - Returns: A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-    /// If @p id refers to a replica group, this sequence contains adapter information for each member of the
+    /// - Returns: A sequence of AdapterInfo. If `id` refers to an adapter, this sequence contains a single element.
+    /// If `id` refers to a replica group, this sequence contains adapter information for each member of the
     /// replica group.
     ///
     /// - Throws:
@@ -4844,7 +4844,7 @@ public protocol Admin: Ice.Dispatcher {
     /// - Returns: The adapter IDs.
     func getAllAdapterIds(current: Ice.Current) async throws -> Ice.StringSeq
 
-    /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+    /// Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on `obj`. The
     /// object must be reachable.
     ///
     /// - Parameters:
@@ -5328,7 +5328,7 @@ public protocol AdminSession: Glacier2.Session {
     ///   - path: The path of the log file. A log file can be opened only if it's declared in the server or
     /// service deployment descriptor.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -5341,7 +5341,7 @@ public protocol AdminSession: Glacier2.Session {
     /// - Parameters:
     ///   - id: The server ID.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -5354,7 +5354,7 @@ public protocol AdminSession: Glacier2.Session {
     /// - Parameters:
     ///   - id: The server id.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -5367,7 +5367,7 @@ public protocol AdminSession: Glacier2.Session {
     /// - Parameters:
     ///   - name: The node name.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -5380,7 +5380,7 @@ public protocol AdminSession: Glacier2.Session {
     /// - Parameters:
     ///   - name: The node name.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -5393,7 +5393,7 @@ public protocol AdminSession: Glacier2.Session {
     /// - Parameters:
     ///   - name: The registry name.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.
@@ -5406,7 +5406,7 @@ public protocol AdminSession: Glacier2.Session {
     /// - Parameters:
     ///   - name: The registry name.
     ///   - count: Specifies where to start reading the file. If negative, the file is read from the beginning.
-    /// Otherwise, the file is read from the last @p count lines.
+    /// Otherwise, the file is read from the last `count` lines.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Returns: An iterator to read the file. This proxy is never null.

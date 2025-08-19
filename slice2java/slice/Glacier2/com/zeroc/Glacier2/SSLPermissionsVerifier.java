@@ -16,7 +16,7 @@ public interface SSLPermissionsVerifier extends com.zeroc.Ice.Object {
      */
     public static class AuthorizeResult {
         /**
-         * `true` if access is granted, `false` otherwise.
+         * {@code true} if access is granted, {@code false} otherwise.
          */
         public boolean returnValue;
 
@@ -33,7 +33,7 @@ public interface SSLPermissionsVerifier extends com.zeroc.Ice.Object {
 
         /**
          * This constructor makes shallow copies of the results for operation authorize.
-         * @param returnValue `true` if access is granted, `false` otherwise.
+         * @param returnValue {@code true} if access is granted, {@code false} otherwise.
          * @param reason The reason why access was denied.
          */
         public AuthorizeResult(boolean returnValue, java.lang.String reason) {
@@ -66,7 +66,7 @@ public interface SSLPermissionsVerifier extends com.zeroc.Ice.Object {
      * @param current The Current object of the incoming request.
      * @return An instance of SSLPermissionsVerifier.AuthorizeResult.
      * @throws com.zeroc.Glacier2.PermissionDeniedException Thrown when the user access is denied. This exception can be thrown
-     * instead of returning `false` with a reason set in the reason out parameter.
+     * instead of returning {@code false} with a reason set in the reason out parameter.
      */
     SSLPermissionsVerifier.AuthorizeResult authorize(SSLInfo info, com.zeroc.Ice.Current current)
         throws PermissionDeniedException;

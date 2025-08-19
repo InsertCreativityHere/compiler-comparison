@@ -13,12 +13,12 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Registers or unregisters the endpoints of an object adapter.
      * @param id The adapter ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
      * The locator considers an object adapter to be active after it has registered its endpoints.
-     * When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+     * When {@code proxy} is null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @throws com.zeroc.Ice.AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
      * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-     * Ice client runtime retries an invocation with a non-null @p proxy.
+     * Ice client runtime retries an invocation with a non-null {@code proxy}.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
      * their endpoints and no object adapter with this adapter ID was registered with the locator.
      */
@@ -30,13 +30,13 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Registers or unregisters the endpoints of an object adapter.
      * @param id The adapter ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
      * The locator considers an object adapter to be active after it has registered its endpoints.
-     * When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+     * When {@code proxy} is null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @param context The Context map to send with the invocation.
      * @throws com.zeroc.Ice.AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
      * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-     * Ice client runtime retries an invocation with a non-null @p proxy.
+     * Ice client runtime retries an invocation with a non-null {@code proxy}.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
      * their endpoints and no object adapter with this adapter ID was registered with the locator.
      */
@@ -56,9 +56,9 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Registers or unregisters the endpoints of an object adapter.
      * @param id The adapter ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
      * The locator considers an object adapter to be active after it has registered its endpoints.
-     * When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+     * When {@code proxy} is null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @return A future that will be completed when the invocation completes.
      */
     default java.util.concurrent.CompletableFuture<Void> setAdapterDirectProxyAsync(java.lang.String id, ObjectPrx proxy) {
@@ -68,9 +68,9 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Registers or unregisters the endpoints of an object adapter.
      * @param id The adapter ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
      * The locator considers an object adapter to be active after it has registered its endpoints.
-     * When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+     * When {@code proxy} is null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      */
@@ -98,12 +98,12 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
      * group.
      * @param adapterId The adapter ID.
      * @param replicaGroupId The replica group ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-     * The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
+     * The locator considers an object adapter to be active after it has registered its endpoints. When {@code proxy} is
      * null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @throws com.zeroc.Ice.AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
      * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-     * Ice client runtime retries an invocation with a non-null @p proxy.
+     * Ice client runtime retries an invocation with a non-null {@code proxy}.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
      * their endpoints and no object adapter with this adapter ID was registered with the locator.
      * @throws com.zeroc.Ice.InvalidReplicaGroupIdException Thrown when the given replica group does not match the replica group
@@ -119,13 +119,13 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
      * group.
      * @param adapterId The adapter ID.
      * @param replicaGroupId The replica group ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-     * The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
+     * The locator considers an object adapter to be active after it has registered its endpoints. When {@code proxy} is
      * null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @param context The Context map to send with the invocation.
      * @throws com.zeroc.Ice.AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
      * registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-     * Ice client runtime retries an invocation with a non-null @p proxy.
+     * Ice client runtime retries an invocation with a non-null {@code proxy}.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
      * their endpoints and no object adapter with this adapter ID was registered with the locator.
      * @throws com.zeroc.Ice.InvalidReplicaGroupIdException Thrown when the given replica group does not match the replica group
@@ -151,8 +151,8 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
      * group.
      * @param adapterId The adapter ID.
      * @param replicaGroupId The replica group ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-     * The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
+     * The locator considers an object adapter to be active after it has registered its endpoints. When {@code proxy} is
      * null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @return A future that will be completed when the invocation completes.
      */
@@ -165,8 +165,8 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx {
      * group.
      * @param adapterId The adapter ID.
      * @param replicaGroupId The replica group ID.
-     * @param proxy A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-     * The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+     * @param proxy A dummy proxy created by the object adapter. {@code proxy} carries the object adapter's endpoints.
+     * The locator considers an object adapter to be active after it has registered its endpoints. When {@code proxy} is
      * null, the endpoints are unregistered and the locator considers the object adapter inactive.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

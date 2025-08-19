@@ -7,7 +7,7 @@ package com.zeroc.IceGrid;
 
 /**
  * Represents a session object used by IceGrid clients to allocate and release objects. Client sessions are created
- * either via the {@link RegistryPrx} object or via the registry client `SessionManager` object.
+ * either via the {@link RegistryPrx} object or via the registry client {@code SessionManager} object.
  */
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::Session")
 public interface Session extends com.zeroc.Glacier2.Session {

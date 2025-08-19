@@ -1,6 +1,6 @@
 classdef (Sealed) Identity
     %IDENTITY Represents the identity of an Ice object. It is comparable to the path of a URI. Its string representation is
-    %   `name` when the category is empty, and `category/name` when the category is not empty.
+    %   |name| when the category is empty, and |category/name| when the category is not empty.
     %
     %   Creation
     %     Syntax

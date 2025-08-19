@@ -102,7 +102,7 @@ class LocatorPrx(ObjectPrx):
         Returns
         -------
         ObjectPrx | None
-            A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+            A dummy proxy with the adapter's endpoints, or null if an object adapter with ``id`` was not found.
         
         Raises
         ------
@@ -126,7 +126,7 @@ class LocatorPrx(ObjectPrx):
         Returns
         -------
         Awaitable[ObjectPrx | None]
-            A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+            A dummy proxy with the adapter's endpoints, or null if an object adapter with ``id`` was not found.
         """
         return Locator._op_findAdapterById.invokeAsync(self, ((id, ), context))
 
@@ -251,7 +251,7 @@ class Locator(Object, ABC):
         Returns
         -------
         ObjectPrx | None | Awaitable[ObjectPrx | None]
-            A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+            A dummy proxy with the adapter's endpoints, or null if an object adapter with ``id`` was not found.
         
         Raises
         ------

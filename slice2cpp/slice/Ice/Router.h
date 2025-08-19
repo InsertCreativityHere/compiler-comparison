@@ -74,7 +74,7 @@ namespace Ice
 
         /// Gets the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the
         /// router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// @param[out] hasRoutingTable Indicates whether or not the router supports a routing table. If `true`, the Ice
+        /// @param[out] hasRoutingTable Indicates whether or not the router supports a routing table. If <tt>true</tt>, the Ice
         /// runtime will call ::Ice::RouterPrx::addProxies to populate the routing table. The Ice runtime assumes the router has
         /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
         /// @param context The request context.
@@ -86,7 +86,7 @@ namespace Ice
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
         /// - `returnValue` The router's client proxy.
-        /// - `hasRoutingTable` Indicates whether or not the router supports a routing table. If `true`, the Ice
+        /// - `hasRoutingTable` Indicates whether or not the router supports a routing table. If <tt>true</tt>, the Ice
         /// runtime will call ::Ice::RouterPrx::addProxies to populate the routing table. The Ice runtime assumes the router has
         /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
         [[nodiscard]] std::future<std::tuple<std::optional<Ice::ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
@@ -95,7 +95,7 @@ namespace Ice
         /// router. If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// @param response The response callback. It accepts:
         /// - `returnValue` The router's client proxy.
-        /// - `hasRoutingTable` Indicates whether or not the router supports a routing table. If `true`, the Ice
+        /// - `hasRoutingTable` Indicates whether or not the router supports a routing table. If <tt>true</tt>, the Ice
         /// runtime will call ::Ice::RouterPrx::addProxies to populate the routing table. The Ice runtime assumes the router has
         /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
         /// @param exception The exception callback.
@@ -183,10 +183,10 @@ namespace Ice
     };
 
     /// Provides access to a RouterPrx object via a fixed identity.
-    /// A RouterFinder is always registered with identity `Ice/RouterFinder`. This allows clients to obtain the
+    /// A RouterFinder is always registered with identity <tt>Ice/RouterFinder</tt>. This allows clients to obtain the
     /// associated Router proxy with just the endpoint information of the object. For example, you can use the
-    /// RouterFinder proxy `Ice/RouterFinder:tcp -h somehost -p 4061` to get the Router proxy
-    /// `MyGlacier2/Router:tcp -h somehost -p 4061`.
+    /// RouterFinder proxy <tt>Ice/RouterFinder:tcp -h somehost -p 4061</tt> to get the Router proxy
+    /// <tt>MyGlacier2/Router:tcp -h somehost -p 4061</tt>.
     /// @headerfile Ice/Ice.h
     class ICE_API RouterFinderPrx : public Ice::Proxy<RouterFinderPrx, Ice::ObjectPrx>
     {
@@ -293,7 +293,7 @@ namespace Ice
 
         /// Gets the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the
         /// router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// @param[out] hasRoutingTable Indicates whether or not the router supports a routing table. If `true`, the Ice
+        /// @param[out] hasRoutingTable Indicates whether or not the router supports a routing table. If <tt>true</tt>, the Ice
         /// runtime will call ::Ice::RouterPrx::addProxies to populate the routing table. The Ice runtime assumes the router has
         /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
         /// @param current The Current object of the incoming request.
@@ -331,10 +331,10 @@ namespace Ice
     using RouterPtr = std::shared_ptr<Router>;
 
     /// Provides access to a RouterPrx object via a fixed identity.
-    /// A RouterFinder is always registered with identity `Ice/RouterFinder`. This allows clients to obtain the
+    /// A RouterFinder is always registered with identity <tt>Ice/RouterFinder</tt>. This allows clients to obtain the
     /// associated Router proxy with just the endpoint information of the object. For example, you can use the
-    /// RouterFinder proxy `Ice/RouterFinder:tcp -h somehost -p 4061` to get the Router proxy
-    /// `MyGlacier2/Router:tcp -h somehost -p 4061`.
+    /// RouterFinder proxy <tt>Ice/RouterFinder:tcp -h somehost -p 4061</tt> to get the Router proxy
+    /// <tt>MyGlacier2/Router:tcp -h somehost -p 4061</tt>.
     /// @headerfile Ice/Ice.h
     class ICE_API RouterFinder : public virtual Ice::Object
     {

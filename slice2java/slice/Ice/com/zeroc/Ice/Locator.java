@@ -29,7 +29,7 @@ public interface Locator extends com.zeroc.Ice.Object {
      * Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).
      * @param id The adapter ID.
      * @param current The Current object of the incoming request.
-     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with {@code id} was not found.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when an object adapter with this adapter ID was not found. The
      * caller should treat this exception like a null return value.
      */

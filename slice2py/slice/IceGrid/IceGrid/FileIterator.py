@@ -51,7 +51,7 @@ class FileIteratorPrx(ObjectPrx):
         tuple[bool, list[str]]
         
             A tuple containing:
-                - bool `true` if EOF is encountered.
+                - bool ``true`` if EOF is encountered.
                 - list[str] The lines read from the file. If there was nothing to read from the file since the last call to
                   read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
                   newline character should be added when writing the last line to the to the output device).
@@ -80,7 +80,7 @@ class FileIteratorPrx(ObjectPrx):
         Awaitable[tuple[bool, list[str]]]
         
             A tuple containing:
-                - bool `true` if EOF is encountered.
+                - bool ``true`` if EOF is encountered.
                 - list[str] The lines read from the file. If there was nothing to read from the file since the last call to
                   read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
                   newline character should be added when writing the last line to the to the output device).
@@ -178,7 +178,7 @@ class FileIterator(Object, ABC):
         tuple[bool, Sequence[str]] | Awaitable[tuple[bool, Sequence[str]]]
         
             A tuple containing:
-                - bool `true` if EOF is encountered.
+                - bool ``true`` if EOF is encountered.
                 - Sequence[str] The lines read from the file. If there was nothing to read from the file since the last call to
                   read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
                   newline character should be added when writing the last line to the to the output device).

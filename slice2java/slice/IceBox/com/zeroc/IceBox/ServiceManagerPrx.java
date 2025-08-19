@@ -14,7 +14,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx {
      * Starts a service.
      * @param service The service name.
      * @throws com.zeroc.IceBox.AlreadyStartedException Thrown when the service is already running.
-     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named {@code service}.
      */
     default void startService(java.lang.String service)
         throws AlreadyStartedException, NoSuchServiceException {
@@ -26,7 +26,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx {
      * @param service The service name.
      * @param context The Context map to send with the invocation.
      * @throws com.zeroc.IceBox.AlreadyStartedException Thrown when the service is already running.
-     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named {@code service}.
      */
     default void startService(java.lang.String service, java.util.Map<java.lang.String, java.lang.String> context)
         throws AlreadyStartedException, NoSuchServiceException {
@@ -78,7 +78,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx {
      * Stops a service.
      * @param service The service name.
      * @throws com.zeroc.IceBox.AlreadyStoppedException Thrown when the service is already stopped.
-     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named {@code service}.
      */
     default void stopService(java.lang.String service)
         throws AlreadyStoppedException, NoSuchServiceException {
@@ -90,7 +90,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx {
      * @param service The service name.
      * @param context The Context map to send with the invocation.
      * @throws com.zeroc.IceBox.AlreadyStoppedException Thrown when the service is already stopped.
-     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named @p service.
+     * @throws com.zeroc.IceBox.NoSuchServiceException Thrown when IceBox does not know a service named {@code service}.
      */
     default void stopService(java.lang.String service, java.util.Map<java.lang.String, java.lang.String> context)
         throws AlreadyStoppedException, NoSuchServiceException {

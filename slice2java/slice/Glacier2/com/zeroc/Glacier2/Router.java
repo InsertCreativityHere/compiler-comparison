@@ -14,7 +14,7 @@ public interface Router extends com.zeroc.Ice.Router {
      * Gets a unique category that identifies the client (caller) in the router. This category must be used in the
      * identities of all the client's callback objects.
      * @param current The Current object of the incoming request.
-     * @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+     * @return The category. It's an empty string when {@code Glacier2.Server.Endpoints} is not configured.
      */
     java.lang.String getCategoryForClient(com.zeroc.Ice.Current current);
 

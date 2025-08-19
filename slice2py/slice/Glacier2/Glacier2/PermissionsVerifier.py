@@ -50,14 +50,14 @@ class PermissionsVerifierPrx(ObjectPrx):
         tuple[bool, str]
         
             A tuple containing:
-                - bool `true` if access is granted, `false` otherwise.
+                - bool ``true`` if access is granted, ``false`` otherwise.
                 - str The reason why access was denied.
         
         Raises
         ------
         PermissionDeniedException
             Thrown when the user access is denied. This exception can be thrown
-            instead of returning `false` with a reason set in the reason out parameter.
+            instead of returning ``false`` with a reason set in the reason out parameter.
         """
         return PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
 
@@ -79,7 +79,7 @@ class PermissionsVerifierPrx(ObjectPrx):
         Awaitable[tuple[bool, str]]
         
             A tuple containing:
-                - bool `true` if access is granted, `false` otherwise.
+                - bool ``true`` if access is granted, ``false`` otherwise.
                 - str The reason why access was denied.
         """
         return PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
@@ -148,14 +148,14 @@ class PermissionsVerifier(Object, ABC):
         tuple[bool, str] | Awaitable[tuple[bool, str]]
         
             A tuple containing:
-                - bool `true` if access is granted, `false` otherwise.
+                - bool ``true`` if access is granted, ``false`` otherwise.
                 - str The reason why access was denied.
         
         Raises
         ------
         PermissionDeniedException
             Thrown when the user access is denied. This exception can be thrown
-            instead of returning `false` with a reason set in the reason out parameter.
+            instead of returning ``false`` with a reason set in the reason out parameter.
         """
         pass
 

@@ -1,9 +1,9 @@
 classdef LocatorFinderPrx < Ice.ObjectPrx
     %LOCATORFINDERPRX Provides access to a <a href="matlab:help Ice.LocatorPrx -displayBanner">LocatorPrx</a> object via a fixed identity.
-    %   A LocatorFinder is always registered with identity `Ice/LocatorFinder`. This allows clients to obtain the
+    %   A LocatorFinder is always registered with identity |Ice/LocatorFinder|. This allows clients to obtain the
     %   associated Locator proxy with just the endpoint information of the object. For example, you can use the
-    %   LocatorFinder proxy `Ice/LocatorFinder:tcp -h somehost -p 4061` to get the Locator proxy
-    %   `MyIceGrid/Locator:tcp -h somehost -p 4061`.
+    %   LocatorFinder proxy |Ice/LocatorFinder:tcp -h somehost -p 4061| to get the Locator proxy
+    %   |MyIceGrid/Locator:tcp -h somehost -p 4061|.
     %
     %   Creation
     %     Syntax

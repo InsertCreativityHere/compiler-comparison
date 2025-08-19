@@ -27,7 +27,7 @@ public interface Server extends FileReader {
     /**
      * Check if the given server can be loaded on this node.
      * @param current The Current object of the incoming request.
-     * @return `true` if the server is inactive.
+     * @return {@code true} if the server is inactive.
      * @throws com.zeroc.IceGrid.DeploymentException Raised if the server can't be updated.
      */
     boolean checkUpdate(InternalServerDescriptor svr, boolean noRestart, com.zeroc.Ice.Current current)

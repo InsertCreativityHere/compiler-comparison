@@ -35,7 +35,7 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    /// `icegridadmin` provides a FileParserPrx object to transform XML files into ApplicationDescriptor
+    /// <tt>icegridadmin</tt> provides a FileParserPrx object to transform XML files into ApplicationDescriptor
     /// objects.
     /// @headerfile IceGrid/IceGrid.h
     class ICEGRID_API FileParserPrx : public Ice::Proxy<FileParserPrx, Ice::ObjectPrx>
@@ -178,7 +178,7 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    /// `icegridadmin` provides a FileParserPrx object to transform XML files into ApplicationDescriptor
+    /// <tt>icegridadmin</tt> provides a FileParserPrx object to transform XML files into ApplicationDescriptor
     /// objects.
     /// @headerfile IceGrid/IceGrid.h
     class ICEGRID_API FileParser : public virtual Ice::Object

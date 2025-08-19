@@ -51,14 +51,14 @@ class SSLPermissionsVerifierPrx(ObjectPrx):
         tuple[bool, str]
         
             A tuple containing:
-                - bool `true` if access is granted, `false` otherwise.
+                - bool ``true`` if access is granted, ``false`` otherwise.
                 - str The reason why access was denied.
         
         Raises
         ------
         PermissionDeniedException
             Thrown when the user access is denied. This exception can be thrown
-            instead of returning `false` with a reason set in the reason out parameter.
+            instead of returning ``false`` with a reason set in the reason out parameter.
         """
         return SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
 
@@ -78,7 +78,7 @@ class SSLPermissionsVerifierPrx(ObjectPrx):
         Awaitable[tuple[bool, str]]
         
             A tuple containing:
-                - bool `true` if access is granted, `false` otherwise.
+                - bool ``true`` if access is granted, ``false`` otherwise.
                 - str The reason why access was denied.
         """
         return SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
@@ -145,14 +145,14 @@ class SSLPermissionsVerifier(Object, ABC):
         tuple[bool, str] | Awaitable[tuple[bool, str]]
         
             A tuple containing:
-                - bool `true` if access is granted, `false` otherwise.
+                - bool ``true`` if access is granted, ``false`` otherwise.
                 - str The reason why access was denied.
         
         Raises
         ------
         PermissionDeniedException
             Thrown when the user access is denied. This exception can be thrown
-            instead of returning `false` with a reason set in the reason out parameter.
+            instead of returning ``false`` with a reason set in the reason out parameter.
         """
         pass
 

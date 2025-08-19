@@ -32,16 +32,16 @@ class ElementConfig(Value):
         An optional name for the reader or writer.
     priority : int | None
         An optional priority for the writer.
-        See also the `DataStorm.Topic.Priority` property.
+        See also the ``DataStorm.Topic.Priority`` property.
     sampleCount : int | None
         An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-        See also the `DataStorm.Topic.SampleCount` property.
+        See also the ``DataStorm.Topic.SampleCount`` property.
     sampleLifetime : int | None
         An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-        writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+        writer or reader sample queue. See also the ``DataStorm.Topic.SampleLifetime`` property.
     clearHistory : ClearHistoryPolicy | None
         An optional clear history policy that determines when the reader or writer sample history is cleared.
-        See also the `DataStorm.Topic.ClearHistory` property.
+        See also the ``DataStorm.Topic.ClearHistory`` property.
     """
     facet: str | None = None
     sampleFilter: FilterInfo | None = None

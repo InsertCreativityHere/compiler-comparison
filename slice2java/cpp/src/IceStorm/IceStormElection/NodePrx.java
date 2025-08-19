@@ -194,7 +194,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
 
     /**
      * Determine if this node is a coordinator.
-     * @return `true` if the node is a coordinator, `false` otherwise.
+     * @return {@code true} if the node is a coordinator, {@code false} otherwise.
      */
     default boolean areYouCoordinator() {
         return areYouCoordinator(com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -203,7 +203,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Determine if this node is a coordinator.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the node is a coordinator, `false` otherwise.
+     * @return {@code true} if the node is a coordinator, {@code false} otherwise.
      */
     default boolean areYouCoordinator(java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_areYouCoordinatorAsync(context, true).waitForResponse();
@@ -211,7 +211,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
 
     /**
      * Determine if this node is a coordinator.
-     * @return `true` if the node is a coordinator, `false` otherwise.
+     * @return {@code true} if the node is a coordinator, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> areYouCoordinatorAsync() {
         return _iceI_areYouCoordinatorAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -220,7 +220,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Determine if this node is a coordinator.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the node is a coordinator, `false` otherwise.
+     * @return {@code true} if the node is a coordinator, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> areYouCoordinatorAsync(java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_areYouCoordinatorAsync(context, false);
@@ -240,7 +240,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
      * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
-     * @return `true` if the node is a member, `false` otherwise.
+     * @return {@code true} if the node is a member, {@code false} otherwise.
      */
     default boolean areYouThere(java.lang.String gn, int j) {
         return areYouThere(gn, j, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -251,7 +251,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the node is a member, `false` otherwise.
+     * @return {@code true} if the node is a member, {@code false} otherwise.
      */
     default boolean areYouThere(java.lang.String gn, int j, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_areYouThereAsync(gn, j, context, true).waitForResponse();
@@ -261,7 +261,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
      * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
-     * @return `true` if the node is a member, `false` otherwise.
+     * @return {@code true} if the node is a member, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> areYouThereAsync(java.lang.String gn, int j) {
         return _iceI_areYouThereAsync(gn, j, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -272,7 +272,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx {
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
-     * @return `true` if the node is a member, `false` otherwise.
+     * @return {@code true} if the node is a member, {@code false} otherwise.
      */
     default java.util.concurrent.CompletableFuture<java.lang.Boolean> areYouThereAsync(java.lang.String gn, int j, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_areYouThereAsync(gn, j, context, false);

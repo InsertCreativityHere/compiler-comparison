@@ -1376,7 +1376,7 @@ namespace Glacier2
     {
         /// <summary>Creates a new session object.</summary>
         /// <param name="userId">The user ID for the session.</param>
-        /// <param name="control">A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// <param name="control">A proxy to the session control object. This proxy is null when <c>Glacier2.Server.Endpoints</c>
         /// is not configured.</param>
         /// <param name="context">The request context.</param>
         /// <returns>A proxy to the newly created session. This proxy is never null.</returns>
@@ -1388,7 +1388,7 @@ namespace Glacier2
 
         /// <summary>Creates a new session object.</summary>
         /// <param name="userId">The user ID for the session.</param>
-        /// <param name="control">A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// <param name="control">A proxy to the session control object. This proxy is null when <c>Glacier2.Server.Endpoints</c>
         /// is not configured.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -1600,7 +1600,7 @@ namespace Glacier2
     {
         /// <summary>Creates a new session object.</summary>
         /// <param name="info">The SSL info.</param>
-        /// <param name="control">A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// <param name="control">A proxy to the session control object. This proxy is null when <c>Glacier2.Server.Endpoints</c>
         /// is not configured.</param>
         /// <param name="context">The request context.</param>
         /// <returns>A proxy to the newly created session. This proxy is never null.</returns>
@@ -1612,7 +1612,7 @@ namespace Glacier2
 
         /// <summary>Creates a new session object.</summary>
         /// <param name="info">The SSL info.</param>
-        /// <param name="control">A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// <param name="control">A proxy to the session control object. This proxy is null when <c>Glacier2.Server.Endpoints</c>
         /// is not configured.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -2237,7 +2237,7 @@ namespace Glacier2
     {
         /// <summary>Creates a new session object.</summary>
         /// <param name="userId">The user ID for the session.</param>
-        /// <param name="control">A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// <param name="control">A proxy to the session control object. This proxy is null when <c>Glacier2.Server.Endpoints</c>
         /// is not configured.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>A proxy to the newly created session. This proxy is never null.</returns>
@@ -2307,7 +2307,7 @@ namespace Glacier2
     {
         /// <summary>Creates a new session object.</summary>
         /// <param name="info">The SSL info.</param>
-        /// <param name="control">A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// <param name="control">A proxy to the session control object. This proxy is null when <c>Glacier2.Server.Endpoints</c>
         /// is not configured.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>A proxy to the newly created session. This proxy is never null.</returns>

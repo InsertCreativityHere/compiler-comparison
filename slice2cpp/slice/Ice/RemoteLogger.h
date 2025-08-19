@@ -267,20 +267,20 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// @param prx A proxy to the remote logger.
         /// @param context The request context.
-        /// @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+        /// @return <tt>true</tt> if the provided remote logger proxy was detached, and <tt>false</tt> otherwise.
         bool detachRemoteLogger(const std::optional<RemoteLoggerPrx>& prx, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Detaches a RemoteLogger object from the local logger.
         /// @param prx A proxy to the remote logger.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the provided remote logger proxy was detached, and `false` otherwise.
+        /// - <tt>true</tt> if the provided remote logger proxy was detached, and <tt>false</tt> otherwise.
         [[nodiscard]] std::future<bool> detachRemoteLoggerAsync(const std::optional<RemoteLoggerPrx>& prx, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Detaches a RemoteLogger object from the local logger.
         /// @param prx A proxy to the remote logger.
         /// @param response The response callback. It accepts:
-        /// - `true` if the provided remote logger proxy was detached, and `false` otherwise.
+        /// - <tt>true</tt> if the provided remote logger proxy was detached, and <tt>false</tt> otherwise.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -508,7 +508,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// @param prx A proxy to the remote logger.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the provided remote logger proxy was detached, and `false` otherwise.
+        /// @return <tt>true</tt> if the provided remote logger proxy was detached, and <tt>false</tt> otherwise.
         virtual bool detachRemoteLogger(std::optional<RemoteLoggerPrx> prx, const Ice::Current& current) = 0;
 
         /// @private

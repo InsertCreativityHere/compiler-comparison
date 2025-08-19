@@ -16,8 +16,8 @@ public struct PropertiesAdminTraits: SliceTraits {
 /// PropertiesAdminPrx Methods:
 ///  - getProperty: Gets a property by key.
 ///  - getPropertyAsync: Gets a property by key.
-///  - getPropertiesForPrefix: Gets all properties whose keys begin with @p prefix.
-///  - getPropertiesForPrefixAsync: Gets all properties whose keys begin with @p prefix.
+///  - getPropertiesForPrefix: Gets all properties whose keys begin with `prefix`.
+///  - getPropertiesForPrefixAsync: Gets all properties whose keys begin with `prefix`.
 ///  - setProperties: Updates the communicator's properties with the given property set.
 ///  - setPropertiesAsync: Updates the communicator's properties with the given property set.
 public protocol PropertiesAdminPrx: ObjectPrx {}
@@ -109,8 +109,8 @@ public extension InputStream {
 /// PropertiesAdminPrx Methods:
 ///  - getProperty: Gets a property by key.
 ///  - getPropertyAsync: Gets a property by key.
-///  - getPropertiesForPrefix: Gets all properties whose keys begin with @p prefix.
-///  - getPropertiesForPrefixAsync: Gets all properties whose keys begin with @p prefix.
+///  - getPropertiesForPrefix: Gets all properties whose keys begin with `prefix`.
+///  - getPropertiesForPrefixAsync: Gets all properties whose keys begin with `prefix`.
 ///  - setProperties: Updates the communicator's properties with the given property set.
 ///  - setPropertiesAsync: Updates the communicator's properties with the given property set.
 public extension PropertiesAdminPrx {
@@ -136,7 +136,7 @@ public extension PropertiesAdminPrx {
         }
     }
 
-    /// Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+    /// Gets all properties whose keys begin with `prefix`. If `prefix` is the empty string then all properties
     /// are returned.
     ///
     /// - Parameters:
@@ -159,10 +159,10 @@ public extension PropertiesAdminPrx {
         }
     }
 
-    /// Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+    /// Updates the communicator's properties with the given property set. If an entry in `newProperties` matches
     /// the name of an existing property, that property's value is replaced with the new value. If the new value is
     /// the empty string, the property is removed. Existing properties that are not modified or removed by the
-    /// entries in @p newProperties are not affected by this update.
+    /// entries in `newProperties` are not affected by this update.
     ///
     /// - Parameters:
     ///   - iceP_newProperties: Properties to add, change, or remove.
@@ -188,7 +188,7 @@ public protocol PropertiesAdmin: Dispatcher {
     /// - Returns: The property value. This value is empty if the property is not set.
     func getProperty(key: Swift.String, current: Current) async throws -> Swift.String
 
-    /// Gets all properties whose keys begin with @p prefix. If @p prefix is the empty string then all properties
+    /// Gets all properties whose keys begin with `prefix`. If `prefix` is the empty string then all properties
     /// are returned.
     ///
     /// - Parameters:
@@ -198,10 +198,10 @@ public protocol PropertiesAdmin: Dispatcher {
     /// - Returns: The matching property set.
     func getPropertiesForPrefix(prefix: Swift.String, current: Current) async throws -> PropertyDict
 
-    /// Updates the communicator's properties with the given property set. If an entry in @p newProperties matches
+    /// Updates the communicator's properties with the given property set. If an entry in `newProperties` matches
     /// the name of an existing property, that property's value is replaced with the new value. If the new value is
     /// the empty string, the property is removed. Existing properties that are not modified or removed by the
-    /// entries in @p newProperties are not affected by this update.
+    /// entries in `newProperties` are not affected by this update.
     ///
     /// - Parameters:
     ///   - newProperties: Properties to add, change, or remove.
@@ -213,7 +213,7 @@ public protocol PropertiesAdmin: Dispatcher {
 ///
 /// PropertiesAdmin Methods:
 ///  - getProperty: Gets a property by key.
-///  - getPropertiesForPrefix: Gets all properties whose keys begin with @p prefix.
+///  - getPropertiesForPrefix: Gets all properties whose keys begin with `prefix`.
 ///  - setProperties: Updates the communicator's properties with the given property set.
 extension PropertiesAdmin {
     private static var defaultObject: Object {

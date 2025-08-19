@@ -33,22 +33,22 @@ classdef ElementConfig < Ice.Value
         name (1, :) = IceInternal.UnsetI.Instance
         
         % PRIORITY An optional priority for the writer.
-        %   See also the `DataStorm.Topic.Priority` property.
+        %   See also the |DataStorm.Topic.Priority| property.
         %   int32 scalar | Ice.Unset
         priority (1, 1) = IceInternal.UnsetI.Instance
         
         % SAMPLECOUNT An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-        %   See also the `DataStorm.Topic.SampleCount` property.
+        %   See also the |DataStorm.Topic.SampleCount| property.
         %   int32 scalar | Ice.Unset
         sampleCount (1, 1) = IceInternal.UnsetI.Instance
         
         % SAMPLELIFETIME An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-        %   writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+        %   writer or reader sample queue. See also the |DataStorm.Topic.SampleLifetime| property.
         %   int32 scalar | Ice.Unset
         sampleLifetime (1, 1) = IceInternal.UnsetI.Instance
         
         % CLEARHISTORY An optional clear history policy that determines when the reader or writer sample history is cleared.
-        %   See also the `DataStorm.Topic.ClearHistory` property.
+        %   See also the |DataStorm.Topic.ClearHistory| property.
         %   DataStormContract.ClearHistoryPolicy scalar | Ice.Unset
         clearHistory (1, 1) = IceInternal.UnsetI.Instance
     end

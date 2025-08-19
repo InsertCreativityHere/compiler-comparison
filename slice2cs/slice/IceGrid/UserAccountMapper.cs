@@ -38,15 +38,15 @@ namespace IceGrid
     }
 
     /// <summary>Maps user strings in server descriptors to actual user account names. You can configure the user account mapper
-    /// of an IceGrid node with the property `IceGrid.Node.UserAccountMapper`.</summary>
+    /// of an IceGrid node with the property <c>IceGrid.Node.UserAccountMapper</c>.</summary>
     /// <remarks>The Slice compiler generated this client-side interface from Slice interface <c>::IceGrid::UserAccountMapper</c>.
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>UserAccountMapper</c>.</remarks>
     public partial interface UserAccountMapperPrx : Ice.ObjectPrx
     {
         /// <summary>Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.</summary>
-        /// <param name="user">The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.</param>
+        /// <param name="user">The value of the server descriptor's <c>user</c> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <c>session</c>, the default value for <c>user</c> is the session identifier.</param>
         /// <param name="context">The request context.</param>
         /// <returns>The user account name.</returns>
         /// <exception cref="IceGrid.UserAccountNotFoundException">Thrown when no user account is found for the given user.</exception>
@@ -56,8 +56,8 @@ namespace IceGrid
 
         /// <summary>Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.</summary>
-        /// <param name="user">The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.</param>
+        /// <param name="user">The value of the server descriptor's <c>user</c> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <c>session</c>, the default value for <c>user</c> is the session identifier.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -257,7 +257,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>Maps user strings in server descriptors to actual user account names. You can configure the user account mapper
-    /// of an IceGrid node with the property `IceGrid.Node.UserAccountMapper`.</summary>
+    /// of an IceGrid node with the property <c>IceGrid.Node.UserAccountMapper</c>.</summary>
     /// <remarks>The Slice compiler generated this server-side interface from Slice interface <c>::IceGrid::UserAccountMapper</c>.
     /// Your servant class implements this interface by deriving from <see cref="UserAccountMapperDisp_" /> or from the Disp_ class for a derived interface.</remarks>
     [Ice.SliceTypeId("::IceGrid::UserAccountMapper")]
@@ -265,8 +265,8 @@ namespace IceGrid
     {
         /// <summary>Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
         /// account to use to run servers.</summary>
-        /// <param name="user">The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-        /// the server's activation mode is `session`, the default value for `user` is the session identifier.</param>
+        /// <param name="user">The value of the server descriptor's <c>user</c> attribute. When this attribute is not defined, and
+        /// the server's activation mode is <c>session</c>, the default value for <c>user</c> is the session identifier.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The user account name.</returns>
         /// <exception cref="IceGrid.UserAccountNotFoundException">Thrown when no user account is found for the given user.</exception>

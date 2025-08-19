@@ -125,7 +125,7 @@ public extension RouterPrx {
     ///   - returnValue: The router's client proxy.
     ///   - hasRoutingTable: Indicates whether or not the router supports a routing table. If `true`, the Ice
     /// runtime will call ``RouterPrx/addProxies(_:context:)`` to populate the routing table. The Ice runtime assumes the router has
-    /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+    /// a routing table when `hasRoutingTable` is not set. Introduced in Ice 3.7.
     func getClientProxy(context: Context? = nil) async throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?) {
         return try await _impl._invoke(operation: "getClientProxy",
                                        mode: .idempotent,
@@ -320,7 +320,7 @@ public protocol Router: Dispatcher {
     ///   - returnValue: The router's client proxy.
     ///   - hasRoutingTable: Indicates whether or not the router supports a routing table. If `true`, the Ice
     /// runtime will call ``RouterPrx/addProxies(_:context:)`` to populate the routing table. The Ice runtime assumes the router has
-    /// a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+    /// a routing table when `hasRoutingTable` is not set. Introduced in Ice 3.7.
     func getClientProxy(current: Current) async throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)
 
     /// Gets the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the

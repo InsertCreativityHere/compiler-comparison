@@ -47,7 +47,7 @@ class SessionManagerPrx(ObjectPrx):
         userId : str
             The user ID for the session.
         control : SessionControlPrx | None
-            A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+            A proxy to the session control object. This proxy is null when ``Glacier2.Server.Endpoints``
             is not configured.
         context : dict[str, str]
             The request context for the invocation.
@@ -73,7 +73,7 @@ class SessionManagerPrx(ObjectPrx):
         userId : str
             The user ID for the session.
         control : SessionControlPrx | None
-            A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+            A proxy to the session control object. This proxy is null when ``Glacier2.Server.Endpoints``
             is not configured.
         context : dict[str, str]
             The request context for the invocation.
@@ -140,7 +140,7 @@ class SessionManager(Object, ABC):
         userId : str
             The user ID for the session.
         control : SessionControlPrx | None
-            A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+            A proxy to the session control object. This proxy is null when ``Glacier2.Server.Endpoints``
             is not configured.
         current : Ice.Current
             The Current object for the dispatch.

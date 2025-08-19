@@ -40,7 +40,7 @@ interface Query {
 
     /// Finds all the replicas of a well-known object.
     /// @param proxy: A proxy that identifies the well-known object.
-    /// @returns: A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+    /// @returns: A list of proxies  to the replicas of the well-known object specified by `proxy`. Can be empty.
     idempotent findAllReplicas(proxy: IceRpc::ServiceAddress?) -> ::Ice::ObjectProxySeq
 }
 

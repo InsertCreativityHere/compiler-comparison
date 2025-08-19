@@ -185,14 +185,14 @@ public extension LocatorRegistryPrx {
     ///
     /// - Parameters:
     ///   - iceP_id: The adapter ID.
-    ///   - iceP_proxy: A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+    ///   - iceP_proxy: A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
     /// The locator considers an object adapter to be active after it has registered its endpoints.
-    /// When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+    /// When `proxy` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
     ///   - context: Optional request context.
     ///
     /// - Throws: AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
     ///     registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-    ///     Ice client runtime retries an invocation with a non-null @p proxy. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
+    ///     Ice client runtime retries an invocation with a non-null `proxy`. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
     ///     their endpoints and no object adapter with this adapter ID was registered with the locator.
     func setAdapterDirectProxy(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws {
         return try await _impl._invoke(operation: "setAdapterDirectProxy",
@@ -219,14 +219,14 @@ public extension LocatorRegistryPrx {
     /// - Parameters:
     ///   - iceP_adapterId: The adapter ID.
     ///   - iceP_replicaGroupId: The replica group ID.
-    ///   - iceP_proxy: A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-    /// The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+    ///   - iceP_proxy: A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
+    /// The locator considers an object adapter to be active after it has registered its endpoints. When `proxy` is
     /// null, the endpoints are unregistered and the locator considers the object adapter inactive.
     ///   - context: Optional request context.
     ///
     /// - Throws: AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
     ///     registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-    ///     Ice client runtime retries an invocation with a non-null @p proxy. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
+    ///     Ice client runtime retries an invocation with a non-null `proxy`. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
     ///     their endpoints and no object adapter with this adapter ID was registered with the locator. InvalidReplicaGroupIdException Thrown when the given replica group does not match the replica group
     ///     associated with the adapter ID in the locator's database.
     func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws {
@@ -285,14 +285,14 @@ public protocol LocatorRegistry: Dispatcher {
     ///
     /// - Parameters:
     ///   - id: The adapter ID.
-    ///   - proxy: A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+    ///   - proxy: A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
     /// The locator considers an object adapter to be active after it has registered its endpoints.
-    /// When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+    /// When `proxy` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Throws: AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
     ///     registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-    ///     Ice client runtime retries an invocation with a non-null @p proxy. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
+    ///     Ice client runtime retries an invocation with a non-null `proxy`. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
     ///     their endpoints and no object adapter with this adapter ID was registered with the locator.
     func setAdapterDirectProxy(id: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
@@ -302,14 +302,14 @@ public protocol LocatorRegistry: Dispatcher {
     /// - Parameters:
     ///   - adapterId: The adapter ID.
     ///   - replicaGroupId: The replica group ID.
-    ///   - proxy: A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-    /// The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+    ///   - proxy: A dummy proxy created by the object adapter. `proxy` carries the object adapter's endpoints.
+    /// The locator considers an object adapter to be active after it has registered its endpoints. When `proxy` is
     /// null, the endpoints are unregistered and the locator considers the object adapter inactive.
     ///   - current: The Current object for the dispatch.
     ///
     /// - Throws: AdapterAlreadyActiveException Thrown when an object adapter with the same adapter ID has already
     ///     registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-    ///     Ice client runtime retries an invocation with a non-null @p proxy. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
+    ///     Ice client runtime retries an invocation with a non-null `proxy`. AdapterNotFoundException Thrown when the locator only allows registered object adapters to register
     ///     their endpoints and no object adapter with this adapter ID was registered with the locator. InvalidReplicaGroupIdException Thrown when the given replica group does not match the replica group
     ///     associated with the adapter ID in the locator's database.
     func setReplicatedAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) async throws

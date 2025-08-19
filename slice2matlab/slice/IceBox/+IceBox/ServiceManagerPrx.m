@@ -39,7 +39,7 @@ classdef ServiceManagerPrx < Ice.ObjectPrx
             %
             %   Exceptions
             %     IceBox.AlreadyStartedException - Thrown when the service is already running.
-            %     IceBox.NoSuchServiceException - Thrown when IceBox does not know a service named @p service.
+            %     IceBox.NoSuchServiceException - Thrown when IceBox does not know a service named |service|.
             
             arguments
                 obj (1, 1) IceBox.ServiceManagerPrx
@@ -89,7 +89,7 @@ classdef ServiceManagerPrx < Ice.ObjectPrx
             %
             %   Exceptions
             %     IceBox.AlreadyStoppedException - Thrown when the service is already stopped.
-            %     IceBox.NoSuchServiceException - Thrown when IceBox does not know a service named @p service.
+            %     IceBox.NoSuchServiceException - Thrown when IceBox does not know a service named |service|.
             
             arguments
                 obj (1, 1) IceBox.ServiceManagerPrx

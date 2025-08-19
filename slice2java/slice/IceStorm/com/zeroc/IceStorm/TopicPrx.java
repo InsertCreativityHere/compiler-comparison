@@ -170,8 +170,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @return The per-subscriber publisher proxy. This proxy is never null.
-     * @throws com.zeroc.IceStorm.AlreadySubscribed Thrown when @p subscriber is already subscribed.
-     * @throws com.zeroc.IceStorm.BadQoS Thrown when @p theQoS is unavailable or invalid.
+     * @throws com.zeroc.IceStorm.AlreadySubscribed Thrown when {@code subscriber} is already subscribed.
+     * @throws com.zeroc.IceStorm.BadQoS Thrown when {@code theQoS} is unavailable or invalid.
      *
      * @see #unsubscribe
      */
@@ -186,8 +186,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The per-subscriber publisher proxy. This proxy is never null.
-     * @throws com.zeroc.IceStorm.AlreadySubscribed Thrown when @p subscriber is already subscribed.
-     * @throws com.zeroc.IceStorm.BadQoS Thrown when @p theQoS is unavailable or invalid.
+     * @throws com.zeroc.IceStorm.AlreadySubscribed Thrown when {@code subscriber} is already subscribed.
+     * @throws com.zeroc.IceStorm.BadQoS Thrown when {@code theQoS} is unavailable or invalid.
      *
      * @see #unsubscribe
      */
@@ -249,7 +249,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
     };
 
     /**
-     * Unsubscribes the provided @p subscriber from this topic.
+     * Unsubscribes the provided {@code subscriber} from this topic.
      * @param subscriber A proxy to an existing subscriber. This proxy is never null.
      *
      * @see #subscribeAndGetPublisher
@@ -259,7 +259,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Unsubscribes the provided @p subscriber from this topic.
+     * Unsubscribes the provided {@code subscriber} from this topic.
      * @param subscriber A proxy to an existing subscriber. This proxy is never null.
      * @param context The Context map to send with the invocation.
      *
@@ -270,7 +270,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Unsubscribes the provided @p subscriber from this topic.
+     * Unsubscribes the provided {@code subscriber} from this topic.
      * @param subscriber A proxy to an existing subscriber. This proxy is never null.
      * @return A future that will be completed when the invocation completes.
      *
@@ -281,7 +281,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
     }
 
     /**
-     * Unsubscribes the provided @p subscriber from this topic.
+     * Unsubscribes the provided {@code subscriber} from this topic.
      * @param subscriber A proxy to an existing subscriber. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -304,7 +304,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
      * Creates a link to another topic. All events originating on this topic will also be sent to the other topic.
      * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost of the link.
-     * @throws com.zeroc.IceStorm.LinkExists Thrown when a link to @p linkTo already exists.
+     * @throws com.zeroc.IceStorm.LinkExists Thrown when a link to {@code linkTo} already exists.
      */
     default void link(TopicPrx linkTo, int cost)
         throws LinkExists {
@@ -316,7 +316,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
      * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost of the link.
      * @param context The Context map to send with the invocation.
-     * @throws com.zeroc.IceStorm.LinkExists Thrown when a link to @p linkTo already exists.
+     * @throws com.zeroc.IceStorm.LinkExists Thrown when a link to {@code linkTo} already exists.
      */
     default void link(TopicPrx linkTo, int cost, java.util.Map<java.lang.String, java.lang.String> context)
         throws LinkExists {
@@ -367,7 +367,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Destroys a link from this topic to the provided topic.
      * @param linkTo The topic to destroy the link to. This proxy is never null.
-     * @throws com.zeroc.IceStorm.NoSuchLink Thrown when a link to @p linkTo does not exist.
+     * @throws com.zeroc.IceStorm.NoSuchLink Thrown when a link to {@code linkTo} does not exist.
      */
     default void unlink(TopicPrx linkTo)
         throws NoSuchLink {
@@ -378,7 +378,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx {
      * Destroys a link from this topic to the provided topic.
      * @param linkTo The topic to destroy the link to. This proxy is never null.
      * @param context The Context map to send with the invocation.
-     * @throws com.zeroc.IceStorm.NoSuchLink Thrown when a link to @p linkTo does not exist.
+     * @throws com.zeroc.IceStorm.NoSuchLink Thrown when a link to {@code linkTo} does not exist.
      */
     default void unlink(TopicPrx linkTo, java.util.Map<java.lang.String, java.lang.String> context)
         throws NoSuchLink {

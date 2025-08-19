@@ -45,7 +45,7 @@ class LoggerAdminPrx(ObjectPrx):
 
     def attachRemoteLogger(self, prx: RemoteLoggerPrx | None, messageTypes: Sequence[LogMessageType], traceCategories: Sequence[str], messageMax: int, context: dict[str, str] | None = None) -> None:
         """
-        Attaches a RemoteLogger object to the local logger. This operation calls :meth:`Ice.RemoteLoggerPrx.init` on @p prx.
+        Attaches a RemoteLogger object to the local logger. This operation calls :meth:`Ice.RemoteLoggerPrx.init` on ``prx``.
         
         Parameters
         ----------
@@ -74,7 +74,7 @@ class LoggerAdminPrx(ObjectPrx):
 
     def attachRemoteLoggerAsync(self, prx: RemoteLoggerPrx | None, messageTypes: Sequence[LogMessageType], traceCategories: Sequence[str], messageMax: int, context: dict[str, str] | None = None) -> Awaitable[None]:
         """
-        Attaches a RemoteLogger object to the local logger. This operation calls :meth:`Ice.RemoteLoggerPrx.init` on @p prx.
+        Attaches a RemoteLogger object to the local logger. This operation calls :meth:`Ice.RemoteLoggerPrx.init` on ``prx``.
         
         Parameters
         ----------
@@ -114,7 +114,7 @@ class LoggerAdminPrx(ObjectPrx):
         Returns
         -------
         bool
-            `true` if the provided remote logger proxy was detached, and `false` otherwise.
+            ``true`` if the provided remote logger proxy was detached, and ``false`` otherwise.
         """
         return LoggerAdmin._op_detachRemoteLogger.invoke(self, ((prx, ), context))
 
@@ -132,7 +132,7 @@ class LoggerAdminPrx(ObjectPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the provided remote logger proxy was detached, and `false` otherwise.
+            ``true`` if the provided remote logger proxy was detached, and ``false`` otherwise.
         """
         return LoggerAdmin._op_detachRemoteLogger.invokeAsync(self, ((prx, ), context))
 
@@ -244,7 +244,7 @@ class LoggerAdmin(Object, ABC):
     @abstractmethod
     def attachRemoteLogger(self, prx: RemoteLoggerPrx | None, messageTypes: list[LogMessageType], traceCategories: list[str], messageMax: int, current: Current) -> None | Awaitable[None]:
         """
-        Attaches a RemoteLogger object to the local logger. This operation calls :meth:`Ice.RemoteLoggerPrx.init` on @p prx.
+        Attaches a RemoteLogger object to the local logger. This operation calls :meth:`Ice.RemoteLoggerPrx.init` on ``prx``.
         
         Parameters
         ----------
@@ -291,7 +291,7 @@ class LoggerAdmin(Object, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the provided remote logger proxy was detached, and `false` otherwise.
+            ``true`` if the provided remote logger proxy was detached, and ``false`` otherwise.
         """
         pass
 

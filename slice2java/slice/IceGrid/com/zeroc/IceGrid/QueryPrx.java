@@ -230,7 +230,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Finds all the replicas of a well-known object.
      * @param proxy A proxy that identifies the well-known object.
-     * @return A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+     * @return A list of proxies  to the replicas of the well-known object specified by {@code proxy}. Can be empty.
      */
     default com.zeroc.Ice.ObjectPrx[] findAllReplicas(com.zeroc.Ice.ObjectPrx proxy) {
         return findAllReplicas(proxy, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -240,7 +240,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx {
      * Finds all the replicas of a well-known object.
      * @param proxy A proxy that identifies the well-known object.
      * @param context The Context map to send with the invocation.
-     * @return A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+     * @return A list of proxies  to the replicas of the well-known object specified by {@code proxy}. Can be empty.
      */
     default com.zeroc.Ice.ObjectPrx[] findAllReplicas(com.zeroc.Ice.ObjectPrx proxy, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_findAllReplicasAsync(proxy, context, true).waitForResponse();
@@ -249,7 +249,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Finds all the replicas of a well-known object.
      * @param proxy A proxy that identifies the well-known object.
-     * @return A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+     * @return A list of proxies  to the replicas of the well-known object specified by {@code proxy}. Can be empty.
      */
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx[]> findAllReplicasAsync(com.zeroc.Ice.ObjectPrx proxy) {
         return _iceI_findAllReplicasAsync(proxy, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -259,7 +259,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx {
      * Finds all the replicas of a well-known object.
      * @param proxy A proxy that identifies the well-known object.
      * @param context The Context map to send with the invocation.
-     * @return A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+     * @return A list of proxies  to the replicas of the well-known object specified by {@code proxy}. Can be empty.
      */
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx[]> findAllReplicasAsync(com.zeroc.Ice.ObjectPrx proxy, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_findAllReplicasAsync(proxy, context, false);

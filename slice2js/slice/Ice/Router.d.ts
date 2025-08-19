@@ -28,7 +28,7 @@ declare module "@zeroc/ice" {
              * - Ice.ObjectPrx | null : The router's client proxy.
              * - boolean | undefined : Indicates whether or not the router supports a routing table. If `true`, the Ice
              *   runtime will call {@link Ice.RouterPrx.addProxies} to populate the routing table. The Ice runtime assumes the router has
-             *   a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+             *   a routing table when `hasRoutingTable` is not set. Introduced in Ice 3.7.
              */
             getClientProxy(context?: Map<string, string>): Ice.AsyncResult<[Ice.ObjectPrx | null, boolean | undefined]>;
 
@@ -91,7 +91,7 @@ declare module "@zeroc/ice" {
              * - Ice.ObjectPrx | null : The router's client proxy.
              * - boolean | undefined : Indicates whether or not the router supports a routing table. If `true`, the Ice
              *   runtime will call {@link Ice.RouterPrx.addProxies} to populate the routing table. The Ice runtime assumes the router has
-             *   a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+             *   a routing table when `hasRoutingTable` is not set. Introduced in Ice 3.7.
              */
             abstract getClientProxy(current: Ice.Current): PromiseLike<[Ice.ObjectPrx | null, boolean | undefined]> | [Ice.ObjectPrx | null, boolean | undefined];
 

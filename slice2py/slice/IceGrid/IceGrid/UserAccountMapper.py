@@ -40,8 +40,8 @@ class UserAccountMapperPrx(ObjectPrx):
         Parameters
         ----------
         user : str
-            The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-            the server's activation mode is `session`, the default value for `user` is the session identifier.
+            The value of the server descriptor's ``user`` attribute. When this attribute is not defined, and
+            the server's activation mode is ``session``, the default value for ``user`` is the session identifier.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -65,8 +65,8 @@ class UserAccountMapperPrx(ObjectPrx):
         Parameters
         ----------
         user : str
-            The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-            the server's activation mode is `session`, the default value for `user` is the session identifier.
+            The value of the server descriptor's ``user`` attribute. When this attribute is not defined, and
+            the server's activation mode is ``session``, the default value for ``user`` is the session identifier.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -131,8 +131,8 @@ class UserAccountMapper(Object, ABC):
         Parameters
         ----------
         user : str
-            The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-            the server's activation mode is `session`, the default value for `user` is the session identifier.
+            The value of the server descriptor's ``user`` attribute. When this attribute is not defined, and
+            the server's activation mode is ``session``, the default value for ``user`` is the session identifier.
         current : Ice.Current
             The Current object for the dispatch.
         

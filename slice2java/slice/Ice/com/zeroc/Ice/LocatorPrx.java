@@ -90,7 +90,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).
      * @param id The adapter ID.
-     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with {@code id} was not found.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when an object adapter with this adapter ID was not found. The
      * caller should treat this exception like a null return value.
      */
@@ -103,7 +103,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx {
      * Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).
      * @param id The adapter ID.
      * @param context The Context map to send with the invocation.
-     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with {@code id} was not found.
      * @throws com.zeroc.Ice.AdapterNotFoundException Thrown when an object adapter with this adapter ID was not found. The
      * caller should treat this exception like a null return value.
      */
@@ -121,7 +121,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).
      * @param id The adapter ID.
-     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with {@code id} was not found.
      */
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> findAdapterByIdAsync(java.lang.String id) {
         return _iceI_findAdapterByIdAsync(id, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -131,7 +131,7 @@ public interface LocatorPrx extends com.zeroc.Ice.ObjectPrx {
      * Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).
      * @param id The adapter ID.
      * @param context The Context map to send with the invocation.
-     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+     * @return A dummy proxy with the adapter's endpoints, or null if an object adapter with {@code id} was not found.
      */
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> findAdapterByIdAsync(java.lang.String id, java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_findAdapterByIdAsync(id, context, false);

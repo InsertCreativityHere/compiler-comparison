@@ -196,14 +196,14 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     private int priority;
     private boolean _priority;
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     public int getPriority() {
         if (!_priority) {
@@ -214,7 +214,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     public void setPriority(int priority) {
         _priority = true;
@@ -223,7 +223,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     public boolean hasPriority() {
         return _priority;
@@ -231,7 +231,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     public void clearPriority() {
         _priority = false;
@@ -239,7 +239,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     public void optionalPriority(java.util.OptionalInt v) {
         if (v == null || !v.isPresent()) {
@@ -252,7 +252,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional priority for the writer.
-     * See also the `DataStorm.Topic.Priority` property.
+     * See also the {@code DataStorm.Topic.Priority} property.
      */
     public java.util.OptionalInt optionalPriority() {
         if (_priority) {
@@ -264,14 +264,14 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     private int sampleCount;
     private boolean _sampleCount;
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     public int getSampleCount() {
         if (!_sampleCount) {
@@ -282,7 +282,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     public void setSampleCount(int sampleCount) {
         _sampleCount = true;
@@ -291,7 +291,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     public boolean hasSampleCount() {
         return _sampleCount;
@@ -299,7 +299,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     public void clearSampleCount() {
         _sampleCount = false;
@@ -307,7 +307,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     public void optionalSampleCount(java.util.OptionalInt v) {
         if (v == null || !v.isPresent()) {
@@ -320,7 +320,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-     * See also the `DataStorm.Topic.SampleCount` property.
+     * See also the {@code DataStorm.Topic.SampleCount} property.
      */
     public java.util.OptionalInt optionalSampleCount() {
         if (_sampleCount) {
@@ -332,14 +332,14 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     private int sampleLifetime;
     private boolean _sampleLifetime;
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     public int getSampleLifetime() {
         if (!_sampleLifetime) {
@@ -350,7 +350,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     public void setSampleLifetime(int sampleLifetime) {
         _sampleLifetime = true;
@@ -359,7 +359,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     public boolean hasSampleLifetime() {
         return _sampleLifetime;
@@ -367,7 +367,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     public void clearSampleLifetime() {
         _sampleLifetime = false;
@@ -375,7 +375,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     public void optionalSampleLifetime(java.util.OptionalInt v) {
         if (v == null || !v.isPresent()) {
@@ -388,7 +388,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-     * writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+     * writer or reader sample queue. See also the {@code DataStorm.Topic.SampleLifetime} property.
      */
     public java.util.OptionalInt optionalSampleLifetime() {
         if (_sampleLifetime) {
@@ -400,14 +400,14 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     private ClearHistoryPolicy clearHistory;
     private boolean _clearHistory;
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     public ClearHistoryPolicy getClearHistory() {
         if (!_clearHistory) {
@@ -418,7 +418,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     public void setClearHistory(ClearHistoryPolicy clearHistory) {
         _clearHistory = true;
@@ -427,7 +427,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     public boolean hasClearHistory() {
         return _clearHistory;
@@ -435,7 +435,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     public void clearClearHistory() {
         _clearHistory = false;
@@ -443,7 +443,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     public void optionalClearHistory(java.util.Optional<ClearHistoryPolicy> v) {
         if (v == null || !v.isPresent()) {
@@ -456,7 +456,7 @@ public class ElementConfig extends com.zeroc.Ice.Value {
 
     /**
      * An optional clear history policy that determines when the reader or writer sample history is cleared.
-     * See also the `DataStorm.Topic.ClearHistory` property.
+     * See also the {@code DataStorm.Topic.ClearHistory} property.
      */
     public java.util.Optional<ClearHistoryPolicy> optionalClearHistory() {
         if (_clearHistory) {

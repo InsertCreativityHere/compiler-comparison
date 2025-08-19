@@ -28,7 +28,7 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
 
     methods
         function attachRemoteLogger(obj, prx, messageTypes, traceCategories, messageMax, context)
-            %ATTACHREMOTELOGGER Attaches a RemoteLogger object to the local logger. This operation calls <a href="matlab:help Ice.RemoteLoggerPrx/init -displayBanner">init</a> on @p prx.
+            %ATTACHREMOTELOGGER Attaches a RemoteLogger object to the local logger. This operation calls <a href="matlab:help Ice.RemoteLoggerPrx/init -displayBanner">init</a> on |prx|.
             %
             %   Input Arguments
             %     prx - A proxy to the remote logger.
@@ -68,7 +68,7 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
         end
 
         function future = attachRemoteLoggerAsync(obj, prx, messageTypes, traceCategories, messageMax, context)
-            %ATTACHREMOTELOGGERASYNC Attaches a RemoteLogger object to the local logger. This operation calls <a href="matlab:help Ice.RemoteLoggerPrx/init -displayBanner">init</a> on @p prx.
+            %ATTACHREMOTELOGGERASYNC Attaches a RemoteLogger object to the local logger. This operation calls <a href="matlab:help Ice.RemoteLoggerPrx/init -displayBanner">init</a> on |prx|.
             %
             %   Input Arguments
             %     prx - A proxy to the remote logger.
@@ -119,7 +119,7 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the provided remote logger proxy was detached, and `false` otherwise.
+            %     returnValue - |true| if the provided remote logger proxy was detached, and |false| otherwise.
             %       logical scalar
             
             arguments

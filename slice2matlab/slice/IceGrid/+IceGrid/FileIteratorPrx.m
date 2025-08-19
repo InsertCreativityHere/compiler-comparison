@@ -35,7 +35,7 @@ classdef FileIteratorPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if EOF is encountered.
+            %     returnValue - |true| if EOF is encountered.
             %       logical scalar
             %     lines - The lines read from the file. If there was nothing to read from the file since the last call to
             %       read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no

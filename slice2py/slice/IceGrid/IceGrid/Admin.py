@@ -732,7 +732,7 @@ class AdminPrx(ObjectPrx):
         id : str
             The server ID.
         enabled : bool
-            `true` to enable the server, `false` to disable it.
+            ``true`` to enable the server, ``false`` to disable it.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -758,7 +758,7 @@ class AdminPrx(ObjectPrx):
         id : str
             The server ID.
         enabled : bool
-            `true` to enable the server, `false` to disable it.
+            ``true`` to enable the server, ``false`` to disable it.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -783,7 +783,7 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         bool
-            `true` if the server is enabled, `false` otherwise.
+            ``true`` if the server is enabled, ``false`` otherwise.
         
         Raises
         ------
@@ -810,7 +810,7 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the server is enabled, `false` otherwise.
+            ``true`` if the server is enabled, ``false`` otherwise.
         """
         return Admin._op_isServerEnabled.invokeAsync(self, ((id, ), context))
 
@@ -990,8 +990,8 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         list[AdapterInfo]
-            A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-            If @p id refers to a replica group, this sequence contains adapter information for each member of the
+            A sequence of AdapterInfo. If ``id`` refers to an adapter, this sequence contains a single element.
+            If ``id`` refers to a replica group, this sequence contains adapter information for each member of the
             replica group.
         
         Raises
@@ -1015,8 +1015,8 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         Awaitable[list[AdapterInfo]]
-            A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-            If @p id refers to a replica group, this sequence contains adapter information for each member of the
+            A sequence of AdapterInfo. If ``id`` refers to an adapter, this sequence contains a single element.
+            If ``id`` refers to a replica group, this sequence contains adapter information for each member of the
             replica group.
         """
         return Admin._op_getAdapterInfo.invokeAsync(self, ((id, ), context))
@@ -1093,7 +1093,7 @@ class AdminPrx(ObjectPrx):
 
     def addObject(self, obj: ObjectPrx | None, context: dict[str, str] | None = None) -> None:
         """
-        Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        Adds an object to the object registry. IceGrid gets the object type by calling ``ice_id`` on ``obj``. The
         object must be reachable.
         
         Parameters
@@ -1114,7 +1114,7 @@ class AdminPrx(ObjectPrx):
 
     def addObjectAsync(self, obj: ObjectPrx | None, context: dict[str, str] | None = None) -> Awaitable[None]:
         """
-        Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        Adds an object to the object registry. IceGrid gets the object type by calling ``ice_id`` on ``obj``. The
         object must be reachable.
         
         Parameters
@@ -1338,7 +1338,7 @@ class AdminPrx(ObjectPrx):
         ----------
         expr : str
             The expression to match against the stringified identities of registered objects. The expression
-            may contain a trailing wildcard (`*`) character.
+            may contain a trailing wildcard (``*``) character.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -1357,7 +1357,7 @@ class AdminPrx(ObjectPrx):
         ----------
         expr : str
             The expression to match against the stringified identities of registered objects. The expression
-            may contain a trailing wildcard (`*`) character.
+            may contain a trailing wildcard (``*``) character.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -1382,7 +1382,7 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         bool
-            `true` if the node ping succeeded, `false` otherwise.
+            ``true`` if the node ping succeeded, ``false`` otherwise.
         
         Raises
         ------
@@ -1405,7 +1405,7 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the node ping succeeded, `false` otherwise.
+            ``true`` if the node ping succeeded, ``false`` otherwise.
         """
         return Admin._op_pingNode.invokeAsync(self, ((name, ), context))
 
@@ -1542,7 +1542,7 @@ class AdminPrx(ObjectPrx):
         """
         Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        where the ``IceGrid.Node.ProcessorSocketCount`` property for the node is not set.
         
         Parameters
         ----------
@@ -1569,7 +1569,7 @@ class AdminPrx(ObjectPrx):
         """
         Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        where the ``IceGrid.Node.ProcessorSocketCount`` property for the node is not set.
         
         Parameters
         ----------
@@ -1712,7 +1712,7 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         bool
-            `true` if the registry ping succeeded, `false` otherwise.
+            ``true`` if the registry ping succeeded, ``false`` otherwise.
         
         Raises
         ------
@@ -1735,7 +1735,7 @@ class AdminPrx(ObjectPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the registry ping succeeded, `false` otherwise.
+            ``true`` if the registry ping succeeded, ``false`` otherwise.
         """
         return Admin._op_pingRegistry.invokeAsync(self, ((name, ), context))
 
@@ -2419,7 +2419,7 @@ class Admin(Object, ABC):
         id : str
             The server ID.
         enabled : bool
-            `true` to enable the server, `false` to disable it.
+            ``true`` to enable the server, ``false`` to disable it.
         current : Ice.Current
             The Current object for the dispatch.
         
@@ -2454,7 +2454,7 @@ class Admin(Object, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the server is enabled, `false` otherwise.
+            ``true`` if the server is enabled, ``false`` otherwise.
         
         Raises
         ------
@@ -2591,8 +2591,8 @@ class Admin(Object, ABC):
         Returns
         -------
         Sequence[AdapterInfo] | Awaitable[Sequence[AdapterInfo]]
-            A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-            If @p id refers to a replica group, this sequence contains adapter information for each member of the
+            A sequence of AdapterInfo. If ``id`` refers to an adapter, this sequence contains a single element.
+            If ``id`` refers to a replica group, this sequence contains adapter information for each member of the
             replica group.
         
         Raises
@@ -2648,7 +2648,7 @@ class Admin(Object, ABC):
     @abstractmethod
     def addObject(self, obj: ObjectPrx | None, current: Current) -> None | Awaitable[None]:
         """
-        Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+        Adds an object to the object registry. IceGrid gets the object type by calling ``ice_id`` on ``obj``. The
         object must be reachable.
         
         Parameters
@@ -2806,7 +2806,7 @@ class Admin(Object, ABC):
         ----------
         expr : str
             The expression to match against the stringified identities of registered objects. The expression
-            may contain a trailing wildcard (`*`) character.
+            may contain a trailing wildcard (``*``) character.
         current : Ice.Current
             The Current object for the dispatch.
         
@@ -2832,7 +2832,7 @@ class Admin(Object, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the node ping succeeded, `false` otherwise.
+            ``true`` if the node ping succeeded, ``false`` otherwise.
         
         Raises
         ------
@@ -2924,7 +2924,7 @@ class Admin(Object, ABC):
         """
         Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
         Note that this operation returns 1 on operating systems where this can't be automatically determined and
-        where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+        where the ``IceGrid.Node.ProcessorSocketCount`` property for the node is not set.
         
         Parameters
         ----------
@@ -3031,7 +3031,7 @@ class Admin(Object, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the registry ping succeeded, `false` otherwise.
+            ``true`` if the registry ping succeeded, ``false`` otherwise.
         
         Raises
         ------

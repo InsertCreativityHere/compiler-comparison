@@ -89,20 +89,20 @@ namespace Glacier2
         /// Gets a unique category that identifies the client (caller) in the router. This category must be used in the
         /// identities of all the client's callback objects.
         /// @param context The request context.
-        /// @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+        /// @return The category. It's an empty string when <tt>Glacier2.Server.Endpoints</tt> is not configured.
         std::string getCategoryForClient(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Gets a unique category that identifies the client (caller) in the router. This category must be used in the
         /// identities of all the client's callback objects.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+        /// - The category. It's an empty string when <tt>Glacier2.Server.Endpoints</tt> is not configured.
         [[nodiscard]] std::future<std::string> getCategoryForClientAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Gets a unique category that identifies the client (caller) in the router. This category must be used in the
         /// identities of all the client's callback objects.
         /// @param response The response callback. It accepts:
-        /// - The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+        /// - The category. It's an empty string when <tt>Glacier2.Server.Endpoints</tt> is not configured.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -390,7 +390,7 @@ namespace Glacier2
         /// Gets a unique category that identifies the client (caller) in the router. This category must be used in the
         /// identities of all the client's callback objects.
         /// @param current The Current object of the incoming request.
-        /// @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+        /// @return The category. It's an empty string when <tt>Glacier2.Server.Endpoints</tt> is not configured.
         [[nodiscard]] virtual std::string getCategoryForClient(const Ice::Current& current) const = 0;
 
         /// @private

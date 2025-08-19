@@ -1,9 +1,9 @@
 classdef FinderPrx < Ice.ObjectPrx
     %FINDERPRX Provides access to a <a href="matlab:help IceStorm.TopicManagerPrx -displayBanner">TopicManagerPrx</a> object via a fixed identity.
-    %   An IceStorm Finder is always registered with identity `IceStorm/Finder`. This allows clients to obtain the
+    %   An IceStorm Finder is always registered with identity |IceStorm/Finder|. This allows clients to obtain the
     %   associated TopicManager proxy with just the endpoint information of the object. For example, you can use the
-    %   Finder proxy `IceStorm/Finder:tcp -h somehost -p 4061` to get the TopicManager proxy
-    %   `MyIceStorm/TopicManager:tcp -h somehost -p 4061`.
+    %   Finder proxy |IceStorm/Finder:tcp -h somehost -p 4061| to get the TopicManager proxy
+    %   |MyIceStorm/TopicManager:tcp -h somehost -p 4061|.
     %
     %   Creation
     %     Syntax

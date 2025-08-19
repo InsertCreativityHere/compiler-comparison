@@ -355,7 +355,7 @@ namespace IceBox
         /// <param name="service">The service name.</param>
         /// <param name="context">The request context.</param>
         /// <exception cref="IceBox.AlreadyStartedException">Thrown when the service is already running.</exception>
-        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named @p service.</exception>
+        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named <paramref name="service">.</exception>
         void startService(
             string service,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -367,7 +367,7 @@ namespace IceBox
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="IceBox.AlreadyStartedException">Thrown when the service is already running.</exception>
-        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named @p service.</exception>
+        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named <paramref name="service">.</exception>
         global::System.Threading.Tasks.Task startServiceAsync(
             string service,
             global::System.Collections.Generic.Dictionary<string, string>? context = null,
@@ -378,7 +378,7 @@ namespace IceBox
         /// <param name="service">The service name.</param>
         /// <param name="context">The request context.</param>
         /// <exception cref="IceBox.AlreadyStoppedException">Thrown when the service is already stopped.</exception>
-        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named @p service.</exception>
+        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named <paramref name="service">.</exception>
         void stopService(
             string service,
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -390,7 +390,7 @@ namespace IceBox
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="IceBox.AlreadyStoppedException">Thrown when the service is already stopped.</exception>
-        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named @p service.</exception>
+        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named <paramref name="service">.</exception>
         global::System.Threading.Tasks.Task stopServiceAsync(
             string service,
             global::System.Collections.Generic.Dictionary<string, string>? context = null,
@@ -889,7 +889,7 @@ namespace IceBox
         /// <param name="service">The service name.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <exception cref="IceBox.AlreadyStartedException">Thrown when the service is already running.</exception>
-        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named @p service.</exception>
+        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named <paramref name="service">.</exception>
         void startService(string service, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -911,7 +911,7 @@ namespace IceBox
         /// <param name="service">The service name.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <exception cref="IceBox.AlreadyStoppedException">Thrown when the service is already stopped.</exception>
-        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named @p service.</exception>
+        /// <exception cref="IceBox.NoSuchServiceException">Thrown when IceBox does not know a service named <paramref name="service">.</exception>
         void stopService(string service, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

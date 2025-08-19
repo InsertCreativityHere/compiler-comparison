@@ -7,15 +7,15 @@ package com.zeroc.IceGrid;
 
 /**
  * Maps user strings in server descriptors to actual user account names. You can configure the user account mapper
- * of an IceGrid node with the property `IceGrid.Node.UserAccountMapper`.
+ * of an IceGrid node with the property {@code IceGrid.Node.UserAccountMapper}.
  */
 @com.zeroc.Ice.SliceTypeId(value = "::IceGrid::UserAccountMapper")
 public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
      * account to use to run servers.
-     * @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-     * the server's activation mode is `session`, the default value for `user` is the session identifier.
+     * @param user The value of the server descriptor's {@code user} attribute. When this attribute is not defined, and
+     * the server's activation mode is {@code session}, the default value for {@code user} is the session identifier.
      * @return The user account name.
      * @throws com.zeroc.IceGrid.UserAccountNotFoundException Thrown when no user account is found for the given user.
      */
@@ -27,8 +27,8 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
      * account to use to run servers.
-     * @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-     * the server's activation mode is `session`, the default value for `user` is the session identifier.
+     * @param user The value of the server descriptor's {@code user} attribute. When this attribute is not defined, and
+     * the server's activation mode is {@code session}, the default value for {@code user} is the session identifier.
      * @param context The Context map to send with the invocation.
      * @return The user account name.
      * @throws com.zeroc.IceGrid.UserAccountNotFoundException Thrown when no user account is found for the given user.
@@ -47,8 +47,8 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
      * account to use to run servers.
-     * @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-     * the server's activation mode is `session`, the default value for `user` is the session identifier.
+     * @param user The value of the server descriptor's {@code user} attribute. When this attribute is not defined, and
+     * the server's activation mode is {@code session}, the default value for {@code user} is the session identifier.
      * @return The user account name.
      */
     default java.util.concurrent.CompletableFuture<java.lang.String> getUserAccountAsync(java.lang.String user) {
@@ -58,8 +58,8 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Gets the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
      * account to use to run servers.
-     * @param user The value of the server descriptor's `user` attribute. When this attribute is not defined, and
-     * the server's activation mode is `session`, the default value for `user` is the session identifier.
+     * @param user The value of the server descriptor's {@code user} attribute. When this attribute is not defined, and
+     * the server's activation mode is {@code session}, the default value for {@code user} is the session identifier.
      * @param context The Context map to send with the invocation.
      * @return The user account name.
      */

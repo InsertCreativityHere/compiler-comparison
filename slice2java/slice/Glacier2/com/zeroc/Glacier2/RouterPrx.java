@@ -13,7 +13,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx {
     /**
      * Gets a unique category that identifies the client (caller) in the router. This category must be used in the
      * identities of all the client's callback objects.
-     * @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+     * @return The category. It's an empty string when {@code Glacier2.Server.Endpoints} is not configured.
      */
     default java.lang.String getCategoryForClient() {
         return getCategoryForClient(com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -23,7 +23,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx {
      * Gets a unique category that identifies the client (caller) in the router. This category must be used in the
      * identities of all the client's callback objects.
      * @param context The Context map to send with the invocation.
-     * @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+     * @return The category. It's an empty string when {@code Glacier2.Server.Endpoints} is not configured.
      */
     default java.lang.String getCategoryForClient(java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_getCategoryForClientAsync(context, true).waitForResponse();
@@ -32,7 +32,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx {
     /**
      * Gets a unique category that identifies the client (caller) in the router. This category must be used in the
      * identities of all the client's callback objects.
-     * @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+     * @return The category. It's an empty string when {@code Glacier2.Server.Endpoints} is not configured.
      */
     default java.util.concurrent.CompletableFuture<java.lang.String> getCategoryForClientAsync() {
         return _iceI_getCategoryForClientAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
@@ -42,7 +42,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx {
      * Gets a unique category that identifies the client (caller) in the router. This category must be used in the
      * identities of all the client's callback objects.
      * @param context The Context map to send with the invocation.
-     * @return The category. It's an empty string when `Glacier2.Server.Endpoints` is not configured.
+     * @return The category. It's an empty string when {@code Glacier2.Server.Endpoints} is not configured.
      */
     default java.util.concurrent.CompletableFuture<java.lang.String> getCategoryForClientAsync(java.util.Map<java.lang.String, java.lang.String> context) {
         return _iceI_getCategoryForClientAsync(context, false);

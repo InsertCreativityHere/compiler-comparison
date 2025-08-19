@@ -16,7 +16,7 @@
 namespace Ice
 {
     /// <summary>Represents the identity of an Ice object. It is comparable to the path of a URI. Its string representation is
-    /// `name` when the category is empty, and `category/name` when the category is not empty.</summary>
+    /// <c>name</c> when the category is empty, and <c>category/name</c> when the category is not empty.</summary>
     /// <remarks>The Slice compiler generated this record class from Slice struct <c>::Ice::Identity</c>.</remarks>
     public sealed partial record class Identity
     {

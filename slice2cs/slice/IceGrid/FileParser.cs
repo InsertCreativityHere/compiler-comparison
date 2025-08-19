@@ -54,7 +54,7 @@ namespace IceGrid
         }
     }
 
-    /// <summary>`icegridadmin` provides a <see cref="FileParserPrx" /> object to transform XML files into <see cref="ApplicationDescriptor" />
+    /// <summary><c>icegridadmin</c> provides a <see cref="FileParserPrx" /> object to transform XML files into <see cref="ApplicationDescriptor" />
     /// objects.</summary>
     /// <remarks>The Slice compiler generated this client-side interface from Slice interface <c>::IceGrid::FileParser</c>.
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>FileParser</c>.</remarks>
@@ -279,7 +279,7 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    /// <summary>`icegridadmin` provides a <see cref="FileParserPrx" /> object to transform XML files into <see cref="ApplicationDescriptor" />
+    /// <summary><c>icegridadmin</c> provides a <see cref="FileParserPrx" /> object to transform XML files into <see cref="ApplicationDescriptor" />
     /// objects.</summary>
     /// <remarks>The Slice compiler generated this server-side interface from Slice interface <c>::IceGrid::FileParser</c>.
     /// Your servant class implements this interface by deriving from <see cref="FileParserDisp_" /> or from the Disp_ class for a derived interface.</remarks>

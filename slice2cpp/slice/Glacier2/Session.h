@@ -634,7 +634,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param userId The user ID for the session.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param context The request context.
         /// @return A proxy to the newly created session. This proxy is never null.
@@ -643,7 +643,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param userId The user ID for the session.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
@@ -652,7 +652,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param userId The user ID for the session.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param response The response callback. It accepts:
         /// - A proxy to the newly created session. This proxy is never null.
@@ -730,7 +730,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param info The SSL info.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param context The request context.
         /// @return A proxy to the newly created session. This proxy is never null.
@@ -739,7 +739,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param info The SSL info.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
@@ -748,7 +748,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param info The SSL info.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param response The response callback. It accepts:
         /// - A proxy to the newly created session. This proxy is never null.
@@ -1055,7 +1055,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param userId The user ID for the session.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param current The Current object of the incoming request.
         /// @return A proxy to the newly created session. This proxy is never null.
@@ -1094,7 +1094,7 @@ namespace Glacier2
 
         /// Creates a new session object.
         /// @param info The SSL info.
-        /// @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+        /// @param control A proxy to the session control object. This proxy is null when <tt>Glacier2.Server.Endpoints</tt>
         /// is not configured.
         /// @param current The Current object of the incoming request.
         /// @return A proxy to the newly created session. This proxy is never null.

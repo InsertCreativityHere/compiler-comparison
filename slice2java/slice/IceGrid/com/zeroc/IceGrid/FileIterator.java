@@ -15,7 +15,7 @@ public interface FileIterator extends com.zeroc.Ice.Object {
      */
     public static class ReadResult {
         /**
-         * `true` if EOF is encountered.
+         * {@code true} if EOF is encountered.
          */
         public boolean returnValue;
 
@@ -34,7 +34,7 @@ public interface FileIterator extends com.zeroc.Ice.Object {
 
         /**
          * This constructor makes shallow copies of the results for operation read.
-         * @param returnValue `true` if EOF is encountered.
+         * @param returnValue {@code true} if EOF is encountered.
          * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
          * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
          * newline character should be added when writing the last line to the to the output device).

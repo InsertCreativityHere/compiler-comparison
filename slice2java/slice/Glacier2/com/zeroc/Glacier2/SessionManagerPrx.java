@@ -15,7 +15,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Creates a new session object.
      * @param userId The user ID for the session.
-     * @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+     * @param control A proxy to the session control object. This proxy is null when {@code Glacier2.Server.Endpoints}
      * is not configured.
      * @return A proxy to the newly created session. This proxy is never null.
      * @throws com.zeroc.Glacier2.CannotCreateSessionException Thrown when the session cannot be created.
@@ -28,7 +28,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Creates a new session object.
      * @param userId The user ID for the session.
-     * @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+     * @param control A proxy to the session control object. This proxy is null when {@code Glacier2.Server.Endpoints}
      * is not configured.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session. This proxy is never null.
@@ -48,7 +48,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Creates a new session object.
      * @param userId The user ID for the session.
-     * @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+     * @param control A proxy to the session control object. This proxy is null when {@code Glacier2.Server.Endpoints}
      * is not configured.
      * @return A proxy to the newly created session. This proxy is never null.
      */
@@ -59,7 +59,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx {
     /**
      * Creates a new session object.
      * @param userId The user ID for the session.
-     * @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+     * @param control A proxy to the session control object. This proxy is null when {@code Glacier2.Server.Endpoints}
      * is not configured.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session. This proxy is never null.

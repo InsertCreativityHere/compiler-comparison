@@ -208,7 +208,7 @@ class QueryPrx(ObjectPrx):
         Returns
         -------
         list[ObjectPrx | None]
-            A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+            A list of proxies  to the replicas of the well-known object specified by ``proxy``. Can be empty.
         """
         return Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
 
@@ -226,7 +226,7 @@ class QueryPrx(ObjectPrx):
         Returns
         -------
         Awaitable[list[ObjectPrx | None]]
-            A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+            A list of proxies  to the replicas of the well-known object specified by ``proxy``. Can be empty.
         """
         return Query._op_findAllReplicas.invokeAsync(self, ((proxy, ), context))
 
@@ -375,7 +375,7 @@ class Query(Object, ABC):
         Returns
         -------
         Sequence[ObjectPrx | None] | Awaitable[Sequence[ObjectPrx | None]]
-            A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+            A list of proxies  to the replicas of the well-known object specified by ``proxy``. Can be empty.
         """
         pass
 

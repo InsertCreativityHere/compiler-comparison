@@ -509,18 +509,18 @@ namespace IceStormElection
 
         /// Determine if this node is a coordinator.
         /// @param context The request context.
-        /// @return `true` if the node is a coordinator, `false` otherwise.
+        /// @return <tt>true</tt> if the node is a coordinator, <tt>false</tt> otherwise.
         bool areYouCoordinator(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Determine if this node is a coordinator.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the node is a coordinator, `false` otherwise.
+        /// - <tt>true</tt> if the node is a coordinator, <tt>false</tt> otherwise.
         [[nodiscard]] std::future<bool> areYouCoordinatorAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Determine if this node is a coordinator.
         /// @param response The response callback. It accepts:
-        /// - `true` if the node is a coordinator, `false` otherwise.
+        /// - <tt>true</tt> if the node is a coordinator, <tt>false</tt> otherwise.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -535,7 +535,7 @@ namespace IceStormElection
         /// @param gn The group name.
         /// @param j The group coordinator.
         /// @param context The request context.
-        /// @return `true` if the node is a member, `false` otherwise.
+        /// @return <tt>true</tt> if the node is a member, <tt>false</tt> otherwise.
         bool areYouThere(std::string_view gn, std::int32_t j, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
         /// Determine if the node is a member of the given group with the given coordinator.
@@ -543,14 +543,14 @@ namespace IceStormElection
         /// @param j The group coordinator.
         /// @param context The request context.
         /// @return A future that becomes available when the invocation completes. This future holds:
-        /// - `true` if the node is a member, `false` otherwise.
+        /// - <tt>true</tt> if the node is a member, <tt>false</tt> otherwise.
         [[nodiscard]] std::future<bool> areYouThereAsync(std::string_view gn, std::int32_t j, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Determine if the node is a member of the given group with the given coordinator.
         /// @param gn The group name.
         /// @param j The group coordinator.
         /// @param response The response callback. It accepts:
-        /// - `true` if the node is a member, `false` otherwise.
+        /// - <tt>true</tt> if the node is a member, <tt>false</tt> otherwise.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
         /// @param context The request context.
@@ -992,7 +992,7 @@ namespace IceStormElection
 
         /// Determine if this node is a coordinator.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the node is a coordinator, `false` otherwise.
+        /// @return <tt>true</tt> if the node is a coordinator, <tt>false</tt> otherwise.
         [[nodiscard]] virtual bool areYouCoordinator(const Ice::Current& current) const = 0;
 
         /// @private
@@ -1002,7 +1002,7 @@ namespace IceStormElection
         /// @param gn The group name.
         /// @param j The group coordinator.
         /// @param current The Current object of the incoming request.
-        /// @return `true` if the node is a member, `false` otherwise.
+        /// @return <tt>true</tt> if the node is a member, <tt>false</tt> otherwise.
         [[nodiscard]] virtual bool areYouThere(std::string gn, std::int32_t j, const Ice::Current& current) const = 0;
 
         /// @private

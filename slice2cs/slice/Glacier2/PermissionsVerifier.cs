@@ -65,9 +65,9 @@ namespace Glacier2
         /// <param name="password">The user's password.</param>
         /// <param name="reason">The reason why access was denied.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if access is granted, `false` otherwise.</returns>
+        /// <returns><c>true</c> if access is granted, <c>false</c> otherwise.</returns>
         /// <exception cref="Glacier2.PermissionDeniedException">Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.</exception>
+        /// instead of returning <c>false</c> with a reason set in the reason out parameter.</exception>
         bool checkPermissions(
             string userId,
             string password,
@@ -82,7 +82,7 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="Glacier2.PermissionDeniedException">Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.</exception>
+        /// instead of returning <c>false</c> with a reason set in the reason out parameter.</exception>
         global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(
             string userId,
             string password,
@@ -293,9 +293,9 @@ namespace Glacier2
         /// <param name="info">The SSL information.</param>
         /// <param name="reason">The reason why access was denied.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if access is granted, `false` otherwise.</returns>
+        /// <returns><c>true</c> if access is granted, <c>false</c> otherwise.</returns>
         /// <exception cref="Glacier2.PermissionDeniedException">Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.</exception>
+        /// instead of returning <c>false</c> with a reason set in the reason out parameter.</exception>
         bool authorize(
             SSLInfo info,
             out string reason,
@@ -308,7 +308,7 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         /// <exception cref="Glacier2.PermissionDeniedException">Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.</exception>
+        /// instead of returning <c>false</c> with a reason set in the reason out parameter.</exception>
         global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(
             SSLInfo info,
             global::System.Collections.Generic.Dictionary<string, string>? context = null,
@@ -525,9 +525,9 @@ namespace Glacier2
         /// <param name="password">The user's password.</param>
         /// <param name="reason">The reason why access was denied.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if access is granted, `false` otherwise.</returns>
+        /// <returns><c>true</c> if access is granted, <c>false</c> otherwise.</returns>
         /// <exception cref="Glacier2.PermissionDeniedException">Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.</exception>
+        /// instead of returning <c>false</c> with a reason set in the reason out parameter.</exception>
         bool checkPermissions(string userId, string password, out string reason, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -595,9 +595,9 @@ namespace Glacier2
         /// <param name="info">The SSL information.</param>
         /// <param name="reason">The reason why access was denied.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if access is granted, `false` otherwise.</returns>
+        /// <returns><c>true</c> if access is granted, <c>false</c> otherwise.</returns>
         /// <exception cref="Glacier2.PermissionDeniedException">Thrown when the user access is denied. This exception can be thrown
-        /// instead of returning `false` with a reason set in the reason out parameter.</exception>
+        /// instead of returning <c>false</c> with a reason set in the reason out parameter.</exception>
         bool authorize(SSLInfo info, out string reason, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

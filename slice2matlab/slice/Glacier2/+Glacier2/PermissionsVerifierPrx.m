@@ -35,14 +35,14 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if access is granted, `false` otherwise.
+            %     returnValue - |true| if access is granted, |false| otherwise.
             %       logical scalar
             %     reason - The reason why access was denied.
             %       character vector
             %
             %   Exceptions
             %     Glacier2.PermissionDeniedException - Thrown when the user access is denied. This exception can be thrown
-            %       instead of returning `false` with a reason set in the reason out parameter.
+            %       instead of returning |false| with a reason set in the reason out parameter.
             
             arguments
                 obj (1, 1) Glacier2.PermissionsVerifierPrx

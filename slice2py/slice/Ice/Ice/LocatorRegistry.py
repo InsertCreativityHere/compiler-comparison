@@ -52,9 +52,9 @@ class LocatorRegistryPrx(ObjectPrx):
         id : str
             The adapter ID.
         proxy : ObjectPrx | None
-            A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+            A dummy proxy created by the object adapter. ``proxy`` carries the object adapter's endpoints.
             The locator considers an object adapter to be active after it has registered its endpoints.
-            When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+            When ``proxy`` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -63,7 +63,7 @@ class LocatorRegistryPrx(ObjectPrx):
         AdapterAlreadyActiveException
             Thrown when an object adapter with the same adapter ID has already
             registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-            Ice client runtime retries an invocation with a non-null @p proxy.
+            Ice client runtime retries an invocation with a non-null ``proxy``.
         AdapterNotFoundException
             Thrown when the locator only allows registered object adapters to register
             their endpoints and no object adapter with this adapter ID was registered with the locator.
@@ -79,9 +79,9 @@ class LocatorRegistryPrx(ObjectPrx):
         id : str
             The adapter ID.
         proxy : ObjectPrx | None
-            A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+            A dummy proxy created by the object adapter. ``proxy`` carries the object adapter's endpoints.
             The locator considers an object adapter to be active after it has registered its endpoints.
-            When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+            When ``proxy`` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
         context : dict[str, str]
             The request context for the invocation.
         
@@ -104,8 +104,8 @@ class LocatorRegistryPrx(ObjectPrx):
         replicaGroupId : str
             The replica group ID.
         proxy : ObjectPrx | None
-            A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-            The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+            A dummy proxy created by the object adapter. ``proxy`` carries the object adapter's endpoints.
+            The locator considers an object adapter to be active after it has registered its endpoints. When ``proxy`` is
             null, the endpoints are unregistered and the locator considers the object adapter inactive.
         context : dict[str, str]
             The request context for the invocation.
@@ -115,7 +115,7 @@ class LocatorRegistryPrx(ObjectPrx):
         AdapterAlreadyActiveException
             Thrown when an object adapter with the same adapter ID has already
             registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-            Ice client runtime retries an invocation with a non-null @p proxy.
+            Ice client runtime retries an invocation with a non-null ``proxy``.
         AdapterNotFoundException
             Thrown when the locator only allows registered object adapters to register
             their endpoints and no object adapter with this adapter ID was registered with the locator.
@@ -137,8 +137,8 @@ class LocatorRegistryPrx(ObjectPrx):
         replicaGroupId : str
             The replica group ID.
         proxy : ObjectPrx | None
-            A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-            The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+            A dummy proxy created by the object adapter. ``proxy`` carries the object adapter's endpoints.
+            The locator considers an object adapter to be active after it has registered its endpoints. When ``proxy`` is
             null, the endpoints are unregistered and the locator considers the object adapter inactive.
         context : dict[str, str]
             The request context for the invocation.
@@ -248,9 +248,9 @@ class LocatorRegistry(Object, ABC):
         id : str
             The adapter ID.
         proxy : ObjectPrx | None
-            A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
+            A dummy proxy created by the object adapter. ``proxy`` carries the object adapter's endpoints.
             The locator considers an object adapter to be active after it has registered its endpoints.
-            When @p proxy is null, the endpoints are unregistered and the locator considers the object adapter inactive.
+            When ``proxy`` is null, the endpoints are unregistered and the locator considers the object adapter inactive.
         current : Ice.Current
             The Current object for the dispatch.
         
@@ -264,7 +264,7 @@ class LocatorRegistry(Object, ABC):
         AdapterAlreadyActiveException
             Thrown when an object adapter with the same adapter ID has already
             registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-            Ice client runtime retries an invocation with a non-null @p proxy.
+            Ice client runtime retries an invocation with a non-null ``proxy``.
         AdapterNotFoundException
             Thrown when the locator only allows registered object adapters to register
             their endpoints and no object adapter with this adapter ID was registered with the locator.
@@ -284,8 +284,8 @@ class LocatorRegistry(Object, ABC):
         replicaGroupId : str
             The replica group ID.
         proxy : ObjectPrx | None
-            A dummy proxy created by the object adapter. @p proxy carries the object adapter's endpoints.
-            The locator considers an object adapter to be active after it has registered its endpoints. When @p proxy is
+            A dummy proxy created by the object adapter. ``proxy`` carries the object adapter's endpoints.
+            The locator considers an object adapter to be active after it has registered its endpoints. When ``proxy`` is
             null, the endpoints are unregistered and the locator considers the object adapter inactive.
         current : Ice.Current
             The Current object for the dispatch.
@@ -300,7 +300,7 @@ class LocatorRegistry(Object, ABC):
         AdapterAlreadyActiveException
             Thrown when an object adapter with the same adapter ID has already
             registered its endpoints. Since this operation is marked idempotent, this exception may be thrown when the
-            Ice client runtime retries an invocation with a non-null @p proxy.
+            Ice client runtime retries an invocation with a non-null ``proxy``.
         AdapterNotFoundException
             Thrown when the locator only allows registered object adapters to register
             their endpoints and no object adapter with this adapter ID was registered with the locator.

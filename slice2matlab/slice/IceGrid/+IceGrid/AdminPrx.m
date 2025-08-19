@@ -986,7 +986,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %   Input Arguments
             %     id - The server ID.
             %       character vector
-            %     enabled - `true` to enable the server, `false` to disable it.
+            %     enabled - |true| to enable the server, |false| to disable it.
             %       logical scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -1017,7 +1017,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %   Input Arguments
             %     id - The server ID.
             %       character vector
-            %     enabled - `true` to enable the server, `false` to disable it.
+            %     enabled - |true| to enable the server, |false| to disable it.
             %       logical scalar
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -1051,7 +1051,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the server is enabled, `false` otherwise.
+            %     returnValue - |true| if the server is enabled, |false| otherwise.
             %       logical scalar
             %
             %   Exceptions
@@ -1326,8 +1326,8 @@ classdef AdminPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - A sequence of AdapterInfo. If @p id refers to an adapter, this sequence contains a single element.
-            %       If @p id refers to a replica group, this sequence contains adapter information for each member of the
+            %     returnValue - A sequence of AdapterInfo. If |id| refers to an adapter, this sequence contains a single element.
+            %       If |id| refers to a replica group, this sequence contains adapter information for each member of the
             %       replica group.
             %       IceGrid.AdapterInfo vector
             %
@@ -1478,7 +1478,7 @@ classdef AdminPrx < Ice.ObjectPrx
         end
 
         function addObject(obj_, obj, context)
-            %ADDOBJECT Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+            %ADDOBJECT Adds an object to the object registry. IceGrid gets the object type by calling |ice_id| on |obj|. The
             %   object must be reachable.
             %
             %   Input Arguments
@@ -1503,7 +1503,7 @@ classdef AdminPrx < Ice.ObjectPrx
         end
 
         function future = addObjectAsync(obj_, obj, context)
-            %ADDOBJECTASYNC Adds an object to the object registry. IceGrid gets the object type by calling `ice_id` on @p obj. The
+            %ADDOBJECTASYNC Adds an object to the object registry. IceGrid gets the object type by calling |ice_id| on |obj|. The
             %   object must be reachable.
             %
             %   Input Arguments
@@ -1817,7 +1817,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             %   Input Arguments
             %     expr - The expression to match against the stringified identities of registered objects. The expression
-            %       may contain a trailing wildcard (`*`) character.
+            %       may contain a trailing wildcard (|*|) character.
             %       character vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -1845,7 +1845,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             %   Input Arguments
             %     expr - The expression to match against the stringified identities of registered objects. The expression
-            %       may contain a trailing wildcard (`*`) character.
+            %       may contain a trailing wildcard (|*|) character.
             %       character vector
             %     context - The request context.
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
@@ -1883,7 +1883,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the node ping succeeded, `false` otherwise.
+            %     returnValue - |true| if the node ping succeeded, |false| otherwise.
             %       logical scalar
             %
             %   Exceptions
@@ -2127,7 +2127,7 @@ classdef AdminPrx < Ice.ObjectPrx
         function returnValue = getNodeProcessorSocketCount(obj, name, context)
             %GETNODEPROCESSORSOCKETCOUNT Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
             %   Note that this operation returns 1 on operating systems where this can't be automatically determined and
-            %   where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+            %   where the |IceGrid.Node.ProcessorSocketCount| property for the node is not set.
             %
             %   Input Arguments
             %     name - The node name.
@@ -2160,7 +2160,7 @@ classdef AdminPrx < Ice.ObjectPrx
         function future = getNodeProcessorSocketCountAsync(obj, name, context)
             %GETNODEPROCESSORSOCKETCOUNTASYNC Gets the number of physical processor sockets in the computer where an IceGrid node is deployed.
             %   Note that this operation returns 1 on operating systems where this can't be automatically determined and
-            %   where the `IceGrid.Node.ProcessorSocketCount` property for the node is not set.
+            %   where the |IceGrid.Node.ProcessorSocketCount| property for the node is not set.
             %
             %   Input Arguments
             %     name - The node name.
@@ -2361,7 +2361,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - `true` if the registry ping succeeded, `false` otherwise.
+            %     returnValue - |true| if the registry ping succeeded, |false| otherwise.
             %       logical scalar
             %
             %   Exceptions

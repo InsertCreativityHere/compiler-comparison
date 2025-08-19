@@ -290,7 +290,7 @@ classdef QueryPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - A list of proxies  to the replicas of the well-known object specified by @p proxy. Can be empty.
+            %     returnValue - A list of proxies  to the replicas of the well-known object specified by |proxy|. Can be empty.
             %       cell array
             
             arguments

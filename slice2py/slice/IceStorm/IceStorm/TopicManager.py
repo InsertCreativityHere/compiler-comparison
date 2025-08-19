@@ -100,7 +100,7 @@ class TopicManagerPrx(ObjectPrx):
         Raises
         ------
         NoSuchTopic
-            Thrown when there is no topic named @p name.
+            Thrown when there is no topic named ``name``.
         """
         return TopicManager._op_retrieve.invoke(self, ((name, ), context))
 
@@ -245,7 +245,7 @@ class TopicManager(Object, ABC):
         Raises
         ------
         NoSuchTopic
-            Thrown when there is no topic named @p name.
+            Thrown when there is no topic named ``name``.
         """
         pass
 

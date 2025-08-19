@@ -44,7 +44,7 @@ public interface Node extends com.zeroc.Ice.Object {
     /**
      * Determine if this node is a coordinator.
      * @param current The Current object of the incoming request.
-     * @return `true` if the node is a coordinator, `false` otherwise.
+     * @return {@code true} if the node is a coordinator, {@code false} otherwise.
      */
     boolean areYouCoordinator(com.zeroc.Ice.Current current);
 
@@ -53,7 +53,7 @@ public interface Node extends com.zeroc.Ice.Object {
      * @param gn The group name.
      * @param j The group coordinator.
      * @param current The Current object of the incoming request.
-     * @return `true` if the node is a member, `false` otherwise.
+     * @return {@code true} if the node is a member, {@code false} otherwise.
      */
     boolean areYouThere(java.lang.String gn, int j, com.zeroc.Ice.Current current);
 

@@ -105,7 +105,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             %       unconfigured dictionary (default) | dictionary(string, string) scalar
             %
             %   Output Arguments
-            %     returnValue - A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+            %     returnValue - A dummy proxy with the adapter's endpoints, or null if an object adapter with |id| was not found.
             %       Ice.ObjectPrx scalar | empty array of Ice.ObjectPrx
             %
             %   Exceptions

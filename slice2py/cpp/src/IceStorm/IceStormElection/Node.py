@@ -188,7 +188,7 @@ class NodePrx(ObjectPrx):
         Returns
         -------
         bool
-            `true` if the node is a coordinator, `false` otherwise.
+            ``true`` if the node is a coordinator, ``false`` otherwise.
         """
         return Node._op_areYouCoordinator.invoke(self, ((), context))
 
@@ -204,7 +204,7 @@ class NodePrx(ObjectPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the node is a coordinator, `false` otherwise.
+            ``true`` if the node is a coordinator, ``false`` otherwise.
         """
         return Node._op_areYouCoordinator.invokeAsync(self, ((), context))
 
@@ -224,7 +224,7 @@ class NodePrx(ObjectPrx):
         Returns
         -------
         bool
-            `true` if the node is a member, `false` otherwise.
+            ``true`` if the node is a member, ``false`` otherwise.
         """
         return Node._op_areYouThere.invoke(self, ((gn, j), context))
 
@@ -244,7 +244,7 @@ class NodePrx(ObjectPrx):
         Returns
         -------
         Awaitable[bool]
-            `true` if the node is a member, `false` otherwise.
+            ``true`` if the node is a member, ``false`` otherwise.
         """
         return Node._op_areYouThere.invokeAsync(self, ((gn, j), context))
 
@@ -486,7 +486,7 @@ class Node(Object, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the node is a coordinator, `false` otherwise.
+            ``true`` if the node is a coordinator, ``false`` otherwise.
         """
         pass
 
@@ -507,7 +507,7 @@ class Node(Object, ABC):
         Returns
         -------
         bool | Awaitable[bool]
-            `true` if the node is a member, `false` otherwise.
+            ``true`` if the node is a member, ``false`` otherwise.
         """
         pass
 

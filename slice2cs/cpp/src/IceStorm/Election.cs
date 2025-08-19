@@ -1366,7 +1366,7 @@ namespace IceStormElection
 
         /// <summary>Determine if this node is a coordinator.</summary>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the node is a coordinator, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the node is a coordinator, <c>false</c> otherwise.</returns>
         bool areYouCoordinator(
             global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1384,7 +1384,7 @@ namespace IceStormElection
         /// <param name="gn">The group name.</param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>`true` if the node is a member, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the node is a member, <c>false</c> otherwise.</returns>
         bool areYouThere(
             string gn,
             int j,
@@ -2409,7 +2409,7 @@ namespace IceStormElection
 
         /// <summary>Determine if this node is a coordinator.</summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the node is a coordinator, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the node is a coordinator, <c>false</c> otherwise.</returns>
         bool areYouCoordinator(Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -2430,7 +2430,7 @@ namespace IceStormElection
         /// <param name="gn">The group name.</param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>`true` if the node is a member, `false` otherwise.</returns>
+        /// <returns><c>true</c> if the node is a member, <c>false</c> otherwise.</returns>
         bool areYouThere(string gn, int j, Ice.Current current);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

@@ -14,8 +14,8 @@ classdef (Sealed) AdapterDescriptor
     %     id - The adapter ID.
     %     replicaGroupId - The replica group ID.
     %     priority - The adapter priority.
-    %     registerProcess - When `true`, the object adapter registers a process object.
-    %     serverLifetime - When `true`, the lifetime of this object adapter is the same of the server lifetime.
+    %     registerProcess - When |true|, the object adapter registers a process object.
+    %     serverLifetime - When |true|, the lifetime of this object adapter is the same of the server lifetime.
     %     objects - The descriptors of well-known objects.
     %     allocatables - The descriptors of allocatable objects
     %
@@ -42,11 +42,11 @@ classdef (Sealed) AdapterDescriptor
         %   character vector
         priority (1, :) char
         
-        % REGISTERPROCESS When `true`, the object adapter registers a process object.
+        % REGISTERPROCESS When |true|, the object adapter registers a process object.
         %   logical scalar
         registerProcess (1, 1) logical
         
-        % SERVERLIFETIME When `true`, the lifetime of this object adapter is the same of the server lifetime. This information is
+        % SERVERLIFETIME When |true|, the lifetime of this object adapter is the same of the server lifetime. This information is
         %   used by the IceGrid node to figure out the server state: the server is active when all its "server lifetime"
         %   adapters are active.
         %   logical scalar

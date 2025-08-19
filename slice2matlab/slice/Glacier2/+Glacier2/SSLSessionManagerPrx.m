@@ -30,7 +30,7 @@ classdef SSLSessionManagerPrx < Ice.ObjectPrx
             %   Input Arguments
             %     info - The SSL info.
             %       Glacier2.SSLInfo scalar
-            %     control - A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+            %     control - A proxy to the session control object. This proxy is null when |Glacier2.Server.Endpoints|
             %       is not configured.
             %       Glacier2.SessionControlPrx scalar | empty array of Glacier2.SessionControlPrx
             %     context - The request context.
@@ -65,7 +65,7 @@ classdef SSLSessionManagerPrx < Ice.ObjectPrx
             %   Input Arguments
             %     info - The SSL info.
             %       Glacier2.SSLInfo scalar
-            %     control - A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+            %     control - A proxy to the session control object. This proxy is null when |Glacier2.Server.Endpoints|
             %       is not configured.
             %       Glacier2.SessionControlPrx scalar | empty array of Glacier2.SessionControlPrx
             %     context - The request context.

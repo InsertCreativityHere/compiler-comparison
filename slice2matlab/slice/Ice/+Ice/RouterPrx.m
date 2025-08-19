@@ -38,9 +38,9 @@ classdef RouterPrx < Ice.ObjectPrx
             %   Output Arguments
             %     returnValue - The router's client proxy.
             %       Ice.ObjectPrx scalar | empty array of Ice.ObjectPrx
-            %     hasRoutingTable - Indicates whether or not the router supports a routing table. If `true`, the Ice
+            %     hasRoutingTable - Indicates whether or not the router supports a routing table. If |true|, the Ice
             %       runtime will call <a href="matlab:help Ice.RouterPrx/addProxies -displayBanner">addProxies</a> to populate the routing table. The Ice runtime assumes the router has
-            %       a routing table when @p hasRoutingTable is not set. Introduced in Ice 3.7.
+            %       a routing table when |hasRoutingTable| is not set. Introduced in Ice 3.7.
             %       logical scalar | Ice.Unset
             
             arguments

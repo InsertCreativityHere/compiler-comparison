@@ -15,7 +15,7 @@ public interface SSLSessionManager extends com.zeroc.Ice.Object {
     /**
      * Creates a new session object.
      * @param info The SSL info.
-     * @param control A proxy to the session control object. This proxy is null when `Glacier2.Server.Endpoints`
+     * @param control A proxy to the session control object. This proxy is null when {@code Glacier2.Server.Endpoints}
      * is not configured.
      * @param current The Current object of the incoming request.
      * @return A proxy to the newly created session. This proxy is never null.

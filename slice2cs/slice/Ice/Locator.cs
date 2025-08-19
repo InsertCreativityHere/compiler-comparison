@@ -99,7 +99,7 @@ namespace Ice
         /// <summary>Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).</summary>
         /// <param name="id">The adapter ID.</param>
         /// <param name="context">The request context.</param>
-        /// <returns>A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.</returns>
+        /// <returns>A dummy proxy with the adapter's endpoints, or null if an object adapter with <paramref name="id"> was not found.</returns>
         /// <exception cref="Ice.AdapterNotFoundException">Thrown when an object adapter with this adapter ID was not found. The
         /// caller should treat this exception like a null return value.</exception>
         Ice.ObjectPrx? findAdapterById(
@@ -453,10 +453,10 @@ namespace Ice
     }
 
     /// <summary>Provides access to a <see cref="LocatorPrx" /> object via a fixed identity.
-    /// A LocatorFinder is always registered with identity `Ice/LocatorFinder`. This allows clients to obtain the
+    /// A LocatorFinder is always registered with identity <c>Ice/LocatorFinder</c>. This allows clients to obtain the
     /// associated Locator proxy with just the endpoint information of the object. For example, you can use the
-    /// LocatorFinder proxy `Ice/LocatorFinder:tcp -h somehost -p 4061` to get the Locator proxy
-    /// `MyIceGrid/Locator:tcp -h somehost -p 4061`.</summary>
+    /// LocatorFinder proxy <c>Ice/LocatorFinder:tcp -h somehost -p 4061</c> to get the Locator proxy
+    /// <c>MyIceGrid/Locator:tcp -h somehost -p 4061</c>.</summary>
     /// <remarks>The Slice compiler generated this client-side interface from Slice interface <c>::Ice::LocatorFinder</c>.
     /// Use the methods of this interface to invoke operations on a remote Ice object that implements <c>LocatorFinder</c>.</remarks>
     public partial interface LocatorFinderPrx : Ice.ObjectPrx
@@ -774,10 +774,10 @@ namespace Ice
     }
 
     /// <summary>Provides access to a <see cref="LocatorPrx" /> object via a fixed identity.
-    /// A LocatorFinder is always registered with identity `Ice/LocatorFinder`. This allows clients to obtain the
+    /// A LocatorFinder is always registered with identity <c>Ice/LocatorFinder</c>. This allows clients to obtain the
     /// associated Locator proxy with just the endpoint information of the object. For example, you can use the
-    /// LocatorFinder proxy `Ice/LocatorFinder:tcp -h somehost -p 4061` to get the Locator proxy
-    /// `MyIceGrid/Locator:tcp -h somehost -p 4061`.</summary>
+    /// LocatorFinder proxy <c>Ice/LocatorFinder:tcp -h somehost -p 4061</c> to get the Locator proxy
+    /// <c>MyIceGrid/Locator:tcp -h somehost -p 4061</c>.</summary>
     /// <remarks>The Slice compiler generated this server-side interface from Slice interface <c>::Ice::LocatorFinder</c>.
     /// Your servant class implements this interface by deriving from <see cref="LocatorFinderDisp_" /> or from the Disp_ class for a derived interface.</remarks>
     [Ice.SliceTypeId("::Ice::LocatorFinder")]

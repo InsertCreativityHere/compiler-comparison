@@ -205,7 +205,7 @@ public extension LocatorPrx {
     ///   - iceP_id: The adapter ID.
     ///   - context: Optional request context.
     ///
-    /// - Returns: A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+    /// - Returns: A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
     ///
     /// - Throws:
     ///   - AdapterNotFoundException Thrown when an object adapter with this adapter ID was not found. The
@@ -402,7 +402,7 @@ public protocol Locator: Dispatcher {
     ///   - id: The adapter ID.
     ///   - current: The Current object for the dispatch.
     ///
-    /// - Returns: A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+    /// - Returns: A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
     ///
     /// - Throws:
     ///   - AdapterNotFoundException Thrown when an object adapter with this adapter ID was not found. The

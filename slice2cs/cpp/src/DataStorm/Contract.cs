@@ -432,8 +432,8 @@ namespace DataStormContract
 
         /// <summary>The list of active topic reader or writer IDs.
         ///
-        /// - In a publisher session,  the `ids` field contains the active topic writer IDs.
-        /// - In a subscriber session,  the `ids` field contains the active topic reader IDs.</summary>
+        /// - In a publisher session,  the <c>ids</c> field contains the active topic writer IDs.
+        /// - In a subscriber session,  the <c>ids</c> field contains the active topic reader IDs.</summary>
         public long[] ids;
 
         partial void ice_initialize();
@@ -660,19 +660,19 @@ namespace DataStormContract
         public string? name;
 
         /// <summary>An optional priority for the writer.
-        /// See also the `DataStorm.Topic.Priority` property.</summary>
+        /// See also the <c>DataStorm.Topic.Priority</c> property.</summary>
         public int? priority;
 
         /// <summary>An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
-        /// See also the `DataStorm.Topic.SampleCount` property.</summary>
+        /// See also the <c>DataStorm.Topic.SampleCount</c> property.</summary>
         public int? sampleCount;
 
         /// <summary>An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
-        /// writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.</summary>
+        /// writer or reader sample queue. See also the <c>DataStorm.Topic.SampleLifetime</c> property.</summary>
         public int? sampleLifetime;
 
         /// <summary>An optional clear history policy that determines when the reader or writer sample history is cleared.
-        /// See also the `DataStorm.Topic.ClearHistory` property.</summary>
+        /// See also the <c>DataStorm.Topic.ClearHistory</c> property.</summary>
         public ClearHistoryPolicy? clearHistory;
 
         partial void ice_initialize();
@@ -1381,7 +1381,7 @@ namespace DataStormContract
         /// <summary>Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <c>attachElements</c> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.</summary>
@@ -1397,7 +1397,7 @@ namespace DataStormContract
         /// <summary>Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <c>attachElements</c> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.</summary>
@@ -1420,7 +1420,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.</summary>
         /// <param name="topicId">The unique identifier for the topic to which the elements belong.</param>
-        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.</param>
+        /// <param name="elements">The sequence of <c>ElementSpec</c> objects representing the elements to attach.</param>
         /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
         /// <param name="context">The request context.</param>
         void attachElements(
@@ -1434,7 +1434,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.</summary>
         /// <param name="topicId">The unique identifier for the topic to which the elements belong.</param>
-        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.</param>
+        /// <param name="elements">The sequence of <c>ElementSpec</c> objects representing the elements to attach.</param>
         /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
@@ -1453,7 +1453,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.</summary>
         /// <param name="topicId">The unique identifier for the topic to which the elements belong.</param>
-        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="elements">A sequence of <c>ElementSpecAck</c> objects representing the confirmed attachments.</param>
         /// <param name="context">The request context.</param>
         void attachElementsAck(
             long topicId,
@@ -1465,7 +1465,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.</summary>
         /// <param name="topicId">The unique identifier for the topic to which the elements belong.</param>
-        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="elements">A sequence of <c>ElementSpecAck</c> objects representing the confirmed attachments.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1508,7 +1508,7 @@ namespace DataStormContract
 
         /// <summary>Initializes the subscriber with the publisher queued samples for a topic during session establishment.</summary>
         /// <param name="topicId">The unique identifier for the topic.</param>
-        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="samples">A sequence of <c>DataSamples</c> containing the queued samples to initialize the subscriber.</param>
         /// <param name="context">The request context.</param>
         void initSamples(
             long topicId,
@@ -1517,7 +1517,7 @@ namespace DataStormContract
 
         /// <summary>Initializes the subscriber with the publisher queued samples for a topic during session establishment.</summary>
         /// <param name="topicId">The unique identifier for the topic.</param>
-        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="samples">A sequence of <c>DataSamples</c> containing the queued samples to initialize the subscriber.</param>
         /// <param name="context">The request context.</param>
         /// <param name="progress">The sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5076,7 +5076,7 @@ namespace DataStormContract
         /// <summary>Announces elements associated with a topic to the peer.
         ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke <c>attachElements</c> for any elements it is interested in.
         ///
         /// - A publisher session announces its data writers.
         /// - A subscriber session announces its data readers.</summary>
@@ -5108,7 +5108,7 @@ namespace DataStormContract
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// topic.</summary>
         /// <param name="topicId">The unique identifier for the topic to which the elements belong.</param>
-        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.</param>
+        /// <param name="elements">The sequence of <c>ElementSpec</c> objects representing the elements to attach.</param>
         /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
@@ -5138,7 +5138,7 @@ namespace DataStormContract
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
         /// to the session.</summary>
         /// <param name="topicId">The unique identifier for the topic to which the elements belong.</param>
-        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="elements">A sequence of <c>ElementSpecAck</c> objects representing the confirmed attachments.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         void attachElementsAck(long topicId, ElementSpecAck[] elements, Ice.Current current);
 
@@ -5188,7 +5188,7 @@ namespace DataStormContract
 
         /// <summary>Initializes the subscriber with the publisher queued samples for a topic during session establishment.</summary>
         /// <param name="topicId">The unique identifier for the topic.</param>
-        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="samples">A sequence of <c>DataSamples</c> containing the queued samples to initialize the subscriber.</param>
         /// <param name="current">The Current object for the dispatch.</param>
         void initSamples(long topicId, DataSamples[] samples, Ice.Current current);
 

@@ -30,7 +30,7 @@ interface Locator {
 
     /// Finds an object adapter by adapter ID and returns a dummy proxy with the object adapter's endpoint(s).
     /// @param id: The adapter ID.
-    /// @returns: A dummy proxy with the adapter's endpoints, or null if an object adapter with @p id was not found.
+    /// @returns: A dummy proxy with the adapter's endpoints, or null if an object adapter with `id` was not found.
     /// @throws AdapterNotFoundException: Thrown when an object adapter with this adapter ID was not found. The
     /// caller should treat this exception like a null return value.
     idempotent findAdapterById(id: string) -> IceRpc::ServiceAddress? throws AdapterNotFoundException
